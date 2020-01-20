@@ -1,0 +1,13 @@
+#! /usr/bin/env bash
+
+swiftlint version
+
+if [ $? -eq 0 ]; then
+    echo "Running SwiftLint"
+else
+    echo "SwiftLint is not installed"
+    brew install swiftlint
+fi
+
+swiftlint autocorrect
+

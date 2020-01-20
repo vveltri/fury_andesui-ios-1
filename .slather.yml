@@ -1,0 +1,10 @@
+coverage_service: cobertura_xml
+scheme: AndesUI-Example
+xcodeproj: Example/AndesUI.xcodeproj
+workspace: AndesUI.xcworkspace
+source_directory: LibraryComponents
+output_directory: coverage
+ignore:
+ - ../**/*/Xcode*
+ - Example/*
+ - Pods/*

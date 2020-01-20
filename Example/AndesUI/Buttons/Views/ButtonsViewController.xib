@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ButtonsViewController" customModule="AndesUI_Example" customModuleProvider="target">
+            <connections>
+                <outlet property="andesButton" destination="BN5-Qq-5CX" id="7EH-I1-cKc"/>
+                <outlet property="largeLoudAndesButton" destination="RYZ-hf-vha" id="gJH-s4-dZe"/>
+                <outlet property="largeLoudLeftImageAndesButton" destination="7GW-kE-ZR2" id="yoF-P4-Vya"/>
+                <outlet property="largeLoudRightImageAndesButton" destination="4G1-61-GWQ" id="HYc-Om-6XI"/>
+                <outlet property="largeQuietAndesButton" destination="HFv-cm-KdO" id="UyJ-uH-eSN"/>
+                <outlet property="largeQuietLeftImageAndesButton" destination="WCt-nb-9PY" id="Yco-uG-8dY"/>
+                <outlet property="largeQuietRightImageAndesButton" destination="urJ-TK-ZXN" id="Hae-rs-E41"/>
+                <outlet property="largeTransparentAndesButton" destination="NkD-UK-tfh" id="3lo-Ls-gUV"/>
+                <outlet property="largeTransparentLeftImageAndesButton" destination="lRI-L7-kZY" id="ZAV-Lx-vQR"/>
+                <outlet property="largeTransparentRightImageAndesButton" destination="Hnj-TR-z5F" id="c9l-Ba-RHN"/>
+                <outlet property="mediumLoudAndesButton" destination="Rjh-xa-mKr" id="RH7-bJ-ro9"/>
+                <outlet property="mediumQuietAndesButton" destination="GwF-pf-pIg" id="sFw-eG-ttg"/>
+                <outlet property="mediumTransparentAndesButton" destination="OLj-26-5p1" id="BOi-uJ-sAd"/>
+                <outlet property="smallLoudAndesButton" destination="i8P-o4-mBn" id="xUV-R5-JOl"/>
+                <outlet property="smallQuietAndesButton" destination="LMK-ia-5Pl" id="npU-qJ-SbS"/>
+                <outlet property="smallTransparentAndesButton" destination="6pi-dT-BIv" id="dbu-uS-6qs"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D2H-z2-kYO">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wDE-v4-MhS">
+                            <rect key="frame" x="16" y="16" width="240" height="2282"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BN5-Qq-5CX" customClass="AndesButton" customModule="AndesUI">
+                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Large" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KgU-16-zgy">
+                                    <rect key="frame" x="0.0" y="136" width="43.5" height="20.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RYZ-hf-vha" customClass="AndesButton" customModule="AndesUI">
+                                    <rect key="frame" x="0.0" y="164.5" width="240" height="128"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HFv-cm-KdO" customClass="AndesButton" customModule="AndesUI">
+                                    <rect key="frame" x="0.0" y="300.5" width="240" height="128"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NkD-UK-tfh" customClass="AndesButton" customModule="AndesUI">
+                                    <rect key="frame" x="0.0" y="436.5" width="240" height="128"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Large with Icon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="34P-Du-p7q">
+                                    <rect key="frame" x="0.0" y="572.5" width="117" height="20.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7GW-kE-ZR2" customClass="AndesButton" customModule="AndesUI">
+                                    <rect key="frame" x="0.0" y="601" width="240" height="128"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4G1-61-GWQ" customClass="AndesButton" customModule="AndesUI">
+                                    <rect key="frame" x="0.0" y="737" width="240" height="128"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WCt-nb-9PY" customClass="AndesButton" customModule="AndesUI">
+                                    <rect key="frame" x="0.0" y="873" width="240" height="128"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="urJ-TK-ZXN" customClass="AndesButton" customModule="AndesUI">
+                                    <rect key="frame" x="0.0" y="1009" width="240" height="128"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lRI-L7-kZY" customClass="AndesButton" customModule="AndesUI">
+                                    <rect key="frame" x="0.0" y="1145" width="240" height="128"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hnj-TR-z5F" customClass="AndesButton" customModule="AndesUI">
+                                    <rect key="frame" x="0.0" y="1281" width="240" height="128"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Medium" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zjr-an-sfo">
+                                    <rect key="frame" x="0.0" y="1417" width="62" height="20.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rjh-xa-mKr" customClass="AndesButton" customModule="AndesUI">
+                                    <rect key="frame" x="0.0" y="1445.5" width="240" height="128"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GwF-pf-pIg" customClass="AndesButton" customModule="AndesUI">
+                                    <rect key="frame" x="0.0" y="1581.5" width="240" height="128"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OLj-26-5p1" customClass="AndesButton" customModule="AndesUI">
+                                    <rect key="frame" x="0.0" y="1717.5" width="240" height="128"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Small" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0cU-Fb-N7p">
+                                    <rect key="frame" x="0.0" y="1853.5" width="42" height="20.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i8P-o4-mBn" customClass="AndesButton" customModule="AndesUI">
+                                    <rect key="frame" x="0.0" y="1882" width="240" height="128"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LMK-ia-5Pl" customClass="AndesButton" customModule="AndesUI">
+                                    <rect key="frame" x="0.0" y="2018" width="240" height="128"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6pi-dT-BIv" customClass="AndesButton" customModule="AndesUI">
+                                    <rect key="frame" x="0.0" y="2154" width="240" height="128"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="wDE-v4-MhS" firstAttribute="leading" secondItem="D2H-z2-kYO" secondAttribute="leading" constant="16" id="GYp-4f-6oO"/>
+                        <constraint firstAttribute="bottom" secondItem="wDE-v4-MhS" secondAttribute="bottom" id="Zt5-DS-Rcd"/>
+                        <constraint firstAttribute="trailing" secondItem="wDE-v4-MhS" secondAttribute="trailing" constant="16" id="vyZ-f6-8Ik"/>
+                        <constraint firstItem="wDE-v4-MhS" firstAttribute="top" secondItem="D2H-z2-kYO" secondAttribute="top" constant="16" id="wyX-mj-SLh"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="D2H-z2-kYO" secondAttribute="trailing" id="RVJ-Cd-6wZ"/>
+                <constraint firstItem="D2H-z2-kYO" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="TNK-dP-Qgf"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="D2H-z2-kYO" secondAttribute="bottom" id="e6r-lP-hFw"/>
+                <constraint firstItem="D2H-z2-kYO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="i1l-JA-5Xz"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="100" y="110"/>
+        </view>
+    </objects>
+</document>
