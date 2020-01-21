@@ -1,21 +1,17 @@
-## Descripción 
-[Completar descripción]
+## Description 
+[Issue description]
 
-## Pasos para reproducirlo 
-1. [Paso 1]
+### Setps to reproduce
+1. [Step 1]
 
-#### Reproducibilidad
-[Cantidad de veces que ocurrió el issue / Cantidad de veces que lo probé]
+### Proof
+[Add videos and/or screenshots of the issue]
 
-#### Imágenes o video
-[Agregarlos acá]
+### Complete this table
 
-## Contexto
-
-Característica					| Dato
+Data					| Dato
 ---------------------------------------------- | ----------------
 Device						| 
-Versión del OS				| 
-Versión de la app				| 
-Idioma del teléfono				| 
-Nickname o User Id (si aplica)	| 
+OS version				| 
+pod version				| 
+language				| 
