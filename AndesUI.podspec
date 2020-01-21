@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.homepage         = 'https://github.com/mercadolibre/fury_andesui-ios'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = 'Mercado Libre'
-  s.source           = { :git => 'git@github.com:mercadolibre/fury_andesui-ios.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/mercadolibre/fury_andesui-ios.git', :tag => s.version.to_s }
 
   s.platform         = :ios, '10.0'
   s.requires_arc     = true
