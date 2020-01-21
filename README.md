@@ -1,8 +1,8 @@
 # AndesUI
 
-[![Build Status](https://magnum.travis-ci.com/mercadolibre/fury_andes-ui-ios.svg?token=7FLbnHbLmp4qqdEmsLyy&branch=master)](https://magnum.travis-ci.com/mercadolibre/fury_andes-ui-ios)
+[![Build Status](https://magnum.travis-ci.com/mercadolibre/fury_andesui-ios.svg?token=7FLbnHbLmp4qqdEmsLyy&branch=master)](https://magnum.travis-ci.com/mercadolibre/fury_andesui-ios)
 
-[![Coverage Status](https://coveralls.io/repos/github/mercadolibre/fury_andes-ui-ios/badge.svg?t=Y432em)](https://coveralls.io/github/mercadolibre/fury_andes-ui-ios)
+[![Coverage Status](https://coveralls.io/repos/github/mercadolibre/fury_andesui-ios/badge.svg?t=Y432em)](https://coveralls.io/github/mercadolibre/fury_andesui-ios)
 
 ## Example
 

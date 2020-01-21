@@ -42,7 +42,7 @@ lane :deploy_lib do
 
 	UI.message "Creating release #{pod_version} in GitHub"
 	set_github_release(
-		repository_name: 'mercadolibre/fury_andes-ui-ios',
+		repository_name: 'mercadolibre/fury_andesui-ios',
 		api_token: CIHelper::GITHUB_TOKEN,
 		name: "Release v#{pod_version}",
 		tag_name: "#{pod_version}",
