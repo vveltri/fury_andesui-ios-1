@@ -19,7 +19,7 @@ module CIHelper
     def self.spec_version
         require 'cocoapods'
 
-        podspec_path = "#{CIHelper::BUILD_DIR}/MLUI.podspec"
+        podspec_path = "#{CIHelper::BUILD_DIR}/AndesUI.podspec"
         spec = Pod::Specification.from_file(podspec_path)
         spec.version.to_s()
     end
