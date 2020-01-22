@@ -17,7 +17,18 @@ internal class AndesButtonViewWithIcon: AndesButtonAbstractView {
     override internal func setupStyle() {
         super.setupStyle()
 
-        icon.image = config.icon!
-        icon.highlightedImage = config.icon!
+        icon.image = config.icon!.withRenderingMode(.alwaysTemplate)
+        icon.highlightedImage = config.icon!.withRenderingMode(.alwaysTemplate)
+        icon.tintColor = config.iconColor
+    }
+
+    override func disable() {
+        super.disable()
+        icon.tintColor = config.iconDisableColor
+    }
+
+    override func enable() {
+        super.enable()
+        icon.tintColor = config.iconColor
     }
 }

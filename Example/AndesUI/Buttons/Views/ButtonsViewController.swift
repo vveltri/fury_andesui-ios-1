@@ -97,14 +97,14 @@ class ButtonsViewController: UIViewController {
             largeQuietAndesButton.setSize(.large)
             largeTransparentAndesButton.setSize(.large)
 
-            largeLoudLeftImageAndesButton.setLargeSizeWithIcon(AndesButtonIcon(icon: #imageLiteral(resourceName: "logo_global"), orientation: .left))
-            largeLoudRightImageAndesButton.setLargeSizeWithIcon(AndesButtonIcon(icon: #imageLiteral(resourceName: "logo_global"), orientation: .right))
+            largeLoudLeftImageAndesButton.setLargeSizeWithIcon(AndesButtonIcon(icon: #imageLiteral(resourceName: "clip"), orientation: .left))
+            largeLoudRightImageAndesButton.setLargeSizeWithIcon(AndesButtonIcon(icon: #imageLiteral(resourceName: "clip"), orientation: .right))
 
-            largeQuietLeftImageAndesButton.setLargeSizeWithIcon(AndesButtonIcon(icon: #imageLiteral(resourceName: "logo_global"), orientation: .left))
-            largeQuietRightImageAndesButton.setLargeSizeWithIcon(AndesButtonIcon(icon: #imageLiteral(resourceName: "logo_global"), orientation: .right))
+            largeQuietLeftImageAndesButton.setLargeSizeWithIcon(AndesButtonIcon(icon: #imageLiteral(resourceName: "clip"), orientation: .left))
+            largeQuietRightImageAndesButton.setLargeSizeWithIcon(AndesButtonIcon(icon: #imageLiteral(resourceName: "clip"), orientation: .right))
 
-            largeTransparentLeftImageAndesButton.setLargeSizeWithIcon(AndesButtonIcon(icon: #imageLiteral(resourceName: "logo_global"), orientation: .left))
-            largeTransparentRightImageAndesButton.setLargeSizeWithIcon(AndesButtonIcon(icon: #imageLiteral(resourceName: "logo_global"), orientation: .right))
+            largeTransparentLeftImageAndesButton.setLargeSizeWithIcon(AndesButtonIcon(icon: #imageLiteral(resourceName: "clip"), orientation: .left))
+            largeTransparentRightImageAndesButton.setLargeSizeWithIcon(AndesButtonIcon(icon: #imageLiteral(resourceName: "clip"), orientation: .right))
 
             mediumLoudAndesButton.setSize(.medium)
             mediumQuietAndesButton.setSize(.medium)

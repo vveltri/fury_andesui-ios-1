@@ -17,6 +17,7 @@ internal struct AndesButtonViewConfig {
 
     var text: String
     var textColor: UIColor
+    var textDisableColor: UIColor
     var font: UIFont
 
     var cornerRadius: CGFloat
@@ -24,4 +25,6 @@ internal struct AndesButtonViewConfig {
     var padding: CGFloat
 
     var icon: UIImage?
+    var iconColor: UIColor?
+    var iconDisableColor: UIColor?
 }

@@ -71,7 +71,7 @@ internal class AndesButtonAbstractView: UIControl, AndesButtonView {
 
     func disable() {
         backgroundLayer.backgroundColor = config.disableColor
-        label.textColor = AndesStyleSheetManager.styleSheet.textDisableColor
+        label.textColor = config.textDisableColor
     }
 
     func touchUp() {

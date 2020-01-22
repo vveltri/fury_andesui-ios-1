@@ -40,7 +40,7 @@
 }
 
 - (void)setupSize {
-    [self.largeAndesButton setLargeSizeWithIcon:[[AndesButtonIcon alloc] initWithIcon:[UIImage imageNamed:@"logo_global"] orientation:AndesButtonOrientationLeft]];
+    [self.largeAndesButton setLargeSizeWithIcon:[[AndesButtonIcon alloc] initWithIcon:[UIImage imageNamed:@"clip"] orientation:AndesButtonOrientationLeft]];
     [self.mediumAndesButton setSize:AndesButtonSizeMedium];
     [self.smallAndesButton setSize:AndesButtonSizeSmall];
 }

@@ -15,7 +15,7 @@ internal struct AndesButtonHierarchyTransparent: AndesButtonHierarchyProtocol {
 
     public var focusColor: UIColor = .clear
 
-    public var disableColor: UIColor = AndesStyleSheetManager.styleSheet.backgroundWhiteColor
+    public var disableColor: UIColor = .clear
 
     public var fontColor: UIColor = AndesStyleSheetManager.styleSheet.accentPrimaryColor
 }
