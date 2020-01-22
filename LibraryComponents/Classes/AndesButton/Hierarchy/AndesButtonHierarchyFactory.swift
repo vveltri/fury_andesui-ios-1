@@ -12,20 +12,20 @@ The responsability of the factory is to provide the right style by providing the
 */
 class AndesButtonHierarchyFactory {
 
-    private var styles: Dictionary<AndesButtonHierarchy, AndesButtonHierarchyProtocol>
+    private var hierarchies: Dictionary<AndesButtonHierarchy, AndesButtonHierarchyProtocol>
 
     init() {
-        styles = Dictionary<AndesButtonHierarchy, AndesButtonHierarchyProtocol>()
-        styles[.loud] = AndesButtonHierarchyLoud()
-        styles[.quiet] = AndesButtonHierarchyQuiet()
-        styles[.transparent] = AndesButtonHierarchyTransparent()
+        hierarchies = Dictionary<AndesButtonHierarchy, AndesButtonHierarchyProtocol>()
+        hierarchies[.loud] = AndesButtonHierarchyLoud()
+        hierarchies[.quiet] = AndesButtonHierarchyQuiet()
+        hierarchies[.transparent] = AndesButtonHierarchyTransparent()
     }
 
     func provideStyle(key: AndesButtonHierarchy) -> AndesButtonHierarchyProtocol {
-        guard let style = styles[key] else {
+        guard let hierarchy = hierarchies[key] else {
             return AndesButtonHierarchyLoud()
         }
-        return style
+        return hierarchy
     }
 
 }
