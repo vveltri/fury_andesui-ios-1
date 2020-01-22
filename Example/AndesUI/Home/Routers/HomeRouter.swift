@@ -11,6 +11,7 @@ import UIKit
 protocol HomeRouter: NSObject {
     func route(from: UIViewController)
     func routeToButton()
+    func routeToMessages()
 }
 
 class HomeAppRouter: NSObject {
@@ -18,7 +19,7 @@ class HomeAppRouter: NSObject {
     var presenter: HomePresenter?
 
     let buttonsRouter = ButtonsAppRouter()
-
+    let messagesRouter = MessagesAppRouter()
 }
 
 extension HomeAppRouter: HomeRouter {
@@ -34,5 +35,9 @@ extension HomeAppRouter: HomeRouter {
 
     func routeToButton() {
         buttonsRouter.route(from: view)
+    }
+
+    func routeToMessages() {
+        messagesRouter.route(from: view)
     }
 }

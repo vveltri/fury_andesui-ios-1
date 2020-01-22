@@ -9,5 +9,18 @@ else
     brew install swiftlint
 fi
 
-swiftlint autocorrect
+# check modified files
+git diff --cached --name-status | while read st file; do
 
+# skip deleted files
+if [ "$st" == 'D' ]; then continue; fi
+
+if [[ $file =~ \.swift$ ]]; then
+    swiftlint autocorrect --path ${file} 
+    git add ${file}
+
+    if [ $? -ne 0 ]; then
+      echo "Errors running swiftlint, please fix them and commit again..."
+    fi
+fi
+done
