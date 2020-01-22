@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version          = '1.0.0'
   s.summary          = 'AndesUI library for ios app.'
 
-  s.description      = 'Andes UI es la librería de UI de Mercado Libre. Provee definiciones básicas, componentes y herramientas para construir experiencias consistentes, con agilidad y calidad visual.'
+  s.description      = 'AndesUI is the UI library of Mercado Libre. It provides the definitions, components and tools to build consistent experiences, with agility and visual quality.'
 
   s.homepage         = 'https://github.com/mercadolibre/fury_andesui-ios'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
