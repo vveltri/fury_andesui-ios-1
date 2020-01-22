@@ -7,7 +7,7 @@
 
 import Foundation
 
-internal protocol AndesButtonStyleProtocol {
+internal protocol AndesButtonHierarchyProtocol {
 
     var idleColor: UIColor { get }
     var pressedColor: UIColor { get }

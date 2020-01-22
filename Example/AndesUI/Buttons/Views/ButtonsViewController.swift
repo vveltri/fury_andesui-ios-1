@@ -64,26 +64,26 @@ class ButtonsViewController: UIViewController {
 
         func setupStyles() {
             // Loud quiet transparent
-            largeLoudAndesButton.setStyle(.loud)
-            largeQuietAndesButton.setStyle(.quiet)
-            largeTransparentAndesButton.setStyle(.transparent)
+            largeLoudAndesButton.setHierarchy(.loud)
+            largeQuietAndesButton.setHierarchy(.quiet)
+            largeTransparentAndesButton.setHierarchy(.transparent)
 
-            largeLoudLeftImageAndesButton.setStyle(.loud)
-            largeLoudRightImageAndesButton.setStyle(.loud)
+            largeLoudLeftImageAndesButton.setHierarchy(.loud)
+            largeLoudRightImageAndesButton.setHierarchy(.loud)
 
-            largeQuietLeftImageAndesButton.setStyle(.quiet)
-            largeQuietRightImageAndesButton.setStyle(.quiet)
+            largeQuietLeftImageAndesButton.setHierarchy(.quiet)
+            largeQuietRightImageAndesButton.setHierarchy(.quiet)
 
-            largeTransparentLeftImageAndesButton.setStyle(.transparent)
-            largeTransparentRightImageAndesButton.setStyle(.transparent)
+            largeTransparentLeftImageAndesButton.setHierarchy(.transparent)
+            largeTransparentRightImageAndesButton.setHierarchy(.transparent)
 
-            mediumLoudAndesButton.setStyle(.loud)
-            mediumQuietAndesButton.setStyle(.quiet)
-            mediumTransparentAndesButton.setStyle(.transparent)
+            mediumLoudAndesButton.setHierarchy(.loud)
+            mediumQuietAndesButton.setHierarchy(.quiet)
+            mediumTransparentAndesButton.setHierarchy(.transparent)
 
-            smallLoudAndesButton.setStyle(.loud)
-            smallQuietAndesButton.setStyle(.quiet)
-            smallTransparentAndesButton.setStyle(.transparent)
+            smallLoudAndesButton.setHierarchy(.loud)
+            smallQuietAndesButton.setHierarchy(.quiet)
+            smallTransparentAndesButton.setHierarchy(.transparent)
 
         }
 

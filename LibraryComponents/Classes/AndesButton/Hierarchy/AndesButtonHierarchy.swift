@@ -10,7 +10,7 @@ import Foundation
 /**
 The AndesButtonSize contains the differents styles that a button supports
 */
-@objc public enum AndesButtonStyle: Int {
+@objc public enum AndesButtonHierarchy: Int {
     case loud
     case quiet
     case transparent

@@ -28,7 +28,7 @@ import UIKit
  */
 @objc public class AndesButton: UIControl {
 
-    private var style: AndesButtonStyleProtocol
+    private var hierarchy: AndesButtonHierarchyProtocol
     private var size: AndesButtonSizeProtocol
     internal var view: AndesButtonView
     private var text: String
@@ -53,10 +53,10 @@ import UIKit
          - size is the especification for the button dimensions
          - icon (optional) allows to inyect an icon, only if the size specified is .large
      */
-    @objc public init(text: String, style: AndesButtonStyle, size: AndesButtonSize, icon: AndesButtonIcon? = nil) {
-        self.style = AndesButtonStyleFactory().provideStyle(key: style)
+    @objc public init(text: String, hierarchy: AndesButtonHierarchy, size: AndesButtonSize, icon: AndesButtonIcon? = nil) {
+        self.hierarchy = AndesButtonHierarchyFactory().provideStyle(key: hierarchy)
         self.size = AndesButtonSizeFactory().provideStyle(key: size, icon: icon)
-        self.view = AndesButtonViewDefault(size: self.size, style: self.style)
+        self.view = AndesButtonViewDefault(size: self.size, hierarchy: self.hierarchy)
         self.text = text
         self.icon = icon
 
@@ -72,9 +72,9 @@ import UIKit
      By defect, it will be .loud and .large
      */
     required init?(coder: NSCoder) {
-        self.style = AndesButtonStyleLoud()
+        self.hierarchy = AndesButtonHierarchyLoud()
         self.size = AndesButtonSizeLarge()
-        self.view = AndesButtonViewDefault(size: size, style: style)
+        self.view = AndesButtonViewDefault(size: size, hierarchy: hierarchy)
         self.text = "Label"
         self.icon = nil
 
@@ -109,13 +109,13 @@ import UIKit
 
     private func provideContentView() -> AndesButtonView {
         guard let buttonIcon = self.icon else {
-           return AndesButtonViewDefault(size: size, style: style)
+           return AndesButtonViewDefault(size: size, hierarchy: hierarchy)
         }
 
         if buttonIcon.orientation == .left {
-            return AndesButtonViewIconLeft(style: style, size: size, icon: buttonIcon)
+            return AndesButtonViewIconLeft(hierarchy: hierarchy, size: size, icon: buttonIcon)
         } else {
-            return AndesButtonViewIconRight(style: style, size: size, icon: buttonIcon)
+            return AndesButtonViewIconRight(hierarchy: hierarchy, size: size, icon: buttonIcon)
         }
     }
 
@@ -169,8 +169,8 @@ import UIKit
      
      - Parameter style: is the new style of the button
      */
-    @objc public func setStyle(_ style: AndesButtonStyle) {
-        self.style = AndesButtonStyleFactory().provideStyle(key: style)
+    @objc public func setHierarchy(_ hierarchy: AndesButtonHierarchy) {
+        self.hierarchy = AndesButtonHierarchyFactory().provideStyle(key: hierarchy)
         update()
     }
 

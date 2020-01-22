@@ -13,7 +13,7 @@ import Foundation
 internal class AndesButtonAbstractView: UIControl, AndesButtonView {
 
     internal var size: AndesButtonSizeProtocol
-    internal var style: AndesButtonStyleProtocol
+    internal var hierarchy: AndesButtonHierarchyProtocol
     internal var backgroundLayer: CALayer
 
     @IBOutlet var buttonView: UIView!
@@ -25,9 +25,9 @@ internal class AndesButtonAbstractView: UIControl, AndesButtonView {
            }
     }
 
-    internal init(size: AndesButtonSizeProtocol, style: AndesButtonStyleProtocol) {
+    internal init(size: AndesButtonSizeProtocol, hierarchy: AndesButtonHierarchyProtocol) {
         self.size = size
-        self.style = style
+        self.hierarchy = hierarchy
         self.backgroundLayer = CALayer()
         super.init(frame: .zero)
 
@@ -36,7 +36,7 @@ internal class AndesButtonAbstractView: UIControl, AndesButtonView {
 
     required init?(coder: NSCoder) {
         self.size = AndesButtonSizeLarge()
-        self.style = AndesButtonStyleLoud()
+        self.hierarchy = AndesButtonHierarchyLoud()
         self.backgroundLayer = CALayer()
         super.init(coder: coder)
 
@@ -58,8 +58,8 @@ internal class AndesButtonAbstractView: UIControl, AndesButtonView {
     }
 
     internal func setupStyle() {
-        backgroundLayer.backgroundColor = style.idleColor.cgColor
-        label.textColor = style.fontColor
+        backgroundLayer.backgroundColor = hierarchy.idleColor.cgColor
+        label.textColor = hierarchy.fontColor
     }
 
     internal func setupSize() {
@@ -72,19 +72,19 @@ internal class AndesButtonAbstractView: UIControl, AndesButtonView {
     }
 
     func disable() {
-        backgroundLayer.backgroundColor = style.disableColor.cgColor
+        backgroundLayer.backgroundColor = hierarchy.disableColor.cgColor
         label.textColor = AndesStyleSheetManager.styleSheet.textDisableColor
     }
 
     func touchUp() {
         UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut, animations: {
-            self.backgroundLayer.backgroundColor = self.style.idleColor.cgColor
+            self.backgroundLayer.backgroundColor = self.hierarchy.idleColor.cgColor
         }, completion: nil)
     }
 
     func touchDown() {
         UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseIn, animations: {
-            self.backgroundLayer.backgroundColor = self.style.pressedColor.cgColor
+            self.backgroundLayer.backgroundColor = self.hierarchy.pressedColor.cgColor
         }, completion: nil)
     }
 

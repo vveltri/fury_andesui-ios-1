@@ -16,9 +16,9 @@ internal class AndesButtonViewWithIcon: AndesButtonAbstractView {
 
     @IBOutlet var icon: UIImageView!
 
-    public init(style: AndesButtonStyleProtocol, size: AndesButtonSizeProtocol, icon: AndesButtonIcon) {
+    public init(hierarchy: AndesButtonHierarchyProtocol, size: AndesButtonSizeProtocol, icon: AndesButtonIcon) {
         self.iconImage = icon.icon
-        super.init(size: size, style: style)
+        super.init(size: size, hierarchy: hierarchy)
     }
 
     required init?(coder: NSCoder) {

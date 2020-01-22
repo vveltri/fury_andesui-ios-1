@@ -10,7 +10,7 @@ import Foundation
 /**
 The AndesButtonSizeProtocol provides the differents attributes that define the style of the button, these can be constants or calculated
 */
-internal struct AndesButtonStyleLoud: AndesButtonStyleProtocol {
+internal struct AndesButtonHierarchyLoud: AndesButtonHierarchyProtocol {
 
     public var idleColor: UIColor = AndesStyleSheetManager.styleSheet.accentPrimaryColor
 

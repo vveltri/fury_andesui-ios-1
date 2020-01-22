@@ -32,9 +32,9 @@
 }
 
 - (void)setupStyles {
-    [self.largeAndesButton setStyle:AndesButtonStyleLoud];
-    [self.mediumAndesButton setStyle:AndesButtonStyleQuiet];
-    [self.smallAndesButton setStyle:AndesButtonStyleTransparent];
+    [self.largeAndesButton setHierarchy:AndesButtonHierarchyLoud];
+    [self.mediumAndesButton setHierarchy:AndesButtonHierarchyQuiet];
+    [self.smallAndesButton setHierarchy:AndesButtonHierarchyTransparent];
     
     
 }
