@@ -12,24 +12,12 @@ import Foundation
  */
 internal class AndesButtonViewWithIcon: AndesButtonAbstractView {
 
-    private var iconImage: UIImage
-
     @IBOutlet var icon: UIImageView!
-
-    public init(hierarchy: AndesButtonHierarchyProtocol, size: AndesButtonSizeProtocol, icon: AndesButtonIcon) {
-        self.iconImage = icon.icon
-        super.init(size: size, hierarchy: hierarchy)
-    }
-
-    required init?(coder: NSCoder) {
-        self.iconImage = UIImage()
-        super.init(coder: coder)
-    }
 
     override internal func setupStyle() {
         super.setupStyle()
 
-        icon.image = iconImage
-        icon.highlightedImage = iconImage
+        icon.image = config.icon!
+        icon.highlightedImage = config.icon!
     }
 }

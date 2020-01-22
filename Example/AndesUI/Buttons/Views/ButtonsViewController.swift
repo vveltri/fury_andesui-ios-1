@@ -54,6 +54,9 @@ class ButtonsViewController: UIViewController {
         largeQuietRightImageAndesButton.setText("Large Quiet Right Icon")
         largeQuietLeftImageAndesButton.setText("Large Quiet Left Icon")
 
+        largeTransparentLeftImageAndesButton.setText("Large Transparent Left Icon")
+        largeTransparentRightImageAndesButton.setText("Large Transparente Right Icon")
+
         mediumLoudAndesButton.setText("Medium Loud")
         mediumQuietAndesButton.setText("Medium Quiet")
         mediumTransparentAndesButton.setText("Medium Transparent")
@@ -94,7 +97,7 @@ class ButtonsViewController: UIViewController {
             largeQuietAndesButton.setSize(.large)
             largeTransparentAndesButton.setSize(.large)
 
-            largeLoudRightImageAndesButton.setLargeSizeWithIcon(AndesButtonIcon(icon: #imageLiteral(resourceName: "logo_global"), orientation: .left))
+            largeLoudLeftImageAndesButton.setLargeSizeWithIcon(AndesButtonIcon(icon: #imageLiteral(resourceName: "logo_global"), orientation: .left))
             largeLoudRightImageAndesButton.setLargeSizeWithIcon(AndesButtonIcon(icon: #imageLiteral(resourceName: "logo_global"), orientation: .right))
 
             largeQuietLeftImageAndesButton.setLargeSizeWithIcon(AndesButtonIcon(icon: #imageLiteral(resourceName: "logo_global"), orientation: .left))
