@@ -7,7 +7,7 @@
 
 import Foundation
 
-internal struct AndesButtonStyleQuiet: AndesButtonStyleProtocol {
+internal struct AndesButtonHierarchyQuiet: AndesButtonHierarchyProtocol {
 
     public var idleColor: UIColor = UIColor(red: 0.254, green: 0.537, blue: 0.901, alpha: 0.15)
 

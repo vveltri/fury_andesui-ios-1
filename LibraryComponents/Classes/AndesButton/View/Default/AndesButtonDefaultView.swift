@@ -24,9 +24,9 @@ internal class AndesButtonViewDefault: AndesButtonAbstractView {
     override internal func setupSize() {
         super.setupSize()
 
-        heightConstraint.constant = size.height
-        leadingConstraint.constant = size.padding
-        trailingConstraint.constant = size.padding
+        heightConstraint.constant = config.height
+        leadingConstraint.constant = config.padding
+        trailingConstraint.constant = config.padding
     }
 
 }

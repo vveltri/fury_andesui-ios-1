@@ -54,6 +54,9 @@ class ButtonsViewController: UIViewController {
         largeQuietRightImageAndesButton.setText("Large Quiet Right Icon")
         largeQuietLeftImageAndesButton.setText("Large Quiet Left Icon")
 
+        largeTransparentLeftImageAndesButton.setText("Large Transparent Left Icon")
+        largeTransparentRightImageAndesButton.setText("Large Transparente Right Icon")
+
         mediumLoudAndesButton.setText("Medium Loud")
         mediumQuietAndesButton.setText("Medium Quiet")
         mediumTransparentAndesButton.setText("Medium Transparent")
@@ -64,26 +67,26 @@ class ButtonsViewController: UIViewController {
 
         func setupStyles() {
             // Loud quiet transparent
-            largeLoudAndesButton.setStyle(.loud)
-            largeQuietAndesButton.setStyle(.quiet)
-            largeTransparentAndesButton.setStyle(.transparent)
+            largeLoudAndesButton.setHierarchy(.loud)
+            largeQuietAndesButton.setHierarchy(.quiet)
+            largeTransparentAndesButton.setHierarchy(.transparent)
 
-            largeLoudLeftImageAndesButton.setStyle(.loud)
-            largeLoudRightImageAndesButton.setStyle(.loud)
+            largeLoudLeftImageAndesButton.setHierarchy(.loud)
+            largeLoudRightImageAndesButton.setHierarchy(.loud)
 
-            largeQuietLeftImageAndesButton.setStyle(.quiet)
-            largeQuietRightImageAndesButton.setStyle(.quiet)
+            largeQuietLeftImageAndesButton.setHierarchy(.quiet)
+            largeQuietRightImageAndesButton.setHierarchy(.quiet)
 
-            largeTransparentLeftImageAndesButton.setStyle(.transparent)
-            largeTransparentRightImageAndesButton.setStyle(.transparent)
+            largeTransparentLeftImageAndesButton.setHierarchy(.transparent)
+            largeTransparentRightImageAndesButton.setHierarchy(.transparent)
 
-            mediumLoudAndesButton.setStyle(.loud)
-            mediumQuietAndesButton.setStyle(.quiet)
-            mediumTransparentAndesButton.setStyle(.transparent)
+            mediumLoudAndesButton.setHierarchy(.loud)
+            mediumQuietAndesButton.setHierarchy(.quiet)
+            mediumTransparentAndesButton.setHierarchy(.transparent)
 
-            smallLoudAndesButton.setStyle(.loud)
-            smallQuietAndesButton.setStyle(.quiet)
-            smallTransparentAndesButton.setStyle(.transparent)
+            smallLoudAndesButton.setHierarchy(.loud)
+            smallQuietAndesButton.setHierarchy(.quiet)
+            smallTransparentAndesButton.setHierarchy(.transparent)
 
         }
 
@@ -94,14 +97,14 @@ class ButtonsViewController: UIViewController {
             largeQuietAndesButton.setSize(.large)
             largeTransparentAndesButton.setSize(.large)
 
-            largeLoudRightImageAndesButton.setLargeSizeWithIcon(AndesButtonIcon(icon: #imageLiteral(resourceName: "logo_global"), orientation: .left))
-            largeLoudRightImageAndesButton.setLargeSizeWithIcon(AndesButtonIcon(icon: #imageLiteral(resourceName: "logo_global"), orientation: .right))
+            largeLoudLeftImageAndesButton.setLargeSizeWithIcon(AndesButtonIcon(icon: #imageLiteral(resourceName: "clip"), orientation: .left))
+            largeLoudRightImageAndesButton.setLargeSizeWithIcon(AndesButtonIcon(icon: #imageLiteral(resourceName: "clip"), orientation: .right))
 
-            largeQuietLeftImageAndesButton.setLargeSizeWithIcon(AndesButtonIcon(icon: #imageLiteral(resourceName: "logo_global"), orientation: .left))
-            largeQuietRightImageAndesButton.setLargeSizeWithIcon(AndesButtonIcon(icon: #imageLiteral(resourceName: "logo_global"), orientation: .right))
+            largeQuietLeftImageAndesButton.setLargeSizeWithIcon(AndesButtonIcon(icon: #imageLiteral(resourceName: "clip"), orientation: .left))
+            largeQuietRightImageAndesButton.setLargeSizeWithIcon(AndesButtonIcon(icon: #imageLiteral(resourceName: "clip"), orientation: .right))
 
-            largeTransparentLeftImageAndesButton.setLargeSizeWithIcon(AndesButtonIcon(icon: #imageLiteral(resourceName: "logo_global"), orientation: .left))
-            largeTransparentRightImageAndesButton.setLargeSizeWithIcon(AndesButtonIcon(icon: #imageLiteral(resourceName: "logo_global"), orientation: .right))
+            largeTransparentLeftImageAndesButton.setLargeSizeWithIcon(AndesButtonIcon(icon: #imageLiteral(resourceName: "clip"), orientation: .left))
+            largeTransparentRightImageAndesButton.setLargeSizeWithIcon(AndesButtonIcon(icon: #imageLiteral(resourceName: "clip"), orientation: .right))
 
             mediumLoudAndesButton.setSize(.medium)
             mediumQuietAndesButton.setSize(.medium)

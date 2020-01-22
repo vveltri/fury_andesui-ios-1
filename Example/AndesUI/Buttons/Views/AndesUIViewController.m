@@ -32,15 +32,15 @@
 }
 
 - (void)setupStyles {
-    [self.largeAndesButton setStyle:AndesButtonStyleLoud];
-    [self.mediumAndesButton setStyle:AndesButtonStyleQuiet];
-    [self.smallAndesButton setStyle:AndesButtonStyleTransparent];
+    [self.largeAndesButton setHierarchy:AndesButtonHierarchyLoud];
+    [self.mediumAndesButton setHierarchy:AndesButtonHierarchyQuiet];
+    [self.smallAndesButton setHierarchy:AndesButtonHierarchyTransparent];
     
     
 }
 
 - (void)setupSize {
-    [self.largeAndesButton setLargeSizeWithIcon:[[AndesButtonIcon alloc] initWithIcon:[UIImage imageNamed:@"logo_global"] orientation:AndesButtonOrientationLeft]];
+    [self.largeAndesButton setLargeSizeWithIcon:[[AndesButtonIcon alloc] initWithIcon:[UIImage imageNamed:@"clip"] orientation:AndesButtonOrientationLeft]];
     [self.mediumAndesButton setSize:AndesButtonSizeMedium];
     [self.smallAndesButton setSize:AndesButtonSizeSmall];
 }

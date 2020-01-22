@@ -7,7 +7,7 @@
 
 import Foundation
 
-internal struct AndesButtonStyleTransparent: AndesButtonStyleProtocol {
+internal struct AndesButtonHierarchyTransparent: AndesButtonHierarchyProtocol {
 
     public var idleColor: UIColor = .clear
 
@@ -15,7 +15,7 @@ internal struct AndesButtonStyleTransparent: AndesButtonStyleProtocol {
 
     public var focusColor: UIColor = .clear
 
-    public var disableColor: UIColor = AndesStyleSheetManager.styleSheet.backgroundWhiteColor
+    public var disableColor: UIColor = .clear
 
     public var fontColor: UIColor = AndesStyleSheetManager.styleSheet.accentPrimaryColor
 }

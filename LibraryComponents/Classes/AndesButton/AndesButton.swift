@@ -28,11 +28,12 @@ import UIKit
  */
 @objc public class AndesButton: UIControl {
 
-    private var style: AndesButtonStyleProtocol
-    private var size: AndesButtonSizeProtocol
+    private var hierarchy: AndesButtonHierarchy
+    private var size: AndesButtonSize
     internal var view: AndesButtonView
     private var text: String
     private var icon: AndesButtonIcon?
+    private var config: AndesButtonViewConfig
 
     override public var isEnabled: Bool {
         didSet {
@@ -53,12 +54,13 @@ import UIKit
          - size is the especification for the button dimensions
          - icon (optional) allows to inyect an icon, only if the size specified is .large
      */
-    @objc public init(text: String, style: AndesButtonStyle, size: AndesButtonSize, icon: AndesButtonIcon? = nil) {
-        self.style = AndesButtonStyleFactory().provideStyle(key: style)
-        self.size = AndesButtonSizeFactory().provideStyle(key: size, icon: icon)
-        self.view = AndesButtonViewDefault(size: self.size, style: self.style)
+    @objc public init(text: String, hierarchy: AndesButtonHierarchy, size: AndesButtonSize, icon: AndesButtonIcon? = nil) {
+        self.hierarchy = hierarchy
+        self.size = size
         self.text = text
         self.icon = icon
+        self.config = AndesButtonViewConfigFactory().provide(hierarchy: hierarchy, size: size, text: text, icon: icon)
+        self.view = AndesButtonViewDefault(config: config)
 
         assert(!(size != .large && icon != nil), "Yo should not provide an icon if the size is not large")
 
@@ -72,11 +74,12 @@ import UIKit
      By defect, it will be .loud and .large
      */
     required init?(coder: NSCoder) {
-        self.style = AndesButtonStyleLoud()
-        self.size = AndesButtonSizeLarge()
-        self.view = AndesButtonViewDefault(size: size, style: style)
+        self.hierarchy = .loud
+        self.size = .large
         self.text = "Label"
         self.icon = nil
+        self.config = AndesButtonViewConfigFactory().provide(hierarchy: hierarchy, size: size, text: text, icon: icon)
+        self.view = AndesButtonViewDefault(config: config)
 
         super.init(coder: coder)
 
@@ -109,20 +112,20 @@ import UIKit
 
     private func provideContentView() -> AndesButtonView {
         guard let buttonIcon = self.icon else {
-           return AndesButtonViewDefault(size: size, style: style)
+            return AndesButtonViewDefault(config: config)
         }
 
         if buttonIcon.orientation == .left {
-            return AndesButtonViewIconLeft(style: style, size: size, icon: buttonIcon)
+            return AndesButtonViewIconLeft(config: config)
         } else {
-            return AndesButtonViewIconRight(style: style, size: size, icon: buttonIcon)
+            return AndesButtonViewIconRight(config: config)
         }
     }
 
     private func update() {
         view.removeFromSuperview()
+        self.config = AndesButtonViewConfigFactory().provide(hierarchy: hierarchy, size: size, text: text, icon: icon)
         drawContentView()
-        setText(text)
     }
 
     /**
@@ -141,7 +144,7 @@ import UIKit
        - icon the icon with its respective orientation
     */
     @objc public func setLargeSizeWithIcon(_ icon: AndesButtonIcon) {
-        self.size = AndesButtonSizeFactory().provideStyle(key: .large, icon: icon)
+        self.size = .large
         self.icon = icon
         update()
     }
@@ -157,7 +160,7 @@ import UIKit
      */
     @objc public func setSize(_ size: AndesButtonSize) {
         self.icon = nil
-        self.size = AndesButtonSizeFactory().provideStyle(key: size, icon: icon)
+        self.size = size
         update()
     }
 
@@ -169,8 +172,8 @@ import UIKit
      
      - Parameter style: is the new style of the button
      */
-    @objc public func setStyle(_ style: AndesButtonStyle) {
-        self.style = AndesButtonStyleFactory().provideStyle(key: style)
+    @objc public func setHierarchy(_ hierarchy: AndesButtonHierarchy) {
+        self.hierarchy = hierarchy
         update()
     }
 

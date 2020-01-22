@@ -21,7 +21,7 @@ class AndesButtonTests: QuickSpec {
                     let title = "Comprar"
                     
                     //When
-                    let button = AndesButton(text: title, style: .loud, size: .large, icon: icon)
+                    let button = AndesButton(text: title, hierarchy: .loud, size: .large, icon: icon)
                     
                     //Expect
                     expect(button.view.isKind(of: AndesButtonViewIconLeft.self)).to(beTrue())
@@ -33,7 +33,7 @@ class AndesButtonTests: QuickSpec {
                     let title = "Comprar"
                     
                     //When
-                    let button = AndesButton(text: title, style: .loud, size: .large, icon: icon)
+                    let button = AndesButton(text: title, hierarchy: .loud, size: .large, icon: icon)
                     
                     //Expect
                     expect(button.view.isKind(of: AndesButtonViewIconRight.self)).to(beTrue())
@@ -44,7 +44,7 @@ class AndesButtonTests: QuickSpec {
                     let title = "Comprar"
                     
                     //When
-                    let button = AndesButton(text: title, style: .loud, size: .large)
+                    let button = AndesButton(text: title, hierarchy: .loud, size: .large)
                     
                     //Expect
                     expect(button.view.isKind(of: AndesButtonViewDefault.self)).to(beTrue())
@@ -55,7 +55,7 @@ class AndesButtonTests: QuickSpec {
                     let title = "Comprar"
                     
                     //When
-                    let button = AndesButton(text: title, style: .loud, size: .large)
+                    let button = AndesButton(text: title, hierarchy: .loud, size: .large)
                     button.setLargeSizeWithIcon(AndesButtonIcon(icon: UIImage(), orientation: .left))
                     
                     //Expect
@@ -69,8 +69,8 @@ class AndesButtonTests: QuickSpec {
             context("AndesButtonLoud is touched"){
                 it("should change its colors"){
                     //Given
-                    let style = AndesButtonStyleLoud()
-                    let button = AndesButton(text: "Comprar Test", style: .loud, size: .large)
+                    let style = AndesButtonHierarchyLoud()
+                    let button = AndesButton(text: "Comprar Test", hierarchy: .loud, size: .large)
                     let view : AndesButtonViewDefault = button.view as! AndesButtonViewDefault
                     
                     //When
@@ -83,8 +83,8 @@ class AndesButtonTests: QuickSpec {
                 
                 it("should keep idle color after been touched"){
                     //Given
-                    let style = AndesButtonStyleLoud()
-                    let button = AndesButton(text: "Comprar Test", style: .loud, size: .large)
+                    let style = AndesButtonHierarchyLoud()
+                    let button = AndesButton(text: "Comprar Test", hierarchy: .loud, size: .large)
                     let view : AndesButtonViewDefault = button.view as! AndesButtonViewDefault
                     
                     //When
@@ -102,10 +102,10 @@ class AndesButtonTests: QuickSpec {
             context("AndesButton is disabled"){
                 it("should not be interactable"){
                     //Given
-                    let style = AndesButtonStyleLoud()
+                    let style = AndesButtonHierarchyLoud()
                     let title = "Comprar Test"
                     
-                    let button = AndesButton(text: title, style: .loud, size: .large)
+                    let button = AndesButton(text: title, hierarchy: .loud, size: .large)
                     
                     //When
                     button.isEnabled = false
@@ -118,10 +118,10 @@ class AndesButtonTests: QuickSpec {
                 
                 it("should be interactable after enabled it again"){
                     //Given
-                    let style = AndesButtonStyleLoud()
+                    let style = AndesButtonHierarchyLoud()
                     let title = "Comprar Test"
                     
-                    let button = AndesButton(text: title, style: .loud, size: .large)
+                    let button = AndesButton(text: title, hierarchy: .loud, size: .large)
 
                     //When
                     button.isEnabled = false
@@ -144,7 +144,7 @@ class AndesButtonTests: QuickSpec {
                     let title = "Comprar Test"
                     
                     //When
-                    let button = AndesButton(text: title, style: .loud, size: .large)
+                    let button = AndesButton(text: title, hierarchy: .loud, size: .large)
 
                     //Then
                     let view : AndesButtonViewDefault = button.view as! AndesButtonViewDefault
@@ -154,7 +154,7 @@ class AndesButtonTests: QuickSpec {
                 it("should change title when it is required"){
                     //Given
                     let title = "Comprar Test"
-                    let button = AndesButton(text: title, style: .loud, size: .large)
+                    let button = AndesButton(text: title, hierarchy: .loud, size: .large)
 
                     //When
                     let changedTitle = "Soy test"
@@ -172,11 +172,11 @@ class AndesButtonTests: QuickSpec {
                 it("Should take the new configuration"){
                     //Given
                     let title = "Comprar Test"
-                    let button = AndesButton(text: title, style: .loud, size: .large)
+                    let button = AndesButton(text: title, hierarchy: .loud, size: .large)
 
                     //When
-                    let newStyle = AndesButtonStyleQuiet()
-                    button.setStyle(.quiet)
+                    let newStyle = AndesButtonHierarchyQuiet()
+                    button.setHierarchy(.quiet)
                                         
                     //Then
                     let view : AndesButtonViewDefault = button.view as! AndesButtonViewDefault
