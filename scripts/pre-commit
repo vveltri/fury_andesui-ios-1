@@ -23,4 +23,4 @@ if [[ $file =~ \.swift$ ]]; then
       echo "Errors running swiftlint, please fix them and commit again..."
     fi
 fi
-
+done
