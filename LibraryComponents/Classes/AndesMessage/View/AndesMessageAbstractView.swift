@@ -41,6 +41,8 @@ class AndesMessageAbstractView: UIView, AndesMessageView {
 
     func pinXibViewToSelf() {
         addSubview(messageView)
+        messageView.translatesAutoresizingMaskIntoConstraints = false
+        translatesAutoresizingMaskIntoConstraints = false
         leadingAnchor.constraint(equalTo: messageView.leadingAnchor).isActive = true
         trailingAnchor.constraint(equalTo: messageView.trailingAnchor).isActive = true
         topAnchor.constraint(equalTo: messageView.topAnchor).isActive = true
@@ -51,7 +53,6 @@ class AndesMessageAbstractView: UIView, AndesMessageView {
         loadNib()
         pinXibViewToSelf()
         updateView()
-        translatesAutoresizingMaskIntoConstraints = false
 
         self.iconView.image = config.icon
         self.layer.cornerRadius = 5
