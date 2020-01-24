@@ -19,6 +19,7 @@ class HomeViewController: UIViewController {
     weak var presenter: HomePresenter!
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var button: AndesButton!
+    @IBOutlet weak var messagesBtn: AndesButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,9 @@ class HomeViewController: UIViewController {
         func setupButtons() {
             button.setText("Buttons")
             button.setSize(.large)
+
+            messagesBtn.setText("Messages")
+            button.setSize(.large)
         }
 
         setupNavigation()
@@ -44,6 +48,9 @@ class HomeViewController: UIViewController {
         presenter.presentButtons()
     }
 
+    @IBAction func goToMessagesTapped(_ sender: Any) {
+        presenter.presentMessages()
+    }
 }
 
 extension HomeViewController: HomeView {

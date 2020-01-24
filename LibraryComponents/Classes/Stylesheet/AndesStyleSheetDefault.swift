@@ -116,19 +116,19 @@ import Foundation
     }
 
     private func validateColorForTitle(color: UIColor) {
-        if(!color.isEqual(self.stylesheetStrategy.textWhiteColor) && !color.isEqual(self.stylesheetStrategy.textPrimaryColor)) {
+        if !color.isEqual(self.stylesheetStrategy.textWhiteColor) && !color.isEqual(self.stylesheetStrategy.textPrimaryColor) {
             fatalError("You must use an allowed color. Please check Andes documentation")
         }
     }
 
     private func validateColorForBody(color: UIColor) {
-        if(!color.isEqual(self.stylesheetStrategy.textPrimaryColor) && !color.isEqual(self.stylesheetStrategy.textSecondaryColor) && !color.isEqual(self.stylesheetStrategy.textDisableColor)) {
+        if !color.isEqual(self.stylesheetStrategy.textPrimaryColor) && !color.isEqual(self.stylesheetStrategy.textSecondaryColor) && !color.isEqual(self.stylesheetStrategy.textDisableColor) {
             fatalError("You must use an allowed color. Please check Andes documentation")
         }
     }
 
     private func validateColorForLink(color: UIColor) {
-        if(!color.isEqual(self.stylesheetStrategy.textLinkColor)) {
+        if !color.isEqual(self.stylesheetStrategy.textLinkColor) {
             fatalError("You must use an allowed color. Please check Andes documentation")
         }
     }

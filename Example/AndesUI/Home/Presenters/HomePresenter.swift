@@ -10,6 +10,7 @@ import UIKit
 
 protocol HomePresenter: NSObject {
     func presentButtons()
+    func presentMessages()
 }
 
 class HomeViewPresenter: NSObject {
@@ -26,5 +27,9 @@ class HomeViewPresenter: NSObject {
 extension HomeViewPresenter: HomePresenter {
     func presentButtons() {
         router.routeToButton()
+    }
+
+    func presentMessages() {
+        router.routeToMessages()
     }
 }

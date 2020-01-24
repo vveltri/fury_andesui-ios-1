@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="AndesUI_Example" customModuleProvider="target">
             <connections>
                 <outlet property="button" destination="pzX-2Z-8ZP" id="mDt-cx-9G3"/>
+                <outlet property="messagesBtn" destination="iA2-9b-o7k" id="hLz-sQ-2WS"/>
                 <outlet property="stackView" destination="A0L-IL-kVl" id="vkb-16-Py1"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -24,13 +25,20 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="A0L-IL-kVl">
-                            <rect key="frame" x="30" y="16" width="240" height="128"/>
+                            <rect key="frame" x="30" y="16" width="240" height="264"/>
                             <subviews>
                                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="128" translatesAutoresizingMaskIntoConstraints="NO" id="pzX-2Z-8ZP" customClass="AndesButton" customModule="AndesUI">
                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <connections>
                                         <action selector="goToButtonWasTapped:" destination="-1" eventType="touchUpInside" id="i6J-ij-hBi"/>
+                                    </connections>
+                                </view>
+                                <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="128" translatesAutoresizingMaskIntoConstraints="NO" id="iA2-9b-o7k" customClass="AndesButton" customModule="AndesUI">
+                                    <rect key="frame" x="0.0" y="136" width="240" height="128"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <connections>
+                                        <action selector="goToMessagesTapped:" destination="-1" eventType="touchUpInside" id="S44-PU-uV5"/>
                                     </connections>
                                 </view>
                             </subviews>

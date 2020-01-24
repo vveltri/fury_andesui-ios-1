@@ -21,6 +21,12 @@
 		6A3C9CFC23C692B6007D0C8B /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A3C9CF823C692B6007D0C8B /* HomeViewController.xib */; };
 		6A3C9CFD23C692B6007D0C8B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3C9CF923C692B6007D0C8B /* HomeViewController.swift */; };
 		7224A56674A6111760377F74 /* Pods_AndesUI_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 252039FDFDFA2EBA075729F7 /* Pods_AndesUI_Example.framework */; };
+		9CE112DB23CE587B0017B770 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE112DA23CE587B0017B770 /* MessageViewController.swift */; };
+		9CE112DD23CE58910017B770 /* MessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CE112DC23CE58910017B770 /* MessageViewController.xib */; };
+		9CE112EC23D0FAF20017B770 /* MessagesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE112EB23D0FAF20017B770 /* MessagesRouter.swift */; };
+		9CE112F123D1E14B0017B770 /* AndesMessageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE112EF23D1DE0A0017B770 /* AndesMessageTests.swift */; };
+		9CE112FD23D20B0E0017B770 /* MessageObjCViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CE112FC23D20B0E0017B770 /* MessageObjCViewController.xib */; };
+		9CE1130223D20BF40017B770 /* MessageObjCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE1130123D20BF40017B770 /* MessageObjCViewController.m */; };
 		E615508A23D619E300417B5F /* AndesButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E615508823D6196C00417B5F /* AndesButtonTests.swift */; };
 		EB14ADCA5D32639D9D2DD57F /* Pods_AndesUI_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45BAD8235CF0F9D327D68C1A /* Pods_AndesUI_Tests.framework */; };
 /* End PBXBuildFile section */
@@ -65,6 +71,14 @@
 		6A3C9CF623C692B6007D0C8B /* HomePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		6A3C9CF823C692B6007D0C8B /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		6A3C9CF923C692B6007D0C8B /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		9CE112DA23CE587B0017B770 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		9CE112DC23CE58910017B770 /* MessageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageViewController.xib; sourceTree = "<group>"; };
+		9CE112EB23D0FAF20017B770 /* MessagesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesRouter.swift; sourceTree = "<group>"; };
+		9CE112ED23D103080017B770 /* AndesButtonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AndesButtonTests.swift; sourceTree = "<group>"; };
+		9CE112EF23D1DE0A0017B770 /* AndesMessageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndesMessageTests.swift; sourceTree = "<group>"; };
+		9CE112FC23D20B0E0017B770 /* MessageObjCViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageObjCViewController.xib; sourceTree = "<group>"; };
+		9CE1130123D20BF40017B770 /* MessageObjCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageObjCViewController.m; sourceTree = "<group>"; };
+		9CE1130323D20BFC0017B770 /* MessageObjCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageObjCViewController.h; sourceTree = "<group>"; };
 		AC98BF20D5812F377975A7D9 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		E3E9B26B74F98D6773C98C88 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		E615508823D6196C00417B5F /* AndesButtonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AndesButtonTests.swift; sourceTree = "<group>"; };
@@ -130,8 +144,10 @@
 			isa = PBXGroup;
 			children = (
 				6A3C9CF223C692B6007D0C8B /* Home */,
+				9CE112D923CE58590017B770 /* Messages */,
 				6A186A6223AC0FBB00420556 /* Buttons */,
 				57F34E912225DE0900454D8B /* AndesUIAppDelegate.swift */,
+				6A22DCBC23C918EA00BBFEA0 /* AndesUI_Example-Bridging-Header.h */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
@@ -153,6 +169,8 @@
 			children = (
 				E615508823D6196C00417B5F /* AndesButtonTests.swift */,
 				607FACEB1AFB9204008FA782 /* AndesStyleSheetTests.swift */,
+				9CE112ED23D103080017B770 /* AndesButtonTests.swift */,
+				9CE112EF23D1DE0A0017B770 /* AndesMessageTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -201,7 +219,6 @@
 				6A22DCBD23C918EA00BBFEA0 /* AndesUIViewController.h */,
 				6A22DCBE23C918EA00BBFEA0 /* AndesUIViewController.m */,
 				6A22DCBF23C918EA00BBFEA0 /* AndesUIViewController.xib */,
-				6A22DCBC23C918EA00BBFEA0 /* AndesUI_Example-Bridging-Header.h */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -260,6 +277,35 @@
 				45BAD8235CF0F9D327D68C1A /* Pods_AndesUI_Tests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9CE112D923CE58590017B770 /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+				9CE112EA23D0FAD30017B770 /* Views */,
+				9CE112E923D0FACB0017B770 /* Routers */,
+			);
+			path = Messages;
+			sourceTree = "<group>";
+		};
+		9CE112E923D0FACB0017B770 /* Routers */ = {
+			isa = PBXGroup;
+			children = (
+				9CE112EB23D0FAF20017B770 /* MessagesRouter.swift */,
+			);
+			path = Routers;
+			sourceTree = "<group>";
+		};
+		9CE112EA23D0FAD30017B770 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9CE112DA23CE587B0017B770 /* MessageViewController.swift */,
+				9CE112DC23CE58910017B770 /* MessageViewController.xib */,
+				9CE112FC23D20B0E0017B770 /* MessageObjCViewController.xib */,
+				9CE1130123D20BF40017B770 /* MessageObjCViewController.m */,
+				9CE1130323D20BFC0017B770 /* MessageObjCViewController.h */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -352,6 +398,8 @@
 			files = (
 				6A186A6A23AC0FBB00420556 /* ButtonsViewController.xib in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				9CE112DD23CE58910017B770 /* MessageViewController.xib in Resources */,
+				9CE112FD23D20B0E0017B770 /* MessageObjCViewController.xib in Resources */,
 				6A3C9CFC23C692B6007D0C8B /* HomeViewController.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 				6A22DCC123C918EA00BBFEA0 /* AndesUIViewController.xib in Resources */,
@@ -459,8 +507,11 @@
 			files = (
 				57F34E9E2225DE0900454D8B /* AndesUIAppDelegate.swift in Sources */,
 				6A3C9CFA23C692B6007D0C8B /* HomeRouter.swift in Sources */,
+				9CE112DB23CE587B0017B770 /* MessageViewController.swift in Sources */,
 				6A3C9CFD23C692B6007D0C8B /* HomeViewController.swift in Sources */,
+				9CE112EC23D0FAF20017B770 /* MessagesRouter.swift in Sources */,
 				6A186A6923AC0FBB00420556 /* ButtonsViewController.swift in Sources */,
+				9CE1130223D20BF40017B770 /* MessageObjCViewController.m in Sources */,
 				6A22DCC023C918EA00BBFEA0 /* AndesUIViewController.m in Sources */,
 				6A186A6823AC0FBB00420556 /* ButtonsRouter.swift in Sources */,
 				6A3C9CFB23C692B6007D0C8B /* HomePresenter.swift in Sources */,
@@ -473,6 +524,7 @@
 			files = (
 				E615508A23D619E300417B5F /* AndesButtonTests.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* AndesStyleSheetTests.swift in Sources */,
+				9CE112F123D1E14B0017B770 /* AndesMessageTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -612,7 +664,7 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mercadolibre.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "AndesUI/Buttons/Views/AndesUI_Example-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "AndesUI/AndesUI_Example-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
@@ -632,7 +684,7 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mercadolibre.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "AndesUI/Buttons/Views/AndesUI_Example-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "AndesUI/AndesUI_Example-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
