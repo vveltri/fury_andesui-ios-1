@@ -121,9 +121,6 @@ import UIKit
 
 extension AndesMessage: AndesMessageViewDelegate {
     func dismissTapped() {
-        self.view.removeFromSuperview()
-        self.layoutIfNeeded()
-        view = nil
         dismissHandler?(self)
     }
 }

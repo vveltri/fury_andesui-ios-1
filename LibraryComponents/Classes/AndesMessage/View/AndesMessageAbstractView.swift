@@ -42,7 +42,6 @@ class AndesMessageAbstractView: UIView, AndesMessageView {
     func pinXibViewToSelf() {
         addSubview(messageView)
         messageView.translatesAutoresizingMaskIntoConstraints = false
-        translatesAutoresizingMaskIntoConstraints = false
         leadingAnchor.constraint(equalTo: messageView.leadingAnchor).isActive = true
         trailingAnchor.constraint(equalTo: messageView.trailingAnchor).isActive = true
         topAnchor.constraint(equalTo: messageView.topAnchor).isActive = true
@@ -51,10 +50,10 @@ class AndesMessageAbstractView: UIView, AndesMessageView {
 
     func setup() {
         loadNib()
+        translatesAutoresizingMaskIntoConstraints = false
         pinXibViewToSelf()
         updateView()
 
-        self.iconView.image = config.icon
         self.layer.cornerRadius = 5
         self.clipsToBounds = true
         messageView.clipsToBounds = true
@@ -68,11 +67,15 @@ class AndesMessageAbstractView: UIView, AndesMessageView {
     func updateView() {
         self.backgroundColor = config.backgroundColor
         self.leftPipeView.backgroundColor = config.pipeColor
+
         self.bodyLabel.textColor = config.textColor
         self.bodyLabel.font = config.bodyFont
         self.bodyLabel.text = config.bodyText
+
         self.iconView.tintColor = config.iconColor
+        self.iconView.image = config.icon
         self.iconContainerView.backgroundColor = config.iconBackgroundColor
+
         if config.isDismissable, let dismissIcon = config.dismissIcon {
             self.dismissButton.isHidden = false
             self.dismissButton.tintColor = config.dismissIconColor

@@ -19,31 +19,14 @@ internal struct AndesMessageViewConfig {
     var bodyFont: UIFont = AndesStyleSheetManager.styleSheet.semiboldSystemFontOfSize(size: 14)
     var bodyText: String?
 
-    var icon: UIImage = getIcon()
+    var icon: UIImage?
     var iconColor: UIColor = AndesStyleSheetManager.styleSheet.textWhiteColor
     var iconBackgroundColor: UIColor = AndesStyleSheetManager.styleSheet.accentSecondaryColor
 
     var isDismissable: Bool = false
-    var dismissIcon: UIImage? = getDismissIcon()
+    var dismissIcon: UIImage? = UIImage(named: "andes_ui_close_20", in: AndesBundle.bundle(), compatibleWith: nil)!
     var dismissIconColor: UIColor = AndesStyleSheetManager.styleSheet.textWhiteColor
 
     var primaryActionText: String?
     var secondaryActionText: String?
-
-    //TODO:- REMOVE THIS WHEN ICONS ADDED
-    static func getDismissIcon() -> UIImage {
-        if #available(iOS 13.0, *) {
-            return UIImage(systemName: "multiply")!
-        } else {
-            return UIImage(named: "logo_global")!
-        }
-    }
-
-    static func getIcon() -> UIImage {
-        if #available(iOS 13.0, *) {
-            return UIImage(systemName: "exclamationmark")!
-        } else {
-            return UIImage(named: "logo_global")!
-        }
-    }
 }

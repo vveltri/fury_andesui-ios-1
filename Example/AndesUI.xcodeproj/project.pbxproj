@@ -25,7 +25,6 @@
 		9CE112DD23CE58910017B770 /* MessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CE112DC23CE58910017B770 /* MessageViewController.xib */; };
 		9CE112EC23D0FAF20017B770 /* MessagesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE112EB23D0FAF20017B770 /* MessagesRouter.swift */; };
 		9CE112F123D1E14B0017B770 /* AndesMessageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE112EF23D1DE0A0017B770 /* AndesMessageTests.swift */; };
-		9CE112FB23D202D60017B770 /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE112F923D202CF0017B770 /* TestHelpers.swift */; };
 		9CE112FD23D20B0E0017B770 /* MessageObjCViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CE112FC23D20B0E0017B770 /* MessageObjCViewController.xib */; };
 		9CE1130223D20BF40017B770 /* MessageObjCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE1130123D20BF40017B770 /* MessageObjCViewController.m */; };
 		E615508A23D619E300417B5F /* AndesButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E615508823D6196C00417B5F /* AndesButtonTests.swift */; };
@@ -77,7 +76,6 @@
 		9CE112EB23D0FAF20017B770 /* MessagesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesRouter.swift; sourceTree = "<group>"; };
 		9CE112ED23D103080017B770 /* AndesButtonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AndesButtonTests.swift; sourceTree = "<group>"; };
 		9CE112EF23D1DE0A0017B770 /* AndesMessageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndesMessageTests.swift; sourceTree = "<group>"; };
-		9CE112F923D202CF0017B770 /* TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; };
 		9CE112FC23D20B0E0017B770 /* MessageObjCViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageObjCViewController.xib; sourceTree = "<group>"; };
 		9CE1130123D20BF40017B770 /* MessageObjCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageObjCViewController.m; sourceTree = "<group>"; };
 		9CE1130323D20BFC0017B770 /* MessageObjCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageObjCViewController.h; sourceTree = "<group>"; };
@@ -171,7 +169,6 @@
 			children = (
 				E615508823D6196C00417B5F /* AndesButtonTests.swift */,
 				607FACEB1AFB9204008FA782 /* AndesStyleSheetTests.swift */,
-				9CE112F923D202CF0017B770 /* TestHelpers.swift */,
 				9CE112ED23D103080017B770 /* AndesButtonTests.swift */,
 				9CE112EF23D1DE0A0017B770 /* AndesMessageTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
@@ -528,7 +525,6 @@
 				E615508A23D619E300417B5F /* AndesButtonTests.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* AndesStyleSheetTests.swift in Sources */,
 				9CE112F123D1E14B0017B770 /* AndesMessageTests.swift in Sources */,
-				9CE112FB23D202D60017B770 /* TestHelpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

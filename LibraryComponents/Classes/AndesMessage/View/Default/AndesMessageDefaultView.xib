@@ -42,14 +42,15 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xSe-Le-1pW">
+                <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xSe-Le-1pW">
                     <rect key="frame" x="378" y="16" width="16" height="16"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="16" id="2KI-xl-eP3"/>
                         <constraint firstAttribute="height" constant="16" id="MJq-Lg-Jjn"/>
                     </constraints>
                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <state key="normal" image="multiply" catalog="system"/>
+                    <inset key="imageEdgeInsets" minX="-3" minY="-3" maxX="-3" maxY="-3"/>
+                    <state key="normal" image="andes_ui_close_20"/>
                     <connections>
                         <action selector="dismissPressed:" destination="-1" eventType="touchUpInside" id="OdC-pi-VqJ"/>
                     </connections>
@@ -58,10 +59,10 @@
                     <rect key="frame" x="16" y="16" width="16" height="16"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="osp-E1-bQZ">
-                            <rect key="frame" x="1" y="1" width="14" height="14"/>
+                            <rect key="frame" x="0.5" y="0.5" width="15" height="15"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="14" id="bqi-k1-azQ"/>
-                                <constraint firstAttribute="height" constant="14" id="z8t-IW-LSc"/>
+                                <constraint firstAttribute="width" constant="15" id="bqi-k1-azQ"/>
+                                <constraint firstAttribute="height" constant="15" id="z8t-IW-LSc"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="clipToBounds" value="YES"/>
@@ -105,6 +106,6 @@
         </view>
     </objects>
     <resources>
-        <image name="multiply" catalog="system" width="64" height="54"/>
+        <image name="andes_ui_close_20" width="20" height="20"/>
     </resources>
 </document>

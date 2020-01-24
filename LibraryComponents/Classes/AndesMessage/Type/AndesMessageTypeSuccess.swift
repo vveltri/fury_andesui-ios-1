@@ -9,5 +9,5 @@ import Foundation
 class AndesMessageTypeSuccess: AndesMessageTypeProtocol {
     var primaryColor: UIColor = AndesStyleSheetManager.styleSheet.successPrimaryColor
     var secondaryColor: UIColor = AndesStyleSheetManager.styleSheet.successSecondaryColor
-    var icon: UIImage = AndesMessageViewConfig.getIcon()
+    var icon: UIImage = UIImage(named: "andes_ui_feedback_success_16", in: AndesBundle.bundle(), compatibleWith: nil)!
 }

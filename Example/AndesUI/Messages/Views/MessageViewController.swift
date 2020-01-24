@@ -42,6 +42,7 @@ class MessageViewController: UIViewController {
         setupButtons()
         createPickerViews()
         messageView.onDismiss({[unowned self] m in self.isDismissing(m)})
+        messageView.setDismissable(true)
     }
 
     func isDismissing(_ message: AndesMessage) {
