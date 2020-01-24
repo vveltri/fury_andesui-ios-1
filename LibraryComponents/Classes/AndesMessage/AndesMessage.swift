@@ -121,6 +121,7 @@ import UIKit
 
 extension AndesMessage: AndesMessageViewDelegate {
     func dismissTapped() {
+        self.isHidden = true
         dismissHandler?(self)
     }
 }
