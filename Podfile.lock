@@ -1,5 +1,5 @@
 PODS:
-  - AndesUI (0.1.0)
+  - AndesUI (1.0.0)
   - Nimble (7.3.4)
   - Quick (1.2.0)
 
@@ -18,7 +18,7 @@ EXTERNAL SOURCES:
     :path: "./"
 
 SPEC CHECKSUMS:
-  AndesUI: 5565696b486a6cfcb665e571ce08be5d7351d52c
+  AndesUI: 415a938291ccca9930b44164900abdb3ac20a914
   Nimble: 051e3d8912d40138fa5591c78594f95fb172af37
   Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
 
