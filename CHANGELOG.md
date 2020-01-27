@@ -1,5 +1,9 @@
+# v1.1.0
+- AndesMessage basic
+- AndesMessage dismissible
+
 # v1.0.0
-## Agregado
+## Added
 - AndesButton
 - AndesStylesheet
-- Soporte a dark mode
+- Dark mode support
