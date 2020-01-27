@@ -41,7 +41,7 @@ class MessageViewController: UIViewController {
         super.viewDidLoad()
         setupButtons()
         createPickerViews()
-        messageView.onDismiss({[unowned self] m in self.isDismissing(m)})
+        messageView.onDismiss({[unowned self] message in self.isDismissing(message)})
         messageView.setDismissable(true)
     }
 
@@ -63,13 +63,20 @@ class MessageViewController: UIViewController {
 
     @IBAction func randomMessageAction(_ sender: Any) {
         let msg = messageDict.randomElement()
-        self.contentView.subviews.filter {($0 is AndesMessage)}.forEach {($0 as! AndesMessage).setBody(msg!)}
+        self.contentView.subviews.filter {($0 is AndesMessage)}.forEach {
+            if let message = $0 as? AndesMessage {
+                message.setBody(msg!)
+            }
+        }
     }
 
     @IBAction func randomTitle(_ sender: Any) {
         let title = titleDict.randomElement()
-       self.contentView.subviews.filter {($0 is AndesMessage)}.forEach {
-        ($0 as! AndesMessage).setTitle(title!)}
+        self.contentView.subviews.filter {($0 is AndesMessage)}.forEach {
+            if let message = $0 as? AndesMessage {
+                message.setTitle(title!)
+            }
+        }
     }
 
     @IBAction func animateChange(_ sender: Any) {
@@ -117,6 +124,7 @@ extension MessageViewController: UIPickerViewDataSource {
     }
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+
         if pickerView == typePicker {
             let type = AndesMessageHierarchy.init(rawValue: row)!
             return type.toString()
@@ -132,21 +140,21 @@ extension MessageViewController: UIPickerViewDataSource {
 extension AndesMessageType {
     func toString() -> String {
         switch self {
-           case .highlight:
-               return "Highlight"
-           case .success:
-               return "Success"
-           case .error:
-               return "Error"
-           case .warning:
-               return "Warning"
-           }
+        case .highlight:
+            return "Highlight"
+        case .success:
+            return "Success"
+        case .error:
+            return "Error"
+        case .warning:
+            return "Warning"
+        }
     }
 }
 
 extension AndesMessageHierarchy {
     func toString() -> String {
-            switch self {
+        switch self {
         case .loud:
             return "Loud"
         case .quiet:
