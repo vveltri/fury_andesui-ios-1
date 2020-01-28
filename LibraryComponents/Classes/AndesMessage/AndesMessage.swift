@@ -68,7 +68,7 @@ import UIKit
 
     /// Sets the title of the AndesMessage
     /// - Parameter title: string
-    @objc @discardableResult public func setTitle(_ title: String) -> AndesMessage {
+    @objc @discardableResult public func setTitle(_ title: String?) -> AndesMessage {
         self.title = title
         updateContentView()
         return self
