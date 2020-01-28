@@ -11,6 +11,7 @@ class AndesMessageAbstractView: UIView, AndesMessageView {
     weak var delegate: AndesMessageViewDelegate?
 
     @IBOutlet var messageView: UIView!
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var bodyLabel: UILabel!
     @IBOutlet weak var iconView: UIImageView!
     @IBOutlet weak var iconContainerView: UIView!
@@ -75,6 +76,19 @@ class AndesMessageAbstractView: UIView, AndesMessageView {
         self.iconView.tintColor = config.iconColor
         self.iconView.image = config.icon
         self.iconContainerView.backgroundColor = config.iconBackgroundColor
+
+        self.titleLabel.font = config.titleFont
+        self.titleLabel.textColor = config.textColor
+        self.titleLabel.text = config.titleText
+
+        if config.titleText == nil || config.titleText!.isEmpty {
+            titleLabel.isHidden = true
+        } else {
+            self.titleLabel.font = config.titleFont
+            self.titleLabel.textColor = config.textColor
+            self.titleLabel.text = config.titleText
+            self.titleLabel.isHidden = false
+        }
 
         if config.isDismissable, let dismissIcon = config.dismissIcon {
             self.dismissButton.isHidden = false
