@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-               BuildableName = "AndesUI_Example.app"
-               BlueprintName = "AndesUI_Example"
+               BuildableName = "AndesUI DemoApp.app"
+               BlueprintName = "AndesUI-demoapp"
                ReferencedContainer = "container:AndesUI.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -46,8 +46,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "AndesUI_Example.app"
-            BlueprintName = "AndesUI_Example"
+            BuildableName = "AndesUI DemoApp.app"
+            BlueprintName = "AndesUI-demoapp"
             ReferencedContainer = "container:AndesUI.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -79,8 +79,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "AndesUI_Example.app"
-            BlueprintName = "AndesUI_Example"
+            BuildableName = "AndesUI DemoApp.app"
+            BlueprintName = "AndesUI-demoapp"
             ReferencedContainer = "container:AndesUI.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -96,8 +96,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "AndesUI_Example.app"
-            BlueprintName = "AndesUI_Example"
+            BuildableName = "AndesUI DemoApp.app"
+            BlueprintName = "AndesUI-demoapp"
             ReferencedContainer = "container:AndesUI.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

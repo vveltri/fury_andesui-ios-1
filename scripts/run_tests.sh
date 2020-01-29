@@ -14,7 +14,7 @@ echo "Prelaunching iOS simulator"
 open `xcode-select -p`/Applications/Simulator.app --args -CurrentDeviceUDID $IOS_SIMULATOR_UDID
 
 xcodebuild -workspace AndesUI.xcworkspace \
-           -scheme AndesUI-Example \
+           -scheme AndesUI-demoapp \
            -sdk "iphonesimulator" \
            -destination "platform=iOS Simulator,id=$IOS_SIMULATOR_UDID" \
            test | $FORMATTER
