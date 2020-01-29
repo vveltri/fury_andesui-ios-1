@@ -9,7 +9,7 @@ import Foundation
 
 /// Used to define the colors of an AndesMessage
 @objc public enum AndesMessageType: Int {
-    case highlight
+    case neutral
     case success
     case warning
     case error

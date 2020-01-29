@@ -6,7 +6,7 @@
 //  Copyright © 2020 MercadoLibre. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import AndesUI
 class MessageViewController: UIViewController {
     @IBOutlet weak var contentView: UIView!
@@ -140,8 +140,8 @@ extension MessageViewController: UIPickerViewDataSource {
 extension AndesMessageType {
     func toString() -> String {
         switch self {
-        case .highlight:
-            return "Highlight"
+        case .neutral:
+            return "Neutral"
         case .success:
             return "Success"
         case .error:

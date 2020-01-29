@@ -9,7 +9,7 @@ import Foundation
 class AndesMessageTypeFactory {
     static func provide(_ type: AndesMessageType) -> AndesMessageTypeProtocol {
         switch type {
-        case .highlight:
+        case .neutral:
             return AndesMessageTypeHightlight()
         case .warning:
             return AndesMessageTypeWarning()

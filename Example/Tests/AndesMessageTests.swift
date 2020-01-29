@@ -14,10 +14,10 @@ class AndesMessageTests: QuickSpec {
     override func spec() {
         describe("AndesMessage should draw its view depending on type, type, and variation") {
             context("AndesMessage dismissable with title and description inits") {
-                it("Andes message by default should be highlight, loud and of defaultView") {
+                it("Andes message by default should be neutral, loud and of defaultView") {
                     //Given
                     let defaultHierarchy = AndesMessageHierarchy.loud
-                    let defaultType = AndesMessageType.highlight
+                    let defaultType = AndesMessageType.neutral
 
                     //When
                     let message = AndesMessage(frame: .zero)

@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,7 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MessageObjCViewController">
             <connections>
                 <outlet property="errorLoud" destination="y4S-Od-ixo" id="96V-wp-d4f"/>
-                <outlet property="highlightQuiet" destination="TpJ-th-G1p" id="3UO-k2-uNz"/>
+                <outlet property="neutralQuiet" destination="TpJ-th-G1p" id="3UO-k2-uNz"/>
                 <outlet property="successQuiet" destination="d7f-aq-5EC" id="0JS-S4-pNL"/>
                 <outlet property="view" destination="iN0-l3-epB" id="CRr-Mr-d8J"/>
             </connections>
@@ -23,15 +25,15 @@
             <subviews>
                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="384" placeholderIntrinsicHeight="128" translatesAutoresizingMaskIntoConstraints="NO" id="TpJ-th-G1p" customClass="AndesMessage" customModule="AndesUI">
                     <rect key="frame" x="15" y="59" width="384" height="128"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="384" placeholderIntrinsicHeight="128" translatesAutoresizingMaskIntoConstraints="NO" id="y4S-Od-ixo" customClass="AndesMessage" customModule="AndesUI">
                     <rect key="frame" x="15" y="202" width="384" height="128"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="384" placeholderIntrinsicHeight="128" translatesAutoresizingMaskIntoConstraints="NO" id="d7f-aq-5EC" customClass="AndesMessage" customModule="AndesUI">
                     <rect key="frame" x="15" y="345" width="384" height="128"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

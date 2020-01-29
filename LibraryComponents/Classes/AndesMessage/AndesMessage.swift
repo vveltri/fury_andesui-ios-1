@@ -13,7 +13,7 @@ import UIKit
     public private(set) var hierarchy: AndesMessageHierarchy = .loud
 
     /// returns the current type
-    public private(set) var type: AndesMessageType = .highlight
+    public private(set) var type: AndesMessageType = .neutral
 
     /// returns the current title
     public private(set) var title: String?
