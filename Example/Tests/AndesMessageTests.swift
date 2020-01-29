@@ -95,6 +95,29 @@ class AndesMessageTests: QuickSpec {
                       //Then
                       expect((message.view as! AndesMessageDefaultView).bodyLabel.text).to(match(descToChange))
                   }
+                it("when title is empty or nil, title is hidden") {
+                    //Given
+                    let message = AndesMessage(frame: .zero)
+                    let messageEmpty = AndesMessage(frame: .zero)
+
+                    //When
+                    message.setTitle(nil)
+                    messageEmpty.setTitle("")
+
+                    //Then
+                    expect((message.view as! AndesMessageDefaultView).titleLabel.isHidden).to(beTrue())
+                    expect((messageEmpty.view as! AndesMessageDefaultView).titleLabel.isHidden).to(beTrue())
+                }
+                it("when title is not empty, title label is not hidden") {
+                       //Given
+                       let message = AndesMessage(frame: .zero)
+
+                       //When
+                       message.setTitle("title")
+
+                       //Then
+                       expect((message.view as! AndesMessageDefaultView).titleLabel.isHidden).to(beFalse())
+                   }
             }
         }
         describe("AndesMessage should trigger callbacks on specific events") {
