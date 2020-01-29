@@ -29,4 +29,22 @@ internal struct AndesMessageViewConfig {
 
     var primaryActionText: String?
     var secondaryActionText: String?
+
+    init(backgroundColor: UIColor, pipeColor: UIColor, textColor: UIColor, titleText: String?, bodyText: String, icon: UIImage?, iconBackgroundColor: UIColor, isDismissable: Bool, dismissIconColor: UIColor) {
+        self.backgroundColor = backgroundColor
+        self.pipeColor = pipeColor
+        self.textColor = textColor
+
+        self.titleText = titleText
+        self.bodyText = bodyText
+        self.icon = icon
+        self.isDismissable = isDismissable
+
+        self.iconBackgroundColor = iconBackgroundColor
+        self.dismissIconColor = dismissIconColor
+    }
+
+    init() {
+
+    }
 }
