@@ -27,17 +27,24 @@ import UIKit
   The responsibility of the AndesButton is to know how it should be represent based on the attributes provided
  */
 @objc public class AndesButton: UIControl {
+    /// returns the current selected hierarchy
+    public private(set) var hierarchy: AndesButtonHierarchy
 
-    private var hierarchy: AndesButtonHierarchy
-    private var size: AndesButtonSize
+    /// returns the current selected size
+    public private(set) var size: AndesButtonSize
+
+    /// returns the current text
+    public private(set) var text: String
+
+    /// returns the current selected hierarchy
+    public private(set) var icon: AndesButtonIcon?
+
     internal var view: AndesButtonView
-    private var text: String
-    private var icon: AndesButtonIcon?
     private var config: AndesButtonViewConfig
 
     override public var isEnabled: Bool {
         didSet {
-            if (!isEnabled) {
+            if !isEnabled {
                 view.disable()
             } else {
                 view.enable()
@@ -132,9 +139,10 @@ import UIKit
      Allows to change the text content of the button
      - Parameter title: is text that the button will contain
      */
-    @objc public func setText(_ text: String) {
+    @objc @discardableResult public func setText(_ text: String) -> AndesButton {
         self.text = text
         view.setText(text)
+        return self
     }
 
     /**
@@ -143,10 +151,11 @@ import UIKit
     - Parameters:
        - icon the icon with its respective orientation
     */
-    @objc public func setLargeSizeWithIcon(_ icon: AndesButtonIcon) {
+    @objc @discardableResult public func setLargeSizeWithIcon(_ icon: AndesButtonIcon) -> AndesButton {
         self.size = .large
         self.icon = icon
         update()
+        return self
     }
 
     /**
@@ -158,10 +167,11 @@ import UIKit
      - Parameters:
         - sizeStyle is the new size of the button
      */
-    @objc public func setSize(_ size: AndesButtonSize) {
+    @objc @discardableResult public func setSize(_ size: AndesButtonSize) -> AndesButton {
         self.icon = nil
         self.size = size
         update()
+        return self
     }
 
     /**
@@ -172,9 +182,10 @@ import UIKit
      
      - Parameter style: is the new style of the button
      */
-    @objc public func setHierarchy(_ hierarchy: AndesButtonHierarchy) {
+    @objc @discardableResult public func setHierarchy(_ hierarchy: AndesButtonHierarchy) -> AndesButton {
         self.hierarchy = hierarchy
         update()
+        return self
     }
 
     /**
