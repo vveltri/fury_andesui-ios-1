@@ -10,4 +10,6 @@ import Foundation
 /// Used to route events form internal message views to AndesMessage
 internal protocol AndesMessageViewDelegate: AnyObject {
     func dismissTapped()
+    func primaryBtnTouchUp()
+    func secondaryBtnTouchUp()
 }

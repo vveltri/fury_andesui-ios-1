@@ -12,10 +12,10 @@ import Foundation
  */
 class AndesButtonSizeFactory {
 
-    private var styles: Dictionary<AndesButtonSize, AndesButtonSizeProtocol>
+    private var styles: [AndesButtonSize: AndesButtonSizeProtocol]
 
     init() {
-        styles = Dictionary<AndesButtonSize, AndesButtonSizeProtocol>()
+        styles = [AndesButtonSize: AndesButtonSizeProtocol]()
         styles[.large] = AndesButtonSizeLarge()
         styles[.medium] = AndesButtonSizeMedium()
         styles[.small] = AndesButtonSizeSmall()
@@ -23,7 +23,7 @@ class AndesButtonSizeFactory {
 
     func provideStyle(key: AndesButtonSize, icon: AndesButtonIcon?) -> AndesButtonSizeProtocol {
 
-        if(key == .large) {
+        if key == .large {
             return AndesButtonSizeLarge(buttonIcon: icon)
         }
 

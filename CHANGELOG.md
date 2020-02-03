@@ -1,4 +1,9 @@
+# v1.3.0
+## Added
+- AndesMessage: Support message with actions, primary and secondary.
+
 # v1.2.1
+## Changed
 - AndesMessage: changed body from semibold to regular.
 
 # v1.2.0

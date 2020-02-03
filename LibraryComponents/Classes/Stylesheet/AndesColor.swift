@@ -50,7 +50,7 @@ import Foundation
 
         @objc public class Orange: NSObject {
             @objc public static let light = UIColor(red: 255, green: 119, blue: 51)
-            @objc public static let dark = UIColor(red: 230, green: 119, blue: 51)
+            @objc public static let dark = UIColor(red: 230, green: 84, blue: 11)
         }
 
         @objc public class Green: NSObject {
@@ -61,5 +61,27 @@ import Foundation
         @objc public class Yellow: NSObject {
             @objc public static let primary = UIColor(red: 255, green: 230, blue: 0)
         }
+    }
+}
+
+internal extension UIColor {
+    /// blends self with a black mask and alpha equivalent
+    /// - Parameter percent: alpha of the black mask to blend with self in %
+    func darken(by percent: Int) -> UIColor {
+        assert((percent >= 0 && percent <= 100), "by must be between 0 and 100")
+        var bgR: CGFloat = 0
+        var bgG: CGFloat = 0
+        var bgB: CGFloat = 0
+        var bgA: CGFloat = 0
+
+        let maskAlpha: CGFloat = CGFloat(percent) /  100.0
+
+        self.getRed(&bgR, green: &bgG, blue: &bgB, alpha: &bgA)
+
+        let red = (1 - maskAlpha) * bgR
+        let green = (1 - maskAlpha) * bgG
+        let blue = (1 - maskAlpha) * bgB
+
+        return UIColor(red: red, green: green, blue: blue, alpha: 1.0)
     }
 }

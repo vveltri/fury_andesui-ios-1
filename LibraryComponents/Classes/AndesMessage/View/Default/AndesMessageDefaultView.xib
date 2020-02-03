@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -31,13 +33,13 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xSe-Le-1pW">
-                    <rect key="frame" x="399" y="16" width="16" height="16"/>
+                    <rect key="frame" x="395" y="14" width="20" height="20"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="16" id="2KI-xl-eP3"/>
-                        <constraint firstAttribute="height" constant="16" id="MJq-Lg-Jjn"/>
+                        <constraint firstAttribute="width" constant="20" id="2KI-xl-eP3"/>
+                        <constraint firstAttribute="height" constant="20" id="MJq-Lg-Jjn"/>
                     </constraints>
                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <inset key="imageEdgeInsets" minX="-3" minY="-3" maxX="-3" maxY="-3"/>
+                    <inset key="imageEdgeInsets" minX="-4" minY="-4" maxX="-4" maxY="-4"/>
                     <state key="normal" image="andes_ui_close_20"/>
                     <connections>
                         <action selector="dismissPressed:" destination="-1" eventType="touchUpInside" id="OdC-pi-VqJ"/>
@@ -52,9 +54,6 @@
                                 <constraint firstAttribute="width" constant="15" id="bqi-k1-azQ"/>
                                 <constraint firstAttribute="height" constant="15" id="z8t-IW-LSc"/>
                             </constraints>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="boolean" keyPath="clipToBounds" value="YES"/>
-                            </userDefinedRuntimeAttributes>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -71,16 +70,16 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="G79-j7-hX6">
-                    <rect key="frame" x="48" y="15.5" width="335" height="135.5"/>
+                    <rect key="frame" x="48" y="15.5" width="331" height="135.5"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pmK-XL-3ub">
-                            <rect key="frame" x="0.0" y="0.0" width="335" height="20.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="331" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="body" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ka6-MC-Ijq">
-                            <rect key="frame" x="0.0" y="25.5" width="335" height="110"/>
+                            <rect key="frame" x="0.0" y="25.5" width="331" height="110"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>

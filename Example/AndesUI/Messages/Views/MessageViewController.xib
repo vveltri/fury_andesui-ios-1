@@ -8,15 +8,17 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MessageViewController" customModule="AndesUI_Example" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MessageViewController" customModule="AndesUI_DemoApp" customModuleProvider="target">
             <connections>
-                <outlet property="animateButton" destination="GAz-YA-HAY" id="eLD-9A-NY6"/>
                 <outlet property="contentView" destination="GXr-8A-gRp" id="Ccz-KX-aDp"/>
                 <outlet property="hierarchyField" destination="bE5-nR-rx2" id="ahb-Gv-xiR"/>
                 <outlet property="messageView" destination="Wlv-kj-bbN" id="BUt-c1-5lf"/>
+                <outlet property="messageWithActions" destination="eCF-Pc-Kai" id="IsP-Wg-CV7"/>
                 <outlet property="randomText" destination="pXU-wh-IkT" id="cGn-rx-8p4"/>
                 <outlet property="randomTitle" destination="sp5-21-MaF" id="AGj-wr-kKq"/>
                 <outlet property="scrollView" destination="7tf-jI-jk9" id="DXM-n6-XSN"/>
+                <outlet property="showHidden" destination="GAz-YA-HAY" id="uub-oq-5Ws"/>
+                <outlet property="stackView" destination="Ygv-BY-7Wd" id="X7l-TN-vsW"/>
                 <outlet property="typeField" destination="yZh-s6-03P" id="0l2-1g-O9v"/>
                 <outlet property="view" destination="iN0-l3-epB" id="HEP-Yf-wlk"/>
             </connections>
@@ -32,20 +34,6 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GXr-8A-gRp">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Simple" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZyR-6F-KrR">
-                                    <rect key="frame" x="10" y="119" width="52" height="21"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <view contentMode="scaleToFill" placeholderIntrinsicWidth="403" placeholderIntrinsicHeight="128" translatesAutoresizingMaskIntoConstraints="NO" id="Wlv-kj-bbN" customClass="AndesMessage" customModule="AndesUI">
-                                    <rect key="frame" x="10" y="155" width="394" height="128"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="test title"/>
-                                        <userDefinedRuntimeAttribute type="string" keyPath="body" value="message body"/>
-                                    </userDefinedRuntimeAttributes>
-                                </view>
                                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="48" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="pXU-wh-IkT" customClass="AndesButton" customModule="AndesUI">
                                     <rect key="frame" x="15" y="15" width="48" height="40"/>
                                     <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -64,7 +52,7 @@
                                     <rect key="frame" x="141" y="15" width="48" height="40"/>
                                     <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <connections>
-                                        <action selector="animateChange:" destination="-1" eventType="touchUpInside" id="ER1-Ju-nh8"/>
+                                        <action selector="showHidden:" destination="-1" eventType="touchUpInside" id="cjs-ao-OdS"/>
                                     </connections>
                                 </view>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Loud" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bE5-nR-rx2">
@@ -84,23 +72,71 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
+                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="dGh-WN-yax">
+                                    <rect key="frame" x="196" y="71.5" width="51" height="31"/>
+                                    <connections>
+                                        <action selector="dismissableDidChange:" destination="-1" eventType="valueChanged" id="rov-QH-n4q"/>
+                                    </connections>
+                                </switch>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dismissible" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jml-VU-FtV">
+                                    <rect key="frame" x="261" y="78" width="77.5" height="18"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Ygv-BY-7Wd">
+                                    <rect key="frame" x="16" y="120" width="382" height="345"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Simple" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZyR-6F-KrR">
+                                            <rect key="frame" x="0.0" y="0.0" width="382" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <view contentMode="scaleToFill" placeholderIntrinsicWidth="403" placeholderIntrinsicHeight="128" translatesAutoresizingMaskIntoConstraints="NO" id="Wlv-kj-bbN" customClass="AndesMessage" customModule="AndesUI">
+                                            <rect key="frame" x="0.0" y="36.5" width="382" height="128"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="title" value="test title"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="body" value="message body"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="With Actions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oyE-Pg-LC0">
+                                            <rect key="frame" x="0.0" y="180.5" width="382" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <view contentMode="scaleToFill" placeholderIntrinsicWidth="403" placeholderIntrinsicHeight="128" translatesAutoresizingMaskIntoConstraints="NO" id="eCF-Pc-Kai" customClass="AndesMessage" customModule="AndesUI">
+                                            <rect key="frame" x="0.0" y="217" width="382" height="128"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="title" value="test title"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="body" value="message body"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                    </subviews>
+                                </stackView>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             <constraints>
                                 <constraint firstItem="yZh-s6-03P" firstAttribute="leading" secondItem="bE5-nR-rx2" secondAttribute="trailing" constant="15" id="2RP-XT-5xz"/>
                                 <constraint firstItem="bE5-nR-rx2" firstAttribute="top" secondItem="pXU-wh-IkT" secondAttribute="bottom" constant="15" id="A7D-lF-Ilt"/>
-                                <constraint firstItem="ZyR-6F-KrR" firstAttribute="leading" secondItem="GXr-8A-gRp" secondAttribute="leading" constant="10" id="ELb-Ib-S4d"/>
                                 <constraint firstItem="sp5-21-MaF" firstAttribute="leading" secondItem="pXU-wh-IkT" secondAttribute="trailing" constant="15" id="EQo-dG-kYa"/>
-                                <constraint firstItem="ZyR-6F-KrR" firstAttribute="top" secondItem="bE5-nR-rx2" secondAttribute="bottom" constant="15" id="F3P-g4-ObU"/>
+                                <constraint firstItem="Ygv-BY-7Wd" firstAttribute="top" secondItem="yZh-s6-03P" secondAttribute="bottom" constant="16" id="PWB-zq-pos"/>
                                 <constraint firstItem="GAz-YA-HAY" firstAttribute="leading" secondItem="sp5-21-MaF" secondAttribute="trailing" constant="15" id="Pf6-2u-wLY"/>
-                                <constraint firstAttribute="trailing" secondItem="Wlv-kj-bbN" secondAttribute="trailing" constant="10" id="RYF-su-ad6"/>
-                                <constraint firstItem="Wlv-kj-bbN" firstAttribute="leading" secondItem="GXr-8A-gRp" secondAttribute="leading" constant="10" id="VMQ-UM-0tS"/>
+                                <constraint firstItem="dGh-WN-yax" firstAttribute="centerY" secondItem="yZh-s6-03P" secondAttribute="centerY" id="Pnm-C1-jCQ"/>
+                                <constraint firstItem="Jml-VU-FtV" firstAttribute="centerY" secondItem="dGh-WN-yax" secondAttribute="centerY" id="Sah-CP-mdd"/>
+                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Ygv-BY-7Wd" secondAttribute="bottom" constant="20" symbolic="YES" id="Z2l-eV-a29"/>
                                 <constraint firstItem="yZh-s6-03P" firstAttribute="centerY" secondItem="bE5-nR-rx2" secondAttribute="centerY" id="Zih-hI-qkb"/>
-                                <constraint firstItem="Wlv-kj-bbN" firstAttribute="top" secondItem="ZyR-6F-KrR" secondAttribute="bottom" constant="15" id="h81-81-Awn"/>
+                                <constraint firstItem="dGh-WN-yax" firstAttribute="leading" secondItem="yZh-s6-03P" secondAttribute="trailing" constant="16" id="a3y-XZ-uqy"/>
+                                <constraint firstAttribute="trailing" secondItem="Ygv-BY-7Wd" secondAttribute="trailing" constant="16" id="cOb-Rg-Nnl"/>
+                                <constraint firstItem="Jml-VU-FtV" firstAttribute="leading" secondItem="dGh-WN-yax" secondAttribute="trailing" constant="16" id="i9Q-OI-AhV"/>
                                 <constraint firstItem="GAz-YA-HAY" firstAttribute="centerY" secondItem="sp5-21-MaF" secondAttribute="centerY" id="iVT-KT-TgE"/>
                                 <constraint firstItem="sp5-21-MaF" firstAttribute="centerY" secondItem="pXU-wh-IkT" secondAttribute="centerY" id="jPo-pl-oDS"/>
                                 <constraint firstItem="bE5-nR-rx2" firstAttribute="leading" secondItem="GXr-8A-gRp" secondAttribute="leading" constant="15" id="jla-eK-igA"/>
                                 <constraint firstItem="pXU-wh-IkT" firstAttribute="leading" secondItem="GXr-8A-gRp" secondAttribute="leading" constant="15" id="nO8-Lx-se8"/>
+                                <constraint firstItem="Ygv-BY-7Wd" firstAttribute="leading" secondItem="GXr-8A-gRp" secondAttribute="leading" constant="16" id="vSZ-Ld-nRd"/>
                                 <constraint firstItem="pXU-wh-IkT" firstAttribute="top" secondItem="GXr-8A-gRp" secondAttribute="top" constant="15" id="xcU-fo-Cl7"/>
                             </constraints>
                         </view>

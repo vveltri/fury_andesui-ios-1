@@ -12,41 +12,47 @@ class MessageViewController: UIViewController {
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var messageView: AndesMessage!
+    @IBOutlet weak var messageWithActions: AndesMessage!
     @IBOutlet weak var randomText: AndesButton!
     @IBOutlet weak var randomTitle: AndesButton!
-    @IBOutlet weak var animateButton: AndesButton!
+    @IBOutlet weak var showHidden: AndesButton!
     @IBOutlet weak var hierarchyField: UITextField!
+    @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var typeField: UITextField!
+
     var typePicker: UIPickerView = UIPickerView()
     var statePicker: UIPickerView = UIPickerView()
-    let messageDict = [
+    let messageDict: [String] = [
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
         "Single line",
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
     ]
 
-    let titleDict = ["", "Title", "Two Words", "One, Two, Three, Four...", "Super long title to see if title can be multiline or not, can it?"]
+    let titleDict: [String] = ["", "Title", "Two Words", "One, Two, Three, Four...", "Super long title to see if title can be multiline or not, can it?"]
 
     fileprivate func setupButtons() {
         randomText.setText("Random Description")
         randomTitle.setText("Random Title")
-        animateButton.setText("Animate")
+        showHidden.setText("Show hidden")
 
         randomText.setSize(.small)
         randomTitle.setSize(.small)
-        animateButton.setSize(.small)
+        showHidden.setSize(.small)
+
+        showHidden.setHierarchy(.transparent)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupButtons()
         createPickerViews()
-        messageView.onDismiss({[unowned self] message in self.isDismissing(message)})
-        messageView.setDismissable(true)
+
+        messageWithActions.setPrimaryAction("Primary", handler: {[unowned self] _ in self.didPressButton()})
+        messageWithActions.setSecondaryAction("Secondary", handler: {[unowned self] _ in self.didPressButton()})
     }
 
-    func isDismissing(_ message: AndesMessage) {
-        let alert = UIAlertController(title: "Dismiss", message: "message dismiss pressed", preferredStyle: .alert)
+    func didPressButton() {
+        let alert = UIAlertController(title: "Button Pressed", message: "", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
@@ -61,33 +67,34 @@ class MessageViewController: UIViewController {
         statePicker.dataSource = self
     }
 
-    @IBAction func randomMessageAction(_ sender: Any) {
-        let msg = messageDict.randomElement()
-        self.contentView.subviews.filter {($0 is AndesMessage)}.forEach {
+    func modifiyMessages<T>(param: T, modifier: (AndesMessage) -> (T) -> AndesMessage) {
+        self.stackView.subviews.filter {($0 is AndesMessage)}.forEach {
             if let message = $0 as? AndesMessage {
-                message.setBody(msg!)
+                _ = modifier(message)(param)
+            }
+        }
+    }
+
+    @IBAction func dismissableDidChange(_ sender: UISwitch) {
+        modifiyMessages(param: sender.isOn, modifier: AndesMessage.setDismissable)
+    }
+
+    @IBAction func randomMessageAction(_ sender: Any) {
+        let msg: String = messageDict.randomElement()!
+        modifiyMessages(param: msg, modifier: AndesMessage.setBody)
+    }
+
+    @IBAction func showHidden(_ sender: Any) {
+        self.stackView.subviews.filter {($0 is AndesMessage)}.forEach {
+            if let message = $0 as? AndesMessage {
+                message.isHidden = false
             }
         }
     }
 
     @IBAction func randomTitle(_ sender: Any) {
-        let title = titleDict.randomElement()
-        self.contentView.subviews.filter {($0 is AndesMessage)}.forEach {
-            if let message = $0 as? AndesMessage {
-                message.setTitle(title!)
-            }
-        }
-    }
-
-    @IBAction func animateChange(_ sender: Any) {
-        let msg = messageDict.randomElement()
-        let title = titleDict.randomElement()
-        UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseIn], animations: {
-            self.messageView.setBody(msg!)
-            self.messageView.setTitle(title!)
-            self.contentView.layoutIfNeeded()
-        }, completion: nil)
-
+        let title: String? = titleDict.randomElement()
+        modifiyMessages(param: title, modifier: AndesMessage.setTitle)
     }
 }
 
@@ -97,13 +104,13 @@ extension MessageViewController: UIPickerViewDelegate {
            hierarchyField.resignFirstResponder()
             let hierarchy = AndesMessageHierarchy.init(rawValue: row)!
             hierarchyField.text = hierarchy.toString()
-            messageView.setHierarchy(hierarchy)
+            modifiyMessages(param: hierarchy, modifier: AndesMessage.setHierarchy)
         }
         if pickerView == statePicker {
             typeField.resignFirstResponder()
             let type = AndesMessageType.init(rawValue: row)!
             typeField.text = type.toString()
-            messageView.setType(type)
+            modifiyMessages(param: type, modifier: AndesMessage.setType)
           }
     }
 }
