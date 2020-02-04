@@ -1,4 +1,5 @@
 # v1.2.1
+## Changed
 - AndesMessage: changed body from semibold to regular.
 
 # v1.2.0
