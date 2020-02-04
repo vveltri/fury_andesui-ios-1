@@ -1,4 +1,7 @@
-# v1.2.0 (Sin Publicar)
+# v1.2.1
+- AndesMessage: changed body from semibold to regular.
+
+# v1.2.0
 ## Changed
 - AndesButton now exposes getters for properties
 - AndesMessageHierarchy changed highlight to neutral
