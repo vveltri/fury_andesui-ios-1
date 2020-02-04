@@ -16,7 +16,7 @@ internal struct AndesMessageViewConfig {
     var titleText: String?
     var titleFont: UIFont = AndesStyleSheetManager.styleSheet.semiboldSystemFontOfSize(size: 16)
 
-    var bodyFont: UIFont = AndesStyleSheetManager.styleSheet.semiboldSystemFontOfSize(size: 14)
+    var bodyFont: UIFont = AndesStyleSheetManager.styleSheet.regularSystemFont(size: 14)
     var bodyText: String?
 
     var icon: UIImage?
