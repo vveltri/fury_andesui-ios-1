@@ -7,6 +7,10 @@
 
 import Foundation
 struct AndesMessageHierarchyQuiet: AndesMessageHierarchyProtocol {
+    var primaryButtonHierarchy: AndesButtonHierarchyProtocol = AndesButtonHierarchyLoud()
+
+    var secondaryButtonHierarchy: AndesButtonHierarchyProtocol = AndesButtonHierarchyTransparent()
+
     var dismissButtonColor: UIColor = AndesStyleSheetManager.styleSheet.textPrimaryColor
 
     var textColor: UIColor = AndesStyleSheetManager.styleSheet.textPrimaryColor
@@ -20,5 +24,7 @@ struct AndesMessageHierarchyQuiet: AndesMessageHierarchyProtocol {
     init(type: AndesMessageTypeProtocol) {
         pipeColor = type.primaryColor
         accentColor = type.primaryColor
+        primaryButtonHierarchy = AndesButtonHierarchyLoud()
+        secondaryButtonHierarchy = AndesButtonHierarchyTransparent()
     }
 }

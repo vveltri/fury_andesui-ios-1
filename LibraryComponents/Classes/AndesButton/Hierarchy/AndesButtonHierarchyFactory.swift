@@ -12,10 +12,10 @@ The responsability of the factory is to provide the right style by providing the
 */
 class AndesButtonHierarchyFactory {
 
-    private var hierarchies: Dictionary<AndesButtonHierarchy, AndesButtonHierarchyProtocol>
+    private var hierarchies: [AndesButtonHierarchy: AndesButtonHierarchyProtocol]
 
     init() {
-        hierarchies = Dictionary<AndesButtonHierarchy, AndesButtonHierarchyProtocol>()
+        hierarchies = [AndesButtonHierarchy: AndesButtonHierarchyProtocol]()
         hierarchies[.loud] = AndesButtonHierarchyLoud()
         hierarchies[.quiet] = AndesButtonHierarchyQuiet()
         hierarchies[.transparent] = AndesButtonHierarchyTransparent()

@@ -27,8 +27,8 @@ internal struct AndesMessageViewConfig {
     var dismissIcon: UIImage? = UIImage(named: "andes_ui_close_20", in: AndesBundle.bundle(), compatibleWith: nil)!
     var dismissIconColor: UIColor = AndesStyleSheetManager.styleSheet.textWhiteColor
 
-    var primaryActionText: String?
-    var secondaryActionText: String?
+    var primaryActionConfig: AndesButtonViewConfig?
+    var secondaryActionConfig: AndesButtonViewConfig?
 
     init(backgroundColor: UIColor, pipeColor: UIColor, textColor: UIColor, titleText: String?, bodyText: String, icon: UIImage?, iconBackgroundColor: UIColor, isDismissable: Bool, dismissIconColor: UIColor) {
         self.backgroundColor = backgroundColor

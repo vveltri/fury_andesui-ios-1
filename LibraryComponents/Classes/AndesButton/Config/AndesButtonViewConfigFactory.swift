@@ -14,8 +14,12 @@ internal class AndesButtonViewConfigFactory {
     func provide(hierarchy: AndesButtonHierarchy, size: AndesButtonSize, text: String, icon: AndesButtonIcon?) -> AndesButtonViewConfig {
         let buttonHierarchy = AndesButtonHierarchyFactory().provideStyle(key: hierarchy)
         let buttonSize = AndesButtonSizeFactory().provideStyle(key: size, icon: icon)
+        return provide(hierarchy: buttonHierarchy, size: buttonSize, text: text, icon: icon)
+    }
 
-        let viewConfig = AndesButtonViewConfig(backgroundColor: buttonHierarchy.idleColor.cgColor, pressedColor: buttonHierarchy.pressedColor.cgColor, disableColor: buttonHierarchy.disableColor.cgColor, text: text, textColor: buttonHierarchy.fontColor, textDisableColor: AndesStyleSheetManager.styleSheet.textDisableColor, font: buttonSize.font, cornerRadius: buttonSize.borderRadius, height: buttonSize.height, padding: buttonSize.padding, icon: icon?.icon, iconColor: buttonHierarchy.fontColor, iconDisableColor: AndesStyleSheetManager.styleSheet.textDisableColor)
+    func provide(hierarchy: AndesButtonHierarchyProtocol, size: AndesButtonSizeProtocol, text: String, icon: AndesButtonIcon?) -> AndesButtonViewConfig {
+
+        let viewConfig = AndesButtonViewConfig(backgroundColor: hierarchy.idleColor.cgColor, pressedColor: hierarchy.pressedColor.cgColor, disableColor: hierarchy.disableColor.cgColor, text: text, textColor: hierarchy.fontColor, textDisableColor: AndesStyleSheetManager.styleSheet.textDisableColor, font: size.font, cornerRadius: size.borderRadius, height: size.height, padding: size.padding, icon: icon?.icon, iconColor: hierarchy.fontColor, iconDisableColor: AndesStyleSheetManager.styleSheet.textDisableColor)
 
         return viewConfig
     }

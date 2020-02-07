@@ -8,7 +8,7 @@
 import UIKit
 
 @objc public class AndesMessage: UIView {
-    internal var view: AndesMessageView!
+    internal var contentView: AndesMessageView!
     /// returns the current hierarchy
     public private(set) var hierarchy: AndesMessageHierarchy = .loud
 
@@ -24,7 +24,15 @@ import UIKit
     /// returns true if the message is dismissable by user
     public private(set) var isDismissable: Bool = false
 
+    /// returns the current primary action text
+    public private(set) var primaryActionText: String?
+
+    /// returns the current secondary action text
+    public private(set) var secondaryActionText: String?
+
     private var dismissHandler: ((_ message: AndesMessage) -> Void)?
+    private var onPrimaryActionPressed: ((_ message: AndesMessage) -> Void)?
+    private var onSecondaryActionPressed: ((_ message: AndesMessage) -> Void)?
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -45,25 +53,35 @@ import UIKit
         setup()
     }
 
-    private func drawContentView() {
-        self.view = provideView()
-        view.delegate = self
-        addSubview(view)
-        leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+    private func drawContentView(with newView: AndesMessageView) {
+        self.contentView = newView
+        contentView.delegate = self
+        addSubview(contentView)
+        leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+        trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+        topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+    }
+
+    /// Check if view needs to be redrawn, and then update it. This method should be called on all modifiers that may need to change which internal view should be rendered
+    private func reDrawContentViewIfNeededThenUpdate() {
+        let newView = provideView()
+        if Swift.type(of: newView) !== Swift.type(of: contentView) {
+            contentView.removeFromSuperview()
+            drawContentView(with: newView)
+        }
+        updateContentView()
     }
 
     private func setup() {
         translatesAutoresizingMaskIntoConstraints = false
         self.backgroundColor = .clear
-        drawContentView()
+        drawContentView(with: provideView())
     }
 
     private func updateContentView() {
-        let config = AndesMessageViewConfigFactory.provideConfig(hierarchy: self.hierarchy, type: self.type, title: self.title, body: self.body, isDismissable: self.isDismissable)
-        view.update(withConfig: config)
+        let config = AndesMessageViewConfigFactory.provideConfig(hierarchy: self.hierarchy, type: self.type, title: self.title, body: self.body, isDismissable: self.isDismissable, primaryActionText: self.primaryActionText, secondaryActionText: self.secondaryActionText)
+        contentView.update(withConfig: config)
     }
 
     /// Sets the title of the AndesMessage
@@ -112,10 +130,37 @@ import UIKit
         return self
     }
 
+    /// Primary action, when defined with a title a button will show on the message
+    /// - Parameters:
+    ///   - title: Button text
+    ///   - handler: handler to trigger when button pressed
+    @objc @discardableResult public func setPrimaryAction(_ title: String, handler: ((_ message: AndesMessage) -> Void)?) -> AndesMessage {
+        self.primaryActionText = title
+        self.onPrimaryActionPressed = handler
+        reDrawContentViewIfNeededThenUpdate()
+        return self
+    }
+
+    /// Actions that shows oly if primary action defined.
+    /// - Parameters:
+    ///   - title: Button text
+    ///   - handler: handler to trigger when button pressed
+    @objc @discardableResult public func setSecondaryAction(_ title: String, handler: ((_ message: AndesMessage) -> Void)?) -> AndesMessage {
+        self.secondaryActionText = title
+        self.onSecondaryActionPressed = handler
+        reDrawContentViewIfNeededThenUpdate()
+        return self
+    }
+
     /// Should return a view depending on which message variant is selected
     private func provideView() -> AndesMessageView {
-        let config = AndesMessageViewConfigFactory.provideConfig(hierarchy: self.hierarchy, type: self.type, title: self.title, body: self.body, isDismissable: self.isDismissable)
-        return AndesMessageDefaultView(withConfig: config)
+        let config = AndesMessageViewConfigFactory.provideConfig(hierarchy: self.hierarchy, type: self.type, title: self.title, body: self.body, isDismissable: self.isDismissable, primaryActionText: self.primaryActionText, secondaryActionText: self.secondaryActionText)
+
+        if let pText = primaryActionText, !pText.isEmpty {
+            return AndesMessageWithActionsView(withConfig: config)
+        } else {
+            return AndesMessageDefaultView(withConfig: config)
+        }
     }
 }
 
@@ -123,5 +168,13 @@ extension AndesMessage: AndesMessageViewDelegate {
     func dismissTapped() {
         self.isHidden = true
         dismissHandler?(self)
+    }
+
+    func primaryBtnTouchUp() {
+        onPrimaryActionPressed?(self)
+    }
+
+    func secondaryBtnTouchUp() {
+        onSecondaryActionPressed?(self)
     }
 }

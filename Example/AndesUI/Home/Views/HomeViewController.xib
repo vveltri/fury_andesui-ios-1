@@ -8,11 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="AndesUI_Example" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="AndesUI_DemoApp" customModuleProvider="target">
             <connections>
                 <outlet property="button" destination="pzX-2Z-8ZP" id="mDt-cx-9G3"/>
                 <outlet property="messagesBtn" destination="iA2-9b-o7k" id="hLz-sQ-2WS"/>
-                <outlet property="stackView" destination="A0L-IL-kVl" id="vkb-16-Py1"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -24,31 +23,41 @@
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dLe-Ba-tiJ">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="A0L-IL-kVl">
-                            <rect key="frame" x="30" y="16" width="240" height="264"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ylf-cA-m4U">
+                            <rect key="frame" x="20" y="20" width="355" height="508"/>
                             <subviews>
-                                <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="128" translatesAutoresizingMaskIntoConstraints="NO" id="pzX-2Z-8ZP" customClass="AndesButton" customModule="AndesUI">
-                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                    <connections>
-                                        <action selector="goToButtonWasTapped:" destination="-1" eventType="touchUpInside" id="i6J-ij-hBi"/>
-                                    </connections>
-                                </view>
-                                <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="128" translatesAutoresizingMaskIntoConstraints="NO" id="iA2-9b-o7k" customClass="AndesButton" customModule="AndesUI">
-                                    <rect key="frame" x="0.0" y="136" width="240" height="128"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                    <connections>
-                                        <action selector="goToMessagesTapped:" destination="-1" eventType="touchUpInside" id="S44-PU-uV5"/>
-                                    </connections>
-                                </view>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="A0L-IL-kVl">
+                                    <rect key="frame" x="57.5" y="122" width="240" height="264"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="128" translatesAutoresizingMaskIntoConstraints="NO" id="pzX-2Z-8ZP" customClass="AndesButton" customModule="AndesUI">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            <connections>
+                                                <action selector="goToButtonWasTapped:" destination="-1" eventType="touchUpInside" id="i6J-ij-hBi"/>
+                                            </connections>
+                                        </view>
+                                        <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="128" translatesAutoresizingMaskIntoConstraints="NO" id="iA2-9b-o7k" customClass="AndesButton" customModule="AndesUI">
+                                            <rect key="frame" x="0.0" y="136" width="240" height="128"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            <connections>
+                                                <action selector="goToMessagesTapped:" destination="-1" eventType="touchUpInside" id="S44-PU-uV5"/>
+                                            </connections>
+                                        </view>
+                                    </subviews>
+                                </stackView>
                             </subviews>
-                        </stackView>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstItem="A0L-IL-kVl" firstAttribute="centerY" secondItem="ylf-cA-m4U" secondAttribute="centerY" id="BcC-gm-evz"/>
+                                <constraint firstItem="A0L-IL-kVl" firstAttribute="centerX" secondItem="ylf-cA-m4U" secondAttribute="centerX" id="cSQ-VP-X6Q"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="A0L-IL-kVl" firstAttribute="top" secondItem="dLe-Ba-tiJ" secondAttribute="top" constant="16" id="933-59-Gvx"/>
-                        <constraint firstAttribute="bottom" secondItem="A0L-IL-kVl" secondAttribute="bottom" id="A0e-DM-C7R"/>
-                        <constraint firstAttribute="trailing" secondItem="A0L-IL-kVl" secondAttribute="trailing" constant="16" id="Vpo-So-KlW"/>
-                        <constraint firstItem="A0L-IL-kVl" firstAttribute="leading" secondItem="dLe-Ba-tiJ" secondAttribute="leading" constant="30" id="ads-48-np6"/>
+                        <constraint firstItem="ylf-cA-m4U" firstAttribute="leading" secondItem="dLe-Ba-tiJ" secondAttribute="leading" constant="20" symbolic="YES" id="8C9-nq-W6H"/>
+                        <constraint firstAttribute="trailing" secondItem="ylf-cA-m4U" secondAttribute="trailing" constant="20" symbolic="YES" id="Fp3-5e-NZs"/>
+                        <constraint firstAttribute="bottom" secondItem="ylf-cA-m4U" secondAttribute="bottom" constant="20" symbolic="YES" id="NXB-OY-pED"/>
+                        <constraint firstItem="ylf-cA-m4U" firstAttribute="top" secondItem="dLe-Ba-tiJ" secondAttribute="top" constant="20" symbolic="YES" id="rwo-do-Krc"/>
                     </constraints>
                 </scrollView>
             </subviews>
@@ -57,11 +66,13 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="dLe-Ba-tiJ" secondAttribute="trailing" id="0pf-hP-Aq2"/>
                 <constraint firstItem="dLe-Ba-tiJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="4Tn-E0-JR2"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="dLe-Ba-tiJ" secondAttribute="bottom" id="D7L-sc-she"/>
+                <constraint firstItem="ylf-cA-m4U" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.857488" id="X9F-P5-gIn"/>
+                <constraint firstItem="ylf-cA-m4U" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.566964" priority="250" id="bSy-FS-dH8"/>
                 <constraint firstItem="dLe-Ba-tiJ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="e3e-Yo-2ka"/>
                 <constraint firstItem="dLe-Ba-tiJ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ph7-lc-Uv4"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="139" y="145"/>
+            <point key="canvasLocation" x="137.68115942028987" y="144.64285714285714"/>
         </view>
     </objects>
 </document>

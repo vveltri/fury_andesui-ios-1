@@ -29,6 +29,7 @@
 - (void)setup {
     [self setupStyles];
     [self setupTexts];
+    [self setupActions];
 }
 
 - (void)setupTexts {
@@ -41,6 +42,15 @@
     [self.neutralQuiet setHierarchy:AndesMessageHierarchyLoud];
     [self.errorLoud setType:AndesMessageTypeError];
     [[self.successQuiet setType:AndesMessageTypeSuccess] setHierarchy:AndesMessageHierarchyQuiet];
+}
+
+- (void)setupActions {
+    [self.neutralQuiet setPrimaryAction:@"Primary" handler:^(AndesMessage* message){
+        NSLog(@"Primary tapped");
+    }];
+    [self.neutralQuiet setSecondaryAction:@"Secondary" handler:^(AndesMessage* message){
+        NSLog(@"Secondary tapped");
+    }];
 }
 
 @end

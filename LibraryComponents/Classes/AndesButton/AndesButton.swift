@@ -97,6 +97,7 @@ import UIKit
         translatesAutoresizingMaskIntoConstraints = false
         setupTargets()
         drawContentView()
+        self.backgroundColor = .clear
         setText(text)
     }
 
@@ -200,5 +201,11 @@ import UIKit
     */
     @objc func touchDown() {
        view.touchDown()
+    }
+
+    internal func updateWithCustomConfig(_ config: AndesButtonViewConfig) {
+        view.removeFromSuperview()
+        self.config = config
+        drawContentView()
     }
 }
