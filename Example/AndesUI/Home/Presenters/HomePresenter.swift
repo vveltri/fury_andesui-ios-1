@@ -11,6 +11,7 @@ import UIKit
 protocol HomePresenter: NSObject {
     func presentButtons()
     func presentMessages()
+    func presentWhatsNew()
 }
 
 class HomeViewPresenter: NSObject {
@@ -31,5 +32,8 @@ extension HomeViewPresenter: HomePresenter {
 
     func presentMessages() {
         router.routeToMessages()
+    }
+    func presentWhatsNew() {
+        router.routeToWhatsNew()
     }
 }

@@ -1,0 +1,22 @@
+/* 
+  Localizable.strings
+  AndesUI
+
+  Created by Nicolas Rostan Talasimov on 2/6/20.
+  Copyright © 2020 MercadoLibre. All rights reserved.
+*/
+"home.welcomeMsg.title" = "Check out what's new!";
+"home.welcomeMsg.desc" = "Check out the latest news on Andes.\njust tap this 🖕 AndesMessage to go to the What's New page.";
+"home.label.showcase" = "Showcase";
+
+"whatsnew.title" = "What's New";
+
+"message.button.changeConfig" = "Change Config";
+"message.button.updateConfig" = "Update";
+"message.button.showAgain" = "showAgain";
+"message.actions.pressedMsg" = "Action Pressed";
+"message.button.hideConfig" = "Hide Config";
+"message.error.emptyBody" = "Body can't be empty";
+"message.error.primaryNotSet" = "Can't have secondary action without primary";
+"message.default.title" = "Title here!";
+"message.default.body" = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";

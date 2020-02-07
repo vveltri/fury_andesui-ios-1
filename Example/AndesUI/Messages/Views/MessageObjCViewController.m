@@ -12,9 +12,7 @@
 #import <AndesUI-Swift.h>
 
 @interface MessageObjCViewController ()
-@property (weak, nonatomic) IBOutlet AndesMessage *neutralQuiet;
-@property (weak, nonatomic) IBOutlet AndesMessage *errorLoud;
-@property (weak, nonatomic) IBOutlet AndesMessage *successQuiet;
+@property (weak, nonatomic) IBOutlet UIStackView *stackView;
 
 @end
 
@@ -26,31 +24,47 @@
     [self setup];
 }
 
+- (void) handleActionTap:(AndesMessage*)message {
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Action Pressed"
+                                                                   message:@""
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                          handler:nil];
+
+    [alert addAction:defaultAction];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 - (void)setup {
-    [self setupStyles];
-    [self setupTexts];
-    [self setupActions];
-}
+    __weak typeof(self) weakSelf = self;
 
-- (void)setupTexts {
-    [[self.neutralQuiet setTitle:@"Neutral"] setBody:@"This is a quiet/neutral message"];
-    [[self.errorLoud setTitle:@"Error"] setBody:@"This is a loud/error message"];
-    [[self.successQuiet setTitle:@"Success"] setBody:@"This is a quiet/success message"];
-}
-
-- (void)setupStyles {
-    [self.neutralQuiet setHierarchy:AndesMessageHierarchyLoud];
-    [self.errorLoud setType:AndesMessageTypeError];
-    [[self.successQuiet setType:AndesMessageTypeSuccess] setHierarchy:AndesMessageHierarchyQuiet];
-}
-
-- (void)setupActions {
-    [self.neutralQuiet setPrimaryAction:@"Primary" handler:^(AndesMessage* message){
-        NSLog(@"Primary tapped");
+    _stackView.translatesAutoresizingMaskIntoConstraints = false;
+    AndesMessage* view = [[AndesMessage alloc] initWithHierarchy:AndesMessageHierarchyQuiet type:AndesMessageTypeSuccess title:@"Message title" body:@"Message body\nSuccess - Quiet"];
+    [_stackView addArrangedSubview:view];
+    [view.widthAnchor constraintEqualToAnchor:_stackView.widthAnchor].active = YES;
+    
+    view = [[AndesMessage alloc] initWithHierarchy:AndesMessageHierarchyLoud type:AndesMessageTypeNeutral title:@"Message title" body:@"Message body\nNeutral - Quiet - With Actions"];
+    [view setPrimaryAction:@"Action" handler: ^(AndesMessage* message){
+        [weakSelf handleActionTap:message];
     }];
-    [self.neutralQuiet setSecondaryAction:@"Secondary" handler:^(AndesMessage* message){
-        NSLog(@"Secondary tapped");
+    [view setSecondaryAction:@"Secondary Action" handler: ^(AndesMessage* message){
+        [weakSelf handleActionTap:message];
     }];
+    [_stackView addArrangedSubview:view];
+    [view.widthAnchor constraintEqualToAnchor:_stackView.widthAnchor].active = YES;
+    
+    view = [[AndesMessage alloc] initWithHierarchy:AndesMessageHierarchyQuiet type:AndesMessageTypeError title:@"" body:@"Message Without title\nError - Quiet"];
+    [view setPrimaryAction:@"Just Primary" handler: ^(AndesMessage* message){
+        [weakSelf handleActionTap:message];
+    }];
+    [_stackView addArrangedSubview:view];
+    [view.widthAnchor constraintEqualToAnchor:_stackView.widthAnchor].active = YES;
+    
+    view = [[AndesMessage alloc] initWithHierarchy:AndesMessageHierarchyLoud type:AndesMessageTypeWarning title:@"Message title" body:@"Message body\nWarning - Loud"];
+    [_stackView addArrangedSubview:view];
+    [view.widthAnchor constraintEqualToAnchor:_stackView.widthAnchor].active = YES;
+    
 }
 
 @end

@@ -2,7 +2,7 @@ included: # paths to include during linting. `--path` is ignored if present.
   - LibraryComponents
   - Example/AndesUI
   - Example/Testsw
-line_length: 110
+line_length: 400
 # they can set both implicitly with an array
 type_body_length:
   - 300 # warning

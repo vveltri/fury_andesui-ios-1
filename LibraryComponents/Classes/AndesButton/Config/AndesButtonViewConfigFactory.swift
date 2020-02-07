@@ -19,7 +19,18 @@ internal class AndesButtonViewConfigFactory {
 
     func provide(hierarchy: AndesButtonHierarchyProtocol, size: AndesButtonSizeProtocol, text: String, icon: AndesButtonIcon?) -> AndesButtonViewConfig {
 
-        let viewConfig = AndesButtonViewConfig(backgroundColor: hierarchy.idleColor.cgColor, pressedColor: hierarchy.pressedColor.cgColor, disableColor: hierarchy.disableColor.cgColor, text: text, textColor: hierarchy.fontColor, textDisableColor: AndesStyleSheetManager.styleSheet.textDisableColor, font: size.font, cornerRadius: size.borderRadius, height: size.height, padding: size.padding, icon: icon?.icon, iconColor: hierarchy.fontColor, iconDisableColor: AndesStyleSheetManager.styleSheet.textDisableColor)
+        let viewConfig = AndesButtonViewConfig(backgroundColor: hierarchy.idleColor.cgColor,
+                                               pressedColor: hierarchy.pressedColor.cgColor,
+                                               disableColor: hierarchy.disableColor.cgColor,
+                                               text: text, textColor: hierarchy.fontColor,
+                                               textDisableColor: AndesStyleSheetManager.styleSheet.textDisableColor,
+                                               font: size.font,
+                                               cornerRadius: size.borderRadius,
+                                               height: size.height,
+                                               padding: size.padding,
+                                               icon: icon?.icon,
+                                               iconColor: hierarchy.fontColor,
+                                               iconDisableColor: AndesStyleSheetManager.styleSheet.textDisableColor)
 
         return viewConfig
     }
