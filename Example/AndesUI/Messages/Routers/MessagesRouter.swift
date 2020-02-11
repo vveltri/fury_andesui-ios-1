@@ -13,17 +13,12 @@ protocol MessagesRouter: NSObject {
 }
 
 class MessagesAppRouter: NSObject {
-//    Messages view controller in swift code, uncomment to use this code in testapp
-    var view: MessageViewController!
-
-//    Messages view controller in objc code, uncomment to use this code in testapp
-//    var view: MessageObjCViewController!
+    var view: AndesMessageShowcaseViewController!
 }
 
 extension MessagesAppRouter: MessagesRouter {
     func route(from: UIViewController) {
-        view = MessageViewController()
-//        view = MessageObjCViewController()
+        view = AndesMessageShowcaseViewController()
         from.navigationController?.pushViewController(view, animated: true)
     }
 }

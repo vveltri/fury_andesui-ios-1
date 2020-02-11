@@ -18,10 +18,16 @@ class HomeViewController: UIViewController {
 
     weak var presenter: HomePresenter!
     @IBOutlet weak var button: AndesButton!
+    @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var messagesBtn: AndesButton!
-
+    @IBOutlet weak var welcomeMessage: AndesMessage!
+    @IBOutlet weak var specsButton: AndesButton!
+    @IBOutlet weak var showcaseLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let version = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String {
+            showcaseLabel.text = "\("home.label.showcase".localized) (v\(version))"
+        }
 
         setupUI()
     }
@@ -31,16 +37,27 @@ class HomeViewController: UIViewController {
             navigationItem.title = "AndesUI"
         }
 
-        func setupButtons() {
-            button.setText("Buttons")
-            button.setSize(.large)
+        func setupMessage() {
+            welcomeMessage.setTitle("home.welcomeMsg.title".localized)
+                .setBody("home.welcomeMsg.desc".localized)
+                .setHierarchy(.quiet)
+        }
 
-            messagesBtn.setText("Messages")
-            button.setSize(.large)
+        func setupButtons() {
+            button.setText("Andes Button Showcase")
+                .setSize(.large)
+
+            messagesBtn.setText("Andes Message Showcase")
+                .setSize(.large)
+
+            specsButton.setText("Andes Specs")
+                .setHierarchy(.quiet)
+                .setSize(.large)
         }
 
         setupNavigation()
         setupButtons()
+        setupMessage()
     }
 
     @IBAction func goToButtonWasTapped(_ sender: Any) {
@@ -49,6 +66,16 @@ class HomeViewController: UIViewController {
 
     @IBAction func goToMessagesTapped(_ sender: Any) {
         presenter.presentMessages()
+    }
+
+    @IBAction func goToSpecsTapped(_ sender: Any) {
+        guard let url = URL(string: "https://company-161429.frontify.com/d/kxHCRixezmfK/n-a") else { return }
+        UIApplication.shared.open(url)
+
+    }
+
+    @IBAction func welcomeMsgTapped(_ sender: Any) {
+        presenter.presentWhatsNew()
     }
 }
 

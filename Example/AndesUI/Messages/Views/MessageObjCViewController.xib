@@ -12,9 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MessageObjCViewController">
             <connections>
-                <outlet property="errorLoud" destination="y4S-Od-ixo" id="96V-wp-d4f"/>
-                <outlet property="neutralQuiet" destination="TpJ-th-G1p" id="3UO-k2-uNz"/>
-                <outlet property="successQuiet" destination="d7f-aq-5EC" id="0JS-S4-pNL"/>
+                <outlet property="stackView" destination="9Fx-7G-wMo" id="mP9-Fe-f4z"/>
                 <outlet property="view" destination="iN0-l3-epB" id="CRr-Mr-d8J"/>
             </connections>
         </placeholder>
@@ -23,30 +21,16 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" placeholderIntrinsicWidth="384" placeholderIntrinsicHeight="128" translatesAutoresizingMaskIntoConstraints="NO" id="TpJ-th-G1p" customClass="AndesMessage" customModule="AndesUI">
-                    <rect key="frame" x="15" y="59" width="384" height="128"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                </view>
-                <view contentMode="scaleToFill" placeholderIntrinsicWidth="384" placeholderIntrinsicHeight="128" translatesAutoresizingMaskIntoConstraints="NO" id="y4S-Od-ixo" customClass="AndesMessage" customModule="AndesUI">
-                    <rect key="frame" x="15" y="202" width="384" height="128"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                </view>
-                <view contentMode="scaleToFill" placeholderIntrinsicWidth="384" placeholderIntrinsicHeight="128" translatesAutoresizingMaskIntoConstraints="NO" id="d7f-aq-5EC" customClass="AndesMessage" customModule="AndesUI">
-                    <rect key="frame" x="15" y="345" width="384" height="128"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                </view>
+                <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="382" placeholderIntrinsicHeight="786" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="9Fx-7G-wMo">
+                    <rect key="frame" x="16" y="60" width="382" height="786"/>
+                </stackView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="d7f-aq-5EC" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="3dM-di-F7V"/>
-                <constraint firstItem="d7f-aq-5EC" firstAttribute="top" secondItem="y4S-Od-ixo" secondAttribute="bottom" constant="15" id="44l-5k-GWZ"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="TpJ-th-G1p" secondAttribute="trailing" constant="15" id="JRw-KL-r0H"/>
-                <constraint firstItem="y4S-Od-ixo" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="LuX-yk-Z8T"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="d7f-aq-5EC" secondAttribute="trailing" constant="15" id="MTI-vZ-ebi"/>
-                <constraint firstItem="TpJ-th-G1p" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="15" id="N08-f1-mpw"/>
-                <constraint firstItem="y4S-Od-ixo" firstAttribute="top" secondItem="TpJ-th-G1p" secondAttribute="bottom" constant="15" id="fIM-zO-EjL"/>
-                <constraint firstItem="TpJ-th-G1p" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="fZm-p4-nWq"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="y4S-Od-ixo" secondAttribute="trailing" constant="15" id="fyY-Zp-yij"/>
+                <constraint firstItem="9Fx-7G-wMo" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="16" id="4Vn-oJ-WCp"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="9Fx-7G-wMo" secondAttribute="trailing" constant="16" id="UeD-ZT-JJx"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="9Fx-7G-wMo" secondAttribute="bottom" constant="16" id="uYu-PX-jWe"/>
+                <constraint firstItem="9Fx-7G-wMo" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="zMC-f4-Ynq"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="132" y="154"/>
