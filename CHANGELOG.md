@@ -1,3 +1,7 @@
+# v1.3.1:
+## Changed
+- AndesMessage: fixed background quiet color.
+
 # v1.3.0
 ## Added
 - AndesMessage: Support message with actions, primary and secondary.
