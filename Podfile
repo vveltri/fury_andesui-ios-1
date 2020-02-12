@@ -10,7 +10,8 @@ use_frameworks!
 
 target 'AndesUI-demoapp' do
     pod 'AndesUI', :path => './'
-    
+    pod 'IQKeyboardManagerSwift', '6.3.0'
+
     target 'AndesUI_Tests' do
         inherit! :search_paths
 
