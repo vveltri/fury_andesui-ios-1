@@ -15,7 +15,7 @@ struct AndesMessageHierarchyQuiet: AndesMessageHierarchyProtocol {
 
     var textColor: UIColor = AndesStyleSheetManager.styleSheet.textPrimaryColor
 
-    var backgroundColor: UIColor = AndesStyleSheetManager.styleSheet.backgroundPrimaryColor
+    var backgroundColor: UIColor = UIColor.AndesColor.Gray.gray40
 
     var pipeColor: UIColor
 
