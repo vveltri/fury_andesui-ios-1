@@ -19,6 +19,8 @@
                 <outlet property="leftPipeView" destination="gFh-wa-OID" id="Cm2-9Z-0LD"/>
                 <outlet property="messageView" destination="iN0-l3-epB" id="GeK-wd-BOU"/>
                 <outlet property="titleLabel" destination="pmK-XL-3ub" id="rbc-sb-4AU"/>
+                <outlet property="titleToDismissConstraint" destination="ADR-ST-j0L" id="bph-Hn-aUV"/>
+                <outlet property="titleToSafeAreaConstraint" destination="EcX-Aa-dXv" id="MCy-Ng-wxb"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -90,8 +92,9 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="xSe-Le-1pW" firstAttribute="centerY" secondItem="CsU-Ah-Mc0" secondAttribute="centerY" id="0D2-0Z-dFM"/>
-                <constraint firstItem="xSe-Le-1pW" firstAttribute="leading" secondItem="G79-j7-hX6" secondAttribute="trailing" constant="16" id="ADR-ST-j0L"/>
+                <constraint firstItem="xSe-Le-1pW" firstAttribute="leading" secondItem="G79-j7-hX6" secondAttribute="trailing" priority="999" constant="16" id="ADR-ST-j0L"/>
                 <constraint firstItem="CsU-Ah-Mc0" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="DgW-9N-a1l"/>
+                <constraint firstAttribute="trailing" secondItem="G79-j7-hX6" secondAttribute="trailing" priority="250" constant="32" id="EcX-Aa-dXv"/>
                 <constraint firstItem="gFh-wa-OID" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" id="MIA-Fj-KqH"/>
                 <constraint firstItem="gFh-wa-OID" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Yn0-Ay-Dnb"/>
                 <constraint firstAttribute="trailing" secondItem="xSe-Le-1pW" secondAttribute="trailing" constant="16" id="ggj-3b-gGj"/>

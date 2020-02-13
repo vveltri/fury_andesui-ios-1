@@ -17,6 +17,8 @@ class AndesMessageAbstractView: UIView, AndesMessageView {
     @IBOutlet weak var iconContainerView: UIView!
     @IBOutlet weak var leftPipeView: UIView!
     @IBOutlet weak var dismissButton: UIButton!
+    @IBOutlet weak var titleToDismissConstraint: NSLayoutConstraint!
+    @IBOutlet weak var titleToSafeAreaConstraint: NSLayoutConstraint!
 
     var config: AndesMessageViewConfig
     init(withConfig config: AndesMessageViewConfig) {
@@ -92,9 +94,13 @@ class AndesMessageAbstractView: UIView, AndesMessageView {
 
         if config.isDismissable, let dismissIcon = config.dismissIcon {
             self.dismissButton.isHidden = false
+            self.titleToDismissConstraint.priority = .defaultHigh
+            self.titleToSafeAreaConstraint.priority = .defaultLow
             self.dismissButton.tintColor = config.dismissIconColor
             self.dismissButton.setImage(dismissIcon, for: .normal)
         } else {
+            self.titleToDismissConstraint.priority = .defaultLow
+            self.titleToSafeAreaConstraint.priority = .defaultHigh
             self.dismissButton.isHidden = true
         }
     }

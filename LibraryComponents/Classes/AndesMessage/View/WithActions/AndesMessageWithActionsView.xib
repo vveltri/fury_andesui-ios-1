@@ -21,6 +21,8 @@
                 <outlet property="primaryAction" destination="HbG-CF-Oqd" id="RZJ-M4-73O"/>
                 <outlet property="secondaryAction" destination="UDP-xQ-Pdx" id="ob2-GU-6z7"/>
                 <outlet property="titleLabel" destination="KcW-WK-QzY" id="pau-ca-pFK"/>
+                <outlet property="titleToDismissConstraint" destination="ndm-ak-doY" id="DG1-v9-dga"/>
+                <outlet property="titleToSafeAreaConstraint" destination="JEr-pg-mxz" id="ubT-XX-3F2"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -111,12 +113,13 @@
                 <constraint firstItem="Mbf-ep-nbj" firstAttribute="leading" secondItem="Cit-nC-uGc" secondAttribute="leading" constant="16" id="DMY-o7-nfT"/>
                 <constraint firstItem="kN4-J7-3O6" firstAttribute="top" secondItem="XXP-Ea-Yt4" secondAttribute="top" id="EX0-Ps-HuH"/>
                 <constraint firstItem="UDP-xQ-Pdx" firstAttribute="leading" secondItem="HbG-CF-Oqd" secondAttribute="trailing" constant="16" id="F3N-MN-Exb"/>
+                <constraint firstAttribute="trailing" secondItem="CPr-he-XXd" secondAttribute="trailing" priority="249" constant="32" id="JEr-pg-mxz"/>
                 <constraint firstItem="Mbf-ep-nbj" firstAttribute="top" secondItem="XXP-Ea-Yt4" secondAttribute="top" constant="16" id="S3U-Fd-wym"/>
                 <constraint firstItem="CPr-he-XXd" firstAttribute="top" secondItem="KSx-w5-sbK" secondAttribute="top" constant="-1" id="W2W-es-ou0"/>
                 <constraint firstItem="HbG-CF-Oqd" firstAttribute="top" secondItem="CPr-he-XXd" secondAttribute="bottom" constant="16" id="b5z-mV-ODV"/>
                 <constraint firstItem="AH2-H9-2Dt" firstAttribute="centerY" secondItem="Mbf-ep-nbj" secondAttribute="centerY" id="bwB-Z1-RRr"/>
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="UDP-xQ-Pdx" secondAttribute="trailing" constant="16" id="cbE-wm-b1g"/>
-                <constraint firstItem="AH2-H9-2Dt" firstAttribute="leading" secondItem="CPr-he-XXd" secondAttribute="trailing" constant="16" id="ndm-ak-doY"/>
+                <constraint firstItem="AH2-H9-2Dt" firstAttribute="leading" secondItem="CPr-he-XXd" secondAttribute="trailing" priority="999" constant="16" id="ndm-ak-doY"/>
                 <constraint firstAttribute="bottom" secondItem="HbG-CF-Oqd" secondAttribute="bottom" constant="16" id="oMz-ah-sEg"/>
                 <constraint firstAttribute="trailing" secondItem="AH2-H9-2Dt" secondAttribute="trailing" constant="16" id="q8W-lZ-aiI"/>
                 <constraint firstItem="kN4-J7-3O6" firstAttribute="bottom" secondItem="XXP-Ea-Yt4" secondAttribute="bottom" id="qip-QH-gNJ"/>
