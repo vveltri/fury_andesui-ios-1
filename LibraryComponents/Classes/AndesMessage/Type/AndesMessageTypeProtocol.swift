@@ -10,5 +10,6 @@ import Foundation
 internal protocol AndesMessageTypeProtocol {
     var primaryColor: UIColor { get }
     var secondaryColor: UIColor { get }
+    var primaryButtonPressedColor: UIColor { get }
     var icon: String { get }
 }

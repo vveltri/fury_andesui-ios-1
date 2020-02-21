@@ -18,3 +18,16 @@ import Foundation
         self.lineHeight = lineHeight
     }
 }
+
+@objc public class AndesFontSize: NSObject {
+    @objc public static let titleXL: CGFloat = 32
+    @objc public static let titleL: CGFloat = 28
+    @objc public static let titleM: CGFloat = 24
+    @objc public static let titleS: CGFloat = 20
+    @objc public static let titleXS: CGFloat = 18
+
+    @objc public static let bodyL: CGFloat = 18
+    @objc public static let bodyM: CGFloat = 16
+    @objc public static let bodyS: CGFloat = 14
+    @objc public static let bodyXS: CGFloat = 12
+}

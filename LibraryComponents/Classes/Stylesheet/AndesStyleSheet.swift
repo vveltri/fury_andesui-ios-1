@@ -19,30 +19,31 @@ import Foundation
       The default colors that you need to override
       to use your color palette through all the UI components
     */
-    var brandColor: UIColor { get }
+    var bgColorPrimary: UIColor { get }
+    var bgColorSecondary: UIColor { get }
+    var bgColorWhite: UIColor { get }
 
-    var accentPrimaryColor: UIColor { get }
-    var accentSecondaryColor: UIColor { get }
-    var accentTertiaryColor: UIColor { get }
+    var brandColor500: UIColor { get }
 
-    var backgroundPrimaryColor: UIColor { get }
-    var backgroundSecondaryColor: UIColor { get }
-    var backgroundWhiteColor: UIColor { get }
+    var accentColor: UIColor { get }
+    var accentColor100: UIColor { get }
+    var accentColor150: UIColor { get }
+    var accentColor200: UIColor { get }
+    var accentColor300: UIColor { get }
+    var accentColor400: UIColor { get }
+    var accentColor500: UIColor { get }
+    var accentColor600: UIColor { get }
+    var accentColor700: UIColor { get }
+    var accentColor800: UIColor { get }
 
-    var textPrimaryColor: UIColor { get }
-    var textSecondaryColor: UIColor { get }
-    var textDisableColor: UIColor { get }
-    var textWhiteColor: UIColor { get }
-    var textLinkColor: UIColor { get }
-
-    var errorPrimaryColor: UIColor { get }
-    var errorSecondaryColor: UIColor { get }
-
-    var warningPrimaryColor: UIColor { get }
-    var warningSecondaryColor: UIColor { get }
-
-    var successPrimaryColor: UIColor { get }
-    var successSecondaryColor: UIColor { get }
+    var textColorPrimary: UIColor { get }
+    var textColorSecondary: UIColor { get }
+    var textColorDisabled: UIColor { get }
+    var textColorNegative: UIColor { get }
+    var textColorCaution: UIColor { get }
+    var textColorPositive: UIColor { get }
+    var tetColorLink: UIColor { get }
+    var textColorWhite: UIColor { get }
 }
 
 /**
@@ -54,19 +55,18 @@ import Foundation
     /**
       The default font variations that you need to override
       to use your own font through all the UI components.
-      By default these methods return the SF system font
+      By default these return the SF system font
     */
     func titleXL(color: UIColor) -> AndesFontStyle
     func titleL(color: UIColor) -> AndesFontStyle
     func titleM(color: UIColor) -> AndesFontStyle
     func titleS(color: UIColor) -> AndesFontStyle
+    func titleXS(color: UIColor) -> AndesFontStyle
 
-    func bodyXL(color: UIColor) -> AndesFontStyle
     func bodyL(color: UIColor) -> AndesFontStyle
     func bodyM(color: UIColor) -> AndesFontStyle
-
-    func linkL(color: UIColor) -> AndesFontStyle
-    func linkM(color: UIColor) -> AndesFontStyle
+    func bodyS(color: UIColor) -> AndesFontStyle
+    func bodySS(color: UIColor) -> AndesFontStyle
 
     func regularSystemFont(size: CGFloat) -> UIFont
     func lightSystemFont(size: CGFloat) -> UIFont

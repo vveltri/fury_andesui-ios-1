@@ -7,7 +7,8 @@
 
 import Foundation
 class AndesMessageTypeError: AndesMessageTypeProtocol {
-    var primaryColor: UIColor = AndesStyleSheetManager.styleSheet.errorPrimaryColor
-    var secondaryColor: UIColor = AndesStyleSheetManager.styleSheet.errorSecondaryColor
+    var primaryColor: UIColor = UIColor.Andes.red500
+    var secondaryColor: UIColor = UIColor.Andes.red600
+    var primaryButtonPressedColor: UIColor = UIColor.Andes.red700
     var icon: String = AndesIcons.feedbackError16
 }

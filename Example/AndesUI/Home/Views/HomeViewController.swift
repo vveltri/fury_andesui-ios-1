@@ -44,10 +44,10 @@ class HomeViewController: UIViewController {
         }
 
         func setupButtons() {
-            button.setText("Andes Button Showcase")
+            button.setText("Andes Button")
                 .setSize(.large)
 
-            messagesBtn.setText("Andes Message Showcase")
+            messagesBtn.setText("Andes Message")
                 .setSize(.large)
 
             specsButton.setText("Andes Specs")

@@ -23,14 +23,14 @@ internal class AndesButtonViewConfigFactory {
                                                pressedColor: hierarchy.pressedColor.cgColor,
                                                disableColor: hierarchy.disableColor.cgColor,
                                                text: text, textColor: hierarchy.fontColor,
-                                               textDisableColor: AndesStyleSheetManager.styleSheet.textDisableColor,
+                                               textDisableColor: AndesStyleSheetManager.styleSheet.textColorDisabled,
                                                font: size.font,
                                                cornerRadius: size.borderRadius,
                                                height: size.height,
                                                padding: size.padding,
                                                icon: icon?.icon,
                                                iconColor: hierarchy.fontColor,
-                                               iconDisableColor: AndesStyleSheetManager.styleSheet.textDisableColor)
+                                               iconDisableColor: AndesStyleSheetManager.styleSheet.textColorDisabled)
 
         return viewConfig
     }

@@ -17,7 +17,7 @@ class AndesMessageShowcaseViewController: UIViewController {
 
     fileprivate func setupPageControl() {
         pageControl.pageIndicatorTintColor = UIColor.gray
-        pageControl.currentPageIndicatorTintColor = AndesStyleSheetManager.styleSheet.brandColor
+        pageControl.currentPageIndicatorTintColor = AndesStyleSheetManager.styleSheet.brandColor500
         pageControl.numberOfPages = controllers.count
     }
 

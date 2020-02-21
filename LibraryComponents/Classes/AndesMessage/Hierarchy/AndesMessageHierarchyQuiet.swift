@@ -11,11 +11,11 @@ struct AndesMessageHierarchyQuiet: AndesMessageHierarchyProtocol {
 
     var secondaryButtonHierarchy: AndesButtonHierarchyProtocol = AndesButtonHierarchyTransparent()
 
-    var dismissButtonColor: UIColor = AndesStyleSheetManager.styleSheet.textPrimaryColor
+    var dismissButtonColor: UIColor = AndesStyleSheetManager.styleSheet.textColorPrimary
 
-    var textColor: UIColor = AndesStyleSheetManager.styleSheet.textPrimaryColor
+    var textColor: UIColor = AndesStyleSheetManager.styleSheet.textColorPrimary
 
-    var backgroundColor: UIColor = UIColor.AndesColor.Gray.gray40
+    var backgroundColor: UIColor = UIColor.Andes.gray040
 
     var pipeColor: UIColor
 
