@@ -1,3 +1,6 @@
+# Sin Publicar
+- AndesMessage: fixes in constraints when dismiss is hidden
+
 # v1.3.1:
 ## Changed
 - AndesMessage: fixed background quiet color.

@@ -48,7 +48,7 @@
                                         <action selector="showConfigTapped:" destination="-1" eventType="touchUpInside" id="nYE-LF-pLc"/>
                                     </connections>
                                 </view>
-                                <view contentMode="scaleToFill" placeholderIntrinsicWidth="48" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="IRM-Ra-dda" customClass="AndesButton" customModule="AndesUI">
+                                <view hidden="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="48" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="IRM-Ra-dda" customClass="AndesButton" customModule="AndesUI">
                                     <rect key="frame" x="16" y="60" width="382" height="40"/>
                                     <color key="backgroundColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <connections>

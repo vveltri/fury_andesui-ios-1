@@ -61,6 +61,9 @@ class MessageViewController: UIViewController, MessageView {
     fileprivate func setupBaseMessage() {
         messageView.setTitle("message.default.title".localized)
             .setBody("message.default.body".localized)
+            .onDismiss({[unowned self] _ in
+                self.showAgainBtn.isHidden = false
+            })
         messageView.setPrimaryAction("Primary", handler: {[unowned self] _ in self.didPressButton()})
         messageView.setSecondaryAction("Secondary", handler: {[unowned self] _ in self.didPressButton()})
     }
@@ -129,6 +132,7 @@ class MessageViewController: UIViewController, MessageView {
 
     @IBAction func showMsg(_ sender: Any) {
         messageView.isHidden = false
+        showAgainBtn.isHidden = true
     }
 
     @IBAction func updateTapped(_ sender: Any) {
