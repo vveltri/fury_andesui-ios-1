@@ -1,4 +1,6 @@
-# Sin Publicar
+# v1.4.0 (Sin Publicar):
+## Added
+- AndesIconsProvider with local strategy to load icons from images.xcassets
 - AndesMessage: fixes in constraints when dismiss is hidden
 
 # v1.3.1:

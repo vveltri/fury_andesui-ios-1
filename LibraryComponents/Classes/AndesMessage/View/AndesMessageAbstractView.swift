@@ -76,7 +76,9 @@ class AndesMessageAbstractView: UIView, AndesMessageView {
         self.bodyLabel.text = config.bodyText
 
         self.iconView.tintColor = config.iconColor
-        self.iconView.image = config.icon
+        if let icon = config.icon {
+            AndesIconsProvider.loadIcon(name: icon, placeItInto: self.iconView)
+        }
         self.iconContainerView.backgroundColor = config.iconBackgroundColor
 
         self.titleLabel.font = config.titleFont
@@ -92,12 +94,14 @@ class AndesMessageAbstractView: UIView, AndesMessageView {
             self.titleLabel.isHidden = false
         }
 
-        if config.isDismissable, let dismissIcon = config.dismissIcon {
+        if config.isDismissable, let iconName = config.dismissIconName {
             self.dismissButton.isHidden = false
             self.titleToDismissConstraint.priority = .defaultHigh
             self.titleToSafeAreaConstraint.priority = .defaultLow
             self.dismissButton.tintColor = config.dismissIconColor
-            self.dismissButton.setImage(dismissIcon, for: .normal)
+            AndesIconsProvider.loadIcon(name: iconName) {
+                self.dismissButton.setImage($0, for: .normal)
+            }
         } else {
             self.titleToDismissConstraint.priority = .defaultLow
             self.titleToSafeAreaConstraint.priority = .defaultHigh

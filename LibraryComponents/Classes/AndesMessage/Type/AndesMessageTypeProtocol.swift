@@ -10,5 +10,5 @@ import Foundation
 internal protocol AndesMessageTypeProtocol {
     var primaryColor: UIColor { get }
     var secondaryColor: UIColor { get }
-    var icon: UIImage { get }
+    var icon: String { get }
 }

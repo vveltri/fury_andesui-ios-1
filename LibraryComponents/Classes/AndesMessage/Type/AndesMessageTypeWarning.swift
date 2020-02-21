@@ -9,5 +9,5 @@ import Foundation
 class AndesMessageTypeWarning: AndesMessageTypeProtocol {
     var primaryColor: UIColor = AndesStyleSheetManager.styleSheet.warningPrimaryColor
     var secondaryColor: UIColor = AndesStyleSheetManager.styleSheet.warningSecondaryColor
-    var icon: UIImage = UIImage(named: "andes_ui_feedback_warning_16", in: AndesBundle.bundle(), compatibleWith: nil)!
+    var icon: String = AndesIcons.feedbackWarning16
 }

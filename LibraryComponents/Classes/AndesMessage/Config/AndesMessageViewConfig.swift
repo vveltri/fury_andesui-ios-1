@@ -19,18 +19,18 @@ internal struct AndesMessageViewConfig {
     var bodyFont: UIFont = AndesStyleSheetManager.styleSheet.regularSystemFont(size: 14)
     var bodyText: String?
 
-    var icon: UIImage?
+    var icon: String?
     var iconColor: UIColor = AndesStyleSheetManager.styleSheet.textWhiteColor
     var iconBackgroundColor: UIColor = AndesStyleSheetManager.styleSheet.accentSecondaryColor
 
     var isDismissable: Bool = false
-    var dismissIcon: UIImage? = UIImage(named: "andes_ui_close_20", in: AndesBundle.bundle(), compatibleWith: nil)!
+    var dismissIconName: String? = AndesIcons.close20
     var dismissIconColor: UIColor = AndesStyleSheetManager.styleSheet.textWhiteColor
 
     var primaryActionConfig: AndesButtonViewConfig?
     var secondaryActionConfig: AndesButtonViewConfig?
 
-    init(backgroundColor: UIColor, pipeColor: UIColor, textColor: UIColor, titleText: String?, bodyText: String, icon: UIImage?, iconBackgroundColor: UIColor, isDismissable: Bool, dismissIconColor: UIColor) {
+    init(backgroundColor: UIColor, pipeColor: UIColor, textColor: UIColor, titleText: String?, bodyText: String, icon: String?, iconBackgroundColor: UIColor, isDismissable: Bool, dismissIconColor: UIColor) {
         self.backgroundColor = backgroundColor
         self.pipeColor = pipeColor
         self.textColor = textColor
