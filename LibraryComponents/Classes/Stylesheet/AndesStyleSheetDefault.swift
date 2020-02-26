@@ -86,7 +86,7 @@ import Foundation
         return AndesFontStyle(textColor: color, font: regularSystemFont(size: AndesFontSize.bodyS), lineHeight: 1.25)
     }
 
-    public func bodySS(color: UIColor) -> AndesFontStyle {
+    public func bodyXS(color: UIColor) -> AndesFontStyle {
         validateColorForBody(color: color)
         return AndesFontStyle(textColor: color, font: regularSystemFont(size: AndesFontSize.bodyXS), lineHeight: 1.25)
     }

@@ -44,43 +44,40 @@ class AndesStyleSheetTests: QuickSpec {
 
         var equal = true
 
-        equal = equal && styleSheetOne.brandColor.isEqual(styleSheetTwo.brandColor)
+        equal = equal && styleSheetOne.brandColor500.isEqual(styleSheetTwo.brandColor500)
 
-        equal = equal && styleSheetOne.accentPrimaryColor.isEqual(styleSheetTwo.accentPrimaryColor)
-        equal = equal && styleSheetOne.accentSecondaryColor.isEqual(styleSheetTwo.accentSecondaryColor)
-        equal = equal && styleSheetOne.accentTertiaryColor.isEqual(styleSheetTwo.accentTertiaryColor)
+        equal = equal && styleSheetOne.accentColor.isEqual(styleSheetTwo.accentColor)
+        equal = equal && styleSheetOne.accentColor100.isEqual(styleSheetTwo.accentColor100)
+        equal = equal && styleSheetOne.accentColor200.isEqual(styleSheetTwo.accentColor200)
+        equal = equal && styleSheetOne.accentColor300.isEqual(styleSheetTwo.accentColor300)
+        equal = equal && styleSheetOne.accentColor400.isEqual(styleSheetTwo.accentColor400)
+        equal = equal && styleSheetOne.accentColor500.isEqual(styleSheetTwo.accentColor500)
+        equal = equal && styleSheetOne.accentColor600.isEqual(styleSheetTwo.accentColor600)
+        equal = equal && styleSheetOne.accentColor700.isEqual(styleSheetTwo.accentColor700)
+        equal = equal && styleSheetOne.accentColor800.isEqual(styleSheetTwo.accentColor800)
 
-        equal = equal && styleSheetOne.backgroundPrimaryColor.isEqual(styleSheetTwo.backgroundPrimaryColor)
-        equal = equal && styleSheetOne.backgroundSecondaryColor.isEqual(styleSheetTwo.backgroundSecondaryColor)
-        equal = equal && styleSheetOne.backgroundWhiteColor.isEqual(styleSheetTwo.backgroundWhiteColor)
+        equal = equal && styleSheetOne.bgColorPrimary.isEqual(styleSheetTwo.bgColorPrimary)
+        equal = equal && styleSheetOne.bgColorWhite.isEqual(styleSheetTwo.bgColorWhite)
+        equal = equal && styleSheetOne.bgColorSecondary.isEqual(styleSheetTwo.bgColorSecondary)
 
-        equal = equal && styleSheetOne.textPrimaryColor.isEqual(styleSheetTwo.textPrimaryColor)
-        equal = equal && styleSheetOne.textSecondaryColor.isEqual(styleSheetTwo.textSecondaryColor)
-        equal = equal && styleSheetOne.textDisableColor.isEqual(styleSheetTwo.textDisableColor)
-        equal = equal && styleSheetOne.textWhiteColor.isEqual(styleSheetTwo.textWhiteColor)
-        equal = equal && styleSheetOne.textLinkColor.isEqual(styleSheetTwo.textLinkColor)
+        equal = equal && styleSheetOne.tetColorLink.isEqual(styleSheetTwo.tetColorLink)
+        equal = equal && styleSheetOne.textColorCaution.isEqual(styleSheetTwo.textColorCaution)
+        equal = equal && styleSheetOne.textColorWhite.isEqual(styleSheetTwo.textColorWhite)
+        equal = equal && styleSheetOne.textColorPrimary.isEqual(styleSheetTwo.textColorPrimary)
+        equal = equal && styleSheetOne.textColorSecondary.isEqual(styleSheetTwo.textColorSecondary)
+        equal = equal && styleSheetOne.textColorDisabled.isEqual(styleSheetTwo.textColorDisabled)
+        equal = equal && styleSheetOne.textColorNegative.isEqual(styleSheetTwo.textColorNegative)
+        equal = equal && styleSheetOne.textColorPositive.isEqual(styleSheetTwo.textColorPositive)
 
-        equal = equal && styleSheetOne.errorPrimaryColor.isEqual(styleSheetTwo.errorPrimaryColor)
-        equal = equal && styleSheetOne.errorSecondaryColor.isEqual(styleSheetTwo.errorSecondaryColor)
+        equal = equal && styleSheetOne.titleXL(color: styleSheetOne.textColorPrimary).compare(object: (styleSheetTwo.titleXL(color: styleSheetTwo.textColorPrimary)))
+        equal = equal && styleSheetOne.titleL(color: styleSheetOne.textColorPrimary).compare(object: (styleSheetTwo.titleL(color: styleSheetTwo.textColorPrimary)))
+        equal = equal && styleSheetOne.titleM(color: styleSheetOne.textColorPrimary).compare(object: (styleSheetTwo.titleM(color: styleSheetTwo.textColorPrimary)))
+        equal = equal && styleSheetOne.titleS(color: styleSheetOne.textColorPrimary).compare(object: (styleSheetTwo.titleS(color: styleSheetTwo.textColorPrimary)))
 
-        equal = equal && styleSheetOne.warningPrimaryColor.isEqual(styleSheetTwo.warningPrimaryColor)
-        equal = equal && styleSheetOne.warningSecondaryColor.isEqual(styleSheetTwo.warningSecondaryColor)
+        equal = equal && styleSheetOne.bodyXS(color: styleSheetOne.textColorPrimary).compare(object: (styleSheetTwo.bodyXS(color: styleSheetTwo.textColorPrimary)))
+        equal = equal && styleSheetOne.bodyL(color: styleSheetOne.textColorPrimary).compare(object: (styleSheetTwo.bodyL(color: styleSheetTwo.textColorPrimary)))
+        equal = equal && styleSheetOne.bodyM(color: styleSheetOne.textColorPrimary).compare(object: (styleSheetTwo.bodyM(color: styleSheetTwo.textColorPrimary)))
 
-        equal = equal && styleSheetOne.successPrimaryColor.isEqual(styleSheetTwo.successPrimaryColor)
-        equal = equal && styleSheetTwo.successSecondaryColor.isEqual(styleSheetTwo.successSecondaryColor)
-
-        equal = equal && styleSheetOne.titleXL(color: styleSheetOne.textPrimaryColor).compare(object: (styleSheetTwo.titleXL(color: styleSheetTwo.textPrimaryColor)))
-        equal = equal && styleSheetOne.titleL(color: styleSheetOne.textPrimaryColor).compare(object: (styleSheetTwo.titleL(color: styleSheetTwo.textPrimaryColor)))
-        equal = equal && styleSheetOne.titleM(color: styleSheetOne.textPrimaryColor).compare(object: (styleSheetTwo.titleM(color: styleSheetTwo.textPrimaryColor)))
-        equal = equal && styleSheetOne.titleS(color: styleSheetOne.textPrimaryColor).compare(object: (styleSheetTwo.titleS(color: styleSheetTwo.textPrimaryColor)))
-
-        equal = equal && styleSheetOne.bodyXL(color: styleSheetOne.textPrimaryColor).compare(object: (styleSheetTwo.bodyXL(color: styleSheetTwo.textPrimaryColor)))
-        equal = equal && styleSheetOne.bodyL(color: styleSheetOne.textPrimaryColor).compare(object: (styleSheetTwo.bodyL(color: styleSheetTwo.textPrimaryColor)))
-        equal = equal && styleSheetOne.bodyM(color: styleSheetOne.textPrimaryColor).compare(object: (styleSheetTwo.bodyM(color: styleSheetTwo.textPrimaryColor)))
-
-        equal = equal && styleSheetOne.linkL(color: styleSheetOne.textLinkColor).compare(object: (styleSheetTwo.linkL(color: styleSheetTwo.textLinkColor)))
-        equal = equal && styleSheetOne.linkM(color: styleSheetOne.textLinkColor).compare(object: (styleSheetTwo.linkM(color: styleSheetTwo.textLinkColor)))
-        
         equal = equal && styleSheetOne.regularSystemFont(size: 1).isEqual(styleSheetTwo.regularSystemFont(size: 1))
         equal = equal && styleSheetOne.lightSystemFont(size: 1).isEqual(styleSheetTwo.lightSystemFont(size: 1))
         equal = equal && styleSheetOne.mediumSystemFontOfSize(size: 1).isEqual(styleSheetTwo.mediumSystemFontOfSize(size: 1))
@@ -100,43 +97,61 @@ extension AndesFontStyle {
 
 class AndesStyleSheetWhiteMock: AndesStyleSheet {
 
-    var brandColor: UIColor = .white
+    var bgColorPrimary: UIColor = .white
 
-    var accentPrimaryColor: UIColor = .white
+    var bgColorSecondary: UIColor = .white
 
-    var accentSecondaryColor: UIColor = .white
+    var bgColorWhite: UIColor = .white
 
-    var accentTertiaryColor: UIColor = .white
+    var brandColor500: UIColor = .white
 
-    var backgroundPrimaryColor: UIColor = .white
+    var accentColor: UIColor = .white
 
-    var backgroundSecondaryColor: UIColor = .white
+    var accentColor100: UIColor = .white
 
-    var backgroundWhiteColor: UIColor = .white
+    var accentColor150: UIColor = .white
 
-    var textPrimaryColor: UIColor = .white
+    var accentColor200: UIColor = .white
 
-    var textSecondaryColor: UIColor = .white
+    var accentColor300: UIColor = .white
 
-    var textDisableColor: UIColor = .white
+    var accentColor400: UIColor = .white
 
-    var textWhiteColor: UIColor = .white
+    var accentColor500: UIColor = .white
 
-    var textLinkColor: UIColor = .white
+    var accentColor600: UIColor = .white
 
-    var errorPrimaryColor: UIColor = .white
+    var accentColor700: UIColor = .white
 
-    var errorSecondaryColor: UIColor = .white
+    var accentColor800: UIColor = .white
 
-    var warningPrimaryColor: UIColor = .white
+    var textColorPrimary: UIColor = .white
 
-    var warningSecondaryColor: UIColor = .white
+    var textColorSecondary: UIColor = .white
 
-    var successPrimaryColor: UIColor = .white
+    var textColorDisabled: UIColor = .white
 
-    var successSecondaryColor: UIColor = .white
+    var textColorNegative: UIColor = .white
 
-    var mockAndesFontStyle: AndesFontStyle = AndesFontStyle(textColor: .white, font: UIFont.boldSystemFont(ofSize: 1), lineHeight: 1)
+    var textColorCaution: UIColor = .white
+
+    var textColorPositive: UIColor = .white
+
+    var tetColorLink: UIColor = .white
+
+    var textColorWhite: UIColor = .white
+
+    func titleXS(color: UIColor) -> AndesFontStyle {
+        return mockAndesFontStyle
+    }
+
+    func bodyS(color: UIColor) -> AndesFontStyle {
+        return mockAndesFontStyle
+    }
+
+    func bodyXS(color: UIColor) -> AndesFontStyle {
+        return mockAndesFontStyle
+    }
 
     func titleXL(color: UIColor) -> AndesFontStyle {
         return mockAndesFontStyle
@@ -154,10 +169,6 @@ class AndesStyleSheetWhiteMock: AndesStyleSheet {
         return mockAndesFontStyle
     }
 
-    func bodyXL(color: UIColor) -> AndesFontStyle {
-        return mockAndesFontStyle
-    }
-
     func bodyL(color: UIColor) -> AndesFontStyle {
         return mockAndesFontStyle
     }
@@ -166,70 +177,81 @@ class AndesStyleSheetWhiteMock: AndesStyleSheet {
         return mockAndesFontStyle
     }
 
-    func linkL(color: UIColor) -> AndesFontStyle {
-        return mockAndesFontStyle
-    }
+    var mockAndesFontStyle: AndesFontStyle = AndesFontStyle(textColor: .white, font: UIFont.boldSystemFont(ofSize: 1), lineHeight: 1)
 
-    func linkM(color: UIColor) -> AndesFontStyle {
-        return mockAndesFontStyle
-    }
-    
     public func regularSystemFont(size: CGFloat) -> UIFont {
         return UIFont.systemFont(ofSize: size)
     }
-    
+
     public func lightSystemFont(size: CGFloat) -> UIFont {
         return UIFont.systemFont(ofSize: size)
     }
-    
+
     public func mediumSystemFontOfSize(size: CGFloat) -> UIFont {
         return UIFont.systemFont(ofSize: size)
     }
-    
+
     public func semiboldSystemFontOfSize(size: CGFloat) -> UIFont {
         return UIFont.boldSystemFont(ofSize: size)
     }
 }
 
 class AndesStyleSheetBlackMock: AndesStyleSheet {
+    var bgColorPrimary: UIColor = .black
 
-    var brandColor: UIColor = .black
+    var bgColorSecondary: UIColor = .black
 
-    var accentPrimaryColor: UIColor = .black
+    var bgColorWhite: UIColor = .black
 
-    var accentSecondaryColor: UIColor = .black
+    var brandColor500: UIColor = .black
 
-    var accentTertiaryColor: UIColor = .black
+    var accentColor: UIColor = .black
 
-    var backgroundPrimaryColor: UIColor = .black
+    var accentColor100: UIColor = .black
 
-    var backgroundSecondaryColor: UIColor = .black
+    var accentColor150: UIColor = .black
 
-    var backgroundWhiteColor: UIColor = .black
+    var accentColor200: UIColor = .black
 
-    var textPrimaryColor: UIColor = .black
+    var accentColor300: UIColor = .black
 
-    var textSecondaryColor: UIColor = .black
+    var accentColor400: UIColor = .black
 
-    var textDisableColor: UIColor = .black
+    var accentColor500: UIColor = .black
 
-    var textWhiteColor: UIColor = .black
+    var accentColor600: UIColor = .black
 
-    var textLinkColor: UIColor = .black
+    var accentColor700: UIColor = .black
 
-    var errorPrimaryColor: UIColor = .black
+    var accentColor800: UIColor = .black
 
-    var errorSecondaryColor: UIColor = .black
+    var textColorPrimary: UIColor = .black
 
-    var warningPrimaryColor: UIColor = .black
+    var textColorSecondary: UIColor = .black
 
-    var warningSecondaryColor: UIColor = .black
+    var textColorDisabled: UIColor = .black
 
-    var successPrimaryColor: UIColor = .black
+    var textColorNegative: UIColor = .black
 
-    var successSecondaryColor: UIColor = .black
+    var textColorCaution: UIColor = .black
 
-    var mockAndesFontStyle: AndesFontStyle = AndesFontStyle(textColor: .black, font: UIFont.boldSystemFont(ofSize: 2), lineHeight: 2)
+    var textColorPositive: UIColor = .black
+
+    var tetColorLink: UIColor = .black
+
+    var textColorWhite: UIColor = .black
+
+   func titleXS(color: UIColor) -> AndesFontStyle {
+        return mockAndesFontStyle
+    }
+
+    func bodyS(color: UIColor) -> AndesFontStyle {
+        return mockAndesFontStyle
+    }
+
+    func bodyXS(color: UIColor) -> AndesFontStyle {
+        return mockAndesFontStyle
+    }
 
     func titleXL(color: UIColor) -> AndesFontStyle {
         return mockAndesFontStyle
@@ -247,10 +269,6 @@ class AndesStyleSheetBlackMock: AndesStyleSheet {
         return mockAndesFontStyle
     }
 
-    func bodyXL(color: UIColor) -> AndesFontStyle {
-        return mockAndesFontStyle
-    }
-
     func bodyL(color: UIColor) -> AndesFontStyle {
         return mockAndesFontStyle
     }
@@ -259,26 +277,20 @@ class AndesStyleSheetBlackMock: AndesStyleSheet {
         return mockAndesFontStyle
     }
 
-    func linkL(color: UIColor) -> AndesFontStyle {
-        return mockAndesFontStyle
-    }
+    var mockAndesFontStyle: AndesFontStyle = AndesFontStyle(textColor: .black, font: UIFont.boldSystemFont(ofSize: 2), lineHeight: 2)
 
-    func linkM(color: UIColor) -> AndesFontStyle {
-        return mockAndesFontStyle
-    }
-    
     public func regularSystemFont(size: CGFloat) -> UIFont {
         return UIFont.systemFont(ofSize: size)
     }
-    
+
     public func lightSystemFont(size: CGFloat) -> UIFont {
         return UIFont.systemFont(ofSize: size)
     }
-    
+
     public func mediumSystemFontOfSize(size: CGFloat) -> UIFont {
         return UIFont.systemFont(ofSize: size)
     }
-    
+
     public func semiboldSystemFontOfSize(size: CGFloat) -> UIFont {
         return UIFont.boldSystemFont(ofSize: size)
     }

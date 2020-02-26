@@ -66,7 +66,7 @@ import Foundation
     func bodyL(color: UIColor) -> AndesFontStyle
     func bodyM(color: UIColor) -> AndesFontStyle
     func bodyS(color: UIColor) -> AndesFontStyle
-    func bodySS(color: UIColor) -> AndesFontStyle
+    func bodyXS(color: UIColor) -> AndesFontStyle
 
     func regularSystemFont(size: CGFloat) -> UIFont
     func lightSystemFont(size: CGFloat) -> UIFont
