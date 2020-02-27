@@ -9,13 +9,13 @@ import Foundation
 
 internal struct AndesButtonHierarchyQuiet: AndesButtonHierarchyProtocol {
 
-    public var idleColor: UIColor = UIColor(red: 0.254, green: 0.537, blue: 0.901, alpha: 0.15)
+    public var idleColor: UIColor = AndesStyleSheetManager.styleSheet.accentColor150
 
-    public var pressedColor: UIColor = UIColor(red: 0.254, green: 0.537, blue: 0.901, alpha: 0.3)
+    public var pressedColor: UIColor = AndesStyleSheetManager.styleSheet.accentColor300
 
-    public var focusColor: UIColor = UIColor(red: 0.254, green: 0.537, blue: 0.901, alpha: 0.15)
+    public var focusColor: UIColor = AndesStyleSheetManager.styleSheet.accentColor200
 
-    public var disableColor: UIColor = UIColor.AndesColor.Gray.gray100
+    public var disableColor: UIColor = UIColor.Andes.gray100
 
-    public var fontColor: UIColor = AndesStyleSheetManager.styleSheet.accentPrimaryColor
+    public var fontColor: UIColor = AndesStyleSheetManager.styleSheet.accentColor
 }

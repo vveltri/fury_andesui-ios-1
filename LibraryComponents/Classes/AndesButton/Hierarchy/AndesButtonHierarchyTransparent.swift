@@ -11,11 +11,11 @@ internal struct AndesButtonHierarchyTransparent: AndesButtonHierarchyProtocol {
 
     public var idleColor: UIColor = .clear
 
-    public var pressedColor: UIColor = UIColor(red: 0.278, green: 0.603, blue: 0.819, alpha: 0.2)
+    public var pressedColor: UIColor = AndesStyleSheetManager.styleSheet.accentColor200
 
-    public var focusColor: UIColor = .clear
+    public var focusColor: UIColor = AndesStyleSheetManager.styleSheet.accentColor100
 
     public var disableColor: UIColor = .clear
 
-    public var fontColor: UIColor = AndesStyleSheetManager.styleSheet.accentPrimaryColor
+    public var fontColor: UIColor = AndesStyleSheetManager.styleSheet.accentColor
 }

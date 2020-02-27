@@ -12,12 +12,12 @@ struct PrimaryMessageActionButtonHierarchy: AndesButtonHierarchyProtocol {
 
     var pressedColor: UIColor
 
-    var disableColor: UIColor  = UIColor.AndesColor.Gray.gray100
+    var disableColor: UIColor  = UIColor.Andes.gray100
 
-    var fontColor: UIColor = AndesStyleSheetManager.styleSheet.textWhiteColor
+    var fontColor: UIColor = AndesStyleSheetManager.styleSheet.textColorWhite
 
-    init(backgroundColor: UIColor) {
+    init(backgroundColor: UIColor, pressedColor: UIColor) {
         self.idleColor = backgroundColor
-        self.pressedColor = backgroundColor.darken(by: 55)
+        self.pressedColor = pressedColor
     }
 }

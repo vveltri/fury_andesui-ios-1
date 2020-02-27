@@ -21,9 +21,9 @@ class AndesUIAppDelegate: UIResponder, UIApplicationDelegate {
 
         AndesStyleSheetManager.styleSheet = AndesStyleSheetDefault()
         setupIQKeyboardManager()
-        UINavigationBar.appearance().barTintColor = AndesStyleSheetManager.styleSheet.accentPrimaryColor
-        UINavigationBar.appearance().tintColor = AndesStyleSheetManager.styleSheet.backgroundWhiteColor
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: AndesStyleSheetManager.styleSheet.backgroundWhiteColor]
+        UINavigationBar.appearance().barTintColor = AndesStyleSheetManager.styleSheet.accentColor
+        UINavigationBar.appearance().tintColor = AndesStyleSheetManager.styleSheet.bgColorWhite
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: AndesStyleSheetManager.styleSheet.bgColorWhite]
 
         self.window = UIWindow(frame: UIScreen.main.bounds)
         let viewController = UIViewController()

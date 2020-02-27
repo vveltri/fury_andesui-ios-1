@@ -9,9 +9,9 @@ import Foundation
 
 /// used to define the ui of internal AndesMessage views
 internal struct AndesMessageViewConfig {
-    var backgroundColor: UIColor = AndesStyleSheetManager.styleSheet.accentPrimaryColor
-    var pipeColor: UIColor = AndesStyleSheetManager.styleSheet.accentPrimaryColor
-    var textColor: UIColor = AndesStyleSheetManager.styleSheet.textWhiteColor
+    var backgroundColor: UIColor = AndesStyleSheetManager.styleSheet.accentColor
+    var pipeColor: UIColor = AndesStyleSheetManager.styleSheet.accentColor
+    var textColor: UIColor = AndesStyleSheetManager.styleSheet.textColorWhite
 
     var titleText: String?
     var titleFont: UIFont = AndesStyleSheetManager.styleSheet.semiboldSystemFontOfSize(size: 16)
@@ -20,12 +20,12 @@ internal struct AndesMessageViewConfig {
     var bodyText: String?
 
     var icon: String?
-    var iconColor: UIColor = AndesStyleSheetManager.styleSheet.textWhiteColor
-    var iconBackgroundColor: UIColor = AndesStyleSheetManager.styleSheet.accentSecondaryColor
+    var iconColor: UIColor = AndesStyleSheetManager.styleSheet.textColorWhite
+    var iconBackgroundColor: UIColor = AndesStyleSheetManager.styleSheet.accentColor600
 
     var isDismissable: Bool = false
     var dismissIconName: String? = AndesIcons.close20
-    var dismissIconColor: UIColor = AndesStyleSheetManager.styleSheet.textWhiteColor
+    var dismissIconColor: UIColor = AndesStyleSheetManager.styleSheet.textColorWhite
 
     var primaryActionConfig: AndesButtonViewConfig?
     var secondaryActionConfig: AndesButtonViewConfig?

@@ -9,29 +9,48 @@ import Foundation
 
 //TODO: Remove when iOS 11 is minimum deployment target
 public class AndesColorStrategyiOS10: AndesColors {
+    public var bgColorPrimary: UIColor = UIColor.Andes.gray070
 
-    public var brandColor: UIColor = UIColor.AndesColor.Blue.four
+    public var bgColorSecondary: UIColor = UIColor.Andes.gray040
 
-    public var accentPrimaryColor: UIColor = UIColor.AndesColor.Blue.four
-    public var accentSecondaryColor: UIColor = UIColor.AndesColor.Blue.five
-    public var accentTertiaryColor: UIColor = UIColor.AndesColor.Blue.six
+    public var bgColorWhite: UIColor = UIColor.Andes.white
 
-    public var backgroundPrimaryColor: UIColor = UIColor.AndesColor.Background.primary
-    public var backgroundSecondaryColor: UIColor = UIColor.AndesColor.Background.secundary
-    public var backgroundWhiteColor: UIColor = UIColor.AndesColor.White.one
+    public var brandColor500: UIColor = UIColor.Andes.blueMP500
 
-    public var textPrimaryColor: UIColor = UIColor.AndesColor.Gray.gray800
-    public var textSecondaryColor: UIColor = UIColor.AndesColor.Gray.gray450
-    public var textDisableColor: UIColor = UIColor.AndesColor.Gray.gray250
-    public var textWhiteColor: UIColor = UIColor.AndesColor.White.one
-    public var textLinkColor: UIColor = UIColor.AndesColor.Blue.four
+    public var accentColor: UIColor = UIColor.Andes.blueMP500
 
-    public var errorPrimaryColor: UIColor = UIColor.AndesColor.Red.light
-    public var errorSecondaryColor: UIColor = UIColor.AndesColor.Red.dark
+    public var accentColor100: UIColor = UIColor.Andes.blueMP100
 
-    public var warningPrimaryColor: UIColor = UIColor.AndesColor.Orange.light
-    public var warningSecondaryColor: UIColor = UIColor.AndesColor.Orange.dark
+    public var accentColor150: UIColor = UIColor.Andes.blueMP150
 
-    public var successPrimaryColor: UIColor = UIColor.AndesColor.Green.light
-    public var successSecondaryColor: UIColor = UIColor.AndesColor.Green.dark
+    public var accentColor200: UIColor = UIColor.Andes.blueMP200
+
+    public var accentColor300: UIColor = UIColor.Andes.blueMP300
+
+    public var accentColor400: UIColor = UIColor.Andes.blueMP400
+
+    public var accentColor500: UIColor = UIColor.Andes.blueMP500
+
+    public var accentColor600: UIColor = UIColor.Andes.blueMP600
+
+    public var accentColor700: UIColor = UIColor.Andes.blueMP700
+
+    public var accentColor800: UIColor = UIColor.Andes.blueMP800
+
+    public var textColorPrimary: UIColor = UIColor.Andes.gray800
+
+    public var textColorSecondary: UIColor = UIColor.Andes.gray450
+
+    public var textColorDisabled: UIColor = UIColor.Andes.gray250
+
+    public var textColorNegative: UIColor = UIColor.Andes.red200
+
+    public var textColorCaution: UIColor = UIColor.Andes.orange500
+
+    public var textColorPositive: UIColor = UIColor.Andes.green500
+
+    public var tetColorLink: UIColor = UIColor.Andes.blueMP500
+
+    public var textColorWhite: UIColor = UIColor.Andes.white
+
 }

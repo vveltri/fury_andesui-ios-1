@@ -9,41 +9,33 @@ import Foundation
 
 @objc public class AndesStyleSheetDefault: NSObject, AndesStyleSheet {
 
-    private let titleXLSize: CGFloat = 32
-    private let titleLSize: CGFloat = 28
-    private let titleMSize: CGFloat = 24
-    private let titleSSize: CGFloat = 20
-
-    private let defaultXLSize: CGFloat = 18
-    private let defaultLSize: CGFloat = 16
-    private let defaultMSize: CGFloat = 14
-
-    public lazy var brandColor: UIColor = self.stylesheetStrategy.brandColor
-
-    public lazy var accentPrimaryColor: UIColor = self.stylesheetStrategy.accentPrimaryColor
-    public lazy var accentSecondaryColor: UIColor = self.stylesheetStrategy.accentSecondaryColor
-    public lazy var accentTertiaryColor: UIColor = self.stylesheetStrategy.accentTertiaryColor
-
-    public lazy var backgroundPrimaryColor: UIColor = self.stylesheetStrategy.backgroundPrimaryColor
-    public lazy var backgroundSecondaryColor: UIColor = self.stylesheetStrategy.backgroundSecondaryColor
-    public lazy var backgroundWhiteColor: UIColor = self.stylesheetStrategy.backgroundWhiteColor
-
-    public lazy var textPrimaryColor: UIColor = self.stylesheetStrategy.textPrimaryColor
-    public lazy var textSecondaryColor: UIColor = self.stylesheetStrategy.textSecondaryColor
-    public lazy var textDisableColor: UIColor = self.stylesheetStrategy.textDisableColor
-    public lazy var textWhiteColor: UIColor = self.stylesheetStrategy.textWhiteColor
-    public lazy var textLinkColor: UIColor = self.stylesheetStrategy.textLinkColor
-
-    public lazy var errorPrimaryColor: UIColor = self.stylesheetStrategy.errorPrimaryColor
-    public lazy var errorSecondaryColor: UIColor = self.stylesheetStrategy.errorSecondaryColor
-
-    public lazy var warningPrimaryColor: UIColor = self.stylesheetStrategy.warningPrimaryColor
-    public lazy var warningSecondaryColor: UIColor = self.stylesheetStrategy.warningSecondaryColor
-
-    public lazy var successPrimaryColor: UIColor = self.stylesheetStrategy.successPrimaryColor
-    public lazy var successSecondaryColor: UIColor = self.stylesheetStrategy.successSecondaryColor
-
     private var stylesheetStrategy: AndesColors
+
+    public lazy var bgColorPrimary: UIColor = self.stylesheetStrategy.bgColorPrimary
+    public lazy var bgColorSecondary: UIColor = self.stylesheetStrategy.bgColorSecondary
+    public lazy var bgColorWhite: UIColor = self.stylesheetStrategy.bgColorWhite
+
+    public lazy var brandColor500: UIColor = self.stylesheetStrategy.brandColor500
+
+    public lazy var accentColor: UIColor = self.stylesheetStrategy.accentColor
+    public lazy var accentColor100: UIColor = self.stylesheetStrategy.accentColor100
+    public lazy var accentColor150: UIColor = self.stylesheetStrategy.accentColor150
+    public lazy var accentColor200: UIColor = self.stylesheetStrategy.accentColor200
+    public lazy var accentColor300: UIColor = self.stylesheetStrategy.accentColor300
+    public lazy var accentColor400: UIColor = self.stylesheetStrategy.accentColor400
+    public lazy var accentColor500: UIColor = self.stylesheetStrategy.accentColor500
+    public lazy var accentColor600: UIColor = self.stylesheetStrategy.accentColor600
+    public lazy var accentColor700: UIColor = self.stylesheetStrategy.accentColor700
+    public lazy var accentColor800: UIColor = self.stylesheetStrategy.accentColor800
+
+    public lazy var textColorPrimary: UIColor = self.stylesheetStrategy.textColorPrimary
+    public lazy var textColorSecondary: UIColor = self.stylesheetStrategy.textColorSecondary
+    public lazy var textColorDisabled: UIColor = self.stylesheetStrategy.textColorDisabled
+    public lazy var textColorNegative: UIColor = self.stylesheetStrategy.textColorNegative
+    public lazy var textColorCaution: UIColor = self.stylesheetStrategy.textColorCaution
+    public lazy var textColorPositive: UIColor = self.stylesheetStrategy.textColorPositive
+    public lazy var tetColorLink: UIColor = self.stylesheetStrategy.tetColorLink
+    public lazy var textColorWhite: UIColor = self.stylesheetStrategy.textColorWhite
 
     public override init() {
         //TODO: Remove when iOS 11 is minimum deployment target
@@ -55,48 +47,48 @@ import Foundation
     }
 
     public func titleXL(color: UIColor) -> AndesFontStyle {
-        self.validateColorForTitle(color: color)
-        return AndesFontStyle(textColor: color, font: semiboldSystemFontOfSize(size: self.titleXLSize), lineHeight: 1.25)
+        validateColorForTitle(color: color)
+        return AndesFontStyle(textColor: color, font: semiboldSystemFontOfSize(size: AndesFontSize.titleXL), lineHeight: 1.25)
     }
 
     public func titleL(color: UIColor) -> AndesFontStyle {
-        self.validateColorForTitle(color: color)
-        return AndesFontStyle(textColor: color, font: semiboldSystemFontOfSize(size: self.titleLSize), lineHeight: 1.25)
+        validateColorForTitle(color: color)
+        return AndesFontStyle(textColor: color, font: semiboldSystemFontOfSize(size: AndesFontSize.titleL), lineHeight: 1.25)
     }
 
     public func titleM(color: UIColor) -> AndesFontStyle {
-        self.validateColorForTitle(color: color)
-        return AndesFontStyle(textColor: color, font: semiboldSystemFontOfSize(size: self.titleMSize), lineHeight: 1.25)
+        validateColorForTitle(color: color)
+        return AndesFontStyle(textColor: color, font: semiboldSystemFontOfSize(size: AndesFontSize.titleM), lineHeight: 1.25)
     }
 
     public func titleS(color: UIColor) -> AndesFontStyle {
-        self.validateColorForTitle(color: color)
-        return AndesFontStyle(textColor: color, font: semiboldSystemFontOfSize(size: self.titleSSize), lineHeight: 1.25)
+        validateColorForTitle(color: color)
+        return AndesFontStyle(textColor: color, font: semiboldSystemFontOfSize(size: AndesFontSize.titleS), lineHeight: 1.25)
     }
 
-    public func bodyXL(color: UIColor) -> AndesFontStyle {
-        self.validateColorForBody(color: color)
-        return AndesFontStyle(textColor: color, font: regularSystemFont(size: self.defaultXLSize), lineHeight: 1.25)
+    public func titleXS(color: UIColor) -> AndesFontStyle {
+        validateColorForTitle(color: color)
+        return AndesFontStyle(textColor: color, font: semiboldSystemFontOfSize(size: AndesFontSize.titleXS), lineHeight: 1.25)
     }
 
     public func bodyL(color: UIColor) -> AndesFontStyle {
-        self.validateColorForBody(color: color)
-        return AndesFontStyle(textColor: color, font: regularSystemFont(size: self.defaultLSize), lineHeight: 1.25)
+        validateColorForBody(color: color)
+        return AndesFontStyle(textColor: color, font: regularSystemFont(size: AndesFontSize.bodyL), lineHeight: 1.25)
     }
 
     public func bodyM(color: UIColor) -> AndesFontStyle {
-        self.validateColorForBody(color: color)
-        return AndesFontStyle(textColor: color, font: regularSystemFont(size: self.defaultMSize), lineHeight: 1.25)
+        validateColorForBody(color: color)
+        return AndesFontStyle(textColor: color, font: regularSystemFont(size: AndesFontSize.bodyM), lineHeight: 1.25)
     }
 
-    public func linkL(color: UIColor) -> AndesFontStyle {
-        self.validateColorForLink(color: color)
-        return AndesFontStyle(textColor: color, font: mediumSystemFontOfSize(size: self.defaultLSize), lineHeight: 1.0)
+    public func bodyS(color: UIColor) -> AndesFontStyle {
+        validateColorForBody(color: color)
+        return AndesFontStyle(textColor: color, font: regularSystemFont(size: AndesFontSize.bodyS), lineHeight: 1.25)
     }
 
-    public func linkM(color: UIColor) -> AndesFontStyle {
-        self.validateColorForLink(color: color)
-        return AndesFontStyle(textColor: color, font: mediumSystemFontOfSize(size: self.defaultMSize), lineHeight: 1.0)
+    public func bodyXS(color: UIColor) -> AndesFontStyle {
+        validateColorForBody(color: color)
+        return AndesFontStyle(textColor: color, font: regularSystemFont(size: AndesFontSize.bodyXS), lineHeight: 1.25)
     }
 
     public func regularSystemFont(size: CGFloat) -> UIFont {
@@ -116,19 +108,19 @@ import Foundation
     }
 
     private func validateColorForTitle(color: UIColor) {
-        if !color.isEqual(self.stylesheetStrategy.textWhiteColor) && !color.isEqual(self.stylesheetStrategy.textPrimaryColor) {
+        if !color.isEqual(self.stylesheetStrategy.textColorWhite) && !color.isEqual(self.stylesheetStrategy.textColorPrimary) {
             fatalError("You must use an allowed color. Please check Andes documentation")
         }
     }
 
     private func validateColorForBody(color: UIColor) {
-        if !color.isEqual(self.stylesheetStrategy.textPrimaryColor) && !color.isEqual(self.stylesheetStrategy.textSecondaryColor) && !color.isEqual(self.stylesheetStrategy.textDisableColor) {
+        if !color.isEqual(self.stylesheetStrategy.textColorPrimary) && !color.isEqual(self.stylesheetStrategy.textColorSecondary) && !color.isEqual(self.stylesheetStrategy.textColorDisabled) {
             fatalError("You must use an allowed color. Please check Andes documentation")
         }
     }
 
     private func validateColorForLink(color: UIColor) {
-        if !color.isEqual(self.stylesheetStrategy.textLinkColor) {
+        if !color.isEqual(self.stylesheetStrategy.tetColorLink) {
             fatalError("You must use an allowed color. Please check Andes documentation")
         }
     }
