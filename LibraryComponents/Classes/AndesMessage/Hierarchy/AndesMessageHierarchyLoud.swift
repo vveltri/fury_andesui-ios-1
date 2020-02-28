@@ -26,6 +26,6 @@ struct AndesMessageHierarchyLoud: AndesMessageHierarchyProtocol {
         pipeColor = type.primaryColor
         accentColor = type.secondaryColor
         primaryButtonHierarchy = PrimaryMessageActionButtonHierarchy(backgroundColor: type.secondaryColor, pressedColor: type.primaryButtonPressedColor)
-        secondaryButtonHierarchy = SecondaryMessageActionButtonHierarchy(textColor: textColor, pressedColor: type.secondaryColor)
+        secondaryButtonHierarchy = SecondaryMessageActionButtonHierarchy(textColor: textColor, pressedColor: type.secondaryButtonPressedColor)
     }
 }

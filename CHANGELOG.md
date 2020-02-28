@@ -1,9 +1,12 @@
 # v2.0.0 (Sin Publicar):
-## Added
+## Changed
 - AndesColors fix for objc
 - AndesStylesheet updated to latest definitions
-- AndesIconsProvider with local strategy to load icons from images.xcassets
 - AndesMessage: fixes in constraints when dismiss is hidden
+- AndesMessage: updated button colors to new definition
+
+## Added
+- AndesIconsProvider with local strategy to load icons from images.xcassets
 
 # v1.3.1:
 ## Changed
