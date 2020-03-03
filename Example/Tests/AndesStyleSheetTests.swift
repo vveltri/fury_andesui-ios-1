@@ -141,6 +141,12 @@ class AndesStyleSheetWhiteMock: AndesStyleSheet {
 
     var textColorWhite: UIColor = .white
 
+    var feedbackColorNegative: UIColor = .white
+
+    var feedbackColorCaution: UIColor = .white
+
+    var feedbackColorPositive: UIColor = .white
+
     func titleXS(color: UIColor) -> AndesFontStyle {
         return mockAndesFontStyle
     }
@@ -240,6 +246,12 @@ class AndesStyleSheetBlackMock: AndesStyleSheet {
     var tetColorLink: UIColor = .black
 
     var textColorWhite: UIColor = .black
+
+    var feedbackColorNegative: UIColor = .black
+
+    var feedbackColorCaution: UIColor = .black
+
+    var feedbackColorPositive: UIColor = .black
 
    func titleXS(color: UIColor) -> AndesFontStyle {
         return mockAndesFontStyle
