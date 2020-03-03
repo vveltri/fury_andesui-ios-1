@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'AndesUI'
-  s.version          = '2.0.0'
+  s.version          = '2.1.0'
   s.summary          = 'AndesUI library for ios app.'
 
   s.description      = 'AndesUI is the UI library of Mercado Libre. It provides the definitions, components and tools to build consistent experiences, with agility and visual quality.'

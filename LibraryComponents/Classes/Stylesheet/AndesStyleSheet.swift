@@ -44,6 +44,10 @@ import Foundation
     var textColorPositive: UIColor { get }
     var tetColorLink: UIColor { get }
     var textColorWhite: UIColor { get }
+
+    var feedbackColorNegative: UIColor { get }
+    var feedbackColorCaution: UIColor { get }
+    var feedbackColorPositive: UIColor { get }
 }
 
 /**

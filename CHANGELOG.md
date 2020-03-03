@@ -1,3 +1,7 @@
+# v2.1.0:
+## Added:
+- Missing feedback colors on stylesheet
+
 # v2.0.0:
 ## Changed
 - AndesStylesheet updated to latest definitions
