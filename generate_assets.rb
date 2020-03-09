@@ -114,39 +114,3 @@ end
 
 ga = GenerateAssets.new
 ga.initialze
-
-
-# Crear folder con el nombre del asset
-# Generar Contests.json
-
-
-#LibraryComponents/Assets/Images.xcassets/andes_control_y_accion_buscar_16.imageset/Contents.json
-#LibraryComponents/Assets/Images.xcassets/andes_control_y_accion_buscar_16.imageset/andes_control_y_accion_buscar_16-1.png
-#LibraryComponents/Assets/Images.xcassets/andes_control_y_accion_buscar_16.imageset/andes_control_y_accion_buscar_16-2.png
-#LibraryComponents/Assets/Images.xcassets/andes_control_y_accion_buscar_16.imageset/andes_control_y_accion_buscar_16.png
-
-
-# CREAR FILE LibraryComponents/Assets/Images.xcassets/andes_control_y_accion_buscar_16.imageset/Contents.json
-#{
-#  "images" : [
-#    {
-#      "idiom" : "universal",
-#      "filename" : "andes_control_y_accion_buscar_16.png",
-#      "scale" : "1x"
-#    },
-#    {
-#      "idiom" : "universal",
-#      "filename" : "andes_control_y_accion_buscar_16-1.png",
-#      "scale" : "2x"
-#    },
-#    {
-#      "idiom" : "universal",
-#      "filename" : "andes_control_y_accion_buscar_16-2.png",
-#      "scale" : "3x"
-#    }
-#  ],
-#  "info" : {
-#    "version" : 1,
-#    "author" : "xcode"
-#  }
-#}
