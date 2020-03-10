@@ -11,12 +11,9 @@ import Foundation
 internal struct AndesMessageViewConfig {
     var backgroundColor: UIColor = AndesStyleSheetManager.styleSheet.accentColor
     var pipeColor: UIColor = AndesStyleSheetManager.styleSheet.accentColor
-    var textColor: UIColor = AndesStyleSheetManager.styleSheet.textColorWhite
-
     var titleText: String?
-    var titleFont: UIFont = AndesStyleSheetManager.styleSheet.semiboldSystemFontOfSize(size: 16)
-
-    var bodyFont: UIFont = AndesStyleSheetManager.styleSheet.regularSystemFont(size: 14)
+    var titleStyle: AndesFontStyle = getTitleStyle(AndesStyleSheetManager.styleSheet.textColorWhite)
+    var bodyStyle: AndesFontStyle = getBodyStyle(AndesStyleSheetManager.styleSheet.textColorWhite)
     var bodyText: String?
 
     var icon: String?
@@ -33,7 +30,9 @@ internal struct AndesMessageViewConfig {
     init(backgroundColor: UIColor, pipeColor: UIColor, textColor: UIColor, titleText: String?, bodyText: String, icon: String?, iconBackgroundColor: UIColor, isDismissable: Bool, dismissIconColor: UIColor) {
         self.backgroundColor = backgroundColor
         self.pipeColor = pipeColor
-        self.textColor = textColor
+
+        titleStyle = AndesMessageViewConfig.getTitleStyle(textColor)
+        bodyStyle = AndesMessageViewConfig.getBodyStyle(textColor)
 
         self.titleText = titleText
         self.bodyText = bodyText
@@ -46,5 +45,13 @@ internal struct AndesMessageViewConfig {
 
     init() {
 
+    }
+
+    private static func getTitleStyle(_ color: UIColor) -> AndesFontStyle {
+        return AndesFontStyle(textColor: color, font: AndesStyleSheetManager.styleSheet.semiboldSystemFontOfSize(size: 16), sketchLineHeight: 20)
+    }
+
+    private static func getBodyStyle(_ color: UIColor) -> AndesFontStyle {
+        return AndesFontStyle(textColor: color, font: AndesStyleSheetManager.styleSheet.regularSystemFont(size: 14), sketchLineHeight: 20)
     }
 }

@@ -71,8 +71,7 @@ class AndesMessageAbstractView: UIView, AndesMessageView {
         self.backgroundColor = config.backgroundColor
         self.leftPipeView.backgroundColor = config.pipeColor
 
-        self.bodyLabel.textColor = config.textColor
-        self.bodyLabel.font = config.bodyFont
+        self.bodyLabel.setAndesStyle(style: config.bodyStyle)
         self.bodyLabel.text = config.bodyText
 
         self.iconView.tintColor = config.iconColor
@@ -81,15 +80,12 @@ class AndesMessageAbstractView: UIView, AndesMessageView {
         }
         self.iconContainerView.backgroundColor = config.iconBackgroundColor
 
-        self.titleLabel.font = config.titleFont
-        self.titleLabel.textColor = config.textColor
         self.titleLabel.text = config.titleText
 
         if config.titleText == nil || config.titleText!.isEmpty {
             titleLabel.isHidden = true
         } else {
-            self.titleLabel.font = config.titleFont
-            self.titleLabel.textColor = config.textColor
+            self.titleLabel.setAndesStyle(style: config.titleStyle)
             self.titleLabel.text = config.titleText
             self.titleLabel.isHidden = false
         }

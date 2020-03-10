@@ -1,4 +1,9 @@
-# Unrelease
+# v2.1.1:
+## Fixed
+- (iOS 10) mp accent colors
+- AndesMessage line height in body
+## Added 
+- Local icons added to assets
 ## Changed
 - CocoaPods URL repo spec in order to use CDN
 

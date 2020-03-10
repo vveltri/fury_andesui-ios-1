@@ -17,6 +17,17 @@ import Foundation
         self.font = font
         self.lineHeight = lineHeight
     }
+
+    /// Init an AndesFontStyle with a sketch line height
+    /// - Parameters:
+    ///   - textColor: Font Color
+    ///   - font: font (with sketch size)
+    ///   - sketchLineHeight: line height
+    @objc public init(textColor: UIColor, font: UIFont, sketchLineHeight: CGFloat) {
+        self.textColor = textColor
+        self.font = font
+        self.lineHeight = sketchLineHeight - font.lineHeight
+    }
 }
 
 @objc public class AndesFontSize: NSObject {

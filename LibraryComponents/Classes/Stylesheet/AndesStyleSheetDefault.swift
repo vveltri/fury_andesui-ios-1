@@ -118,7 +118,9 @@ import Foundation
     }
 
     private func validateColorForBody(color: UIColor) {
-        if !color.isEqual(self.stylesheetStrategy.textColorPrimary) && !color.isEqual(self.stylesheetStrategy.textColorSecondary) && !color.isEqual(self.stylesheetStrategy.textColorDisabled) {
+        if !color.isEqual(self.stylesheetStrategy.textColorPrimary) && !color.isEqual(self.stylesheetStrategy.textColorSecondary) &&
+            !color.isEqual(self.stylesheetStrategy.textColorWhite) &&
+            !color.isEqual(self.stylesheetStrategy.textColorDisabled) {
             fatalError("You must use an allowed color. Please check Andes documentation")
         }
     }

@@ -43,9 +43,9 @@ import Foundation
         @objc public static let blueMP200 = UIColor(hex: "#33479AD1")!
         @objc public static let blueMP300 = UIColor(hex: "#4D479AD1")!
         @objc public static let blueMP400 = UIColor(hex: "#66479AD1")!
-        @objc public static let blueMP500 = UIColor(hex: "#3483FA")!
-        @objc public static let blueMP600 = UIColor(hex: "#2968C8")!
-        @objc public static let blueMP700 = UIColor(hex: "#1F4E96")!
+        @objc public static let blueMP500 = UIColor(hex: "#009EE3")!
+        @objc public static let blueMP600 = UIColor(hex: "#007EB5")!
+        @objc public static let blueMP700 = UIColor(hex: "#005E88")!
         @objc public static let blueMP800 = UIColor(hex: "#004766")!
 
         @objc public static let green100 = UIColor(hex: "#1A00A650")!
