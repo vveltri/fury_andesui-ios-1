@@ -1,4 +1,4 @@
-# v2.1.1:
+# v2.1.2:
 ## Fixed
 - (iOS 10) mp accent colors
 - AndesMessage line height in body
