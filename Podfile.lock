@@ -1,9 +1,9 @@
 PODS:
-  - AndesUI (1.3.1):
-    - AndesUI/Core (= 1.3.1)
-  - AndesUI/Core (1.3.1):
+  - AndesUI (2.1.0):
+    - AndesUI/Core (= 2.1.0)
+  - AndesUI/Core (2.1.0):
     - AndesUI/LocalIcons
-  - AndesUI/LocalIcons (1.3.1)
+  - AndesUI/LocalIcons (2.1.0)
   - IQKeyboardManagerSwift (6.3.0)
   - Nimble (7.3.4)
   - Quick (1.2.0)
@@ -25,11 +25,11 @@ EXTERNAL SOURCES:
     :path: "./"
 
 SPEC CHECKSUMS:
-  AndesUI: 062fef14c9dacc38fd07acd6be6312d669bdc83a
+  AndesUI: 8a345ded69937177507ac06b8481b530f84270ab
   IQKeyboardManagerSwift: a8228c257614af98743b4cd8584637025f36358f
   Nimble: 051e3d8912d40138fa5591c78594f95fb172af37
   Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
 
-PODFILE CHECKSUM: cff98d0928292cc9e9e8332672703d9b5d5ef222
+PODFILE CHECKSUM: 38582663981da7cbf3212954191a1c5c28aa84a4
 
 COCOAPODS: 1.8.4
