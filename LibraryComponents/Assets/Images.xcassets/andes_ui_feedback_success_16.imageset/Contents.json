@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "UIFeedbackSuccess16.png",
+      "filename" : "andes_ui_feedback_success_16.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "UIFeedbackSuccess16-1.png",
+      "filename" : "andes_ui_feedback_success_16-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "UIFeedbackSuccess16-2.png",
+      "filename" : "andes_ui_feedback_success_16-2.png",
       "scale" : "3x"
     }
   ],
