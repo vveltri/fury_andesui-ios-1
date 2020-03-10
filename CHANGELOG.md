@@ -1,3 +1,7 @@
+# Unrelease
+## Changed
+- CocoaPods URL repo spec in order to use CDN
+
 # v2.1.0:
 ## Added:
 - Missing feedback colors on stylesheet

@@ -31,6 +31,11 @@ jobs:
       - add_ssh_keys
       - restore_cache:
           key: gem-cache-{{ checksum "Gemfile.lock" }}-v2
+      - restore_cache:
+          keys: 
+            - pods-cache-{{ .Branch }}-{{ checksum "Podfile" }}
+            - pods-cache-{{ .Branch }}-
+            - pods-cache
       - run:
           name: Install Bundler
           command: gem install bundler --user-install
@@ -42,13 +47,15 @@ jobs:
           command: ruby ./scripts/deactivate_verbose_logging.rb
       - run:
           name: Install CocoaPods
-          command: |
-            curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s
-            bundle exec pod install
+          command: bundle exec pod install
       - save_cache:
           key: gem-cache-{{ checksum "Gemfile.lock" }}-v2
           paths:
             - vendor/bundle
+      - save_cache:
+          key: pods-cache-{{ .Branch }}-{{ checksum "Podfile" }}
+          paths:
+            - Pods            
       - run:
           name: Run tests on iOS 11.4
           command: ./scripts/run_tests.sh 11.4
@@ -65,6 +72,11 @@ jobs:
       - add_ssh_keys
       - restore_cache:
           key: gem-cache-{{ checksum "Gemfile.lock" }}-v2
+      - restore_cache:
+          keys: 
+            - pods-cache-{{ .Branch }}-{{ checksum "Podfile" }}
+            - pods-cache-{{ .Branch }}-
+            - pods-cache
       - run:
           name: Install Bundler
           command: gem install bundler --user-install
@@ -79,12 +91,10 @@ jobs:
           command: ruby ./scripts/deactivate_verbose_logging.rb
       - run:
           name: Install CocoaPods
-          command: |
-            curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s
-            bundle exec pod install
+          command: bundle exec pod install
       - run:
           name: Run Pod Lint
-          command: bundle exec pod lib lint AndesUI.podspec --allow-warnings --sources='https://github.com/CocoaPods/Specs'
+          command: bundle exec pod lib lint AndesUI.podspec --allow-warnings --sources='https://cdn.cocoapods.org/'
       - run: 
           name: Run Swift lint
           command: swiftlint
@@ -95,6 +105,11 @@ jobs:
       - add_ssh_keys
       - restore_cache:
           key: gem-cache-{{ checksum "Gemfile.lock" }}-v2
+      - restore_cache:
+          keys: 
+            - pods-cache-{{ .Branch }}-{{ checksum "Podfile" }}
+            - pods-cache-{{ .Branch }}-
+            - pods-cache          
       - run:
           name: Install Bundler
           command: gem install bundler --user-install
@@ -103,9 +118,7 @@ jobs:
           command: bundle install --path vendor/bundle
       - run:
           name: Install CocoaPods
-          command: |
-            curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s
-            bundle exec pod install
+          command: bundle exec pod install
       - run:
           name: Run Deploy
           command: ./scripts/run_deploy.sh
