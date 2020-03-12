@@ -1,3 +1,7 @@
+# v2.1.3:
+## Fixed
+Change access level to AndesIconsProvider methods 
+
 # v2.1.2:
 ## Fixed
 - (iOS 10) mp accent colors
