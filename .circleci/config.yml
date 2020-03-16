@@ -98,7 +98,7 @@ jobs:
       - run: 
           name: Run Swift lint
           command: swiftlint
-  deploy:
+  build:
     <<: *defaultJob
     steps:
       - checkout
@@ -132,5 +132,5 @@ workflows:
           <<: *defaultWorkflow
       - lint:
           <<: *defaultWorkflow
-      - deploy:
+      - build:
           <<: *deployWorkflow

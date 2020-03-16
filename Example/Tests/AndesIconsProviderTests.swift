@@ -14,13 +14,11 @@ class IconsStrategyTest: AndesIconsStrategy {
     enum TestErr: Error {
         case failed
     }
-    func loadIcon(name: String, success: (UIImage?) -> Void, failure: ((Error?) -> Void)?) {
-        if name == "error" {
-            failure?(TestErr.failed)
-        } else if name == "iconName" {
+    func loadIcon(name: String, success: (UIImage) -> Void, failure: ((Error?) -> Void)?) {
+         if name == "iconName" {
             success(UIImage())
         } else {
-            success(nil)
+            failure?(nil)
         }
     }
 }
@@ -36,33 +34,42 @@ class AndesIconsProviderTests: QuickSpec {
 
                 //When
                 AndesIconsProvider.strategy = strategy
-                AndesIconsProvider.loadIcon(name: "iconName", success: {
-                    if $0 != nil {
-                        successCalled = true
-                    }
+                AndesIconsProvider.loadIcon(name: "iconName", success: { _ in
+                    successCalled = true
                 })
 
                 //Then
                 expect(successCalled).toEventually(beTrue())
 
                 }
-                it("search for icon and doesn't find it") {
-                //Given
-                let strategy = IconsStrategyTest()
-                var successNil = false
+                it("search for icon and place into uiview ") {
+                   //Given
+                   let strategy = IconsStrategyTest()
+                   let imageView = UIImageView()
+                    
 
-                //When
-                AndesIconsProvider.strategy = strategy
-                AndesIconsProvider.loadIcon(name: "notFound", success: {
-                    if $0 == nil {
-                        successNil = true
-                    }
-                })
-
-                //Then
-                expect(successNil).toEventually(beTrue())
-
+                   //When
+                   AndesIconsProvider.strategy = strategy
+                   AndesIconsProvider.loadIcon(name: "iconName", placeItInto: imageView)
+                   //Then
+                   expect(imageView.image).toEventuallyNot(beNil())
                 }
+            
+                it("search for icon and place into uiview with failure ") {
+                   //Given
+                   let strategy = IconsStrategyTest()
+                   let imageView = UIImageView()
+                   var failureCalled = false
+
+                   //When
+                   AndesIconsProvider.strategy = strategy
+                    AndesIconsProvider.loadIcon(name: "not_a_name", placeItInto: imageView, failure: { _ in
+                        failureCalled = true
+                    })
+                   //Then
+                   expect(failureCalled).toEventually(beTrue())
+                }
+            
                 it("search for icon and there's a failure ") {
                 //Given
                 let strategy = IconsStrategyTest()
@@ -76,7 +83,6 @@ class AndesIconsProviderTests: QuickSpec {
 
                 //Then
                 expect(failureCalled).toEventually(beTrue())
-
                 }
             }
         }
