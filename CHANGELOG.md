@@ -1,3 +1,7 @@
+# v2.1.4:
+## Fixed
+AndesIconsProvider loadIcon signature fix. (success callbacks gets a non nullable UIImage instead of nullable)
+
 # v2.1.3:
 ## Fixed
 Change access level to AndesIconsProvider methods 

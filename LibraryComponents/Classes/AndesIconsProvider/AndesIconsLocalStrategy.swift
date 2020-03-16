@@ -7,7 +7,7 @@
 
 import Foundation
 class AndesIconsLocalStrategy: AndesIconsStrategy {
-    func loadIcon(name: String, success: (UIImage?) -> Void, failure: ((Error?) -> Void)?) {
+    func loadIcon(name: String, success: (UIImage) -> Void, failure: ((Error?) -> Void)?) {
         let main = Bundle(for: AndesBundle.self)
         guard let bundlePath = main.resourceURL?.appendingPathComponent("AndesIcons.bundle"),
               let iconsBundle = Bundle(url: bundlePath),

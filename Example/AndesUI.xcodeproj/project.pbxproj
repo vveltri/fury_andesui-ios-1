@@ -31,7 +31,7 @@
 		9C9B5A8F23ECEED40007234B /* WhatsNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9B5A8D23ECEED40007234B /* WhatsNewViewController.swift */; };
 		9C9B5A9023ECEED40007234B /* WhatsNewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C9B5A8E23ECEED40007234B /* WhatsNewViewController.xib */; };
 		9C9B5A9223ECF2120007234B /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = 9C9B5A9123ECF2120007234B /* CHANGELOG.md */; };
-		9CAD81E923FD66ED00D43EB9 /* AndesIconsManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAD81E723FD62C900D43EB9 /* AndesIconsManagerTests.swift */; };
+		9CAD81E923FD66ED00D43EB9 /* AndesIconsProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAD81E723FD62C900D43EB9 /* AndesIconsProviderTests.swift */; };
 		9CD1071D23EDF3A90081232D /* UIView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD1071C23EDF3A90081232D /* UIView+Additions.swift */; };
 		9CD1072123F1B0EE0081232D /* TextViewAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD1071F23F1B0EE0081232D /* TextViewAlertViewController.swift */; };
 		9CD1072B23F1E7AB0081232D /* MessagesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD1072A23F1E7AB0081232D /* MessagesRouter.swift */; };
@@ -86,7 +86,7 @@
 		9C9B5A8D23ECEED40007234B /* WhatsNewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewViewController.swift; sourceTree = "<group>"; };
 		9C9B5A8E23ECEED40007234B /* WhatsNewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WhatsNewViewController.xib; sourceTree = "<group>"; };
 		9C9B5A9123ECF2120007234B /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
-		9CAD81E723FD62C900D43EB9 /* AndesIconsManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndesIconsManagerTests.swift; sourceTree = "<group>"; };
+		9CAD81E723FD62C900D43EB9 /* AndesIconsProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndesIconsProviderTests.swift; sourceTree = "<group>"; };
 		9CD1071C23EDF3A90081232D /* UIView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Additions.swift"; sourceTree = "<group>"; };
 		9CD1071F23F1B0EE0081232D /* TextViewAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewAlertViewController.swift; sourceTree = "<group>"; };
 		9CD1072A23F1E7AB0081232D /* MessagesRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessagesRouter.swift; path = Routers/MessagesRouter.swift; sourceTree = "<group>"; };
@@ -183,7 +183,7 @@
 				607FACEB1AFB9204008FA782 /* AndesStyleSheetTests.swift */,
 				9CE112ED23D103080017B770 /* AndesButtonTests.swift */,
 				9CE112EF23D1DE0A0017B770 /* AndesMessageTests.swift */,
-				9CAD81E723FD62C900D43EB9 /* AndesIconsManagerTests.swift */,
+				9CAD81E723FD62C900D43EB9 /* AndesIconsProviderTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -579,7 +579,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CAD81E923FD66ED00D43EB9 /* AndesIconsManagerTests.swift in Sources */,
+				9CAD81E923FD66ED00D43EB9 /* AndesIconsProviderTests.swift in Sources */,
 				E615508A23D619E300417B5F /* AndesButtonTests.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* AndesStyleSheetTests.swift in Sources */,
 				9CE112F123D1E14B0017B770 /* AndesMessageTests.swift in Sources */,
