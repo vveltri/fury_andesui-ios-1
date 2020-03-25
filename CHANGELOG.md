@@ -1,10 +1,14 @@
+# v2.1.5:
+## Changed
+- Temporary removal of ios11 color strategy for issue loading bundle with new build system
+
 # v2.1.4:
 ## Fixed
-AndesIconsProvider loadIcon signature fix. (success callbacks gets a non nullable UIImage instead of nullable)
+- AndesIconsProvider loadIcon signature fix. (success callbacks gets a non nullable UIImage instead of nullable)
 
 # v2.1.3:
 ## Fixed
-Change access level to AndesIconsProvider methods 
+- Change access level to AndesIconsProvider methods 
 
 # v2.1.2:
 ## Fixed

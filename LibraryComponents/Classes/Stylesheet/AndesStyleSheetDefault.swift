@@ -42,12 +42,8 @@ import Foundation
     public lazy var feedbackColorNegative: UIColor = self.stylesheetStrategy.feedbackColorNegative
 
     public override init() {
-        //TODO: Remove when iOS 11 is minimum deployment target
-        if #available(iOS 11.0, *) {
-            self.stylesheetStrategy = AndesColorStrategyiOS11()
-        } else {
-            self.stylesheetStrategy = AndesColorStrategyiOS10()
-        }
+        //TODO: Remove when iOS 11 is minimum deployment target, use ios 11 strat when new build system issues are solved
+        self.stylesheetStrategy = AndesColorStrategyiOS10()
     }
 
     public func titleXL(color: UIColor) -> AndesFontStyle {
