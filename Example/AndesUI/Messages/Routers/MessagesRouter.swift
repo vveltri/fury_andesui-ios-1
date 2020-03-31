@@ -13,12 +13,12 @@ protocol MessagesRouter: NSObject {
 }
 
 class MessagesAppRouter: NSObject {
-    var view: AndesMessageShowcaseViewController!
+    var view: AndesShowcasePageViewController!
 }
 
 extension MessagesAppRouter: MessagesRouter {
     func route(from: UIViewController) {
-        view = AndesMessageShowcaseViewController()
+        view = AndesShowcasePageViewController(controllers: [MessageViewController(), MessageObjCViewController()])
         from.navigationController?.pushViewController(view, animated: true)
     }
 }

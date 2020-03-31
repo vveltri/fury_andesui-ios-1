@@ -28,7 +28,7 @@ import UIKit
  */
 @objc public class AndesButton: UIControl {
     /// returns the current selected hierarchy
-    public private(set) var hierarchy: AndesButtonHierarchy
+    @objc(currentHierarchy) public private(set) var hierarchy: AndesButtonHierarchy
 
     /// returns the current selected size
     public private(set) var size: AndesButtonSize

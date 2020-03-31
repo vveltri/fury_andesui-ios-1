@@ -218,6 +218,21 @@ extension AndesMessageType {
             return "Warning"
         }
     }
+
+    func fromString(_ str: String) -> AndesMessageType {
+        switch str.lowercased() {
+        case "neutral":
+            return .neutral
+        case "success":
+            return .success
+        case "error":
+            return .error
+        case "warning":
+            return .warning
+        default:
+            return .neutral
+        }
+    }
 }
 
 extension AndesMessageHierarchy {

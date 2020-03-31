@@ -19,7 +19,7 @@ import UIKit
     public private(set) var title: String?
 
     /// returns the current message body
-    public private(set) var body: String = ""
+    @objc(bodyText) public private(set) var body: String = ""
 
     /// returns true if the message is dismissable by user
     public private(set) var isDismissable: Bool = false

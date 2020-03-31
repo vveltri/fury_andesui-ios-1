@@ -12,8 +12,8 @@ internal struct AndesMessageViewConfig {
     var backgroundColor: UIColor = AndesStyleSheetManager.styleSheet.accentColor
     var pipeColor: UIColor = AndesStyleSheetManager.styleSheet.accentColor
     var titleText: String?
-    var titleStyle: AndesFontStyle = getTitleStyle(AndesStyleSheetManager.styleSheet.textColorWhite)
-    var bodyStyle: AndesFontStyle = getBodyStyle(AndesStyleSheetManager.styleSheet.textColorWhite)
+    var titleStyle: AndesFontStyle = getTitleStyle(AndesStyleSheetManager.styleSheet.textColorPrimary)
+    var bodyStyle: AndesFontStyle = getBodyStyle(AndesStyleSheetManager.styleSheet.textColorPrimary)
     var bodyText: String?
 
     var icon: String?
