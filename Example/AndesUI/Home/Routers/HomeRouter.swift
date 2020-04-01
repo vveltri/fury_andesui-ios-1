@@ -12,6 +12,7 @@ protocol HomeRouter: NSObject {
     func route(from: UIViewController)
     func routeToButton()
     func routeToMessages()
+    func routeToBadges()
     func routeToWhatsNew()
 }
 
@@ -21,6 +22,7 @@ class HomeAppRouter: NSObject {
 
     let buttonsRouter = ButtonsAppRouter()
     let messagesRouter = MessagesAppRouter()
+    let badgesRouter = BadgesAppRouter()
     let whatsNewRouter = WhatsNewAppRouter()
 }
 
@@ -41,6 +43,10 @@ extension HomeAppRouter: HomeRouter {
 
     func routeToMessages() {
         messagesRouter.route(from: view)
+    }
+
+    func routeToBadges() {
+        badgesRouter.route(from: view)
     }
 
     func routeToWhatsNew() {
