@@ -8,8 +8,6 @@
 import Foundation
 
 class AndesTextFieldAbstractView: UIView, AndesTextFieldView {
-    weak var delegate: AndesTextFieldViewDelegate?
-
     @IBOutlet weak var fieldView: UIView!
     @IBOutlet var view: UIView!
     @IBOutlet weak var labelLabel: UILabel!
@@ -19,6 +17,7 @@ class AndesTextFieldAbstractView: UIView, AndesTextFieldView {
 
     var dashedLayer: CAShapeLayer?
     var text: String = ""
+    weak var delegate: AndesTextFieldViewDelegate?
 
     var config: AndesTextFieldViewConfig
     init(withConfig config: AndesTextFieldViewConfig) {

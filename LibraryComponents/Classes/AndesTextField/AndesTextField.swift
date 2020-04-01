@@ -76,6 +76,8 @@ import UIKit
         }
     }
 
+    @objc public weak var delegate: AndesTextFieldDelegate?
+
     /// returns the current text
     public var text: String {
         return contentView.text
@@ -160,13 +162,45 @@ import UIKit
 }
 
 extension AndesTextField: AndesTextFieldViewDelegate {
+    func shouldBeginEditing() -> Bool {
+        if let beginEditing = delegate?.AndesTextFieldShouldBeginEditing?(self) {
+            return beginEditing
+        }
+        return true
+    }
+
+    func shouldEndEditing() -> Bool {
+        if let endEditing = delegate?.AndesTextFieldShouldEndEditing?(self) {
+            return endEditing
+        }
+        return true
+    }
+
+    func textField(shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if let change = delegate?.AndesTextField?(self, shouldChangeCharactersIn: range, replacementString: string) {
+            return change
+        }
+
+        return true
+    }
+
+    func didChangeSelection(selectedRange range: UITextRange?) {
+        delegate?.AndesTextFieldDidChangeSelection?(self, selectedRange: range)
+    }
+
     func didBeginEditing() {
         isEditing = true
         updateContentView()
+        delegate?.AndesTextFieldDidBeginEditing?(self)
     }
 
     func didEndEditing(text: String) {
         isEditing = false
         updateContentView()
+        delegate?.AndesTextFieldDidEndEditing?(self)
+    }
+
+    func didChange() {
+        delegate?.AndesTextFieldDidChange?(self)
     }
 }

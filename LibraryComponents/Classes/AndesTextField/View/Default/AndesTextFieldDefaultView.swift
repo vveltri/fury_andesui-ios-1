@@ -29,6 +29,11 @@ class AndesTextFieldDefaultView: AndesTextFieldAbstractView {
         self.textField.delegate = self
         self.textField.leftViewMode = .always
         textField.rightViewMode = .always
+        textField.addTarget(self, action: #selector(self.textChanged), for: UIControl.Event.editingChanged)
+    }
+
+    @objc func textChanged(_ textField: UITextField) {
+        delegate?.didChange()
     }
 
     override func updateView() {
@@ -63,10 +68,15 @@ class AndesTextFieldDefaultView: AndesTextFieldAbstractView {
 
 extension AndesTextFieldAbstractView: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let currentText = self.text
+        guard delegate?.textField(shouldChangeCharactersIn: range, replacementString: text) != false else {
+            return false
+        }
+
         guard config.counter > 0 else { // no limit
             return true
         }
+
+        let currentText = self.text
         guard let rangeOfTextToReplace = Range(range, in: currentText) else {
                 return false
         }
@@ -82,15 +92,34 @@ extension AndesTextFieldAbstractView: UITextFieldDelegate {
         return false
     }
 
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        self.delegate?.didBeginEditing()
-        return true
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        delegate?.didBeginEditing()
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        delegate?.didEndEditing(text: self.text)
     }
 
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        self.delegate?.didEndEditing(text: self.text)
+        guard delegate?.shouldEndEditing() != false else {
+            return false
+        }
+
         return true
     }
+
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        guard delegate?.shouldBeginEditing() != false else {
+            return false
+        }
+
+        return true
+    }
+
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        delegate?.didChangeSelection(selectedRange: textField.selectedTextRange)
+    }
+
 }
 
 private extension UITextField {
