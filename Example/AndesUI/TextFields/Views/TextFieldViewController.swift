@@ -64,7 +64,7 @@ class TextFieldViewController: UIViewController, TextFieldView {
     func setupUI() {
         textField.textInputTraits = .numberPad
         textField.leftComponent = AndesTextFieldComponentLabel(text: "Prefix")
-        textField.rightComponent = AndesTextFieldComponentCheck()
+        textField.rightComponent = AndesTextFieldComponentClear()
         configView.isHidden = true
         textField.delegate = self
     }

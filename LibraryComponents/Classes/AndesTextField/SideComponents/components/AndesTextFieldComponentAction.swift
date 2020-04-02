@@ -7,6 +7,7 @@
 
 import Foundation
 @objc public class AndesTextFieldComponentAction: NSObject, AndesTextFieldRightComponent {
+    public private(set) var visibility: AndesTextFieldComponentVisibility = .always
 
     @objc public private(set) var label: String
 

@@ -8,9 +8,10 @@
 import Foundation
 
 @objc public class AndesTextFieldComponentLabel: NSObject, AndesTextFieldLeftComponent, AndesTextFieldRightComponent {
-    public let text: String
+    public private(set) var visibility: AndesTextFieldComponentVisibility = .always
+    @objc public let text: String
 
-    public init(text: String) {
+    @objc public init(text: String) {
         self.text = text
         super.init()
     }

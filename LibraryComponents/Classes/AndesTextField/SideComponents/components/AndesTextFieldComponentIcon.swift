@@ -7,6 +7,7 @@
 
 import Foundation
 @objc public class AndesTextFieldComponentIcon: NSObject, AndesTextFieldRightComponent, AndesTextFieldLeftComponent {
+    public private(set) var visibility: AndesTextFieldComponentVisibility = .always
 
     @objc public private(set) var icon: UIImage = UIImage()
     @objc public private(set) var tintColor: UIColor = .clear

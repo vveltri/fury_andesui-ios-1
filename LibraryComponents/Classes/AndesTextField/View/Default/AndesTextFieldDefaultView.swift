@@ -22,9 +22,18 @@ class AndesTextFieldDefaultView: AndesTextFieldAbstractView {
         }
     }
 
+    var currentVisibilities: [AndesTextFieldComponentVisibility] {
+        return self.text.isEmpty ? [.always] : [.always, .whenNotEmpty]
+    }
+
     override func loadNib() {
         let bundle = AndesBundle.bundle()
         bundle.loadNibNamed("AndesTextFieldDefaultView", owner: self, options: nil)
+    }
+
+    override func clear() {
+        super.clear()
+        updateSideComponents()
     }
 
     override func setup() {
@@ -37,6 +46,8 @@ class AndesTextFieldDefaultView: AndesTextFieldAbstractView {
 
     @objc func textChanged(_ textField: UITextField) {
         delegate?.didChange()
+        // side components
+        updateSideComponents()
 
         //Counter
         let maxLength = Int(config.counter)
@@ -49,6 +60,7 @@ class AndesTextFieldDefaultView: AndesTextFieldAbstractView {
             }
         }
         self.counterLabel.text = "\(self.text.count) / \(config.counter)"
+
     }
 
     override func updateView() {
@@ -67,18 +79,22 @@ class AndesTextFieldDefaultView: AndesTextFieldAbstractView {
         }
 
         // set side component views
-        if let leftComponentConfig = config.leftViewComponent {
+        updateSideComponents()
+    }
+
+    func updateSideComponents() {
+        if let leftComponentConfig = config.leftViewComponent, currentVisibilities.contains(leftComponentConfig.visibility) {
             textField.leftView = AndesTextFieldComponentFactory.generateLeftComponentView(for: leftComponentConfig, in: self)
         } else {
             textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
         }
-        if let rightComponentConfig = config.rightViewComponent {
+        if let rightComponentConfig = config.rightViewComponent, currentVisibilities.contains(rightComponentConfig.visibility) {
             textField.rightView = AndesTextFieldComponentFactory.generateRightComponentView(for: rightComponentConfig, in: self)
         } else {
             textField.rightView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
         }
-
     }
+
 }
 
 extension AndesTextFieldAbstractView: UITextFieldDelegate {
