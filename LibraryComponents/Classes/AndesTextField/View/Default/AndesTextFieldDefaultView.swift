@@ -19,6 +19,7 @@ class AndesTextFieldDefaultView: AndesTextFieldAbstractView {
         }
         set(value) {
             textField.text = value
+            textChanged(self.textField)
         }
     }
 
