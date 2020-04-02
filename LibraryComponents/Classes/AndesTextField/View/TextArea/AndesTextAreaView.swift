@@ -31,6 +31,7 @@ class AndesTextAreaView: AndesTextFieldAbstractView {
         super.updateView()
         placeholderLabel.setAndesStyle(style: config.placeholderStyle)
         placeholderLabel.text = config.placeholderText
+        placeholderLabel.isHidden = self.text.count > 0
         self.textView.textColor = config.inputTextStyle.textColor
         self.textView.font = config.inputTextStyle.font
         self.textView.isUserInteractionEnabled = config.editingEnabled

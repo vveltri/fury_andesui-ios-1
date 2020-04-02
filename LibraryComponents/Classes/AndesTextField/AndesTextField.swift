@@ -25,28 +25,28 @@ import UIKit
     }
 
     /// Text for the label of the textfield
-    @objc public var labelText: String? {
+    @IBInspectable public var labelText: String? {
         didSet {
             self.updateContentView()
         }
     }
 
     /// Sets the helper label text
-    @objc public var helperText: String? {
+    @IBInspectable public var helperText: String? {
         didSet {
             self.updateContentView()
         }
     }
 
     /// if 0, its unlimited, anything else its the limit of chars the user can input.
-    @objc public var counter: UInt16 = 0 {
+    @IBInspectable public var counter: UInt16 = 0 {
         didSet {
             self.updateContentView()
         }
     }
 
     /// sets the placeholder label text.
-    @objc public var placeholderText: String? {
+    @IBInspectable public var placeholderText: String? {
         didSet {
             self.updateContentView()
         }
@@ -76,13 +76,13 @@ import UIKit
         }
     }
 
-    @objc public weak var delegate: AndesTextFieldDelegate?
-
     /// returns the current text
-    public var text: String {
+    @IBInspectable public var text: String {
         get { return contentView.text }
         set { contentView.text = newValue }
     }
+
+    @objc public weak var delegate: AndesTextFieldDelegate?
 
     internal private(set) var inputTraits: UITextInputTraits? {
         didSet {

@@ -61,11 +61,6 @@ class TextFieldViewController: UIViewController, TextFieldView {
     }
 
     func setupUI() {
-        textField.labelText = "Some Label"
-        textField.helperText = "Helper text"
-        textField.placeholderText = "Placeholder"
-        textField.type = .simple
-        textField.counter = 20
         textField.textInputTraits = .numberPad
         textField.leftComponent = AndesTextFieldComponentLabel(text: "Prefix")
         textField.rightComponent = AndesTextFieldComponentCheck()

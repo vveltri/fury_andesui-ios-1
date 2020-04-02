@@ -7,7 +7,11 @@
 
 import Foundation
 
-@objc public enum AndesTextFieldInpuTraits: Int {
+@objc public enum AndesTextFieldInpuTraits: Int, AndesEnumStringConvertible {
+    internal static var keys: [String] {
+        ["PASSWORD", "EMAIL", "NUMBER_PAD", "CUSTOM"]
+    }
+
     case password
     case email
     case numberPad

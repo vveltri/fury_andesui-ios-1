@@ -8,40 +8,27 @@
 import Foundation
 
 public extension AndesTextField {
-    @available(*, unavailable, message: "This property is reserved for Interface Builder. Use 'setLabel' instead.")
-    @IBInspectable var ibLabelText: String {
-        set(val) {
-            self.labelText = val
+    internal func checkValidEnum<T: AndesEnumStringConvertible>(property: String, key: String) -> T {
+        guard let value = T(key) else {
+            fatalError("The available values for \(property) are \(T.keys)")
         }
-        get {
-            return ""
-        }
+        return value
     }
 
-    @available(*, unavailable, message: "This property is reserved for Interface Builder. Use 'setPlaceholder' instead.")
-    @IBInspectable var ibPlaceholderText: String {
-        set(val) {
-            self.placeholderText = val
-        }
-        get {
-            return ""
-        }
-    }
-
-    @available(*, unavailable, message: "This property is reserved for Interface Builder. Use 'setHelperText' instead.")
-    @IBInspectable var ibHelperText: String {
-        set(val) {
-            self.helperText = val
-        }
-        get {
-            return ""
-        }
-    }
-
-    @available(*, unavailable, message: "This property is reserved for Interface Builder. Use 'setHelperText' instead.")
+    @available(*, unavailable, message: "This property is reserved for Interface Builder. Use 'type' instead.")
     @IBInspectable var ibType: String {
         set(val) {
-            self.helperText = val
+            self.type = checkValidEnum(property: "IB Type", key: val)
+        }
+        get {
+            return ""
+        }
+    }
+
+    @available(*, unavailable, message: "This property is reserved for Interface Builder. Use 'state' instead.")
+    @IBInspectable var ibState: String {
+        set(val) {
+            self.state = checkValidEnum(property: "IB State", key: val)
         }
         get {
             return ""
