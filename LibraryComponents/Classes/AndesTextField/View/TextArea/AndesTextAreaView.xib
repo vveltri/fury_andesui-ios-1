@@ -15,6 +15,7 @@
                 <outlet property="helperIconImageView" destination="PSm-MB-uON" id="9xg-Z5-ClG"/>
                 <outlet property="helperLabel" destination="7zg-V8-fqP" id="Uc7-w3-Ubg"/>
                 <outlet property="labelLabel" destination="6j7-M2-Xfr" id="qsQ-pV-xAo"/>
+                <outlet property="placeholderLabel" destination="BBy-K7-RYS" id="R0D-yt-JDF"/>
                 <outlet property="textView" destination="jQF-k4-Vbe" id="idi-Dg-ejM"/>
                 <outlet property="view" destination="nvC-MJ-mtJ" id="qvD-OM-k3f"/>
             </connections>
@@ -70,10 +71,19 @@
                         </label>
                     </subviews>
                 </stackView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Placeholder text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BBy-K7-RYS">
+                    <rect key="frame" x="12" y="80" width="98.5" height="16"/>
+                    <accessibility key="accessibilityConfiguration" label="Helper Text"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <constraints>
+                <constraint firstItem="BBy-K7-RYS" firstAttribute="top" secondItem="jQF-k4-Vbe" secondAttribute="top" constant="13" id="FKd-wz-A2D"/>
                 <constraint firstItem="jZ4-De-OIx" firstAttribute="top" secondItem="jQF-k4-Vbe" secondAttribute="bottom" constant="4" id="Gb1-h9-Nus"/>
                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="yHM-MY-Oip" secondAttribute="bottom" id="PfO-4u-Znl"/>
+                <constraint firstItem="BBy-K7-RYS" firstAttribute="leading" secondItem="jQF-k4-Vbe" secondAttribute="leading" constant="12" id="QAg-k1-kLO"/>
                 <constraint firstItem="yHM-MY-Oip" firstAttribute="top" secondItem="jQF-k4-Vbe" secondAttribute="bottom" constant="4" id="VFH-Ar-0EI"/>
                 <constraint firstItem="jQF-k4-Vbe" firstAttribute="top" secondItem="6j7-M2-Xfr" secondAttribute="bottom" constant="6" id="VJP-he-ZoV"/>
                 <constraint firstItem="osO-R3-Okw" firstAttribute="trailing" secondItem="jQF-k4-Vbe" secondAttribute="trailing" id="VdX-il-4ip"/>

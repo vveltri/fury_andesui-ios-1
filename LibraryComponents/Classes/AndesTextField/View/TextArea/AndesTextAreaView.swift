@@ -9,6 +9,7 @@ import Foundation
 
 class AndesTextAreaView: AndesTextFieldAbstractView {
     @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var placeholderLabel: UILabel!
 
     override var text: String {
         get {
@@ -23,10 +24,17 @@ class AndesTextAreaView: AndesTextFieldAbstractView {
         let bundle = AndesBundle.bundle()
         bundle.loadNibNamed("AndesTextAreaView", owner: self, options: nil)
         textView.delegate = self
+        self.textView.textContainerInset = UIEdgeInsets(top: 13, left: 9, bottom: 13, right: 9)
     }
 
     override func updateView() {
         super.updateView()
+        placeholderLabel.setAndesStyle(style: config.placeholderStyle)
+        placeholderLabel.text = config.placeholderText
+        self.textView.textColor = config.inputTextStyle.textColor
+        self.textView.font = config.inputTextStyle.font
+        self.textView.isUserInteractionEnabled = config.editingEnabled
+
         if let traits = config.textInputTraits {
             self.textView.setInputTraits(traits)
         }
@@ -60,6 +68,7 @@ extension AndesTextAreaView: UITextViewDelegate {
 
     func textViewDidChange(_ textView: UITextView) {
         delegate?.didChange()
+        placeholderLabel.isHidden = self.text.count > 0
 
         //Counter
         let maxLength = Int(config.counter)
