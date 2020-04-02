@@ -14,8 +14,17 @@ import Foundation
     case disabled
     case readOnly
 
-    internal static var keys: [String] {
-        ["IDLE", "ERROR", "DISABLED", "READONLY"]
-      }
+    static func keyFor(_ value: AndesTextFieldState) -> String {
+        switch value {
+        case .idle:
+            return "IDLE"
+        case .error:
+            return "ERROR"
+        case .readOnly:
+            return "READ_ONLY"
+        case .disabled:
+            return "DISABLED"
+        }
+    }
 
 }

@@ -10,7 +10,7 @@ import Foundation
 public extension AndesTextField {
     internal func checkValidEnum<T: AndesEnumStringConvertible>(property: String, key: String) -> T {
         guard let value = T(key) else {
-            fatalError("The available values for \(property) are \(T.keys)")
+            fatalError("The available values for \(property) are \(T.allKeys)")
         }
         return value
     }

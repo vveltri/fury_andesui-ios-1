@@ -8,14 +8,23 @@
 import Foundation
 
 @objc public enum AndesTextFieldInpuTraits: Int, AndesEnumStringConvertible {
-    internal static var keys: [String] {
-        ["PASSWORD", "EMAIL", "NUMBER_PAD", "CUSTOM"]
-    }
-
     case password
     case email
     case numberPad
     case custom
+
+    static func keyFor(_ value: AndesTextFieldInpuTraits) -> String {
+        switch value {
+        case .email:
+            return "EMAIL"
+        case .numberPad:
+            return "NUMBER_PAD"
+        case .password:
+            return "PASSWORD"
+        case .custom:
+            return "CUSTOM"
+        }
+    }
 }
 
 internal class AndesTextInputTraitsFactory: NSObject {

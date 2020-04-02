@@ -194,4 +194,8 @@ extension AndesTextField: AndesTextFieldViewDelegate {
     func didChange() {
         delegate?.andesTextFieldDidChange?(self)
     }
+
+    func didTapRightAction() {
+        delegate?.andesTextFieldDidTapRightAction?(self)
+    }
 }

@@ -12,7 +12,12 @@ import Foundation
     case simple
     case textArea
 
-    internal static var keys: [String] {
-        ["SIMPLE", "TEXT_AREA"]
+    static func keyFor(_ value: AndesTextFieldType) -> String {
+        switch value {
+        case .simple:
+            return "SIMPLE"
+        case .textArea:
+            return "TEXT_AREA"
+        }
     }
 }
