@@ -15,4 +15,5 @@ internal protocol AndesTextFieldViewDelegate: AnyObject {
     func textField(shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
     func didChangeSelection(selectedRange range: UITextRange?)
     func didChange()
+    func didTapRightAction()
 }

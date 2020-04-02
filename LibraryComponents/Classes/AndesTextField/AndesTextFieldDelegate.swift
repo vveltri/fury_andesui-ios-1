@@ -15,4 +15,5 @@ import Foundation
     @objc optional func andesTextField(_ textField: AndesTextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
     @objc optional func andesTextFieldDidChangeSelection(_ textField: AndesTextField, selectedRange range: UITextRange?)
     @objc optional func andesTextFieldDidChange(_ textField: AndesTextField)
+    @objc optional func andesTextFieldDidTapRightAction(_ textField: AndesTextField)
 }

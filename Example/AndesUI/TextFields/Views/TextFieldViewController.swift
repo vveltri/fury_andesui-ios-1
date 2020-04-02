@@ -48,7 +48,8 @@ class TextFieldViewController: UIViewController, TextFieldView {
             "None": { return nil },
             "Sufijo": { return AndesTextFieldComponentLabel(text: "Sufix")},
             "Icon": { return AndesTextFieldComponentIcon(andesIconName: "andes_ui_feedback_info_16", tintColor: UIColor.red)},
-            "Clear": { return AndesTextFieldComponentClear() }
+            "Clear": { return AndesTextFieldComponentClear() },
+            "Action": { return AndesTextFieldComponentAction("Action A") }
         ]
     }
 
@@ -61,15 +62,11 @@ class TextFieldViewController: UIViewController, TextFieldView {
     }
 
     func setupUI() {
-        textField.labelText = "Some Label"
-        textField.helperText = "Helper text"
-        textField.placeholderText = "Placeholder"
-        textField.type = .simple
-        textField.counter = 20
         textField.textInputTraits = .numberPad
         textField.leftComponent = AndesTextFieldComponentLabel(text: "Prefix")
         textField.rightComponent = AndesTextFieldComponentCheck()
         configView.isHidden = true
+        textField.delegate = self
     }
 
     fileprivate func setupButtons() {
@@ -214,5 +211,14 @@ extension TextFieldViewController: UITextFieldDelegate {
         let allowedCharacters = CharacterSet.decimalDigits
         let characterSet = CharacterSet(charactersIn: string)
         return allowedCharacters.isSuperset(of: characterSet)
+    }
+}
+
+extension TextFieldViewController: AndesTextFieldDelegate {
+    func andesTextFieldDidTapRightAction(_ textField: AndesTextField) {
+        let alert = UIAlertController(title: "Right action pressed", message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+
     }
 }

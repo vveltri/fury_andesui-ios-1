@@ -40,6 +40,17 @@
                                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="362" placeholderIntrinsicHeight="50" translatesAutoresizingMaskIntoConstraints="NO" id="9EC-n8-a4i" customClass="AndesTextField" customModule="AndesUI">
                                     <rect key="frame" x="10" y="20" width="362" height="50"/>
                                     <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="ibType" value="text_area"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="ibState" value="Idle"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="Label"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="helperText" value="Helper Text"/>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="counter">
+                                            <integer key="value" value="25"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Placeholder"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="text" value="wut"/>
+                                    </userDefinedRuntimeAttributes>
                                 </view>
                                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="48" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="mVQ-bi-RCo" customClass="AndesButton" customModule="AndesUI">
                                     <rect key="frame" x="10" y="85" width="362" height="40"/>

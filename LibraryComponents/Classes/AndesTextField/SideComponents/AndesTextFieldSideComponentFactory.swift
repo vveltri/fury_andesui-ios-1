@@ -27,6 +27,10 @@ internal class AndesTextFieldComponentFactory {
             return AndesTextFieldClearView(iconColor: component.iconColor, iconName: component.clearIcon) { [weak view] in
                view?.clear()
            }
+        } else if let component = component as? AndesTextFieldComponentAction {
+            return AndesTextFieldActionView(label: component.label) {[weak view] in
+                view?.delegate?.didTapRightAction()
+            }
         }
         return nil
     }
