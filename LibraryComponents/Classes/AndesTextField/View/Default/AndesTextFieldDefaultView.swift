@@ -12,7 +12,10 @@ class AndesTextFieldDefaultView: AndesTextFieldAbstractView {
 
     override var text: String {
         get {
-            return textField.text!
+            guard let text = textField.text else {
+                return ""
+            }
+            return text
         }
         set(value) {
             textField.text = value
@@ -34,6 +37,18 @@ class AndesTextFieldDefaultView: AndesTextFieldAbstractView {
 
     @objc func textChanged(_ textField: UITextField) {
         delegate?.didChange()
+
+        //Counter
+        let maxLength = Int(config.counter)
+        guard maxLength > 0 else { return } // dont check length if counter = 0
+
+        if self.text.count > maxLength { // don't trim string if maxLength >= currentText length
+            textField.text = String(self.text.prefix(maxLength))
+            DispatchQueue.main.async { // for some reason if you paste text that has to be trimmed the cursor doesn't move to the end of the text, this is a workaround for that case
+                textField.selectedTextRange = textField.textRange(from: textField.endOfDocument, to: textField.endOfDocument)
+            }
+        }
+        self.counterLabel.text = "\(self.text.count) / \(config.counter)"
     }
 
     override func updateView() {
@@ -68,28 +83,7 @@ class AndesTextFieldDefaultView: AndesTextFieldAbstractView {
 
 extension AndesTextFieldAbstractView: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        guard delegate?.textField(shouldChangeCharactersIn: range, replacementString: text) != false else {
-            return false
-        }
-
-        guard config.counter > 0 else { // no limit
-            return true
-        }
-
-        let currentText = self.text
-        guard let rangeOfTextToReplace = Range(range, in: currentText) else {
-                return false
-        }
-
-        let substringToReplace = currentText[rangeOfTextToReplace]
-        let count = currentText.count - substringToReplace.count + text.count
-
-        if count <= config.counter {
-            self.counterLabel.text = "\(count) / \(config.counter)"
-            return true
-        }
-
-        return false
+        return delegate?.textField(shouldChangeCharactersIn: range, replacementString: text) != false
     }
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -101,19 +95,11 @@ extension AndesTextFieldAbstractView: UITextFieldDelegate {
     }
 
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        guard delegate?.shouldEndEditing() != false else {
-            return false
-        }
-
-        return true
+        return delegate?.shouldEndEditing() != false
     }
 
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        guard delegate?.shouldBeginEditing() != false else {
-            return false
-        }
-
-        return true
+        return delegate?.shouldBeginEditing() != false
     }
 
     func textFieldDidChangeSelection(_ textField: UITextField) {

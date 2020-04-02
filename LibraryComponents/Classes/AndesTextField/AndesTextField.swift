@@ -164,25 +164,15 @@ import UIKit
 
 extension AndesTextField: AndesTextFieldViewDelegate {
     func shouldBeginEditing() -> Bool {
-        if let beginEditing = delegate?.andesTextFieldShouldBeginEditing?(self) {
-            return beginEditing
-        }
-        return true
+        return delegate?.andesTextFieldShouldBeginEditing?(self) != false
     }
 
     func shouldEndEditing() -> Bool {
-        if let endEditing = delegate?.andesTextFieldShouldEndEditing?(self) {
-            return endEditing
-        }
-        return true
+        return delegate?.andesTextFieldShouldEndEditing?(self) != false
     }
 
     func textField(shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if let change = delegate?.andesTextField?(self, shouldChangeCharactersIn: range, replacementString: string) {
-            return change
-        }
-
-        return true
+        return delegate?.andesTextField?(self, shouldChangeCharactersIn: range, replacementString: string)  != false
     }
 
     func didChangeSelection(selectedRange range: UITextRange?) {

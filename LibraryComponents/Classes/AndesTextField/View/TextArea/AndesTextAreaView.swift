@@ -43,44 +43,15 @@ extension AndesTextAreaView: UITextViewDelegate {
     }
 
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        guard delegate?.textField(shouldChangeCharactersIn: range, replacementString: text) != false else {
-            return false
-        }
-
-        guard config.counter > 0 else { // no limit
-            return true
-        }
-
-        let currentText = self.text
-        guard let rangeOfTextToReplace = Range(range, in: currentText) else {
-                return false
-        }
-
-        let substringToReplace = currentText[rangeOfTextToReplace]
-        let count = currentText.count - substringToReplace.count + text.count
-
-        if count <= config.counter {
-            self.counterLabel.text = "\(count) / \(config.counter)"
-            return true
-        }
-
-        return false
+        return delegate?.textField(shouldChangeCharactersIn: range, replacementString: text) != false
     }
 
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
-        guard delegate?.shouldBeginEditing() != false else {
-            return false
-        }
-
-        return true
+        return delegate?.shouldBeginEditing() != false
     }
 
     func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
-        guard delegate?.shouldBeginEditing() != false else {
-            return false
-        }
-
-        return true
+        return delegate?.shouldEndEditing() != false
     }
 
     func textViewDidChangeSelection(_ textView: UITextView) {
@@ -89,6 +60,18 @@ extension AndesTextAreaView: UITextViewDelegate {
 
     func textViewDidChange(_ textView: UITextView) {
         delegate?.didChange()
+
+        //Counter
+        let maxLength = Int(config.counter)
+        guard maxLength > 0 else { return } // dont check length if counter = 0
+
+        if self.text.count > maxLength { // don't trim string if maxLength >= currentText length
+            textView.text = String(self.text.prefix(maxLength))
+            DispatchQueue.main.async { // for some reason if you paste text that has to be trimmed the cursor doesn't move to the end of the text, this is a workaround for that case
+                textView.selectedTextRange = textView.textRange(from: textView.endOfDocument, to: textView.endOfDocument)
+            }
+        }
+        self.counterLabel.text = "\(self.text.count) / \(config.counter)"
     }
 }
 
