@@ -109,6 +109,8 @@ class TextFieldViewController: UIViewController, TextFieldView {
         textField.leftComponent = self.leftComponents[leftCompField.text!]!()
         textField.rightComponent = self.rightComponents[rightCompField.text!]!()
         textField.type = AndesTextFieldType(typeField.text!)!
+        textField.labelText = self.labelField.text
+        textField.placeholderText = self.placeholderField.text
     }
 
     @IBAction func toggleTapped(_ sender: Any) {
