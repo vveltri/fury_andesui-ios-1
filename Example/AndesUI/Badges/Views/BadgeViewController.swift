@@ -2,9 +2,6 @@
 //  BadgeViewController.swift
 //  AndesUI-demoapp
 //
-//  Created by Ignacio Guri on 25/03/2020.
-//  Copyright © 2020 MercadoLibre. All rights reserved.
-//
 
 import UIKit
 import AndesUI
@@ -63,7 +60,7 @@ class BadgeViewController: UIViewController, BadgeView {
     func setupUpdateButton() {
         updateButton.setSize(.large)
         updateButton.setHierarchy(.loud)
-        updateButton.setText("Update Component")
+        updateButton.setText("badge.button.updateConfig".localized)
     }
 
     func createPickerViews() {

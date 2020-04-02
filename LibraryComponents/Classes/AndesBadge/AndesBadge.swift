@@ -7,6 +7,7 @@ import UIKit
 
 @objc public class AndesBadge: UIView {
     internal var contentView: AndesBadgeView!
+
     /// The modifier of an AndesBadge defines its kind (Pill, Dot, Notification)
     @objc public var modifier: AndesBadgeModifier = .pill {
         didSet {

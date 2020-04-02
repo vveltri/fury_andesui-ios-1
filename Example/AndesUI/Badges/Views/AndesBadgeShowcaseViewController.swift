@@ -2,9 +2,6 @@
 //  AndesBadgeShowcaseViewController.swift
 //  AndesUI-demoapp
 //
-//  Created by Ignacio Guri on 25/03/2020.
-//  Copyright © 2020 MercadoLibre. All rights reserved.
-//
 
 import UIKit
 import AndesUI
@@ -13,7 +10,7 @@ class AndesBadgeShowcaseViewController: UIViewController {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var pageControl: UIPageControl!
 
-    let controllers = [BadgeViewController(), MessageObjCViewController()]
+    let controllers = [BadgeViewController(), BadgeObjCViewController()]
     var pageController: UIPageViewController!
 
     fileprivate func setupPageControl() {
@@ -43,7 +40,7 @@ class AndesBadgeShowcaseViewController: UIViewController {
 extension AndesBadgeShowcaseViewController: UIPageViewControllerDataSource, UIPageViewControllerDelegate, UIScrollViewDelegate {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         let current = controllers.index(of: viewController)!
-        return current == 0 ? nil : controllers[current -    1]
+        return current == 0 ? nil : controllers[current - 1]
     }
 
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
