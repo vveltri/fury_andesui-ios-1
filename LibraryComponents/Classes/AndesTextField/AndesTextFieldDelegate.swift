@@ -8,11 +8,11 @@
 import Foundation
 
 @objc public protocol AndesTextFieldDelegate: UITextViewDelegate {
-    @objc optional func AndesTextFieldShouldBeginEditing(_ textField: AndesTextField) -> Bool
-    @objc optional func AndesTextFieldShouldEndEditing(_ textField: AndesTextField) -> Bool
-    @objc optional func AndesTextFieldDidBeginEditing(_ textField: AndesTextField)
-    @objc optional func AndesTextFieldDidEndEditing(_ textField: AndesTextField)
-    @objc optional func AndesTextField(_ textField: AndesTextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
-    @objc optional func AndesTextFieldDidChangeSelection(_ textField: AndesTextField, selectedRange range: UITextRange?)
-    @objc optional func AndesTextFieldDidChange(_ textField: AndesTextField)
+    @objc optional func andesTextFieldShouldBeginEditing(_ textField: AndesTextField) -> Bool
+    @objc optional func andesTextFieldShouldEndEditing(_ textField: AndesTextField) -> Bool
+    @objc optional func andesTextFieldDidBeginEditing(_ textField: AndesTextField)
+    @objc optional func andesTextFieldDidEndEditing(_ textField: AndesTextField)
+    @objc optional func andesTextField(_ textField: AndesTextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
+    @objc optional func andesTextFieldDidChangeSelection(_ textField: AndesTextField, selectedRange range: UITextRange?)
+    @objc optional func andesTextFieldDidChange(_ textField: AndesTextField)
 }

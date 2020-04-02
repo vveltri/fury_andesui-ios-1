@@ -80,7 +80,8 @@ import UIKit
 
     /// returns the current text
     public var text: String {
-        return contentView.text
+        get { return contentView.text }
+        set { contentView.text = newValue }
     }
 
     internal private(set) var inputTraits: UITextInputTraits? {
@@ -163,21 +164,21 @@ import UIKit
 
 extension AndesTextField: AndesTextFieldViewDelegate {
     func shouldBeginEditing() -> Bool {
-        if let beginEditing = delegate?.AndesTextFieldShouldBeginEditing?(self) {
+        if let beginEditing = delegate?.andesTextFieldShouldBeginEditing?(self) {
             return beginEditing
         }
         return true
     }
 
     func shouldEndEditing() -> Bool {
-        if let endEditing = delegate?.AndesTextFieldShouldEndEditing?(self) {
+        if let endEditing = delegate?.andesTextFieldShouldEndEditing?(self) {
             return endEditing
         }
         return true
     }
 
     func textField(shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if let change = delegate?.AndesTextField?(self, shouldChangeCharactersIn: range, replacementString: string) {
+        if let change = delegate?.andesTextField?(self, shouldChangeCharactersIn: range, replacementString: string) {
             return change
         }
 
@@ -185,22 +186,22 @@ extension AndesTextField: AndesTextFieldViewDelegate {
     }
 
     func didChangeSelection(selectedRange range: UITextRange?) {
-        delegate?.AndesTextFieldDidChangeSelection?(self, selectedRange: range)
+        delegate?.andesTextFieldDidChangeSelection?(self, selectedRange: range)
     }
 
     func didBeginEditing() {
         isEditing = true
         updateContentView()
-        delegate?.AndesTextFieldDidBeginEditing?(self)
+        delegate?.andesTextFieldDidBeginEditing?(self)
     }
 
     func didEndEditing(text: String) {
         isEditing = false
         updateContentView()
-        delegate?.AndesTextFieldDidEndEditing?(self)
+        delegate?.andesTextFieldDidEndEditing?(self)
     }
 
     func didChange() {
-        delegate?.AndesTextFieldDidChange?(self)
+        delegate?.andesTextFieldDidChange?(self)
     }
 }
