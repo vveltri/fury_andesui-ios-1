@@ -53,6 +53,15 @@ class TextFieldViewController: UIViewController, TextFieldView {
         ]
     }
 
+    var textTriggers: [String: () -> Void] {
+        return [
+            "CHECK": { [weak self] in self?.textField.rightComponent = AndesTextFieldComponentCheck() },
+            "CHEC": { [weak self] in self?.textField.rightComponent = AndesTextFieldComponentClear() },
+            "ERROR": { [weak self] in self?.textField.state = .error },
+            "ERRO": { [weak self] in self?.textField.state = .idle }
+        ]
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupButtons()
@@ -62,9 +71,8 @@ class TextFieldViewController: UIViewController, TextFieldView {
     }
 
     func setupUI() {
-        textField.textInputTraits = .numberPad
         textField.leftComponent = AndesTextFieldComponentLabel(text: "Prefix")
-        textField.rightComponent = AndesTextFieldComponentCheck()
+        textField.rightComponent = AndesTextFieldComponentClear()
         configView.isHidden = true
         textField.delegate = self
     }
@@ -94,7 +102,6 @@ class TextFieldViewController: UIViewController, TextFieldView {
 
         typePicker.delegate = self
         typePicker.dataSource = self
-
     }
 
     func createTextViews() {
@@ -109,6 +116,9 @@ class TextFieldViewController: UIViewController, TextFieldView {
         textField.leftComponent = self.leftComponents[leftCompField.text!]!()
         textField.rightComponent = self.rightComponents[rightCompField.text!]!()
         textField.type = AndesTextFieldType(typeField.text!)!
+        textField.state = AndesTextFieldState(self.stateTField.text!)!
+        textField.labelText = self.labelField.text
+        textField.placeholderText = self.placeholderField.text
     }
 
     @IBAction func toggleTapped(_ sender: Any) {
@@ -142,7 +152,6 @@ extension TextFieldViewController: UIPickerViewDelegate {
             self.stateTField.resignFirstResponder()
             self.state = AndesTextFieldState.init(rawValue: row)!
             stateTField.text = state.description
-            textField.state = state
 
         } else if pickerView == leftCompPicker {
             self.leftCompField.resignFirstResponder()
@@ -219,6 +228,10 @@ extension TextFieldViewController: AndesTextFieldDelegate {
         let alert = UIAlertController(title: "Right action pressed", message: "", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
+    }
 
+    func andesTextFieldDidChange(_ textField: AndesTextField) {
+        let str = textField.text.uppercased()
+        textTriggers[str]?()
     }
 }
