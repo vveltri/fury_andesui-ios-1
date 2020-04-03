@@ -6,6 +6,10 @@
 ## Fixed
 - AndesIconsProvider loadIcon signature fix. (success callbacks gets a non nullable UIImage instead of nullable)
 
+# Sin Publicar:
+## Changed
+- How the bundle is loaded.
+
 # v2.1.3:
 ## Fixed
 - Change access level to AndesIconsProvider methods 

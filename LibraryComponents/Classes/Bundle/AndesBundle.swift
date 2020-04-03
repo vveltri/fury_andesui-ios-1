@@ -9,8 +9,10 @@ import Foundation
 
 public class AndesBundle {
     public static func bundle() -> Bundle {
-        let main = Bundle(for: self)
-        let bundlePath = main.resourceURL?.appendingPathComponent("AndesUI.bundle")
-        return Bundle(url: bundlePath!)!
+        if let path = Bundle(for: self).path(forResource: "AndesUI", ofType: "bundle"),
+            let bundle = Bundle(path: path) {
+            return bundle
+        }
+        return Bundle.main
     }
 }
