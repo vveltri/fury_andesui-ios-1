@@ -133,7 +133,7 @@ extension BadgeViewController: UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         switch pickerView {
             case modifierPicker:
-                return 3
+                return 1
             case hierarchyPicker:
                 return 2
             case typePicker:
@@ -170,10 +170,10 @@ extension AndesBadgeModifier {
         switch self {
             case .pill:
                 return "Pill"
-            case .dot:
-                return "Dot"
-            case .notification:
-                return "Notification"
+//            case .dot:
+//                return "Dot"
+//            case .notification:
+//                return "Notification"
         }
     }
 }

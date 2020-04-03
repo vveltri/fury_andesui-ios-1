@@ -197,13 +197,13 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				90F4782124363A8F001CEC90 /* AndesBadgeTests.swift */,
 				E615508823D6196C00417B5F /* AndesButtonTests.swift */,
 				607FACEB1AFB9204008FA782 /* AndesStyleSheetTests.swift */,
 				9CE112ED23D103080017B770 /* AndesButtonTests.swift */,
 				9CE112EF23D1DE0A0017B770 /* AndesMessageTests.swift */,
 				9CAD81E723FD62C900D43EB9 /* AndesIconsProviderTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
-				90F4782124363A8F001CEC90 /* AndesBadgeTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";

@@ -118,17 +118,6 @@ class AndesBadgeTests: QuickSpec {
                     expect(contentView.left.constant).to(equal(sizeStyle.horizontalPadding))
                     expect(contentView.right.constant).to(equal(sizeStyle.horizontalPadding))
                 }
-
-                it("changes badge modifier dinamycally") {
-                    //Given
-                    let modifierToChange: AndesBadgeModifier = .dot
-
-                    //When
-                    badge.modifier = modifierToChange
-
-                    //Then
-                    expect(badge.modifier).to(equal(modifierToChange))
-                }
             }
         }
     }
