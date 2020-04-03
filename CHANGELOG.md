@@ -1,3 +1,7 @@
+# unpublished
+## Added
+- AndesBadge: Pill modifier.
+
 # v2.1.5:
 ## Changed
 - Temporary removal of ios11 color strategy for issue loading bundle with new build system
