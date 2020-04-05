@@ -19,6 +19,7 @@ class MessagesAppRouter: NSObject {
 extension MessagesAppRouter: MessagesRouter {
     func route(from: UIViewController) {
         view = AndesShowcasePageViewController(controllers: [MessageViewController(), MessageObjCViewController()])
+        view.title = "AndesMessage"
         from.navigationController?.pushViewController(view, animated: true)
     }
 }

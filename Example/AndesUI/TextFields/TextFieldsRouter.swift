@@ -19,6 +19,7 @@ class TextFieldsAppRouter: NSObject {
 extension TextFieldsAppRouter: TextFieldsRouter {
     func route(from: UIViewController) {
         view = AndesShowcasePageViewController(controllers: [TextFieldViewController()])
+        view.title = "AndesTextField"
         from.navigationController?.pushViewController(view, animated: true)
     }
 }

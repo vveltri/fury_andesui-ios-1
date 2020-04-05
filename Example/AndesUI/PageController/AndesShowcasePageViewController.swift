@@ -42,7 +42,6 @@ class AndesShowcasePageViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "AndesTextField"
         setupPageController()
         containerView.bringSubview(toFront: pageControl)
         setupPageControl()
