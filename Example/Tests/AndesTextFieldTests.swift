@@ -175,51 +175,6 @@ class AndesTextFieldTests: QuickSpec {
                     expect(view.labelLabel.text == labelText).to(beTrue())
                     expect(view.helperLabel.text == helperText ).to(beTrue())
                 }
-
-                it("·##########################") {
-                    //Given
-                    var leftComponents: [String: () -> AndesTextFieldLeftComponent?] {
-                        return [
-                            "None": { return nil },
-                            "Prefix": { return AndesTextFieldComponentIcon(andesIconName: "andes_ui_feedback_info_16", tintColor: UIColor.red)},
-                            "Icon": { return AndesTextFieldComponentIcon(andesIconName: "andes_ui_feedback_info_16", tintColor: UIColor.red)}
-                        ]
-                    }
-
-                    //When
-                    let textField = AndesTextField()
-                    textField.leftComponent = leftComponents["Icon"]!()
-
-                    //Then
-                    let view: AndesTextFieldDefaultView = textField.contentView as! AndesTextFieldDefaultView
-
-                }
-
-                it("·##########################") {
-                    //Given
-                    var leftComponents: [String: () -> AndesTextFieldLeftComponent?] {
-                        return [
-                            "None": { return nil },
-                            "Prefix": { return AndesTextFieldComponentLabel(text: "Prefix")},
-                            "Icon": { return AndesTextFieldComponentIcon(andesIconName: "andes_ui_feedback_info_16", tintColor: UIColor.red)}
-                        ]
-                    }
-
-                    var rightComponents: [String: () -> AndesTextFieldRightComponent?] {
-                        return [
-                            "None": { return nil },
-                            "Sufijo": { return AndesTextFieldComponentLabel(text: "Sufix")},
-                            "Icon": { return AndesTextFieldComponentIcon(andesIconName: "andes_ui_feedback_info_16", tintColor: UIColor.red)},
-                            "Clear": { return AndesTextFieldComponentClear() }
-                        ]
-                    }
-
-                    //When
-                    let textField = AndesTextField()
-
-                    //Then
-
-                }
             }
         }
     }

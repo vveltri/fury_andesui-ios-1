@@ -119,6 +119,7 @@ class TextFieldViewController: UIViewController, TextFieldView {
         textField.state = AndesTextFieldState(self.stateTField.text!)!
         textField.labelText = self.labelField.text
         textField.placeholderText = self.placeholderField.text
+        textField.helperText = self.helperField.text
     }
 
     @IBAction func toggleTapped(_ sender: Any) {
