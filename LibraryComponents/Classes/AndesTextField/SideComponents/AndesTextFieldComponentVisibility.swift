@@ -11,7 +11,7 @@ import Foundation
     case always
     case whenNotEmpty
 
-    static func keyFor(_ value: AndesTextFieldComponentVisibility) -> String {
+    public static func keyFor(_ value: AndesTextFieldComponentVisibility) -> String {
         switch value {
         case .always:
             return "ALWAYS"

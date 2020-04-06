@@ -14,7 +14,7 @@ import Foundation
     case disabled
     case readOnly
 
-    static func keyFor(_ value: AndesTextFieldState) -> String {
+    public static func keyFor(_ value: AndesTextFieldState) -> String {
         switch value {
         case .idle:
             return "IDLE"

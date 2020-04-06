@@ -115,8 +115,8 @@ class TextFieldViewController: UIViewController, TextFieldView {
         }
         textField.leftComponent = self.leftComponents[leftCompField.text!]!()
         textField.rightComponent = self.rightComponents[rightCompField.text!]!()
-        textField.type = AndesTextFieldType(typeField.text!)!
-        textField.state = AndesTextFieldState(self.stateTField.text!)!
+        textField.type = AndesTextFieldType.fromString(typeField.text!)!
+        textField.state = AndesTextFieldState.fromString(self.stateTField.text!)!
         textField.labelText = self.labelField.text
         textField.placeholderText = self.placeholderField.text
         textField.helperText = self.helperField.text
@@ -152,7 +152,7 @@ extension TextFieldViewController: UIPickerViewDelegate {
         if pickerView == statePicker {
             self.stateTField.resignFirstResponder()
             self.state = AndesTextFieldState.init(rawValue: row)!
-            stateTField.text = state.description
+            stateTField.text = state.toString()
 
         } else if pickerView == leftCompPicker {
             self.leftCompField.resignFirstResponder()
@@ -164,7 +164,7 @@ extension TextFieldViewController: UIPickerViewDelegate {
         } else if pickerView == typePicker {
             self.typeField.resignFirstResponder()
             let type = AndesTextFieldType(rawValue: row)!
-            typeField.text = type.description
+            typeField.text = type.toString()
 
             leftCompField.isEnabled = type == .simple
             rightCompField.isEnabled = type == .simple
@@ -198,7 +198,7 @@ extension TextFieldViewController: UIPickerViewDataSource {
 
         if pickerView == statePicker {
             let state = AndesTextFieldState.init(rawValue: row)!
-            return state.description
+            return state.toString()
         }
         if pickerView == leftCompPicker {
             return Array(leftComponents.keys.sorted())[row]
@@ -207,7 +207,7 @@ extension TextFieldViewController: UIPickerViewDataSource {
             return Array(rightComponents.keys.sorted())[row]
         }
         if pickerView == typePicker {
-            return AndesTextFieldType(rawValue: row)?.description
+            return AndesTextFieldType(rawValue: row)?.toString()
         }
         return ""
     }

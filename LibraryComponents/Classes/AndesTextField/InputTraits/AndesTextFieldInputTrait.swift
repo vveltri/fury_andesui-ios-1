@@ -13,7 +13,7 @@ import Foundation
     case numberPad
     case custom
 
-    static func keyFor(_ value: AndesTextFieldInpuTraits) -> String {
+    public static func keyFor(_ value: AndesTextFieldInpuTraits) -> String {
         switch value {
         case .email:
             return "EMAIL"
