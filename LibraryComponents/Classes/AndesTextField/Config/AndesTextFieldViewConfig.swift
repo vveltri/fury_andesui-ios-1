@@ -10,24 +10,34 @@ import Foundation
 /// used to define the ui of internal AndesTextField views
 internal struct AndesTextFieldViewConfig {
     var labelText: String?
-    var helperText: String?
-    var counter: UInt16 = 0
-    var placeholderText: String?
     var labelStyle: AndesFontStyle = getLabelStyle(AndesStyleSheetManager.styleSheet.textColorPrimary)
+
+    var helperText: String?
     var helperStyle: AndesFontStyle = getHelperTextStyle(AndesStyleSheetManager.styleSheet.textColorSecondary)
+
+    var counter: UInt16 = 0
     var counterStyle: AndesFontStyle = getCounterTextStyle(AndesStyleSheetManager.styleSheet.textColorSecondary)
+
     var placeholderStyle: AndesFontStyle = getHelperTextStyle(AndesStyleSheetManager.styleSheet.textColorSecondary)
+    var placeholderText: String?
+
+    var inputBgColor: UIColor = AndesStyleSheetManager.styleSheet.bgColorPrimary
     var inputTextStyle: AndesFontStyle = getHelperTextStyle(AndesStyleSheetManager.styleSheet.textColorPrimary)
+
+    var textFieldBorderDashed = false
+    var editingEnabled: Bool = true
+
     var textFieldBorderColor: UIColor = AndesStyleSheetManager.styleSheet.bgColorSecondary
     var textFieldBorderWidth: CGFloat = 1
     var textFieldBorderRadious: CGFloat = 6
+
     var helperIcon: String?
     var helperIconColor: UIColor?
     var helperIconBgColor: UIColor?
-    var editingEnabled: Bool = true
+
     var leftViewComponent: AndesTextFieldLeftComponent?
     var rightViewComponent: AndesTextFieldRightComponent?
-    var textFieldBorderDashed = false
+
     var textInputTraits: UITextInputTraits?
 
     init(labelText: String?,
@@ -49,6 +59,7 @@ internal struct AndesTextFieldViewConfig {
         self.counterStyle = AndesTextFieldViewConfig.getCounterTextStyle(stateStyle.helperColor)
         self.placeholderStyle = AndesTextFieldViewConfig.getHelperTextStyle(stateStyle.placeholderTextColor)
         self.inputTextStyle = AndesTextFieldViewConfig.getHelperTextStyle(stateStyle.inputTextColor)
+        self.inputBgColor = stateStyle.backgroundColor
         self.textFieldBorderColor = stateStyle.borderColor
         self.helperIcon = stateStyle.helperIconName
         self.helperIconColor = stateStyle.helperIconTintColor

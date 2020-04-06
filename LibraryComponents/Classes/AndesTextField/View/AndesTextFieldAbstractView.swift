@@ -15,7 +15,7 @@ class AndesTextFieldAbstractView: UIView, AndesTextFieldView {
     @IBOutlet weak var counterLabel: UILabel!
     @IBOutlet weak var helperIconImageView: UIImageView!
 
-    var dashedLayer: CAShapeLayer?
+    var borderLayer: CAShapeLayer?
     var text: String = ""
     weak var delegate: AndesTextFieldViewDelegate?
 
@@ -53,6 +53,7 @@ class AndesTextFieldAbstractView: UIView, AndesTextFieldView {
         updateView()
 
         self.clipsToBounds = true
+        self.fieldView.layer.borderWidth = 0
     }
 
     /// Override this method on each Message View to setup its unique components
@@ -69,9 +70,9 @@ class AndesTextFieldAbstractView: UIView, AndesTextFieldView {
         self.updateLabel(text: config.labelText, label: self.labelLabel, style: config.labelStyle)
         self.updateLabel(text: config.helperText, label: self.helperLabel, style: config.helperStyle)
 
-        // customize layer
+        // update border
         updateBorder(dashed: config.textFieldBorderDashed, color: config.textFieldBorderColor, width: config.textFieldBorderWidth, radious: config.textFieldBorderRadious)
-
+        fieldView.backgroundColor = config.inputBgColor
         // set counter label with right count
         var counterTxt: String?
         if config.counter > 0 {
@@ -92,31 +93,20 @@ class AndesTextFieldAbstractView: UIView, AndesTextFieldView {
         label.setAndesStyle(style: style)
     }
 
-    func getDashedLayer(color: UIColor, path: UIBezierPath, width: CGFloat, radious: CGFloat) -> CAShapeLayer {
-        let dashedLayer = CAShapeLayer()
-        dashedLayer.strokeColor = color.cgColor
-        dashedLayer.lineDashPattern = [2, 2]
-        dashedLayer.frame = fieldView.bounds
-        dashedLayer.fillColor = nil
-        dashedLayer.cornerRadius = radious
-        dashedLayer.lineWidth = width
-        dashedLayer.path = path.cgPath
-        return dashedLayer
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        updateBorder(dashed: config.textFieldBorderDashed, color: config.textFieldBorderColor, width: config.textFieldBorderWidth, radious: config.textFieldBorderRadious)
     }
 
     func updateBorder(dashed: Bool, color: UIColor, width: CGFloat, radious: CGFloat) {
+        self.borderLayer?.removeFromSuperlayer()
+        self.fieldView.layer.cornerRadius = radious
         if dashed {
-            let path = UIBezierPath(rect: fieldView.bounds)
-            self.fieldView.layer.borderWidth = 0
-
-            self.dashedLayer = getDashedLayer(color: color, path: path, width: width, radious: radious)
-            self.fieldView.layer.addSublayer(dashedLayer!)
+            self.borderLayer = AndesTextFieldBorderLayerDashed(color: color, bounds: fieldView.bounds, width: width, radious: radious)
         } else {
-            self.dashedLayer?.removeFromSuperlayer()
-            self.fieldView.layer.borderColor = color.cgColor
-            self.fieldView.layer.borderWidth = width
-            self.fieldView.layer.cornerRadius = radious
+            self.borderLayer = AndesTextFieldBorderLayerDefault(color: color, bounds: fieldView.bounds, width: width, radious: radious)
         }
+        self.fieldView.layer.addSublayer(borderLayer!)
     }
 
     func clear() {

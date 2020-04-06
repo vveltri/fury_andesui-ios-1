@@ -17,7 +17,7 @@ struct AndesTextFieldStateError: AndesTextFieldStateProtocol {
     var helperIconTintColor: UIColor? = AndesStyleSheetManager.styleSheet.textColorWhite
     var helperIconName: String? = "andes_ui_feedback_error_16"
 
-    var backgroundColor = UIColor.Andes.red100
+    var backgroundColor = AndesStyleSheetManager.styleSheet.bgColorWhite
     var inputTextColor = AndesStyleSheetManager.styleSheet.textColorPrimary
     var editingEnabled = true
 
