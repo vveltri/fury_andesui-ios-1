@@ -13,62 +13,51 @@ import Nimble
 class AndesTextFieldTests: QuickSpec {
 
     override func spec() {
-        describe("AndesTextField should draw its view depends on the type and state") {
+        describe("Tests AndesTextField") {
             context("AndesTextField") {
                 it("Should be an AndesTextField") {
                     //Given
                     let idle: AndesTextFieldState = .idle
-                    let singleLine: AndesTextFieldType = .simple
 
                     //When
                     let textField = AndesTextField()
-                    textField.type = singleLine
                     textField.state = idle
 
                     //Expect
-                    expect(textField.type == AndesTextFieldType.simple).to(beTrue())
                     expect(textField.state == AndesTextFieldState.idle).to(beTrue())
                 }
+
                 it("Should be an AndesButtonLargeLeftIcon subclass if icon is provided and orientation is left") {
                     //Given
                     let disabled: AndesTextFieldState = .disabled
-                    let singleLine: AndesTextFieldType = .simple
 
                     //When
                     let textField = AndesTextField()
-                    textField.type = singleLine
                     textField.state = disabled
 
                     //Expect
-                    expect(textField.type == AndesTextFieldType.simple).to(beTrue())
                     expect(textField.state == AndesTextFieldState.disabled).to(beTrue())
                 }
                 it("Should be an AndesButtonLargeLeftIcon subclass if icon is provided and orientation is left") {
                     //Given
                     let error: AndesTextFieldState = .error
-                    let singleLine: AndesTextFieldType = .simple
 
                     //When
                     let textField = AndesTextField()
-                    textField.type = singleLine
                     textField.state = error
 
                     //Expect
-                    expect(textField.type == AndesTextFieldType.simple).to(beTrue())
                     expect(textField.state == AndesTextFieldState.error).to(beTrue())
                 }
                 it("Should be an AndesButtonLargeLeftIcon subclass if icon is provided and orientation is left") {
                     //Given
                     let readOnly: AndesTextFieldState = .readOnly
-                    let singleLine: AndesTextFieldType = .simple
 
                     //When
                     let textField = AndesTextField()
-                    textField.type = singleLine
                     textField.state = readOnly
 
                     //Expect
-                    expect(textField.type == AndesTextFieldType.simple).to(beTrue())
                     expect(textField.state == AndesTextFieldState.readOnly).to(beTrue())
                 }
 
@@ -76,47 +65,38 @@ class AndesTextFieldTests: QuickSpec {
 
                     //Given
                     let idle: AndesTextFieldState = .idle
-                    let textArea: AndesTextFieldType = .textArea
 
                     //When
-                    let textField = AndesTextField()
-                    textField.type = textArea
-                    textField.state = idle
+                    let textArea = AndesTextArea()
+                    textArea.state = idle
 
                     //Expect
-                    expect(textField.type == AndesTextFieldType.textArea).to(beTrue())
-                    expect(textField.state == AndesTextFieldState.idle).to(beTrue())
+                    expect(textArea.state == .idle).to(beTrue())
                 }
 
                 it("Should be an AndesButtonLargeLeftIcon subclass if icon is provided and orientation is right") {
 
                     //Given
                     let disabled: AndesTextFieldState = .disabled
-                    let textArea: AndesTextFieldType = .textArea
 
                     //When
-                    let textField = AndesTextField()
-                    textField.type = textArea
-                    textField.state = disabled
+                    let textArea = AndesTextArea()
+                    textArea.state = disabled
 
                     //Expect
-                    expect(textField.type == AndesTextFieldType.textArea).to(beTrue())
-                    expect(textField.state == AndesTextFieldState.disabled).to(beTrue())
+                    expect(textArea.state == AndesTextFieldState.disabled).to(beTrue())
                 }
 
                 it("Should be an AndesButtonLargeLeftIcon subclass if icon is provided and orientation is right") {
 
                     //Given
                     let error: AndesTextFieldState = .error
-                    let textArea: AndesTextFieldType = .textArea
 
                     //When
                     let textField = AndesTextField()
-                    textField.type = textArea
                     textField.state = error
 
                     //Expect
-                    expect(textField.type == AndesTextFieldType.textArea).to(beTrue())
                     expect(textField.state == AndesTextFieldState.error).to(beTrue())
                 }
 
@@ -124,16 +104,13 @@ class AndesTextFieldTests: QuickSpec {
 
                     //Given
                     let readOnly: AndesTextFieldState = .readOnly
-                    let textArea: AndesTextFieldType = .textArea
 
                     //When
-                    let textField = AndesTextField()
-                    textField.type = textArea
-                    textField.state = readOnly
+                    let textArea = AndesTextArea()
+                    textArea.state = readOnly
 
                     //Expect
-                    expect(textField.type == AndesTextFieldType.textArea).to(beTrue())
-                    expect(textField.state == AndesTextFieldState.readOnly).to(beTrue())
+                    expect(textArea.state == AndesTextFieldState.readOnly).to(beTrue())
                 }
             }
         }
@@ -167,8 +144,8 @@ class AndesTextFieldTests: QuickSpec {
 
                     //When
                     let textField = AndesTextField()
-                    textField.labelText = labelText
-                    textField.helperText = helperText
+                    textField.label = labelText
+                    textField.helper = helperText
 
                     //Then
                     let view: AndesTextFieldDefaultView = textField.contentView as! AndesTextFieldDefaultView
