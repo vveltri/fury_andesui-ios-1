@@ -17,7 +17,6 @@ class TextFieldViewController: UIViewController, TextFieldView {
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var textField: AndesTextField!
     @IBOutlet weak var stateTField: UITextField!
-    @IBOutlet weak var typeField: UITextField!
     @IBOutlet weak var labelField: UITextField!
     @IBOutlet weak var placeholderField: UITextField!
     @IBOutlet weak var helperField: UITextField!
@@ -34,7 +33,6 @@ class TextFieldViewController: UIViewController, TextFieldView {
     var rightCompPicker: UIPickerView = UIPickerView()
 
     var state: AndesTextFieldState = .idle
-    var type: AndesTextFieldType = .simple
     var leftComponents: [String: () -> AndesTextFieldLeftComponent?] {
         return [
             "None": { return nil },
@@ -55,8 +53,8 @@ class TextFieldViewController: UIViewController, TextFieldView {
 
     var textTriggers: [String: () -> Void] {
         return [
-            "CHECK": { [weak self] in self?.textField.rightComponent = AndesTextFieldComponentCheck() },
-            "CHEC": { [weak self] in self?.textField.rightComponent = AndesTextFieldComponentClear() },
+            "CHECK": { [weak self] in self?.textField.rightContent = AndesTextFieldComponentCheck() },
+            "CHEC": { [weak self] in self?.textField.rightContent = AndesTextFieldComponentClear() },
             "ERROR": { [weak self] in self?.textField.state = .error },
             "ERRO": { [weak self] in self?.textField.state = .idle }
         ]
@@ -71,8 +69,8 @@ class TextFieldViewController: UIViewController, TextFieldView {
     }
 
     func setupUI() {
-        textField.leftComponent = AndesTextFieldComponentLabel(text: "Prefix")
-        textField.rightComponent = AndesTextFieldComponentClear()
+        textField.leftContent = AndesTextFieldComponentLabel(text: "Prefix")
+        textField.rightContent = AndesTextFieldComponentClear()
         configView.isHidden = true
         textField.delegate = self
     }
@@ -90,7 +88,6 @@ class TextFieldViewController: UIViewController, TextFieldView {
         stateTField.inputView = statePicker
         leftCompField.inputView = leftCompPicker
         rightCompField.inputView = rightCompPicker
-        typeField.inputView = typePicker
         statePicker.delegate = self
         statePicker.dataSource = self
 
@@ -99,9 +96,6 @@ class TextFieldViewController: UIViewController, TextFieldView {
 
         rightCompPicker.delegate = self
         rightCompPicker.dataSource = self
-
-        typePicker.delegate = self
-        typePicker.dataSource = self
     }
 
     func createTextViews() {
@@ -109,17 +103,14 @@ class TextFieldViewController: UIViewController, TextFieldView {
     }
 
     @IBAction func updateTapped(_ sender: Any) {
-        if counterField.text != nil {
-            let counter: UInt16 = UInt16(counterField.text!) ?? 0
-            textField.counter = counter
-        }
-        textField.leftComponent = self.leftComponents[leftCompField.text!]!()
-        textField.rightComponent = self.rightComponents[rightCompField.text!]!()
-        textField.type = AndesTextFieldType.fromString(typeField.text!)!
-        textField.state = AndesTextFieldState.fromString(self.stateTField.text!)!
-        textField.labelText = self.labelField.text
-        textField.placeholderText = self.placeholderField.text
-        textField.helperText = self.helperField.text
+        let counter: UInt16 = UInt16(counterField.text!) ?? 0
+        textField.counter = counter
+        textField.leftContent = self.leftComponents[leftCompField.text!]!()
+        textField.rightContent = self.rightComponents[rightCompField.text!]!()
+        textField.label = self.labelField.text
+        textField.placeholder = self.placeholderField.text
+        textField.helper = self.helperField.text
+        textField.state = self.state
     }
 
     @IBAction func toggleTapped(_ sender: Any) {
@@ -161,14 +152,6 @@ extension TextFieldViewController: UIPickerViewDelegate {
         } else if pickerView == rightCompPicker {
             self.rightCompField.resignFirstResponder()
             rightCompField.text = Array(rightComponents.keys.sorted())[row]
-        } else if pickerView == typePicker {
-            self.typeField.resignFirstResponder()
-            let type = AndesTextFieldType(rawValue: row)!
-            typeField.text = type.toString()
-
-            leftCompField.isEnabled = type == .simple
-            rightCompField.isEnabled = type == .simple
-
         }
     }
 }
@@ -205,9 +188,6 @@ extension TextFieldViewController: UIPickerViewDataSource {
         }
         if pickerView == rightCompPicker {
             return Array(rightComponents.keys.sorted())[row]
-        }
-        if pickerView == typePicker {
-            return AndesTextFieldType(rawValue: row)?.toString()
         }
         return ""
     }

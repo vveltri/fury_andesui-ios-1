@@ -24,6 +24,15 @@ public extension AndesEnumStringConvertible {
     }
 
     static func fromString(_ str: String) -> Self? {
-        self.allCases.first(where: { Self.keyFor($0).uppercased() == str.uppercased() })
+        return self.allCases.first(where: { Self.keyFor($0).uppercased() == str.uppercased() })
+    }
+}
+
+internal extension AndesEnumStringConvertible {
+    static func checkValidEnum<T: AndesEnumStringConvertible>(property: String, key: String) -> T {
+        guard let value = T.fromString(key) else {
+            fatalError("The available values for \(property) are \(T.allKeys)")
+        }
+        return value
     }
 }

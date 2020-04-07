@@ -1,13 +1,15 @@
 //
-//  AndesTextField.swift
+//  AndesTextArea.swift
 //  AndesUI
 //
-//  Created by Martin Damico on 10/03/2020.
+//  Created by Nicolas Rostan Talasimov on 4/7/20.
 //
+
+import Foundation
 
 import UIKit
 
-@objc public class AndesTextField: UIView {
+@objc public class AndesTextArea: UIView {
     internal var contentView: AndesTextFieldView!
 
     /// The state of an AndesTextfield defines its behaviours an colours.
@@ -45,20 +47,6 @@ import UIKit
         }
     }
 
-    /// sets the left component, only supperted for simple TextField
-    @objc public var leftContent: AndesTextFieldLeftComponent? {
-        didSet {
-            self.updateContentView()
-        }
-    }
-
-    /// sets the right component, only supperted for simple TextField
-    @objc public var rightContent: AndesTextFieldRightComponent? {
-        didSet {
-            self.updateContentView()
-        }
-    }
-
     /// Use the predefined text input traits, if you need more customization, use setCustomInputTraits
     @objc public var textInputTraits: AndesTextFieldInpuTraits = .custom {
         didSet {
@@ -75,7 +63,7 @@ import UIKit
         set { contentView.text = newValue }
     }
 
-    @objc public weak var delegate: AndesTextFieldDelegate?
+    @objc public weak var delegate: AndesTextAreaDelegate?
 
     internal private(set) var inputTraits: UITextInputTraits? {
         didSet {
@@ -144,50 +132,50 @@ import UIKit
     /// Should return a view depending on which textfield variant is selected
     private func provideView() -> AndesTextFieldAbstractView {
         let config = AndesTextFieldViewConfigFactory.provideInternalConfig(from: self)
-        return AndesTextFieldDefaultView(withConfig: config)
+        return AndesTextAreaView(withConfig: config)
     }
 }
 
-extension AndesTextField: AndesTextFieldViewDelegate {
+extension AndesTextArea: AndesTextFieldViewDelegate {
     func shouldBeginEditing() -> Bool {
-        return delegate?.andesTextFieldShouldBeginEditing?(self) != false
+        return delegate?.andesTextAreaShouldBeginEditing?(self) != false
     }
 
     func shouldEndEditing() -> Bool {
-        return delegate?.andesTextFieldShouldEndEditing?(self) != false
+        return delegate?.andesTextAreaShouldEndEditing?(self) != false
     }
 
     func textField(shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        return delegate?.andesTextField?(self, shouldChangeCharactersIn: range, replacementString: string)  != false
+        return delegate?.andesTextArea?(self, shouldChangeCharactersIn: range, replacementString: string)  != false
     }
 
     func didChangeSelection(selectedRange range: UITextRange?) {
-        delegate?.andesTextFieldDidChangeSelection?(self, selectedRange: range)
+        delegate?.andesTextAreaDidChangeSelection?(self, selectedRange: range)
     }
 
     func didBeginEditing() {
         isEditing = true
         updateContentView()
-        delegate?.andesTextFieldDidBeginEditing?(self)
+        delegate?.andesTextAreaDidBeginEditing?(self)
     }
 
     func didEndEditing(text: String) {
         isEditing = false
         updateContentView()
-        delegate?.andesTextFieldDidEndEditing?(self)
+        delegate?.andesTextAreaDidEndEditing?(self)
     }
 
     func didChange() {
-        delegate?.andesTextFieldDidChange?(self)
+        delegate?.andesTextAreaDidChange?(self)
     }
 
     func didTapRightAction() {
-        delegate?.andesTextFieldDidTapRightAction?(self)
+
     }
 }
 
 // MARK: - IB Enum Adapters
-public extension AndesTextField {
+public extension AndesTextArea {
     @available(*, unavailable, message: "This property is reserved for Interface Builder. Use 'state' instead.")
     @IBInspectable var ibState: String {
         set(val) {
