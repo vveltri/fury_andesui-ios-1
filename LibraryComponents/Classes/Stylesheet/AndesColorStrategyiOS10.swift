@@ -29,7 +29,7 @@ public class AndesColorStrategyiOS10: AndesColors {
     public var textColorPrimary: UIColor = UIColor.Andes.gray800
     public var textColorSecondary: UIColor = UIColor.Andes.gray450
     public var textColorDisabled: UIColor = UIColor.Andes.gray250
-    public var textColorNegative: UIColor = UIColor.Andes.red200
+    public var textColorNegative: UIColor = UIColor.Andes.red500
     public var textColorCaution: UIColor = UIColor.Andes.orange500
     public var textColorPositive: UIColor = UIColor.Andes.green500
     public var tetColorLink: UIColor = UIColor.Andes.blueMP500

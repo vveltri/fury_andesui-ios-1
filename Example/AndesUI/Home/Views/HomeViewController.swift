@@ -21,6 +21,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var messagesBtn: AndesButton!
     @IBOutlet weak var welcomeMessage: AndesMessage!
+    @IBOutlet weak var textFieldBtn: AndesButton!
     @IBOutlet weak var specsButton: AndesButton!
     @IBOutlet weak var showcaseLabel: UILabel!
     override func viewDidLoad() {
@@ -53,6 +54,9 @@ class HomeViewController: UIViewController {
             specsButton.setText("Andes Specs")
                 .setHierarchy(.quiet)
                 .setSize(.large)
+
+            textFieldBtn.setText("Andes TextField")
+            .setSize(.large)
         }
 
         setupNavigation()
@@ -72,6 +76,9 @@ class HomeViewController: UIViewController {
         guard let url = URL(string: "https://company-161429.frontify.com/d/kxHCRixezmfK/n-a") else { return }
         UIApplication.shared.open(url)
 
+    }
+    @IBAction func textfieldBtnTapped(_ sender: Any) {
+        presenter.presentTextField()
     }
 
     @IBAction func welcomeMsgTapped(_ sender: Any) {

@@ -13,6 +13,7 @@ protocol HomeRouter: NSObject {
     func routeToButton()
     func routeToMessages()
     func routeToWhatsNew()
+    func routeTextField()
 }
 
 class HomeAppRouter: NSObject {
@@ -22,9 +23,11 @@ class HomeAppRouter: NSObject {
     let buttonsRouter = ButtonsAppRouter()
     let messagesRouter = MessagesAppRouter()
     let whatsNewRouter = WhatsNewAppRouter()
+    let textFieldRouter = TextFieldsAppRouter()
 }
 
 extension HomeAppRouter: HomeRouter {
+
     func route(from: UIViewController) {
         presenter = HomeViewPresenter(view: view, router: self)
         view.presenter = presenter
@@ -45,5 +48,9 @@ extension HomeAppRouter: HomeRouter {
 
     func routeToWhatsNew() {
         whatsNewRouter.route(from: view)
+    }
+
+    func routeTextField() {
+        textFieldRouter.route(from: view)
     }
 }

@@ -1,19 +1,29 @@
 //
-//  AndesMessageShowcaseViewController.swift
+//  AndesShowcasePageViewController.swift
 //  AndesUI-demoapp
 //
-//  Created by Nicolas Rostan Talasimov on 2/6/20.
+//  Created by Martin Damico on 13/03/2020.
 //  Copyright © 2020 MercadoLibre. All rights reserved.
 //
 
 import UIKit
 import AndesUI
-class AndesMessageShowcaseViewController: UIViewController {
+class AndesShowcasePageViewController: UIViewController {
     @IBOutlet var pageControl: UIPageControl!
     @IBOutlet weak var containerView: UIView!
 
-    let controllers = [MessageViewController(), MessageObjCViewController()]
+    var controllers: [UIViewController]
+
     var pageController: UIPageViewController!
+
+    init(controllers: [UIViewController]) {
+        self.controllers = controllers
+        super.init(nibName: "AndesShowcasePageViewController", bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     fileprivate func setupPageControl() {
         pageControl.pageIndicatorTintColor = UIColor.gray
@@ -32,14 +42,13 @@ class AndesMessageShowcaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "AndesMessage"
         setupPageController()
         containerView.bringSubview(toFront: pageControl)
         setupPageControl()
     }
 }
 
-extension AndesMessageShowcaseViewController: UIPageViewControllerDataSource, UIPageViewControllerDelegate, UIScrollViewDelegate {
+extension AndesShowcasePageViewController: UIPageViewControllerDataSource, UIPageViewControllerDelegate, UIScrollViewDelegate {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         let current = controllers.index(of: viewController)!
         return current == 0 ? nil : controllers[current -    1]
