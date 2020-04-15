@@ -126,15 +126,7 @@ class TextFieldViewController: UIViewController, TextFieldView {
 
         UIView.transition(with: configView, duration: 0.3, options: .transitionCrossDissolve, animations: {
             self.configView.isHidden = !self.configView.isHidden
-
-        }, completion: { _ in
-
-            if self.configView.isHidden {
-                //self.scrollView.setContentOffset(.zero, animated: true)
-            } else {
-                //self.scrollView.scrollRectToVisible(self.configView.frame, animated: true)
-            }
-        })
+        }, completion: nil)
     }
 }
 

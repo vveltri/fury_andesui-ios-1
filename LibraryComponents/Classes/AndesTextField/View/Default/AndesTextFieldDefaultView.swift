@@ -46,22 +46,10 @@ class AndesTextFieldDefaultView: AndesTextFieldAbstractView {
     }
 
     @objc func textChanged(_ textField: UITextField) {
-        delegate?.didChange()
+        self.delegate?.didChange()
         // side components
-        updateSideComponents()
-
-        //Counter
-        let maxLength = Int(config.counter)
-        guard maxLength > 0 else { return } // dont check length if counter = 0
-
-        if self.text.count > maxLength { // don't trim string if maxLength >= currentText length
-            textField.text = String(self.text.prefix(maxLength))
-            DispatchQueue.main.async { // for some reason if you paste text that has to be trimmed the cursor doesn't move to the end of the text, this is a workaround for that case
-                textField.selectedTextRange = textField.textRange(from: textField.endOfDocument, to: textField.endOfDocument)
-            }
-        }
-        self.counterLabel.text = "\(self.text.count) / \(config.counter)"
-
+        self.updateSideComponents()
+        self.checkLengthAndUpdateCounterLabel()
     }
 
     override func updateView() {

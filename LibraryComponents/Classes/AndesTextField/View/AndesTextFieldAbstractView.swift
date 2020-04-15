@@ -6,9 +6,10 @@
 //
 
 import Foundation
+typealias AndesInputView = UIView & UITextInput
 
 class AndesTextFieldAbstractView: UIView, AndesTextFieldView {
-    @IBOutlet weak var fieldView: UIView!
+    @IBOutlet weak var fieldView: AndesInputView!
     @IBOutlet var view: UIView!
     @IBOutlet weak var labelLabel: UILabel!
     @IBOutlet weak var helperLabel: UILabel!
@@ -111,5 +112,18 @@ class AndesTextFieldAbstractView: UIView, AndesTextFieldView {
 
     func clear() {
         self.text = ""
+    }
+
+    func checkLengthAndUpdateCounterLabel() {
+        let maxLength = Int(config.counter)
+        guard maxLength > 0 else { return } // dont check length if counter = 0
+
+        if self.text.count > maxLength { // don't trim string if maxLength >= currentText length
+            self.text = String(self.text.prefix(maxLength))
+            DispatchQueue.main.async { [unowned self] in // for some reason if you paste text that has to be trimmed the cursor doesn't move to the end of the text, this is a workaround for that case
+                self.fieldView.selectedTextRange = self.fieldView.textRange(from: self.fieldView.endOfDocument, to: self.fieldView.endOfDocument)
+            }
+        }
+        self.counterLabel.text = "\(self.text.count) / \(config.counter)"
     }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 internal class AndesTextInputTraitsFactory: NSObject {
-    static func getTraits(for type: AndesTextFieldInpuTraits) -> UITextInputTraits? {
+    static func getTraits(for type: AndesTextFieldInputTraits) -> UITextInputTraits? {
         switch type {
         case .password:
             return AndesTextInputTraitsPassword()

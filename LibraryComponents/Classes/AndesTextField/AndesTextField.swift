@@ -60,7 +60,7 @@ import UIKit
     }
 
     /// Use the predefined text input traits, if you need more customization, use setCustomInputTraits
-    @objc public var textInputTraits: AndesTextFieldInpuTraits = .custom {
+    @objc public var textInputTraits: AndesTextFieldInputTraits = .custom {
         didSet {
             guard textInputTraits != .custom else {
                 return

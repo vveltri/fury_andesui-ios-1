@@ -17,3 +17,7 @@ internal protocol AndesTextFieldViewDelegate: AnyObject {
     func didChange()
     func didTapRightAction()
 }
+
+extension AndesTextFieldViewDelegate {
+    func didTapRightAction() {} // optional
+}
