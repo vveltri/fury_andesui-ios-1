@@ -11,7 +11,9 @@
 #import <AndesUI-Swift.h>
 
 @interface TextFieldObjCViewController ()
-@property (weak, nonatomic) IBOutlet UIStackView *stackView;
+@property (weak, nonatomic) IBOutlet AndesTextField *textField1;
+@property (weak, nonatomic) IBOutlet AndesTextField *textField2;
+@property (weak, nonatomic) IBOutlet AndesTextField *textField3;
 
 @end
 
@@ -36,24 +38,23 @@
 }
 
 - (void)setup {
-    __weak typeof(self) weakSelf = self;
-    
-    /*
-    view = [[AndesTextField alloc] initWithState:AndesTextFieldStateIdle type:AndesTextFieldTypeSingleLine title:@"Message title" body:@"Message body\nNeutral - Quiet - With Actions"];
-    [_stackView addArrangedSubview:view];
-    [view.widthAnchor constraintEqualToAnchor:_stackView.widthAnchor].active = YES;
-    
-    view = [[AndesMessage alloc] initWithHierarchy:AndesTextFieldStateError type:AndesTextFieldTypeSingleLine title:@"" body:@"Message Without title\nError - Quiet"];
-    [view setPrimaryAction:@"Just Primary" handler: ^(AndesMessage* message){
-        [weakSelf handleActionTap:message];
-    }];
-    [_stackView addArrangedSubview:view];
-    [view.widthAnchor constraintEqualToAnchor:_stackView.widthAnchor].active = YES;
-    
-    view = [[AndesTextField alloc] initWithHierarchy:AndesTextFieldStateDisabled type:AndesTextFieldTypeSingleLine title:@"Message title" body:@"Message body\nWarning - Loud"];
-    [_stackView addArrangedSubview:view];
-    [view.widthAnchor constraintEqualToAnchor:_stackView.widthAnchor].active = YES;
-    */
+    _textField1.rightContent = [[AndesTextFieldComponentCheck alloc] init];
+    _textField2.rightContent = [[AndesTextFieldComponentClear alloc] init];
+    _textField3.rightContent = [[AndesTextFieldComponentAction alloc] init:@"ACTION!"];
+    _textField3.leftContent = [[AndesTextFieldComponentLabel alloc] initWithText:@"PREFIX?"];
+    _textField3.delegate = self;
+}
+
+- (void)andesTextFieldDidTapRightAction: (AndesTextField*) field {
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Action Pressed"
+                                                                   message:@""
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                          handler:nil];
+
+    [alert addAction:defaultAction];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 @end
