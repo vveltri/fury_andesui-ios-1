@@ -17,6 +17,7 @@ class AndesTextAreaView: AndesTextFieldAbstractView {
         }
         set {
             textView.text = newValue
+            textViewDidChange(textView)
         }
     }
 

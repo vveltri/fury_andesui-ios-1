@@ -52,6 +52,7 @@ class AndesTextFieldAbstractView: UIView, AndesTextFieldView {
         translatesAutoresizingMaskIntoConstraints = false
         pinXibViewToSelf()
         updateView()
+        self.backgroundColor = .clear
 
         self.clipsToBounds = true
         self.fieldView.layer.borderWidth = 0

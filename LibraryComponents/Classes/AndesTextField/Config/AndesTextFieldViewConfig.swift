@@ -57,8 +57,8 @@ internal struct AndesTextFieldViewConfig {
         self.labelStyle = AndesTextFieldViewConfig.getLabelStyle(stateStyle.labelTextColor)
         self.helperStyle = AndesTextFieldViewConfig.getHelperTextStyle(stateStyle.helperColor)
         self.counterStyle = AndesTextFieldViewConfig.getCounterTextStyle(stateStyle.helperColor)
-        self.placeholderStyle = AndesTextFieldViewConfig.getHelperTextStyle(stateStyle.placeholderTextColor)
-        self.inputTextStyle = AndesTextFieldViewConfig.getHelperTextStyle(stateStyle.inputTextColor)
+        self.placeholderStyle = AndesTextFieldViewConfig.getInputTextStyle(stateStyle.placeholderTextColor)
+        self.inputTextStyle = AndesTextFieldViewConfig.getInputTextStyle(stateStyle.inputTextColor)
         self.inputBgColor = stateStyle.backgroundColor
         self.textFieldBorderColor = stateStyle.borderColor
         self.helperIcon = stateStyle.helperIconName
@@ -84,6 +84,10 @@ internal struct AndesTextFieldViewConfig {
 
     private static func getHelperTextStyle(_ color: UIColor) -> AndesFontStyle {
         return AndesFontStyle(textColor: color, font: AndesStyleSheetManager.styleSheet.regularSystemFont(size: 13), sketchLineHeight: 14)
+    }
+
+    internal static func getInputTextStyle(_ color: UIColor) -> AndesFontStyle {
+        return AndesFontStyle(textColor: color, font: AndesStyleSheetManager.styleSheet.regularSystemFont(size: 16), sketchLineHeight: 14)
     }
 
     private static func getCounterTextStyle(_ color: UIColor) -> AndesFontStyle {

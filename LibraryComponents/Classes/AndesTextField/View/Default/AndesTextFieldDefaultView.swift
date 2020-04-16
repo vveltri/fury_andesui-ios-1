@@ -72,16 +72,33 @@ class AndesTextFieldDefaultView: AndesTextFieldAbstractView {
     }
 
     func updateSideComponents() {
+        let generatedLeftView: UIView?
+        let generatedRightView: UIView?
+
         if let leftComponentConfig = config.leftViewComponent, currentVisibilities.contains(leftComponentConfig.visibility) {
-            textField.leftView = AndesTextFieldComponentFactory.generateLeftComponentView(for: leftComponentConfig, in: self)
+            generatedLeftView = AndesTextFieldComponentFactory.generateLeftComponentView(for: leftComponentConfig, in: self)
         } else {
-            textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
+            generatedLeftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
         }
         if let rightComponentConfig = config.rightViewComponent, currentVisibilities.contains(rightComponentConfig.visibility) {
-            textField.rightView = AndesTextFieldComponentFactory.generateRightComponentView(for: rightComponentConfig, in: self)
+            generatedRightView = AndesTextFieldComponentFactory.generateRightComponentView(for: rightComponentConfig, in: self)
         } else {
-            textField.rightView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
+            generatedRightView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
         }
+        if #available(iOS 13.0, *) {} else {
+            // prior to ios 13, UITextField side views didn't use autolayout, have to calculate frame manually https://stackoverflow.com/questions/58166160/ios-13-spacing-issue-with-uitextfield-rightview
+            if let generatedLeftView = generatedLeftView {
+                let lSize = generatedLeftView.systemLayoutSizeFitting(.zero, withHorizontalFittingPriority: .defaultLow, verticalFittingPriority: .defaultLow)
+                generatedLeftView.frame = CGRect(origin: .zero, size: lSize)
+            }
+            if let generatedRightView = generatedRightView {
+                let rSize = generatedRightView.systemLayoutSizeFitting(.zero, withHorizontalFittingPriority: .defaultLow, verticalFittingPriority: .defaultLow)
+                generatedRightView.frame = CGRect(origin: .zero, size: rSize)
+            }
+        }
+
+        textField.leftView = generatedLeftView
+        textField.rightView = generatedRightView
     }
 
 }

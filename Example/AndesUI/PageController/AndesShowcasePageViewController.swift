@@ -11,6 +11,7 @@ import AndesUI
 class AndesShowcasePageViewController: UIViewController {
     @IBOutlet var pageControl: UIPageControl!
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var topConstraint: NSLayoutConstraint!
 
     var controllers: [UIViewController]
 
@@ -45,6 +46,14 @@ class AndesShowcasePageViewController: UIViewController {
         setupPageController()
         containerView.bringSubview(toFront: pageControl)
         setupPageControl()
+        if #available(iOS 11.0, *) {} else {
+            //iOS < 10 fix https://forums.developer.apple.com/thread/87329
+            guard let topBarHeight = self.navigationController?.navigationBar.frame.height else {
+                return
+            }
+            let padding: CGFloat = 15
+            topConstraint.constant = padding + topBarHeight
+        }
     }
 }
 
