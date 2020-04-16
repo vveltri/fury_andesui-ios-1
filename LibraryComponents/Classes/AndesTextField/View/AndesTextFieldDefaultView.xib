@@ -31,21 +31,22 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lLV-cM-jBL">
-                    <rect key="frame" x="0.0" y="67" width="412" height="48"/>
+                    <rect key="frame" x="0.0" y="69" width="412" height="48"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="48" id="UmW-SX-auS"/>
                     </constraints>
+                    <color key="textColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YmT-3i-NBb" userLabel="Counter">
-                    <rect key="frame" x="377" y="119" width="35" height="16"/>
+                    <rect key="frame" x="377" y="121" width="35" height="16"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="qU3-ZS-l76">
-                    <rect key="frame" x="5" y="119" width="87.5" height="12"/>
+                    <rect key="frame" x="5" y="121" width="87.5" height="12"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f5h-Q0-DR8">
                             <rect key="frame" x="0.0" y="0.0" width="12" height="12"/>
@@ -69,13 +70,14 @@
                     </subviews>
                 </stackView>
             </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="lLV-cM-jBL" secondAttribute="trailing" id="0XP-QF-805"/>
                 <constraint firstItem="lLV-cM-jBL" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="AS9-9g-NqZ"/>
                 <constraint firstItem="qU3-ZS-l76" firstAttribute="top" secondItem="lLV-cM-jBL" secondAttribute="bottom" constant="4" id="G6m-fj-eJC"/>
                 <constraint firstItem="qU3-ZS-l76" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="5" id="Igc-Yy-mw8"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="qU3-ZS-l76" secondAttribute="bottom" id="KNw-JW-NJU"/>
-                <constraint firstItem="lLV-cM-jBL" firstAttribute="top" secondItem="n6d-3f-bsv" secondAttribute="bottom" constant="6" id="an7-iV-HJP"/>
+                <constraint firstItem="lLV-cM-jBL" firstAttribute="top" secondItem="n6d-3f-bsv" secondAttribute="bottom" constant="8" id="an7-iV-HJP"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="YmT-3i-NBb" secondAttribute="trailing" id="bsx-9i-W6M"/>
                 <constraint firstItem="n6d-3f-bsv" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="hTA-gz-Gkx"/>
                 <constraint firstItem="YmT-3i-NBb" firstAttribute="top" secondItem="lLV-cM-jBL" secondAttribute="bottom" constant="4" id="y1H-2U-h8u"/>
