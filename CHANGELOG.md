@@ -1,6 +1,9 @@
-# SIN PUBLICAR:
+# Unpublished
+## Added
+- AndesBadge: Pill modifier.
+
 ## Optimized
-- internal factories don't store data.
+- internal factories don't store anything.
 
 # v2.1.5:
 ## Changed

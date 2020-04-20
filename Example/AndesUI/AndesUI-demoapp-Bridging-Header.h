@@ -5,3 +5,4 @@
 
 #import "AndesUIViewController.h"
 #import "MessageObjCViewController.h"
+#import "BadgeObjCViewController.h"
