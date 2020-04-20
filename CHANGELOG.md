@@ -1,6 +1,9 @@
-# unpublished
+# Unpublished
 ## Added
 - AndesBadge: Pill modifier.
+
+## Optimized
+- internal factories don't store anything.
 
 # v2.1.5:
 ## Changed
@@ -9,6 +12,10 @@
 # v2.1.4:
 ## Fixed
 - AndesIconsProvider loadIcon signature fix. (success callbacks gets a non nullable UIImage instead of nullable)
+
+# Sin Publicar:
+## Changed
+- How the bundle is loaded.
 
 # v2.1.3:
 ## Fixed

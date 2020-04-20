@@ -33,7 +33,7 @@ internal class AndesButtonAbstractView: UIControl, AndesButtonView {
     }
 
     required init?(coder: NSCoder) {
-        self.config = AndesButtonViewConfigFactory().provide(hierarchy: .loud, size: .large, text: "Label", icon: nil)
+        self.config = AndesButtonViewConfigFactory.provide(hierarchy: .loud, size: .large, text: "Label", icon: nil)
         self.backgroundLayer = CALayer()
         super.init(coder: coder)
 

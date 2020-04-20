@@ -66,7 +66,7 @@ import UIKit
         self.size = size
         self.text = text
         self.icon = icon
-        self.config = AndesButtonViewConfigFactory().provide(hierarchy: hierarchy, size: size, text: text, icon: icon)
+        self.config = AndesButtonViewConfigFactory.provide(hierarchy: hierarchy, size: size, text: text, icon: icon)
         self.view = AndesButtonViewDefault(config: config)
 
         assert(!(size != .large && icon != nil), "Yo should not provide an icon if the size is not large")
@@ -85,7 +85,7 @@ import UIKit
         self.size = .large
         self.text = "Label"
         self.icon = nil
-        self.config = AndesButtonViewConfigFactory().provide(hierarchy: hierarchy, size: size, text: text, icon: icon)
+        self.config = AndesButtonViewConfigFactory.provide(hierarchy: hierarchy, size: size, text: text, icon: icon)
         self.view = AndesButtonViewDefault(config: config)
 
         super.init(coder: coder)
@@ -132,7 +132,7 @@ import UIKit
 
     private func update() {
         view.removeFromSuperview()
-        self.config = AndesButtonViewConfigFactory().provide(hierarchy: hierarchy, size: size, text: text, icon: icon)
+        self.config = AndesButtonViewConfigFactory.provide(hierarchy: hierarchy, size: size, text: text, icon: icon)
         drawContentView()
     }
 
