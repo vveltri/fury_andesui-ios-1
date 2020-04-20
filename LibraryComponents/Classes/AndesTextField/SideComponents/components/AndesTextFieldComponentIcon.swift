@@ -12,13 +12,13 @@ import Foundation
     @objc public private(set) var icon: UIImage = UIImage()
     @objc public private(set) var tintColor: UIColor = .clear
 
-    public convenience init(andesIconName: String, tintColor: UIColor) {
+    @objc public convenience init(andesIconName: String, tintColor: UIColor) {
         self.init()
         AndesIconsProvider.loadIcon(name: andesIconName, success: { self.icon = $0 })
         self.tintColor = tintColor
     }
 
-    public convenience init(icon: UIImage, tintColor: UIColor) {
+    @objc public convenience init(icon: UIImage, tintColor: UIColor) {
         self.init()
         self.icon = icon
         self.tintColor = tintColor

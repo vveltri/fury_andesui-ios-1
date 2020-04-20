@@ -16,6 +16,7 @@ struct AndesTextFieldStateDisabled: AndesTextFieldStateProtocol {
     var helperColor = AndesStyleSheetManager.styleSheet.textColorDisabled
     var helperIconTintColor: UIColor?
     var helperIconName: String?
+    var helperSemibold: Bool = false
 
     var backgroundColor = UIColor.Andes.gray040
     var inputTextColor: UIColor = AndesStyleSheetManager.styleSheet.textColorDisabled

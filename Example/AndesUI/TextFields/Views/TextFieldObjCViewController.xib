@@ -13,6 +13,11 @@
                 <outlet property="textField1" destination="vWh-eM-AN4" id="gim-2t-yKQ"/>
                 <outlet property="textField2" destination="CAv-G4-lIy" id="Td1-HS-dL7"/>
                 <outlet property="textField3" destination="Wvo-xC-SCd" id="cKX-Hb-HAR"/>
+                <outlet property="textFieldIcon" destination="kr5-7m-HSr" id="gb7-05-x9d"/>
+                <outlet property="textFieldPrefix" destination="HMJ-Ux-DOL" id="taA-0u-O1f"/>
+                <outlet property="textFieldSuffix" destination="WQ6-8K-qiK" id="vgr-Nm-Px7"/>
+                <outlet property="textFieldWIthAction" destination="1s9-bb-sNY" id="nfY-WD-WZl"/>
+                <outlet property="textFieldWithCheck" destination="t9r-aY-KVz" id="1KA-kg-QLc"/>
                 <outlet property="view" destination="iN0-l3-epB" id="pof-1L-aNH"/>
             </connections>
         </placeholder>
@@ -25,78 +30,130 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e0R-Md-QpK">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="1283"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="1933"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="DtU-b8-r77">
-                                    <rect key="frame" x="15" y="25" width="384" height="1208"/>
+                                    <rect key="frame" x="15" y="25" width="384" height="1858"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" placeholderIntrinsicWidth="384" placeholderIntrinsicHeight="168" translatesAutoresizingMaskIntoConstraints="NO" id="vWh-eM-AN4" customClass="AndesTextField" customModule="AndesUI">
                                             <rect key="frame" x="0.0" y="0.0" width="384" height="168"/>
                                             <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="string" keyPath="label" value="Textfield 1"/>
-                                                <userDefinedRuntimeAttribute type="string" keyPath="helper" value="Helper Message"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="label" value="Label"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="helper" value="Helper text"/>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="counter">
-                                                    <integer key="value" value="15"/>
+                                                    <integer key="value" value="0"/>
                                                 </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="TextField"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Placeholder"/>
                                                 <userDefinedRuntimeAttribute type="string" keyPath="ibState" value="IDLE"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="text" value="Input text"/>
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <view contentMode="scaleToFill" placeholderIntrinsicWidth="384" placeholderIntrinsicHeight="100" translatesAutoresizingMaskIntoConstraints="NO" id="CAv-G4-lIy" customClass="AndesTextField" customModule="AndesUI">
                                             <rect key="frame" x="0.0" y="198" width="384" height="100"/>
-                                            <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="string" keyPath="label" value="Textfield error"/>
-                                                <userDefinedRuntimeAttribute type="string" keyPath="helper" value="Helper Message"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="label" value="Label"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="helper" value="Revisá este dato."/>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="counter">
-                                                    <integer key="value" value="15"/>
+                                                    <integer key="value" value="250"/>
                                                 </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="TextField"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Placeholder"/>
                                                 <userDefinedRuntimeAttribute type="string" keyPath="ibState" value="ERROR"/>
-                                                <userDefinedRuntimeAttribute type="string" keyPath="text" value="with clear"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="text" value="Input text"/>
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <view contentMode="scaleToFill" placeholderIntrinsicWidth="384" placeholderIntrinsicHeight="100" translatesAutoresizingMaskIntoConstraints="NO" id="Wvo-xC-SCd" customClass="AndesTextField" customModule="AndesUI">
                                             <rect key="frame" x="0.0" y="328" width="384" height="100"/>
                                             <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="string" keyPath="label" value="Textfield action"/>
-                                                <userDefinedRuntimeAttribute type="string" keyPath="helper" value="Helper Message"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="label" value="Nombre"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="helper" value="Como figura en el DNI"/>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="counter">
-                                                    <integer key="value" value="15"/>
+                                                    <integer key="value" value="100"/>
                                                 </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="TextField"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Juan Pérez"/>
                                                 <userDefinedRuntimeAttribute type="string" keyPath="ibState" value="IDLE"/>
-                                                <userDefinedRuntimeAttribute type="string" keyPath="text" value="withAction"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                        <view contentMode="scaleToFill" placeholderIntrinsicWidth="384" placeholderIntrinsicHeight="100" translatesAutoresizingMaskIntoConstraints="NO" id="byP-TK-4Ph" customClass="AndesTextField" customModule="AndesUI">
+                                            <rect key="frame" x="0.0" y="458" width="384" height="100"/>
+                                            <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="counter">
+                                                    <integer key="value" value="0"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Placeholder"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="ibState" value="IDLE"/>
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <view contentMode="scaleToFill" placeholderIntrinsicWidth="384" placeholderIntrinsicHeight="100" translatesAutoresizingMaskIntoConstraints="NO" id="L6s-3V-4YZ" customClass="AndesTextField" customModule="AndesUI">
-                                            <rect key="frame" x="0.0" y="458" width="384" height="100"/>
+                                            <rect key="frame" x="0.0" y="588" width="384" height="100"/>
                                             <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="string" keyPath="label" value="Textfield Disabled"/>
                                                 <userDefinedRuntimeAttribute type="string" keyPath="helper" value="Helper Message"/>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="counter">
-                                                    <integer key="value" value="15"/>
+                                                    <integer key="value" value="250"/>
                                                 </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="TextField"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Placeholder"/>
                                                 <userDefinedRuntimeAttribute type="string" keyPath="ibState" value="DISABLED"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="text" value="Input text"/>
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <view contentMode="scaleToFill" placeholderIntrinsicWidth="384" placeholderIntrinsicHeight="100" translatesAutoresizingMaskIntoConstraints="NO" id="kr5-7m-HSr" customClass="AndesTextField" customModule="AndesUI">
-                                            <rect key="frame" x="0.0" y="588" width="384" height="100"/>
+                                            <rect key="frame" x="0.0" y="718" width="384" height="100"/>
                                             <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="string" keyPath="label" value="Textfield ReadOnly"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="label" value="Label"/>
                                                 <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="TextField"/>
-                                                <userDefinedRuntimeAttribute type="string" keyPath="ibState" value="READ_ONLY"/>
-                                                <userDefinedRuntimeAttribute type="string" keyPath="text" value="some text read only"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="ibState" value="IDLE"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="text" value="Input text"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                        <view contentMode="scaleToFill" placeholderIntrinsicWidth="384" placeholderIntrinsicHeight="100" translatesAutoresizingMaskIntoConstraints="NO" id="t9r-aY-KVz" customClass="AndesTextField" customModule="AndesUI">
+                                            <rect key="frame" x="0.0" y="848" width="384" height="100"/>
+                                            <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="label" value="Label"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="TextField"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="ibState" value="IDLE"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="text" value="Input text"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                        <view contentMode="scaleToFill" placeholderIntrinsicWidth="384" placeholderIntrinsicHeight="100" translatesAutoresizingMaskIntoConstraints="NO" id="1s9-bb-sNY" customClass="AndesTextField" customModule="AndesUI">
+                                            <rect key="frame" x="0.0" y="978" width="384" height="100"/>
+                                            <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="label" value="Label"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="TextField"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="ibState" value="IDLE"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="text" value="Input text"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                        <view contentMode="scaleToFill" placeholderIntrinsicWidth="384" placeholderIntrinsicHeight="100" translatesAutoresizingMaskIntoConstraints="NO" id="HMJ-Ux-DOL" customClass="AndesTextField" customModule="AndesUI">
+                                            <rect key="frame" x="0.0" y="1108" width="384" height="100"/>
+                                            <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="label" value="Label"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="TextField"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="ibState" value="IDLE"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="text" value="Input text"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                        <view contentMode="scaleToFill" placeholderIntrinsicWidth="384" placeholderIntrinsicHeight="100" translatesAutoresizingMaskIntoConstraints="NO" id="WQ6-8K-qiK" customClass="AndesTextField" customModule="AndesUI">
+                                            <rect key="frame" x="0.0" y="1238" width="384" height="100"/>
+                                            <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="label" value="Label"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="TextField"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="ibState" value="IDLE"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="text" value="Input text"/>
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <view contentMode="scaleToFill" placeholderIntrinsicWidth="384" placeholderIntrinsicHeight="100" translatesAutoresizingMaskIntoConstraints="NO" id="4nc-gl-o3n" customClass="AndesTextArea" customModule="AndesUI">
-                                            <rect key="frame" x="0.0" y="718" width="384" height="100"/>
-                                            <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <rect key="frame" x="0.0" y="1368" width="384" height="100"/>
+                                            <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="string" keyPath="label" value="TextArea"/>
                                                 <userDefinedRuntimeAttribute type="string" keyPath="helper" value="Helper Message"/>
@@ -108,7 +165,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <view contentMode="scaleToFill" placeholderIntrinsicWidth="384" placeholderIntrinsicHeight="100" translatesAutoresizingMaskIntoConstraints="NO" id="clk-7X-V3V" customClass="AndesTextArea" customModule="AndesUI">
-                                            <rect key="frame" x="0.0" y="848" width="384" height="100"/>
+                                            <rect key="frame" x="0.0" y="1498" width="384" height="100"/>
                                             <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="string" keyPath="label" value="TextArea read only"/>
@@ -121,7 +178,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <view contentMode="scaleToFill" placeholderIntrinsicWidth="384" placeholderIntrinsicHeight="100" translatesAutoresizingMaskIntoConstraints="NO" id="pdU-EH-aCZ" customClass="AndesTextArea" customModule="AndesUI">
-                                            <rect key="frame" x="0.0" y="978" width="384" height="100"/>
+                                            <rect key="frame" x="0.0" y="1628" width="384" height="100"/>
                                             <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="string" keyPath="label" value="Text area disabled"/>
@@ -134,7 +191,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <view contentMode="scaleToFill" placeholderIntrinsicWidth="384" placeholderIntrinsicHeight="100" translatesAutoresizingMaskIntoConstraints="NO" id="SOe-7p-fOj" customClass="AndesTextArea" customModule="AndesUI">
-                                            <rect key="frame" x="0.0" y="1108" width="384" height="100"/>
+                                            <rect key="frame" x="0.0" y="1758" width="384" height="100"/>
                                             <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="string" keyPath="label" value="Textfield 1"/>

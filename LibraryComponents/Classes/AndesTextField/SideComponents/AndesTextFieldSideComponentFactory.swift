@@ -18,7 +18,7 @@ internal class AndesTextFieldComponentFactory {
 
     static func generateRightComponentView(for component: AndesTextFieldRightComponent, in view: AndesTextFieldView) -> UIView? {
         if let component = component as? AndesTextFieldComponentLabel {
-            return AndesTextFieldLabelView(text: component.text, style: component.style)
+            return AndesTextFieldLabelView(text: component.text, style: component.style, rightSide: true)
         } else if let component = component as? AndesTextFieldComponentIcon {
             return AndesTextFieldIconView(iconColor: component.tintColor, icon: component.icon)
         } else if let component = component as? AndesTextFieldComponentCheck {

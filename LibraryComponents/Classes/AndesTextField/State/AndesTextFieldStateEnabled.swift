@@ -16,6 +16,7 @@ struct AndesTextFieldStateIdle: AndesTextFieldStateProtocol {
     var helperColor = AndesStyleSheetManager.styleSheet.textColorSecondary
     var helperIconTintColor: UIColor? = AndesStyleSheetManager.styleSheet.textColorSecondary
     var helperIconName: String?
+    var helperSemibold: Bool = false
 
     var backgroundColor = AndesStyleSheetManager.styleSheet.bgColorWhite
     var inputTextColor = AndesStyleSheetManager.styleSheet.textColorPrimary

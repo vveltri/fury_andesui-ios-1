@@ -34,7 +34,8 @@ internal class AndesTextFieldViewConfigFactory {
                                               stateStyle: stateStyle,
                                               leftViewComponent: nil,
                                               rightViewComponent: nil,
-                                              inputTraits: textArea.inputTraits)
+                                              inputTraits: textArea.inputTraits,
+                                              maxLines: textArea.maxLines)
 
         return config
     }

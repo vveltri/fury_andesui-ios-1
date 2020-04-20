@@ -11,7 +11,7 @@ class AndesTextFieldBorderLayerDashed: CAShapeLayer {
         self.init()
         let path = UIBezierPath(roundedRect: bounds, cornerRadius: radious)
         self.strokeColor = color.cgColor
-        self.lineDashPattern = [4, 2]
+        self.lineDashPattern = [2, 2]
         self.frame = bounds
         self.fillColor = nil
         self.cornerRadius = radious

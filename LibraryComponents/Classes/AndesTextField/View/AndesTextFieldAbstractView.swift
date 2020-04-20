@@ -15,6 +15,7 @@ class AndesTextFieldAbstractView: UIView, AndesTextFieldView {
     @IBOutlet weak var helperLabel: UILabel!
     @IBOutlet weak var counterLabel: UILabel!
     @IBOutlet weak var helperIconImageView: UIImageView!
+    @IBOutlet weak var helperLeadingToLabelLeading: NSLayoutConstraint!
 
     var borderLayer: CAShapeLayer?
     var text: String = ""
@@ -65,21 +66,23 @@ class AndesTextFieldAbstractView: UIView, AndesTextFieldView {
             AndesIconsProvider.loadIcon(name: icon, placeItInto: helperIconImageView)
             helperIconImageView.backgroundColor = config.helperIconBgColor
             helperIconImageView.tintColor = config.helperIconColor
+            helperLeadingToLabelLeading.priority = .defaultLow
         } else {
             helperIconImageView.isHidden = true
+            helperLeadingToLabelLeading.priority = .defaultHigh
         }
 
         self.updateLabel(text: config.labelText, label: self.labelLabel, style: config.labelStyle)
         self.updateLabel(text: config.helperText, label: self.helperLabel, style: config.helperStyle)
 
         // update border
-        updateBorder(dashed: config.textFieldBorderDashed, color: config.textFieldBorderColor, width: config.textFieldBorderWidth, radious: config.textFieldBorderRadious)
+        updateBorder()
         fieldView.backgroundColor = config.inputBgColor
         // set counter label with right count
         var counterTxt: String?
         if config.counter > 0 {
             let length = self.text.count
-            counterTxt = "\(length)/\(config.counter)"
+            counterTxt = "\(length) / \(config.counter)"
         }
         self.updateLabel(text: counterTxt, label: self.counterLabel, style: config.counterStyle)
     }
@@ -97,16 +100,22 @@ class AndesTextFieldAbstractView: UIView, AndesTextFieldView {
 
     override func draw(_ rect: CGRect) {
         super.draw(rect)
-        updateBorder(dashed: config.textFieldBorderDashed, color: config.textFieldBorderColor, width: config.textFieldBorderWidth, radious: config.textFieldBorderRadious)
+        updateBorder()
     }
 
-    func updateBorder(dashed: Bool, color: UIColor, width: CGFloat, radious: CGFloat) {
+    func updateBorder() {
+        let dashed = self.config.textFieldBorderDashed
+        let color = self.config.textFieldBorderColor
+        let width = self.config.textFieldBorderWidth
+        let radious = self.config.textFieldBorderRadious
+
+        let bounds = fieldView.bounds
         self.borderLayer?.removeFromSuperlayer()
         self.fieldView.layer.cornerRadius = radious
         if dashed {
-            self.borderLayer = AndesTextFieldBorderLayerDashed(color: color, bounds: fieldView.bounds, width: width, radious: radious)
+            self.borderLayer = AndesTextFieldBorderLayerDashed(color: color, bounds: bounds, width: width, radious: radious)
         } else {
-            self.borderLayer = AndesTextFieldBorderLayerDefault(color: color, bounds: fieldView.bounds, width: width, radious: radious)
+            self.borderLayer = AndesTextFieldBorderLayerDefault(color: color, bounds: bounds, width: width, radious: radious)
         }
         self.fieldView.layer.addSublayer(borderLayer!)
     }

@@ -39,6 +39,7 @@ internal struct AndesTextFieldViewConfig {
     var rightViewComponent: AndesTextFieldRightComponent?
 
     var textInputTraits: UITextInputTraits?
+    var maxLines: UInt16?
 
     init(labelText: String?,
          helperText: String?,
@@ -47,15 +48,16 @@ internal struct AndesTextFieldViewConfig {
          stateStyle: AndesTextFieldStateProtocol,
          leftViewComponent: AndesTextFieldLeftComponent?,
          rightViewComponent: AndesTextFieldRightComponent?,
-         inputTraits: UITextInputTraits?) {
+         inputTraits: UITextInputTraits?,
+         maxLines: UInt16? = nil) {
 
         self.labelText = labelText
         self.helperText = helperText
         self.counter = counter
         self.placeholderText = placeholderText
+        self.maxLines = maxLines
 
         self.labelStyle = AndesTextFieldViewConfig.getLabelStyle(stateStyle.labelTextColor)
-        self.helperStyle = AndesTextFieldViewConfig.getHelperTextStyle(stateStyle.helperColor)
         self.counterStyle = AndesTextFieldViewConfig.getCounterTextStyle(stateStyle.helperColor)
         self.placeholderStyle = AndesTextFieldViewConfig.getInputTextStyle(stateStyle.placeholderTextColor)
         self.inputTextStyle = AndesTextFieldViewConfig.getInputTextStyle(stateStyle.inputTextColor)
@@ -64,10 +66,11 @@ internal struct AndesTextFieldViewConfig {
         self.helperIcon = stateStyle.helperIconName
         self.helperIconColor = stateStyle.helperIconTintColor
         self.helperIconBgColor = stateStyle.helperColor
+        self.helperStyle = AndesTextFieldViewConfig.getHelperTextStyle(stateStyle.helperColor, semiBold: stateStyle.helperSemibold)
+
         self.editingEnabled = stateStyle.editingEnabled
         self.textFieldBorderWidth = stateStyle.borderWidth
         self.textFieldBorderDashed = stateStyle.borderDashed
-
         self.leftViewComponent = leftViewComponent
         self.rightViewComponent = rightViewComponent
 
@@ -82,12 +85,14 @@ internal struct AndesTextFieldViewConfig {
         return AndesFontStyle(textColor: color, font: AndesStyleSheetManager.styleSheet.regularSystemFont(size: 14), sketchLineHeight: 14)
     }
 
-    private static func getHelperTextStyle(_ color: UIColor) -> AndesFontStyle {
-        return AndesFontStyle(textColor: color, font: AndesStyleSheetManager.styleSheet.regularSystemFont(size: 13), sketchLineHeight: 14)
+    private static func getHelperTextStyle(_ color: UIColor, semiBold: Bool = false) -> AndesFontStyle {
+        let font = semiBold ? AndesStyleSheetManager.styleSheet.semiboldSystemFontOfSize(size: 13) : AndesStyleSheetManager.styleSheet.regularSystemFont(size: 13)
+
+        return AndesFontStyle(textColor: color, font: font, sketchLineHeight: 14)
     }
 
     internal static func getInputTextStyle(_ color: UIColor) -> AndesFontStyle {
-        return AndesFontStyle(textColor: color, font: AndesStyleSheetManager.styleSheet.regularSystemFont(size: 16), sketchLineHeight: 14)
+        return AndesFontStyle(textColor: color, font: AndesStyleSheetManager.styleSheet.regularSystemFont(size: 16), sketchLineHeight: 22)
     }
 
     private static func getCounterTextStyle(_ color: UIColor) -> AndesFontStyle {

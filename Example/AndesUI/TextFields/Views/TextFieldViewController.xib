@@ -41,12 +41,9 @@
                                     <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="string" keyPath="ibState" value="Idle"/>
-                                        <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="Label"/>
-                                        <userDefinedRuntimeAttribute type="string" keyPath="helperText" value="Helper Text"/>
                                         <userDefinedRuntimeAttribute type="number" keyPath="counter">
-                                            <integer key="value" value="25"/>
+                                            <integer key="value" value="100"/>
                                         </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Placeholder"/>
                                         <userDefinedRuntimeAttribute type="string" keyPath="label" value="Label"/>
                                     </userDefinedRuntimeAttributes>
                                 </view>
@@ -143,7 +140,7 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="25" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fTd-m5-Rqk">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="100" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fTd-m5-Rqk">
                                                             <rect key="frame" x="160" y="0.0" width="190" height="34"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>

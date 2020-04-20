@@ -44,10 +44,11 @@ class TextFieldViewController: UIViewController, TextFieldView {
     var rightComponents: [String: () -> AndesTextFieldRightComponent?] {
         return [
             "None": { return nil },
-            "Sufijo": { return AndesTextFieldComponentLabel(text: "Sufix")},
+            "Suffix": { return AndesTextFieldComponentLabel(text: "Suffix")},
             "Icon": { return AndesTextFieldComponentIcon(andesIconName: "andes_ui_feedback_info_16", tintColor: UIColor.red)},
             "Clear": { return AndesTextFieldComponentClear() },
-            "Action": { return AndesTextFieldComponentAction("Action A") }
+            "Check": { return AndesTextFieldComponentCheck() },
+            "Action": { return AndesTextFieldComponentAction("Label") }
         ]
     }
 

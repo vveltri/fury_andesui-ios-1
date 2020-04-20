@@ -14,6 +14,11 @@
 @property (weak, nonatomic) IBOutlet AndesTextField *textField1;
 @property (weak, nonatomic) IBOutlet AndesTextField *textField2;
 @property (weak, nonatomic) IBOutlet AndesTextField *textField3;
+@property (weak, nonatomic) IBOutlet AndesTextField *textFieldIcon;
+@property (weak, nonatomic) IBOutlet AndesTextField *textFieldWithCheck;
+@property (weak, nonatomic) IBOutlet AndesTextField *textFieldWIthAction;
+@property (weak, nonatomic) IBOutlet AndesTextField *textFieldPrefix;
+@property (weak, nonatomic) IBOutlet AndesTextField *textFieldSuffix;
 
 @end
 
@@ -38,11 +43,16 @@
 }
 
 - (void)setup {
-    _textField1.rightContent = [[AndesTextFieldComponentCheck alloc] init];
-    _textField2.rightContent = [[AndesTextFieldComponentClear alloc] init];
-    _textField3.rightContent = [[AndesTextFieldComponentAction alloc] init:@"ACTION!"];
-    _textField3.leftContent = [[AndesTextFieldComponentLabel alloc] initWithText:@"PREFIX?"];
-    _textField3.delegate = self;
+    _textField1.rightContent = [[AndesTextFieldComponentClear alloc] init];
+    AndesTextFieldComponentIcon* icon = [[AndesTextFieldComponentIcon alloc] initWithAndesIconName:@"andes_control_y_accion_buscar_20" tintColor:AndesStyleSheetManager.styleSheet.textColorPrimary];
+    _textFieldIcon.rightContent = icon;
+    _textFieldIcon.leftContent = icon;
+    _textFieldWithCheck.rightContent = [[AndesTextFieldComponentCheck alloc] init];
+    _textFieldPrefix.leftContent = [[AndesTextFieldComponentLabel alloc] initWithText:@"Prefix"];
+    _textFieldSuffix.rightContent = [[AndesTextFieldComponentLabel alloc] initWithText:@"Suffix"];
+    _textFieldWIthAction.rightContent = [[AndesTextFieldComponentAction alloc] init:@"Label!"];
+    _textFieldWIthAction.delegate = self;
+    
 }
 
 - (void)andesTextFieldDidTapRightAction: (AndesTextField*) field {

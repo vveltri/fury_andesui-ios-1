@@ -16,6 +16,7 @@ struct AndesTextFieldStateError: AndesTextFieldStateProtocol {
     var helperColor = AndesStyleSheetManager.styleSheet.textColorNegative
     var helperIconTintColor: UIColor? = AndesStyleSheetManager.styleSheet.textColorWhite
     var helperIconName: String? = "andes_ui_feedback_error_16"
+    var helperSemibold: Bool = false
 
     var backgroundColor = AndesStyleSheetManager.styleSheet.bgColorWhite
     var inputTextColor = AndesStyleSheetManager.styleSheet.textColorPrimary
@@ -27,6 +28,7 @@ struct AndesTextFieldStateError: AndesTextFieldStateProtocol {
         if focuesd {
             backgroundColor = AndesStyleSheetManager.styleSheet.bgColorWhite
             borderWidth = 2
+            self.helperSemibold = true
         }
     }
 }

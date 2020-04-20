@@ -17,6 +17,7 @@ struct AndesTextFieldStateReadonly: AndesTextFieldStateProtocol {
     var helperColor = UIColor.clear
     var helperIconTintColor: UIColor?
     var helperIconName: String?
+    var helperSemibold: Bool = false
 
     var backgroundColor = UIColor.clear
     var inputTextColor = AndesStyleSheetManager.styleSheet.textColorPrimary

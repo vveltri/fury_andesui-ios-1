@@ -13,7 +13,7 @@ class AndesTextFieldBorderLayerDefault: CAShapeLayer {
         let path = UIBezierPath(roundedRect: bounds, cornerRadius: radious)
         self.strokeColor = color.cgColor
         self.frame = bounds
-        self.fillColor = nil
+        self.fillColor = UIColor.clear.cgColor
         self.cornerRadius = radious
         self.lineWidth = width
         self.path = path.cgPath

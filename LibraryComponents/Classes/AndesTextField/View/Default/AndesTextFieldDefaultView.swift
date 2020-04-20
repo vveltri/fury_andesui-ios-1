@@ -30,6 +30,9 @@ class AndesTextFieldDefaultView: AndesTextFieldAbstractView {
     override func loadNib() {
         let bundle = AndesBundle.bundle()
         bundle.loadNibNamed("AndesTextFieldDefaultView", owner: self, options: nil)
+        textField.center = self.center
+        textField.leftView?.center = self.center
+        textField.rightView?.center = self.center
     }
 
     override func clear() {
@@ -78,12 +81,12 @@ class AndesTextFieldDefaultView: AndesTextFieldAbstractView {
         if let leftComponentConfig = config.leftViewComponent, currentVisibilities.contains(leftComponentConfig.visibility) {
             generatedLeftView = AndesTextFieldComponentFactory.generateLeftComponentView(for: leftComponentConfig, in: self)
         } else {
-            generatedLeftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
+            generatedLeftView = UIView(frame: CGRect(x: 0, y: 0, width: 12, height: 10))
         }
         if let rightComponentConfig = config.rightViewComponent, currentVisibilities.contains(rightComponentConfig.visibility) {
             generatedRightView = AndesTextFieldComponentFactory.generateRightComponentView(for: rightComponentConfig, in: self)
         } else {
-            generatedRightView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
+            generatedRightView = UIView(frame: CGRect(x: 0, y: 0, width: 12, height: 10))
         }
         if #available(iOS 13.0, *) {} else {
             // prior to ios 13, UITextField side views didn't use autolayout, have to calculate frame manually https://stackoverflow.com/questions/58166160/ios-13-spacing-issue-with-uitextfield-rightview

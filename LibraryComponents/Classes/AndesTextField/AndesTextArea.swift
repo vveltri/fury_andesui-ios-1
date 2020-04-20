@@ -47,6 +47,13 @@ import UIKit
         }
     }
 
+    /// sets the placeholder label text.
+    @IBInspectable public var maxLines: UInt16 = 0 {
+        didSet {
+            self.updateContentView()
+        }
+    }
+
     /// Use the predefined text input traits, if you need more customization, use setCustomInputTraits
     @objc public var textInputTraits: AndesTextFieldInputTraits = .custom {
         didSet {
