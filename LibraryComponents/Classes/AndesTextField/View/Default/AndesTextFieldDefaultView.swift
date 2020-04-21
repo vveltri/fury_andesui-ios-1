@@ -74,6 +74,11 @@ class AndesTextFieldDefaultView: AndesTextFieldAbstractView {
         updateSideComponents()
     }
 
+    func paddingSideView() -> UIView {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 12, height: 10))
+        return view
+    }
+
     func updateSideComponents() {
         let generatedLeftView: UIView?
         let generatedRightView: UIView?
@@ -81,12 +86,12 @@ class AndesTextFieldDefaultView: AndesTextFieldAbstractView {
         if let leftComponentConfig = config.leftViewComponent, currentVisibilities.contains(leftComponentConfig.visibility) {
             generatedLeftView = AndesTextFieldComponentFactory.generateLeftComponentView(for: leftComponentConfig, in: self)
         } else {
-            generatedLeftView = UIView(frame: CGRect(x: 0, y: 0, width: 12, height: 10))
+            generatedLeftView = paddingSideView()
         }
         if let rightComponentConfig = config.rightViewComponent, currentVisibilities.contains(rightComponentConfig.visibility) {
             generatedRightView = AndesTextFieldComponentFactory.generateRightComponentView(for: rightComponentConfig, in: self)
         } else {
-            generatedRightView = UIView(frame: CGRect(x: 0, y: 0, width: 12, height: 10))
+            generatedRightView = paddingSideView()
         }
         if #available(iOS 13.0, *) {} else {
             // prior to ios 13, UITextField side views didn't use autolayout, have to calculate frame manually https://stackoverflow.com/questions/58166160/ios-13-spacing-issue-with-uitextfield-rightview
@@ -128,9 +133,10 @@ extension AndesTextFieldAbstractView: UITextFieldDelegate {
     }
 
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        delegate?.didChangeSelection(selectedRange: textField.selectedTextRange)
+        if #available(iOS 13, *) {
+            delegate?.didChangeSelection(selectedRange: textField.selectedTextRange)
+        }
     }
-
 }
 
 private extension UITextField {

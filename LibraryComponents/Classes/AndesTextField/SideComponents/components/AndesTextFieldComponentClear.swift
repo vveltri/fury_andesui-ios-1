@@ -10,6 +10,6 @@ import Foundation
 @objc public class AndesTextFieldComponentClear: NSObject, AndesTextFieldRightComponent {
     public private(set) var visibility: AndesTextFieldComponentVisibility = .whenNotEmpty
 
-    let clearIcon = "andes_ui_close_16"
+    let clearIcon = AndesIcons.close16
     let iconColor = AndesStyleSheetManager.styleSheet.textColorSecondary
 }

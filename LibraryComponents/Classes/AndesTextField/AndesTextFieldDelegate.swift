@@ -13,6 +13,7 @@ import Foundation
     @objc optional func andesTextFieldDidBeginEditing(_ textField: AndesTextField)
     @objc optional func andesTextFieldDidEndEditing(_ textField: AndesTextField)
     @objc optional func andesTextField(_ textField: AndesTextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
+    @available(iOS 13, *)
     @objc optional func andesTextFieldDidChangeSelection(_ textField: AndesTextField, selectedRange range: UITextRange?)
     @objc optional func andesTextFieldDidChange(_ textField: AndesTextField)
     @objc optional func andesTextFieldDidTapRightAction(_ textField: AndesTextField)

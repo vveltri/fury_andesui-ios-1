@@ -130,8 +130,9 @@ class AndesTextFieldAbstractView: UIView, AndesTextFieldView {
 
         if self.text.count > maxLength { // don't trim string if maxLength >= currentText length
             self.text = String(self.text.prefix(maxLength))
-            DispatchQueue.main.async { [unowned self] in // for some reason if you paste text that has to be trimmed the cursor doesn't move to the end of the text, this is a workaround for that case
-                self.fieldView.selectedTextRange = self.fieldView.textRange(from: self.fieldView.endOfDocument, to: self.fieldView.endOfDocument)
+            DispatchQueue.main.async { [weak self] in // for some reason if you paste text that has to be trimmed the cursor doesn't move to the end of the text, this is a workaround for that case
+                guard let fromRange = self?.fieldView.endOfDocument, let toRange = self?.fieldView.endOfDocument else { return }
+                self?.fieldView.selectedTextRange = self?.fieldView.textRange(from: fromRange, to: toRange)
             }
         }
         self.counterLabel.text = "\(self.text.count) / \(config.counter)"
