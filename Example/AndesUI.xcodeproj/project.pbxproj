@@ -37,6 +37,8 @@
 		9CA2881124475DE700E299C3 /* TextAreaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA2881024475DE700E299C3 /* TextAreaViewController.swift */; };
 		9CA28813244761F200E299C3 /* TextAreaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CA28812244761F200E299C3 /* TextAreaViewController.xib */; };
 		9CA28815244768C400E299C3 /* TextFieldObjCViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CA28814244768C400E299C3 /* TextFieldObjCViewController.xib */; };
+		9CA28AD1244F1C7700E299C3 /* AndesTextAreaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA28ACF244F1C6400E299C3 /* AndesTextAreaTests.swift */; };
+		9CA28AD3244F26A800E299C3 /* AndesTextFieldSideComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA28AD2244F26A800E299C3 /* AndesTextFieldSideComponentTests.swift */; };
 		9CAD81E923FD66ED00D43EB9 /* AndesIconsProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAD81E723FD62C900D43EB9 /* AndesIconsProviderTests.swift */; };
 		9CB172942422518C00B61431 /* AndesShowcasePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CB172932422518C00B61431 /* AndesShowcasePageViewController.xib */; };
 		9CD1071D23EDF3A90081232D /* UIView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD1071C23EDF3A90081232D /* UIView+Additions.swift */; };
@@ -103,6 +105,8 @@
 		9CA2881024475DE700E299C3 /* TextAreaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAreaViewController.swift; sourceTree = "<group>"; };
 		9CA28812244761F200E299C3 /* TextAreaViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextAreaViewController.xib; sourceTree = "<group>"; };
 		9CA28814244768C400E299C3 /* TextFieldObjCViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextFieldObjCViewController.xib; sourceTree = "<group>"; };
+		9CA28ACF244F1C6400E299C3 /* AndesTextAreaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndesTextAreaTests.swift; sourceTree = "<group>"; };
+		9CA28AD2244F26A800E299C3 /* AndesTextFieldSideComponentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndesTextFieldSideComponentTests.swift; sourceTree = "<group>"; };
 		9CAD81E723FD62C900D43EB9 /* AndesIconsProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndesIconsProviderTests.swift; sourceTree = "<group>"; };
 		9CB172932422518C00B61431 /* AndesShowcasePageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AndesShowcasePageViewController.xib; sourceTree = "<group>"; };
 		9CD1071C23EDF3A90081232D /* UIView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Additions.swift"; sourceTree = "<group>"; };
@@ -207,12 +211,12 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				9CA28ACE244E18DC00E299C3 /* TextField */,
 				E615508823D6196C00417B5F /* AndesButtonTests.swift */,
 				607FACEB1AFB9204008FA782 /* AndesStyleSheetTests.swift */,
 				9CE112ED23D103080017B770 /* AndesButtonTests.swift */,
 				9CE112EF23D1DE0A0017B770 /* AndesMessageTests.swift */,
 				9CAD81E723FD62C900D43EB9 /* AndesIconsProviderTests.swift */,
-				6DBB65FF2436423200FA9581 /* AndesTextFieldTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -359,6 +363,16 @@
 				9C9B5A8E23ECEED40007234B /* WhatsNewViewController.xib */,
 			);
 			path = WhatsNew;
+			sourceTree = "<group>";
+		};
+		9CA28ACE244E18DC00E299C3 /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				6DBB65FF2436423200FA9581 /* AndesTextFieldTests.swift */,
+				9CA28ACF244F1C6400E299C3 /* AndesTextAreaTests.swift */,
+				9CA28AD2244F26A800E299C3 /* AndesTextFieldSideComponentTests.swift */,
+			);
+			name = TextField;
 			sourceTree = "<group>";
 		};
 		9CB172952422575B00B61431 /* PageController */ = {
@@ -625,7 +639,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9CAD81E923FD66ED00D43EB9 /* AndesIconsProviderTests.swift in Sources */,
+				9CA28AD1244F1C7700E299C3 /* AndesTextAreaTests.swift in Sources */,
 				E615508A23D619E300417B5F /* AndesButtonTests.swift in Sources */,
+				9CA28AD3244F26A800E299C3 /* AndesTextFieldSideComponentTests.swift in Sources */,
 				6DBB66002436423200FA9581 /* AndesTextFieldTests.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* AndesStyleSheetTests.swift in Sources */,
 				9CE112F123D1E14B0017B770 /* AndesMessageTests.swift in Sources */,

@@ -90,11 +90,12 @@ import UIKit
         setup()
     }
 
-    @objc public init(state: AndesTextFieldState, labelText: String?, helperText: String?, counter: UInt16, placeholderText: String?) {
+    @objc public init(state: AndesTextFieldState, label: String?, helper: String?, counter: UInt16, placeholder: String?, maxLines: UInt16 = 0) {
         super.init(frame: .zero)
-        self.label = labelText
-        self.helper = helperText
-        self.placeholder = placeholderText
+        self.label = label
+        self.helper = helper
+        self.placeholder = placeholder
+        self.maxLines = maxLines
         self.counter = counter
         self.state = state
         setup()

@@ -9,6 +9,7 @@ import Foundation
 
 internal struct AndesIcons {
     static let close20 = "andes_ui_close_20"
+    static let close16 = "andes_ui_close_16"
     static let feedbackError16 = "andes_ui_feedback_error_16"
     static let feedbackInfo16 = "andes_ui_feedback_info_16"
     static let feedbackSuccess16 = "andes_ui_feedback_success_16"

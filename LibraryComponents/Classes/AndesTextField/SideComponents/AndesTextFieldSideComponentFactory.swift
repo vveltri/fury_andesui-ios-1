@@ -7,7 +7,7 @@
 
 import Foundation
 internal class AndesTextFieldComponentFactory {
-    static func generateLeftComponentView(for component: AndesTextFieldLeftComponent, in view: AndesTextFieldView) -> UIView? {
+    static func generateLeftComponentView(for component: AndesTextFieldLeftComponent, in view: AndesTextFieldView? = nil) -> UIView? {
         if let component = (component as? AndesTextFieldComponentLabel) {
             return AndesTextFieldLabelView(text: component.text, style: component.style)
         } else if let component = component as? AndesTextFieldComponentIcon {
@@ -16,7 +16,7 @@ internal class AndesTextFieldComponentFactory {
         return nil
     }
 
-    static func generateRightComponentView(for component: AndesTextFieldRightComponent, in view: AndesTextFieldView) -> UIView? {
+    static func generateRightComponentView(for component: AndesTextFieldRightComponent, in view: AndesTextFieldView? = nil) -> UIView? {
         if let component = component as? AndesTextFieldComponentLabel {
             return AndesTextFieldLabelView(text: component.text, style: component.style, rightSide: true)
         } else if let component = component as? AndesTextFieldComponentIcon {

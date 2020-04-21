@@ -95,11 +95,11 @@ import UIKit
         setup()
     }
 
-    @objc public init(state: AndesTextFieldState, labelText: String?, helperText: String?, counter: UInt16, placeholderText: String?) {
+    @objc public init(state: AndesTextFieldState, label: String?, helper: String?, counter: UInt16, placeholder: String?) {
         super.init(frame: .zero)
-        self.label = labelText
-        self.helper = helperText
-        self.placeholder = placeholderText
+        self.label = label
+        self.helper = helper
+        self.placeholder = placeholder
         self.counter = counter
         self.state = state
         setup()
@@ -162,7 +162,9 @@ extension AndesTextField: AndesTextFieldViewDelegate {
     }
 
     func didChangeSelection(selectedRange range: UITextRange?) {
-        delegate?.andesTextFieldDidChangeSelection?(self, selectedRange: range)
+        if #available(iOS 13, *) {
+            delegate?.andesTextFieldDidChangeSelection?(self, selectedRange: range)
+        }
     }
 
     func didBeginEditing() {

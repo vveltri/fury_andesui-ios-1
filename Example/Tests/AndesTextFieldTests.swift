@@ -9,150 +9,376 @@
 import Quick
 import Nimble
 @testable import AndesUI
+protocol AndesTextFieldTestValues {
+    var state: AndesTextFieldState { get }
+    var label: String { get }
+    var placeholder: String { get }
+    var helper: String { get }
+    var counter: UInt16 { get }
+    var counterLabel: String { get }
+    var actionText: String { get }
+}
+
+class TestTextFieldDelegate: AndesTextFieldDelegate {
+    var returnValue = false
+    var shouldBeginEditingCalled = false
+    var shouldEndEditingCalled = false
+    var didBeginEditingCalled = false
+    var didEndEditingCalled = false
+    var shouldChangeCharsCalled = false
+    var didChangeSelectionCalled = false
+    var didChangeCalled = false
+    var didTapRightAction = false
+
+    func andesTextFieldShouldBeginEditing(_ textField: AndesTextField) -> Bool {
+        shouldBeginEditingCalled = true
+        return returnValue
+    }
+
+    func andesTextFieldShouldEndEditing(_ textField: AndesTextField) -> Bool {
+        shouldEndEditingCalled = true
+        return returnValue
+    }
+
+    func andesTextFieldDidBeginEditing(_ textField: AndesTextField) {
+        didBeginEditingCalled = true
+    }
+
+    func andesTextFieldDidEndEditing(_ textField: AndesTextField) {
+        didEndEditingCalled = true
+    }
+
+    func andesTextField(_ textField: AndesTextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        shouldChangeCharsCalled = true
+        return returnValue
+    }
+
+    func andesTextFieldDidChangeSelection(_ textField: AndesTextField, selectedRange range: UITextRange?) {
+        didChangeSelectionCalled = true
+    }
+
+    func andesTextFieldDidChange(_ textField: AndesTextField) {
+        didChangeCalled = true
+    }
+
+    func andesTextFieldDidTapRightAction(_ textField: AndesTextField) {
+        didTapRightAction = true
+    }
+}
 
 class AndesTextFieldTests: QuickSpec {
 
+    var internalView: AndesTextFieldDefaultView!
+    var textInputView: AndesTextField!
+
     override func spec() {
+        struct DefaultValues: AndesTextFieldTestValues {
+            let state: AndesTextFieldState = .idle
+            let label = "Label"
+            let helper = "Helper"
+            let counter: UInt16 = 3
+            let counterLabel = "0 / 3"
+            let placeholder = "Placeholder"
+            let actionText = "Action"
+        }
+
+        struct ModifiedValues: AndesTextFieldTestValues {
+            let state: AndesTextFieldState = .idle
+            let label = "Label Changed"
+            let helper = "Helper Changed"
+            let counter: UInt16 = 5
+            let counterLabel = "0 / 5"
+            let placeholder = "Placeholder Changed"
+            let actionText = "Changed Action"
+        }
+
+        func createTextView(values: AndesTextFieldTestValues = DefaultValues()) -> AndesTextField {
+            return AndesTextField(state: .idle, label: values.label, helper: values.helper, counter: values.counter, placeholder: values.placeholder)
+        }
+
+        beforeEach {
+            self.textInputView = createTextView()
+            self.internalView = self.textInputView.contentView as? AndesTextFieldDefaultView
+        }
+
+        afterEach {
+            self.textInputView = nil
+            self.internalView = nil
+        }
+
         describe("Tests AndesTextField") {
-            context("AndesTextField") {
-                it("Should be an AndesTextField") {
+            context("AndesTextField updates internal labels") {
+                it("Initial labels correctly setted") {
                     //Given
-                    let idle: AndesTextFieldState = .idle
+                    let values: AndesTextFieldTestValues = DefaultValues()
 
-                    //When
-                    let textField = AndesTextField()
-                    textField.state = idle
-
+                    //When using default view
                     //Expect
-                    expect(textField.state == AndesTextFieldState.idle).to(beTrue())
+                    expect(self.internalView?.labelLabel.text).to(equal(values.label))
+                    expect(self.internalView?.helperLabel.text).to(equal(values.helper))
+                    expect(self.internalView?.textField.placeholder).to(equal(values.placeholder))
+                    expect(self.internalView?.counterLabel.text).to(equal(values.counterLabel))
                 }
 
-                it("Should be an AndesButtonLargeLeftIcon subclass if icon is provided and orientation is left") {
+                it("Changes label correctly") {
                     //Given
-                    let disabled: AndesTextFieldState = .disabled
+                    let modifiedLabel = ModifiedValues().label
 
                     //When
-                    let textField = AndesTextField()
-                    textField.state = disabled
+                    self.textInputView.label = modifiedLabel
 
                     //Expect
-                    expect(textField.state == AndesTextFieldState.disabled).to(beTrue())
-                }
-                it("Should be an AndesButtonLargeLeftIcon subclass if icon is provided and orientation is left") {
-                    //Given
-                    let error: AndesTextFieldState = .error
-
-                    //When
-                    let textField = AndesTextField()
-                    textField.state = error
-
-                    //Expect
-                    expect(textField.state == AndesTextFieldState.error).to(beTrue())
-                }
-                it("Should be an AndesButtonLargeLeftIcon subclass if icon is provided and orientation is left") {
-                    //Given
-                    let readOnly: AndesTextFieldState = .readOnly
-
-                    //When
-                    let textField = AndesTextField()
-                    textField.state = readOnly
-
-                    //Expect
-                    expect(textField.state == AndesTextFieldState.readOnly).to(beTrue())
+                    expect(self.internalView?.labelLabel.text).to(equal(modifiedLabel))
                 }
 
-                it("Should be an AndesButtonLargeLeftIcon subclass if icon is provided and orientation is right") {
-
+                it("Changes placeholder correctly") {
                     //Given
-                    let idle: AndesTextFieldState = .idle
+                    let modifiedValue = ModifiedValues().placeholder
 
                     //When
-                    let textArea = AndesTextArea()
-                    textArea.state = idle
+                    self.textInputView.placeholder = modifiedValue
 
                     //Expect
-                    expect(textArea.state == .idle).to(beTrue())
+                    expect(self.internalView?.textField.placeholder).to(equal(modifiedValue))
                 }
 
-                it("Should be an AndesButtonLargeLeftIcon subclass if icon is provided and orientation is right") {
-
+                it("Changes helper correctly") {
                     //Given
-                    let disabled: AndesTextFieldState = .disabled
+                    let modifiedValue = ModifiedValues().helper
 
                     //When
-                    let textArea = AndesTextArea()
-                    textArea.state = disabled
+                    self.textInputView.helper = modifiedValue
 
                     //Expect
-                    expect(textArea.state == AndesTextFieldState.disabled).to(beTrue())
+                    expect(self.internalView?.helperLabel.text).to(equal(modifiedValue))
                 }
 
-                it("Should be an AndesButtonLargeLeftIcon subclass if icon is provided and orientation is right") {
-
+                it("Changes counter correctly") {
                     //Given
-                    let error: AndesTextFieldState = .error
+                    let modifiedValue = ModifiedValues().counter
+                    let modifiedLabel = ModifiedValues().counterLabel
 
                     //When
-                    let textField = AndesTextField()
-                    textField.state = error
+                    self.textInputView.counter = modifiedValue
 
                     //Expect
-                    expect(textField.state == AndesTextFieldState.error).to(beTrue())
+                    expect(self.internalView?.counterLabel.text).to(equal(modifiedLabel))
                 }
 
-                it("Should be an AndesButtonLargeLeftIcon subclass if icon is provided and orientation is right") {
-
-                    //Given
-                    let readOnly: AndesTextFieldState = .readOnly
-
+                it("Counter label updates on text changes correctly, and trims the text if needed") {
+                    //Given default values
                     //When
-                    let textArea = AndesTextArea()
-                    textArea.state = readOnly
+                    self.textInputView.text = "Four"
 
                     //Expect
-                    expect(textArea.state == AndesTextFieldState.readOnly).to(beTrue())
+                    expect(self.internalView?.counterLabel.text).to(equal("3 / 3"))
+                    expect(self.internalView?.text).to(equal("Fou"))
                 }
             }
-        }
 
-        describe("AndesTextField should be able to block typing when counter reaches the limit") {
-            context("AndesTextField is typed") {
-                it("should block typing") {
+            context("AndesTextField state changes, updates style") {
+                it("When icon set, helperIcon ImageVIew is shown") {
                     //Given
-                    let text = "9 letters"
 
                     //When
-                    let textField = AndesTextField()
-                    textField.counter = 9
-                    textField.text = text
+                    self.textInputView.state = .error
 
                     //Then
-                    let view: AndesTextFieldDefaultView = textField.contentView as! AndesTextFieldDefaultView
-
-                    expect(view.text == text).to(beTrue())
-                    expect(view.counterLabel.text == "9 / 9").to(beTrue())
+                    expect(self.internalView?.helperIconImageView.isHidden).to(beFalse())
                 }
             }
-        }
 
-        describe("AndesTextField should be able to show text") {
-            context("AndesTextField is setted up") {
-                it("should have a label with the actual title") {
+            context("AndesTextField inputTraits") {
+                it("When numberPad set, keyboard type updates") {
                     //Given
-                    let labelText = "Label Test"
-                    let helperText = "Helper Text"
+                    let trait: AndesTextFieldInputTraits = .numberPad
 
                     //When
-                    let textField = AndesTextField()
-                    textField.label = labelText
-                    textField.helper = helperText
+                    self.textInputView.textInputTraits = trait
 
                     //Then
-                    let view: AndesTextFieldDefaultView = textField.contentView as! AndesTextFieldDefaultView
-                    expect(view.labelLabel.text == labelText).to(beTrue())
-                    expect(view.helperLabel.text == helperText ).to(beTrue())
+                    expect(self.internalView.textField.keyboardType).to(equal(.numberPad))
+                }
+
+                it("When password set, input is secure text entry ") {
+                    //Given
+                    let trait: AndesTextFieldInputTraits = .password
+
+                    //When
+                    self.textInputView.textInputTraits = trait
+
+                    //Then
+                    expect(self.internalView.textField.isSecureTextEntry).to(beTrue())
+                }
+
+                it("When email set, keyboard type set to email ") {
+                    //Given
+                    let trait: AndesTextFieldInputTraits = .email
+
+                    //When
+                    self.textInputView.textInputTraits = trait
+
+                    //Then
+                    expect(self.internalView.textField.keyboardType).to(equal(.emailAddress))
                 }
             }
+
+            context("AndesTextField state changes, updates border") {
+                it("border properties updates correctly") {
+                    //Given
+                    let config = AndesTextFieldStateError(focuesd: false)
+
+                    //When
+                    self.self.textInputView.state = .error
+
+                    //Then
+                    expect(self.internalView?.borderLayer?.strokeColor).to(equal(config.borderColor.cgColor))
+                    expect(self.internalView?.borderLayer?.lineWidth).to(equal(config.borderWidth))
+                }
+
+                it("border updates when textfield first responder") {
+                    //Given
+                    let config = AndesTextFieldStateIdle(focuesd: true)
+                    let window = UIWindow()
+                    window.addSubview(self.textInputView)
+
+                    //When
+                    self.internalView?.fieldView.becomeFirstResponder()
+
+                    //Then
+                    expect(self.internalView?.borderLayer?.strokeColor).to(equal(config.borderColor.cgColor))
+                    expect(self.internalView?.borderLayer?.lineWidth).to(equal(config.borderWidth))
+                }
+
+                it("border layer changed when config dashed") {
+                    //Given default values
+
+                    //When
+                    self.textInputView.state = .disabled
+
+                    //Then
+                    expect(self.internalView?.borderLayer).to(beAKindOf(AndesTextFieldBorderLayerDashed.self))
+                }
+            }
+            context("AndesTextField delegate tests") {
+                it("andesTextFieldShouldBeginEditing called") {
+                    // Given
+                    let delegate = TestTextFieldDelegate()
+                    self.textInputView.delegate = delegate
+
+                    // When
+                    delegate.returnValue = false
+                    let valueFalse = self.internalView?.textField.delegate?.textFieldShouldBeginEditing?(self.internalView.textField)
+                    delegate.returnValue = true
+                    let valueTrue = self.internalView?.textField.delegate?.textFieldShouldBeginEditing?(self.internalView.textField)
+
+                    //Then
+                    expect(delegate.shouldBeginEditingCalled).toEventually(beTrue())
+                    expect(valueFalse).to(beFalse())
+                    expect(valueTrue).to(beTrue())
+                }
+
+                it("andesTextFieldShouldEndEditing called") {
+                    // Given
+                    let delegate = TestTextFieldDelegate()
+                    self.textInputView.delegate = delegate
+
+                    // When
+                    delegate.returnValue = false
+                    let valueFalse = self.internalView?.textField.delegate?.textFieldShouldEndEditing?(self.internalView.textField)
+                    delegate.returnValue = true
+                    let valueTrue = self.internalView?.textField.delegate?.textFieldShouldEndEditing?(self.internalView.textField)
+
+                    //Then
+                    expect(delegate.shouldEndEditingCalled).toEventually(beTrue())
+                    expect(valueFalse).to(beFalse())
+                    expect(valueTrue).to(beTrue())
+                }
+
+                it("shouldChangeChars called") {
+                    // Given
+                    let delegate = TestTextFieldDelegate()
+                    self.textInputView.delegate = delegate
+
+                    // When
+                    delegate.returnValue = false
+                    let valueFalse = self.internalView.textField.delegate?.textField?(self.internalView.textField, shouldChangeCharactersIn: NSRange(), replacementString: "")
+                    delegate.returnValue = true
+                    let valueTrue = self.internalView.textField.delegate?.textField?(self.internalView.textField, shouldChangeCharactersIn: NSRange(), replacementString: "")
+
+                    //Then
+                    expect(delegate.shouldChangeCharsCalled).toEventually(beTrue())
+                    expect(valueFalse).to(beFalse())
+                    expect(valueTrue).to(beTrue())
+                }
+
+                it("andesTextFieldDidBeginEditing called") {
+                    // Given
+                    let delegate = TestTextFieldDelegate()
+                    self.textInputView.delegate = delegate
+
+                    // When
+                    self.internalView?.textField.delegate?.textFieldDidBeginEditing?(self.internalView.textField)
+
+                    //Then
+                    expect(delegate.didBeginEditingCalled).toEventually(beTrue())
+                }
+
+                it("andesTextFieldDidEndEditing called") {
+                    // Given
+                    let delegate = TestTextFieldDelegate()
+                    self.textInputView.delegate = delegate
+
+                    // When
+                    self.internalView?.textField.delegate?.textFieldDidEndEditing?(self.internalView.textField)
+
+                    //Then
+                    expect(delegate.didEndEditingCalled).toEventually(beTrue())
+                }
+
+                it("andesTextFieldDidChangeSelection called") {
+                    // Given
+                    let delegate = TestTextFieldDelegate()
+                    self.textInputView.delegate = delegate
+
+                    if #available(iOS 13.0, *) {
+                        // When
+                        self.internalView?.textField.delegate?.textFieldDidChangeSelection?(self.internalView.textField)
+                        // Expect
+                        expect(delegate.didChangeSelectionCalled).toEventually(beTrue())
+                    } else {
+                        expect(true).to(beTrue())
+                    }
+                }
+
+                it("andesTextFieldDidChange called") {
+                    // Given
+                    let delegate = TestTextFieldDelegate()
+                    self.textInputView.delegate = delegate
+
+                    // When
+                    self.internalView.textChanged(self.internalView.textField)
+
+                    //Then
+                    expect(delegate.didChangeCalled).toEventually(beTrue())
+                }
+
+                it("andesTextFieldDidTapRightAction called") {
+                    // Given
+                    let delegate = TestTextFieldDelegate()
+                    self.textInputView.delegate = delegate
+                    self.textInputView.rightContent = AndesTextFieldComponentAction("Action")
+
+                    // When
+                    let btn = self.internalView.textField.rightView as? AndesTextFieldActionView
+                    btn?.tapped(UIControl())
+
+                    //Then
+                    expect(btn).notTo(beNil())
+                    expect(delegate.didTapRightAction).toEventually(beTrue())
+                }
+            }
+
         }
     }
 }
