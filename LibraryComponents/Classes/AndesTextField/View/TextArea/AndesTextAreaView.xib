@@ -49,7 +49,7 @@
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Placeholder text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BBy-K7-RYS">
-                    <rect key="frame" x="14" y="80" width="386" height="16"/>
+                    <rect key="frame" x="14" y="82" width="386" height="16"/>
                     <accessibility key="accessibilityConfiguration" label="Helper Text"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <nil key="textColor"/>
@@ -76,7 +76,7 @@
                 </imageView>
             </subviews>
             <constraints>
-                <constraint firstItem="BBy-K7-RYS" firstAttribute="top" secondItem="jQF-k4-Vbe" secondAttribute="top" constant="13" id="FKd-wz-A2D"/>
+                <constraint firstItem="BBy-K7-RYS" firstAttribute="top" secondItem="jQF-k4-Vbe" secondAttribute="top" constant="15" id="FKd-wz-A2D"/>
                 <constraint firstItem="7zg-V8-fqP" firstAttribute="centerY" secondItem="PSm-MB-uON" secondAttribute="centerY" id="H2W-6X-7Mv"/>
                 <constraint firstItem="osO-R3-Okw" firstAttribute="trailing" secondItem="BBy-K7-RYS" secondAttribute="trailing" constant="12" id="Msd-Qs-fem"/>
                 <constraint firstItem="BBy-K7-RYS" firstAttribute="leading" secondItem="jQF-k4-Vbe" secondAttribute="leading" constant="12" id="QAg-k1-kLO"/>
