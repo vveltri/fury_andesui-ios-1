@@ -16,14 +16,10 @@ import Foundation
 
     public static func keyFor(_ value: AndesTextFieldState) -> String {
         switch value {
-        case .idle:
-            return "IDLE"
-        case .error:
-            return "ERROR"
-        case .readOnly:
-            return "READ_ONLY"
-        case .disabled:
-            return "DISABLED"
+        case .idle: return "IDLE"
+        case .error: return "ERROR"
+        case .readOnly: return "READONLY"
+        case .disabled: return "DISABLED"
         }
     }
 

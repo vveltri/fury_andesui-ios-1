@@ -9,7 +9,7 @@ import Foundation
 @objc public class AndesIconsProvider: NSObject {
     // Use this to inject the provider behaviour through config providers
     internal static var strategy: AndesIconsStrategy = AndesIconsLocalStrategy()
-    
+
     /// Loads an Andes icon
     /// - Parameters:
     ///   - name: icon name
@@ -17,7 +17,7 @@ import Foundation
     @objc public static func loadIcon(name: String, success: (UIImage) -> Void) {
         strategy.loadIcon(name: name, success: success, failure: nil)
     }
-    
+
     /// Loads an Andes icon
     /// - Parameters:
     ///   - name: icon name
@@ -26,7 +26,7 @@ import Foundation
     @objc public static func loadIcon(name: String, success: (UIImage) -> Void, failure: @escaping (Error?) -> Void) {
         strategy.loadIcon(name: name, success: success, failure: failure)
     }
-    
+
     /// Loads an Andes icon and inserts into a UIImageView
     /// - Parameters:
     ///   - name: icon name
@@ -36,7 +36,7 @@ import Foundation
             placeItInto.image = $0
         }, failure: nil)
     }
-    
+
     /// Loads an Andes icon and inserts into a UIImageView
     /// - Parameters:
     ///   - name: icon name
