@@ -11,21 +11,16 @@ import Foundation
 The responsability of the factory is to provide the right style by providing the AndesButtonSize
 */
 class AndesButtonHierarchyFactory {
-
-    private var hierarchies: [AndesButtonHierarchy: AndesButtonHierarchyProtocol]
-
-    init() {
-        hierarchies = [AndesButtonHierarchy: AndesButtonHierarchyProtocol]()
-        hierarchies[.loud] = AndesButtonHierarchyLoud()
-        hierarchies[.quiet] = AndesButtonHierarchyQuiet()
-        hierarchies[.transparent] = AndesButtonHierarchyTransparent()
-    }
-
-    func provideStyle(key: AndesButtonHierarchy) -> AndesButtonHierarchyProtocol {
-        guard let hierarchy = hierarchies[key] else {
+    static func provideStyle(key: AndesButtonHierarchy) -> AndesButtonHierarchyProtocol {
+        switch key {
+        case .loud:
             return AndesButtonHierarchyLoud()
+        case .quiet:
+            return AndesButtonHierarchyQuiet()
+        case .transparent:
+            return AndesButtonHierarchyTransparent()
         }
-        return hierarchy
+
     }
 
 }

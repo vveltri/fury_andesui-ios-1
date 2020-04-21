@@ -1,3 +1,12 @@
+# Unpublished
+## Added
+- AndesBadge: Pill modifier.
+- AndesTextField
+- AndesTextArea
+
+## Optimized
+- internal factories don't store anything.
+
 # v2.1.5:
 ## Changed
 - Temporary removal of ios11 color strategy for issue loading bundle with new build system

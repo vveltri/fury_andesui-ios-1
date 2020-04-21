@@ -27,6 +27,16 @@
 		6D2152F9241C1210001CEA8D /* TextFieldViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D2152F8241C1210001CEA8D /* TextFieldViewController.xib */; };
 		6DBB66002436423200FA9581 /* AndesTextFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DBB65FF2436423200FA9581 /* AndesTextFieldTests.swift */; };
 		8B1CFF18E60AF120CF07B6F7 /* Pods_AndesUI_demoapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3BDCB0A1F6C0DF42FB25635 /* Pods_AndesUI_demoapp.framework */; };
+		90530B07242BF9ED005E056A /* BadgesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90530B06242BF9ED005E056A /* BadgesRouter.swift */; };
+		90530B0B242BFAA7005E056A /* AndesBadgeShowcaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90530B09242BFAA7005E056A /* AndesBadgeShowcaseViewController.swift */; };
+		90530B0C242BFAA7005E056A /* AndesBadgeShowcaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90530B0A242BFAA7005E056A /* AndesBadgeShowcaseViewController.xib */; };
+		90530B11242BFD15005E056A /* BadgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90530B0F242BFD15005E056A /* BadgeViewController.swift */; };
+		90530B12242BFD15005E056A /* BadgeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90530B10242BFD15005E056A /* BadgeViewController.xib */; };
+		90F4781F243534F0001CEC90 /* BadgeObjCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F4781D243534F0001CEC90 /* BadgeObjCViewController.m */; };
+		90F47820243534F0001CEC90 /* BadgeObjCViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90F4781E243534F0001CEC90 /* BadgeObjCViewController.xib */; };
+		90F4782224363A8F001CEC90 /* AndesBadgeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F4782124363A8F001CEC90 /* AndesBadgeTests.swift */; };
+		9C2FFC6323EC4AFD0016292E /* AndesMessageShowcaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2FFC6123EC4AFD0016292E /* AndesMessageShowcaseViewController.swift */; };
+		9C2FFC6423EC4AFD0016292E /* AndesMessageShowcaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C2FFC6223EC4AFD0016292E /* AndesMessageShowcaseViewController.xib */; };
 		9C2FFC6B23EDB1A50016292E /* whats_new.html in Resources */ = {isa = PBXBuildFile; fileRef = 9C2FFC6A23EDB1A50016292E /* whats_new.html */; };
 		9C9B5A8123ECADB80007234B /* String+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9B5A8023ECADB80007234B /* String+Additions.swift */; };
 		9C9B5A8823ECB08D0007234B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9C9B5A8723ECB08D0007234B /* Localizable.strings */; };
@@ -93,6 +103,18 @@
 		79951EC424599EF6908D16B1 /* Pods-AndesUI-demoapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AndesUI-demoapp.release.xcconfig"; path = "Target Support Files/Pods-AndesUI-demoapp/Pods-AndesUI-demoapp.release.xcconfig"; sourceTree = "<group>"; };
 		8C2D064A787D0A8B07FE8F17 /* Pods-AndesUI_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AndesUI_Tests.release.xcconfig"; path = "Target Support Files/Pods-AndesUI_Tests/Pods-AndesUI_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		966723DC310C7C7197D3CD89 /* Pods-AndesUI_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AndesUI_Tests.debug.xcconfig"; path = "Target Support Files/Pods-AndesUI_Tests/Pods-AndesUI_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		88075539FED002D9B3E9FB24 /* Pods_AndesUI_demoapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AndesUI_demoapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		90530B06242BF9ED005E056A /* BadgesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesRouter.swift; sourceTree = "<group>"; };
+		90530B09242BFAA7005E056A /* AndesBadgeShowcaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndesBadgeShowcaseViewController.swift; sourceTree = "<group>"; };
+		90530B0A242BFAA7005E056A /* AndesBadgeShowcaseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AndesBadgeShowcaseViewController.xib; sourceTree = "<group>"; };
+		90530B0F242BFD15005E056A /* BadgeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeViewController.swift; sourceTree = "<group>"; };
+		90530B10242BFD15005E056A /* BadgeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BadgeViewController.xib; sourceTree = "<group>"; };
+		90F4781C243534F0001CEC90 /* BadgeObjCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BadgeObjCViewController.h; sourceTree = "<group>"; };
+		90F4781D243534F0001CEC90 /* BadgeObjCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BadgeObjCViewController.m; sourceTree = "<group>"; };
+		90F4781E243534F0001CEC90 /* BadgeObjCViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BadgeObjCViewController.xib; sourceTree = "<group>"; };
+		90F4782124363A8F001CEC90 /* AndesBadgeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndesBadgeTests.swift; sourceTree = "<group>"; };
+		9C2FFC6123EC4AFD0016292E /* AndesMessageShowcaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndesMessageShowcaseViewController.swift; sourceTree = "<group>"; };
+		9C2FFC6223EC4AFD0016292E /* AndesMessageShowcaseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AndesMessageShowcaseViewController.xib; sourceTree = "<group>"; };
 		9C2FFC6A23EDB1A50016292E /* whats_new.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = whats_new.html; sourceTree = "<group>"; };
 		9C9B5A8023ECADB80007234B /* String+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Additions.swift"; sourceTree = "<group>"; };
 		9C9B5A8723ECB08D0007234B /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
@@ -180,6 +202,8 @@
 			children = (
 				9CB172952422575B00B61431 /* PageController */,
 				6D2152E7241BCC20001CEA8D /* TextFields */,
+				90530B05242BF9D9005E056A /* Badges */,
+				9CD1071E23F1B0AF0081232D /* CustomViews */,
 				9C9B5A8923ECEE650007234B /* WhatsNew */,
 				9C9B5A7F23ECADA60007234B /* Additions */,
 				6A3C9CF223C692B6007D0C8B /* Home */,
@@ -207,6 +231,7 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				90F4782124363A8F001CEC90 /* AndesBadgeTests.swift */,
 				E615508823D6196C00417B5F /* AndesButtonTests.swift */,
 				607FACEB1AFB9204008FA782 /* AndesStyleSheetTests.swift */,
 				9CE112ED23D103080017B770 /* AndesButtonTests.swift */,
@@ -339,6 +364,29 @@
 				10E82C351DDC9519C73AA784 /* Pods_AndesUI_Tests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		90530B05242BF9D9005E056A /* Badges */ = {
+			isa = PBXGroup;
+			children = (
+				90530B08242BFA7E005E056A /* Views */,
+				90530B06242BF9ED005E056A /* BadgesRouter.swift */,
+			);
+			path = Badges;
+			sourceTree = "<group>";
+		};
+		90530B08242BFA7E005E056A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				90530B09242BFAA7005E056A /* AndesBadgeShowcaseViewController.swift */,
+				90530B0A242BFAA7005E056A /* AndesBadgeShowcaseViewController.xib */,
+				90530B0F242BFD15005E056A /* BadgeViewController.swift */,
+				90530B10242BFD15005E056A /* BadgeViewController.xib */,
+				90F4781C243534F0001CEC90 /* BadgeObjCViewController.h */,
+				90F4781D243534F0001CEC90 /* BadgeObjCViewController.m */,
+				90F4781E243534F0001CEC90 /* BadgeObjCViewController.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		9C9B5A7F23ECADA60007234B /* Additions */ = {
@@ -480,8 +528,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9CA28815244768C400E299C3 /* TextFieldObjCViewController.xib in Resources */,
+				90530B12242BFD15005E056A /* BadgeViewController.xib in Resources */,
+				90F47820243534F0001CEC90 /* BadgeObjCViewController.xib in Resources */,
 				6A186A6A23AC0FBB00420556 /* ButtonsViewController.xib in Resources */,
 				9C9B5A9023ECEED40007234B /* WhatsNewViewController.xib in Resources */,
+				90530B0C242BFAA7005E056A /* AndesBadgeShowcaseViewController.xib in Resources */,
 				9C9B5A9223ECF2120007234B /* CHANGELOG.md in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				9CA28813244761F200E299C3 /* TextAreaViewController.xib in Resources */,
@@ -601,12 +652,16 @@
 				6D2152E9241BCC65001CEA8D /* TextFieldsRouter.swift in Sources */,
 				6D2152EC241BCD0E001CEA8D /* AndesShowcasePageViewController.swift in Sources */,
 				9CA2881124475DE700E299C3 /* TextAreaViewController.swift in Sources */,
+				90530B11242BFD15005E056A /* BadgeViewController.swift in Sources */,
 				9CD1071D23EDF3A90081232D /* UIView+Additions.swift in Sources */,
 				57F34E9E2225DE0900454D8B /* AndesUIAppDelegate.swift in Sources */,
 				6A3C9CFA23C692B6007D0C8B /* HomeRouter.swift in Sources */,
 				9CE112DB23CE587B0017B770 /* MessageViewController.swift in Sources */,
 				9C9B5A8F23ECEED40007234B /* WhatsNewViewController.swift in Sources */,
+				90530B07242BF9ED005E056A /* BadgesRouter.swift in Sources */,
 				6A3C9CFD23C692B6007D0C8B /* HomeViewController.swift in Sources */,
+				90F4781F243534F0001CEC90 /* BadgeObjCViewController.m in Sources */,
+				90530B0B242BFAA7005E056A /* AndesBadgeShowcaseViewController.swift in Sources */,
 				6A186A6923AC0FBB00420556 /* ButtonsViewController.swift in Sources */,
 				9CE1130223D20BF40017B770 /* MessageObjCViewController.m in Sources */,
 				6D2152F3241C080C001CEA8D /* TextFieldObjCViewController.m in Sources */,
@@ -628,6 +683,7 @@
 				E615508A23D619E300417B5F /* AndesButtonTests.swift in Sources */,
 				6DBB66002436423200FA9581 /* AndesTextFieldTests.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* AndesStyleSheetTests.swift in Sources */,
+				90F4782224363A8F001CEC90 /* AndesBadgeTests.swift in Sources */,
 				9CE112F123D1E14B0017B770 /* AndesMessageTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

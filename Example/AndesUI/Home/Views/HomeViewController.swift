@@ -20,6 +20,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var button: AndesButton!
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var messagesBtn: AndesButton!
+    @IBOutlet weak var badgesBtn: AndesButton!
     @IBOutlet weak var welcomeMessage: AndesMessage!
     @IBOutlet weak var textFieldBtn: AndesButton!
     @IBOutlet weak var specsButton: AndesButton!
@@ -51,6 +52,9 @@ class HomeViewController: UIViewController {
             messagesBtn.setText("Andes Message")
                 .setSize(.large)
 
+            badgesBtn.setText("Andes Badge")
+                .setSize(.large)
+
             specsButton.setText("Andes Specs")
                 .setHierarchy(.quiet)
                 .setSize(.large)
@@ -70,6 +74,10 @@ class HomeViewController: UIViewController {
 
     @IBAction func goToMessagesTapped(_ sender: Any) {
         presenter.presentMessages()
+    }
+
+    @IBAction func goToBadgesTapped(_ sender: Any) {
+        presenter.presentBadges()
     }
 
     @IBAction func goToSpecsTapped(_ sender: Any) {

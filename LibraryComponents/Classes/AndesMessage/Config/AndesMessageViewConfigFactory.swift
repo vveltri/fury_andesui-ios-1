@@ -14,11 +14,11 @@ internal class AndesMessageViewConfigFactory {
         var config = AndesMessageViewConfig(backgroundColor: hierarchyIns.backgroundColor, pipeColor: hierarchyIns.pipeColor, textColor: hierarchyIns.textColor, titleText: title, bodyText: body, icon: typeIns.icon, iconBackgroundColor: hierarchyIns.accentColor, isDismissable: isDismissable, dismissIconColor: hierarchyIns.textColor)
 
         if let primaryText = primaryActionText {
-            config.primaryActionConfig = AndesButtonViewConfigFactory().provide(hierarchy: hierarchyIns.primaryButtonHierarchy, size: AndesButtonSizeMedium(), text: primaryText, icon: nil)
+            config.primaryActionConfig = AndesButtonViewConfigFactory.provide(hierarchy: hierarchyIns.primaryButtonHierarchy, size: AndesButtonSizeMedium(), text: primaryText, icon: nil)
         }
 
         if let secondaryText = secondaryActionText {
-            config.secondaryActionConfig = AndesButtonViewConfigFactory().provide(hierarchy: hierarchyIns.secondaryButtonHierarchy, size: AndesButtonSizeMedium(), text: secondaryText, icon: nil)
+            config.secondaryActionConfig = AndesButtonViewConfigFactory.provide(hierarchy: hierarchyIns.secondaryButtonHierarchy, size: AndesButtonSizeMedium(), text: secondaryText, icon: nil)
         }
 
         return config
