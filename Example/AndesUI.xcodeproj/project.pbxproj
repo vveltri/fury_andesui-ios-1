@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		01EEC98C4FEA5B6741301991 /* Pods_AndesUI_demoapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88075539FED002D9B3E9FB24 /* Pods_AndesUI_demoapp.framework */; };
-		23FC4A8A3B6BB911C7A24326 /* Pods_AndesUI_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3976F3E13DC7E814E993C64 /* Pods_AndesUI_Tests.framework */; };
 		57F34E9E2225DE0900454D8B /* AndesUIAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F34E912225DE0900454D8B /* AndesUIAppDelegate.swift */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
@@ -22,6 +20,13 @@
 		6A3C9CFB23C692B6007D0C8B /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3C9CF623C692B6007D0C8B /* HomePresenter.swift */; };
 		6A3C9CFC23C692B6007D0C8B /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A3C9CF823C692B6007D0C8B /* HomeViewController.xib */; };
 		6A3C9CFD23C692B6007D0C8B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3C9CF923C692B6007D0C8B /* HomeViewController.swift */; };
+		6D2152E9241BCC65001CEA8D /* TextFieldsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2152E8241BCC65001CEA8D /* TextFieldsRouter.swift */; };
+		6D2152EC241BCD0E001CEA8D /* AndesShowcasePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2152EB241BCD0E001CEA8D /* AndesShowcasePageViewController.swift */; };
+		6D2152EE241BD83C001CEA8D /* TextFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2152ED241BD83C001CEA8D /* TextFieldViewController.swift */; };
+		6D2152F3241C080C001CEA8D /* TextFieldObjCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2152F2241C080C001CEA8D /* TextFieldObjCViewController.m */; };
+		6D2152F9241C1210001CEA8D /* TextFieldViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D2152F8241C1210001CEA8D /* TextFieldViewController.xib */; };
+		6DBB66002436423200FA9581 /* AndesTextFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DBB65FF2436423200FA9581 /* AndesTextFieldTests.swift */; };
+		8B1CFF18E60AF120CF07B6F7 /* Pods_AndesUI_demoapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3BDCB0A1F6C0DF42FB25635 /* Pods_AndesUI_demoapp.framework */; };
 		90530B07242BF9ED005E056A /* BadgesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90530B06242BF9ED005E056A /* BadgesRouter.swift */; };
 		90530B0B242BFAA7005E056A /* AndesBadgeShowcaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90530B09242BFAA7005E056A /* AndesBadgeShowcaseViewController.swift */; };
 		90530B0C242BFAA7005E056A /* AndesBadgeShowcaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90530B0A242BFAA7005E056A /* AndesBadgeShowcaseViewController.xib */; };
@@ -39,15 +44,19 @@
 		9C9B5A8F23ECEED40007234B /* WhatsNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9B5A8D23ECEED40007234B /* WhatsNewViewController.swift */; };
 		9C9B5A9023ECEED40007234B /* WhatsNewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C9B5A8E23ECEED40007234B /* WhatsNewViewController.xib */; };
 		9C9B5A9223ECF2120007234B /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = 9C9B5A9123ECF2120007234B /* CHANGELOG.md */; };
+		9CA2881124475DE700E299C3 /* TextAreaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA2881024475DE700E299C3 /* TextAreaViewController.swift */; };
+		9CA28813244761F200E299C3 /* TextAreaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CA28812244761F200E299C3 /* TextAreaViewController.xib */; };
+		9CA28815244768C400E299C3 /* TextFieldObjCViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CA28814244768C400E299C3 /* TextFieldObjCViewController.xib */; };
 		9CAD81E923FD66ED00D43EB9 /* AndesIconsProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAD81E723FD62C900D43EB9 /* AndesIconsProviderTests.swift */; };
+		9CB172942422518C00B61431 /* AndesShowcasePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CB172932422518C00B61431 /* AndesShowcasePageViewController.xib */; };
 		9CD1071D23EDF3A90081232D /* UIView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD1071C23EDF3A90081232D /* UIView+Additions.swift */; };
-		9CD1072123F1B0EE0081232D /* TextViewAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD1071F23F1B0EE0081232D /* TextViewAlertViewController.swift */; };
 		9CD1072B23F1E7AB0081232D /* MessagesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD1072A23F1E7AB0081232D /* MessagesRouter.swift */; };
 		9CE112DB23CE587B0017B770 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE112DA23CE587B0017B770 /* MessageViewController.swift */; };
 		9CE112DD23CE58910017B770 /* MessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CE112DC23CE58910017B770 /* MessageViewController.xib */; };
 		9CE112F123D1E14B0017B770 /* AndesMessageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE112EF23D1DE0A0017B770 /* AndesMessageTests.swift */; };
 		9CE112FD23D20B0E0017B770 /* MessageObjCViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CE112FC23D20B0E0017B770 /* MessageObjCViewController.xib */; };
 		9CE1130223D20BF40017B770 /* MessageObjCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE1130123D20BF40017B770 /* MessageObjCViewController.m */; };
+		E40D3393A37C2E3383E1A652 /* Pods_AndesUI_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10E82C351DDC9519C73AA784 /* Pods_AndesUI_Tests.framework */; };
 		E615508A23D619E300417B5F /* AndesButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E615508823D6196C00417B5F /* AndesButtonTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,9 +71,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		32754AD251878600F6E4BBEA /* Pods-AndesUI-demoapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AndesUI-demoapp.release.xcconfig"; path = "Target Support Files/Pods-AndesUI-demoapp/Pods-AndesUI-demoapp.release.xcconfig"; sourceTree = "<group>"; };
+		10E82C351DDC9519C73AA784 /* Pods_AndesUI_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AndesUI_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E96662811AF6146E9718F57 /* Pods-AndesUI-demoapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AndesUI-demoapp.debug.xcconfig"; path = "Target Support Files/Pods-AndesUI-demoapp/Pods-AndesUI-demoapp.debug.xcconfig"; sourceTree = "<group>"; };
 		3A1AFEA97874D75790DD8C33 /* AndesUI.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = AndesUI.podspec; path = ../AndesUI.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		47FD3A5678D14009C0E97628 /* Pods-AndesUI_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AndesUI_Tests.release.xcconfig"; path = "Target Support Files/Pods-AndesUI_Tests/Pods-AndesUI_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		57ED041E2226FD1200614168 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		57F34E912225DE0900454D8B /* AndesUIAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AndesUIAppDelegate.swift; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* AndesUI DemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AndesUI DemoApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,6 +93,16 @@
 		6A3C9CF623C692B6007D0C8B /* HomePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		6A3C9CF823C692B6007D0C8B /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		6A3C9CF923C692B6007D0C8B /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		6D2152E8241BCC65001CEA8D /* TextFieldsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldsRouter.swift; sourceTree = "<group>"; };
+		6D2152EB241BCD0E001CEA8D /* AndesShowcasePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndesShowcasePageViewController.swift; sourceTree = "<group>"; };
+		6D2152ED241BD83C001CEA8D /* TextFieldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldViewController.swift; sourceTree = "<group>"; };
+		6D2152F1241C07EC001CEA8D /* TextFieldObjCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextFieldObjCViewController.h; sourceTree = "<group>"; };
+		6D2152F2241C080C001CEA8D /* TextFieldObjCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextFieldObjCViewController.m; sourceTree = "<group>"; };
+		6D2152F8241C1210001CEA8D /* TextFieldViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextFieldViewController.xib; sourceTree = "<group>"; };
+		6DBB65FF2436423200FA9581 /* AndesTextFieldTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndesTextFieldTests.swift; sourceTree = "<group>"; };
+		79951EC424599EF6908D16B1 /* Pods-AndesUI-demoapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AndesUI-demoapp.release.xcconfig"; path = "Target Support Files/Pods-AndesUI-demoapp/Pods-AndesUI-demoapp.release.xcconfig"; sourceTree = "<group>"; };
+		8C2D064A787D0A8B07FE8F17 /* Pods-AndesUI_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AndesUI_Tests.release.xcconfig"; path = "Target Support Files/Pods-AndesUI_Tests/Pods-AndesUI_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		966723DC310C7C7197D3CD89 /* Pods-AndesUI_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AndesUI_Tests.debug.xcconfig"; path = "Target Support Files/Pods-AndesUI_Tests/Pods-AndesUI_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		88075539FED002D9B3E9FB24 /* Pods_AndesUI_demoapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AndesUI_demoapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90530B06242BF9ED005E056A /* BadgesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesRouter.swift; sourceTree = "<group>"; };
 		90530B09242BFAA7005E056A /* AndesBadgeShowcaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndesBadgeShowcaseViewController.swift; sourceTree = "<group>"; };
@@ -103,9 +122,12 @@
 		9C9B5A8D23ECEED40007234B /* WhatsNewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewViewController.swift; sourceTree = "<group>"; };
 		9C9B5A8E23ECEED40007234B /* WhatsNewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WhatsNewViewController.xib; sourceTree = "<group>"; };
 		9C9B5A9123ECF2120007234B /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
+		9CA2881024475DE700E299C3 /* TextAreaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAreaViewController.swift; sourceTree = "<group>"; };
+		9CA28812244761F200E299C3 /* TextAreaViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextAreaViewController.xib; sourceTree = "<group>"; };
+		9CA28814244768C400E299C3 /* TextFieldObjCViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextFieldObjCViewController.xib; sourceTree = "<group>"; };
 		9CAD81E723FD62C900D43EB9 /* AndesIconsProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndesIconsProviderTests.swift; sourceTree = "<group>"; };
+		9CB172932422518C00B61431 /* AndesShowcasePageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AndesShowcasePageViewController.xib; sourceTree = "<group>"; };
 		9CD1071C23EDF3A90081232D /* UIView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Additions.swift"; sourceTree = "<group>"; };
-		9CD1071F23F1B0EE0081232D /* TextViewAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewAlertViewController.swift; sourceTree = "<group>"; };
 		9CD1072A23F1E7AB0081232D /* MessagesRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessagesRouter.swift; path = Routers/MessagesRouter.swift; sourceTree = "<group>"; };
 		9CE112DA23CE587B0017B770 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		9CE112DC23CE58910017B770 /* MessageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageViewController.xib; sourceTree = "<group>"; };
@@ -115,12 +137,10 @@
 		9CE1130123D20BF40017B770 /* MessageObjCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageObjCViewController.m; sourceTree = "<group>"; };
 		9CE1130323D20BFC0017B770 /* MessageObjCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageObjCViewController.h; sourceTree = "<group>"; };
 		AC98BF20D5812F377975A7D9 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		AED375013FCB672078A2F194 /* Pods-AndesUI_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AndesUI_Tests.debug.xcconfig"; path = "Target Support Files/Pods-AndesUI_Tests/Pods-AndesUI_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		BC0D9ABDAB73DD9E91B5822B /* Pods-AndesUI-demoapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AndesUI-demoapp.debug.xcconfig"; path = "Target Support Files/Pods-AndesUI-demoapp/Pods-AndesUI-demoapp.debug.xcconfig"; sourceTree = "<group>"; };
+		D3BDCB0A1F6C0DF42FB25635 /* Pods_AndesUI_demoapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AndesUI_demoapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3E9B26B74F98D6773C98C88 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		E615508823D6196C00417B5F /* AndesButtonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AndesButtonTests.swift; sourceTree = "<group>"; };
 		E61E8ED6239E9A7A00F85A8A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		F3976F3E13DC7E814E993C64 /* Pods_AndesUI_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AndesUI_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,7 +148,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01EEC98C4FEA5B6741301991 /* Pods_AndesUI_demoapp.framework in Frameworks */,
+				8B1CFF18E60AF120CF07B6F7 /* Pods_AndesUI_demoapp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,13 +156,25 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23FC4A8A3B6BB911C7A24326 /* Pods_AndesUI_Tests.framework in Frameworks */,
+				E40D3393A37C2E3383E1A652 /* Pods_AndesUI_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		07F9C782AC4748E7065C95D0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1E96662811AF6146E9718F57 /* Pods-AndesUI-demoapp.debug.xcconfig */,
+				79951EC424599EF6908D16B1 /* Pods-AndesUI-demoapp.release.xcconfig */,
+				966723DC310C7C7197D3CD89 /* Pods-AndesUI_Tests.debug.xcconfig */,
+				8C2D064A787D0A8B07FE8F17 /* Pods-AndesUI_Tests.release.xcconfig */,
+			);
+			name = Pods;
+			path = ../Pods;
+			sourceTree = "<group>";
+		};
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
@@ -152,7 +184,7 @@
 				607FACD11AFB9204008FA782 /* Products */,
 				7613B115B5FF19062CE27E07 /* Frameworks */,
 				6A3C9CF123C69275007D0C8B /* Recovered References */,
-				AEF849C252F891DB736DCDF7 /* Pods */,
+				07F9C782AC4748E7065C95D0 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -168,6 +200,8 @@
 		607FACD21AFB9204008FA782 /* Example for AndesUI */ = {
 			isa = PBXGroup;
 			children = (
+				9CB172952422575B00B61431 /* PageController */,
+				6D2152E7241BCC20001CEA8D /* TextFields */,
 				90530B05242BF9D9005E056A /* Badges */,
 				9CD1071E23F1B0AF0081232D /* CustomViews */,
 				9C9B5A8923ECEE650007234B /* WhatsNew */,
@@ -203,6 +237,7 @@
 				9CE112ED23D103080017B770 /* AndesButtonTests.swift */,
 				9CE112EF23D1DE0A0017B770 /* AndesMessageTests.swift */,
 				9CAD81E723FD62C900D43EB9 /* AndesIconsProviderTests.swift */,
+				6DBB65FF2436423200FA9581 /* AndesTextFieldTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -298,12 +333,35 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		6D2152E7241BCC20001CEA8D /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				6D2152E8241BCC65001CEA8D /* TextFieldsRouter.swift */,
+				6D2152EA241BCCF4001CEA8D /* Views */,
+			);
+			path = TextFields;
+			sourceTree = "<group>";
+		};
+		6D2152EA241BCCF4001CEA8D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6D2152ED241BD83C001CEA8D /* TextFieldViewController.swift */,
+				6D2152F8241C1210001CEA8D /* TextFieldViewController.xib */,
+				6D2152F1241C07EC001CEA8D /* TextFieldObjCViewController.h */,
+				6D2152F2241C080C001CEA8D /* TextFieldObjCViewController.m */,
+				9CA2881024475DE700E299C3 /* TextAreaViewController.swift */,
+				9CA28812244761F200E299C3 /* TextAreaViewController.xib */,
+				9CA28814244768C400E299C3 /* TextFieldObjCViewController.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		7613B115B5FF19062CE27E07 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				E61E8ED6239E9A7A00F85A8A /* Foundation.framework */,
-				88075539FED002D9B3E9FB24 /* Pods_AndesUI_demoapp.framework */,
-				F3976F3E13DC7E814E993C64 /* Pods_AndesUI_Tests.framework */,
+				D3BDCB0A1F6C0DF42FB25635 /* Pods_AndesUI_demoapp.framework */,
+				10E82C351DDC9519C73AA784 /* Pods_AndesUI_Tests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -351,12 +409,13 @@
 			path = WhatsNew;
 			sourceTree = "<group>";
 		};
-		9CD1071E23F1B0AF0081232D /* CustomViews */ = {
+		9CB172952422575B00B61431 /* PageController */ = {
 			isa = PBXGroup;
 			children = (
-				9CD1071F23F1B0EE0081232D /* TextViewAlertViewController.swift */,
+				6D2152EB241BCD0E001CEA8D /* AndesShowcasePageViewController.swift */,
+				9CB172932422518C00B61431 /* AndesShowcasePageViewController.xib */,
 			);
-			path = CustomViews;
+			path = PageController;
 			sourceTree = "<group>";
 		};
 		9CE112D923CE58590017B770 /* Messages */ = {
@@ -376,22 +435,8 @@
 				9CE112FC23D20B0E0017B770 /* MessageObjCViewController.xib */,
 				9CE1130123D20BF40017B770 /* MessageObjCViewController.m */,
 				9CE1130323D20BFC0017B770 /* MessageObjCViewController.h */,
-				9C2FFC6123EC4AFD0016292E /* AndesMessageShowcaseViewController.swift */,
-				9C2FFC6223EC4AFD0016292E /* AndesMessageShowcaseViewController.xib */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		AEF849C252F891DB736DCDF7 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				BC0D9ABDAB73DD9E91B5822B /* Pods-AndesUI-demoapp.debug.xcconfig */,
-				32754AD251878600F6E4BBEA /* Pods-AndesUI-demoapp.release.xcconfig */,
-				AED375013FCB672078A2F194 /* Pods-AndesUI_Tests.debug.xcconfig */,
-				47FD3A5678D14009C0E97628 /* Pods-AndesUI_Tests.release.xcconfig */,
-			);
-			name = Pods;
-			path = ../Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -401,11 +446,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "AndesUI-demoapp" */;
 			buildPhases = (
-				453F600E836526D661824E97 /* [CP] Check Pods Manifest.lock */,
+				D1854D96694C76A0092C0985 /* [CP] Check Pods Manifest.lock */,
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				5008422653241ED6B69D91D4 /* [CP] Embed Pods Frameworks */,
+				3F72A349D67FCFB6F8ABB9EC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -420,11 +465,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "AndesUI_Tests" */;
 			buildPhases = (
-				D7A3801640341DDAF45CD4EE /* [CP] Check Pods Manifest.lock */,
+				89FF25F56A61551404532980 /* [CP] Check Pods Manifest.lock */,
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
-				805C603EC4975DE9C3504E60 /* [CP] Embed Pods Frameworks */,
+				166E6B757F19B162834DF255 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -482,6 +527,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CA28815244768C400E299C3 /* TextFieldObjCViewController.xib in Resources */,
 				90530B12242BFD15005E056A /* BadgeViewController.xib in Resources */,
 				90F47820243534F0001CEC90 /* BadgeObjCViewController.xib in Resources */,
 				6A186A6A23AC0FBB00420556 /* ButtonsViewController.xib in Resources */,
@@ -489,12 +535,14 @@
 				90530B0C242BFAA7005E056A /* AndesBadgeShowcaseViewController.xib in Resources */,
 				9C9B5A9223ECF2120007234B /* CHANGELOG.md in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				9CA28813244761F200E299C3 /* TextAreaViewController.xib in Resources */,
 				9CE112DD23CE58910017B770 /* MessageViewController.xib in Resources */,
 				9C2FFC6B23EDB1A50016292E /* whats_new.html in Resources */,
-				9C2FFC6423EC4AFD0016292E /* AndesMessageShowcaseViewController.xib in Resources */,
 				9C9B5A8823ECB08D0007234B /* Localizable.strings in Resources */,
 				9CE112FD23D20B0E0017B770 /* MessageObjCViewController.xib in Resources */,
+				9CB172942422518C00B61431 /* AndesShowcasePageViewController.xib in Resources */,
 				6A3C9CFC23C692B6007D0C8B /* HomeViewController.xib in Resources */,
+				6D2152F9241C1210001CEA8D /* TextFieldViewController.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 				6A22DCC123C918EA00BBFEA0 /* AndesUIViewController.xib in Resources */,
 			);
@@ -510,49 +558,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		453F600E836526D661824E97 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-AndesUI-demoapp-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5008422653241ED6B69D91D4 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AndesUI-demoapp/Pods-AndesUI-demoapp-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/AndesUI/AndesUI.framework",
-				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AndesUI.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AndesUI-demoapp/Pods-AndesUI-demoapp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		805C603EC4975DE9C3504E60 /* [CP] Embed Pods Frameworks */ = {
+		166E6B757F19B162834DF255 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -572,7 +578,27 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AndesUI_Tests/Pods-AndesUI_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D7A3801640341DDAF45CD4EE /* [CP] Check Pods Manifest.lock */ = {
+		3F72A349D67FCFB6F8ABB9EC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AndesUI-demoapp/Pods-AndesUI-demoapp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AndesUI/AndesUI.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AndesUI.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AndesUI-demoapp/Pods-AndesUI-demoapp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		89FF25F56A61551404532980 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -594,6 +620,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		D1854D96694C76A0092C0985 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AndesUI-demoapp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -601,6 +649,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D2152E9241BCC65001CEA8D /* TextFieldsRouter.swift in Sources */,
+				6D2152EC241BCD0E001CEA8D /* AndesShowcasePageViewController.swift in Sources */,
+				9CA2881124475DE700E299C3 /* TextAreaViewController.swift in Sources */,
 				90530B11242BFD15005E056A /* BadgeViewController.swift in Sources */,
 				9CD1071D23EDF3A90081232D /* UIView+Additions.swift in Sources */,
 				57F34E9E2225DE0900454D8B /* AndesUIAppDelegate.swift in Sources */,
@@ -613,14 +664,14 @@
 				90530B0B242BFAA7005E056A /* AndesBadgeShowcaseViewController.swift in Sources */,
 				6A186A6923AC0FBB00420556 /* ButtonsViewController.swift in Sources */,
 				9CE1130223D20BF40017B770 /* MessageObjCViewController.m in Sources */,
+				6D2152F3241C080C001CEA8D /* TextFieldObjCViewController.m in Sources */,
 				9CD1072B23F1E7AB0081232D /* MessagesRouter.swift in Sources */,
-				9CD1072123F1B0EE0081232D /* TextViewAlertViewController.swift in Sources */,
+				6D2152EE241BD83C001CEA8D /* TextFieldViewController.swift in Sources */,
 				9C9B5A8C23ECEEBE0007234B /* WhatsNewRouter.swift in Sources */,
 				6A22DCC023C918EA00BBFEA0 /* AndesUIViewController.m in Sources */,
 				6A186A6823AC0FBB00420556 /* ButtonsRouter.swift in Sources */,
 				6A3C9CFB23C692B6007D0C8B /* HomePresenter.swift in Sources */,
 				9C9B5A8123ECADB80007234B /* String+Additions.swift in Sources */,
-				9C2FFC6323EC4AFD0016292E /* AndesMessageShowcaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -630,6 +681,7 @@
 			files = (
 				9CAD81E923FD66ED00D43EB9 /* AndesIconsProviderTests.swift in Sources */,
 				E615508A23D619E300417B5F /* AndesButtonTests.swift in Sources */,
+				6DBB66002436423200FA9581 /* AndesTextFieldTests.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* AndesStyleSheetTests.swift in Sources */,
 				90F4782224363A8F001CEC90 /* AndesBadgeTests.swift in Sources */,
 				9CE112F123D1E14B0017B770 /* AndesMessageTests.swift in Sources */,
@@ -761,13 +813,13 @@
 		};
 		607FACF01AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BC0D9ABDAB73DD9E91B5822B /* Pods-AndesUI-demoapp.debug.xcconfig */;
+			baseConfigurationReference = 1E96662811AF6146E9718F57 /* Pods-AndesUI-demoapp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = T9VUHG6RU2;
 				INFOPLIST_FILE = "AndesUI/AndesUI-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)";
 				MODULE_NAME = ExampleApp;
@@ -782,13 +834,13 @@
 		};
 		607FACF11AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 32754AD251878600F6E4BBEA /* Pods-AndesUI-demoapp.release.xcconfig */;
+			baseConfigurationReference = 79951EC424599EF6908D16B1 /* Pods-AndesUI-demoapp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = T9VUHG6RU2;
 				INFOPLIST_FILE = "AndesUI/AndesUI-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)";
 				MODULE_NAME = ExampleApp;
@@ -802,7 +854,7 @@
 		};
 		607FACF31AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AED375013FCB672078A2F194 /* Pods-AndesUI_Tests.debug.xcconfig */;
+			baseConfigurationReference = 966723DC310C7C7197D3CD89 /* Pods-AndesUI_Tests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -826,7 +878,7 @@
 		};
 		607FACF41AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 47FD3A5678D14009C0E97628 /* Pods-AndesUI_Tests.release.xcconfig */;
+			baseConfigurationReference = 8C2D064A787D0A8B07FE8F17 /* Pods-AndesUI_Tests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				FRAMEWORK_SEARCH_PATHS = (

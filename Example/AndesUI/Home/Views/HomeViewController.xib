@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,6 +16,7 @@
                 <outlet property="showcaseLabel" destination="wKp-SJ-Z6a" id="uvh-3g-Yns"/>
                 <outlet property="specsButton" destination="wv9-5A-3H3" id="u7J-p4-SIQ"/>
                 <outlet property="stackView" destination="A0L-IL-kVl" id="l80-Ai-htC"/>
+                <outlet property="textFieldBtn" destination="9Hm-nl-pHd" id="f4e-tY-deE"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="welcomeMessage" destination="TeE-fb-BDr" id="Kgb-pA-hNG"/>
             </connections>
@@ -29,7 +30,7 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ylf-cA-m4U">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="508"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="516"/>
                             <subviews>
                                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="382" placeholderIntrinsicHeight="128" translatesAutoresizingMaskIntoConstraints="NO" id="TeE-fb-BDr" customClass="AndesMessage" customModule="AndesUI">
                                     <rect key="frame" x="16" y="16" width="382" height="128"/>
@@ -40,20 +41,20 @@
                                     </connections>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="More" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mHc-S7-NqP">
-                                    <rect key="frame" x="16" y="374" width="35.5" height="18"/>
+                                    <rect key="frame" x="16" y="422" width="35.5" height="18"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="wv9-5A-3H3" customClass="AndesButton" customModule="AndesUI">
-                                    <rect key="frame" x="16" y="408" width="382" height="40"/>
+                                    <rect key="frame" x="16" y="456" width="382" height="40"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <connections>
                                         <action selector="goToSpecsTapped:" destination="-1" eventType="touchUpInside" id="TjP-XV-0aU"/>
                                     </connections>
                                 </view>
                                 <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="250" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="A0L-IL-kVl">
-                                    <rect key="frame" x="16" y="208" width="382" height="136"/>
+                                    <rect key="frame" x="16" y="208" width="382" height="184"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="pzX-2Z-8ZP" customClass="AndesButton" customModule="AndesUI">
                                             <rect key="frame" x="0.0" y="0.0" width="382" height="40"/>
@@ -69,8 +70,15 @@
                                                 <action selector="goToMessagesTapped:" destination="-1" eventType="touchUpInside" id="S44-PU-uV5"/>
                                             </connections>
                                         </view>
-                                        <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="6KW-tw-Wm7" customClass="AndesButton" customModule="AndesUI">
+                                        <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="9Hm-nl-pHd" customClass="AndesButton" customModule="AndesUI">
                                             <rect key="frame" x="0.0" y="96" width="382" height="40"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <connections>
+                                                <action selector="textfieldBtnTapped:" destination="-1" eventType="touchUpInside" id="NbS-FI-KZd"/>
+                                            </connections>
+                                        </view>
+                                        <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="6KW-tw-Wm7" customClass="AndesButton" customModule="AndesUI">
+                                            <rect key="frame" x="0.0" y="144" width="382" height="40"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <connections>
                                                 <action selector="goToBadgesTapped:" destination="-1" eventType="touchUpInside" id="Msr-CP-Bkr"/>
@@ -82,6 +90,7 @@
                                         <constraint firstItem="6KW-tw-Wm7" firstAttribute="trailing" secondItem="iA2-9b-o7k" secondAttribute="trailing" id="TK3-J5-Z4t"/>
                                         <constraint firstItem="6KW-tw-Wm7" firstAttribute="leading" secondItem="iA2-9b-o7k" secondAttribute="leading" id="iDI-vo-dFa"/>
                                         <constraint firstItem="iA2-9b-o7k" firstAttribute="trailing" secondItem="pzX-2Z-8ZP" secondAttribute="trailing" id="k3u-A8-eQR"/>
+                                        <constraint firstItem="9Hm-nl-pHd" firstAttribute="leading" secondItem="A0L-IL-kVl" secondAttribute="leading" id="rUP-UK-uIP"/>
                                     </constraints>
                                 </stackView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Showcase" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wKp-SJ-Z6a">

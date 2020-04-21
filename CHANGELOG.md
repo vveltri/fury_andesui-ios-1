@@ -1,6 +1,8 @@
 # Unpublished
 ## Added
 - AndesBadge: Pill modifier.
+- AndesTextField
+- AndesTextArea
 
 ## Optimized
 - internal factories don't store anything.
