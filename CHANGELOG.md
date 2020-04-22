@@ -3,7 +3,7 @@
 - AndesBadge: Pill modifier.
 - AndesTextField
 - AndesTextArea
-- Public enums support string conversion 
+- Public enums support string conversion (Swift only)
 
 ## Optimized
 - internal factories don't store anything.
