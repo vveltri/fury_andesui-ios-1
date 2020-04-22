@@ -33,9 +33,9 @@ public extension AndesEnumStringConvertible {
 }
 
 internal extension AndesEnumStringConvertible {
-    static func checkValidEnum<T: AndesEnumStringConvertible>(property: String, key: String) -> T {
-        guard let value = T.init(from: key) else {
-            fatalError("The available values for \(property) are \(T.allKeys)")
+    @discardableResult static func checkValidEnum(property: String, key: String) -> Self {
+        guard let value = Self.init(from: key) else {
+            fatalError("The available values for \(property) are \(Self.allKeys)")
         }
         return value
     }
