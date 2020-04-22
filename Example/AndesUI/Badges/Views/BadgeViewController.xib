@@ -29,6 +29,9 @@
                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="58" placeholderIntrinsicHeight="24" translatesAutoresizingMaskIntoConstraints="NO" id="V1H-My-lQr" customClass="AndesBadge" customModule="AndesUI">
                     <rect key="frame" x="178" y="76" width="58" height="24"/>
                     <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="ibModifier" value="PILL"/>
+                    </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="350" placeholderIntrinsicHeight="36" translatesAutoresizingMaskIntoConstraints="NO" id="xV9-wb-mRB" customClass="AndesButton" customModule="AndesUI">
                     <rect key="frame" x="32" y="164" width="350" height="36"/>
