@@ -20,6 +20,7 @@ Are you sure you followed all those steps? If so, repeat after me "I solemnly sw
    - [ ] I have updated GitHub wiki,
    - [ ] I have the explicit approval of one or more members of the UX Team,
    - [ ] I have checked that this code is ObjC compliant.
+   - [ ] I have checked that all the new public enums conform to AndesEnumStringConvertible.
 ## Change type
 This is easy, let us know what this code is about:
    - [ ] This code adds a new component

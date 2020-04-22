@@ -13,10 +13,8 @@ import Foundation
 
     public static func keyFor(_ value: AndesTextFieldComponentVisibility) -> String {
         switch value {
-        case .always:
-            return "ALWAYS"
-        case .whenNotEmpty:
-            return "WHEN_NOT_EMPTY"
+        case .always: return "ALWAYS"
+        case .whenNotEmpty: return "WHENNOTEMPTY"
         }
     }
 }

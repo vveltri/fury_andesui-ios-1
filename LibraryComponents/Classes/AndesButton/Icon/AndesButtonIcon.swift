@@ -23,7 +23,14 @@ import Foundation
 /**
  Represents the orientation of the icon in the Button, the icon can be at the right or left
  */
-@objc public enum AndesButtonOrientation: Int {
+@objc public enum AndesButtonOrientation: Int, AndesEnumStringConvertible {
     case left
     case right
+
+    public static func keyFor(_ value: AndesButtonOrientation) -> String {
+        switch value {
+        case .left: return "LEFT"
+        case .right: return "RIGHT"
+        }
+    }
 }
