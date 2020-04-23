@@ -46,7 +46,7 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Helper Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0B-sk-Ywe">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="500" text="Helper Text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0B-sk-Ywe">
                     <rect key="frame" x="24" y="123" width="69.5" height="36"/>
                     <accessibility key="accessibilityConfiguration" label="Helper Text"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -54,7 +54,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f5h-Q0-DR8">
-                    <rect key="frame" x="6" y="135" width="12" height="12"/>
+                    <rect key="frame" x="6" y="125" width="12" height="12"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="12" id="AQq-VJ-QLu"/>
                         <constraint firstAttribute="height" constant="12" id="Gmq-Gl-c3W"/>
@@ -71,7 +71,7 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="lLV-cM-jBL" secondAttribute="trailing" constant="2" id="0XP-QF-805"/>
                 <constraint firstItem="f5h-Q0-DR8" firstAttribute="leading" secondItem="n6d-3f-bsv" secondAttribute="leading" id="6sy-WV-hdJ"/>
                 <constraint firstItem="lLV-cM-jBL" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="2" id="AS9-9g-NqZ"/>
-                <constraint firstItem="f5h-Q0-DR8" firstAttribute="centerY" secondItem="c0B-sk-Ywe" secondAttribute="centerY" id="IqN-1q-aat"/>
+                <constraint firstItem="YmT-3i-NBb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="c0B-sk-Ywe" secondAttribute="trailing" constant="8" id="QAf-GH-DTb"/>
                 <constraint firstItem="YmT-3i-NBb" firstAttribute="top" secondItem="lLV-cM-jBL" secondAttribute="bottom" constant="8" id="Wlh-QM-MYX"/>
                 <constraint firstItem="c0B-sk-Ywe" firstAttribute="leading" secondItem="f5h-Q0-DR8" secondAttribute="trailing" priority="500" constant="6" id="X59-Xm-Ong"/>
                 <constraint firstItem="lLV-cM-jBL" firstAttribute="top" secondItem="n6d-3f-bsv" secondAttribute="bottom" constant="6" id="an7-iV-HJP"/>
@@ -79,6 +79,7 @@
                 <constraint firstItem="c0B-sk-Ywe" firstAttribute="leading" secondItem="n6d-3f-bsv" secondAttribute="leading" priority="250" id="eJw-IB-ZIx"/>
                 <constraint firstItem="n6d-3f-bsv" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="hTA-gz-Gkx"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="YmT-3i-NBb" secondAttribute="bottom" id="rH7-Dy-tks"/>
+                <constraint firstItem="f5h-Q0-DR8" firstAttribute="top" secondItem="c0B-sk-Ywe" secondAttribute="top" constant="2" id="tJt-Vo-GgY"/>
                 <constraint firstItem="c0B-sk-Ywe" firstAttribute="top" secondItem="lLV-cM-jBL" secondAttribute="bottom" constant="8" id="x4w-an-T75"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="c0B-sk-Ywe" secondAttribute="bottom" id="xKT-lc-8X7"/>
                 <constraint firstItem="n6d-3f-bsv" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="6" id="zDO-u1-uuy"/>
