@@ -55,7 +55,7 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Helper Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7zg-V8-fqP">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="250" text="Helper Text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7zg-V8-fqP">
                     <rect key="frame" x="24" y="182" width="69.5" height="16"/>
                     <accessibility key="accessibilityConfiguration" label="Helper Text"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -77,9 +77,9 @@
             </subviews>
             <constraints>
                 <constraint firstItem="BBy-K7-RYS" firstAttribute="top" secondItem="jQF-k4-Vbe" secondAttribute="top" constant="15" id="FKd-wz-A2D"/>
-                <constraint firstItem="7zg-V8-fqP" firstAttribute="centerY" secondItem="PSm-MB-uON" secondAttribute="centerY" id="H2W-6X-7Mv"/>
                 <constraint firstItem="osO-R3-Okw" firstAttribute="trailing" secondItem="BBy-K7-RYS" secondAttribute="trailing" constant="12" id="Msd-Qs-fem"/>
                 <constraint firstItem="BBy-K7-RYS" firstAttribute="leading" secondItem="jQF-k4-Vbe" secondAttribute="leading" constant="12" id="QAg-k1-kLO"/>
+                <constraint firstItem="yHM-MY-Oip" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="7zg-V8-fqP" secondAttribute="trailing" constant="8" id="Qv2-LL-2Q1"/>
                 <constraint firstItem="yHM-MY-Oip" firstAttribute="top" secondItem="jQF-k4-Vbe" secondAttribute="bottom" constant="8" id="SEX-K8-kbn"/>
                 <constraint firstItem="7zg-V8-fqP" firstAttribute="leading" secondItem="PSm-MB-uON" secondAttribute="trailing" priority="500" constant="6" id="SWp-Ra-xiD"/>
                 <constraint firstItem="jQF-k4-Vbe" firstAttribute="leading" secondItem="osO-R3-Okw" secondAttribute="leading" constant="2" id="TL3-tF-NQ9"/>
@@ -89,6 +89,7 @@
                 <constraint firstItem="osO-R3-Okw" firstAttribute="trailing" secondItem="yHM-MY-Oip" secondAttribute="trailing" id="iPh-oS-yJy"/>
                 <constraint firstItem="osO-R3-Okw" firstAttribute="bottom" secondItem="7zg-V8-fqP" secondAttribute="bottom" id="iZA-XZ-hHS"/>
                 <constraint firstItem="jQF-k4-Vbe" firstAttribute="trailing" secondItem="osO-R3-Okw" secondAttribute="trailing" constant="-2" id="ids-ud-mmX"/>
+                <constraint firstItem="PSm-MB-uON" firstAttribute="top" secondItem="7zg-V8-fqP" secondAttribute="top" constant="2" id="jM4-Gd-5Bt"/>
                 <constraint firstItem="PSm-MB-uON" firstAttribute="leading" secondItem="6j7-M2-Xfr" secondAttribute="leading" id="mtl-8G-SFI"/>
                 <constraint firstItem="7zg-V8-fqP" firstAttribute="top" secondItem="jQF-k4-Vbe" secondAttribute="bottom" constant="8" id="qTn-wC-2a7"/>
                 <constraint firstItem="6j7-M2-Xfr" firstAttribute="top" secondItem="osO-R3-Okw" secondAttribute="top" id="vLf-Sr-eIA"/>
