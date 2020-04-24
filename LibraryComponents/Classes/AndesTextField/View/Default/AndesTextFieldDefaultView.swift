@@ -74,8 +74,8 @@ class AndesTextFieldDefaultView: AndesTextFieldAbstractView {
         updateSideComponents()
     }
     func updateSideComponents() {
-        let generatedLeftView: UIView? = AndesTextFieldComponentFactory.generateLeftComponentView(for: self.config, visibilities: self.currentVisibilities)
-        let generatedRightView: UIView? = AndesTextFieldComponentFactory.generateRightComponentView(for: self.config, visibilities: self.currentVisibilities)
+        let generatedLeftView: UIView? = AndesTextFieldComponentFactory.generateLeftComponentView(for: self.config, in: self, visibilities: self.currentVisibilities)
+        let generatedRightView: UIView? = AndesTextFieldComponentFactory.generateRightComponentView(for: self.config, in: self, visibilities: self.currentVisibilities)
 
         if #available(iOS 13.0, *) {} else {
             // prior to ios 13, UITextField side views didn't use autolayout, have to calculate frame manually https://stackoverflow.com/questions/58166160/ios-13-spacing-issue-with-uitextfield-rightview
