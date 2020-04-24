@@ -32,6 +32,11 @@ class AndesUIAppDelegate: UIResponder, UIApplicationDelegate {
 
         homeRouter.route(from: viewController)
 
+        // Disable dark mode.
+        if #available(iOS 13.0, *) {
+            window?.overrideUserInterfaceStyle = .light
+        }
+
         return true
     }
 
