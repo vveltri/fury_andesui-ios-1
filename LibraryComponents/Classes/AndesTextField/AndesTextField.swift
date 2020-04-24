@@ -11,7 +11,7 @@ import UIKit
     internal var contentView: AndesTextFieldView!
 
     /// The state of an AndesTextfield defines its behaviours an colours.
-    @objc public var state: AndesTextFieldState = .idle {
+    @objc public var state: AndesTextInputState = .idle {
         didSet {
             self.updateContentView()
         }
@@ -60,7 +60,7 @@ import UIKit
     }
 
     /// Use the predefined text input traits, if you need more customization, use setCustomInputTraits
-    @objc public var textInputTraits: AndesTextFieldInputTraits = .custom {
+    @objc public var textInputTraits: AndesTextInputTraits = .custom {
         didSet {
             guard textInputTraits != .custom else {
                 return
@@ -95,7 +95,7 @@ import UIKit
         setup()
     }
 
-    @objc public init(state: AndesTextFieldState, label: String?, helper: String?, counter: UInt16, placeholder: String?) {
+    @objc public init(state: AndesTextInputState, label: String?, helper: String?, counter: UInt16, placeholder: String?) {
         super.init(frame: .zero)
         self.label = label
         self.helper = helper

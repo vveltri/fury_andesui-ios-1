@@ -8,7 +8,7 @@
 import Foundation
 
 class AndesTextInputPaddingFactory {
-    static func providePaddingForField(state: AndesTextFieldState) -> AndesTextInputPadding {
+    static func providePaddingForField(state: AndesTextInputState) -> AndesTextInputPadding {
         switch state {
         case .readOnly:
             return AndesTextInputPadding(top: 13, left: 4, bottom: 13, right: 4)
@@ -17,7 +17,7 @@ class AndesTextInputPaddingFactory {
         }
     }
 
-    static func providePaddingForArea(state: AndesTextFieldState) -> AndesTextInputPadding {
+    static func providePaddingForArea(state: AndesTextInputState) -> AndesTextInputPadding {
         switch state {
         case .readOnly:
             return AndesTextInputPadding(top: 15, left: 0, bottom: 15, right: 0)

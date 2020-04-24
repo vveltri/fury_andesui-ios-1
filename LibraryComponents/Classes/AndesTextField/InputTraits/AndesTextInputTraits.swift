@@ -7,13 +7,13 @@
 
 import Foundation
 
-@objc public enum AndesTextFieldInputTraits: Int, AndesEnumStringConvertible {
+@objc public enum AndesTextInputTraits: Int, AndesEnumStringConvertible {
     case password
     case email
     case numberPad
     case custom
 
-    public static func keyFor(_ value: AndesTextFieldInputTraits) -> String {
+    public static func keyFor(_ value: AndesTextInputTraits) -> String {
         switch value {
         case .email:
             return "EMAIL"

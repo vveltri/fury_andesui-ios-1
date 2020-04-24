@@ -8,13 +8,13 @@
 import Foundation
 
 /// Used to define the colors of an AndesTextField
-@objc public enum AndesTextFieldState: Int, AndesEnumStringConvertible {
+@objc public enum AndesTextInputState: Int, AndesEnumStringConvertible {
     case idle
     case error
     case disabled
     case readOnly
 
-    public static func keyFor(_ value: AndesTextFieldState) -> String {
+    public static func keyFor(_ value: AndesTextInputState) -> String {
         switch value {
         case .idle: return "IDLE"
         case .error: return "ERROR"
