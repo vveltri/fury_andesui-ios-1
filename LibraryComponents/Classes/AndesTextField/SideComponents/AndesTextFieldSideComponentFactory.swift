@@ -5,33 +5,47 @@
 //  Created by Nicolas Rostan Talasimov on 4/1/20.
 //
 
-import Foundation
+import UIKit
 internal class AndesTextFieldComponentFactory {
-    static func generateLeftComponentView(for component: AndesTextFieldLeftComponent, in view: AndesTextFieldView? = nil) -> UIView? {
-        if let component = (component as? AndesTextFieldComponentLabel) {
-            return AndesTextFieldLabelView(text: component.text, style: component.style)
-        } else if let component = component as? AndesTextFieldComponentIcon {
-            return AndesTextFieldIconView(iconColor: component.tintColor, icon: component.icon)
+    static func generateLeftComponentView(for config: AndesTextFieldViewConfig, in view: AndesTextFieldView? = nil, visibilities: [AndesTextFieldComponentVisibility]) -> UIView? {
+        let leftPadding = config.paddings.left
+        guard let visibility = config.leftViewComponent?.visibility, visibilities.contains(visibility) else {
+            return TextFieldPaddingView(size: leftPadding)
         }
-        return nil
+
+        switch config.leftViewComponent {
+        case let component as AndesTextFieldComponentLabel:
+            return AndesTextFieldLabelView(text: component.text, style: component.style, forceLeftPadding: leftPadding)
+        case let component as AndesTextFieldComponentIcon:
+            return AndesTextFieldIconView(iconColor: component.tintColor, icon: component.icon)
+        default:
+              return TextFieldPaddingView(size: leftPadding)
+        }
     }
 
-    static func generateRightComponentView(for component: AndesTextFieldRightComponent, in view: AndesTextFieldView? = nil) -> UIView? {
-        if let component = component as? AndesTextFieldComponentLabel {
-            return AndesTextFieldLabelView(text: component.text, style: component.style, rightSide: true)
-        } else if let component = component as? AndesTextFieldComponentIcon {
+    static func generateRightComponentView(for config: AndesTextFieldViewConfig, in view: AndesTextFieldView? = nil, visibilities: [AndesTextFieldComponentVisibility]) -> UIView? {
+        let rightPadding = config.paddings.right
+        guard let visibility = config.rightViewComponent?.visibility, visibilities.contains(visibility) else {
+            return TextFieldPaddingView(size: rightPadding)
+        }
+
+        switch config.rightViewComponent {
+        case let component as AndesTextFieldComponentLabel:
+            return AndesTextFieldLabelView(text: component.text, style: component.style, forceRightPadding: rightPadding)
+        case let component as AndesTextFieldComponentIcon:
             return AndesTextFieldIconView(iconColor: component.tintColor, icon: component.icon)
-        } else if let component = component as? AndesTextFieldComponentCheck {
+        case let component as AndesTextFieldComponentCheck:
             return AndesTextFieldIconView(iconColor: component.tintColor, icon: component.icon)
-        } else if let component = component as? AndesTextFieldComponentClear {
-            return AndesTextFieldClearView(iconColor: component.iconColor, iconName: component.clearIcon) { [weak view] in
-               view?.clear()
-           }
-        } else if let component = component as? AndesTextFieldComponentAction {
+        case let component as AndesTextFieldComponentClear:
+             return AndesTextFieldClearView(iconColor: component.iconColor, iconName: component.clearIcon) { [weak view] in
+                view?.clear()
+            }
+        case let component as AndesTextFieldComponentAction:
             return AndesTextFieldActionView(label: component.label) {[weak view] in
                 view?.delegate?.didTapRightAction()
             }
+        default:
+            return TextFieldPaddingView(size: rightPadding)
         }
-        return nil
     }
 }

@@ -10,7 +10,7 @@ import Quick
 import Nimble
 @testable import AndesUI
 protocol AndesTextAreaTestValues {
-    var state: AndesTextFieldState { get }
+    var state: AndesTextInputState { get }
     var label: String { get }
     var placeholder: String { get }
     var helper: String { get }
@@ -67,7 +67,7 @@ class AndesTextAreaTests: QuickSpec {
     var textInputView: AndesTextArea!
     override func spec() {
         struct DefaultValues: AndesTextAreaTestValues {
-            let state: AndesTextFieldState = .idle
+            let state: AndesTextInputState = .idle
             let label = "Label"
             let helper = "Helper"
             let counter: UInt16 = 3
@@ -78,7 +78,7 @@ class AndesTextAreaTests: QuickSpec {
         }
 
         struct ModifiedValues: AndesTextAreaTestValues {
-            let state: AndesTextFieldState = .idle
+            let state: AndesTextInputState = .idle
             let label = "Label Changed"
             let helper = "Helper Changed"
             let counter: UInt16 = 5
@@ -226,7 +226,7 @@ class AndesTextAreaTests: QuickSpec {
             context("AndesTextField inputTraits") {
                 it("When numberPad set, keyboard type updates") {
                     //Given
-                    let trait: AndesTextFieldInputTraits = .numberPad
+                    let trait: AndesTextInputTraits = .numberPad
 
                     //When
                     self.textInputView.textInputTraits = trait
@@ -237,7 +237,7 @@ class AndesTextAreaTests: QuickSpec {
 
                 it("When password set, input is secure text entry ") {
                     //Given
-                    let trait: AndesTextFieldInputTraits = .password
+                    let trait: AndesTextInputTraits = .password
 
                     //When
                     self.textInputView.textInputTraits = trait
@@ -248,7 +248,7 @@ class AndesTextAreaTests: QuickSpec {
 
                 it("When email set, keyboard type set to email ") {
                     //Given
-                    let trait: AndesTextFieldInputTraits = .email
+                    let trait: AndesTextInputTraits = .email
 
                     //When
                     self.textInputView.textInputTraits = trait

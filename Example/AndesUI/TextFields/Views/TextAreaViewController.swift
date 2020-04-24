@@ -22,7 +22,7 @@ class TextAreaViewController: UIViewController {
 
     var statePicker: UIPickerView = UIPickerView()
     var typePicker: UIPickerView = UIPickerView()
-    var state: AndesTextFieldState = .idle
+    var state: AndesTextInputState = .idle
 
     var rightComponents: [String: () -> AndesTextFieldRightComponent?] {
         return [
@@ -107,7 +107,7 @@ extension TextAreaViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == statePicker {
             self.stateTField.resignFirstResponder()
-            self.state = AndesTextFieldState.init(rawValue: row)!
+            self.state = AndesTextInputState.init(rawValue: row)!
             stateTField.text = state.toString()
         }
     }
@@ -131,7 +131,7 @@ extension TextAreaViewController: UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
 
         if pickerView == statePicker {
-            let state = AndesTextFieldState.init(rawValue: row)!
+            let state = AndesTextInputState.init(rawValue: row)!
             return state.toString()
         }
         return ""

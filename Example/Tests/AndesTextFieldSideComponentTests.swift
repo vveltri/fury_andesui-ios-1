@@ -11,17 +11,25 @@ import Nimble
 @testable import AndesUI
 
 class AndesTextFieldSideComponentTests: QuickSpec {
+    var config: AndesTextFieldViewConfig = AndesTextFieldViewConfig()
+
     override func spec() {
+        beforeEach {
+            self.config = AndesTextFieldViewConfig()
+        }
+
         describe("Tests AndesTextField side components") {
             context("Test component factory") {
                 it("test label (prefix suffix)") {
                     // Given
                     let lblText = "Label"
                     let labelSpec = AndesTextFieldComponentLabel(text: "Label")
+                    self.config.leftViewComponent = labelSpec
+                    self.config.rightViewComponent = labelSpec
 
                     // When
-                    let leftLabel = AndesTextFieldComponentFactory.generateLeftComponentView(for: labelSpec)
-                    let rightLabel = AndesTextFieldComponentFactory.generateRightComponentView(for: labelSpec)
+                    let leftLabel = AndesTextFieldComponentFactory.generateLeftComponentView(for: self.config, visibilities: [.always, .whenNotEmpty])
+                    let rightLabel = AndesTextFieldComponentFactory.generateRightComponentView(for: self.config, visibilities: [.always, .whenNotEmpty])
                     let internalLeftLbl = leftLabel?.subviews.first(where: {$0 is UILabel}) as? UILabel
                     let internalRightLbl = rightLabel?.subviews.first(where: {$0 is UILabel}) as? UILabel
 
@@ -32,10 +40,12 @@ class AndesTextFieldSideComponentTests: QuickSpec {
                 it("test icon") {
                     // Given
                     let iconSpec = AndesTextFieldComponentIcon(andesIconName: AndesIcons.feedbackError16, tintColor: UIColor.green)
+                    self.config.leftViewComponent = iconSpec
+                    self.config.rightViewComponent = iconSpec
 
                     // When
-                    let leftIcon = AndesTextFieldComponentFactory.generateLeftComponentView(for: iconSpec)
-                    let rightIcon = AndesTextFieldComponentFactory.generateRightComponentView(for: iconSpec)
+                    let leftIcon = AndesTextFieldComponentFactory.generateLeftComponentView(for: self.config, visibilities: [.always, .whenNotEmpty])
+                    let rightIcon = AndesTextFieldComponentFactory.generateRightComponentView(for: self.config, visibilities: [.always, .whenNotEmpty])
                     let internalLeftImg = leftIcon?.subviews.first(where: {$0 is UIImageView}) as? UIImageView
                     let internalRightImg = rightIcon?.subviews.first(where: {$0 is UIImageView}) as? UIImageView
 
@@ -51,10 +61,12 @@ class AndesTextFieldSideComponentTests: QuickSpec {
                     let bundle = Bundle(path: Bundle(for: AndesBundle.self).path(forResource: "AndesIcons", ofType: "bundle")!)
                     let icon: UIImage = UIImage(named: AndesIcons.feedbackError16, in: bundle, compatibleWith: nil)!
                     let iconSpec = AndesTextFieldComponentIcon(icon: icon, tintColor: UIColor.green)
+                    self.config.leftViewComponent = iconSpec
+                    self.config.rightViewComponent = iconSpec
 
                     // When
-                    let leftIcon = AndesTextFieldComponentFactory.generateLeftComponentView(for: iconSpec)
-                    let rightIcon = AndesTextFieldComponentFactory.generateRightComponentView(for: iconSpec)
+                    let leftIcon = AndesTextFieldComponentFactory.generateLeftComponentView(for: self.config, visibilities: [.always, .whenNotEmpty])
+                    let rightIcon = AndesTextFieldComponentFactory.generateRightComponentView(for: self.config, visibilities: [.always, .whenNotEmpty])
                     let internalLeftImg = leftIcon?.subviews.first(where: {$0 is UIImageView}) as? UIImageView
                     let internalRightImg = rightIcon?.subviews.first(where: {$0 is UIImageView}) as? UIImageView
 
@@ -66,9 +78,10 @@ class AndesTextFieldSideComponentTests: QuickSpec {
                 it("test check") {
                     // Given
                     let checkSpec = AndesTextFieldComponentCheck()
+                    self.config.rightViewComponent = checkSpec
 
                     // When
-                    let rightView = AndesTextFieldComponentFactory.generateRightComponentView(for: checkSpec)
+                    let rightView = AndesTextFieldComponentFactory.generateRightComponentView(for: self.config, visibilities: [.always, .whenNotEmpty])
                     let internalRightImg = rightView?.subviews.first(where: {$0 is UIImageView}) as? UIImageView
 
                     // Expect
@@ -79,9 +92,10 @@ class AndesTextFieldSideComponentTests: QuickSpec {
                 it("test action") {
                     // Given
                     let actionSpec = AndesTextFieldComponentAction("action")
+                    self.config.rightViewComponent = actionSpec
 
                     // When
-                    let rightView = AndesTextFieldComponentFactory.generateRightComponentView(for: actionSpec)
+                    let rightView = AndesTextFieldComponentFactory.generateRightComponentView(for: self.config, visibilities: [.always, .whenNotEmpty])
                     let internalBtn = rightView?.subviews.first(where: {$0 is AndesButton}) as? AndesButton
 
                     // Expect
@@ -92,9 +106,10 @@ class AndesTextFieldSideComponentTests: QuickSpec {
                 it("test clear") {
                     // Given
                     let clearSpec = AndesTextFieldComponentClear()
+                    self.config.rightViewComponent = clearSpec
 
                     // When
-                    let rightView = AndesTextFieldComponentFactory.generateRightComponentView(for: clearSpec)
+                    let rightView = AndesTextFieldComponentFactory.generateRightComponentView(for: self.config, visibilities: [.always, .whenNotEmpty])
                     let internalBtn = rightView?.subviews.first(where: {$0 is UIButton}) as? UIButton
 
                     // Expect

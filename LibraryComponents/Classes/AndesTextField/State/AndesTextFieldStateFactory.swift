@@ -8,7 +8,7 @@
 import Foundation
 
 internal class AndesTextFieldStateFactory {
-    static func getState(_ state: AndesTextFieldState, isEditing: Bool) -> AndesTextFieldStateProtocol {
+    static func getState(_ state: AndesTextInputState, isEditing: Bool) -> AndesTextFieldStateProtocol {
         switch state {
         case .idle:
             return AndesTextFieldStateIdle(focuesd: isEditing)
