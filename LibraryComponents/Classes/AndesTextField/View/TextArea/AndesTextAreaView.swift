@@ -11,11 +11,6 @@ class AndesTextAreaView: AndesTextFieldAbstractView {
     @IBOutlet weak var textView: AndesUITextView!
     @IBOutlet weak var placeholderLabel: UILabel!
 
-    private struct FieldPadding {
-        static let VERTICAL: CGFloat = 15
-        static let HORIZONTAL: CGFloat = 7
-    }
-
     override var text: String {
         get {
             return textView.text
@@ -30,7 +25,7 @@ class AndesTextAreaView: AndesTextFieldAbstractView {
         let bundle = AndesBundle.bundle()
         bundle.loadNibNamed("AndesTextAreaView", owner: self, options: nil)
         textView.delegate = self
-        self.textView.textContainerInset = UIEdgeInsets(top: FieldPadding.VERTICAL, left: FieldPadding.HORIZONTAL, bottom: FieldPadding.VERTICAL, right: FieldPadding.HORIZONTAL)
+        self.textView.textContainerInset = UIEdgeInsets(top: config.paddings.top, left: config.paddings.left, bottom: config.paddings.bottom, right: config.paddings.right)
         textView.isScrollEnabled = false
         textView.clipsToBounds = false
 
@@ -48,6 +43,7 @@ class AndesTextAreaView: AndesTextFieldAbstractView {
         paragraphStyle.lineSpacing = config.inputTextStyle.lineHeight
         self.textView.typingAttributes = [.font: config.inputTextStyle.font, .strokeColor: config.inputTextStyle.textColor, .paragraphStyle: paragraphStyle]
         self.textView.isUserInteractionEnabled = config.editingEnabled
+        self.textView.textContainerInset = UIEdgeInsets(top: config.paddings.top, left: config.paddings.left, bottom: config.paddings.bottom, right: config.paddings.right)
 
         if let traits = config.textInputTraits {
             self.textView.setInputTraits(traits)

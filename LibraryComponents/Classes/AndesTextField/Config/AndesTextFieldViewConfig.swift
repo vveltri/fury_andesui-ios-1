@@ -30,7 +30,7 @@ internal struct AndesTextFieldViewConfig {
     var textFieldBorderWidth: CGFloat = 1
     var textFieldBorderRadious: CGFloat = 6
 
-    var paddings: AndesFieldPadding
+    var paddings: AndesTextInputPadding = AndesTextInputPadding.defaultPadding
 
     var helperIcon: String?
     var helperIconColor: UIColor?
@@ -50,14 +50,15 @@ internal struct AndesTextFieldViewConfig {
          leftViewComponent: AndesTextFieldLeftComponent?,
          rightViewComponent: AndesTextFieldRightComponent?,
          inputTraits: UITextInputTraits?,
-         maxLines: UInt16? = nil) {
+         maxLines: UInt16? = nil,
+         paddings: AndesTextInputPadding) {
 
         self.labelText = labelText
         self.helperText = helperText
         self.counter = counter
         self.placeholderText = placeholderText
         self.maxLines = maxLines
-        self.paddings = stateStyle.paddings
+        self.paddings = paddings
 
         self.labelStyle = AndesTextFieldViewConfig.getLabelStyle(stateStyle.labelTextColor)
         self.counterStyle = AndesTextFieldViewConfig.getCounterTextStyle(stateStyle.helperColor)
@@ -80,7 +81,7 @@ internal struct AndesTextFieldViewConfig {
     }
 
     init() {
-        paddings = AndesFieldPadding.defaultPadding
+
     }
 
     private static func getLabelStyle(_ color: UIColor) -> AndesFontStyle {
