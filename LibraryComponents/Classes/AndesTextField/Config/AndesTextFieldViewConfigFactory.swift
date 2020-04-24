@@ -10,6 +10,7 @@ internal class AndesTextFieldViewConfigFactory {
     static func provideInternalConfig(from textField: AndesTextField) -> AndesTextFieldViewConfig {
 
         let stateStyle = AndesTextFieldStateFactory.getState(textField.state, isEditing: textField.isEditing)
+        let paddings = AndesTextInputPaddingFactory.providePaddingForField(state: textField.state)
 
         let config = AndesTextFieldViewConfig(labelText: textField.label,
                                               helperText: textField.helper,
@@ -18,7 +19,8 @@ internal class AndesTextFieldViewConfigFactory {
                                               stateStyle: stateStyle,
                                               leftViewComponent: textField.leftContent,
                                               rightViewComponent: textField.rightContent,
-                                              inputTraits: textField.inputTraits)
+                                              inputTraits: textField.inputTraits,
+                                              paddings: paddings)
 
         return config
     }
@@ -26,6 +28,7 @@ internal class AndesTextFieldViewConfigFactory {
     static func provideInternalConfig(from textArea: AndesTextArea) -> AndesTextFieldViewConfig {
 
         let stateStyle = AndesTextFieldStateFactory.getState(textArea.state, isEditing: textArea.isEditing)
+        let paddings = AndesTextInputPaddingFactory.providePaddingForArea(state: textArea.state)
 
         let config = AndesTextFieldViewConfig(labelText: textArea.label,
                                               helperText: textArea.helper,
@@ -35,7 +38,8 @@ internal class AndesTextFieldViewConfigFactory {
                                               leftViewComponent: nil,
                                               rightViewComponent: nil,
                                               inputTraits: textArea.inputTraits,
-                                              maxLines: textArea.maxLines)
+                                              maxLines: textArea.maxLines,
+                                              paddings: paddings)
 
         return config
     }

@@ -32,7 +32,7 @@ class TextFieldViewController: UIViewController, TextFieldView {
     var leftCompPicker: UIPickerView = UIPickerView()
     var rightCompPicker: UIPickerView = UIPickerView()
 
-    var state: AndesTextFieldState = .idle
+    var state: AndesTextInputState = .idle
     var leftComponents: [String: () -> AndesTextFieldLeftComponent?] {
         return [
             "None": { return nil },
@@ -135,7 +135,7 @@ extension TextFieldViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == statePicker {
             self.stateTField.resignFirstResponder()
-            self.state = AndesTextFieldState.init(rawValue: row)!
+            self.state = AndesTextInputState.init(rawValue: row)!
             stateTField.text = state.toString()
 
         } else if pickerView == leftCompPicker {
@@ -173,7 +173,7 @@ extension TextFieldViewController: UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
 
         if pickerView == statePicker {
-            let state = AndesTextFieldState.init(rawValue: row)!
+            let state = AndesTextInputState.init(rawValue: row)!
             return state.toString()
         }
         if pickerView == leftCompPicker {
