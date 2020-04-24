@@ -24,4 +24,10 @@ internal protocol AndesTextFieldStateProtocol {
     var editingEnabled: Bool { get }
 
     var placeholderTextColor: UIColor { get }
+
+    var paddings: AndesFieldPadding { get }
+}
+
+extension AndesTextFieldStateProtocol {
+    var paddings: AndesFieldPadding { return AndesFieldPadding.defaultPadding }
 }

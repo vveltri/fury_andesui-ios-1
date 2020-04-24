@@ -6,7 +6,6 @@
 //
 
 import Foundation
-
 /// used to define the ui of internal AndesTextField views
 internal struct AndesTextFieldViewConfig {
     var labelText: String?
@@ -30,6 +29,8 @@ internal struct AndesTextFieldViewConfig {
     var textFieldBorderColor: UIColor = AndesStyleSheetManager.styleSheet.bgColorSecondary
     var textFieldBorderWidth: CGFloat = 1
     var textFieldBorderRadious: CGFloat = 6
+
+    var paddings: AndesFieldPadding
 
     var helperIcon: String?
     var helperIconColor: UIColor?
@@ -56,6 +57,7 @@ internal struct AndesTextFieldViewConfig {
         self.counter = counter
         self.placeholderText = placeholderText
         self.maxLines = maxLines
+        self.paddings = stateStyle.paddings
 
         self.labelStyle = AndesTextFieldViewConfig.getLabelStyle(stateStyle.labelTextColor)
         self.counterStyle = AndesTextFieldViewConfig.getCounterTextStyle(stateStyle.helperColor)
@@ -78,7 +80,7 @@ internal struct AndesTextFieldViewConfig {
     }
 
     init() {
-
+        paddings = AndesFieldPadding.defaultPadding
     }
 
     private static func getLabelStyle(_ color: UIColor) -> AndesFontStyle {

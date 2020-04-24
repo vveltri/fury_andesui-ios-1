@@ -24,4 +24,6 @@ struct AndesTextFieldStateReadonly: AndesTextFieldStateProtocol {
     var editingEnabled = false
 
     var placeholderTextColor = AndesStyleSheetManager.styleSheet.textColorDisabled
+
+    var paddings: AndesFieldPadding = AndesFieldPadding(top: 13, left: 4, bottom: 13, right: 4)
 }
