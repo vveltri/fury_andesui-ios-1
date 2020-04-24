@@ -44,7 +44,7 @@ import UIKit
     }
 
     /// Defines the current text (Pill only)
-    @objc public var text: String? {
+    @IBInspectable public var text: String? {
         didSet {
             updateContentView()
         }
@@ -109,6 +109,59 @@ import UIKit
             return AndesBadgeViewPill(withConfig: config)
         default:
             return AndesBadgeViewPill(withConfig: config)
+        }
+    }
+}
+
+// MARK: - Interface Builder properties
+public extension AndesBadge {
+    @available(*, unavailable, message: "This property is reserved for Interface Builder. Use 'modifier' instead.")
+    @IBInspectable var ibModifier: String {
+        set(val) {
+            self.modifier = AndesBadgeModifier.checkValidEnum(property: "IB Modifier", key: val)
+        }
+        get {
+            return self.modifier.toString()
+        }
+    }
+
+    @available(*, unavailable, message: "This property is reserved for Interface Builder. Use 'hierarchy' instead.")
+    @IBInspectable var ibHierarchy: String {
+        set(val) {
+            self.hierarchy = AndesBadgeHierarchy.checkValidEnum(property: "IB Hierarchy", key: val)
+        }
+        get {
+            return self.hierarchy.toString()
+        }
+    }
+
+    @available(*, unavailable, message: "This property is reserved for Interface Builder. Use 'type' instead.")
+    @IBInspectable var ibType: String {
+        set(val) {
+            self.type = AndesBadgeType.checkValidEnum(property: "IB Type", key: val)
+        }
+        get {
+            return self.type.toString()
+        }
+    }
+
+    @available(*, unavailable, message: "This property is reserved for Interface Builder. Use 'border' instead.")
+    @IBInspectable var ibBorder: String {
+        set(val) {
+            self.border = AndesBadgeBorder.checkValidEnum(property: "IB Border", key: val)
+        }
+        get {
+            return self.border.toString()
+        }
+    }
+
+    @available(*, unavailable, message: "This property is reserved for Interface Builder. Use 'size' instead.")
+    @IBInspectable var ibSize: String {
+        set(val) {
+            self.size = AndesBadgeSize.checkValidEnum(property: "IB Size", key: val)
+        }
+        get {
+            return self.size.toString()
         }
     }
 }
