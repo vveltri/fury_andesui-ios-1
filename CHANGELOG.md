@@ -1,3 +1,7 @@
+## v2.2.2 Unpublished
+### 🛠 Bug fixes
+- Icons: Some icons were not rendering as templates.
+
 ## v2.2.1
 ### 🛠 Bug fixes
 - AndesTextField/Area: Helper text font weight on error state is always semibold.
