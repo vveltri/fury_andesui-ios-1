@@ -1,4 +1,8 @@
-## v2.2.0 Unpublished
+## v3.0.0 Unpublished
+### 🛠 Bug fixes
+- AndesTextField/Area: Helper text font weight on error state is always semibold.
+
+## v2.2.0
 ### 🚀 Features
 - AndesBadge: Pill modifier | Authors: [@ignaguri](https://github.com/ignaguri)
 - AndesTextField | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
