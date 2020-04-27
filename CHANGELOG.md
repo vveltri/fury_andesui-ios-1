@@ -1,4 +1,4 @@
-## v2.2.2 Unpublished
+## v2.2.2
 ### 🛠 Bug fixes
 - Icons: Some icons were not rendering as templates.
 
