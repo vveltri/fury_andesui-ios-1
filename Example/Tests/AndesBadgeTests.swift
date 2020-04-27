@@ -13,17 +13,15 @@ class AndesBadgeTests: QuickSpec {
             context("Badge Modifier: Pill") {
                 it("A Badge by default should be a neutral, loud, large, standard bordered Pill") {
                     // Given
-                    let defaultModifier = AndesBadgeModifier.pill
                     let defaultHierarchy = AndesBadgeHierarchy.loud
                     let defaultType = AndesBadgeType.neutral
                     let defaultSize = AndesBadgeSize.large
                     let defaultBorder = AndesBadgeBorder.standard
 
                     // When
-                    let badge = AndesBadge(frame: .zero)
+                    let badge = AndesBadgePill(frame: .zero)
 
                     // Then
-                    expect(badge.modifier).to(equal(defaultModifier))
                     expect(badge.hierarchy).to(equal(defaultHierarchy))
                     expect(badge.type).to(equal(defaultType))
                     expect(badge.size).to(equal(defaultSize))
@@ -33,7 +31,6 @@ class AndesBadgeTests: QuickSpec {
 
                 it("Andes Badge with custom hierarchy, type, text, and border") {
                     //Given
-                    let modifier = AndesBadgeModifier.pill
                     let hierarchy = AndesBadgeHierarchy.quiet
                     let type = AndesBadgeType.success
                     let size = AndesBadgeSize.small
@@ -41,7 +38,7 @@ class AndesBadgeTests: QuickSpec {
                     let text = "Pill text"
 
                     //When
-                    let badge = AndesBadge(modifier: modifier, hierarchy: hierarchy, type: type, border: border, size: size, text: text)
+                    let badge = AndesBadgePill(hierarchy: hierarchy, type: type, border: border, size: size, text: text)
 
                     //Then
                     let contentView = badge.contentView as! AndesBadgeViewPill
@@ -68,11 +65,11 @@ class AndesBadgeTests: QuickSpec {
         }
         describe("AndesBadge should be able to change its UI dinamically") {
             context("AndesBadgePill view") {
-                var badge: AndesBadge = AndesBadge(frame: .zero)
+                var badge: AndesBadgePill = AndesBadgePill(frame: .zero)
                 var contentView: AndesBadgeViewPill = badge.contentView as! AndesBadgeViewPill
 
                 beforeEach {
-                    badge = AndesBadge(frame: .zero)
+                    badge = AndesBadgePill(frame: .zero)
                     contentView = badge.contentView as! AndesBadgeViewPill
                 }
 

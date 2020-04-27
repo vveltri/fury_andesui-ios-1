@@ -1,3 +1,7 @@
+## v2.3.0 Unpublished
+### ⚙️ Other
+- Remove modifier from AndesBadge [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
+
 ## v2.2.2 Unpublished
 ### 🛠 Bug fixes
 - Icons: Some icons were not rendering as templates.
