@@ -1,4 +1,4 @@
-## v3.0.0 Unpublished
+## v2.2.1
 ### 🛠 Bug fixes
 - AndesTextField/Area: Helper text font weight on error state is always semibold.
 
