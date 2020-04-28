@@ -1,14 +1,14 @@
-## v2.3.0 Unpublished
+## v2.3.0
 ### ⚙️ Other
 - Remove modifier from AndesBadge [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
 
-## v2.2.2 Unpublished
+## v2.2.2
 ### 🛠 Bug fixes
-- Icons: Some icons were not rendering as templates.
+- Icons: Some icons were not rendering as templates. [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
 
 ## v2.2.1
 ### 🛠 Bug fixes
-- AndesTextField/Area: Helper text font weight on error state is always semibold.
+- AndesTextField/Area: Helper text font weight on error state is always semibold. [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
 
 ## v2.2.0
 ### 🚀 Features
