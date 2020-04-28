@@ -44,7 +44,7 @@ class HomeViewController: UIViewController {
             welcomeMessage.setTitle("home.welcomeMsg.title".localized)
                 .setBody("home.welcomeMsg.desc".localized)
                 .setHierarchy(.quiet)
-                .setPrimaryAction("home.welcomeMsg.action".localized, handler: { message in
+                .setPrimaryAction("home.welcomeMsg.action".localized, handler: { _ in
                     self.presenter.presentWhatsNew()
                 })
         }
@@ -66,7 +66,7 @@ class HomeViewController: UIViewController {
             contributingButton.setText("home.button.contribute.title".localized)
                 .setHierarchy(.quiet)
                 .setSize(.large)
-            
+
             textFieldBtn.setText("Andes TextField")
             .setSize(.large)
         }
@@ -93,13 +93,13 @@ class HomeViewController: UIViewController {
         UIApplication.shared.open(url)
 
     }
-    
+
     @IBAction func goToContributingTapped(_ sender: Any) {
         guard let url = URL(string: "https://meli.workplace.com/notes/andes-ui/c%C3%B3mo-contribuir-en-andes-ui/2559399620854933") else { return }
         UIApplication.shared.open(url)
 
     }
-    
+
     @IBAction func textfieldBtnTapped(_ sender: Any) {
         presenter.presentTextField()
     }
