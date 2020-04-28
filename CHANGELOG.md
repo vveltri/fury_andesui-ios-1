@@ -1,18 +1,26 @@
+## v3.0.0 Unpublished
+### 🚀 Features
+- AndesButton and AndesMessage now show properties on interface builder | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
+- AndesButton and AndesMessage getters now work on ObjC | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
+
+### ⚙️ Other
+- [BREAKING] changed AndesButton and AndesMessage to use properties instead of setters | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
+
 ## v2.3.1
 ### 🛠 Bug fixes
-- AndesButton: Fix support to emojis on title [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
+- AndesButton: Fix support to emojis on title | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
 
 ## v2.3.0
 ### ⚙️ Other
-- Remove modifier from AndesBadge [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
+- Remove modifier from AndesBadge | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
 
 ## v2.2.2
 ### 🛠 Bug fixes
-- Icons: Some icons were not rendering as templates. [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
+- Icons: Some icons were not rendering as templates. | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
 
 ## v2.2.1
 ### 🛠 Bug fixes
-- AndesTextField/Area: Helper text font weight on error state is always semibold. [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
+- AndesTextField/Area: Helper text font weight on error state is always semibold. | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
 
 ## v2.2.0
 ### 🚀 Features

@@ -18,8 +18,8 @@ class AndesMessageWithActionsView: AndesMessageAbstractView {
 
     override func updateView() {
         super.updateView()
-        primaryAction.setSize(.medium)
-        secondaryAction.setSize(.medium)
+        primaryAction.size = .medium
+        secondaryAction.size = .medium
 
         primaryAction.updateWithCustomConfig(config.primaryActionConfig!)
 

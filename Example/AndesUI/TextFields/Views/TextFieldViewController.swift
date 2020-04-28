@@ -77,12 +77,12 @@ class TextFieldViewController: UIViewController, TextFieldView {
     }
 
     fileprivate func setupButtons() {
-        updateButton.setText("message.button.updateConfig".localized)
-        .setHierarchy(.loud)
-        .setSize(.large)
-        configToggleButton.setText("message.button.changeConfig".localized)
-        .setHierarchy(.quiet)
-        .setSize(.medium)
+        updateButton.text = "message.button.updateConfig".localized
+        updateButton.hierarchy = .loud
+        updateButton.size = .large
+        configToggleButton.text = "message.button.changeConfig".localized
+        configToggleButton.hierarchy = .quiet
+        configToggleButton.size = .medium
     }
 
     func createPickerViews() {
@@ -116,12 +116,12 @@ class TextFieldViewController: UIViewController, TextFieldView {
 
     @IBAction func toggleTapped(_ sender: Any) {
         if !self.configView.isHidden {
-            self.configToggleButton.setText("message.button.changeConfig".localized)
-                .setHierarchy(.quiet)
+            self.configToggleButton.text = "message.button.changeConfig".localized
+            self.configToggleButton.hierarchy = .quiet
 
         } else {
-            self.configToggleButton.setText("message.button.hideConfig".localized)
-                .setHierarchy(.transparent)
+            self.configToggleButton.text = "message.button.hideConfig".localized
+            self.configToggleButton.hierarchy = .transparent
 
         }
 

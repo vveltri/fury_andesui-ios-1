@@ -158,7 +158,7 @@ class AndesButtonTests: QuickSpec {
 
                     //When
                     let changedTitle = "Soy test"
-                    button.setText(changedTitle)
+                    button.text = changedTitle
 
                     //Then
                     let view: AndesButtonViewDefault = button.view as! AndesButtonViewDefault
@@ -176,7 +176,7 @@ class AndesButtonTests: QuickSpec {
 
                     //When
                     let newStyle = AndesButtonHierarchyQuiet()
-                    button.setHierarchy(.quiet)
+                    button.hierarchy = .quiet
 
                     //Then
                     let view: AndesButtonViewDefault = button.view as! AndesButtonViewDefault

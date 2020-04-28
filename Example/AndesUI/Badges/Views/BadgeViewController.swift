@@ -63,9 +63,7 @@ class BadgeViewController: UIViewController, BadgeView {
     }
 
     func setupUpdateButton() {
-        updateButton.setSize(.large)
-        updateButton.setHierarchy(.loud)
-        updateButton.setText("badge.button.updateConfig".localized)
+        updateButton.text = "badge.button.updateConfig".localized
     }
 
     func createPickerViews() {

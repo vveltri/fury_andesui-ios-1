@@ -41,38 +41,20 @@ class HomeViewController: UIViewController {
         }
 
         func setupMessage() {
-            welcomeMessage.setTitle("home.welcomeMsg.title".localized)
-                .setBody("home.welcomeMsg.desc".localized)
-                .setHierarchy(.quiet)
-                .setPrimaryAction("home.welcomeMsg.action".localized, handler: { _ in
-                    self.presenter.presentWhatsNew()
-                })
+            welcomeMessage.title = "home.welcomeMsg.title".localized
+            welcomeMessage.body = "home.welcomeMsg.desc".localized
+            welcomeMessage.setPrimaryAction("home.welcomeMsg.action".localized, handler: { _ in
+                self.presenter.presentWhatsNew()
+            })
         }
 
         func setupButtons() {
-            button.setText("Andes Button")
-                .setSize(.large)
-
-            messagesBtn.setText("Andes Message")
-                .setSize(.large)
-
-            badgesBtn.setText("Andes Badge")
-                .setSize(.large)
-
-            specsButton.setText("Andes Specs 📘")
-                .setHierarchy(.quiet)
-                .setSize(.large)
-
-            contributingButton.setText("home.button.contribute.title".localized)
-                .setHierarchy(.quiet)
-                .setSize(.large)
-
-            textFieldBtn.setText("Andes TextField")
-            .setSize(.large)
+            specsButton.text = "Andes Specs 📘"
+            contributingButton.text = "home.button.contribute.title".localized
         }
 
-        setupNavigation()
         setupButtons()
+        setupNavigation()
         setupMessage()
     }
 

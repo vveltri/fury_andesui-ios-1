@@ -59,12 +59,7 @@ class TextAreaViewController: UIViewController {
     }
 
     fileprivate func setupButtons() {
-        updateButton.setText("message.button.updateConfig".localized)
-        .setHierarchy(.loud)
-        .setSize(.large)
-        configToggleButton.setText("message.button.changeConfig".localized)
-        .setHierarchy(.quiet)
-        .setSize(.medium)
+
     }
 
     func createPickerViews() {
@@ -88,12 +83,12 @@ class TextAreaViewController: UIViewController {
 
     @IBAction func toggleConfigTapped(_ sender: Any) {
         if !self.configView.isHidden {
-            self.configToggleButton.setText("message.button.changeConfig".localized)
-                .setHierarchy(.quiet)
+            self.configToggleButton.text = "message.button.changeConfig".localized
+                self.configToggleButton.hierarchy = .quiet
 
         } else {
-            self.configToggleButton.setText("message.button.hideConfig".localized)
-                .setHierarchy(.transparent)
+            self.configToggleButton.text = "message.button.hideConfig".localized
+            self.configToggleButton.hierarchy = .transparent
 
         }
 

@@ -56,6 +56,10 @@ sed autem. Error quasi provident ut vitae</string>
                                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="48" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="j81-dG-snK" customClass="AndesButton" customModule="AndesUI">
                                     <rect key="frame" x="10" y="90" width="394" height="40"/>
                                     <color key="backgroundColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="ibHierarchy" value="QUIET"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="ibSize" value="MEDIUM"/>
+                                    </userDefinedRuntimeAttributes>
                                     <connections>
                                         <action selector="toggleConfigTapped:" destination="-1" eventType="touchUpInside" id="oz3-gz-WhV"/>
                                     </connections>
@@ -156,6 +160,10 @@ sed autem. Error quasi provident ut vitae</string>
                                                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="48" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="csX-wA-w3d" customClass="AndesButton" customModule="AndesUI">
                                                     <rect key="frame" x="0.0" y="245" width="382" height="40"/>
                                                     <color key="backgroundColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="ibHierarchy" value="LOUD"/>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="ibSize" value="LARGE"/>
+                                                    </userDefinedRuntimeAttributes>
                                                     <connections>
                                                         <action selector="updateBtnTapped:" destination="-1" eventType="touchUpInside" id="wrc-TF-iAs"/>
                                                     </connections>

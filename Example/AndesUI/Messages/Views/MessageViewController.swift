@@ -36,15 +36,17 @@ class MessageViewController: UIViewController, MessageView {
     var hierarchy: AndesMessageHierarchy = .loud
 
     fileprivate func setupButtons() {
-        configToggleButton.setText("message.button.changeConfig".localized)
-            .setHierarchy(.quiet)
-            .setSize(.medium)
-        updateConfig.setText("message.button.updateConfig".localized)
-            .setHierarchy(.loud)
-            .setSize(.large)
-        showAgainBtn.setText("message.button.showAgain".localized)
-            .setHierarchy(.transparent)
-            .setSize(.small)
+        configToggleButton.text = "message.button.changeConfig".localized
+        configToggleButton.hierarchy = .quiet
+        configToggleButton.size = .medium
+
+        updateConfig.text = "message.button.updateConfig".localized
+        updateConfig.hierarchy = .loud
+        updateConfig.size = .large
+
+        showAgainBtn.text = "message.button.showAgain".localized
+        showAgainBtn.hierarchy = .transparent
+        showAgainBtn.size = .small
     }
 
     fileprivate func setupCnfigView() {
@@ -59,11 +61,11 @@ class MessageViewController: UIViewController, MessageView {
     }
 
     fileprivate func setupBaseMessage() {
-        messageView.setTitle("message.default.title".localized)
-            .setBody("message.default.body".localized)
-            .onDismiss({[unowned self] _ in
+        messageView.title = "message.default.title".localized
+        messageView.body = "message.default.body".localized
+        messageView.onDismiss {[unowned self] _ in
                 self.showAgainBtn.isHidden = false
-            })
+            }
         messageView.setPrimaryAction("Primary", handler: {[unowned self] _ in self.didPressButton()})
         messageView.setSecondaryAction("Secondary", handler: {[unowned self] _ in self.didPressButton()})
     }
@@ -95,12 +97,13 @@ class MessageViewController: UIViewController, MessageView {
 
     @IBAction func showConfigTapped(_ sender: Any) {
         if !self.configView.isHidden {
-            self.configToggleButton.setText("message.button.changeConfig".localized)
-                .setHierarchy(.quiet)
+            self.configToggleButton.text = "message.button.changeConfig".localized
+            self.configToggleButton.hierarchy = .quiet
 
         } else {
-            self.configToggleButton.setText("message.button.hideConfig".localized)
-                .setHierarchy(.transparent)
+            self.configToggleButton.text = "message.button.hideConfig".localized
+            self.configToggleButton.hierarchy = .transparent
+
             self.titleTextField.text = messageView.title
             self.descTextView.text = messageView.body
             self.primaryActionTextField.text = messageView.primaryActionText
@@ -148,14 +151,16 @@ class MessageViewController: UIViewController, MessageView {
         }
 
         errorLabel.isHidden = true
+
         messageView.isHidden = false
-        messageView.setTitle(title)
-            .setBody(body)
-            .setDismissable(dismiss)
-            .setType(type)
-            .setHierarchy(hierarchy)
-            .setPrimaryAction(primary, handler: {[unowned self] _ in self.didPressButton()})
-            .setSecondaryAction(secondary, handler: {[unowned self] _ in self.didPressButton()})
+        messageView.title = title
+        messageView.body = body
+        messageView.isDismissable = dismiss
+        messageView.type = type
+        messageView.hierarchy = hierarchy
+        messageView.setPrimaryAction(primary, handler: {[unowned self] _ in self.didPressButton()})
+        messageView.setSecondaryAction(secondary, handler: {[unowned self] _ in self.didPressButton()})
+
         showConfigTapped(sender)
     }
 }

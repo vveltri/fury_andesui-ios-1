@@ -28,21 +28,34 @@ import UIKit
  */
 @objc public class AndesButton: UIControl {
     /// returns the current selected hierarchy
-    public private(set) var hierarchy: AndesButtonHierarchy
+    @objc public var hierarchy: AndesButtonHierarchy {
+        didSet {
+            self.update()
+        }
+    }
 
     /// returns the current selected size
-    public private(set) var size: AndesButtonSize
+    @objc public var size: AndesButtonSize {
+        didSet {
+            self.icon = nil
+            self.update()
+        }
+    }
 
     /// returns the current text
-    public private(set) var text: String
+    @IBInspectable public var text: String {
+        didSet {
+            view.setText(text)
+        }
+    }
 
     /// returns the current selected hierarchy
-    public private(set) var icon: AndesButtonIcon?
+    @objc public private(set) var icon: AndesButtonIcon?
 
     internal var view: AndesButtonView
     private var config: AndesButtonViewConfig
 
-    override public var isEnabled: Bool {
+    @IBInspectable override public var isEnabled: Bool {
         didSet {
             if !isEnabled {
                 view.disable()
@@ -91,6 +104,7 @@ import UIKit
         super.init(coder: coder)
 
         setup()
+
     }
 
     private func setup() {
@@ -98,7 +112,7 @@ import UIKit
         setupTargets()
         drawContentView()
         self.backgroundColor = .clear
-        setText(text)
+        self.view.setText(self.text)
     }
 
     private func setupTargets() {
@@ -137,56 +151,15 @@ import UIKit
     }
 
     /**
-     Allows to change the text content of the button
-     - Parameter title: is text that the button will contain
-     */
-    @objc @discardableResult public func setText(_ text: String) -> AndesButton {
-        self.text = text
-        view.setText(text)
-        return self
-    }
-
-    /**
     Sets up the icon size to .large with the specified icon
     
     - Parameters:
        - icon the icon with its respective orientation
     */
-    @objc @discardableResult public func setLargeSizeWithIcon(_ icon: AndesButtonIcon) -> AndesButton {
+    @objc public func setLargeSizeWithIcon(_ icon: AndesButtonIcon) {
         self.size = .large
         self.icon = icon
         update()
-        return self
-    }
-
-    /**
-     Allows to specified a size of the button, these could be:
-     * large
-     * medium
-     * small
-     
-     - Parameters:
-        - sizeStyle is the new size of the button
-     */
-    @objc @discardableResult public func setSize(_ size: AndesButtonSize) -> AndesButton {
-        self.icon = nil
-        self.size = size
-        update()
-        return self
-    }
-
-    /**
-     Allows to specified the style of the button, these could be
-     * loud
-     * quiet
-     * transparent
-     
-     - Parameter style: is the new style of the button
-     */
-    @objc @discardableResult public func setHierarchy(_ hierarchy: AndesButtonHierarchy) -> AndesButton {
-        self.hierarchy = hierarchy
-        update()
-        return self
     }
 
     /**
@@ -207,5 +180,28 @@ import UIKit
         view.removeFromSuperview()
         self.config = config
         drawContentView()
+    }
+}
+
+// MARK: - IB inspectable properties
+public extension AndesButton {
+    @available(*, unavailable, message: "This property is reserved for Interface Builder. Use 'hierarchy' instead.")
+    @IBInspectable var ibHierarchy: String {
+        get {
+            return self.hierarchy.toString()
+        }
+        set(val) {
+            self.hierarchy = AndesButtonHierarchy.checkValidEnum(property: "IB hierarchy", key: val)
+        }
+    }
+
+    @available(*, unavailable, message: "This property is reserved for Interface Builder. Use 'size' instead.")
+    @IBInspectable var ibSize: String {
+        get {
+            return self.size.toString()
+        }
+        set(val) {
+            self.size = AndesButtonSize.checkValidEnum(property: "IB size", key: val)
+        }
     }
 }

@@ -55,7 +55,7 @@ class AndesMessageTests: QuickSpec {
                     let message = AndesMessage(frame: .zero)
 
                     //When
-                    message.setHierarchy(hierarchyToChange)
+                    message.hierarchy = hierarchyToChange
 
                     //Then
                     expect((message.contentView as! AndesMessageDefaultView).backgroundColor) == AndesMessageHierarchyQuiet(type: AndesMessageTypeHightlight()).backgroundColor
@@ -67,7 +67,7 @@ class AndesMessageTests: QuickSpec {
                       let message = AndesMessage(frame: .zero)
 
                       //When
-                      message.setType(typeToChange)
+                      message.type = typeToChange
 
                       //Then
                       expect((message.contentView as! AndesMessageDefaultView).backgroundColor) == AndesMessageHierarchyLoud(type: AndesMessageTypeError()).backgroundColor
@@ -79,7 +79,7 @@ class AndesMessageTests: QuickSpec {
                       let message = AndesMessage(frame: .zero)
 
                       //When
-                      message.setTitle(titleToChange)
+                      message.title = titleToChange
 
                       //Then
                       expect((message.contentView as! AndesMessageDefaultView).titleLabel.text).to(match(titleToChange))
@@ -90,7 +90,7 @@ class AndesMessageTests: QuickSpec {
                       let message = AndesMessage(frame: .zero)
 
                       //When
-                      message.setBody(descToChange)
+                      message.body = descToChange
 
                       //Then
                       expect((message.contentView as! AndesMessageDefaultView).bodyLabel.text).to(match(descToChange))
@@ -101,8 +101,8 @@ class AndesMessageTests: QuickSpec {
                     let messageEmpty = AndesMessage(frame: .zero)
 
                     //When
-                    message.setTitle(nil)
-                    messageEmpty.setTitle("")
+                    message.title = nil
+                    messageEmpty.title = ""
 
                     //Then
                     expect((message.contentView as! AndesMessageDefaultView).titleLabel.isHidden).to(beTrue())
@@ -113,7 +113,7 @@ class AndesMessageTests: QuickSpec {
                    let message = AndesMessage(frame: .zero)
 
                    //When
-                   message.setTitle("title")
+                   message.title = "title"
 
                    //Then
                    expect((message.contentView as! AndesMessageDefaultView).titleLabel.isHidden).to(beFalse())

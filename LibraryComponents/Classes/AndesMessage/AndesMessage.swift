@@ -9,29 +9,62 @@ import UIKit
 
 @objc public class AndesMessage: UIView {
     internal var contentView: AndesMessageView!
-    /// returns the current hierarchy
-    public private(set) var hierarchy: AndesMessageHierarchy = .loud
+    /// Sets the hierarchy of the AndesMessage
+    @objc public var hierarchy: AndesMessageHierarchy = .loud {
+        didSet {
+            self.updateContentView()
+        }
+    }
 
-    /// returns the current type
-    public private(set) var type: AndesMessageType = .neutral
+    /// Sets the type of the AndesMessage
+    @objc public var type: AndesMessageType = .neutral {
+        didSet {
+            self.updateContentView()
+        }
+    }
 
-    /// returns the current title
-    public private(set) var title: String?
+    /// Sets the title of the AndesMessage
+    @IBInspectable public var title: String? {
+        didSet {
+            self.updateContentView()
+        }
+    }
 
-    /// returns the current message body
-    public private(set) var body: String = ""
+    /// Sets the body of the AndesMessage
+    @IBInspectable public var body: String = "" {
+        didSet {
+            self.updateContentView()
+        }
+    }
 
-    /// returns true if the message is dismissable by user
-    public private(set) var isDismissable: Bool = false
+    /// isDismissable shows a dismiss button, when pressed the message set isHidden = true
+    @IBInspectable public var isDismissable: Bool = false {
+        didSet {
+            self.updateContentView()
+        }
+    }
 
-    /// returns the current primary action text
-    public private(set) var primaryActionText: String?
+    /// if set, a primary button will be shown
+    @IBInspectable public var primaryActionText: String? {
+           didSet {
+               self.reDrawContentViewIfNeededThenUpdate()
+           }
+       }
 
-    /// returns the current secondary action text
-    public private(set) var secondaryActionText: String?
+    /// if set, a secondary button will be shown, requieres primary to be set
+    @IBInspectable public var secondaryActionText: String? {
+           didSet {
+               self.updateContentView()
+           }
+       }
 
+    // triggered when user presses dismiss
     private var dismissHandler: ((_ message: AndesMessage) -> Void)?
+
+    // triggered when user presses primary button
     private var onPrimaryActionPressed: ((_ message: AndesMessage) -> Void)?
+
+    // triggered when user presses secondary
     private var onSecondaryActionPressed: ((_ message: AndesMessage) -> Void)?
 
     required init?(coder: NSCoder) {
@@ -84,72 +117,30 @@ import UIKit
         contentView.update(withConfig: config)
     }
 
-    /// Sets the title of the AndesMessage
-    /// - Parameter title: string
-    @objc @discardableResult public func setTitle(_ title: String?) -> AndesMessage {
-        self.title = title
-        updateContentView()
-        return self
-    }
-
-    /// Sets the body of the AndesMessage
-    /// - Parameter body: message body
-    @objc @discardableResult public func setBody(_ body: String) -> AndesMessage {
-        self.body = body
-        updateContentView()
-        return self
-    }
-
-    /// Sets the style of the message
-    /// - Parameter hierarchy: options defined in AndesMessageHierarchy
-    @objc @discardableResult public func setHierarchy(_ hierarchy: AndesMessageHierarchy) -> AndesMessage {
-        self.hierarchy = hierarchy
-        updateContentView()
-        return self
-    }
-
-    /// Sets the colors/icon of the message
-    /// - Parameter type: defined in AndesMessageType
-    @objc @discardableResult public func setType(_ type: AndesMessageType) -> AndesMessage {
-        self.type = type
-        updateContentView()
-        return self
-    }
-
-    /// shows or hides the dismiss button
-    @objc @discardableResult public func setDismissable(_ dismissable: Bool) -> AndesMessage {
-          self.isDismissable = dismissable
-          updateContentView()
-          return self
-      }
-
     /// handler to trigger when the user dismisses the message
     /// - Parameter handler: dismiss handler
-    @objc @discardableResult public func onDismiss(_ callback: ((_ message: AndesMessage) -> Void)?) -> AndesMessage {
+    @objc public func onDismiss(_ callback: ((_ message: AndesMessage) -> Void)?) {
         self.dismissHandler = callback
-        return self
     }
 
     /// Primary action, when defined with a title a button will show on the message
     /// - Parameters:
     ///   - title: Button text
     ///   - handler: handler to trigger when button pressed
-    @objc @discardableResult public func setPrimaryAction(_ title: String, handler: ((_ message: AndesMessage) -> Void)?) -> AndesMessage {
+    @objc public func setPrimaryAction(_ title: String, handler: ((_ message: AndesMessage) -> Void)?) {
         self.primaryActionText = title
         self.onPrimaryActionPressed = handler
         reDrawContentViewIfNeededThenUpdate()
-        return self
     }
 
     /// Actions that shows oly if primary action defined.
     /// - Parameters:
     ///   - title: Button text
     ///   - handler: handler to trigger when button pressed
-    @objc @discardableResult public func setSecondaryAction(_ title: String, handler: ((_ message: AndesMessage) -> Void)?) -> AndesMessage {
+    @objc public func setSecondaryAction(_ title: String, handler: ((_ message: AndesMessage) -> Void)?) {
         self.secondaryActionText = title
         self.onSecondaryActionPressed = handler
         reDrawContentViewIfNeededThenUpdate()
-        return self
     }
 
     /// Should return a view depending on which message variant is selected
@@ -176,5 +167,28 @@ extension AndesMessage: AndesMessageViewDelegate {
 
     func secondaryBtnTouchUp() {
         onSecondaryActionPressed?(self)
+    }
+}
+
+// MARK: - IB interface
+public extension AndesMessage {
+    @available(*, unavailable, message: "This property is reserved for Interface Builder. Use 'type' instead.")
+    @IBInspectable var ibType: String {
+        set(val) {
+            self.type = AndesMessageType.checkValidEnum(property: "IB type", key: val)
+        }
+        get {
+            return self.type.toString()
+        }
+    }
+
+    @available(*, unavailable, message: "This property is reserved for Interface Builder. Use 'hierarchy' instead.")
+    @IBInspectable var ibHierarchy: String {
+        set(val) {
+            self.hierarchy = AndesMessageHierarchy.checkValidEnum(property: "IB hierarchy", key: val)
+        }
+        get {
+            return self.hierarchy.toString()
+        }
     }
 }
