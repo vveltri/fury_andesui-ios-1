@@ -79,32 +79,32 @@
     casesTitle.font = [UIFont systemFontOfSize:18];
     [oddCasesStack addArrangedSubview:casesTitle];
     
-    AndesBadge* oddBadge = [[AndesBadge alloc] initWithModifier:AndesBadgeModifierPill hierarchy:AndesBadgeHierarchyLoud type:AndesBadgeTypeNeutral border:AndesBadgeBorderStandard size:AndesBadgeSizeSmall text:@"SMALL"];
+    AndesBadgePill* oddBadge = [[AndesBadgePill alloc] initWithHierarchy:AndesBadgeHierarchyLoud type:AndesBadgeTypeNeutral border:AndesBadgeBorderStandard size:AndesBadgeSizeSmall text:@"SMALL"];
     [oddCasesStack addArrangedSubview:oddBadge];
     
-    oddBadge = [[AndesBadge alloc] initWithModifier:AndesBadgeModifierPill hierarchy:AndesBadgeHierarchyLoud type:AndesBadgeTypeHighlight border:AndesBadgeBorderCorner size:AndesBadgeSizeLarge text:@"CORNER"];
+    oddBadge = [[AndesBadgePill alloc] initWithHierarchy:AndesBadgeHierarchyLoud type:AndesBadgeTypeHighlight border:AndesBadgeBorderCorner size:AndesBadgeSizeLarge text:@"CORNER"];
     [oddCasesStack addArrangedSubview:oddBadge];
     
-    oddBadge = [[AndesBadge alloc] initWithModifier:AndesBadgeModifierPill hierarchy:AndesBadgeHierarchyLoud type:AndesBadgeTypeHighlight border:AndesBadgeBorderRounded size:AndesBadgeSizeLarge text:@"ROUNDED"];
+    oddBadge = [[AndesBadgePill alloc] initWithHierarchy:AndesBadgeHierarchyLoud type:AndesBadgeTypeHighlight border:AndesBadgeBorderRounded size:AndesBadgeSizeLarge text:@"ROUNDED"];
     [oddCasesStack addArrangedSubview:oddBadge];
     
     [_stackView addArrangedSubview:oddCasesStack];
 }
 
 - (void)addPillsWithHierarchy:(AndesBadgeHierarchy)hierarchy toStack:(UIStackView*)stack {
-    AndesBadge* view = [[AndesBadge alloc] initWithModifier:AndesBadgeModifierPill hierarchy:hierarchy type:AndesBadgeTypeNeutral border:AndesBadgeBorderStandard size:AndesBadgeSizeLarge text:@"NEUTRAL"];
+    AndesBadgePill* view = [[AndesBadgePill alloc] initWithHierarchy:hierarchy type:AndesBadgeTypeNeutral border:AndesBadgeBorderStandard size:AndesBadgeSizeLarge text:@"NEUTRAL"];
     [stack addArrangedSubview:view];
     
-    view = [[AndesBadge alloc] initWithModifier:AndesBadgeModifierPill hierarchy:hierarchy type:AndesBadgeTypeHighlight border:AndesBadgeBorderStandard size:AndesBadgeSizeLarge text:@"HIGHLIGHT"];;
+    view = [[AndesBadgePill alloc] initWithHierarchy:hierarchy type:AndesBadgeTypeHighlight border:AndesBadgeBorderStandard size:AndesBadgeSizeLarge text:@"HIGHLIGHT"];;
     [stack addArrangedSubview:view];
     
-    view = [[AndesBadge alloc] initWithModifier:AndesBadgeModifierPill hierarchy:hierarchy type:AndesBadgeTypeSuccess border:AndesBadgeBorderStandard size:AndesBadgeSizeLarge text:@"SUCCESS"];;
+    view = [[AndesBadgePill alloc] initWithHierarchy:hierarchy type:AndesBadgeTypeSuccess border:AndesBadgeBorderStandard size:AndesBadgeSizeLarge text:@"SUCCESS"];;
     [stack addArrangedSubview:view];
     
-    view = [[AndesBadge alloc] initWithModifier:AndesBadgeModifierPill hierarchy:hierarchy type:AndesBadgeTypeWarning border:AndesBadgeBorderStandard size:AndesBadgeSizeLarge text:@"WARNING"];;
+    view = [[AndesBadgePill alloc] initWithHierarchy:hierarchy type:AndesBadgeTypeWarning border:AndesBadgeBorderStandard size:AndesBadgeSizeLarge text:@"WARNING"];;
     [stack addArrangedSubview:view];
     
-    view = [[AndesBadge alloc] initWithModifier:AndesBadgeModifierPill hierarchy:hierarchy type:AndesBadgeTypeError border:AndesBadgeBorderStandard size:AndesBadgeSizeLarge text:@"ERROR"];;
+    view = [[AndesBadgePill alloc] initWithHierarchy:hierarchy type:AndesBadgeTypeError border:AndesBadgeBorderStandard size:AndesBadgeSizeLarge text:@"ERROR"];;
     [stack addArrangedSubview:view];
 }
 

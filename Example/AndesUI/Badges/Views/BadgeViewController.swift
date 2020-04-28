@@ -10,9 +10,14 @@ protocol BadgeView: NSObject {
 
 }
 
+/// Used to define the type of an AndesBadge
+enum AndesBadgeModifier: String {
+    case pill = "PILL"
+}
+
 class BadgeViewController: UIViewController, BadgeView {
 
-    @IBOutlet weak var badgeView: AndesBadge!
+    @IBOutlet weak var badgeView: AndesBadgePill!
     @IBOutlet weak var updateButton: AndesButton!
 
     @IBOutlet weak var modifierField: UITextField!
@@ -50,7 +55,7 @@ class BadgeViewController: UIViewController, BadgeView {
     }
 
     func setupBaseBadge() {
-        badgeView.text = self.textField.text
+        badgeView.text = self.textField.text ?? ""
         badgeView.hierarchy = self.hierarchy
         badgeView.type = self.type
         badgeView.size = self.size
@@ -101,7 +106,7 @@ extension BadgeViewController: UIPickerViewDelegate {
         switch pickerView {
         case modifierPicker:
             modifierField.resignFirstResponder()
-            self.modifier = AndesBadgeModifier.init(rawValue: row)!
+            self.modifier = AndesBadgeModifier.pill
             modifierField.text = modifier.toString()
         case hierarchyPicker:
             hierarchyField.resignFirstResponder()
@@ -150,7 +155,7 @@ extension BadgeViewController: UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         switch pickerView {
         case modifierPicker:
-            return AndesBadgeModifier.init(rawValue: row)!.toString()
+            return AndesBadgeModifier.pill.rawValue
         case hierarchyPicker:
             return AndesBadgeHierarchy.init(rawValue: row)!.toString()
         case typePicker:

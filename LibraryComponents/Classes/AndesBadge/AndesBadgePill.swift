@@ -5,15 +5,8 @@
 
 import UIKit
 
-@objc public class AndesBadge: UIView {
+@objc public class AndesBadgePill: UIView {
     internal var contentView: AndesBadgeView!
-
-    /// The modifier of an AndesBadge defines its kind (Pill, Dot, Notification)
-    @objc public var modifier: AndesBadgeModifier = .pill {
-        didSet {
-            self.reDrawContentViewIfNeededThenUpdate()
-        }
-    }
 
     /// Defines the hierarchy of an AndesBadge
     @objc public var hierarchy: AndesBadgeHierarchy = .loud {
@@ -44,7 +37,7 @@ import UIKit
     }
 
     /// Defines the current text (Pill only)
-    @IBInspectable public var text: String? {
+    @IBInspectable public var text: String = "" {
         didSet {
             updateContentView()
         }
@@ -60,9 +53,8 @@ import UIKit
         setup()
     }
 
-    @objc public init(modifier: AndesBadgeModifier, hierarchy: AndesBadgeHierarchy, type: AndesBadgeType, border: AndesBadgeBorder, size: AndesBadgeSize, text: String) {
+    @objc public init(hierarchy: AndesBadgeHierarchy, type: AndesBadgeType, border: AndesBadgeBorder, size: AndesBadgeSize, text: String) {
         super.init(frame: .zero)
-        self.modifier = modifier
         self.hierarchy = hierarchy
         self.type = type
         self.border = border
@@ -104,27 +96,12 @@ import UIKit
     /// Should return a view depending on which Badge modifier is selected
     private func provideView() -> AndesBadgeView {
         let config = AndesBadgeViewConfigFactory.provideInternalConfig(from: self)
-        switch self.modifier {
-        case .pill:
-            return AndesBadgeViewPill(withConfig: config)
-        default:
-            return AndesBadgeViewPill(withConfig: config)
-        }
+        return AndesBadgeViewPill(withConfig: config)
     }
 }
 
 // MARK: - Interface Builder properties
-public extension AndesBadge {
-    @available(*, unavailable, message: "This property is reserved for Interface Builder. Use 'modifier' instead.")
-    @IBInspectable var ibModifier: String {
-        set(val) {
-            self.modifier = AndesBadgeModifier.checkValidEnum(property: "IB Modifier", key: val)
-        }
-        get {
-            return self.modifier.toString()
-        }
-    }
-
+public extension AndesBadgePill {
     @available(*, unavailable, message: "This property is reserved for Interface Builder. Use 'hierarchy' instead.")
     @IBInspectable var ibHierarchy: String {
         set(val) {
