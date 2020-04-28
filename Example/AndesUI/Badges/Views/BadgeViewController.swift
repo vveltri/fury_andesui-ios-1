@@ -55,7 +55,7 @@ class BadgeViewController: UIViewController, BadgeView {
     }
 
     func setupBaseBadge() {
-        badgeView.text = self.textField.text
+        badgeView.text = self.textField.text ?? ""
         badgeView.hierarchy = self.hierarchy
         badgeView.type = self.type
         badgeView.size = self.size

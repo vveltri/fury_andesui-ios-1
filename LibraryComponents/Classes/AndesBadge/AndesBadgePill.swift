@@ -37,7 +37,7 @@ import UIKit
     }
 
     /// Defines the current text (Pill only)
-    @IBInspectable public var text: String? {
+    @IBInspectable public var text: String = "" {
         didSet {
             updateContentView()
         }
