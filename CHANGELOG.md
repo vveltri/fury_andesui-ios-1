@@ -1,3 +1,7 @@
+## v2.4.0 Unpublished
+### 🛠 Bug fixes
+- AndesButton: Fix support to emojis on title [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
+
 ## v2.3.0
 ### ⚙️ Other
 - Remove modifier from AndesBadge [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)

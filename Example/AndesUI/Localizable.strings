@@ -6,8 +6,11 @@
   Copyright © 2020 MercadoLibre. All rights reserved.
 */
 "home.welcomeMsg.title" = "Check out what's new!";
-"home.welcomeMsg.desc" = "Check out the latest news on Andes.\njust tap this 🖕 AndesMessage to go to the What's New page.";
+"home.welcomeMsg.desc" = "There you can see what are the things we\'ve been working on 😃.";
+"home.welcomeMsg.action" = "View What\'s New";
 "home.label.showcase" = "Showcase";
+
+"home.button.contribute.title" = "I want to contribute 🤝";
 
 "whatsnew.title" = "What's New";
 
@@ -22,3 +25,5 @@
 "message.default.body" = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
 
 "badge.button.updateConfig" = "Update";
+
+

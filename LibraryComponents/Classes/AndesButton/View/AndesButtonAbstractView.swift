@@ -88,7 +88,7 @@ internal class AndesButtonAbstractView: UIControl, AndesButtonView {
 
     func setText(_ text: String) {
         let attributedString = NSMutableAttributedString.init(string: text)
-        attributedString.addAttribute(.paragraphStyle, value: AndesButtonHelper.provideParagraphStyle(), range: NSRange(location: 0, length: text.count))
+        attributedString.addAttribute(.paragraphStyle, value: AndesButtonHelper.provideParagraphStyle(), range: NSRange(location: 0, length: (text as NSString).length))
         label.attributedText = attributedString
     }
 }
