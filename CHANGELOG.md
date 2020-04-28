@@ -1,4 +1,4 @@
-## v2.4.0 Unpublished
+## v2.3.1
 ### 🛠 Bug fixes
 - AndesButton: Fix support to emojis on title [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
 
