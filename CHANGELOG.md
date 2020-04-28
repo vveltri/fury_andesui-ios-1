@@ -1,4 +1,4 @@
-## v3.0.0 Unpublished
+## v3.0.0
 ### 🚀 Features
 - AndesButton and AndesMessage now show properties on interface builder | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
 - AndesButton and AndesMessage getters now work on ObjC | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
