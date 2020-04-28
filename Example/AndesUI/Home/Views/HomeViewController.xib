@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="badgesBtn" destination="6KW-tw-Wm7" id="fHM-Jj-4Fy"/>
                 <outlet property="button" destination="pzX-2Z-8ZP" id="mDt-cx-9G3"/>
+                <outlet property="contributingButton" destination="U75-6J-iuH" id="zA5-oc-yCo"/>
                 <outlet property="messagesBtn" destination="iA2-9b-o7k" id="hLz-sQ-2WS"/>
                 <outlet property="showcaseLabel" destination="wKp-SJ-Z6a" id="uvh-3g-Yns"/>
                 <outlet property="specsButton" destination="wv9-5A-3H3" id="u7J-p4-SIQ"/>
@@ -30,15 +31,12 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ylf-cA-m4U">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="516"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="566"/>
                             <subviews>
                                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="382" placeholderIntrinsicHeight="128" translatesAutoresizingMaskIntoConstraints="NO" id="TeE-fb-BDr" customClass="AndesMessage" customModule="AndesUI">
                                     <rect key="frame" x="16" y="16" width="382" height="128"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <gestureRecognizers/>
-                                    <connections>
-                                        <outletCollection property="gestureRecognizers" destination="eCP-CK-c5s" appends="YES" id="VY7-Ej-jcm"/>
-                                    </connections>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="More" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mHc-S7-NqP">
                                     <rect key="frame" x="16" y="422" width="35.5" height="18"/>
@@ -51,6 +49,13 @@
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <connections>
                                         <action selector="goToSpecsTapped:" destination="-1" eventType="touchUpInside" id="TjP-XV-0aU"/>
+                                    </connections>
+                                </view>
+                                <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="U75-6J-iuH" userLabel="Contributing Button" customClass="AndesButton" customModule="AndesUI">
+                                    <rect key="frame" x="16" y="506" width="382" height="40"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <connections>
+                                        <action selector="goToContributingTapped:" destination="-1" eventType="touchUpInside" id="ztr-Qh-Zfv"/>
                                     </connections>
                                 </view>
                                 <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="250" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="A0L-IL-kVl">
@@ -103,16 +108,20 @@
                             <constraints>
                                 <constraint firstItem="TeE-fb-BDr" firstAttribute="top" secondItem="ylf-cA-m4U" secondAttribute="top" constant="16" id="CM3-mc-2u1"/>
                                 <constraint firstItem="pzX-2Z-8ZP" firstAttribute="leading" secondItem="TeE-fb-BDr" secondAttribute="leading" id="Eon-kT-UxY"/>
+                                <constraint firstItem="wv9-5A-3H3" firstAttribute="leading" secondItem="U75-6J-iuH" secondAttribute="leading" id="Ori-bm-hl7"/>
                                 <constraint firstItem="wv9-5A-3H3" firstAttribute="leading" secondItem="ylf-cA-m4U" secondAttribute="leading" constant="16" id="Tqi-v9-8VT"/>
+                                <constraint firstAttribute="bottom" secondItem="U75-6J-iuH" secondAttribute="bottom" constant="20" symbolic="YES" id="UA2-Sb-73C"/>
                                 <constraint firstAttribute="trailing" secondItem="TeE-fb-BDr" secondAttribute="trailing" constant="16" id="aJL-XR-4Rf"/>
                                 <constraint firstItem="A0L-IL-kVl" firstAttribute="top" secondItem="wKp-SJ-Z6a" secondAttribute="bottom" constant="16" id="bIV-zw-iOl"/>
+                                <constraint firstItem="wv9-5A-3H3" firstAttribute="leading" secondItem="U75-6J-iuH" secondAttribute="leading" id="brO-KY-vPt"/>
                                 <constraint firstItem="wKp-SJ-Z6a" firstAttribute="leading" secondItem="A0L-IL-kVl" secondAttribute="leading" id="fEO-Xy-t5d"/>
                                 <constraint firstItem="mHc-S7-NqP" firstAttribute="top" secondItem="A0L-IL-kVl" secondAttribute="bottom" constant="30" id="feb-fL-pDD"/>
+                                <constraint firstItem="wv9-5A-3H3" firstAttribute="trailing" secondItem="U75-6J-iuH" secondAttribute="trailing" id="iwq-ih-Mg7"/>
                                 <constraint firstItem="wKp-SJ-Z6a" firstAttribute="top" secondItem="TeE-fb-BDr" secondAttribute="bottom" constant="30" id="lRb-3d-l67"/>
-                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="wv9-5A-3H3" secondAttribute="bottom" constant="20" symbolic="YES" id="lcR-ul-MnN"/>
                                 <constraint firstItem="pzX-2Z-8ZP" firstAttribute="trailing" secondItem="TeE-fb-BDr" secondAttribute="trailing" id="ldD-yW-bbt"/>
                                 <constraint firstItem="mHc-S7-NqP" firstAttribute="leading" secondItem="wv9-5A-3H3" secondAttribute="leading" id="n3g-oQ-CIQ"/>
                                 <constraint firstItem="TeE-fb-BDr" firstAttribute="leading" secondItem="ylf-cA-m4U" secondAttribute="leading" constant="16" id="u8q-3Z-htU"/>
+                                <constraint firstItem="wv9-5A-3H3" firstAttribute="bottom" secondItem="U75-6J-iuH" secondAttribute="top" constant="-10" id="xLm-Ko-2CI"/>
                                 <constraint firstAttribute="trailing" secondItem="wv9-5A-3H3" secondAttribute="trailing" constant="16" id="xug-S3-pe8"/>
                                 <constraint firstItem="wv9-5A-3H3" firstAttribute="top" secondItem="mHc-S7-NqP" secondAttribute="bottom" constant="16" id="znp-pP-m7u"/>
                             </constraints>
@@ -138,10 +147,5 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="137.68115942028987" y="144.64285714285714"/>
         </view>
-        <tapGestureRecognizer id="eCP-CK-c5s">
-            <connections>
-                <action selector="welcomeMsgTapped:" destination="-1" id="5c5-lH-pZi"/>
-            </connections>
-        </tapGestureRecognizer>
     </objects>
 </document>

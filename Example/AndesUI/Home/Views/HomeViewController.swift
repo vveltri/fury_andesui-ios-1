@@ -24,6 +24,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var welcomeMessage: AndesMessage!
     @IBOutlet weak var textFieldBtn: AndesButton!
     @IBOutlet weak var specsButton: AndesButton!
+    @IBOutlet weak var contributingButton: AndesButton!
     @IBOutlet weak var showcaseLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +44,9 @@ class HomeViewController: UIViewController {
             welcomeMessage.setTitle("home.welcomeMsg.title".localized)
                 .setBody("home.welcomeMsg.desc".localized)
                 .setHierarchy(.quiet)
+                .setPrimaryAction("home.welcomeMsg.action".localized, handler: { message in
+                    self.presenter.presentWhatsNew()
+                })
         }
 
         func setupButtons() {
@@ -55,10 +59,14 @@ class HomeViewController: UIViewController {
             badgesBtn.setText("Andes Badge")
                 .setSize(.large)
 
-            specsButton.setText("Andes Specs")
+            specsButton.setText("Andes Specs 📘")
                 .setHierarchy(.quiet)
                 .setSize(.large)
 
+            contributingButton.setText("home.button.contribute.title".localized)
+                .setHierarchy(.quiet)
+                .setSize(.large)
+            
             textFieldBtn.setText("Andes TextField")
             .setSize(.large)
         }
@@ -85,12 +93,15 @@ class HomeViewController: UIViewController {
         UIApplication.shared.open(url)
 
     }
+    
+    @IBAction func goToContributingTapped(_ sender: Any) {
+        guard let url = URL(string: "https://meli.workplace.com/notes/andes-ui/c%C3%B3mo-contribuir-en-andes-ui/2559399620854933") else { return }
+        UIApplication.shared.open(url)
+
+    }
+    
     @IBAction func textfieldBtnTapped(_ sender: Any) {
         presenter.presentTextField()
-    }
-
-    @IBAction func welcomeMsgTapped(_ sender: Any) {
-        presenter.presentWhatsNew()
     }
 }
 
