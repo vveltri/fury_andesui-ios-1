@@ -40,7 +40,7 @@ class AndesTextAreaView: AndesTextFieldAbstractView {
         placeholderLabel.text = config.placeholderText
         placeholderLabel.isHidden = self.text.count > 0
         let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = config.inputTextStyle.lineHeight
+        paragraphStyle.lineSpacing = config.inputTextStyle.lineSpacing
         self.textView.typingAttributes = [.font: config.inputTextStyle.font, .strokeColor: config.inputTextStyle.textColor, .paragraphStyle: paragraphStyle]
         self.textView.isUserInteractionEnabled = config.editingEnabled
         self.textView.textContainerInset = UIEdgeInsets(top: config.paddings.top, left: config.paddings.left, bottom: config.paddings.bottom, right: config.paddings.right)

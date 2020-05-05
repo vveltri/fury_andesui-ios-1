@@ -36,7 +36,7 @@ internal struct AndesBadgeViewConfig {
         self.verticalPadding = sizeStyle.verticalPadding
         self.horizontalPadding = sizeStyle.horizontalPadding
 
-        textStyle = AndesBadgeViewConfig.getTextStyle(font: sizeStyle.font, color: AndesStyleSheetManager.styleSheet.textColorWhite, lineHeight: sizeStyle.lineHeight)
+        textStyle = AndesBadgeViewConfig.getTextStyle(font: sizeStyle.font, color: AndesStyleSheetManager.styleSheet.textColorWhite, lineSpacing: sizeStyle.lineSpacing)
     }
 
     init(backgroundColor: UIColor, size: AndesBadgeSize, icon: String, iconBackgroundColor: UIColor) {
@@ -61,13 +61,13 @@ internal struct AndesBadgeViewConfig {
         self.verticalPadding = sizeStyle.verticalPadding
         self.horizontalPadding = sizeStyle.horizontalPadding
 
-        textStyle = AndesBadgeViewConfig.getTextStyle(font: sizeStyle.font, color: textColor, lineHeight: sizeStyle.lineHeight)
+        textStyle = AndesBadgeViewConfig.getTextStyle(font: sizeStyle.font, color: textColor, lineSpacing: sizeStyle.lineSpacing)
         self.text = text
 
         self.roundedCorners = AndesBadgeBorderFactory.provide(border).corners
     }
 
-    private static func getTextStyle(font: UIFont, color: UIColor, lineHeight: CGFloat) -> AndesFontStyle {
-        return AndesFontStyle(textColor: color, font: font, lineHeight: CGFloat(lineHeight))
+    private static func getTextStyle(font: UIFont, color: UIColor, lineSpacing: CGFloat) -> AndesFontStyle {
+        return AndesFontStyle(textColor: color, font: font, lineSpacing: lineSpacing)
     }
 }

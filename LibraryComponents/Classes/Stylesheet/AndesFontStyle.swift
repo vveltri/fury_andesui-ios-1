@@ -10,12 +10,29 @@ import Foundation
 @objc public class AndesFontStyle: NSObject {
     @objc public private(set) var textColor: UIColor
     @objc public private(set) var font: UIFont
-    @objc public private(set) var lineHeight: CGFloat
+    @objc public private(set) var lineSpacing: CGFloat
 
+    @available(*, deprecated, renamed: "lineSpacing")
+    @objc public private(set) var lineHeight: CGFloat {
+        get {
+            return lineSpacing
+        }
+        set {
+            lineSpacing = newValue
+        }
+    }
+
+    @available(*, deprecated, message: "Please use init with init(textColor:font:lineSpacing:)' instead")
     @objc public init(textColor: UIColor, font: UIFont, lineHeight: CGFloat) {
         self.textColor = textColor
         self.font = font
-        self.lineHeight = lineHeight
+        self.lineSpacing = lineHeight
+    }
+
+    @objc public init(textColor: UIColor, font: UIFont, lineSpacing: CGFloat) {
+        self.textColor = textColor
+        self.font = font
+        self.lineSpacing = lineSpacing
     }
 
     /// Init an AndesFontStyle with a sketch line height
@@ -26,7 +43,7 @@ import Foundation
     @objc public init(textColor: UIColor, font: UIFont, sketchLineHeight: CGFloat) {
         self.textColor = textColor
         self.font = font
-        self.lineHeight = sketchLineHeight - font.lineHeight
+        self.lineSpacing = sketchLineHeight - font.lineHeight
     }
 }
 

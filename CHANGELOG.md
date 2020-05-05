@@ -1,3 +1,9 @@
+## Unpublished
+### 🛠 Bug fixes
+- AndesMessage, UILabel.SetAndesStyle: Spacing fix | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
+### ⚙️ Other
+- AndesFontStyle: lineHeight renamed to lineSpacing (soft break) | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
+
 ## v3.0.0
 ### 🚀 Features
 - AndesButton and AndesMessage now show properties on interface builder | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
