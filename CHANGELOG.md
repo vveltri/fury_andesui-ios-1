@@ -1,4 +1,8 @@
 ## Unpublished
+
+### 🚀 Features
+- AndesBadge: Dot modifier | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
+
 ### 🛠 Bug fixes
 - AndesMessage, UILabel.SetAndesStyle: Spacing fix | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
 ### ⚙️ Other
