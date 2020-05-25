@@ -3,13 +3,15 @@
 ### 🚀 Features
 - AndesBadge: Dot modifier | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
 
+# v3.1.0
+
 ### 🛠 Bug fixes
 - AndesMessage, UILabel.SetAndesStyle: Spacing fix | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
 - Duplicated Bundle ID: rename resources bundle to avoid a conflict with bundles generated in CocoaPods | Author: [@Itay Brenner](https://github.com/itaybre)
 ### ⚙️ Other
 - AndesFontStyle: lineHeight renamed to lineSpacing (soft break) | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
 
-## v3.0.0
+# v3.0.0
 ### 🚀 Features
 - AndesButton and AndesMessage now show properties on interface builder | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
 - AndesButton and AndesMessage getters now work on ObjC | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
