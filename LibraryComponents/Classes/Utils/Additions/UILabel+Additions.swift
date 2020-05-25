@@ -14,6 +14,7 @@ import UIKit
         // set text with line height
         let attributedString = NSMutableAttributedString(string: text ?? "")
         let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = style.lineSpacing
         attributedString.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSRange(location: 0, length: attributedString.length))
         self.attributedText = attributedString
     }

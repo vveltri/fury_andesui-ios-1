@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'AndesUI'
-  s.version          = '2.3.1'
+  s.version          = '3.0.0'
   s.summary          = 'AndesUI library for ios app.'
 
   s.description      = 'AndesUI is the UI library of Mercado Libre. It provides the definitions, components and tools to build consistent experiences, with agility and visual quality.'
@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
    
    s.subspec 'Core' do |core|
     core.source_files = 'LibraryComponents/Classes/**/*.{h,m,swift}'
-    core.resource_bundle = {'AndesUI' => ['LibraryComponents/Classes/**/*.{xib}', 'LibraryComponents/Assets/AndesPaletteColors.xcassets']}
+    core.resource_bundle = {'AndesUIResources' => ['LibraryComponents/Classes/**/*.{xib}', 'LibraryComponents/Assets/AndesPaletteColors.xcassets']}
     
     # remove this if we start using remote strategy for icons
     core.dependency 'AndesUI/LocalIcons'

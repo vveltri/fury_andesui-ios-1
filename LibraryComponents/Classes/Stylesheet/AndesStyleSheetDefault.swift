@@ -48,47 +48,47 @@ import Foundation
 
     public func titleXL(color: UIColor) -> AndesFontStyle {
         validateColorForTitle(color: color)
-        return AndesFontStyle(textColor: color, font: semiboldSystemFontOfSize(size: AndesFontSize.titleXL), lineHeight: 1.25)
+        return AndesFontStyle(textColor: color, font: semiboldSystemFontOfSize(size: AndesFontSize.titleXL), lineSpacing: 1.25)
     }
 
     public func titleL(color: UIColor) -> AndesFontStyle {
         validateColorForTitle(color: color)
-        return AndesFontStyle(textColor: color, font: semiboldSystemFontOfSize(size: AndesFontSize.titleL), lineHeight: 1.25)
+        return AndesFontStyle(textColor: color, font: semiboldSystemFontOfSize(size: AndesFontSize.titleL), lineSpacing: 1.25)
     }
 
     public func titleM(color: UIColor) -> AndesFontStyle {
         validateColorForTitle(color: color)
-        return AndesFontStyle(textColor: color, font: semiboldSystemFontOfSize(size: AndesFontSize.titleM), lineHeight: 1.25)
+        return AndesFontStyle(textColor: color, font: semiboldSystemFontOfSize(size: AndesFontSize.titleM), lineSpacing: 1.25)
     }
 
     public func titleS(color: UIColor) -> AndesFontStyle {
         validateColorForTitle(color: color)
-        return AndesFontStyle(textColor: color, font: semiboldSystemFontOfSize(size: AndesFontSize.titleS), lineHeight: 1.25)
+        return AndesFontStyle(textColor: color, font: semiboldSystemFontOfSize(size: AndesFontSize.titleS), lineSpacing: 1.25)
     }
 
     public func titleXS(color: UIColor) -> AndesFontStyle {
         validateColorForTitle(color: color)
-        return AndesFontStyle(textColor: color, font: semiboldSystemFontOfSize(size: AndesFontSize.titleXS), lineHeight: 1.25)
+        return AndesFontStyle(textColor: color, font: semiboldSystemFontOfSize(size: AndesFontSize.titleXS), lineSpacing: 1.25)
     }
 
     public func bodyL(color: UIColor) -> AndesFontStyle {
         validateColorForBody(color: color)
-        return AndesFontStyle(textColor: color, font: regularSystemFont(size: AndesFontSize.bodyL), lineHeight: 1.25)
+        return AndesFontStyle(textColor: color, font: regularSystemFont(size: AndesFontSize.bodyL), lineSpacing: 1.25)
     }
 
     public func bodyM(color: UIColor) -> AndesFontStyle {
         validateColorForBody(color: color)
-        return AndesFontStyle(textColor: color, font: regularSystemFont(size: AndesFontSize.bodyM), lineHeight: 1.25)
+        return AndesFontStyle(textColor: color, font: regularSystemFont(size: AndesFontSize.bodyM), lineSpacing: 1.25)
     }
 
     public func bodyS(color: UIColor) -> AndesFontStyle {
         validateColorForBody(color: color)
-        return AndesFontStyle(textColor: color, font: regularSystemFont(size: AndesFontSize.bodyS), lineHeight: 1.25)
+        return AndesFontStyle(textColor: color, font: regularSystemFont(size: AndesFontSize.bodyS), lineSpacing: 1.25)
     }
 
     public func bodyXS(color: UIColor) -> AndesFontStyle {
         validateColorForBody(color: color)
-        return AndesFontStyle(textColor: color, font: regularSystemFont(size: AndesFontSize.bodyXS), lineHeight: 1.25)
+        return AndesFontStyle(textColor: color, font: regularSystemFont(size: AndesFontSize.bodyXS), lineSpacing: 1.25)
     }
 
     public func regularSystemFont(size: CGFloat) -> UIFont {

@@ -6,7 +6,7 @@
 internal struct AndesBadgeSizeSmall: AndesBadgeSizeProtocol {
     public var font: UIFont = AndesStyleSheetManager.styleSheet.semiboldSystemFontOfSize(size: 11)
 
-    public var lineHeight: CGFloat = 0.91
+    public var lineSpacing: CGFloat = 0.91
 
     public var height: CGFloat = 16
 
