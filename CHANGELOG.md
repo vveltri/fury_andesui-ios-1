@@ -1,7 +1,8 @@
-## Unpublished
+## 3.2.0
 
 ### 🚀 Features
 - AndesBadge: Dot modifier | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
+- AndesButton: Accesibility support | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
 
 # v3.1.0
 
