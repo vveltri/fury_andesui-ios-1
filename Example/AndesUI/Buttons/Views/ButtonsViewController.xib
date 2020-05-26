@@ -64,6 +64,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RYZ-hf-vha" customClass="AndesButton" customModule="AndesUI">
                                     <rect key="frame" x="0.0" y="300.5" width="240" height="128"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <accessibility key="accessibilityConfiguration" identifier="buttons"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="string" keyPath="text" value="Large Loud"/>
                                         <userDefinedRuntimeAttribute type="string" keyPath="ibHierarchy" value="LOUD"/>
@@ -198,6 +199,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6pi-dT-BIv" customClass="AndesButton" customModule="AndesUI">
                                     <rect key="frame" x="0.0" y="2290" width="240" height="128"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <accessibility key="accessibilityConfiguration" identifier="smallTransparent"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="string" keyPath="text" value="Small Transparent"/>
                                         <userDefinedRuntimeAttribute type="string" keyPath="ibSize" value="SMALL"/>

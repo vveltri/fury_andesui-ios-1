@@ -62,6 +62,26 @@
                ReferencedContainer = "container:AndesUI.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "9CF562B62458763D008AD504"
+               BuildableName = "AndesUI DemoAppUITests.xctest"
+               BlueprintName = "AndesUI DemoAppUITests"
+               ReferencedContainer = "container:AndesUI.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "9CF562C8245892F5008AD504"
+               BuildableName = "AndesUI - UITests.xctest"
+               BlueprintName = "AndesUI - UITests"
+               ReferencedContainer = "container:AndesUI.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

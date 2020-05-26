@@ -27,12 +27,14 @@
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n6d-3f-bsv">
                     <rect key="frame" x="6" y="44" width="35.5" height="17"/>
+                    <accessibility key="accessibilityConfiguration" identifier="internalLabel"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lLV-cM-jBL">
                     <rect key="frame" x="2" y="67" width="408" height="48"/>
+                    <accessibility key="accessibilityConfiguration" identifier="internalField"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="48" id="UmW-SX-auS"/>
                     </constraints>
@@ -42,19 +44,21 @@
                 </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 / 100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YmT-3i-NBb" userLabel="Counter">
                     <rect key="frame" x="370" y="123" width="42" height="16"/>
+                    <accessibility key="accessibilityConfiguration" identifier="internalCounter"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="500" text="Helper Text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0B-sk-Ywe">
                     <rect key="frame" x="24" y="123" width="69.5" height="36"/>
-                    <accessibility key="accessibilityConfiguration" label="Helper Text"/>
+                    <accessibility key="accessibilityConfiguration" identifier="internalLabel" label="Helper Text"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f5h-Q0-DR8">
                     <rect key="frame" x="6" y="125" width="12" height="12"/>
+                    <accessibility key="accessibilityConfiguration" identifier="internalHelperImage"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="12" id="AQq-VJ-QLu"/>
                         <constraint firstAttribute="height" constant="12" id="Gmq-Gl-c3W"/>

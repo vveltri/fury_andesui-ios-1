@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -30,14 +30,15 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e0R-Md-QpK">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="1933"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="2063"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="DtU-b8-r77">
-                                    <rect key="frame" x="15" y="25" width="384" height="1858"/>
+                                    <rect key="frame" x="15" y="25" width="384" height="1988"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" placeholderIntrinsicWidth="384" placeholderIntrinsicHeight="168" translatesAutoresizingMaskIntoConstraints="NO" id="vWh-eM-AN4" customClass="AndesTextField" customModule="AndesUI">
                                             <rect key="frame" x="0.0" y="0.0" width="384" height="168"/>
                                             <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="textField1"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="string" keyPath="label" value="Label"/>
                                                 <userDefinedRuntimeAttribute type="string" keyPath="helper" value="Helper text"/>
@@ -52,6 +53,7 @@
                                         <view contentMode="scaleToFill" placeholderIntrinsicWidth="384" placeholderIntrinsicHeight="100" translatesAutoresizingMaskIntoConstraints="NO" id="CAv-G4-lIy" customClass="AndesTextField" customModule="AndesUI">
                                             <rect key="frame" x="0.0" y="198" width="384" height="100"/>
                                             <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="textField2"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="string" keyPath="label" value="Label"/>
                                                 <userDefinedRuntimeAttribute type="string" keyPath="helper" value="Revisá este dato."/>
@@ -167,18 +169,34 @@
                                         <view contentMode="scaleToFill" placeholderIntrinsicWidth="384" placeholderIntrinsicHeight="100" translatesAutoresizingMaskIntoConstraints="NO" id="clk-7X-V3V" customClass="AndesTextArea" customModule="AndesUI">
                                             <rect key="frame" x="0.0" y="1498" width="384" height="100"/>
                                             <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="textArea1"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="string" keyPath="label" value="TextArea read only"/>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="counter">
-                                                    <integer key="value" value="15"/>
+                                                    <integer key="value" value="30"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="TextField"/>
                                                 <userDefinedRuntimeAttribute type="string" keyPath="ibState" value="IDLE"/>
                                                 <userDefinedRuntimeAttribute type="string" keyPath="text" value="Some text in this text area"/>
                                             </userDefinedRuntimeAttributes>
                                         </view>
-                                        <view contentMode="scaleToFill" placeholderIntrinsicWidth="384" placeholderIntrinsicHeight="100" translatesAutoresizingMaskIntoConstraints="NO" id="pdU-EH-aCZ" customClass="AndesTextArea" customModule="AndesUI">
+                                        <view contentMode="scaleToFill" placeholderIntrinsicWidth="384" placeholderIntrinsicHeight="100" translatesAutoresizingMaskIntoConstraints="NO" id="UtV-ye-fej" customClass="AndesTextArea" customModule="AndesUI">
                                             <rect key="frame" x="0.0" y="1628" width="384" height="100"/>
+                                            <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="textArea2"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="label" value="TextArea read only"/>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="counter">
+                                                    <integer key="value" value="30"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="TextField"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="ibState" value="Error"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="text" value="Some text in this text area"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="helper" value="error detected please fix"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                        <view contentMode="scaleToFill" placeholderIntrinsicWidth="384" placeholderIntrinsicHeight="100" translatesAutoresizingMaskIntoConstraints="NO" id="pdU-EH-aCZ" customClass="AndesTextArea" customModule="AndesUI">
+                                            <rect key="frame" x="0.0" y="1758" width="384" height="100"/>
                                             <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="string" keyPath="label" value="Text area disabled"/>
@@ -191,7 +209,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <view contentMode="scaleToFill" placeholderIntrinsicWidth="384" placeholderIntrinsicHeight="100" translatesAutoresizingMaskIntoConstraints="NO" id="SOe-7p-fOj" customClass="AndesTextArea" customModule="AndesUI">
-                                            <rect key="frame" x="0.0" y="1758" width="384" height="100"/>
+                                            <rect key="frame" x="0.0" y="1888" width="384" height="100"/>
                                             <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="string" keyPath="label" value="Textfield 1"/>

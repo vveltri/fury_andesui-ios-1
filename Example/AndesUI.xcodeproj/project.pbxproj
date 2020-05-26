@@ -57,6 +57,11 @@
 		9CE112F123D1E14B0017B770 /* AndesMessageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE112EF23D1DE0A0017B770 /* AndesMessageTests.swift */; };
 		9CE112FD23D20B0E0017B770 /* MessageObjCViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CE112FC23D20B0E0017B770 /* MessageObjCViewController.xib */; };
 		9CE1130223D20BF40017B770 /* MessageObjCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE1130123D20BF40017B770 /* MessageObjCViewController.m */; };
+		9CF562D524589338008AD504 /* UITestButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF562B92458763D008AD504 /* UITestButtons.swift */; };
+		9CF562D624589338008AD504 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF562C324588C60008AD504 /* SnapshotHelper.swift */; };
+		9CF562DA24589A8B008AD504 /* UITestMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF562D924589A8B008AD504 /* UITestMessage.swift */; };
+		9CF562E22459F9B3008AD504 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF562E12459F9B3008AD504 /* UITextField.swift */; };
+		9CF562E4245A082C008AD504 /* UITestBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF562E3245A082C008AD504 /* UITestBadge.swift */; };
 		E5306024ED10F08F50962867 /* Pods_AndesUI_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49891841870D889A9CDC91E2 /* Pods_AndesUI_Tests.framework */; };
 		E615508A23D619E300417B5F /* AndesButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E615508823D6196C00417B5F /* AndesButtonTests.swift */; };
 /* End PBXBuildFile section */
@@ -68,6 +73,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 607FACCF1AFB9204008FA782;
 			remoteInfo = AndesUI;
+		};
+		9CF562CE245892F5008AD504 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 607FACCF1AFB9204008FA782;
+			remoteInfo = "AndesUI-demoapp";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -136,6 +148,13 @@
 		9CE112FC23D20B0E0017B770 /* MessageObjCViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageObjCViewController.xib; sourceTree = "<group>"; };
 		9CE1130123D20BF40017B770 /* MessageObjCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageObjCViewController.m; sourceTree = "<group>"; };
 		9CE1130323D20BFC0017B770 /* MessageObjCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageObjCViewController.h; sourceTree = "<group>"; };
+		9CF562B92458763D008AD504 /* UITestButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestButtons.swift; sourceTree = "<group>"; };
+		9CF562C324588C60008AD504 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
+		9CF562C9245892F5008AD504 /* AndesUI - UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AndesUI - UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CF562CD245892F5008AD504 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9CF562D924589A8B008AD504 /* UITestMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestMessage.swift; sourceTree = "<group>"; };
+		9CF562E12459F9B3008AD504 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
+		9CF562E3245A082C008AD504 /* UITestBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestBadge.swift; sourceTree = "<group>"; };
 		AC98BF20D5812F377975A7D9 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		D9A567E4C1B9D9CA9DFC1E89 /* Pods-AndesUI_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AndesUI_Tests.release.xcconfig"; path = "Target Support Files/Pods-AndesUI_Tests/Pods-AndesUI_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		E3E9B26B74F98D6773C98C88 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
@@ -161,6 +180,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9CF562C6245892F5008AD504 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -182,6 +208,7 @@
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for AndesUI */,
 				607FACE81AFB9204008FA782 /* Tests */,
+				9CF562CA245892F5008AD504 /* AndesUI - UITests */,
 				607FACD11AFB9204008FA782 /* Products */,
 				7613B115B5FF19062CE27E07 /* Frameworks */,
 				6A3C9CF123C69275007D0C8B /* Recovered References */,
@@ -194,6 +221,7 @@
 			children = (
 				607FACD01AFB9204008FA782 /* AndesUI DemoApp.app */,
 				607FACE51AFB9204008FA782 /* AndesUI_Tests.xctest */,
+				9CF562C9245892F5008AD504 /* AndesUI - UITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -450,6 +478,19 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		9CF562CA245892F5008AD504 /* AndesUI - UITests */ = {
+			isa = PBXGroup;
+			children = (
+				9CF562B92458763D008AD504 /* UITestButtons.swift */,
+				9CF562D924589A8B008AD504 /* UITestMessage.swift */,
+				9CF562C324588C60008AD504 /* SnapshotHelper.swift */,
+				9CF562CD245892F5008AD504 /* Info.plist */,
+				9CF562E12459F9B3008AD504 /* UITextField.swift */,
+				9CF562E3245A082C008AD504 /* UITestBadge.swift */,
+			);
+			path = "AndesUI - UITests";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -492,6 +533,24 @@
 			productReference = 607FACE51AFB9204008FA782 /* AndesUI_Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		9CF562C8245892F5008AD504 /* AndesUI - UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9CF562D0245892F5008AD504 /* Build configuration list for PBXNativeTarget "AndesUI - UITests" */;
+			buildPhases = (
+				9CF562C5245892F5008AD504 /* Sources */,
+				9CF562C6245892F5008AD504 /* Frameworks */,
+				9CF562C7245892F5008AD504 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9CF562CF245892F5008AD504 /* PBXTargetDependency */,
+			);
+			name = "AndesUI - UITests";
+			productName = "AndesUI - UITests";
+			productReference = 9CF562C9245892F5008AD504 /* AndesUI - UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -499,7 +558,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = AndesUI;
-				LastSwiftUpdateCheck = 0830;
+				LastSwiftUpdateCheck = 1140;
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = MercadoLibre;
 				TargetAttributes = {
@@ -509,6 +568,12 @@
 					};
 					607FACE41AFB9204008FA782 = {
 						LastSwiftMigration = 0900;
+						TestTargetID = 607FACCF1AFB9204008FA782;
+					};
+					9CF562C8245892F5008AD504 = {
+						CreatedOnToolsVersion = 11.4.1;
+						DevelopmentTeam = T9VUHG6RU2;
+						ProvisioningStyle = Automatic;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
 				};
@@ -529,6 +594,7 @@
 			targets = (
 				607FACCF1AFB9204008FA782 /* AndesUI-demoapp */,
 				607FACE41AFB9204008FA782 /* AndesUI_Tests */,
+				9CF562C8245892F5008AD504 /* AndesUI - UITests */,
 			);
 		};
 /* End PBXProject section */
@@ -560,6 +626,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		607FACE31AFB9204008FA782 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9CF562C7245892F5008AD504 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -702,6 +775,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9CF562C5245892F5008AD504 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9CF562D524589338008AD504 /* UITestButtons.swift in Sources */,
+				9CF562DA24589A8B008AD504 /* UITestMessage.swift in Sources */,
+				9CF562E4245A082C008AD504 /* UITestBadge.swift in Sources */,
+				9CF562D624589338008AD504 /* SnapshotHelper.swift in Sources */,
+				9CF562E22459F9B3008AD504 /* UITextField.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -709,6 +794,11 @@
 			isa = PBXTargetDependency;
 			target = 607FACCF1AFB9204008FA782 /* AndesUI-demoapp */;
 			targetProxy = 607FACE61AFB9204008FA782 /* PBXContainerItemProxy */;
+		};
+		9CF562CF245892F5008AD504 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 607FACCF1AFB9204008FA782 /* AndesUI-demoapp */;
+			targetProxy = 9CF562CE245892F5008AD504 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -914,6 +1004,61 @@
 			};
 			name = Release;
 		};
+		9CF562D1245892F5008AD504 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = T9VUHG6RU2;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "AndesUI - UITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mercadolibre.andesui-ui-test.AndesUI---UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "AndesUI-demoapp";
+			};
+			name = Debug;
+		};
+		9CF562D2245892F5008AD504 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T9VUHG6RU2;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "AndesUI - UITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mercadolibre.andesui-ui-test.AndesUI---UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "AndesUI-demoapp";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -940,6 +1085,15 @@
 			buildConfigurations = (
 				607FACF31AFB9204008FA782 /* Debug */,
 				607FACF41AFB9204008FA782 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9CF562D0245892F5008AD504 /* Build configuration list for PBXNativeTarget "AndesUI - UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9CF562D1245892F5008AD504 /* Debug */,
+				9CF562D2245892F5008AD504 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

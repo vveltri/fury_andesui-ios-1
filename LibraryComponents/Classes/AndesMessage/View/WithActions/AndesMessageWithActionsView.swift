@@ -29,7 +29,6 @@ class AndesMessageWithActionsView: AndesMessageAbstractView {
         } else {
             secondaryAction.isHidden = true
         }
-
     }
 
     @IBAction func primaryButtonTapped(_ sender: Any) {

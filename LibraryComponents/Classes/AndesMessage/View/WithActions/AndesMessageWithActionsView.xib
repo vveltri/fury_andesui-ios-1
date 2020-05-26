@@ -90,6 +90,7 @@
                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="50" placeholderIntrinsicHeight="21.5" translatesAutoresizingMaskIntoConstraints="NO" id="HbG-CF-Oqd" customClass="AndesButton" customModule="AndesUI">
                     <rect key="frame" x="48" y="77.5" width="50" height="21.5"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <accessibility key="accessibilityConfiguration" identifier="andesMessagePrimaryAction"/>
                     <connections>
                         <action selector="primaryButtonTapped:" destination="-1" eventType="touchUpInside" id="kho-RD-LfD"/>
                     </connections>
@@ -97,6 +98,7 @@
                 <view contentMode="scaleToFill" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" placeholderIntrinsicWidth="322" placeholderIntrinsicHeight="21.5" translatesAutoresizingMaskIntoConstraints="NO" id="UDP-xQ-Pdx" customClass="AndesButton" customModule="AndesUI">
                     <rect key="frame" x="114" y="77.5" width="164" height="21.5"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <accessibility key="accessibilityConfiguration" identifier="andesMessageSecondaryAction"/>
                     <connections>
                         <action selector="secondaryButtonTapped:" destination="-1" eventType="touchUpInside" id="XnA-f6-yEG"/>
                     </connections>

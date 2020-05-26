@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,19 +19,120 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="382" placeholderIntrinsicHeight="786" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="9Fx-7G-wMo">
-                    <rect key="frame" x="16" y="60" width="382" height="786"/>
-                </stackView>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6no-CS-JiN">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="382" placeholderIntrinsicHeight="786" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="9Fx-7G-wMo">
+                            <rect key="frame" x="15" y="20" width="382" height="1312"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" verticalHuggingPriority="249" placeholderIntrinsicWidth="382" placeholderIntrinsicHeight="150" translatesAutoresizingMaskIntoConstraints="NO" id="QOW-u2-Bbw" customClass="AndesMessage" customModule="AndesUI">
+                                    <rect key="frame" x="0.0" y="0.0" width="382" height="150"/>
+                                    <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Andes Message"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="body" value="This is an Andes Message neutral - loud"/>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                                <view contentMode="scaleToFill" placeholderIntrinsicWidth="382" placeholderIntrinsicHeight="150" translatesAutoresizingMaskIntoConstraints="NO" id="9X0-bP-BNs" customClass="AndesMessage" customModule="AndesUI">
+                                    <rect key="frame" x="0.0" y="166" width="382" height="150"/>
+                                    <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <accessibility key="accessibilityConfiguration" identifier="errorLoud"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Andes Message"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="body" value="This is an Andes Message error - loud"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="ibType" value="Error"/>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isDismissable" value="YES"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="primaryActionText" value="Primary"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="secondaryActionText" value="Secondary"/>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                                <view contentMode="scaleToFill" placeholderIntrinsicWidth="382" placeholderIntrinsicHeight="150" translatesAutoresizingMaskIntoConstraints="NO" id="ZeU-pX-ybE" customClass="AndesMessage" customModule="AndesUI">
+                                    <rect key="frame" x="0.0" y="332" width="382" height="150"/>
+                                    <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Andes Message"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="body" value="This is an Andes Message success - loud"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="ibType" value="Success"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="primaryActionText" value="Just Primary"/>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                                <view contentMode="scaleToFill" placeholderIntrinsicWidth="382" placeholderIntrinsicHeight="150" translatesAutoresizingMaskIntoConstraints="NO" id="5CO-sT-u6m" customClass="AndesMessage" customModule="AndesUI">
+                                    <rect key="frame" x="0.0" y="498" width="382" height="150"/>
+                                    <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Andes Message"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="body" value="This is an Andes Message warning - loud"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="ibType" value="warning"/>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isDismissable" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                                <view contentMode="scaleToFill" verticalHuggingPriority="249" placeholderIntrinsicWidth="382" placeholderIntrinsicHeight="150" translatesAutoresizingMaskIntoConstraints="NO" id="gqM-aX-hIm" customClass="AndesMessage" customModule="AndesUI">
+                                    <rect key="frame" x="0.0" y="664" width="382" height="150"/>
+                                    <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Andes Message"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="body" value="This is an Andes Message neutral - quiet"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="ibHierarchy" value="Quiet"/>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                                <view contentMode="scaleToFill" placeholderIntrinsicWidth="382" placeholderIntrinsicHeight="150" translatesAutoresizingMaskIntoConstraints="NO" id="9dx-oP-PqX" customClass="AndesMessage" customModule="AndesUI">
+                                    <rect key="frame" x="0.0" y="830" width="382" height="150"/>
+                                    <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Andes Message ERROR QUIET"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="ibType" value="Error"/>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isDismissable" value="YES"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="ibHierarchy" value="quiet"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="body">
+                                            <string key="value">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</string>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                                <view contentMode="scaleToFill" placeholderIntrinsicWidth="382" placeholderIntrinsicHeight="150" translatesAutoresizingMaskIntoConstraints="NO" id="nyx-9B-eYz" customClass="AndesMessage" customModule="AndesUI">
+                                    <rect key="frame" x="0.0" y="996" width="382" height="150"/>
+                                    <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Andes Message"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="body" value="This is an Andes Message success - loud"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="ibType" value="Success"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="ibHierarchy" value="quiet"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="primaryActionText" value="Primary"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="secondaryActionText" value="Secondary"/>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                                <view contentMode="scaleToFill" placeholderIntrinsicWidth="382" placeholderIntrinsicHeight="150" translatesAutoresizingMaskIntoConstraints="NO" id="0kB-HA-wgO" customClass="AndesMessage" customModule="AndesUI">
+                                    <rect key="frame" x="0.0" y="1162" width="382" height="150"/>
+                                    <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Andes Message"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="body" value="This is an Andes Message warning - loud"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="ibType" value="warning"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="ibHierarchy" value="quiet"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="primaryActionText" value="Primary"/>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="9Fx-7G-wMo" firstAttribute="leading" secondItem="6no-CS-JiN" secondAttribute="leading" constant="15" id="99I-w7-Wi8"/>
+                        <constraint firstAttribute="bottom" secondItem="9Fx-7G-wMo" secondAttribute="bottom" constant="50" id="F01-7G-f6M"/>
+                        <constraint firstAttribute="trailing" secondItem="9Fx-7G-wMo" secondAttribute="trailing" id="Ohc-ql-DjC"/>
+                        <constraint firstItem="9Fx-7G-wMo" firstAttribute="top" secondItem="6no-CS-JiN" secondAttribute="top" constant="20" id="o4m-09-BW7"/>
+                    </constraints>
+                </scrollView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="9Fx-7G-wMo" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="16" id="4Vn-oJ-WCp"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="9Fx-7G-wMo" secondAttribute="trailing" constant="16" id="UeD-ZT-JJx"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="9Fx-7G-wMo" secondAttribute="bottom" constant="16" id="uYu-PX-jWe"/>
-                <constraint firstItem="9Fx-7G-wMo" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="zMC-f4-Ynq"/>
+                <constraint firstItem="6no-CS-JiN" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="IPy-xg-Ydr"/>
+                <constraint firstItem="6no-CS-JiN" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Jk7-oo-jIV"/>
+                <constraint firstItem="9Fx-7G-wMo" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.922705" id="SLY-me-svn"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="6no-CS-JiN" secondAttribute="bottom" id="gex-xk-Thp"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="6no-CS-JiN" secondAttribute="trailing" id="gvq-gU-sTM"/>
+                <constraint firstItem="6no-CS-JiN" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="rq7-m8-q3h"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="132" y="154"/>
+            <point key="canvasLocation" x="-12" y="131"/>
         </view>
     </objects>
 </document>
