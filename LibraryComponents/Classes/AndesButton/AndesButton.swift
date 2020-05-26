@@ -46,6 +46,7 @@ import UIKit
     @IBInspectable public var text: String {
         didSet {
             view.setText(text)
+            self.accessibilityLabel = text
         }
     }
 
@@ -59,8 +60,10 @@ import UIKit
         didSet {
             if !isEnabled {
                 view.disable()
+                self.accessibilityTraits.formUnion([.button, .notEnabled])
             } else {
                 view.enable()
+                self.accessibilityTraits = .button
             }
         }
     }
@@ -126,10 +129,14 @@ import UIKit
     private func drawContentView() {
         view = provideContentView()
         addSubview(view)
-
         view.isUserInteractionEnabled = false
         view.frame = bounds
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+
+        //accesibility
+        view.isAccessibilityElement = false
+        self.isAccessibilityElement = true
+        self.accessibilityTraits = .button
     }
 
     private func provideContentView() -> AndesButtonView {

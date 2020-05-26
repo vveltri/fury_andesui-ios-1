@@ -13,6 +13,7 @@ import AndesUI
 class ButtonsViewController: UIViewController {
 
     @IBOutlet weak var andesButton: AndesButton!
+    @IBOutlet weak var disabledAndesButton: AndesButton!
 
     @IBOutlet weak var largeLoudAndesButton: AndesButton!
     @IBOutlet weak var largeQuietAndesButton: AndesButton!
@@ -57,6 +58,7 @@ class ButtonsViewController: UIViewController {
     }
 
     func setupUI() {
+        disabledAndesButton.isEnabled = false
         setTexts()
         setupSizes()
     }
