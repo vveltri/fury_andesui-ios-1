@@ -23,9 +23,11 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var badgesBtn: AndesButton!
     @IBOutlet weak var welcomeMessage: AndesMessage!
     @IBOutlet weak var textFieldBtn: AndesButton!
+    @IBOutlet weak var tagBtn: AndesButton!
     @IBOutlet weak var specsButton: AndesButton!
     @IBOutlet weak var contributingButton: AndesButton!
     @IBOutlet weak var showcaseLabel: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         if let version = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String {
@@ -85,6 +87,11 @@ class HomeViewController: UIViewController {
     @IBAction func textfieldBtnTapped(_ sender: Any) {
         presenter.presentTextField()
     }
+
+    @IBAction func tagBtnTapped(_ sender: Any) {
+        presenter.presentTags()
+    }
+
 }
 
 extension HomeViewController: HomeView {
