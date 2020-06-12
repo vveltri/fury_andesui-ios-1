@@ -24,10 +24,11 @@ internal struct AndesTagViewConfig {
     var leftContent: AndesTagLeftContent?
 
     var isDismissable: Bool = false
+    var rightButtonWidth: CGFloat = 0
 
     init() {}
 
-    init(backgroundColor: UIColor, borderColor: UIColor, buttonColor: UIColor, height: CGFloat, horizontalPadding: CGFloat, cornerRadius: CGFloat, text: String?, textFont: UIFont, textColor: UIColor, leftContent: AndesTagLeftContent? = nil, isDismissible: Bool = false) {
+    init(backgroundColor: UIColor, borderColor: UIColor, buttonColor: UIColor, height: CGFloat, horizontalPadding: CGFloat, cornerRadius: CGFloat, text: String?, textFont: UIFont, textColor: UIColor, leftContent: AndesTagLeftContent? = nil, isDismissible: Bool = false, rightButtonWidth: CGFloat) {
         self.backgroundColor = backgroundColor
         self.borderColor = borderColor
         self.buttonColor = buttonColor
@@ -42,5 +43,6 @@ internal struct AndesTagViewConfig {
 
         self.leftContent = leftContent
         self.isDismissable = isDismissible
+        self.rightButtonWidth = rightButtonWidth
     }
 }

@@ -7,6 +7,4 @@
 
 import Foundation
 
-@objc public protocol AndesTagLeftContent {
-
-}
+@objc public protocol AndesTagLeftContent {}

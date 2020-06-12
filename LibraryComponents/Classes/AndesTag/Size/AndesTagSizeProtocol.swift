@@ -12,4 +12,6 @@ protocol AndesTagSizeProtocol {
     var height: CGFloat { get }
     var horizontalPadding: CGFloat { get }
     var cornerRadius: CGFloat { get }
+    var shouldShowLeftContent: Bool { get }
+    var rightButtonWidth: CGFloat { get }
 }

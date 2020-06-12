@@ -5,7 +5,7 @@
 //  Created by Samuel Sainz on 5/29/20.
 //
 
-import Foundation
+import UIKit
 
 struct AndesTagSizeLarge: AndesTagSizeProtocol {
     var font: UIFont = AndesStyleSheetManager.styleSheet.regularSystemFont(size: 14)
@@ -15,4 +15,8 @@ struct AndesTagSizeLarge: AndesTagSizeProtocol {
     var horizontalPadding: CGFloat = 12
 
     var cornerRadius: CGFloat = 16
+
+    var shouldShowLeftContent: Bool = true
+
+    var rightButtonWidth: CGFloat = 32
 }

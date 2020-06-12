@@ -11,6 +11,7 @@
             <connections>
                 <outlet property="heightConstraint" destination="zqx-qr-rFn" id="7bM-rr-J3R"/>
                 <outlet property="leadingConstraint" destination="blR-gA-OOS" id="3jt-MV-LyL"/>
+                <outlet property="leftContentViewContainer" destination="u62-Fp-pS5" id="Hdi-qe-yvh"/>
                 <outlet property="leftContentWidthConstraint" destination="mUi-W8-zpD" id="ykb-FS-Nnc"/>
                 <outlet property="rightButton" destination="6Qm-nQ-Csp" id="xeh-ta-cec"/>
                 <outlet property="rightButtonWidthConstraint" destination="9dl-gC-38D" id="1KB-hJ-Faf"/>
@@ -28,7 +29,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="91" height="32"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xtw-qV-1gb">
-                            <rect key="frame" x="32" y="6" width="27" height="21"/>
+                            <rect key="frame" x="32" y="5.5" width="27" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -45,7 +46,9 @@
                             <constraints>
                                 <constraint firstAttribute="width" constant="32" id="9dl-gC-38D"/>
                             </constraints>
-                            <state key="normal" image="andes_ui_close_16"/>
+                            <connections>
+                                <action selector="rightButtonTapped:" destination="-1" eventType="touchUpInside" id="Rn7-dK-Ld4"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -74,7 +77,4 @@
             <point key="canvasLocation" x="-187.68115942028987" y="-151.33928571428569"/>
         </view>
     </objects>
-    <resources>
-        <image name="andes_ui_close_16" width="16" height="16"/>
-    </resources>
 </document>

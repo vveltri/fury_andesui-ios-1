@@ -20,13 +20,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="414" placeholderIntrinsicHeight="818" axis="vertical" distribution="equalSpacing" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="Tcf-xL-ZbH">
-                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <rect key="frame" x="0.0" y="58" width="414" height="804"/>
                 </stackView>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Tcf-xL-ZbH" secondAttribute="bottom" id="5oE-uF-RdB"/>
-                <constraint firstItem="Tcf-xL-ZbH" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="tR3-oo-589"/>
+                <constraint firstItem="Tcf-xL-ZbH" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="14" id="tR3-oo-589"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="Tcf-xL-ZbH" secondAttribute="trailing" id="wdZ-ts-tvl"/>
                 <constraint firstItem="Tcf-xL-ZbH" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="xSU-DV-xMC"/>
             </constraints>

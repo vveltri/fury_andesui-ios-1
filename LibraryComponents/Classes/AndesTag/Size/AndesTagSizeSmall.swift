@@ -15,4 +15,8 @@ struct AndesTagSizeSmall: AndesTagSizeProtocol {
     var horizontalPadding: CGFloat = 8
 
     var cornerRadius: CGFloat = 12
+
+    var shouldShowLeftContent: Bool = false
+
+    var rightButtonWidth: CGFloat = 24
 }

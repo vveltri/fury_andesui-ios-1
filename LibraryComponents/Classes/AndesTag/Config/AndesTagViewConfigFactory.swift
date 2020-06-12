@@ -26,9 +26,10 @@ internal class AndesTagViewConfigFactory {
         let textFont = size.font
         let textColor = type.textColor
 
-        let leftContent = tag.leftContent
+        let leftContent = size.shouldShowLeftContent ? tag.leftContent : nil
         let isDismissible = tag.isDismissible
+        let rightButtonWidth = tag.isDismissible ? size.rightButtonWidth : 0
 
-        return AndesTagViewConfig(backgroundColor: backgroundColor, borderColor: borderColor, buttonColor: buttonColor, height: height, horizontalPadding: horizontalPadding, cornerRadius: cornerRadius, text: text, textFont: textFont, textColor: textColor, leftContent: leftContent, isDismissible: isDismissible)
+        return AndesTagViewConfig(backgroundColor: backgroundColor, borderColor: borderColor, buttonColor: buttonColor, height: height, horizontalPadding: horizontalPadding, cornerRadius: cornerRadius, text: text, textFont: textFont, textColor: textColor, leftContent: leftContent, isDismissible: isDismissible, rightButtonWidth: rightButtonWidth)
     }
 }

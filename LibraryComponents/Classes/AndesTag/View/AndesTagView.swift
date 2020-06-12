@@ -8,5 +8,6 @@
 import Foundation
 
 internal protocol AndesTagView: UIView {
+    var delegate: AndesTagViewDelegate? { get set }
     func update(withConfig config: AndesTagViewConfig)
 }

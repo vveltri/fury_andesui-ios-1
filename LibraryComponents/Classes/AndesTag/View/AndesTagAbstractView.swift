@@ -9,6 +9,8 @@ import Foundation
 
 class AndesTagAbstractView: UIView, AndesTagView {
 
+    var delegate: AndesTagViewDelegate?
+
     @IBOutlet weak var tagView: UIView!
     @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var rightButton: UIButton!
@@ -63,4 +65,9 @@ class AndesTagAbstractView: UIView, AndesTagView {
     func updateView() {
         fatalError("This should be overriden by a subclass")
     }
+
+    @IBAction func rightButtonTapped(_ sender: Any) {
+        fatalError("This should be overriden by a subclass")
+    }
+
 }

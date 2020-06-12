@@ -46,6 +46,9 @@ import Foundation
         }
     }
 
+    /// Callback invoked when dismiss button is tapped
+    internal var didDismiss: ((AndesTagSimple) -> Void)?
+
     public required init?(coder: NSCoder) {
         super.init(coder: coder)
         setup()
@@ -65,6 +68,21 @@ import Foundation
         setup()
     }
 
+    @objc public init(text: String, size: AndesTagSize, type: AndesTagType, isDismissible: Bool, leftContent: AndesTagLeftContent?) {
+        super.init(frame: .zero)
+        self.text = text
+        self.size = size
+        self.type = type
+        self.isDismissible = isDismissible
+        self.leftContent = leftContent
+        setup()
+    }
+
+    /// Set dismiss callback to be invoked when dismiss button is pressed
+    @objc public func setDidDismiss(callback: @escaping ((AndesTagSimple) -> Void)) {
+        self.didDismiss = callback
+    }
+
     private func setup() {
         translatesAutoresizingMaskIntoConstraints = false
         self.backgroundColor = .clear
@@ -73,6 +91,7 @@ import Foundation
 
     private func drawContentView(with newView: AndesTagView) {
         self.contentView = newView
+        self.contentView.delegate = self
         addSubview(contentView)
         leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
         trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
@@ -98,6 +117,16 @@ import Foundation
     /// Should return a view depending on which Badge modifier is selected
     private func provideView() -> AndesTagView {
         let config = AndesTagViewConfigFactory.provideInternalConfig(fromSimpleTag: self)
+
         return AndesTagSimpleView(withConfig: config)
+    }
+}
+
+extension AndesTagSimple: AndesTagViewDelegate {
+    func didTapDismiss() {
+        guard let callback = self.didDismiss else {
+            return
+        }
+        callback(self)
     }
 }
