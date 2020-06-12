@@ -1,3 +1,8 @@
+## 3.3.0
+
+### 🚀 Features
+- AndesTag: Simple variation | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
+
 ## 3.2.1
 
 ### 🛠 Bug fixes
