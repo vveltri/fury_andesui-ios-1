@@ -35,6 +35,7 @@
 		86A1E3122481E56300B59D1D /* TagObjCViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86A1E3102481E56300B59D1D /* TagObjCViewController.xib */; };
 		86D656B5248FF79500E62C1E /* AndesDemoColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D656B4248FF79500E62C1E /* AndesDemoColor.swift */; };
 		86E0A35D2493BDA9003D338C /* AndesTagSimpleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E0A35C2493BDA9003D338C /* AndesTagSimpleTests.swift */; };
+		86E0A4C2249415CE003D338C /* UITestTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E0A4C1249415CE003D338C /* UITestTag.swift */; };
 		8E8003ECE65A826F4A27FC6D /* Pods_AndesUI_demoapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 748830979405998C25BF67E4 /* Pods_AndesUI_demoapp.framework */; };
 		90530B07242BF9ED005E056A /* BadgesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90530B06242BF9ED005E056A /* BadgesRouter.swift */; };
 		90530B0B242BFAA7005E056A /* AndesBadgeShowcaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90530B09242BFAA7005E056A /* AndesBadgeShowcaseViewController.swift */; };
@@ -136,6 +137,7 @@
 		86A1E3102481E56300B59D1D /* TagObjCViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagObjCViewController.xib; sourceTree = "<group>"; };
 		86D656B4248FF79500E62C1E /* AndesDemoColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndesDemoColor.swift; sourceTree = "<group>"; };
 		86E0A35C2493BDA9003D338C /* AndesTagSimpleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndesTagSimpleTests.swift; sourceTree = "<group>"; };
+		86E0A4C1249415CE003D338C /* UITestTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestTag.swift; sourceTree = "<group>"; };
 		90530B06242BF9ED005E056A /* BadgesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesRouter.swift; sourceTree = "<group>"; };
 		90530B09242BFAA7005E056A /* AndesBadgeShowcaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndesBadgeShowcaseViewController.swift; sourceTree = "<group>"; };
 		90530B0A242BFAA7005E056A /* AndesBadgeShowcaseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AndesBadgeShowcaseViewController.xib; sourceTree = "<group>"; };
@@ -544,6 +546,7 @@
 				9CF562CD245892F5008AD504 /* Info.plist */,
 				9CF562E12459F9B3008AD504 /* UITextField.swift */,
 				9CF562E3245A082C008AD504 /* UITestBadge.swift */,
+				86E0A4C1249415CE003D338C /* UITestTag.swift */,
 			);
 			path = "AndesUI - UITests";
 			sourceTree = "<group>";
@@ -847,6 +850,7 @@
 			files = (
 				9CF562D524589338008AD504 /* UITestButtons.swift in Sources */,
 				9CF562DA24589A8B008AD504 /* UITestMessage.swift in Sources */,
+				86E0A4C2249415CE003D338C /* UITestTag.swift in Sources */,
 				9CF562E4245A082C008AD504 /* UITestBadge.swift in Sources */,
 				9CF562D624589338008AD504 /* SnapshotHelper.swift in Sources */,
 				9CF562E22459F9B3008AD504 /* UITextField.swift in Sources */,
