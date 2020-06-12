@@ -9,7 +9,7 @@ import Foundation
 
 class AndesTagAbstractView: UIView, AndesTagView {
 
-    var delegate: AndesTagViewDelegate?
+    weak var delegate: AndesTagViewDelegate?
 
     @IBOutlet weak var tagView: UIView!
     @IBOutlet weak var textLabel: UILabel!

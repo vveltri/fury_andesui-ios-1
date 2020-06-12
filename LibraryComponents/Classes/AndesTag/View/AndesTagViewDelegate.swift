@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol AndesTagViewDelegate {
+protocol AndesTagViewDelegate: AnyObject {
     func didTapDismiss()
 }
