@@ -98,6 +98,7 @@ class AndesMessageAbstractView: UIView, AndesMessageView {
             AndesIconsProvider.loadIcon(name: iconName) {
                 self.dismissButton.setImage($0, for: .normal)
             }
+            self.dismissButton.accessibilityLabel = "Cerrar".localized()
         } else {
             self.titleToDismissConstraint.priority = .defaultLow
             self.titleToSafeAreaConstraint.priority = .defaultHigh

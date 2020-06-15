@@ -1,3 +1,9 @@
+## Unpublished
+
+### 🦮 Accessibility
+
+- Actions with accessibilty labels localized. 
+
 ## 3.3.0
 
 ### 🚀 Features
