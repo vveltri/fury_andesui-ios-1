@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-=======
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
->>>>>>> develop
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -125,7 +121,6 @@
                                                 <action selector="goToBadgesTapped:" destination="-1" eventType="touchUpInside" id="Msr-CP-Bkr"/>
                                             </connections>
                                         </view>
-<<<<<<< HEAD
                                         <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="nQg-JB-1Sl" customClass="AndesButton" customModule="AndesUI">
                                             <rect key="frame" x="0.0" y="192" width="382" height="40"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -136,7 +131,8 @@
                                             </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="goToCheckboxTapped:" destination="-1" eventType="touchUpInside" id="Jdc-Lk-uF9"/>
-=======
+                                            </connections>
+                                        </view>
                                         <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="9Bv-gW-s5F" customClass="AndesButton" customModule="AndesUI">
                                             <rect key="frame" x="0.0" y="192" width="382" height="40"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -147,7 +143,6 @@
                                             </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="tagBtnTapped:" destination="-1" eventType="touchUpInside" id="Yg6-ek-I1h"/>
->>>>>>> develop
                                             </connections>
                                         </view>
                                     </subviews>

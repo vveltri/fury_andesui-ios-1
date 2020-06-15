@@ -10,14 +10,11 @@ import UIKit
 import AndesUI
 
 class AndesCheckboxViewController: UIViewController {
-    @IBOutlet var cb1: CheckBox!
-    @IBOutlet weak var cb2: CheckBox!
-    @IBOutlet var cb3: CheckBox!
-    @IBOutlet var cb4: CheckBox!
+    @IBOutlet var checkbox: UIView!
 
     override func viewDidLoad() {
         self.title = "AndesCheckbox"
-        cb1.style = .square
+       /* cb1.style = .square
         cb2.style = .cross
         cb3.style = .circle
         cb4.style = .tick
@@ -25,7 +22,7 @@ class AndesCheckboxViewController: UIViewController {
         cb1.borderStyle = .rounded
         cb2.borderStyle = .square
         cb3.borderStyle = .roundedSquare(radius: 8)
-        cb4.borderStyle = .roundedSquare(radius: 12)
+        cb4.borderStyle = .roundedSquare(radius: 12)*/
 
     }
 
