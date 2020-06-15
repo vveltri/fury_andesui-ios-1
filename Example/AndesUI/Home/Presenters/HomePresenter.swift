@@ -15,6 +15,7 @@ protocol HomePresenter: NSObject {
     func presentBadges()
     func presentWhatsNew()
     func presentCheckbox()
+    func presentTags()
 }
 
 class HomeViewPresenter: NSObject {
@@ -44,10 +45,15 @@ extension HomeViewPresenter: HomePresenter {
     func presentWhatsNew() {
         router.routeToWhatsNew()
     }
+
     func presentTextField() {
         router.routeTextField()
     }
     func presentCheckbox() {
         router.routerCheckbox()
+    }
+
+    func presentTags() {
+        router.routeTags()
     }
 }

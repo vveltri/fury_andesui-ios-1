@@ -7,3 +7,4 @@
 #import "MessageObjCViewController.h"
 #import "TextFieldObjCViewController.h"
 #import "BadgeObjCViewController.h"
+#import "TagObjCViewController.h"

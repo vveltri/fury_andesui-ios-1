@@ -1,13 +1,13 @@
 //
-//  UITestBadge.swift
+//  UITestTag.swift
 //  AndesUI - UITests
 //
-//  Created by Nicolas Rostan Talasimov on 4/29/20.
+//  Created by Samuel Sainz on 6/12/20.
 //  Copyright © 2020 MercadoLibre. All rights reserved.
 //
 
 import XCTest
-class AndesUI_UITestsBadge: XCTestCase {
+class AndesUI_UITestsTag: XCTestCase {
 
     let app = XCUIApplication()
 
@@ -22,9 +22,9 @@ class AndesUI_UITestsBadge: XCTestCase {
         super.tearDown()
     }
     
-    func testBadgeScreen() {
-        app.buttons["andesBadge"].tap()
+    func testTagScreen() {
+        app.buttons["andesTag"].tap()
         app.swipeLeft()
-        snapshot("Badges 1")
+        snapshot("Tags 1")
     }
 }
