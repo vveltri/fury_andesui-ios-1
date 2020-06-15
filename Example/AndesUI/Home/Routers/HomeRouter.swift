@@ -15,6 +15,7 @@ protocol HomeRouter: NSObject {
     func routeToBadges()
     func routeToWhatsNew()
     func routeTextField()
+    func routerCheckbox()
 }
 
 class HomeAppRouter: NSObject {
@@ -26,10 +27,10 @@ class HomeAppRouter: NSObject {
     let badgesRouter = BadgesAppRouter()
     let whatsNewRouter = WhatsNewAppRouter()
     let textFieldRouter = TextFieldsAppRouter()
+    let checkBoxRouter = CheckboxAppRouter()
 }
 
 extension HomeAppRouter: HomeRouter {
-
     func route(from: UIViewController) {
         presenter = HomeViewPresenter(view: view, router: self)
         view.presenter = presenter
@@ -58,5 +59,9 @@ extension HomeAppRouter: HomeRouter {
 
     func routeTextField() {
         textFieldRouter.route(from: view)
+    }
+
+    func routerCheckbox() {
+        checkBoxRouter.route(from: view)
     }
 }
