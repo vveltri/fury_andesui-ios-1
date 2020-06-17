@@ -12,6 +12,8 @@ class AndesCheckboxDefaultView: UIView, AndesCheckboxView {
 
     @IBOutlet weak var iconView: UIImageView!
 
+    @IBOutlet weak var iconViewRight: UIImageView!
+
     @IBOutlet var checkboxView: UIView!
     internal var backgroundLayer: CALayer
 
@@ -36,14 +38,14 @@ class AndesCheckboxDefaultView: UIView, AndesCheckboxView {
     }
 
     override init(frame: CGRect) {
-        config = AndesCheckboxViewConfig()
+        self.config = AndesCheckboxViewConfig()
         self.backgroundLayer = CALayer()
         super.init(frame: frame)
         setup()
     }
 
     required init?(coder: NSCoder) {
-        config = AndesCheckboxViewConfig()
+        self.config = AndesCheckboxViewConfig()
         self.backgroundLayer = CALayer()
         super.init(coder: coder)
         setup()
@@ -52,14 +54,13 @@ class AndesCheckboxDefaultView: UIView, AndesCheckboxView {
 
     init() {
         self.backgroundLayer = CALayer()
-        config = AndesCheckboxViewConfig()
+        self.config = AndesCheckboxViewConfig()
         super.init(frame: .zero)
         setup()
     }
 
     func setup() {
         loadNib()
-        self.backgroundLayer = self.iconView.layer
         self.addSubview(checkboxView)
         checkboxView.pinToSuperview()
         checkboxView.translatesAutoresizingMaskIntoConstraints = false
@@ -72,10 +73,25 @@ class AndesCheckboxDefaultView: UIView, AndesCheckboxView {
         let iconColor: UIColor? = config.iconColor
         self.iconView.backgroundColor = config.backgroundColor
 
+        if config.align == AndesCheckboxAlign.left {
+            self.iconViewRight.isHidden = true
+            self.iconView.isHidden = false
+            self.backgroundLayer = self.iconView.layer
+        } else {
+            self.iconViewRight.isHidden = false
+            self.iconView.isHidden = true
+            self.backgroundLayer = self.iconViewRight.layer
+        }
+
         if let currentIcon = checkboxIcon, !currentIcon.isEmpty {
-            AndesIconsProvider.loadIcon(name: currentIcon, placeItInto: self.iconView)
-            if let currentIconcCurrentColor = iconColor {
-                self.iconView.tintColor = currentIconcCurrentColor
+            if let currentIconColor = iconColor {
+                if self.iconView.isHidden == false {
+                    AndesIconsProvider.loadIcon(name: currentIcon, placeItInto: self.iconView)
+                    self.iconView.tintColor = currentIconColor
+                } else {
+                    AndesIconsProvider.loadIcon(name: currentIcon, placeItInto: self.iconViewRight)
+                    self.iconViewRight.tintColor = currentIconColor
+                }
             }
         }
         self.label.setAndesStyle(style: AndesStyleSheetManager.styleSheet.bodyM(color: config.textColor))
@@ -83,9 +99,15 @@ class AndesCheckboxDefaultView: UIView, AndesCheckboxView {
         let borderColor: UIColor? = config.borderColor
         let borderSize: CGFloat? = config.borderSize
         if let currentBorderColor = borderColor, let currentBorderSize = borderSize {
-            self.iconView.layer.borderColor = currentBorderColor.cgColor
-            self.iconView.layer.borderWidth = currentBorderSize
+            if self.iconView.isHidden == false {
+                self.iconView.layer.borderColor = currentBorderColor.cgColor
+                self.iconView.layer.borderWidth = currentBorderSize
+            } else {
+                self.iconViewRight.layer.borderColor = currentBorderColor.cgColor
+                self.iconViewRight.layer.borderWidth = currentBorderSize
+            }
         }
+
     }
 
 }

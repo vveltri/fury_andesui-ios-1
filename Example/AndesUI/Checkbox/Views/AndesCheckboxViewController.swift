@@ -22,9 +22,13 @@ class AndesCheckboxViewController: UIViewController {
         self.stackView.alignment = .fill
         self.stackView.distribution = .fill
 
-        // Idle - Unselected
-        let idleCheckboxView: AndesCheckbox! = AndesCheckbox(type: AndesCheckboxType.idle, align: AndesCheckboxAlign.left, status: AndesCheckboxStatus.unselected, title: "Idle - Unselected")
+        // Idle - Unselected - left
+        let idleCheckboxView: AndesCheckbox! = AndesCheckbox(type: AndesCheckboxType.idle, align: AndesCheckboxAlign.left, status: AndesCheckboxStatus.unselected, title: "Idle - Unselected - left")
         idleCheckboxView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+
+        // Idle - Unselected - right
+        let idleRightCheckboxView: AndesCheckbox! = AndesCheckbox(type: AndesCheckboxType.idle, align: AndesCheckboxAlign.right, status: AndesCheckboxStatus.unselected, title: "Idle - Unselected - right")
+        idleRightCheckboxView.heightAnchor.constraint(equalToConstant: 40).isActive = true
 
         // Idle - Undefined
         let idleUndefinedCheckboxView: AndesCheckbox! = AndesCheckbox(type: AndesCheckboxType.idle, align: AndesCheckboxAlign.left, status: AndesCheckboxStatus.undefined, title: "Idle - Undefined")
@@ -46,7 +50,12 @@ class AndesCheckboxViewController: UIViewController {
         let errorUndefinedCheckboxView: AndesCheckbox! = AndesCheckbox(type: AndesCheckboxType.error, align: AndesCheckboxAlign.left, status: AndesCheckboxStatus.unselected, title: "Error - Unselected")
         errorUndefinedCheckboxView.heightAnchor.constraint(equalToConstant: 40).isActive = true
 
+        // Error - Unselected - right
+        let errorUndefinedRightCheckboxView: AndesCheckbox! = AndesCheckbox(type: AndesCheckboxType.error, align: AndesCheckboxAlign.right, status: AndesCheckboxStatus.unselected, title: "Error - Unselected - right")
+        errorUndefinedRightCheckboxView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+
         stackView.addArrangedSubview(idleCheckboxView)
+        stackView.addArrangedSubview(idleRightCheckboxView)
         stackView.addArrangedSubview(idleUndefinedCheckboxView)
 
         stackView.addArrangedSubview(disabledUnselectedCheckboxView)
@@ -54,6 +63,7 @@ class AndesCheckboxViewController: UIViewController {
         stackView.addArrangedSubview(disabledUndefinedCheckboxView)
 
         stackView.addArrangedSubview(errorUndefinedCheckboxView)
+        stackView.addArrangedSubview(errorUndefinedRightCheckboxView)
     }
 
 }

@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="checkboxView" destination="iN0-l3-epB" id="RqP-aa-y6Y"/>
                 <outlet property="iconView" destination="ALx-Ay-JnA" id="gWC-97-3AJ"/>
+                <outlet property="iconViewRight" destination="cYL-yo-urR" id="9c0-f8-XPw"/>
                 <outlet property="label" destination="vNJ-co-emm" id="p0A-Vg-qRZ"/>
             </connections>
         </placeholder>
@@ -21,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checkbox" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vNJ-co-emm">
-                    <rect key="frame" x="61" y="61" width="206" height="16"/>
+                    <rect key="frame" x="61" y="61" width="73" height="16"/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -33,15 +34,26 @@
                         <constraint firstAttribute="width" constant="16" id="x4n-lQ-xgp"/>
                     </constraints>
                 </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cYL-yo-urR">
+                    <rect key="frame" x="146" y="61" width="16" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="16" id="506-pB-2mR"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="16" id="cwH-3d-xLu"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="cYL-yo-urR" firstAttribute="centerY" secondItem="vNJ-co-emm" secondAttribute="centerY" id="0NE-y6-QnF"/>
+                <constraint firstItem="cYL-yo-urR" firstAttribute="top" secondItem="ALx-Ay-JnA" secondAttribute="top" id="6VQ-CM-PrX"/>
                 <constraint firstItem="vNJ-co-emm" firstAttribute="leading" secondItem="ALx-Ay-JnA" secondAttribute="trailing" constant="12" id="DGG-cw-7rq"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ALx-Ay-JnA" secondAttribute="trailing" constant="318" id="GId-rh-ocg"/>
+                <constraint firstItem="cYL-yo-urR" firstAttribute="bottom" secondItem="ALx-Ay-JnA" secondAttribute="bottom" id="IGX-Oc-NpF"/>
                 <constraint firstItem="ALx-Ay-JnA" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="17" id="JAu-yO-tse"/>
+                <constraint firstItem="cYL-yo-urR" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="17" id="O7V-Ye-xFp"/>
                 <constraint firstItem="ALx-Ay-JnA" firstAttribute="centerY" secondItem="vNJ-co-emm" secondAttribute="centerY" id="QcR-rn-8WG"/>
                 <constraint firstItem="vNJ-co-emm" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="17" id="SiN-bV-Ca4"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="vNJ-co-emm" secondAttribute="trailing" constant="100" id="vhS-Vq-TKn"/>
+                <constraint firstItem="cYL-yo-urR" firstAttribute="leading" secondItem="vNJ-co-emm" secondAttribute="trailing" constant="12" id="qj2-mk-d9R"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
