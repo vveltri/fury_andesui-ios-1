@@ -11,23 +11,13 @@ import AndesUI
 
 class AndesCheckboxViewController: UIViewController {
     @IBOutlet var checkbox: UIView!
+    @IBOutlet var checkboxView: AndesCheckbox!
 
     override func viewDidLoad() {
         self.title = "AndesCheckbox"
-       /* cb1.style = .square
-        cb2.style = .cross
-        cb3.style = .circle
-        cb4.style = .tick
 
-        cb1.borderStyle = .rounded
-        cb2.borderStyle = .square
-        cb3.borderStyle = .roundedSquare(radius: 8)
-        cb4.borderStyle = .roundedSquare(radius: 12)*/
+        checkboxView = AndesCheckbox(type: AndesCheckboxType.idle, align: AndesCheckboxAlign.left, status: AndesCheckboxStatus.selected, title: "Prueba")
 
     }
 
-    @objc func onCheckBoxValueChange(_ sender: CheckBox) {
-
-        print(sender.isChecked)
-    }
 }

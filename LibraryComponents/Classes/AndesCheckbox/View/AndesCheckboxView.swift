@@ -12,7 +12,7 @@ Internal protocol that specifies the behaviour a view must provide to be a valid
 */
 
 internal protocol AndesCheckboxView: UIView {
-    // expose behaviour to AndesMessage common to all Message Views
+    // expose behaviour to AndesCheckbox common to all Andes Views
     var delegate: AndesCheckboxViewDelegate? { get set }
     func update(withConfig config: AndesCheckboxViewConfig)
 

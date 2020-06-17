@@ -77,7 +77,6 @@
 		F830F883249400020043D5AF /* CheckboxRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F830F882249400020043D5AF /* CheckboxRouter.swift */; };
 		F830F885249400760043D5AF /* AndesCheckboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F830F884249400760043D5AF /* AndesCheckboxViewController.swift */; };
 		F830F8872494127C0043D5AF /* AndesCheckboxViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F830F8862494127C0043D5AF /* AndesCheckboxViewController.xib */; };
-		F830F88924941C1C0043D5AF /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = F830F88824941C1C0043D5AF /* Checkbox.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -191,7 +190,6 @@
 		F830F882249400020043D5AF /* CheckboxRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxRouter.swift; sourceTree = "<group>"; };
 		F830F884249400760043D5AF /* AndesCheckboxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndesCheckboxViewController.swift; sourceTree = "<group>"; };
 		F830F8862494127C0043D5AF /* AndesCheckboxViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AndesCheckboxViewController.xib; sourceTree = "<group>"; };
-		F830F88824941C1C0043D5AF /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -574,7 +572,6 @@
 			children = (
 				F830F884249400760043D5AF /* AndesCheckboxViewController.swift */,
 				F830F8862494127C0043D5AF /* AndesCheckboxViewController.xib */,
-				F830F88824941C1C0043D5AF /* Checkbox.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -836,7 +833,6 @@
 				9C9B5A8F23ECEED40007234B /* WhatsNewViewController.swift in Sources */,
 				86A1E3112481E56300B59D1D /* TagObjCViewController.m in Sources */,
 				90530B07242BF9ED005E056A /* BadgesRouter.swift in Sources */,
-				F830F88924941C1C0043D5AF /* Checkbox.swift in Sources */,
 				6A3C9CFD23C692B6007D0C8B /* HomeViewController.swift in Sources */,
 				90F4781F243534F0001CEC90 /* BadgeObjCViewController.m in Sources */,
 				90530B0B242BFAA7005E056A /* AndesBadgeShowcaseViewController.swift in Sources */,

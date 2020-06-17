@@ -19,7 +19,6 @@ class CheckboxAppRouter: NSObject {
 extension CheckboxAppRouter: CheckboxRouter {
     func route(from: UIViewController) {
         view = AndesCheckboxViewController()
-        view.title = "AndesCheckbox"
         from.navigationController?.pushViewController(view, animated: true)
     }
 }

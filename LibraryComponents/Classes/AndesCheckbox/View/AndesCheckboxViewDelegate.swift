@@ -7,6 +7,6 @@
 
 import Foundation
 
-/// Used to route events form internal message views to AndesCheckbox
+/// Used to route events form internal checkbox views to AndesCheckbox
 internal protocol AndesCheckboxViewDelegate: AnyObject {
 }

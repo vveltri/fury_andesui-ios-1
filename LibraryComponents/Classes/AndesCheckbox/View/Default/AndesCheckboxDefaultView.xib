@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AndesCheckboxDefaultView" customModule="AndesUI" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AndesCheckboxDefaultView" customModule="AndesUIResources" customModuleProvider="target">
             <connections>
                 <outlet property="checkboxView" destination="iN0-l3-epB" id="RqP-aa-y6Y"/>
-                <outlet property="icon" destination="cf1-be-0X8" id="Rzz-04-aNd"/>
+                <outlet property="iconView" destination="ALx-Ay-JnA" id="gWC-97-3AJ"/>
                 <outlet property="label" destination="vNJ-co-emm" id="p0A-Vg-qRZ"/>
             </connections>
         </placeholder>
@@ -26,26 +26,26 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cf1-be-0X8">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ALx-Ay-JnA">
                     <rect key="frame" x="29" y="59" width="16" height="16"/>
-                    <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="16" id="GGZ-59-8ux"/>
-                        <constraint firstAttribute="width" constant="16" id="Owk-o3-Ozk"/>
+                        <constraint firstAttribute="height" constant="16" id="iGp-DY-Bsb"/>
+                        <constraint firstAttribute="width" constant="16" id="x4n-lQ-xgp"/>
                     </constraints>
-                </view>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="cf1-be-0X8" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="15" id="1n0-aa-wzh"/>
-                <constraint firstItem="vNJ-co-emm" firstAttribute="leading" secondItem="cf1-be-0X8" secondAttribute="trailing" constant="8" id="3RD-1L-n4e"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="cf1-be-0X8" secondAttribute="bottom" constant="54" id="Hfo-CA-nw4"/>
+                <constraint firstItem="ALx-Ay-JnA" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="29" id="8j0-o0-IqK"/>
+                <constraint firstItem="ALx-Ay-JnA" firstAttribute="width" secondItem="vNJ-co-emm" secondAttribute="height" multiplier="4:5" id="B1W-RX-qH5"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ALx-Ay-JnA" secondAttribute="trailing" constant="322" id="GId-rh-ocg"/>
+                <constraint firstItem="ALx-Ay-JnA" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="15" id="JAu-yO-tse"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="vNJ-co-emm" secondAttribute="trailing" constant="241" id="Uxv-0u-5nK"/>
                 <constraint firstItem="vNJ-co-emm" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="13" id="WfQ-Qh-Uzk"/>
-                <constraint firstItem="cf1-be-0X8" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="29" id="a58-3B-GOh"/>
+                <constraint firstItem="ALx-Ay-JnA" firstAttribute="centerY" secondItem="vNJ-co-emm" secondAttribute="centerY" id="dsK-G1-1DM"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="vNJ-co-emm" secondAttribute="bottom" constant="52" id="sok-uN-aR9"/>
                 <constraint firstItem="vNJ-co-emm" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="53" id="tql-xy-0dX"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="cf1-be-0X8" secondAttribute="trailing" constant="322" id="xao-Ej-E5H"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
