@@ -12,10 +12,13 @@ internal struct AndesCheckboxViewConfig {
 
     var title: String?
     var icon: String?
-    var borderColor: UIColor!
+    var borderColor: UIColor?
     var textColor: UIColor!
+    var iconColor: UIColor?
     var align: AndesCheckboxAlign! = AndesCheckboxAlign.left
     var backgroundColor: UIColor!
+    var cornerRadius: CGFloat!
+    var borderSize: CGFloat?
     var type: AndesCheckboxTypeProtocol! = AndesCheckboxTypeIdle()
     var status: AndesCheckboxStatusProtocol! = AndesCheckboxStatusUnselected()
 
@@ -29,13 +32,19 @@ internal struct AndesCheckboxViewConfig {
         self.status = AndesCheckboxStatusFactory.provide(checkbox.status)
         self.icon = status.icon
         self.type = AndesCheckboxTypeFactory.provide(checkbox.type)
-        self.borderColor = type.borderColor
         self.textColor = type.textColor
-        setupBackgroundColor(for: checkbox)
+        self.cornerRadius = type.cornerRadius
+        self.iconColor = self.type.iconColor
+        setupBackgroundAndBorderColor(for: checkbox)
     }
 
     //Set background based on checkbox status and type
-    private mutating func setupBackgroundColor(for checkbox: AndesCheckbox) {
+    private mutating func setupBackgroundAndBorderColor(for checkbox: AndesCheckbox) {
+        if checkbox.status == AndesCheckboxStatus.unselected {
+            self.borderColor = type.borderColor
+            self.borderSize = type.borderSize
+        }
+
         switch checkbox.type {
         case .idle:
                 self.backgroundColor = self.status.backgroundColor

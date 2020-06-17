@@ -20,15 +20,14 @@
             <rect key="frame" x="0.0" y="0.0" width="367" height="129"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checkbox" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vNJ-co-emm">
-                    <rect key="frame" x="53" y="57" width="73" height="20"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checkbox" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vNJ-co-emm">
+                    <rect key="frame" x="61" y="61" width="206" height="16"/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ALx-Ay-JnA">
-                    <rect key="frame" x="29" y="59" width="16" height="16"/>
-                    <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <rect key="frame" x="33" y="61" width="16" height="16"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="16" id="iGp-DY-Bsb"/>
                         <constraint firstAttribute="width" constant="16" id="x4n-lQ-xgp"/>
@@ -37,15 +36,12 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="ALx-Ay-JnA" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="29" id="8j0-o0-IqK"/>
-                <constraint firstItem="ALx-Ay-JnA" firstAttribute="width" secondItem="vNJ-co-emm" secondAttribute="height" multiplier="4:5" id="B1W-RX-qH5"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ALx-Ay-JnA" secondAttribute="trailing" constant="322" id="GId-rh-ocg"/>
-                <constraint firstItem="ALx-Ay-JnA" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="15" id="JAu-yO-tse"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="vNJ-co-emm" secondAttribute="trailing" constant="241" id="Uxv-0u-5nK"/>
-                <constraint firstItem="vNJ-co-emm" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="13" id="WfQ-Qh-Uzk"/>
-                <constraint firstItem="ALx-Ay-JnA" firstAttribute="centerY" secondItem="vNJ-co-emm" secondAttribute="centerY" id="dsK-G1-1DM"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="vNJ-co-emm" secondAttribute="bottom" constant="52" id="sok-uN-aR9"/>
-                <constraint firstItem="vNJ-co-emm" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="53" id="tql-xy-0dX"/>
+                <constraint firstItem="vNJ-co-emm" firstAttribute="leading" secondItem="ALx-Ay-JnA" secondAttribute="trailing" constant="12" id="DGG-cw-7rq"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ALx-Ay-JnA" secondAttribute="trailing" constant="318" id="GId-rh-ocg"/>
+                <constraint firstItem="ALx-Ay-JnA" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="17" id="JAu-yO-tse"/>
+                <constraint firstItem="ALx-Ay-JnA" firstAttribute="centerY" secondItem="vNJ-co-emm" secondAttribute="centerY" id="QcR-rn-8WG"/>
+                <constraint firstItem="vNJ-co-emm" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="17" id="SiN-bV-Ca4"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="vNJ-co-emm" secondAttribute="trailing" constant="100" id="vhS-Vq-TKn"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

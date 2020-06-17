@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AndesCheckboxViewController" customModule="AndesUI_DemoApp" customModuleProvider="target">
             <connections>
                 <outlet property="checkbox" destination="iN0-l3-epB" id="UfZ-ow-MMX"/>
+                <outlet property="stackView" destination="SLo-fI-Jee" id="hwN-kg-YDN"/>
                 <outlet property="view" destination="iN0-l3-epB" id="i0B-g9-nqi"/>
             </connections>
         </placeholder>
@@ -19,14 +20,16 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="128" translatesAutoresizingMaskIntoConstraints="NO" id="SSI-Jy-D03" customClass="AndesCheckbox" customModule="AndesUI">
-                    <rect key="frame" x="87" y="389" width="240" height="128"/>
-                </view>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="SLo-fI-Jee">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                </stackView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="SSI-Jy-D03" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="r1w-ZT-oZn"/>
-                <constraint firstItem="SSI-Jy-D03" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="t1U-sy-cPj"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="SLo-fI-Jee" secondAttribute="trailing" id="3BB-Ar-Uc7"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="SLo-fI-Jee" secondAttribute="bottom" id="CQe-1X-z7y"/>
+                <constraint firstItem="SLo-fI-Jee" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Ocj-PP-Uyq"/>
+                <constraint firstItem="SLo-fI-Jee" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="oVq-qd-bG8"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="137.68115942028987" y="117.85714285714285"/>

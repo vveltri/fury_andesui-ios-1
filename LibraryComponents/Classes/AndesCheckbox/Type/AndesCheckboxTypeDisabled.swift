@@ -11,4 +11,7 @@ class AndesCheckboxTypeDisabled: AndesCheckboxTypeProtocol {
     var borderColor: UIColor = UIColor.Andes.gray100
     var textColor: UIColor = UIColor.Andes.gray250
     var backgroundColor: UIColor = UIColor.Andes.gray100
+    var iconColor: UIColor? = UIColor.Andes.gray250
+    var cornerRadius: CGFloat = 3
+    var borderSize: CGFloat = 2
 }

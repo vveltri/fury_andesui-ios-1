@@ -65,11 +65,15 @@ import UIKit
         contentView = AndesCheckboxDefaultView(withConfig: config)
         self.addSubview(contentView)
         contentView.pinToSuperview()
-        //contentView.delegate = self
+        contentView.delegate = self
     }
 
     private func updateContentView() {
         let config = AndesCheckboxViewConfig(for: self)
         contentView.update(withConfig: config)
     }
+}
+
+extension AndesCheckbox: AndesCheckboxViewDelegate {
+
 }
