@@ -38,10 +38,10 @@ import UIKit
             self.updateContentView()
         }
     }
-    
+
     /// Callback invoked when dismiss button is tapped
     internal var didTapped: ((AndesCheckbox) -> Void)?
-    
+
     /// Set dismiss callback to be invoked when dismiss button is pressed
     @objc public func setCheckboxTapped(callback: @escaping ((AndesCheckbox) -> Void)) {
         self.didTapped = callback
@@ -92,9 +92,9 @@ extension AndesCheckbox: AndesCheckboxViewDelegate {
             self.type = AndesCheckboxType.idle
             self.status = AndesCheckboxStatus.selected
         case .idle:
-            if(self.status == AndesCheckboxStatus.selected){
+            if self.status == AndesCheckboxStatus.selected {
                 self.status = AndesCheckboxStatus.unselected
-            } else if (self.status == AndesCheckboxStatus.unselected ||                   self.status == AndesCheckboxStatus.undefined){
+            } else if self.status == AndesCheckboxStatus.unselected ||                   self.status == AndesCheckboxStatus.undefined {
                 self.status = AndesCheckboxStatus.selected
             }
         case .disabled:
@@ -103,5 +103,38 @@ extension AndesCheckbox: AndesCheckboxViewDelegate {
         }
         setup()
         callback(self)
+    }
+}
+
+// MARK: - IB interface
+public extension AndesCheckbox {
+    @available(*, unavailable, message: "This property is reserved for Interface Builder. Use 'type' instead.")
+    @IBInspectable var ibType: String {
+        set(val) {
+            self.type = AndesCheckboxType.checkValidEnum(property: "IB type", key: val)
+        }
+        get {
+            return self.type.toString()
+        }
+    }
+
+    @available(*, unavailable, message: "This property is reserved for Interface Builder. Use 'status' instead.")
+    @IBInspectable var ibStatus: String {
+        set(val) {
+            self.status = AndesCheckboxStatus.checkValidEnum(property: "IB status", key: val)
+        }
+        get {
+            return self.status.toString()
+        }
+    }
+
+    @available(*, unavailable, message: "This property is reserved for Interface Builder. Use 'align' instead.")
+    @IBInspectable var ibAlign: String {
+        set(val) {
+            self.align = AndesCheckboxAlign.checkValidEnum(property: "IB align", key: val)
+        }
+        get {
+            return self.align.toString()
+        }
     }
 }

@@ -11,6 +11,7 @@ import AndesUI
 
 class AndesCheckboxViewController: UIViewController {
     @IBOutlet var checkbox: UIView!
+    @IBOutlet weak var idleCheckboxView: AndesCheckbox!
 
     @IBOutlet weak var stackView: UIStackView!
 
@@ -21,6 +22,8 @@ class AndesCheckboxViewController: UIViewController {
         self.stackView.axis = .vertical
         self.stackView.alignment = .center
         self.stackView.distribution = .equalCentering
+
+        self.idleCheckboxView.setCheckboxTapped(callback: didTapIdle(checkbox:))
 
         // Idle - Unselected - left
         let idleCheckboxView: AndesCheckbox! = AndesCheckbox(type: AndesCheckboxType.idle, align: AndesCheckboxAlign.left, status: AndesCheckboxStatus.unselected, title: "Idle - Unselected - left")
