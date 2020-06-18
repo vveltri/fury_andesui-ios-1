@@ -378,7 +378,44 @@ class AndesTextFieldTests: QuickSpec {
                     expect(delegate.didTapRightAction).toEventually(beTrue())
                 }
             }
+            context("AndesTextField keyboard management") {
+                it("responds to isFirstResponder") {
+                    //Given
+                    let window = UIWindow()
+                    window.addSubview(self.textInputView)
 
+                    //When
+                    self.internalView.fieldView.becomeFirstResponder()
+
+                    //Then
+                    expect(self.textInputView.isFirstResponder).to(beTrue())
+                }
+
+                it("responds to becomeFirstResponder") {
+                    //Given
+                    let window = UIWindow()
+                    window.addSubview(self.textInputView)
+
+                    //When
+                    _ = self.textInputView.becomeFirstResponder()
+
+                    //Then
+                    expect(self.textInputView.isFirstResponder).to(beTrue())
+                }
+
+                it("responds to resignFirstResponder") {
+                    //Given
+                    let window = UIWindow()
+                    window.addSubview(self.textInputView)
+                    _ = self.textInputView.becomeFirstResponder()
+
+                    //When
+                    _ = self.textInputView.resignFirstResponder()
+
+                    //Then
+                    expect(self.textInputView.isFirstResponder).to(beFalse())
+                }
+            }
         }
     }
 }

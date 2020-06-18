@@ -1,8 +1,9 @@
 ## Unpublished
+### 🛠 Bug fixes
+- TextField, TextArea: listen to resign and becomeFirstResponder | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
 
 ### 🦮 Accessibility
-
-- Actions with accessibilty labels localized. 
+- Actions with accessibilty labels localized. | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
 
 ## 3.3.0
 
