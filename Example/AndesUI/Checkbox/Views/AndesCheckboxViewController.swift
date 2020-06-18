@@ -19,40 +19,42 @@ class AndesCheckboxViewController: UIViewController {
         self.checkbox.addSubview(stackView)
 
         self.stackView.axis = .vertical
-        self.stackView.alignment = .fill
-        self.stackView.distribution = .fill
+        self.stackView.alignment = .center
+        self.stackView.distribution = .equalCentering
 
         // Idle - Unselected - left
         let idleCheckboxView: AndesCheckbox! = AndesCheckbox(type: AndesCheckboxType.idle, align: AndesCheckboxAlign.left, status: AndesCheckboxStatus.unselected, title: "Idle - Unselected - left")
-        idleCheckboxView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+
+        idleCheckboxView.setCheckboxTapped(callback: didTapIdle(checkbox:))
 
         // Idle - Unselected - right
         let idleRightCheckboxView: AndesCheckbox! = AndesCheckbox(type: AndesCheckboxType.idle, align: AndesCheckboxAlign.right, status: AndesCheckboxStatus.unselected, title: "Idle - Unselected - right")
-        idleRightCheckboxView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+
+        idleRightCheckboxView.setCheckboxTapped(callback: didTapIdle(checkbox:))
 
         // Idle - Undefined
         let idleUndefinedCheckboxView: AndesCheckbox! = AndesCheckbox(type: AndesCheckboxType.idle, align: AndesCheckboxAlign.left, status: AndesCheckboxStatus.undefined, title: "Idle - Undefined")
-            idleUndefinedCheckboxView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+
+        idleUndefinedCheckboxView.setCheckboxTapped(callback: didTapIdle(checkbox:))
 
         // Disabled - Selected
         let disabledCheckboxView: AndesCheckbox! = AndesCheckbox(type: AndesCheckboxType.disabled, align: AndesCheckboxAlign.left, status: AndesCheckboxStatus.selected, title: "Disabled - Selected")
-        disabledCheckboxView.heightAnchor.constraint(equalToConstant: 40).isActive = true
 
         // Disabled - Unselected
         let disabledUnselectedCheckboxView: AndesCheckbox! = AndesCheckbox(type: AndesCheckboxType.disabled, align: AndesCheckboxAlign.left, status: AndesCheckboxStatus.unselected, title: "Disabled - Unselected")
-        disabledUnselectedCheckboxView.heightAnchor.constraint(equalToConstant: 40).isActive = true
 
         // Disabled - Unselected
         let disabledUndefinedCheckboxView: AndesCheckbox! = AndesCheckbox(type: AndesCheckboxType.disabled, align: AndesCheckboxAlign.left, status: AndesCheckboxStatus.undefined, title: "Disabled - Undefined")
-        disabledUndefinedCheckboxView.heightAnchor.constraint(equalToConstant: 40).isActive = true
 
         // Error - Unselected
         let errorUndefinedCheckboxView: AndesCheckbox! = AndesCheckbox(type: AndesCheckboxType.error, align: AndesCheckboxAlign.left, status: AndesCheckboxStatus.unselected, title: "Error - Unselected")
-        errorUndefinedCheckboxView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+
+        errorUndefinedCheckboxView.setCheckboxTapped(callback: didTapIdle(checkbox:))
 
         // Error - Unselected - right
         let errorUndefinedRightCheckboxView: AndesCheckbox! = AndesCheckbox(type: AndesCheckboxType.error, align: AndesCheckboxAlign.right, status: AndesCheckboxStatus.unselected, title: "Error - Unselected - right")
-        errorUndefinedRightCheckboxView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+
+        errorUndefinedRightCheckboxView.setCheckboxTapped(callback: didTapIdle(checkbox:))
 
         stackView.addArrangedSubview(idleCheckboxView)
         stackView.addArrangedSubview(idleRightCheckboxView)
@@ -66,4 +68,21 @@ class AndesCheckboxViewController: UIViewController {
         stackView.addArrangedSubview(errorUndefinedRightCheckboxView)
     }
 
+    func didTapIdle(checkbox: AndesCheckbox) {
+        var alert: UIAlertController = UIAlertController()
+        switch checkbox.type {
+        case .idle:
+            if checkbox.status == AndesCheckboxStatus.undefined {
+                alert = UIAlertController(title: "AndesUI Checkbox", message: "Checkbox idle undefined pressed", preferredStyle: .alert)
+            } else {
+                alert = UIAlertController(title: "AndesUI Checkbox", message: "Checkbox idle pressed", preferredStyle: .alert)
+            }
+        case .disabled:
+            return
+        case .error:
+            alert = UIAlertController(title: "AndesUI Checkbox", message: "Checkbox error pressed", preferredStyle: .alert)
+        }
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
 }

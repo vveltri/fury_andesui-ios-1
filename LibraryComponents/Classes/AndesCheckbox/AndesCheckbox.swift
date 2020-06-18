@@ -38,6 +38,14 @@ import UIKit
             self.updateContentView()
         }
     }
+    
+    /// Callback invoked when dismiss button is tapped
+    internal var didTapped: ((AndesCheckbox) -> Void)?
+    
+    /// Set dismiss callback to be invoked when dismiss button is pressed
+    @objc public func setCheckboxTapped(callback: @escaping ((AndesCheckbox) -> Void)) {
+        self.didTapped = callback
+    }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -75,5 +83,25 @@ import UIKit
 }
 
 extension AndesCheckbox: AndesCheckboxViewDelegate {
-
+    func checkboxTapped() {
+        guard let callback = self.didTapped else {
+            return
+        }
+        switch self.type {
+        case .error:
+            self.type = AndesCheckboxType.idle
+            self.status = AndesCheckboxStatus.selected
+        case .idle:
+            if(self.status == AndesCheckboxStatus.selected){
+                self.status = AndesCheckboxStatus.unselected
+            } else if (self.status == AndesCheckboxStatus.unselected ||                   self.status == AndesCheckboxStatus.undefined){
+                self.status = AndesCheckboxStatus.selected
+            }
+        case .disabled:
+            //Never happend
+            return
+        }
+        setup()
+        callback(self)
+    }
 }

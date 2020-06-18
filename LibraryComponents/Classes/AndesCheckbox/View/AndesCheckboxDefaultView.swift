@@ -10,9 +10,9 @@ import Foundation
 class AndesCheckboxDefaultView: UIView, AndesCheckboxView {
     @IBOutlet weak var label: UILabel!
 
-    @IBOutlet weak var iconView: UIImageView!
+    @IBOutlet weak var rightButton: UIButton!
 
-    @IBOutlet weak var iconViewRight: UIImageView!
+    @IBOutlet weak var leftButton: UIButton!
 
     @IBOutlet var checkboxView: UIView!
     internal var backgroundLayer: CALayer
@@ -30,6 +30,13 @@ class AndesCheckboxDefaultView: UIView, AndesCheckboxView {
     func update(withConfig config: AndesCheckboxViewConfig) {
         self.config = config
         updateView()
+    }
+    @IBAction func leftButtonTapped(_ sender: Any) {
+        self.delegate?.checkboxTapped()
+    }
+
+    @IBAction func rightButtonTapped(_ sender: Any) {
+        self.delegate?.checkboxTapped()
     }
 
     func loadNib() {
@@ -71,26 +78,32 @@ class AndesCheckboxDefaultView: UIView, AndesCheckboxView {
         self.label.text = config.title
         let checkboxIcon: String? = config.icon
         let iconColor: UIColor? = config.iconColor
-        self.iconView.backgroundColor = config.backgroundColor
 
         if config.align == AndesCheckboxAlign.left {
-            self.iconViewRight.isHidden = true
-            self.iconView.isHidden = false
-            self.backgroundLayer = self.iconView.layer
+            self.rightButton.isHidden = true
+            self.leftButton.isHidden = false
+            self.leftButton.backgroundColor = config.backgroundColor
+            self.backgroundLayer = self.leftButton.layer
         } else {
-            self.iconViewRight.isHidden = false
-            self.iconView.isHidden = true
-            self.backgroundLayer = self.iconViewRight.layer
+            self.rightButton.isHidden = false
+            self.leftButton.isHidden = true
+            self.rightButton.backgroundColor = config.backgroundColor
+            self.backgroundLayer = self.rightButton.layer
+
         }
 
         if let currentIcon = checkboxIcon, !currentIcon.isEmpty {
             if let currentIconColor = iconColor {
-                if self.iconView.isHidden == false {
-                    AndesIconsProvider.loadIcon(name: currentIcon, placeItInto: self.iconView)
-                    self.iconView.tintColor = currentIconColor
+                if self.leftButton.isHidden == false {
+                    AndesIconsProvider.loadIcon(name: currentIcon) {
+                        checkboxIcon in self.leftButton.setImage(checkboxIcon, for: .normal)
+                    }
+                    self.leftButton.tintColor = currentIconColor
                 } else {
-                    AndesIconsProvider.loadIcon(name: currentIcon, placeItInto: self.iconViewRight)
-                    self.iconViewRight.tintColor = currentIconColor
+                    AndesIconsProvider.loadIcon(name: currentIcon) {
+                        checkboxIcon in self.rightButton.setImage(checkboxIcon, for: .normal)
+                    }
+                    self.rightButton.tintColor = currentIconColor
                 }
             }
         }
@@ -99,12 +112,12 @@ class AndesCheckboxDefaultView: UIView, AndesCheckboxView {
         let borderColor: UIColor? = config.borderColor
         let borderSize: CGFloat? = config.borderSize
         if let currentBorderColor = borderColor, let currentBorderSize = borderSize {
-            if self.iconView.isHidden == false {
-                self.iconView.layer.borderColor = currentBorderColor.cgColor
-                self.iconView.layer.borderWidth = currentBorderSize
+            if self.leftButton.isHidden == false {
+                self.leftButton.layer.borderColor = currentBorderColor.cgColor
+                self.leftButton.layer.borderWidth = currentBorderSize
             } else {
-                self.iconViewRight.layer.borderColor = currentBorderColor.cgColor
-                self.iconViewRight.layer.borderWidth = currentBorderSize
+                self.rightButton.layer.borderColor = currentBorderColor.cgColor
+                self.rightButton.layer.borderWidth = currentBorderSize
             }
         }
 

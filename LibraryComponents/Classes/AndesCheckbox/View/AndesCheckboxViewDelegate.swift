@@ -9,6 +9,5 @@ import Foundation
 
 /// Used to route events form internal checkbox views to AndesCheckbox
 internal protocol AndesCheckboxViewDelegate: AnyObject {
-   //func checkboxTapped()
-
+   func checkboxTapped()
 }
