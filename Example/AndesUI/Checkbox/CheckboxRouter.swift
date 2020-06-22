@@ -13,12 +13,12 @@ protocol CheckboxRouter: NSObject {
 }
 
 class CheckboxAppRouter: NSObject {
-    var view: AndesCheckboxViewController!
+    var view: AndesCheckboxShowcaseViewController!
 }
 
 extension CheckboxAppRouter: CheckboxRouter {
     func route(from: UIViewController) {
-        view = AndesCheckboxViewController()
+        view = AndesCheckboxShowcaseViewController()
         from.navigationController?.pushViewController(view, animated: true)
     }
 }

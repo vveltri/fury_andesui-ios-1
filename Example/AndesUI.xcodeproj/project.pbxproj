@@ -77,6 +77,10 @@
 		F830F883249400020043D5AF /* CheckboxRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F830F882249400020043D5AF /* CheckboxRouter.swift */; };
 		F830F885249400760043D5AF /* AndesCheckboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F830F884249400760043D5AF /* AndesCheckboxViewController.swift */; };
 		F830F8872494127C0043D5AF /* AndesCheckboxViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F830F8862494127C0043D5AF /* AndesCheckboxViewController.xib */; };
+		F899354124A0DA98004BC82D /* AndesCheckboxShowcaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F899354024A0DA98004BC82D /* AndesCheckboxShowcaseViewController.swift */; };
+		F899354324A0DADB004BC82D /* AndesCheckboxShowcaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F899354224A0DADB004BC82D /* AndesCheckboxShowcaseViewController.xib */; };
+		F899354524A0EC7B004BC82D /* CheckboxObjCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F899354424A0EC7B004BC82D /* CheckboxObjCViewController.m */; };
+		F899354824A0EE22004BC82D /* CheckboxObjCViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F899354724A0EE22004BC82D /* CheckboxObjCViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -190,6 +194,11 @@
 		F830F882249400020043D5AF /* CheckboxRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxRouter.swift; sourceTree = "<group>"; };
 		F830F884249400760043D5AF /* AndesCheckboxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndesCheckboxViewController.swift; sourceTree = "<group>"; };
 		F830F8862494127C0043D5AF /* AndesCheckboxViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AndesCheckboxViewController.xib; sourceTree = "<group>"; };
+		F899354024A0DA98004BC82D /* AndesCheckboxShowcaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndesCheckboxShowcaseViewController.swift; sourceTree = "<group>"; };
+		F899354224A0DADB004BC82D /* AndesCheckboxShowcaseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AndesCheckboxShowcaseViewController.xib; sourceTree = "<group>"; };
+		F899354424A0EC7B004BC82D /* CheckboxObjCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckboxObjCViewController.m; sourceTree = "<group>"; };
+		F899354724A0EE22004BC82D /* CheckboxObjCViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckboxObjCViewController.xib; sourceTree = "<group>"; };
+		F899354924A0FAD0004BC82D /* CheckboxObjCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheckboxObjCViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -572,6 +581,11 @@
 			children = (
 				F830F884249400760043D5AF /* AndesCheckboxViewController.swift */,
 				F830F8862494127C0043D5AF /* AndesCheckboxViewController.xib */,
+				F899354024A0DA98004BC82D /* AndesCheckboxShowcaseViewController.swift */,
+				F899354224A0DADB004BC82D /* AndesCheckboxShowcaseViewController.xib */,
+				F899354424A0EC7B004BC82D /* CheckboxObjCViewController.m */,
+				F899354724A0EE22004BC82D /* CheckboxObjCViewController.xib */,
+				F899354924A0FAD0004BC82D /* CheckboxObjCViewController.h */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -700,6 +714,7 @@
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				9CA28813244761F200E299C3 /* TextAreaViewController.xib in Resources */,
 				9CE112DD23CE58910017B770 /* MessageViewController.xib in Resources */,
+				F899354824A0EE22004BC82D /* CheckboxObjCViewController.xib in Resources */,
 				9C2FFC6B23EDB1A50016292E /* whats_new.html in Resources */,
 				F830F8872494127C0043D5AF /* AndesCheckboxViewController.xib in Resources */,
 				9C9B5A8823ECB08D0007234B /* Localizable.strings in Resources */,
@@ -708,6 +723,7 @@
 				86A1E3122481E56300B59D1D /* TagObjCViewController.xib in Resources */,
 				9CB172942422518C00B61431 /* AndesShowcasePageViewController.xib in Resources */,
 				6A3C9CFC23C692B6007D0C8B /* HomeViewController.xib in Resources */,
+				F899354324A0DADB004BC82D /* AndesCheckboxShowcaseViewController.xib in Resources */,
 				6D2152F9241C1210001CEA8D /* TextFieldViewController.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 				6A22DCC123C918EA00BBFEA0 /* AndesUIViewController.xib in Resources */,
@@ -823,8 +839,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D2152E9241BCC65001CEA8D /* TextFieldsRouter.swift in Sources */,
+				F899354524A0EC7B004BC82D /* CheckboxObjCViewController.m in Sources */,
 				6D2152EC241BCD0E001CEA8D /* AndesShowcasePageViewController.swift in Sources */,
 				9CA2881124475DE700E299C3 /* TextAreaViewController.swift in Sources */,
+				F899354124A0DA98004BC82D /* AndesCheckboxShowcaseViewController.swift in Sources */,
 				90530B11242BFD15005E056A /* BadgeViewController.swift in Sources */,
 				9CD1071D23EDF3A90081232D /* UIView+Additions.swift in Sources */,
 				57F34E9E2225DE0900454D8B /* AndesUIAppDelegate.swift in Sources */,

@@ -9,14 +9,17 @@
 import UIKit
 import AndesUI
 
-class AndesCheckboxViewController: UIViewController {
+protocol CheckboxView: NSObject {
+
+}
+
+class AndesCheckboxViewController: UIViewController, CheckboxView {
     @IBOutlet var checkbox: UIView!
     @IBOutlet weak var idleCheckboxView: AndesCheckbox!
 
     @IBOutlet weak var stackView: UIStackView!
 
     override func viewDidLoad() {
-        self.title = "AndesCheckbox"
         self.checkbox.addSubview(stackView)
 
         self.stackView.axis = .vertical

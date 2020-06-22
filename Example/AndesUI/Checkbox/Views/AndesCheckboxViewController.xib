@@ -29,9 +29,9 @@
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="string" keyPath="title" value="Idle Visual"/>
-                                <userDefinedRuntimeAttribute type="string" keyPath="ibType" value="disabled"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="ibType" value="idle"/>
                                 <userDefinedRuntimeAttribute type="string" keyPath="ibStatus" value="unselected"/>
-                                <userDefinedRuntimeAttribute type="string" keyPath="ibAlign" value="right"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="ibAlign" value="left"/>
                             </userDefinedRuntimeAttributes>
                         </view>
                     </subviews>
