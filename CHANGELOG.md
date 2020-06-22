@@ -1,21 +1,21 @@
-## Unpublished
+## v3.4.0
 ### 🛠 Bug fixes
 - TextField, TextArea: listen to resign and becomeFirstResponder | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
 
 ### 🦮 Accessibility
 - Actions with accessibilty labels localized. | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
 
-## 3.3.0
+## v3.3.0
 
 ### 🚀 Features
 - AndesTag: Simple variation | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
 
-## 3.2.1
+## v3.2.1
 
 ### 🛠 Bug fixes
 - Duplicated Bundle ID: rename resources bundle to avoid a conflict with bundles generated in CocoaPods | Author: [@Itay Brenner](https://github.com/itaybre)
 
-## 3.2.0
+## v3.2.0
 
 ### 🚀 Features
 - AndesBadge: Dot modifier | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
