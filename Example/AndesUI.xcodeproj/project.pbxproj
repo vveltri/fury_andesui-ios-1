@@ -81,6 +81,7 @@
 		F899354324A0DADB004BC82D /* AndesCheckboxShowcaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F899354224A0DADB004BC82D /* AndesCheckboxShowcaseViewController.xib */; };
 		F899354524A0EC7B004BC82D /* CheckboxObjCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F899354424A0EC7B004BC82D /* CheckboxObjCViewController.m */; };
 		F899354824A0EE22004BC82D /* CheckboxObjCViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F899354724A0EE22004BC82D /* CheckboxObjCViewController.xib */; };
+		F8C93A3A24A272F600ADCE1C /* AndesCheckboxTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C93A3724A272A200ADCE1C /* AndesCheckboxTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -199,6 +200,7 @@
 		F899354424A0EC7B004BC82D /* CheckboxObjCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckboxObjCViewController.m; sourceTree = "<group>"; };
 		F899354724A0EE22004BC82D /* CheckboxObjCViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckboxObjCViewController.xib; sourceTree = "<group>"; };
 		F899354924A0FAD0004BC82D /* CheckboxObjCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheckboxObjCViewController.h; sourceTree = "<group>"; };
+		F8C93A3724A272A200ADCE1C /* AndesCheckboxTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndesCheckboxTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -302,6 +304,7 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				F8C93A3724A272A200ADCE1C /* AndesCheckboxTest.swift */,
 				9C592C082450A6980038785E /* TextFieldTests */,
 				90F4782124363A8F001CEC90 /* AndesBadgeTests.swift */,
 				E615508823D6196C00417B5F /* AndesButtonTests.swift */,
@@ -882,6 +885,7 @@
 				9C592C0B2450A6B70038785E /* AndesTextAreaTests.swift in Sources */,
 				E615508A23D619E300417B5F /* AndesButtonTests.swift in Sources */,
 				9C592C0E2450A6BD0038785E /* AndesEnumStringConvertibleTests.swift in Sources */,
+				F8C93A3A24A272F600ADCE1C /* AndesCheckboxTest.swift in Sources */,
 				6DBB66002436423200FA9581 /* AndesTextFieldTests.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* AndesStyleSheetTests.swift in Sources */,
 				90F4782224363A8F001CEC90 /* AndesBadgeTests.swift in Sources */,
