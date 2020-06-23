@@ -38,6 +38,8 @@ internal class AndesTextFieldClearView: UIView {
             btn.setImage($0, for: .normal)
         }
 
+        btn.accessibilityLabel = "Borrar texto".localized()
+
         btn.tintColor = iconColor
         self.addSubview(btn)
         btn.addTarget(self, action: #selector(self.executeCallback), for: .touchUpInside)

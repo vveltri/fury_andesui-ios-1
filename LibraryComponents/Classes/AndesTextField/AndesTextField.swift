@@ -148,6 +148,21 @@ import UIKit
     }
 }
 
+extension AndesTextField {
+    // MARK: - Keyboard Management
+    @objc public override func resignFirstResponder() -> Bool {
+        contentView.resignFirstResponder()
+    }
+
+    @objc public override func becomeFirstResponder() -> Bool {
+        contentView.becomeFirstResponder()
+    }
+
+    @objc public override var isFirstResponder: Bool {
+        return contentView.isFirstResponder
+    }
+}
+
 extension AndesTextField: AndesTextFieldViewDelegate {
     func shouldBeginEditing() -> Bool {
         return delegate?.andesTextFieldShouldBeginEditing?(self) != false
