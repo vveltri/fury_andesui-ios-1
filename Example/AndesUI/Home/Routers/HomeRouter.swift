@@ -16,6 +16,7 @@ protocol HomeRouter: NSObject {
     func routeToWhatsNew()
     func routeTextField()
     func routeTags()
+    func routeSnackbar()
 }
 
 class HomeAppRouter: NSObject {
@@ -28,6 +29,7 @@ class HomeAppRouter: NSObject {
     let whatsNewRouter = WhatsNewAppRouter()
     let textFieldRouter = TextFieldsAppRouter()
     let tagRouter = TagsAppRouter()
+    let snackbarRouter = SnackbarAppRouter()
 }
 
 extension HomeAppRouter: HomeRouter {
@@ -64,5 +66,9 @@ extension HomeAppRouter: HomeRouter {
 
     func routeTags() {
         tagRouter.route(from: view)
+    }
+
+    func routeSnackbar() {
+        snackbarRouter.route(from: view)
     }
 }

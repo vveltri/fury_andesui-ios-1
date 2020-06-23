@@ -15,6 +15,7 @@
                 <outlet property="contributingButton" destination="U75-6J-iuH" id="zA5-oc-yCo"/>
                 <outlet property="messagesBtn" destination="iA2-9b-o7k" id="hLz-sQ-2WS"/>
                 <outlet property="showcaseLabel" destination="wKp-SJ-Z6a" id="uvh-3g-Yns"/>
+                <outlet property="snackbarBtn" destination="eek-t9-Hwx" id="uNJ-EC-O2x"/>
                 <outlet property="specsButton" destination="wv9-5A-3H3" id="u7J-p4-SIQ"/>
                 <outlet property="stackView" destination="A0L-IL-kVl" id="l80-Ai-htC"/>
                 <outlet property="tagBtn" destination="6KW-tw-Wm7" id="3Zk-TD-HqS"/>
@@ -32,7 +33,7 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ylf-cA-m4U">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="614"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="662"/>
                             <subviews>
                                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="382" placeholderIntrinsicHeight="128" translatesAutoresizingMaskIntoConstraints="NO" id="TeE-fb-BDr" customClass="AndesMessage" customModule="AndesUI">
                                     <rect key="frame" x="16" y="16" width="382" height="128"/>
@@ -43,13 +44,13 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="More" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mHc-S7-NqP">
-                                    <rect key="frame" x="16" y="470" width="35.5" height="18"/>
+                                    <rect key="frame" x="16" y="518" width="35.5" height="18"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="wv9-5A-3H3" customClass="AndesButton" customModule="AndesUI">
-                                    <rect key="frame" x="16" y="504" width="382" height="40"/>
+                                    <rect key="frame" x="16" y="552" width="382" height="40"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="string" keyPath="text" value="Andes Specs"/>
@@ -61,7 +62,7 @@
                                     </connections>
                                 </view>
                                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="U75-6J-iuH" userLabel="Contributing Button" customClass="AndesButton" customModule="AndesUI">
-                                    <rect key="frame" x="16" y="554" width="382" height="40"/>
+                                    <rect key="frame" x="16" y="602" width="382" height="40"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="string" keyPath="ibHierarchy" value="quiet"/>
@@ -71,7 +72,7 @@
                                     </connections>
                                 </view>
                                 <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="250" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="A0L-IL-kVl">
-                                    <rect key="frame" x="16" y="208" width="382" height="232"/>
+                                    <rect key="frame" x="16" y="208" width="382" height="280"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="pzX-2Z-8ZP" customClass="AndesButton" customModule="AndesUI">
                                             <rect key="frame" x="0.0" y="0.0" width="382" height="40"/>
@@ -123,7 +124,7 @@
                                         <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="9Bv-gW-s5F" customClass="AndesButton" customModule="AndesUI">
                                             <rect key="frame" x="0.0" y="192" width="382" height="40"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <accessibility key="accessibilityConfiguration" identifier="andesTag" label="Badges showcase"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="andesTag" label="Tag showcase"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="string" keyPath="text" value="Andes Tag"/>
                                                 <userDefinedRuntimeAttribute type="string" keyPath="ibSize" value="Large"/>
@@ -132,10 +133,24 @@
                                                 <action selector="tagBtnTapped:" destination="-1" eventType="touchUpInside" id="Yg6-ek-I1h"/>
                                             </connections>
                                         </view>
+                                        <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="eek-t9-Hwx" customClass="AndesButton" customModule="AndesUI">
+                                            <rect key="frame" x="0.0" y="240" width="382" height="40"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="andesSnackbar" label="Snackbar showcases"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="text" value="Andes Snackbar"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="ibSize" value="Large"/>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="snackbarBtnTapped:" destination="-1" eventType="touchUpInside" id="E6y-h5-MfU"/>
+                                            </connections>
+                                        </view>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="eek-t9-Hwx" firstAttribute="trailing" secondItem="9Bv-gW-s5F" secondAttribute="trailing" id="HBs-Rs-U3Y"/>
                                         <constraint firstItem="iA2-9b-o7k" firstAttribute="leading" secondItem="pzX-2Z-8ZP" secondAttribute="leading" id="KUL-h4-mtz"/>
                                         <constraint firstItem="6KW-tw-Wm7" firstAttribute="trailing" secondItem="iA2-9b-o7k" secondAttribute="trailing" id="TK3-J5-Z4t"/>
+                                        <constraint firstItem="eek-t9-Hwx" firstAttribute="leading" secondItem="9Bv-gW-s5F" secondAttribute="leading" id="eTY-JI-CLj"/>
                                         <constraint firstItem="6KW-tw-Wm7" firstAttribute="leading" secondItem="iA2-9b-o7k" secondAttribute="leading" id="iDI-vo-dFa"/>
                                         <constraint firstItem="iA2-9b-o7k" firstAttribute="trailing" secondItem="pzX-2Z-8ZP" secondAttribute="trailing" id="k3u-A8-eQR"/>
                                         <constraint firstItem="9Hm-nl-pHd" firstAttribute="leading" secondItem="A0L-IL-kVl" secondAttribute="leading" id="rUP-UK-uIP"/>
