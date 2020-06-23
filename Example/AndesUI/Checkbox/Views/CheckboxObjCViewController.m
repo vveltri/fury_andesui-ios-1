@@ -62,27 +62,51 @@
     {
     //LEFT
     AndesCheckbox* selectedStack =[[AndesCheckbox alloc] initWithType:(AndesCheckboxTypeIdle) align:(AndesCheckboxAlignLeft) status:(AndesCheckboxStatusSelected) title:(@"Idle Selected")];
-
-    [stackView addArrangedSubview:selectedStack];
     
+    [selectedStack setCheckboxTappedWithCallback:^(AndesCheckbox * selectedStack) {
+        [self didTap:selectedStack];
+    }];
+        
+    [stackView addArrangedSubview:selectedStack];
+
     AndesCheckbox* unselectedStack =[[AndesCheckbox alloc] initWithType:(AndesCheckboxTypeIdle) align:(AndesCheckboxAlignLeft) status:(AndesCheckboxStatusUnselected) title:(@"Idle Unselected")];
+    
+    [unselectedStack setCheckboxTappedWithCallback:^(AndesCheckbox * unselectedStack) {
+        [self didTap:unselectedStack];
+    }];
     
     [stackView addArrangedSubview:unselectedStack];
 
     AndesCheckbox* undefinedStack =[[AndesCheckbox alloc] initWithType:(AndesCheckboxTypeIdle) align:(AndesCheckboxAlignLeft) status:(AndesCheckboxStatusUndefined) title:(@"Idle Undefined")];
     
+    [undefinedStack setCheckboxTappedWithCallback:^(AndesCheckbox * undefinedStack) {
+        [self didTap:undefinedStack];
+    }];
+        
     [stackView addArrangedSubview:undefinedStack];
     
     //RIGHT
     AndesCheckbox* selectedRightStack =[[AndesCheckbox alloc] initWithType:(AndesCheckboxTypeIdle) align:(AndesCheckboxAlignRight) status:(AndesCheckboxStatusSelected) title:(@"Idle Selected")];
     
+    [selectedRightStack setCheckboxTappedWithCallback:^(AndesCheckbox * selectedRightStack) {
+        [self didTap:selectedRightStack];
+    }];
+        
     [stackView addArrangedSubview:selectedRightStack];
         
     AndesCheckbox* unselectedRightStack =[[AndesCheckbox alloc] initWithType:(AndesCheckboxTypeIdle) align:(AndesCheckboxAlignRight) status:(AndesCheckboxStatusUnselected) title:(@"Idle Unselected")];
         
+    [unselectedRightStack setCheckboxTappedWithCallback:^(AndesCheckbox * unselectedRightStack) {
+        [self didTap:unselectedRightStack];
+    }];
+        
     [stackView addArrangedSubview:unselectedRightStack];
 
     AndesCheckbox* undefinedRightStack =[[AndesCheckbox alloc] initWithType:(AndesCheckboxTypeIdle) align:(AndesCheckboxAlignRight) status:(AndesCheckboxStatusUndefined) title:(@"Idle Undefined")];
+        
+    [undefinedRightStack setCheckboxTappedWithCallback:^(AndesCheckbox * undefinedRightStack) {
+        [self didTap:undefinedRightStack];
+    }];
         
     [stackView addArrangedSubview:undefinedRightStack];
     
@@ -115,11 +139,45 @@
     //ERROR
     AndesCheckbox* unselectedErrorStack =[[AndesCheckbox alloc] initWithType:(AndesCheckboxTypeError) align:(AndesCheckboxAlignLeft) status:(AndesCheckboxStatusUnselected) title:(@"Error Unselected")];
     
+    [unselectedErrorStack setCheckboxTappedWithCallback:^(AndesCheckbox * unselectedErrorStack) {
+        [self didTap:unselectedErrorStack];
+    }];
+    
     [stackView addArrangedSubview:unselectedErrorStack];
     
     AndesCheckbox* unselectedErrorRightStack =[[AndesCheckbox alloc] initWithType:(AndesCheckboxTypeError) align:(AndesCheckboxAlignRight) status:(AndesCheckboxStatusUnselected) title:(@"Error Unselected")];
     
+    [unselectedErrorRightStack setCheckboxTappedWithCallback:^(AndesCheckbox * unselectedErrorRightStack) {
+        [self didTap:unselectedErrorRightStack];
+    }];
+    
     [stackView addArrangedSubview:unselectedErrorRightStack];
 }
 
+- (void) didTap: (AndesCheckbox*) checkbox {
+    UIAlertController *alert = [[UIAlertController alloc] init];
+    switch (checkbox.type) {
+    case AndesCheckboxTypeIdle:
+        if (checkbox.status == AndesCheckboxStatusUndefined) {
+            alert = [UIAlertController alertControllerWithTitle:@"AndesUI Checkbox"
+            message:@"Checkbox idle undefined pressed"
+            preferredStyle:UIAlertControllerStyleAlert];
+        } else {
+            alert = [UIAlertController alertControllerWithTitle:@"AndesUI Checkbox"
+            message:@"Checkbox idle pressed"
+            preferredStyle:UIAlertControllerStyleAlert];
+        }
+    case AndesCheckboxTypeDisabled:
+            break;
+    case AndesCheckboxTypeError:
+        alert = [UIAlertController alertControllerWithTitle:@"AndesUI Checkbox"
+           message:@"Checkbox error pressed"
+           preferredStyle:UIAlertControllerStyleAlert];
+        break;
+    }
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                   handler:^(UIAlertAction * action) {}];
+    [alert addAction:defaultAction];
+    [self presentViewController:alert animated:YES completion:nil];
+}
 @end
