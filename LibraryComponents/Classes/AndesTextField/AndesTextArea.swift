@@ -156,6 +156,15 @@ extension AndesTextArea {
     @objc public override var isFirstResponder: Bool {
         return contentView.isFirstResponder
     }
+
+    @objc override public var inputView: UIView? {
+        get {
+            return contentView.customInputView
+        }
+        set {
+            contentView.customInputView = newValue
+        }
+    }
 }
 
 extension AndesTextArea: AndesTextFieldViewDelegate {

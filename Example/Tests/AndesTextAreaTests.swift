@@ -256,6 +256,17 @@ class AndesTextAreaTests: QuickSpec {
                     //Then
                     expect(self.internalView.textView.keyboardType).to(equal(.emailAddress))
                 }
+
+                it("can set custom input view") {
+                    //given
+                    let picker = UIPickerView()
+
+                    //When
+                    self.textInputView.inputView = picker
+
+                    //Then
+                    expect(self.internalView?.textView.inputView).to(beAKindOf(UIPickerView.self))
+                }
             }
 
             context("AndesTextArea delegate tests") {

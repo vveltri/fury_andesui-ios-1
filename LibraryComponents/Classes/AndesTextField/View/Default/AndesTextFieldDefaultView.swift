@@ -23,6 +23,15 @@ class AndesTextFieldDefaultView: AndesTextFieldAbstractView {
         }
     }
 
+    override var customInputView: UIView? {
+        get {
+            return textField.inputView
+        }
+        set (value) {
+            textField.inputView = value
+        }
+    }
+
     var currentVisibilities: [AndesTextFieldComponentVisibility] {
         return self.text.isEmpty ? [.always] : [.always, .whenNotEmpty]
     }
@@ -114,6 +123,10 @@ extension AndesTextFieldAbstractView: UITextFieldDelegate {
 
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         return delegate?.shouldBeginEditing() != false
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return delegate?.shouldReturn() != false
     }
 
     func textFieldDidChangeSelection(_ textField: UITextField) {
