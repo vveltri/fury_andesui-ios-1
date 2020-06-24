@@ -10,7 +10,7 @@ import Foundation
 /// This manager is in charge of show, dismiss and queue all the `AndesSnackbar`shown in the app
 class AndesSnackbarManager {
 
-    static let sharedInstance = AndesSnackbarManager()
+    static let shared = AndesSnackbarManager()
 
     var snackbarsQueue: [AndesSnackbar] = []
 

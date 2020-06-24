@@ -41,6 +41,20 @@ class AndesSnackbarView: UIView, AndesSnackbarViewProtocol {
         let bundle = AndesBundle.bundle()
         bundle.loadNibNamed("AndesSnackbarView", owner: self, options: nil)
     }
+    
+    func setup() {
+        loadNib()
+        translatesAutoresizingMaskIntoConstraints = false
+        pinXibViewToSelf()
+        initializeView()
+        updateView()
+    }
+    
+    func initializeView() {
+        self.layer.cornerRadius = 6.0
+        self.snackbarTextLabel.textColor = UIColor.Andes.white
+        self.snackbarTextLabel.font = AndesStyleSheetManager.styleSheet.regularSystemFont(size: 14.0)
+    }
 
     func updateButtonsLayout() {
         let height = self.snackbarTextLabel.text?.height(withConstrainedWidth: self.snackbarTextLabel.frame.size.width, font: self.snackbarTextLabel.font)
@@ -85,20 +99,6 @@ class AndesSnackbarView: UIView, AndesSnackbarViewProtocol {
         trailingAnchor.constraint(equalTo: snackbarView.trailingAnchor).isActive = true
         topAnchor.constraint(equalTo: snackbarView.topAnchor).isActive = true
         bottomAnchor.constraint(equalTo: snackbarView.bottomAnchor).isActive = true
-    }
-
-    func setup() {
-        loadNib()
-        translatesAutoresizingMaskIntoConstraints = false
-        pinXibViewToSelf()
-        initializeView()
-        updateView()
-    }
-
-    func initializeView() {
-        self.layer.cornerRadius = 6.0
-        self.snackbarTextLabel.textColor = UIColor.Andes.white
-        self.snackbarTextLabel.font = AndesStyleSheetManager.styleSheet.regularSystemFont(size: 14.0)
     }
 
     func updateView() {

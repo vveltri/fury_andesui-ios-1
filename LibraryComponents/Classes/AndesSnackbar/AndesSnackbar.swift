@@ -45,8 +45,7 @@ import Foundation
 
     /// Show the Snackbar at the top view controller.
     public func show() {
-        let manager = AndesSnackbarManager.sharedInstance
-        manager.show(snackbar: self)
+        AndesSnackbarManager.shared.show(snackbar: self)
     }
 
     /// Margin between superview and the Snackbar when is shown
@@ -56,8 +55,13 @@ import Foundation
     /// If there is an action and the button is tapped, this timer is invalidated and the snackbar dismissed.
     internal weak var timer: Timer?
 
+    /// External left constraint to superview margin
     internal var leftMarginConstraint: NSLayoutConstraint?
+
+    /// External right constraint to superview margin
     internal var rightMarginConstraint: NSLayoutConstraint?
+
+    /// External bottom constraint to superview margin, modified to animate the snackbar appearance
     internal var bottomMarginConstraint: NSLayoutConstraint?
 
     public required init?(coder: NSCoder) {
@@ -119,7 +123,12 @@ import Foundation
         return AndesSnackbarView(withConfig: config)
     }
 
+    /// Internal method to update the action button position acording to its content
     internal func updateButtonsLayout() {
+        guard self.action != nil else {
+            return
+        }
+
         self.contentView.updateButtonsLayout()
     }
 }
@@ -130,7 +139,6 @@ extension AndesSnackbar: AndesSnackbarViewDelegate {
         self.action?.callback()
 
         // Dismiss the snackbar animated
-        let manager = AndesSnackbarManager.sharedInstance
-        manager.dismissSnackbarAnimated(snackbar: self)
+        AndesSnackbarManager.shared.dismissSnackbarAnimated(snackbar: self)
     }
 }
