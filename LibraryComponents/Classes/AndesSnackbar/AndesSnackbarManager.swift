@@ -53,7 +53,7 @@ class AndesSnackbarManager {
 
         snackbar.bottomMarginConstraint = NSLayoutConstraint.init(
             item: snackbar, attribute: .bottom, relatedBy: .equal,
-            toItem: relativeToItem, attribute: .bottom, multiplier: 1, constant: snackbar.frame.height + bottomInset)
+            toItem: relativeToItem, attribute: .bottom, multiplier: 1, constant: snackbar.frame.height + 50 + bottomInset)
 
         superView.addConstraint(snackbar.leftMarginConstraint!)
         superView.addConstraint(snackbar.rightMarginConstraint!)

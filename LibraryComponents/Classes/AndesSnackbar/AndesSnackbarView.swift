@@ -15,10 +15,9 @@ class AndesSnackbarView: UIView, AndesSnackbarViewProtocol {
     @IBOutlet weak var snackbarView: UIView!
     @IBOutlet weak var snackbarTextLabel: UILabel!
     @IBOutlet weak var snackbarActionButton: AndesButton!
-    @IBOutlet weak var snackbarBottomActionButton: AndesButton!
 
-    var rightButtonWidthConstraint: NSLayoutConstraint?
-    var bottomButtonHeightConstraint: NSLayoutConstraint?
+    @IBOutlet var buttonOnTrailingConstraints: [NSLayoutConstraint]!
+    @IBOutlet var buttonOnBottomLeadingConstraints: [NSLayoutConstraint]!
 
     override init(frame: CGRect) {
         config = AndesSnackbarViewConfig()
@@ -48,11 +47,29 @@ class AndesSnackbarView: UIView, AndesSnackbarViewProtocol {
         let lineCount = Int((height ?? 0) / self.snackbarTextLabel.font.lineHeight)
 
         if lineCount > 1 {
-            self.rightButtonWidthConstraint?.isActive = true
-            self.bottomButtonHeightConstraint?.isActive = false
+            layoutButtonOnSnackbarBottomLeading()
         } else {
-            self.rightButtonWidthConstraint?.isActive = false
-            self.bottomButtonHeightConstraint?.isActive = true
+            layoutButtonOnSnackbarTrailing()
+        }
+
+        self.layoutIfNeeded()
+    }
+
+    func layoutButtonOnSnackbarTrailing() {
+        for constraint in self.buttonOnBottomLeadingConstraints {
+            constraint.priority = .defaultLow
+        }
+        for constraint in self.buttonOnTrailingConstraints {
+            constraint.priority = .defaultHigh
+        }
+    }
+
+    func layoutButtonOnSnackbarBottomLeading() {
+        for constraint in self.buttonOnTrailingConstraints {
+            constraint.priority = .defaultLow
+        }
+        for constraint in self.buttonOnBottomLeadingConstraints {
+            constraint.priority = .defaultHigh
         }
     }
 
@@ -82,8 +99,6 @@ class AndesSnackbarView: UIView, AndesSnackbarViewProtocol {
         self.layer.cornerRadius = 6.0
         self.snackbarTextLabel.textColor = UIColor.Andes.white
         self.snackbarTextLabel.font = AndesStyleSheetManager.styleSheet.regularSystemFont(size: 14.0)
-        self.rightButtonWidthConstraint = self.snackbarActionButton.widthAnchor.constraint(equalToConstant: 0.0)
-        self.bottomButtonHeightConstraint = self.snackbarBottomActionButton.heightAnchor.constraint(equalToConstant: 0.0)
     }
 
     func updateView() {
@@ -93,7 +108,6 @@ class AndesSnackbarView: UIView, AndesSnackbarViewProtocol {
 
         if let actionConfig = config.actionConfig {
             self.snackbarActionButton.updateWithCustomConfig(actionConfig)
-            self.snackbarBottomActionButton.updateWithCustomConfig(actionConfig)
         }
     }
 
