@@ -40,4 +40,9 @@ import Foundation
     /// Called on action button touched up
     /// - Parameter textField: the textfield that's triggering the event
     @objc optional func andesTextFieldDidTapRightAction(_ textField: AndesTextField)
+
+    /// Asks the delegate if the text field should process the pressing of the return button.
+    /// - Parameter textField: the textfield that's triggering the event
+    @objc optional func andesTextFieldShouldReturn(_ textField: AndesTextField) -> Bool
+
 }

@@ -256,6 +256,17 @@ class AndesTextAreaTests: QuickSpec {
                     //Then
                     expect(self.internalView.textView.keyboardType).to(equal(.emailAddress))
                 }
+
+                it("can set custom input view") {
+                    //given
+                    let picker = UIPickerView()
+
+                    //When
+                    self.textInputView.inputView = picker
+
+                    //Then
+                    expect(self.internalView?.textView.inputView).to(beAKindOf(UIPickerView.self))
+                }
             }
 
             context("AndesTextArea delegate tests") {
@@ -356,6 +367,45 @@ class AndesTextAreaTests: QuickSpec {
 
                     //Then
                     expect(delegate.didChangeCalled).toEventually(beTrue())
+                }
+            }
+
+            context("AndesTextArea keyboard management") {
+                it("responds to isFirstResponder") {
+                    //Given
+                    let window = UIWindow()
+                    window.addSubview(self.textInputView)
+
+                    //When
+                    self.internalView.fieldView.becomeFirstResponder()
+
+                    //Then
+                    expect(self.textInputView.isFirstResponder).to(beTrue())
+                }
+
+                it("responds to becomeFirstResponder") {
+                    //Given
+                    let window = UIWindow()
+                    window.addSubview(self.textInputView)
+
+                    //When
+                    _ = self.textInputView.becomeFirstResponder()
+
+                    //Then
+                    expect(self.textInputView.isFirstResponder).to(beTrue())
+                }
+
+                it("responds to resignFirstResponder") {
+                    //Given
+                    let window = UIWindow()
+                    window.addSubview(self.textInputView)
+                    _ = self.textInputView.becomeFirstResponder()
+
+                    //When
+                    _ = self.textInputView.resignFirstResponder()
+
+                    //Then
+                    expect(self.textInputView.isFirstResponder).to(beFalse())
                 }
             }
         }

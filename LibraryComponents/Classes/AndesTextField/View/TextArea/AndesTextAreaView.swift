@@ -21,6 +21,15 @@ class AndesTextAreaView: AndesTextFieldAbstractView {
         }
     }
 
+    override var customInputView: UIView? {
+        get {
+            return textView.inputView
+        }
+        set (value) {
+            textView.inputView = value
+        }
+    }
+
     override func loadNib() {
         let bundle = AndesBundle.bundle()
         bundle.loadNibNamed("AndesTextAreaView", owner: self, options: nil)

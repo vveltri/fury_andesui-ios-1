@@ -143,6 +143,29 @@ import UIKit
         return AndesTextAreaView(withConfig: config)
     }
 }
+extension AndesTextArea {
+    // MARK: - Keyboard Management
+    @objc public override func resignFirstResponder() -> Bool {
+        contentView.resignFirstResponder()
+    }
+
+    @objc public override func becomeFirstResponder() -> Bool {
+        contentView.becomeFirstResponder()
+    }
+
+    @objc public override var isFirstResponder: Bool {
+        return contentView.isFirstResponder
+    }
+
+    @objc override public var inputView: UIView? {
+        get {
+            return contentView.customInputView
+        }
+        set {
+            contentView.customInputView = newValue
+        }
+    }
+}
 
 extension AndesTextArea: AndesTextFieldViewDelegate {
     func shouldBeginEditing() -> Bool {

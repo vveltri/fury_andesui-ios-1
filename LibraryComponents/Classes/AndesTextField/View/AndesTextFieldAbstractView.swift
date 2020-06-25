@@ -19,6 +19,7 @@ class AndesTextFieldAbstractView: UIView, AndesTextFieldView {
 
     var borderLayer: CAShapeLayer?
     var text: String = ""
+    var customInputView: UIView?
     weak var delegate: AndesTextFieldViewDelegate?
 
     var config: AndesTextFieldViewConfig
@@ -136,5 +137,17 @@ class AndesTextFieldAbstractView: UIView, AndesTextFieldView {
             }
         }
         self.counterLabel.text = "\(self.text.count) / \(config.counter)"
+    }
+
+    override func resignFirstResponder() -> Bool {
+        return fieldView.resignFirstResponder()
+    }
+
+    override func becomeFirstResponder() -> Bool {
+        return fieldView.becomeFirstResponder()
+    }
+
+    override var isFirstResponder: Bool {
+        return fieldView.isFirstResponder
     }
 }
