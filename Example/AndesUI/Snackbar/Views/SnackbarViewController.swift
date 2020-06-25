@@ -117,13 +117,13 @@ class SnackbarViewController: UIViewController {
     }
 
     @objc func onShowButtonPressed() {
-        guard let text = textTextField?.text else {
+        guard let text = textTextField?.text, text.count > 0 else {
             return
         }
 
         let snackbar = AndesSnackbar(text: text, duration: self.duration!, type: self.type!)
 
-        if let actionText = actionTitleTextField?.text {
+        if let actionText = actionTitleTextField?.text, actionText.count > 0 {
             snackbar.action = AndesSnackbarAction(text: actionText) {
                 self.navigationController?.popViewController(animated: true)
             }

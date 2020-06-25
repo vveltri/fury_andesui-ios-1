@@ -20,6 +20,8 @@
                 <outletCollection property="buttonOnBottomLeadingConstraints" destination="QFz-nR-mTc" collectionClass="NSMutableArray" id="kQH-rU-TdD"/>
                 <outletCollection property="buttonOnBottomLeadingConstraints" destination="Rtr-q5-thH" collectionClass="NSMutableArray" id="7Zb-lh-UDS"/>
                 <outletCollection property="buttonOnBottomLeadingConstraints" destination="rDh-ab-pqq" collectionClass="NSMutableArray" id="Pxl-nr-VLk"/>
+                <outletCollection property="hideButtonConstraints" destination="rDh-ab-pqq" collectionClass="NSMutableArray" id="Tro-TO-wzo"/>
+                <outletCollection property="hideButtonConstraints" destination="9r5-NS-C84" collectionClass="NSMutableArray" id="ZTR-vU-MIl"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

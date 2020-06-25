@@ -86,7 +86,7 @@ import Foundation
         translatesAutoresizingMaskIntoConstraints = false
         self.backgroundColor = .clear
         self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowOpacity = 0.1 // #000000 10%
+        self.layer.shadowOpacity = 0.2
         self.layer.shadowOffset = CGSize(width: 0.0, height: 8.0) // y: 8px
         self.layer.shadowRadius = 16 // This is the blur
         self.clipsToBounds = false
@@ -125,10 +125,6 @@ import Foundation
 
     /// Internal method to update the action button position acording to its content
     internal func updateButtonsLayout() {
-        guard self.action != nil else {
-            return
-        }
-
         self.contentView.updateButtonsLayout()
     }
 }

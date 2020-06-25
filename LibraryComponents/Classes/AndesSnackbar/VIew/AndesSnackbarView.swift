@@ -18,6 +18,7 @@ class AndesSnackbarView: UIView, AndesSnackbarViewProtocol {
 
     @IBOutlet var buttonOnTrailingConstraints: [NSLayoutConstraint]!
     @IBOutlet var buttonOnBottomLeadingConstraints: [NSLayoutConstraint]!
+    @IBOutlet var hideButtonConstraints: [NSLayoutConstraint]!
 
     override init(frame: CGRect) {
         config = AndesSnackbarViewConfig()
@@ -41,7 +42,7 @@ class AndesSnackbarView: UIView, AndesSnackbarViewProtocol {
         let bundle = AndesBundle.bundle()
         bundle.loadNibNamed("AndesSnackbarView", owner: self, options: nil)
     }
-    
+
     func setup() {
         loadNib()
         translatesAutoresizingMaskIntoConstraints = false
@@ -49,7 +50,7 @@ class AndesSnackbarView: UIView, AndesSnackbarViewProtocol {
         initializeView()
         updateView()
     }
-    
+
     func initializeView() {
         self.layer.cornerRadius = 6.0
         self.snackbarTextLabel.textColor = UIColor.Andes.white
@@ -57,19 +58,24 @@ class AndesSnackbarView: UIView, AndesSnackbarViewProtocol {
     }
 
     func updateButtonsLayout() {
-        let height = self.snackbarTextLabel.text?.height(withConstrainedWidth: self.snackbarTextLabel.frame.size.width, font: self.snackbarTextLabel.font)
-        let lineCount = Int((height ?? 0) / self.snackbarTextLabel.font.lineHeight)
+        if self.config.actionConfig != nil {
+            let height = self.snackbarTextLabel.text?.height(withConstrainedWidth: self.snackbarTextLabel.frame.size.width, font: self.snackbarTextLabel.font)
+            let lineCount = Int((height ?? 0) / self.snackbarTextLabel.font.lineHeight)
 
-        if lineCount > 1 {
-            layoutButtonOnSnackbarBottomLeading()
+            if lineCount > 1 {
+                layoutButtonOnSnackbarBottomLeading()
+            } else {
+                layoutButtonOnSnackbarTrailing()
+            }
         } else {
-            layoutButtonOnSnackbarTrailing()
+            hideButton()
         }
 
         self.layoutIfNeeded()
     }
 
     func layoutButtonOnSnackbarTrailing() {
+        self.snackbarActionButton.isHidden = false
         for constraint in self.buttonOnBottomLeadingConstraints {
             constraint.priority = .defaultLow
         }
@@ -79,11 +85,19 @@ class AndesSnackbarView: UIView, AndesSnackbarViewProtocol {
     }
 
     func layoutButtonOnSnackbarBottomLeading() {
+        self.snackbarActionButton.isHidden = false
         for constraint in self.buttonOnTrailingConstraints {
             constraint.priority = .defaultLow
         }
         for constraint in self.buttonOnBottomLeadingConstraints {
             constraint.priority = .defaultHigh
+        }
+    }
+
+    func hideButton() {
+        self.snackbarActionButton.isHidden = true
+        for constraint in self.hideButtonConstraints {
+            constraint.priority = UILayoutPriority(999) // required
         }
     }
 
