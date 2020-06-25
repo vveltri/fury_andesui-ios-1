@@ -1,6 +1,4 @@
 ### Thanks for contributing to Andes UI!
-## Motivation
-Tell us why you are here and why you took time to develop new code for our beloved lib.
 ## Description
 Describe why we need these changes in the lib.
 Try to answer these questions:
@@ -8,9 +6,9 @@ Try to answer these questions:
 - How does it work?
 ## Affected component
 Is highly probable that this new code affects directly one (or more?) components inside this lib. Tell us who they are!
-## Frontify component link
-The UX team behind Andes keeps all the Andes Components inside the Frontify site. Each component has its own section. Please link it here.
-## Screenshots
+## RFC Link
+If this change was discussed on RFC please paste link here.
+## Screenshots / GIFs
 This is a UI library, delight us with some stunning images.
 ## Checks
 Are you sure you followed all those steps? If so, repeat after me "I solemnly swear that ...":
