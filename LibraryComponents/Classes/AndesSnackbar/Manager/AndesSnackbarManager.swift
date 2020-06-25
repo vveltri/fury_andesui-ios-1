@@ -10,21 +10,26 @@ import Foundation
 /// This manager is in charge of show, dismiss and queue all the `AndesSnackbar`shown in the app
 class AndesSnackbarManager {
 
+    /// Shared Instance to implement Singleton Pattern
     static let shared = AndesSnackbarManager()
 
+    /// This queue keeps the snackbars to be shown, one after another after each dismissing
     var snackbarsQueue: [AndesSnackbar] = []
 
+    /// Adds the snackbar to the queue and shows it if there is no one presented
     func show(snackbar: AndesSnackbar) {
+        snackbar.context = UIApplication.getTopViewController()
         snackbarsQueue.append(snackbar)
         if snackbarsQueue.count == 1 {
             showNextSnackbar()
         }
     }
 
+    /// Shows the first snackbar in the `snackbarsQueue`
     func showNextSnackbar() {
         if let snackbar = snackbarsQueue.first,
-            let viewController = UIApplication.getTopViewController() {
-            addSnackbarToView(snackbar: snackbar, superView: viewController.view)
+            let context = snackbar.context {
+            addSnackbarToView(snackbar: snackbar, superView: context.view)
             showAnimated(snackbar: snackbar)
             setDismissTimer(snackbar: snackbar)
         }

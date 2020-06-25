@@ -64,6 +64,9 @@ import Foundation
     /// External bottom constraint to superview margin, modified to animate the snackbar appearance
     internal var bottomMarginConstraint: NSLayoutConstraint?
 
+    /// The context for the Snackbar to be shown, set by the `AndesSnackbarManager`
+    internal weak var context: UIViewController?
+
     public required init?(coder: NSCoder) {
         super.init(coder: coder)
         setup()
