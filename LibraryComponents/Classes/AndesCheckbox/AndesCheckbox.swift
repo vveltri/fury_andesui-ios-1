@@ -19,21 +19,21 @@ import UIKit
     }
 
     /// Sets the type of the AndesCaheckbox , default idle
-    @IBInspectable public var type: AndesCheckboxType = .idle {
+    var type: AndesCheckboxType = .idle {
         didSet {
             self.updateContentView()
         }
     }
 
     /// Sets the slign of the AndesCaheckbox , default left
-    @IBInspectable public var align: AndesCheckboxAlign = .left {
+    var align: AndesCheckboxAlign = .left {
         didSet {
             self.updateContentView()
         }
     }
 
     /// Sets the status of the AndesCaheckbox , default unselected
-    @IBInspectable public var status: AndesCheckboxStatus = .unselected {
+    var status: AndesCheckboxStatus = .unselected {
         didSet {
             self.updateContentView()
         }
@@ -66,7 +66,7 @@ import UIKit
         setup()
     }
 
-    public func setup() {
+    func setup() {
         translatesAutoresizingMaskIntoConstraints = false
         self.backgroundColor = .clear
         let config = AndesCheckboxViewConfig(for: self)
@@ -94,7 +94,7 @@ extension AndesCheckbox: AndesCheckboxViewDelegate {
         case .idle:
             if self.status == AndesCheckboxStatus.selected {
                 self.status = AndesCheckboxStatus.unselected
-            } else if self.status == AndesCheckboxStatus.unselected ||                   self.status == AndesCheckboxStatus.undefined {
+            } else if self.status == AndesCheckboxStatus.unselected || self.status == AndesCheckboxStatus.undefined {
                 self.status = AndesCheckboxStatus.selected
             }
         case .disabled:
