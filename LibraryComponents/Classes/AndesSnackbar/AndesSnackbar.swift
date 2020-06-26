@@ -43,8 +43,17 @@ import Foundation
         }
     }
 
-    /// Show the Snackbar at the top view controller.
+    /// Show the `Snackbar` at the top visible view controller
+    /// If you are showing the snackbar as a result of an async operation consider use `show(at viewController:)`
+    /// to ensure that  the `Snackbar` is shown in the right view controller.
+    /// If another `Snackbars` are being shown, this is going to be shown when the last one is dismissed.
     public func show() {
+        AndesSnackbarManager.shared.show(snackbar: self)
+    }
+
+    /// Show the Snackbar in the view controller received
+    public func show(at viewController: UIViewController) {
+        self.context = viewController
         AndesSnackbarManager.shared.show(snackbar: self)
     }
 
@@ -64,7 +73,7 @@ import Foundation
     /// External bottom constraint to superview margin, modified to animate the snackbar appearance
     internal var bottomMarginConstraint: NSLayoutConstraint?
 
-    /// The context for the Snackbar to be shown, set by the `AndesSnackbarManager`
+    /// The context for the Snackbar to be shown
     internal weak var context: UIViewController?
 
     public required init?(coder: NSCoder) {

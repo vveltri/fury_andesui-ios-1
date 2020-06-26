@@ -18,7 +18,10 @@ class AndesSnackbarManager {
 
     /// Adds the snackbar to the queue and shows it if there is no one presented
     func show(snackbar: AndesSnackbar) {
-        snackbar.context = UIApplication.getTopViewController()
+        if snackbar.context == nil {
+            snackbar.context = UIApplication.getTopViewController()
+        }
+
         snackbarsQueue.append(snackbar)
         if snackbarsQueue.count == 1 {
             showNextSnackbar()
@@ -59,10 +62,6 @@ class AndesSnackbarManager {
         snackbar.bottomMarginConstraint = NSLayoutConstraint.init(
             item: snackbar, attribute: .bottom, relatedBy: .equal,
             toItem: relativeToItem, attribute: .bottom, multiplier: 1, constant: snackbar.frame.height + 50 + bottomInset)
-
-        superView.addConstraint(snackbar.leftMarginConstraint!)
-        superView.addConstraint(snackbar.rightMarginConstraint!)
-        superView.addConstraint(snackbar.bottomMarginConstraint!)
 
         snackbar.leftMarginConstraint?.isActive = true
         snackbar.rightMarginConstraint?.isActive = true
