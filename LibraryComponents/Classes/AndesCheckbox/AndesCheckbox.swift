@@ -19,21 +19,21 @@ import UIKit
     }
 
     /// Sets the type of the AndesCaheckbox , default idle
-    var type: AndesCheckboxType = .idle {
+   @objc public var type: AndesCheckboxType = .idle {
         didSet {
             self.updateContentView()
         }
     }
 
     /// Sets the slign of the AndesCaheckbox , default left
-    var align: AndesCheckboxAlign = .left {
+    @objc public var align: AndesCheckboxAlign = .left {
         didSet {
             self.updateContentView()
         }
     }
 
     /// Sets the status of the AndesCaheckbox , default unselected
-    var status: AndesCheckboxStatus = .unselected {
+    @objc public var status: AndesCheckboxStatus = .unselected {
         didSet {
             self.updateContentView()
         }
