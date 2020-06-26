@@ -81,7 +81,9 @@
 		F899354324A0DADB004BC82D /* AndesCheckboxShowcaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F899354224A0DADB004BC82D /* AndesCheckboxShowcaseViewController.xib */; };
 		F899354524A0EC7B004BC82D /* CheckboxObjCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F899354424A0EC7B004BC82D /* CheckboxObjCViewController.m */; };
 		F899354824A0EE22004BC82D /* CheckboxObjCViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F899354724A0EE22004BC82D /* CheckboxObjCViewController.xib */; };
+		F8C3694F24A62E9D00B93DAC /* AndesCheckboxInitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8C3694E24A62E9D00B93DAC /* AndesCheckboxInitViewController.xib */; };
 		F8C93A3A24A272F600ADCE1C /* AndesCheckboxTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C93A3724A272A200ADCE1C /* AndesCheckboxTest.swift */; };
+		F8D7CB1A24A388D7003D5294 /* AndesCheckboxInitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D7CB1924A388D7003D5294 /* AndesCheckboxInitViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -200,7 +202,9 @@
 		F899354424A0EC7B004BC82D /* CheckboxObjCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckboxObjCViewController.m; sourceTree = "<group>"; };
 		F899354724A0EE22004BC82D /* CheckboxObjCViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckboxObjCViewController.xib; sourceTree = "<group>"; };
 		F899354924A0FAD0004BC82D /* CheckboxObjCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheckboxObjCViewController.h; sourceTree = "<group>"; };
+		F8C3694E24A62E9D00B93DAC /* AndesCheckboxInitViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AndesCheckboxInitViewController.xib; sourceTree = "<group>"; };
 		F8C93A3724A272A200ADCE1C /* AndesCheckboxTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndesCheckboxTest.swift; sourceTree = "<group>"; };
+		F8D7CB1924A388D7003D5294 /* AndesCheckboxInitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndesCheckboxInitViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -589,6 +593,8 @@
 				F899354424A0EC7B004BC82D /* CheckboxObjCViewController.m */,
 				F899354724A0EE22004BC82D /* CheckboxObjCViewController.xib */,
 				F899354924A0FAD0004BC82D /* CheckboxObjCViewController.h */,
+				F8D7CB1924A388D7003D5294 /* AndesCheckboxInitViewController.swift */,
+				F8C3694E24A62E9D00B93DAC /* AndesCheckboxInitViewController.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -718,6 +724,7 @@
 				9CA28813244761F200E299C3 /* TextAreaViewController.xib in Resources */,
 				9CE112DD23CE58910017B770 /* MessageViewController.xib in Resources */,
 				F899354824A0EE22004BC82D /* CheckboxObjCViewController.xib in Resources */,
+				F8C3694F24A62E9D00B93DAC /* AndesCheckboxInitViewController.xib in Resources */,
 				9C2FFC6B23EDB1A50016292E /* whats_new.html in Resources */,
 				F830F8872494127C0043D5AF /* AndesCheckboxViewController.xib in Resources */,
 				9C9B5A8823ECB08D0007234B /* Localizable.strings in Resources */,
@@ -871,6 +878,7 @@
 				6A186A6823AC0FBB00420556 /* ButtonsRouter.swift in Sources */,
 				6A3C9CFB23C692B6007D0C8B /* HomePresenter.swift in Sources */,
 				9C9B5A8123ECADB80007234B /* String+Additions.swift in Sources */,
+				F8D7CB1A24A388D7003D5294 /* AndesCheckboxInitViewController.swift in Sources */,
 				86A1E3042481599500B59D1D /* TagRouter.swift in Sources */,
 				86A1E30824815A1700B59D1D /* AndesTagShowcaseViewController.swift in Sources */,
 			);

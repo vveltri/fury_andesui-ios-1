@@ -14,7 +14,7 @@ class AndesCheckboxShowcaseViewController: UIViewController {
 
     @IBOutlet var containerView: UIView!
 
-    let controllers = [CheckboxObjCViewController(), AndesCheckboxViewController()]
+    let controllers = [AndesCheckboxInitViewController(), CheckboxObjCViewController(), AndesCheckboxViewController()]
     var pageController: UIPageViewController!
 
     fileprivate func setupPageControl() {

@@ -56,6 +56,9 @@ internal struct AndesCheckboxViewConfig {
             }
         case .error:
             //For error, the checkbox status only can be unselected
+            self.status = AndesCheckboxStatusUnselected()
+            self.borderColor = type.borderColor
+            self.borderSize = type.borderSize
             self.backgroundColor = self.type.backgroundColor
         }
     }

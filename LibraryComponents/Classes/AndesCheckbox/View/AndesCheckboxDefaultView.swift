@@ -75,6 +75,7 @@ class AndesCheckboxDefaultView: UIView, AndesCheckboxView {
     }
 
     func updateView() {
+        cleanView()
         self.label.text = config.title
         let checkboxIcon: String? = config.icon
         let iconColor: UIColor? = config.iconColor
@@ -121,6 +122,15 @@ class AndesCheckboxDefaultView: UIView, AndesCheckboxView {
             }
         }
 
+    }
+
+    func cleanView() {
+        self.leftButton.layer.borderColor = UIColor.clear.cgColor
+        self.rightButton.layer.borderColor = UIColor.clear.cgColor
+        self.leftButton.layer.borderWidth = 0
+        self.rightButton.layer.borderWidth = 0
+        self.leftButton.setImage(nil, for: .normal)
+        self.rightButton.setImage(nil, for: .normal)
     }
 
 }
