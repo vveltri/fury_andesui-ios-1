@@ -74,6 +74,11 @@ import UIKit
         self.addSubview(contentView)
         contentView.pinToSuperview()
         contentView.delegate = self
+
+        //accesibility
+        contentView.isAccessibilityElement = false
+        self.isAccessibilityElement = true
+        self.accessibilityTraits = .button
     }
 
     private func updateContentView() {
@@ -89,15 +94,26 @@ extension AndesCheckbox: AndesCheckboxViewDelegate {
         }
         switch self.type {
         case .error:
-            self.type = AndesCheckboxType.idle
-            self.status = AndesCheckboxStatus.selected
+            //accesibility
+            self.accessibilityTraits.remove(.selected)
+            self.accessibilityTraits.remove(.notEnabled)
+
+            self.type = .idle
+            self.status = .selected
         case .idle:
-            if self.status == AndesCheckboxStatus.selected {
-                self.status = AndesCheckboxStatus.unselected
-            } else if self.status == AndesCheckboxStatus.unselected || self.status == AndesCheckboxStatus.undefined {
-                self.status = AndesCheckboxStatus.selected
+            self.accessibilityTraits.remove(.notEnabled)
+            if self.status == .selected {
+                //accesibility
+                self.accessibilityTraits.insert(.selected)
+                self.status = .unselected
+            } else if self.status == .unselected || self.status == .undefined {
+                //accesibility
+                self.accessibilityTraits.remove(.selected)
+                self.status = .selected
             }
         case .disabled:
+            //accesibility
+            self.accessibilityTraits.insert(.notEnabled)
             //Never happend
             return
         }
