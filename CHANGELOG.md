@@ -2,6 +2,10 @@
 ### 🚀 Features
 - TextField/TextArea: allows for custom input views | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
 - TextField: add textFieldShouldReturn to public delegate | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
+- AndesCheckbox  new component
+|  Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
+
+
 
 # v3.4.0
 ### 🛠 Bug fixes
