@@ -21,7 +21,7 @@ class AndesCheckboxTypeDisabled: AndesCheckboxTypeProtocol {
 
     init(status: AndesCheckboxStatus) {
         let statusProtocol = AndesCheckboxStatusFactory.provide(status)
-        if status == AndesCheckboxStatus.unselected {
+        if status == .unselected {
             self.backgroundColor = statusProtocol.backgroundColor
             self.borderColor = UIColor.Andes.gray100
             self.borderSize = 2
