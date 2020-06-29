@@ -92,11 +92,7 @@ extension AndesCheckbox: AndesCheckboxViewDelegate {
             self.type = AndesCheckboxType.idle
             self.status = AndesCheckboxStatus.selected
         case .idle:
-            if self.status == AndesCheckboxStatus.selected {
-                self.status = AndesCheckboxStatus.unselected
-            } else if self.status == AndesCheckboxStatus.unselected || self.status == AndesCheckboxStatus.undefined {
-                self.status = AndesCheckboxStatus.selected
-            }
+                        self.status = self.status == .selected ? .unselected : .selected
         case .disabled:
             //Never happend
             return
