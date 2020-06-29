@@ -16,8 +16,10 @@ internal protocol AndesTextFieldViewDelegate: AnyObject {
     func didChangeSelection(selectedRange range: UITextRange?)
     func didChange()
     func didTapRightAction()
+    func shouldReturn() -> Bool
 }
 
-extension AndesTextFieldViewDelegate {
-    func didTapRightAction() {} // optional
+extension AndesTextFieldViewDelegate { // optional (implemented only on textfield or text area only)
+    func didTapRightAction() {}
+    func shouldReturn() -> Bool {return true}
 }

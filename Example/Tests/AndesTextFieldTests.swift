@@ -29,6 +29,7 @@ class TestTextFieldDelegate: AndesTextFieldDelegate {
     var didChangeSelectionCalled = false
     var didChangeCalled = false
     var didTapRightAction = false
+    var shouldReturnCalled = false
 
     func andesTextFieldShouldBeginEditing(_ textField: AndesTextField) -> Bool {
         shouldBeginEditingCalled = true
@@ -63,6 +64,11 @@ class TestTextFieldDelegate: AndesTextFieldDelegate {
 
     func andesTextFieldDidTapRightAction(_ textField: AndesTextField) {
         didTapRightAction = true
+    }
+
+    func andesTextFieldShouldReturn(_ textField: AndesTextField) -> Bool {
+        shouldReturnCalled = true
+        return true
     }
 }
 
@@ -259,6 +265,17 @@ class AndesTextFieldTests: QuickSpec {
                     //Then
                     expect(self.internalView?.borderLayer).to(beAKindOf(AndesTextFieldBorderLayerDashed.self))
                 }
+
+                it("can set custom input view") {
+                    //given
+                    let picker = UIPickerView()
+
+                    //When
+                    self.textInputView.inputView = picker
+
+                    //Then
+                    expect(self.internalView?.textField.inputView).to(beAKindOf(UIPickerView.self))
+                }
             }
             context("AndesTextField delegate tests") {
                 it("andesTextFieldShouldBeginEditing called") {
@@ -376,6 +393,21 @@ class AndesTextFieldTests: QuickSpec {
                     //Then
                     expect(btn).notTo(beNil())
                     expect(delegate.didTapRightAction).toEventually(beTrue())
+                }
+
+                it("andesTextFieldShouldReturn called") {
+                    // Given
+                    let delegate = TestTextFieldDelegate()
+                    self.textInputView.delegate = delegate
+                    let window = UIWindow()
+                    window.addSubview(self.textInputView)
+
+                    // When
+                    _ = self.internalView.textField.becomeFirstResponder()
+                    _ = self.internalView.textField.delegate?.textFieldShouldReturn?(self.internalView.textField)
+
+                    //Then
+                    expect(delegate.shouldReturnCalled).toEventually(beTrue())
                 }
             }
             context("AndesTextField keyboard management") {

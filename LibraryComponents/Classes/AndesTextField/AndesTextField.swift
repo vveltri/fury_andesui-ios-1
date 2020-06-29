@@ -161,6 +161,15 @@ extension AndesTextField {
     @objc public override var isFirstResponder: Bool {
         return contentView.isFirstResponder
     }
+
+    @objc override public var inputView: UIView? {
+        get {
+            return contentView.customInputView
+        }
+        set {
+            contentView.customInputView = newValue
+        }
+    }
 }
 
 extension AndesTextField: AndesTextFieldViewDelegate {
@@ -200,6 +209,10 @@ extension AndesTextField: AndesTextFieldViewDelegate {
 
     func didTapRightAction() {
         delegate?.andesTextFieldDidTapRightAction?(self)
+    }
+
+    func shouldReturn() -> Bool {
+        delegate?.andesTextFieldShouldReturn?(self) != false
     }
 }
 
