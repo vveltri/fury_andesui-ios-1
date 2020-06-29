@@ -31,36 +31,13 @@ internal struct AndesCheckboxViewConfig {
         self.align = checkbox.align
         self.status = AndesCheckboxStatusFactory.provide(checkbox.status)
         self.icon = status.icon
-        self.type = AndesCheckboxTypeFactory.provide(checkbox.type)
+        self.type = AndesCheckboxTypeFactory.provide(checkbox.type, status: checkbox.status)
         self.textColor = type.textColor
         self.cornerRadius = type.cornerRadius
         self.iconColor = self.type.iconColor
-        setupBackgroundAndBorderColor(for: checkbox)
-    }
-
-    //Set background based on checkbox status and type
-    private mutating func setupBackgroundAndBorderColor(for checkbox: AndesCheckbox) {
-        if checkbox.status == AndesCheckboxStatus.unselected {
-            self.borderColor = type.borderColor
-            self.borderSize = type.borderSize
-        }
-
-        switch checkbox.type {
-        case .idle:
-                self.backgroundColor = self.status.backgroundColor
-        case .disabled:
-            if checkbox.status == AndesCheckboxStatus.unselected {
-                self.backgroundColor = self.status.backgroundColor
-            } else {
-                self.backgroundColor = self.type.backgroundColor
-            }
-        case .error:
-            //For error, the checkbox status only can be unselected
-            self.status = AndesCheckboxStatusUnselected()
-            self.borderColor = type.borderColor
-            self.borderSize = type.borderSize
-            self.backgroundColor = self.type.backgroundColor
-        }
+        self.borderColor = type.borderColor
+        self.borderSize = type.borderSize
+        self.backgroundColor = type.backgroundColor
     }
 
 }

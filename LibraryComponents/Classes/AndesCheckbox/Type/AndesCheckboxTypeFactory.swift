@@ -7,12 +7,12 @@
 
 import Foundation
 class AndesCheckboxTypeFactory {
-    static func provide(_ type: AndesCheckboxType) -> AndesCheckboxTypeProtocol {
+    static func provide(_ type: AndesCheckboxType, status: AndesCheckboxStatus) -> AndesCheckboxTypeProtocol {
         switch type {
         case .disabled:
-            return AndesCheckboxTypeDisabled()
+            return AndesCheckboxTypeDisabled(status: status)
         case .idle:
-            return AndesCheckboxTypeIdle()
+            return AndesCheckboxTypeIdle(status: status)
         case .error:
             return AndesCheckboxTypeError()
         }
