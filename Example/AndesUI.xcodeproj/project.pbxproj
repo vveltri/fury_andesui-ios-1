@@ -29,6 +29,8 @@
 		8617BD172499B5860071319C /* SnackbarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8617BD162499B5860071319C /* SnackbarRouter.swift */; };
 		8617BD1F2499B6570071319C /* SnackbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8617BD1D2499B6570071319C /* SnackbarViewController.swift */; };
 		8617BD202499B6570071319C /* SnackbarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8617BD1E2499B6570071319C /* SnackbarViewController.xib */; };
+		8634C9DC24A6334000DB7B9F /* AndesSnackbarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8634C9DA24A6330E00DB7B9F /* AndesSnackbarTests.swift */; };
+		8634C9E124A650B900DB7B9F /* AndeSnackbarManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8634C9DD24A6508B00DB7B9F /* AndeSnackbarManagerTests.swift */; };
 		86A1E3042481599500B59D1D /* TagRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A1E3032481599500B59D1D /* TagRouter.swift */; };
 		86A1E30824815A1700B59D1D /* AndesTagShowcaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A1E30624815A1700B59D1D /* AndesTagShowcaseViewController.swift */; };
 		86A1E30924815A1700B59D1D /* AndesTagShowcaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86A1E30724815A1700B59D1D /* AndesTagShowcaseViewController.xib */; };
@@ -133,6 +135,8 @@
 		8617BD162499B5860071319C /* SnackbarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackbarRouter.swift; sourceTree = "<group>"; };
 		8617BD1D2499B6570071319C /* SnackbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackbarViewController.swift; sourceTree = "<group>"; };
 		8617BD1E2499B6570071319C /* SnackbarViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SnackbarViewController.xib; sourceTree = "<group>"; };
+		8634C9DA24A6330E00DB7B9F /* AndesSnackbarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndesSnackbarTests.swift; sourceTree = "<group>"; };
+		8634C9DD24A6508B00DB7B9F /* AndeSnackbarManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndeSnackbarManagerTests.swift; sourceTree = "<group>"; };
 		86A1E3032481599500B59D1D /* TagRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagRouter.swift; sourceTree = "<group>"; };
 		86A1E30624815A1700B59D1D /* AndesTagShowcaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndesTagShowcaseViewController.swift; sourceTree = "<group>"; };
 		86A1E30724815A1700B59D1D /* AndesTagShowcaseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AndesTagShowcaseViewController.xib; sourceTree = "<group>"; };
@@ -294,6 +298,7 @@
 			isa = PBXGroup;
 			children = (
 				9C592C082450A6980038785E /* TextFieldTests */,
+				8634C9DF24A6509300DB7B9F /* SnackbarTests */,
 				90F4782124363A8F001CEC90 /* AndesBadgeTests.swift */,
 				E615508823D6196C00417B5F /* AndesButtonTests.swift */,
 				9C592C0D2450A6BD0038785E /* AndesEnumStringConvertibleTests.swift */,
@@ -446,6 +451,15 @@
 				8617BD1E2499B6570071319C /* SnackbarViewController.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		8634C9DF24A6509300DB7B9F /* SnackbarTests */ = {
+			isa = PBXGroup;
+			children = (
+				8634C9DA24A6330E00DB7B9F /* AndesSnackbarTests.swift */,
+				8634C9DD24A6508B00DB7B9F /* AndeSnackbarManagerTests.swift */,
+			);
+			name = SnackbarTests;
 			sourceTree = "<group>";
 		};
 		86A1E3022481596C00B59D1D /* Tag */ = {
@@ -862,12 +876,14 @@
 				9CAD81E923FD66ED00D43EB9 /* AndesIconsProviderTests.swift in Sources */,
 				9C592C0B2450A6B70038785E /* AndesTextAreaTests.swift in Sources */,
 				E615508A23D619E300417B5F /* AndesButtonTests.swift in Sources */,
+				8634C9E124A650B900DB7B9F /* AndeSnackbarManagerTests.swift in Sources */,
 				9C592C0E2450A6BD0038785E /* AndesEnumStringConvertibleTests.swift in Sources */,
 				6DBB66002436423200FA9581 /* AndesTextFieldTests.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* AndesStyleSheetTests.swift in Sources */,
 				90F4782224363A8F001CEC90 /* AndesBadgeTests.swift in Sources */,
 				86E0A35D2493BDA9003D338C /* AndesTagSimpleTests.swift in Sources */,
 				9CE112F123D1E14B0017B770 /* AndesMessageTests.swift in Sources */,
+				8634C9DC24A6334000DB7B9F /* AndesSnackbarTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

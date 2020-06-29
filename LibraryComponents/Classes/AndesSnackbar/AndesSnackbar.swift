@@ -48,7 +48,7 @@ import Foundation
     /// to ensure that  the `Snackbar` is shown in the right view controller.
     /// If another `Snackbars` are being shown, this is going to be shown when the last one is dismissed.
     public func show() {
-        AndesSnackbarManager.shared.show(snackbar: self)
+        snackbarManager().show(snackbar: self)
     }
 
     /// Show the Snackbar in the view controller received
@@ -75,6 +75,9 @@ import Foundation
 
     /// The context for the Snackbar to be shown
     internal weak var context: UIViewController?
+
+    /// Internal snackbar manager getter, improving testability
+    internal var snackbarManager: () -> AndesSnackbarManager = { AndesSnackbarManager.shared }
 
     public required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -126,12 +129,12 @@ import Foundation
     }
 
     private func updateContentView() {
-        let config = AndesSnackbarConfigFactory.provideInternalConfig(from: self)
+        let config = AndesSnackbarViewConfigFactory.provideInternalConfig(from: self)
         contentView.update(withConfig: config)
     }
 
     private func provideView() -> AndesSnackbarView {
-        let config = AndesSnackbarConfigFactory.provideInternalConfig(from: self)
+        let config = AndesSnackbarViewConfigFactory.provideInternalConfig(from: self)
         return AndesSnackbarView(withConfig: config)
     }
 
@@ -144,9 +147,11 @@ import Foundation
 extension AndesSnackbar: AndesSnackbarViewDelegate {
     func actionButtonTapped() {
         // Callback to perform the action
-        self.action?.callback()
+        if let callback = self.action?.callback {
+            callback()
+        }
 
         // Dismiss the snackbar animated
-        AndesSnackbarManager.shared.dismissSnackbarAnimated(snackbar: self)
+        snackbarManager().dismissSnackbarAnimated(snackbar: self)
     }
 }

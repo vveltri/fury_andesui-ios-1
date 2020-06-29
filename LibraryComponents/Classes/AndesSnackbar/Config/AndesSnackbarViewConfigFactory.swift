@@ -7,7 +7,7 @@
 
 import Foundation
 
-class AndesSnackbarConfigFactory {
+class AndesSnackbarViewConfigFactory {
 
     static func provideInternalConfig(from snackbar: AndesSnackbar) -> AndesSnackbarViewConfig {
 
