@@ -101,7 +101,7 @@ extension AndesCheckbox: AndesCheckboxViewDelegate {
             //Never happend
             return
         }
-        setup()
+        updateContentView()
         callback(self)
     }
 }
