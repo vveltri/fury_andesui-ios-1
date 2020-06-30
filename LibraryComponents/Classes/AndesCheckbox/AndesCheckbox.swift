@@ -79,6 +79,7 @@ import UIKit
         contentView.isAccessibilityElement = false
         self.isAccessibilityElement = true
         self.accessibilityTraits = .button
+        self.accessibilityLabel = self.title
     }
 
     private func updateContentView() {
@@ -104,11 +105,11 @@ extension AndesCheckbox: AndesCheckboxViewDelegate {
             self.accessibilityTraits.remove(.notEnabled)
             if self.status == .selected {
                 //accesibility
-                self.accessibilityTraits.insert(.selected)
+                self.accessibilityTraits.remove(.selected)
                 self.status = .unselected
             } else if self.status == .unselected || self.status == .undefined {
                 //accesibility
-                self.accessibilityTraits.remove(.selected)
+                self.accessibilityTraits.insert(.selected)
                 self.status = .selected
             }
         case .disabled:
