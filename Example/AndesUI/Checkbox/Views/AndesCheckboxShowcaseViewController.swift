@@ -37,7 +37,7 @@ class AndesCheckboxShowcaseViewController: UIViewController {
         setupPageController()
         containerView.bringSubview(toFront: pageControl)
         setupPageControl()
-        self.title = "Andes Checkbox ObjC"
+        self.title = "Andes Checkbox"
     }
 }
 
@@ -56,11 +56,6 @@ extension AndesCheckboxShowcaseViewController: UIPageViewControllerDataSource, U
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         guard completed else {return}
         let current = controllers.index(of: (pageViewController.viewControllers?.first!)!)!
-        if current == 1 {
-            self.title = "Andes Checkbox Swift"
-        } else {
-            self.title = "Andes Checkbox ObjC"
-        }
         pageControl.currentPage = current
     }
 }

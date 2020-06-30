@@ -39,10 +39,10 @@ import UIKit
         }
     }
 
-    /// Callback invoked when dismiss button is tapped
+    /// Callback invoked when checkbox button is tapped
     internal var didTapped: ((AndesCheckbox) -> Void)?
 
-    /// Set dismiss callback to be invoked when dismiss button is pressed
+    /// Set dismiss callback to be invoked when checkbox button is pressed
     @objc public func setCheckboxTapped(callback: @escaping ((AndesCheckbox) -> Void)) {
         self.didTapped = callback
     }
@@ -74,6 +74,12 @@ import UIKit
         self.addSubview(contentView)
         contentView.pinToSuperview()
         contentView.delegate = self
+
+        //accesibility
+        contentView.isAccessibilityElement = false
+        self.isAccessibilityElement = true
+        self.accessibilityTraits = .button
+        self.accessibilityLabel = self.title
     }
 
     private func updateContentView() {
@@ -89,15 +95,26 @@ extension AndesCheckbox: AndesCheckboxViewDelegate {
         }
         switch self.type {
         case .error:
-            self.type = AndesCheckboxType.idle
-            self.status = AndesCheckboxStatus.selected
+            //accesibility
+            self.accessibilityTraits.remove(.selected)
+            self.accessibilityTraits.remove(.notEnabled)
+
+            self.type = .idle
+            self.status = .selected
         case .idle:
-            if self.status == AndesCheckboxStatus.selected {
-                self.status = AndesCheckboxStatus.unselected
-            } else if self.status == AndesCheckboxStatus.unselected || self.status == AndesCheckboxStatus.undefined {
-                self.status = AndesCheckboxStatus.selected
+            self.accessibilityTraits.remove(.notEnabled)
+            if self.status == .selected {
+                //accesibility
+                self.accessibilityTraits.remove(.selected)
+                self.status = .unselected
+            } else if self.status == .unselected || self.status == .undefined {
+                //accesibility
+                self.accessibilityTraits.insert(.selected)
+                self.status = .selected
             }
         case .disabled:
+            //accesibility
+            self.accessibilityTraits.insert(.notEnabled)
             //Never happend
             return
         }

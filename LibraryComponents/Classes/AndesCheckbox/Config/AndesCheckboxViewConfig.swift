@@ -15,16 +15,16 @@ internal struct AndesCheckboxViewConfig {
     var borderColor: UIColor?
     var textColor: UIColor!
     var iconColor: UIColor?
-    var align: AndesCheckboxAlign! = AndesCheckboxAlign.left
-    var backgroundColor: UIColor!
-    var cornerRadius: CGFloat!
+    var align: AndesCheckboxAlign = AndesCheckboxAlign.left
+    var backgroundColor: UIColor = UIColor.Andes.white
+    var cornerRadius: CGFloat = 3
     var borderSize: CGFloat?
     var type: AndesCheckboxTypeProtocol! = AndesCheckboxTypeIdle()
     var status: AndesCheckboxStatusProtocol! = AndesCheckboxStatusUnselected()
 
-    init() {
+    init () {
 
-     }
+    }
 
     init(for checkbox: AndesCheckbox) {
         self.title = checkbox.title
