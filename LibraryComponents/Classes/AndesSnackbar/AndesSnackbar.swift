@@ -47,12 +47,12 @@ import Foundation
     /// If you are showing the snackbar as a result of an async operation consider use `show(at viewController:)`
     /// to ensure that  the `Snackbar` is shown in the right view controller.
     /// If another `Snackbars` are being shown, this is going to be shown when the last one is dismissed.
-    public func show() {
+    @objc public func show() {
         snackbarManager().show(snackbar: self)
     }
 
     /// Show the Snackbar in the view controller received
-    public func show(at viewController: UIViewController) {
+    @objc public func show(at viewController: UIViewController) {
         self.context = viewController
         AndesSnackbarManager.shared.show(snackbar: self)
     }
@@ -89,7 +89,7 @@ import Foundation
         setup()
     }
 
-    public init(text: String, duration: AndesSnackbarDuration = .normal, type: AndesSnackbarType = .neutral) {
+    @objc public init(text: String, duration: AndesSnackbarDuration = .normal, type: AndesSnackbarType = .neutral) {
         super.init(frame: .zero)
         self.text = text
         self.duration = duration

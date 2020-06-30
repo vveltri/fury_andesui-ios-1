@@ -13,12 +13,12 @@ protocol SnackbarRouter: NSObject {
 }
 
 class SnackbarAppRouter: NSObject {
-    var view: SnackbarViewController!
+    var view: AndesShowcasePageViewController!
 }
 
 extension SnackbarAppRouter: SnackbarRouter {
     func route(from: UIViewController) {
-        view = SnackbarViewController()
+        view = AndesShowcasePageViewController(controllers: [SnackbarViewController(), SnackbarObjCViewController()])
         view.title = "AndesSnackbar"
         from.navigationController?.pushViewController(view, animated: true)
     }
