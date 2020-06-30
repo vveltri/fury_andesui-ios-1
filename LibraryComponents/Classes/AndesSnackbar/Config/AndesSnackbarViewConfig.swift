@@ -9,11 +9,15 @@ import Foundation
 
 internal struct AndesSnackbarViewConfig {
 
-    var text: String = ""
-    var backgroundColor: UIColor = UIColor.Andes.graySolid800
-    var actionConfig: AndesButtonViewConfig?
+    let text: String
+    let backgroundColor: UIColor
+    let actionConfig: AndesButtonViewConfig?
 
-    init() {}
+    init() {
+        self.text = ""
+        self.backgroundColor = UIColor.Andes.graySolid800
+        self.actionConfig = nil
+    }
 
     init(text: String, backgroundColor: UIColor, actionConfig: AndesButtonViewConfig? = nil) {
         self.text = text
