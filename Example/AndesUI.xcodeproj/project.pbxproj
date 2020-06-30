@@ -26,6 +26,13 @@
 		6D2152F3241C080C001CEA8D /* TextFieldObjCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2152F2241C080C001CEA8D /* TextFieldObjCViewController.m */; };
 		6D2152F9241C1210001CEA8D /* TextFieldViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D2152F8241C1210001CEA8D /* TextFieldViewController.xib */; };
 		6DBB66002436423200FA9581 /* AndesTextFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DBB65FF2436423200FA9581 /* AndesTextFieldTests.swift */; };
+		8617BD172499B5860071319C /* SnackbarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8617BD162499B5860071319C /* SnackbarRouter.swift */; };
+		8617BD1F2499B6570071319C /* SnackbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8617BD1D2499B6570071319C /* SnackbarViewController.swift */; };
+		8617BD202499B6570071319C /* SnackbarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8617BD1E2499B6570071319C /* SnackbarViewController.xib */; };
+		8634C9DC24A6334000DB7B9F /* AndesSnackbarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8634C9DA24A6330E00DB7B9F /* AndesSnackbarTests.swift */; };
+		8634C9E124A650B900DB7B9F /* AndeSnackbarManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8634C9DD24A6508B00DB7B9F /* AndeSnackbarManagerTests.swift */; };
+		8634C9E824AB774700DB7B9F /* SnackbarObjCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8634C9E624AB774700DB7B9F /* SnackbarObjCViewController.m */; };
+		8634C9E924AB774700DB7B9F /* SnackbarObjCViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8634C9E724AB774700DB7B9F /* SnackbarObjCViewController.xib */; };
 		86A1E3042481599500B59D1D /* TagRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A1E3032481599500B59D1D /* TagRouter.swift */; };
 		86A1E30824815A1700B59D1D /* AndesTagShowcaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A1E30624815A1700B59D1D /* AndesTagShowcaseViewController.swift */; };
 		86A1E30924815A1700B59D1D /* AndesTagShowcaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86A1E30724815A1700B59D1D /* AndesTagShowcaseViewController.xib */; };
@@ -127,6 +134,14 @@
 		705E1889E591A1D6D1E0B47E /* Pods-AndesUI-demoapp.mds.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AndesUI-demoapp.mds.xcconfig"; path = "Target Support Files/Pods-AndesUI-demoapp/Pods-AndesUI-demoapp.mds.xcconfig"; sourceTree = "<group>"; };
 		748830979405998C25BF67E4 /* Pods_AndesUI_demoapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AndesUI_demoapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		83BC15984E16075D3226CA24 /* Pods-AndesUI_Tests.mds.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AndesUI_Tests.mds.xcconfig"; path = "Target Support Files/Pods-AndesUI_Tests/Pods-AndesUI_Tests.mds.xcconfig"; sourceTree = "<group>"; };
+		8617BD162499B5860071319C /* SnackbarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackbarRouter.swift; sourceTree = "<group>"; };
+		8617BD1D2499B6570071319C /* SnackbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackbarViewController.swift; sourceTree = "<group>"; };
+		8617BD1E2499B6570071319C /* SnackbarViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SnackbarViewController.xib; sourceTree = "<group>"; };
+		8634C9DA24A6330E00DB7B9F /* AndesSnackbarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndesSnackbarTests.swift; sourceTree = "<group>"; };
+		8634C9DD24A6508B00DB7B9F /* AndeSnackbarManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndeSnackbarManagerTests.swift; sourceTree = "<group>"; };
+		8634C9E524AB774700DB7B9F /* SnackbarObjCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SnackbarObjCViewController.h; sourceTree = "<group>"; };
+		8634C9E624AB774700DB7B9F /* SnackbarObjCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SnackbarObjCViewController.m; sourceTree = "<group>"; };
+		8634C9E724AB774700DB7B9F /* SnackbarObjCViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SnackbarObjCViewController.xib; sourceTree = "<group>"; };
 		86A1E3032481599500B59D1D /* TagRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagRouter.swift; sourceTree = "<group>"; };
 		86A1E30624815A1700B59D1D /* AndesTagShowcaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndesTagShowcaseViewController.swift; sourceTree = "<group>"; };
 		86A1E30724815A1700B59D1D /* AndesTagShowcaseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AndesTagShowcaseViewController.xib; sourceTree = "<group>"; };
@@ -254,6 +269,7 @@
 		607FACD21AFB9204008FA782 /* Example for AndesUI */ = {
 			isa = PBXGroup;
 			children = (
+				8617BD152499B5750071319C /* Snackbar */,
 				86D656B3248FF78300E62C1E /* Extensions */,
 				86A1E3022481596C00B59D1D /* Tag */,
 				9CB172952422575B00B61431 /* PageController */,
@@ -287,6 +303,7 @@
 			isa = PBXGroup;
 			children = (
 				9C592C082450A6980038785E /* TextFieldTests */,
+				8634C9DF24A6509300DB7B9F /* SnackbarTests */,
 				90F4782124363A8F001CEC90 /* AndesBadgeTests.swift */,
 				E615508823D6196C00417B5F /* AndesButtonTests.swift */,
 				9C592C0D2450A6BD0038785E /* AndesEnumStringConvertibleTests.swift */,
@@ -421,6 +438,36 @@
 				49891841870D889A9CDC91E2 /* Pods_AndesUI_Tests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8617BD152499B5750071319C /* Snackbar */ = {
+			isa = PBXGroup;
+			children = (
+				8617BD182499B5BC0071319C /* Views */,
+				8617BD162499B5860071319C /* SnackbarRouter.swift */,
+			);
+			path = Snackbar;
+			sourceTree = "<group>";
+		};
+		8617BD182499B5BC0071319C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8617BD1D2499B6570071319C /* SnackbarViewController.swift */,
+				8617BD1E2499B6570071319C /* SnackbarViewController.xib */,
+				8634C9E524AB774700DB7B9F /* SnackbarObjCViewController.h */,
+				8634C9E624AB774700DB7B9F /* SnackbarObjCViewController.m */,
+				8634C9E724AB774700DB7B9F /* SnackbarObjCViewController.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8634C9DF24A6509300DB7B9F /* SnackbarTests */ = {
+			isa = PBXGroup;
+			children = (
+				8634C9DA24A6330E00DB7B9F /* AndesSnackbarTests.swift */,
+				8634C9DD24A6508B00DB7B9F /* AndeSnackbarManagerTests.swift */,
+			);
+			name = SnackbarTests;
 			sourceTree = "<group>";
 		};
 		86A1E3022481596C00B59D1D /* Tag */ = {
@@ -640,10 +687,9 @@
 			};
 			buildConfigurationList = 607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "AndesUI" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);
@@ -675,8 +721,10 @@
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				9CA28813244761F200E299C3 /* TextAreaViewController.xib in Resources */,
 				9CE112DD23CE58910017B770 /* MessageViewController.xib in Resources */,
+				8634C9E924AB774700DB7B9F /* SnackbarObjCViewController.xib in Resources */,
 				9C2FFC6B23EDB1A50016292E /* whats_new.html in Resources */,
 				9C9B5A8823ECB08D0007234B /* Localizable.strings in Resources */,
+				8617BD202499B6570071319C /* SnackbarViewController.xib in Resources */,
 				9CE112FD23D20B0E0017B770 /* MessageObjCViewController.xib in Resources */,
 				86A1E30924815A1700B59D1D /* AndesTagShowcaseViewController.xib in Resources */,
 				86A1E3122481E56300B59D1D /* TagObjCViewController.xib in Resources */,
@@ -798,6 +846,7 @@
 			files = (
 				6D2152E9241BCC65001CEA8D /* TextFieldsRouter.swift in Sources */,
 				6D2152EC241BCD0E001CEA8D /* AndesShowcasePageViewController.swift in Sources */,
+				8634C9E824AB774700DB7B9F /* SnackbarObjCViewController.m in Sources */,
 				9CA2881124475DE700E299C3 /* TextAreaViewController.swift in Sources */,
 				90530B11242BFD15005E056A /* BadgeViewController.swift in Sources */,
 				9CD1071D23EDF3A90081232D /* UIView+Additions.swift in Sources */,
@@ -807,8 +856,10 @@
 				9C9B5A8F23ECEED40007234B /* WhatsNewViewController.swift in Sources */,
 				86A1E3112481E56300B59D1D /* TagObjCViewController.m in Sources */,
 				90530B07242BF9ED005E056A /* BadgesRouter.swift in Sources */,
+				8617BD1F2499B6570071319C /* SnackbarViewController.swift in Sources */,
 				6A3C9CFD23C692B6007D0C8B /* HomeViewController.swift in Sources */,
 				90F4781F243534F0001CEC90 /* BadgeObjCViewController.m in Sources */,
+				8617BD172499B5860071319C /* SnackbarRouter.swift in Sources */,
 				90530B0B242BFAA7005E056A /* AndesBadgeShowcaseViewController.swift in Sources */,
 				6A186A6923AC0FBB00420556 /* ButtonsViewController.swift in Sources */,
 				9CE1130223D20BF40017B770 /* MessageObjCViewController.m in Sources */,
@@ -835,12 +886,14 @@
 				9CAD81E923FD66ED00D43EB9 /* AndesIconsProviderTests.swift in Sources */,
 				9C592C0B2450A6B70038785E /* AndesTextAreaTests.swift in Sources */,
 				E615508A23D619E300417B5F /* AndesButtonTests.swift in Sources */,
+				8634C9E124A650B900DB7B9F /* AndeSnackbarManagerTests.swift in Sources */,
 				9C592C0E2450A6BD0038785E /* AndesEnumStringConvertibleTests.swift in Sources */,
 				6DBB66002436423200FA9581 /* AndesTextFieldTests.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* AndesStyleSheetTests.swift in Sources */,
 				90F4782224363A8F001CEC90 /* AndesBadgeTests.swift in Sources */,
 				86E0A35D2493BDA9003D338C /* AndesTagSimpleTests.swift in Sources */,
 				9CE112F123D1E14B0017B770 /* AndesMessageTests.swift in Sources */,
+				8634C9DC24A6334000DB7B9F /* AndesSnackbarTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
