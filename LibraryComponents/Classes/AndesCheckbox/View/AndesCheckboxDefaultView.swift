@@ -101,8 +101,8 @@ class AndesCheckboxDefaultView: UIView, AndesCheckboxView {
                     }
                     self.leftButton.tintColor = currentIconColor
                 } else {
-                    AndesIconsProvider.loadIcon(name: currentIcon) {
-                        checkboxIcon in self.rightButton.setImage(checkboxIcon, for: .normal)
+                    AndesIconsProvider.loadIcon(name: currentIcon) { checkboxIcon in 
+                        self.rightButton.setImage(checkboxIcon, for: .normal)
                     }
                     self.rightButton.tintColor = currentIconColor
                 }
