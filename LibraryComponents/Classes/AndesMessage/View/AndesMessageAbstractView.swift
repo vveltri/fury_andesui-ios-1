@@ -101,7 +101,7 @@ class AndesMessageAbstractView: UIView, AndesMessageView {
             self.dismissButton.accessibilityLabel = "Cerrar".localized()
         } else {
             self.titleToDismissConstraint.priority = .defaultLow
-            self.titleToSafeAreaConstraint.priority = .required
+            self.titleToSafeAreaConstraint.priority = .init(rawValue: 999)
             self.dismissButton.isHidden = true
         }
     }
