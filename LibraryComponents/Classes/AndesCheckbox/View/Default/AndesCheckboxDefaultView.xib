@@ -11,6 +11,10 @@
             <connections>
                 <outlet property="checkboxView" destination="iN0-l3-epB" id="RqP-aa-y6Y"/>
                 <outlet property="label" destination="vNJ-co-emm" id="p0A-Vg-qRZ"/>
+                <outlet property="labelToLeadingConstraint" destination="wyf-lI-yn5" id="WW4-3B-7vA"/>
+                <outlet property="labelToLeftButtonConstraint" destination="bbS-ma-Nr2" id="TDF-iV-JzT"/>
+                <outlet property="labelToRightButtonConstraint" destination="Jx6-O5-cz4" id="IZS-HN-K7L"/>
+                <outlet property="labelToTrailingConstraint" destination="hp5-bY-WMe" id="p5x-qk-CmA"/>
                 <outlet property="leftButton" destination="EpU-C7-QXn" id="zL7-e1-zus"/>
                 <outlet property="rightButton" destination="fk8-QB-vkw" id="0We-Vw-fEz"/>
             </connections>
@@ -51,11 +55,13 @@
             <constraints>
                 <constraint firstItem="fk8-QB-vkw" firstAttribute="centerY" secondItem="vNJ-co-emm" secondAttribute="centerY" id="03s-ez-P45"/>
                 <constraint firstItem="EpU-C7-QXn" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="3Kw-Os-OkV"/>
-                <constraint firstItem="fk8-QB-vkw" firstAttribute="leading" secondItem="vNJ-co-emm" secondAttribute="trailing" constant="12" id="Jx6-O5-cz4"/>
+                <constraint firstItem="fk8-QB-vkw" firstAttribute="leading" secondItem="vNJ-co-emm" secondAttribute="trailing" priority="750" constant="12" id="Jx6-O5-cz4"/>
                 <constraint firstItem="vNJ-co-emm" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="12" id="SiN-bV-Ca4"/>
-                <constraint firstItem="vNJ-co-emm" firstAttribute="leading" secondItem="EpU-C7-QXn" secondAttribute="trailing" constant="12" id="bbS-ma-Nr2"/>
+                <constraint firstItem="vNJ-co-emm" firstAttribute="leading" secondItem="EpU-C7-QXn" secondAttribute="trailing" priority="750" constant="12" id="bbS-ma-Nr2"/>
+                <constraint firstAttribute="trailing" secondItem="vNJ-co-emm" secondAttribute="trailing" priority="250" constant="12" id="hp5-bY-WMe"/>
                 <constraint firstAttribute="trailing" secondItem="fk8-QB-vkw" secondAttribute="trailing" constant="12" id="jJl-18-eFs"/>
                 <constraint firstAttribute="bottom" secondItem="vNJ-co-emm" secondAttribute="bottom" constant="12" id="lp2-ee-WAO"/>
+                <constraint firstItem="vNJ-co-emm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" priority="250" constant="12" id="wyf-lI-yn5"/>
                 <constraint firstItem="EpU-C7-QXn" firstAttribute="centerY" secondItem="vNJ-co-emm" secondAttribute="centerY" id="ybe-XR-PEN"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

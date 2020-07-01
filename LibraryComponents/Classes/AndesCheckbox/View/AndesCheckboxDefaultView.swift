@@ -10,6 +10,12 @@ import Foundation
 class AndesCheckboxDefaultView: UIView, AndesCheckboxView {
     @IBOutlet weak var label: UILabel!
 
+    @IBOutlet weak var labelToLeftButtonConstraint: NSLayoutConstraint!
+
+    @IBOutlet weak var labelToLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var labelToRightButtonConstraint: NSLayoutConstraint!
+    @IBOutlet weak var labelToTrailingConstraint: NSLayoutConstraint!
+
     @IBOutlet weak var rightButton: UIButton!
 
     @IBOutlet weak var leftButton: UIButton!
@@ -80,19 +86,7 @@ class AndesCheckboxDefaultView: UIView, AndesCheckboxView {
         let checkboxIcon: String? = config.icon
         let iconColor: UIColor? = config.iconColor
 
-        if config.align == AndesCheckboxAlign.left {
-            self.rightButton.isHidden = true
-            self.leftButton.isHidden = false
-            self.leftButton.backgroundColor = config.backgroundColor
-            self.backgroundLayer = self.leftButton.layer
-        } else {
-            self.rightButton.isHidden = false
-            self.leftButton.isHidden = true
-            self.rightButton.backgroundColor = config.backgroundColor
-            self.backgroundLayer = self.rightButton.layer
-
-        }
-
+        setButtonView()
         if let currentIcon = checkboxIcon, !currentIcon.isEmpty {
             if let currentIconColor = iconColor {
                 if self.leftButton.isHidden == false {
@@ -101,7 +95,7 @@ class AndesCheckboxDefaultView: UIView, AndesCheckboxView {
                     }
                     self.leftButton.tintColor = currentIconColor
                 } else {
-                    AndesIconsProvider.loadIcon(name: currentIcon) { checkboxIcon in 
+                    AndesIconsProvider.loadIcon(name: currentIcon) { checkboxIcon in
                         self.rightButton.setImage(checkboxIcon, for: .normal)
                     }
                     self.rightButton.tintColor = currentIconColor
@@ -122,6 +116,28 @@ class AndesCheckboxDefaultView: UIView, AndesCheckboxView {
             }
         }
 
+    }
+
+    func setButtonView() {
+        if config.align == AndesCheckboxAlign.left {
+            self.rightButton.isHidden = true
+            self.leftButton.isHidden = false
+            self.leftButton.backgroundColor = config.backgroundColor
+            self.backgroundLayer = self.leftButton.layer
+            self.labelToTrailingConstraint.priority = .defaultHigh
+            self.labelToRightButtonConstraint.priority = .defaultLow
+            self.labelToLeftButtonConstraint.priority = .defaultHigh
+            self.labelToLeadingConstraint.priority = .defaultLow
+         } else {
+            self.rightButton.isHidden = false
+            self.leftButton.isHidden = true
+            self.rightButton.backgroundColor = config.backgroundColor
+            self.backgroundLayer = self.rightButton.layer
+            self.labelToTrailingConstraint.priority = .defaultLow
+            self.labelToRightButtonConstraint.priority = .defaultHigh
+            self.labelToLeftButtonConstraint.priority = .defaultLow
+            self.labelToLeadingConstraint.priority = .defaultHigh
+         }
     }
 
     func clearView() {
