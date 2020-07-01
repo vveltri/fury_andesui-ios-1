@@ -11,8 +11,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AndesRadioButtonDefaultView" customModule="AndesUI">
             <connections>
                 <outlet property="radioButtonLabel" destination="oYL-nx-B0X" id="I3j-mM-1LK"/>
-                <outlet property="radioButtonLeftBtn" destination="Cd3-ds-WNl" id="paM-yo-f45"/>
-                <outlet property="radioButtonRightBtn" destination="UeD-MC-tIQ" id="0qg-v7-c8P"/>
+                <outlet property="radioButtonLeftBtn" destination="UeD-MC-tIQ" id="NFm-Qm-19s"/>
+                <outlet property="radioButtonRightBtn" destination="Cd3-ds-WNl" id="0W4-BH-WPt"/>
                 <outlet property="radioButtonView" destination="iN0-l3-epB" id="i90-ar-ey5"/>
             </connections>
         </placeholder>
