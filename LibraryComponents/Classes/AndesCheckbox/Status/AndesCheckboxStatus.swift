@@ -6,7 +6,7 @@
 //
 
 import Foundation
-//Used to set the checkbox status
+/// Used to set the checkbox status
 @objc public enum AndesCheckboxStatus: Int, AndesEnumStringConvertible {
     case selected
     case unselected

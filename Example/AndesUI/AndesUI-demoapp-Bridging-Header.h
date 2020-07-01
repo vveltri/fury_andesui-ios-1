@@ -9,3 +9,4 @@
 #import "BadgeObjCViewController.h"
 #import "TagObjCViewController.h"
 #import "CheckboxObjCViewController.h"
+#import "SnackbarObjCViewController.h"

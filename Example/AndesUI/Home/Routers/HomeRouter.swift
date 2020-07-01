@@ -18,6 +18,7 @@ protocol HomeRouter: NSObject {
     func routerCheckbox()
     func routerRadioButton()
     func routeTags()
+    func routeSnackbar()
 }
 
 class HomeAppRouter: NSObject {
@@ -32,6 +33,7 @@ class HomeAppRouter: NSObject {
     let checkBoxRouter = CheckboxAppRouter()
     let radioButtonRouter = RadioButtonAppRouter()
     let tagRouter = TagsAppRouter()
+    let snackbarRouter = SnackbarAppRouter()
 }
 
 extension HomeAppRouter: HomeRouter {
@@ -75,5 +77,9 @@ extension HomeAppRouter: HomeRouter {
 
     func routeTags() {
         tagRouter.route(from: view)
+    }
+
+    func routeSnackbar() {
+        snackbarRouter.route(from: view)
     }
 }

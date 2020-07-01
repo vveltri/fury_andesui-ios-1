@@ -26,22 +26,22 @@ class AndesCheckboxViewController: UIViewController, CheckboxView {
         self.stackView.alignment = .center
         self.stackView.distribution = .equalCentering
 
-        self.idleCheckboxView.setCheckboxTapped(callback: didTapIdle(checkbox:))
+        self.idleCheckboxView.setCheckboxDidTapped(callback: didTapIdle(checkbox:))
 
         // Idle - Unselected - left
         let idleCheckboxView: AndesCheckbox! = AndesCheckbox(type: AndesCheckboxType.idle, align: AndesCheckboxAlign.left, status: AndesCheckboxStatus.unselected, title: "Idle - Unselected - left")
 
-        idleCheckboxView.setCheckboxTapped(callback: didTapIdle(checkbox:))
+        idleCheckboxView.setCheckboxDidTapped(callback: didTapIdle(checkbox:))
 
         // Idle - Unselected - right
         let idleRightCheckboxView: AndesCheckbox! = AndesCheckbox(type: AndesCheckboxType.idle, align: AndesCheckboxAlign.right, status: AndesCheckboxStatus.unselected, title: "Idle - Unselected - right")
 
-        idleRightCheckboxView.setCheckboxTapped(callback: didTapIdle(checkbox:))
+        idleRightCheckboxView.setCheckboxDidTapped(callback: didTapIdle(checkbox:))
 
         // Idle - Undefined
         let idleUndefinedCheckboxView: AndesCheckbox! = AndesCheckbox(type: AndesCheckboxType.idle, align: AndesCheckboxAlign.left, status: AndesCheckboxStatus.undefined, title: "Idle - Undefined")
 
-        idleUndefinedCheckboxView.setCheckboxTapped(callback: didTapIdle(checkbox:))
+        idleUndefinedCheckboxView.setCheckboxDidTapped(callback: didTapIdle(checkbox:))
 
         // Disabled - Selected
         let disabledCheckboxView: AndesCheckbox! = AndesCheckbox(type: AndesCheckboxType.disabled, align: AndesCheckboxAlign.left, status: AndesCheckboxStatus.selected, title: "Disabled - Selected")
@@ -55,12 +55,12 @@ class AndesCheckboxViewController: UIViewController, CheckboxView {
         // Error - Unselected
         let errorUndefinedCheckboxView: AndesCheckbox! = AndesCheckbox(type: AndesCheckboxType.error, align: AndesCheckboxAlign.left, status: AndesCheckboxStatus.unselected, title: "Error - Unselected")
 
-        errorUndefinedCheckboxView.setCheckboxTapped(callback: didTapIdle(checkbox:))
+        errorUndefinedCheckboxView.setCheckboxDidTapped(callback: didTapIdle(checkbox:))
 
         // Error - Unselected - right
         let errorUndefinedRightCheckboxView: AndesCheckbox! = AndesCheckbox(type: AndesCheckboxType.error, align: AndesCheckboxAlign.right, status: AndesCheckboxStatus.unselected, title: "Error - Unselected - right")
 
-        errorUndefinedRightCheckboxView.setCheckboxTapped(callback: didTapIdle(checkbox:))
+        errorUndefinedRightCheckboxView.setCheckboxDidTapped(callback: didTapIdle(checkbox:))
 
         stackView.addArrangedSubview(idleCheckboxView)
         stackView.addArrangedSubview(idleRightCheckboxView)

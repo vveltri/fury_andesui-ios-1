@@ -6,7 +6,7 @@
 //
 
 import Foundation
-//Handle checkbox disabled type
+/// Handle checkbox disabled type
 class AndesCheckboxTypeDisabled: AndesCheckboxTypeProtocol {
     var borderColor: UIColor?
     var borderSize: CGFloat?

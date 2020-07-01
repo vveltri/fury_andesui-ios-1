@@ -43,7 +43,7 @@ import UIKit
     internal var didTapped: ((AndesCheckbox) -> Void)?
 
     /// Set dismiss callback to be invoked when checkbox button is pressed
-    @objc public func setCheckboxTapped(callback: @escaping ((AndesCheckbox) -> Void)) {
+    @objc public func setCheckboxDidTapped(callback: @escaping ((AndesCheckbox) -> Void)) {
         self.didTapped = callback
     }
 
