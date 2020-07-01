@@ -6,7 +6,7 @@
 //
 
 import Foundation
-//Used to set the checkbox type
+/// Used to set the checkbox type
 @objc public enum AndesCheckboxType: Int, AndesEnumStringConvertible {
     case idle
     case disabled
