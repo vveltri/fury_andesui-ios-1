@@ -92,7 +92,7 @@ class AndesMessageAbstractView: UIView, AndesMessageView {
 
         if config.isDismissable, let iconName = config.dismissIconName {
             self.dismissButton.isHidden = false
-            self.titleToDismissConstraint.priority = .required
+            self.titleToDismissConstraint.priority = .init(rawValue: 999)
             self.titleToSafeAreaConstraint.priority = .defaultLow
             self.dismissButton.tintColor = config.dismissIconColor
             AndesIconsProvider.loadIcon(name: iconName) {
