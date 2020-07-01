@@ -112,7 +112,7 @@ class AndesCheckboxDefaultView: UIView, AndesCheckboxView {
         self.backgroundLayer.cornerRadius = config.cornerRadius
         let borderColor: UIColor? = config.borderColor
         let borderSize: CGFloat? = config.borderSize
-        if let currentBorderColor = borderColor, let currentBorderSize = borderSize {
+        if let currentBorderColor = config.borderColor, let currentBorderSize = config.borderSize {
             if self.leftButton.isHidden == false {
                 self.leftButton.layer.borderColor = currentBorderColor.cgColor
                 self.leftButton.layer.borderWidth = currentBorderSize
