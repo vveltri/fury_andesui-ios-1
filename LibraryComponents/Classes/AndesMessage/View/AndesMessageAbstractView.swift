@@ -92,7 +92,7 @@ class AndesMessageAbstractView: UIView, AndesMessageView {
 
         if config.isDismissable, let iconName = config.dismissIconName {
             self.dismissButton.isHidden = false
-            self.titleToDismissConstraint.priority = .defaultHigh
+            self.titleToDismissConstraint.priority = .required
             self.titleToSafeAreaConstraint.priority = .defaultLow
             self.dismissButton.tintColor = config.dismissIconColor
             AndesIconsProvider.loadIcon(name: iconName) {
@@ -101,7 +101,7 @@ class AndesMessageAbstractView: UIView, AndesMessageView {
             self.dismissButton.accessibilityLabel = "Cerrar".localized()
         } else {
             self.titleToDismissConstraint.priority = .defaultLow
-            self.titleToSafeAreaConstraint.priority = .defaultHigh
+            self.titleToSafeAreaConstraint.priority = .required
             self.dismissButton.isHidden = true
         }
     }
