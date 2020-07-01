@@ -96,8 +96,8 @@ class AndesCheckboxDefaultView: UIView, AndesCheckboxView {
         if let currentIcon = checkboxIcon, !currentIcon.isEmpty {
             if let currentIconColor = iconColor {
                 if self.leftButton.isHidden == false {
-                    AndesIconsProvider.loadIcon(name: currentIcon) {
-                        checkboxIcon in self.leftButton.setImage(checkboxIcon, for: .normal)
+                    AndesIconsProvider.loadIcon(name: currentIcon) { checkboxIcon in
+                        self.leftButton.setImage(checkboxIcon, for: .normal)
                     }
                     self.leftButton.tintColor = currentIconColor
                 } else {
