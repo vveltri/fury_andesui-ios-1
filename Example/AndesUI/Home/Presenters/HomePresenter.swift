@@ -16,6 +16,7 @@ protocol HomePresenter: NSObject {
     func presentWhatsNew()
     func presentCheckbox()
     func presentTags()
+    func presentSnackbar()
 }
 
 class HomeViewPresenter: NSObject {
@@ -55,5 +56,9 @@ extension HomeViewPresenter: HomePresenter {
 
     func presentTags() {
         router.routeTags()
+    }
+
+    func presentSnackbar() {
+        router.routeSnackbar()
     }
 }

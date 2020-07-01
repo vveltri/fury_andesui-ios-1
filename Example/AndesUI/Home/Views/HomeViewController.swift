@@ -25,6 +25,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var textFieldBtn: AndesButton!
     @IBOutlet weak var checkboxBtn: AndesButton!
     @IBOutlet weak var tagBtn: AndesButton!
+    @IBOutlet weak var snackbarBtn: AndesButton!
     @IBOutlet weak var specsButton: AndesButton!
     @IBOutlet weak var contributingButton: AndesButton!
     @IBOutlet weak var showcaseLabel: UILabel!
@@ -95,6 +96,10 @@ class HomeViewController: UIViewController {
 
     @IBAction func tagBtnTapped(_ sender: Any) {
         presenter.presentTags()
+    }
+
+    @IBAction func snackbarBtnTapped(_ sender: Any) {
+        presenter.presentSnackbar()
     }
 
 }
