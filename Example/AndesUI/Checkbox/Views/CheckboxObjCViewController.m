@@ -63,7 +63,7 @@
     //LEFT
     AndesCheckbox* selectedStack =[[AndesCheckbox alloc] initWithType:(AndesCheckboxTypeIdle) align:(AndesCheckboxAlignLeft) status:(AndesCheckboxStatusSelected) title:(@"Idle Selected")];
     
-    [selectedStack setCheckboxTappedWithCallback:^(AndesCheckbox * selectedStack) {
+    [selectedStack setCheckboxDidTappedWithCallback:^(AndesCheckbox * selectedStack) {
         [self didTap:selectedStack];
     }];
         
@@ -71,7 +71,7 @@
 
     AndesCheckbox* unselectedStack =[[AndesCheckbox alloc] initWithType:(AndesCheckboxTypeIdle) align:(AndesCheckboxAlignLeft) status:(AndesCheckboxStatusUnselected) title:(@"Idle Unselected")];
     
-    [unselectedStack setCheckboxTappedWithCallback:^(AndesCheckbox * unselectedStack) {
+    [unselectedStack setCheckboxDidTappedWithCallback:^(AndesCheckbox * unselectedStack) {
         [self didTap:unselectedStack];
     }];
     
@@ -79,7 +79,7 @@
 
     AndesCheckbox* undefinedStack =[[AndesCheckbox alloc] initWithType:(AndesCheckboxTypeIdle) align:(AndesCheckboxAlignLeft) status:(AndesCheckboxStatusUndefined) title:(@"Idle Undefined")];
     
-    [undefinedStack setCheckboxTappedWithCallback:^(AndesCheckbox * undefinedStack) {
+    [undefinedStack setCheckboxDidTappedWithCallback:^(AndesCheckbox * undefinedStack) {
         [self didTap:undefinedStack];
     }];
         
@@ -88,7 +88,7 @@
     //RIGHT
     AndesCheckbox* selectedRightStack =[[AndesCheckbox alloc] initWithType:(AndesCheckboxTypeIdle) align:(AndesCheckboxAlignRight) status:(AndesCheckboxStatusSelected) title:(@"Idle Selected")];
     
-    [selectedRightStack setCheckboxTappedWithCallback:^(AndesCheckbox * selectedRightStack) {
+    [selectedRightStack setCheckboxDidTappedWithCallback:^(AndesCheckbox * selectedRightStack) {
         [self didTap:selectedRightStack];
     }];
         
@@ -96,7 +96,7 @@
         
     AndesCheckbox* unselectedRightStack =[[AndesCheckbox alloc] initWithType:(AndesCheckboxTypeIdle) align:(AndesCheckboxAlignRight) status:(AndesCheckboxStatusUnselected) title:(@"Idle Unselected")];
         
-    [unselectedRightStack setCheckboxTappedWithCallback:^(AndesCheckbox * unselectedRightStack) {
+    [unselectedRightStack setCheckboxDidTappedWithCallback:^(AndesCheckbox * unselectedRightStack) {
         [self didTap:unselectedRightStack];
     }];
         
@@ -104,7 +104,7 @@
 
     AndesCheckbox* undefinedRightStack =[[AndesCheckbox alloc] initWithType:(AndesCheckboxTypeIdle) align:(AndesCheckboxAlignRight) status:(AndesCheckboxStatusUndefined) title:(@"Idle Undefined")];
         
-    [undefinedRightStack setCheckboxTappedWithCallback:^(AndesCheckbox * undefinedRightStack) {
+    [undefinedRightStack setCheckboxDidTappedWithCallback:^(AndesCheckbox * undefinedRightStack) {
         [self didTap:undefinedRightStack];
     }];
         
@@ -139,7 +139,7 @@
     //ERROR
     AndesCheckbox* unselectedErrorStack =[[AndesCheckbox alloc] initWithType:(AndesCheckboxTypeError) align:(AndesCheckboxAlignLeft) status:(AndesCheckboxStatusUnselected) title:(@"Error Unselected")];
     
-    [unselectedErrorStack setCheckboxTappedWithCallback:^(AndesCheckbox * unselectedErrorStack) {
+    [unselectedErrorStack setCheckboxDidTappedWithCallback:^(AndesCheckbox * unselectedErrorStack) {
         [self didTap:unselectedErrorStack];
     }];
     
@@ -147,7 +147,7 @@
     
     AndesCheckbox* unselectedErrorRightStack =[[AndesCheckbox alloc] initWithType:(AndesCheckboxTypeError) align:(AndesCheckboxAlignRight) status:(AndesCheckboxStatusUnselected) title:(@"Error Unselected")];
     
-    [unselectedErrorRightStack setCheckboxTappedWithCallback:^(AndesCheckbox * unselectedErrorRightStack) {
+    [unselectedErrorRightStack setCheckboxDidTappedWithCallback:^(AndesCheckbox * unselectedErrorRightStack) {
         [self didTap:unselectedErrorRightStack];
     }];
     

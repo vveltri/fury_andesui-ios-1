@@ -24,7 +24,7 @@ class AndesCheckboxInitViewController: UIViewController {
     @IBOutlet weak var updateBtn: UIButton!
     @IBOutlet weak var clearBtn: UIButton!
     override func viewDidLoad() {
-        self.andesCheckbox.setCheckboxTapped(callback: didTapIdle(checkbox:))
+        self.andesCheckbox.setCheckboxDidTapped(callback: didTapIdle(checkbox:))
         createPickerViews()
     }
 

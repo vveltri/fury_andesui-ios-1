@@ -6,7 +6,7 @@
 //
 
 import Foundation
-//Used to set the checkbox align
+/// Used to set the checkbox align
 @objc public enum AndesCheckboxAlign: Int, AndesEnumStringConvertible {
     case left
     case right
