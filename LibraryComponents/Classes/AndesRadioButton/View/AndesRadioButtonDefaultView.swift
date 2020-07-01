@@ -64,51 +64,34 @@ class AndesRadioButtonDefaultView: UIView, AndesRadioButtonView {
 
     func updateView() {
         clearView()
-        /*self.label.text = config.title
-        let checkboxIcon: String? = config.icon
-        let iconColor: UIColor? = config.iconColor
+        self.radioButtonLabel.text = config.title
 
-        if config.align == AndesCheckboxAlign.left {
-            self.rightButton.isHidden = true
-            self.leftButton.isHidden = false
-            self.leftButton.backgroundColor = config.backgroundColor
-            self.backgroundLayer = self.leftButton.layer
+        if config.align == AndesRadioButtonAlign.left {
+            self.radioButtonRightBtn.isHidden = true
+            self.radioButtonLeftBtn.isHidden = false
+            self.radioButtonLeftBtn.backgroundColor = config.backgroundColor
+            self.radioButtonLeftBtn.layer.cornerRadius = radioButtonLeftBtn.frame.width/2
+            self.radioButtonLeftBtn.titleEdgeInsets = UIEdgeInsets(top: 4.0, left: 4.0, bottom: 4.0, right: 4.0)
         } else {
-            self.rightButton.isHidden = false
-            self.leftButton.isHidden = true
-            self.rightButton.backgroundColor = config.backgroundColor
-            self.backgroundLayer = self.rightButton.layer
-
+            self.radioButtonRightBtn.isHidden = false
+            self.radioButtonLeftBtn.isHidden = true
+            self.radioButtonRightBtn.backgroundColor = config.backgroundColor
+            self.radioButtonRightBtn.layer.cornerRadius = radioButtonLeftBtn.frame.width/2
+            self.radioButtonRightBtn.titleEdgeInsets = UIEdgeInsets(top: 4.0, left: 4.0, bottom: 4.0, right: 4.0)
         }
 
-        if let currentIcon = checkboxIcon, !currentIcon.isEmpty {
-            if let currentIconColor = iconColor {
-                if self.leftButton.isHidden == false {
-                    AndesIconsProvider.loadIcon(name: currentIcon) {
-                        checkboxIcon in self.leftButton.setImage(checkboxIcon, for: .normal)
-                    }
-                    self.leftButton.tintColor = currentIconColor
-                } else {
-                    AndesIconsProvider.loadIcon(name: currentIcon) {
-                        checkboxIcon in self.rightButton.setImage(checkboxIcon, for: .normal)
-                    }
-                    self.rightButton.tintColor = currentIconColor
-                }
-            }
-        }
-        self.label.setAndesStyle(style: AndesStyleSheetManager.styleSheet.bodyM(color: config.textColor))
-        self.backgroundLayer.cornerRadius = config.cornerRadius
+        self.radioButtonLabel.setAndesStyle(style: AndesStyleSheetManager.styleSheet.bodyM(color: config.textColor))
         let borderColor: UIColor? = config.borderColor
         let borderSize: CGFloat? = config.borderSize
         if let currentBorderColor = borderColor, let currentBorderSize = borderSize {
-            if self.leftButton.isHidden == false {
-                self.leftButton.layer.borderColor = currentBorderColor.cgColor
-                self.leftButton.layer.borderWidth = currentBorderSize
+            if self.radioButtonLeftBtn.isHidden == false {
+                self.radioButtonLeftBtn.layer.borderColor = currentBorderColor.cgColor
+                self.radioButtonLeftBtn.layer.borderWidth = currentBorderSize
             } else {
-                self.rightButton.layer.borderColor = currentBorderColor.cgColor
-                self.rightButton.layer.borderWidth = currentBorderSize
+                self.radioButtonRightBtn.layer.borderColor = currentBorderColor.cgColor
+                self.radioButtonRightBtn.layer.borderWidth = currentBorderSize
             }
-        }*/
+        }
 
     }
 

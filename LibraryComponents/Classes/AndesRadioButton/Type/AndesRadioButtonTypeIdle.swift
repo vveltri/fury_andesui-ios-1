@@ -25,7 +25,7 @@ class AndesRadioButtonTypeIdle: AndesRadioButtonTypeProtocol {
             self.borderColor = UIColor.Andes.gray250
         } else {
             self.backgroundColor = statusProtocol.backgroundColor
-            self.borderColor = UIColor.Andes.blueML500
+            self.borderColor = UIColor.Andes.white
         }
     }
 }
