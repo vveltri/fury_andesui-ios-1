@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 class AndesCheckboxTypeFactory {
     static func provide(_ type: AndesCheckboxType, status: AndesCheckboxStatus) -> AndesCheckboxTypeProtocol {
         switch type {

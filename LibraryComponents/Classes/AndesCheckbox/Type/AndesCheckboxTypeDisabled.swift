@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 /// Handle checkbox disabled type
 class AndesCheckboxTypeDisabled: AndesCheckboxTypeProtocol {
     var borderColor: UIColor?
@@ -15,9 +16,7 @@ class AndesCheckboxTypeDisabled: AndesCheckboxTypeProtocol {
     var iconColor: UIColor? = UIColor.Andes.gray250
     var cornerRadius: CGFloat = 3
 
-    init() {
-
-    }
+    init() {}
 
     init(status: AndesCheckboxStatus) {
         let statusProtocol = AndesCheckboxStatusFactory.provide(status)

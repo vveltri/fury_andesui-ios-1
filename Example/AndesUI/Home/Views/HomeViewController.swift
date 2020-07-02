@@ -78,6 +78,7 @@ class HomeViewController: UIViewController {
     @IBAction func goToCheckboxTapped(_ sender: Any) {
         presenter.presentCheckbox()
     }
+
     @IBAction func goToRadioButtonTapped(_ sender: Any) {
         presenter.presentRadioButton()
     }

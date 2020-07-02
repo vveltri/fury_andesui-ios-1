@@ -22,9 +22,7 @@ internal struct AndesCheckboxViewConfig {
     var type: AndesCheckboxTypeProtocol! = AndesCheckboxTypeIdle()
     var status: AndesCheckboxStatusProtocol! = AndesCheckboxStatusUnselected()
 
-    init () {
-
-    }
+    init () { }
 
     init(for checkbox: AndesCheckbox) {
         self.title = checkbox.title
@@ -39,5 +37,4 @@ internal struct AndesCheckboxViewConfig {
         self.borderSize = type.borderSize
         self.backgroundColor = type.backgroundColor
     }
-
 }

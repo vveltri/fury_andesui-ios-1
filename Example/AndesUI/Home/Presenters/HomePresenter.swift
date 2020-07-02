@@ -57,7 +57,6 @@ extension HomeViewPresenter: HomePresenter {
     func presentRadioButton() {
         router.routerRadioButton()
     }
-
     func presentTags() {
         router.routeTags()
     }

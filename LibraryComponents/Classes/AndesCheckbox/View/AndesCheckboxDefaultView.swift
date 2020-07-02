@@ -27,8 +27,10 @@ class AndesCheckboxDefaultView: UIView, AndesCheckboxView {
     weak var delegate: AndesCheckboxViewDelegate?
 
     var config: AndesCheckboxViewConfig
-    init(withConfig config: AndesCheckboxViewConfig) {
+
+    init(withConfig config: AndesCheckboxViewConfig, delegate: AndesCheckboxViewDelegate) {
         self.config = config
+        self.delegate = delegate
         super.init(frame: .zero)
         setup()
     }
@@ -37,6 +39,7 @@ class AndesCheckboxDefaultView: UIView, AndesCheckboxView {
         self.config = config
         updateView()
     }
+
     @IBAction func leftButtonTapped(_ sender: Any) {
         self.delegate?.checkboxTapped()
     }
@@ -46,8 +49,8 @@ class AndesCheckboxDefaultView: UIView, AndesCheckboxView {
     }
 
     func loadNib() {
-           let bundle = AndesBundle.bundle()
-           bundle.loadNibNamed("AndesCheckboxDefaultView", owner: self, options: nil)
+       let bundle = AndesBundle.bundle()
+       bundle.loadNibNamed("AndesCheckboxDefaultView", owner: self, options: nil)
     }
 
     override init(frame: CGRect) {
@@ -60,7 +63,6 @@ class AndesCheckboxDefaultView: UIView, AndesCheckboxView {
         self.config = AndesCheckboxViewConfig()
         super.init(coder: coder)
         setup()
-
     }
 
     init() {
@@ -80,6 +82,7 @@ class AndesCheckboxDefaultView: UIView, AndesCheckboxView {
 
     func initialize() {
         self.label.setAndesStyle(style: AndesStyleSheetManager.styleSheet.bodyM(color: config.textColor))
+        self.label.isAccessibilityElement = false
     }
 
     func updateView() {
@@ -88,6 +91,7 @@ class AndesCheckboxDefaultView: UIView, AndesCheckboxView {
         updateBoxesViews()
         updateBoxesBorders()
         updateIcons()
+        updateAccessibilityProperties()
     }
 
     func updateIcons() {
@@ -142,6 +146,18 @@ class AndesCheckboxDefaultView: UIView, AndesCheckboxView {
             } else {
                 self.rightBox.layer.borderColor = currentBorderColor.cgColor
                 self.rightBox.layer.borderWidth = currentBorderSize
+            }
+        }
+    }
+
+    func updateAccessibilityProperties() {
+        if let accessibilityTraits = self.delegate?.buttonAccesibilityTraits() {
+            if config.align == AndesCheckboxAlign.left {
+                self.leftTappableArea.accessibilityTraits = accessibilityTraits
+                self.leftTappableArea.accessibilityLabel = config.title
+            } else {
+                self.rightTappableArea.accessibilityTraits = accessibilityTraits
+                self.rightTappableArea.accessibilityLabel = config.title
             }
         }
     }

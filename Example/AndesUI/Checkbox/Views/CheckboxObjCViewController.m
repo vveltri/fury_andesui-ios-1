@@ -10,8 +10,8 @@
 #import <AndesUI/AndesUI-Swift.h>
 
 @interface CheckboxObjCViewController ()
-@property (weak, nonatomic) IBOutlet UIStackView *stackView;
 
+@property (weak, nonatomic) IBOutlet UIStackView *stackView;
 
 @end
 
@@ -59,7 +59,7 @@
 }
 
 - (void)addIdelCheckboxes : (UIStackView *)stackView
-    {
+{
     //LEFT
     AndesCheckbox* selectedStack =[[AndesCheckbox alloc] initWithType:(AndesCheckboxTypeIdle) align:(AndesCheckboxAlignLeft) status:(AndesCheckboxStatusSelected) title:(@"Idle Selected")];
     
@@ -109,7 +109,6 @@
     }];
         
     [stackView addArrangedSubview:undefinedRightStack];
-    
 }
 
 - (void)addDisabledAndErrorCheckbox:(UIStackView *)stackView
@@ -154,7 +153,7 @@
     [stackView addArrangedSubview:unselectedErrorRightStack];
 }
 
-- (void) didTap: (AndesCheckbox*) checkbox {
+- (void)didTap:(AndesCheckbox*)checkbox {
     UIAlertController *alert = [[UIAlertController alloc] init];
     switch (checkbox.type) {
     case AndesCheckboxTypeIdle:
@@ -180,4 +179,5 @@
     [alert addAction:defaultAction];
     [self presentViewController:alert animated:YES completion:nil];
 }
+
 @end

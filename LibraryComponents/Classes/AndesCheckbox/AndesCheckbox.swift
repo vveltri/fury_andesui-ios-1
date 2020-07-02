@@ -70,16 +70,9 @@ import UIKit
         translatesAutoresizingMaskIntoConstraints = false
         self.backgroundColor = .clear
         let config = AndesCheckboxViewConfig(for: self)
-        contentView = AndesCheckboxDefaultView(withConfig: config)
+        contentView = AndesCheckboxDefaultView(withConfig: config, delegate: self)
         self.addSubview(contentView)
         contentView.pinToSuperview()
-        contentView.delegate = self
-
-        //accesibility
-        contentView.isAccessibilityElement = false
-        self.isAccessibilityElement = true
-        self.accessibilityTraits = .button
-        self.accessibilityLabel = self.title
     }
 
     private func updateContentView() {
@@ -95,31 +88,37 @@ extension AndesCheckbox: AndesCheckboxViewDelegate {
         }
         switch self.type {
         case .error:
-            //accesibility
-            self.accessibilityTraits.remove(.selected)
-            self.accessibilityTraits.remove(.notEnabled)
-
             self.type = .idle
             self.status = .selected
         case .idle:
-            self.accessibilityTraits.remove(.notEnabled)
             if self.status == .selected {
-                //accesibility
-                self.accessibilityTraits.remove(.selected)
                 self.status = .unselected
             } else if self.status == .unselected || self.status == .undefined {
-                //accesibility
-                self.accessibilityTraits.insert(.selected)
                 self.status = .selected
             }
         case .disabled:
-            //accesibility
-            self.accessibilityTraits.insert(.notEnabled)
-            //Never happend
+            //Never happen
             return
         }
         updateContentView()
         callback(self)
+    }
+
+    func buttonAccesibilityTraits() -> UIAccessibilityTraits {
+        var accessibilityTraits = UIButton.accessibilityTraits()
+
+        accessibilityTraits.insert(.button)
+
+        // Pattern matching type and status
+        if case .idle = self.type {
+            if case .selected = self.status {
+                accessibilityTraits.insert(.selected)
+            }
+        } else if case .disabled = self.type {
+            accessibilityTraits.insert(.notEnabled)
+        }
+
+        return accessibilityTraits
     }
 }
 
