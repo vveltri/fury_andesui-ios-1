@@ -3,6 +3,10 @@
 - New component: AndesSnackbar | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
 - TextField/TextArea: allows for custom input views | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
 - TextField: add textFieldShouldReturn to public delegate | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
+- AndesCheckbox  new component
+|  Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
+
+
 
 ### 🛠 Bug fixes
 - AndesMessage: Constraints priority fix | Authors: [@MaxiTalenti](https://github.com/mercadolibre/fury_andesui-ios)

@@ -15,6 +15,7 @@ protocol HomeRouter: NSObject {
     func routeToBadges()
     func routeToWhatsNew()
     func routeTextField()
+    func routerCheckbox()
     func routeTags()
     func routeSnackbar()
 }
@@ -28,12 +29,12 @@ class HomeAppRouter: NSObject {
     let badgesRouter = BadgesAppRouter()
     let whatsNewRouter = WhatsNewAppRouter()
     let textFieldRouter = TextFieldsAppRouter()
+    let checkBoxRouter = CheckboxAppRouter()
     let tagRouter = TagsAppRouter()
     let snackbarRouter = SnackbarAppRouter()
 }
 
 extension HomeAppRouter: HomeRouter {
-
     func route(from: UIViewController) {
         presenter = HomeViewPresenter(view: view, router: self)
         view.presenter = presenter
@@ -62,6 +63,10 @@ extension HomeAppRouter: HomeRouter {
 
     func routeTextField() {
         textFieldRouter.route(from: view)
+    }
+
+    func routerCheckbox() {
+        checkBoxRouter.route(from: view)
     }
 
     func routeTags() {
