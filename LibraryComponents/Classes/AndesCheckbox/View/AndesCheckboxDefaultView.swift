@@ -109,7 +109,7 @@ class AndesCheckboxDefaultView: UIView, AndesCheckboxView {
     }
 
     func updateBoxesViews() {
-        if config.align == AndesCheckboxAlign.left {
+        if config.align == .left {
             self.rightBox.isHidden = true
             self.leftBox.isHidden = false
             self.rightTappableArea.isHidden = true

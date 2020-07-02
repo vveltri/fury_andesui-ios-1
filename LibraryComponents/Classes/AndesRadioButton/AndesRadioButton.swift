@@ -89,7 +89,7 @@ import UIKit
 }
 
 extension AndesRadioButton: AndesRadioButtonViewDelegate {
-    func buttonTapped() {
+    func radioButtonTapped() {
         guard let callback = self.didTapped else {
             return
         }

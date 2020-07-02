@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AndesRadioButtonViewController" customModule="AndesUI_DemoApp" customModuleProvider="target">
             <connections>
+                <outlet property="radioButton" destination="zhE-sd-tpD" id="DpP-qY-LKm"/>
                 <outlet property="view" destination="iN0-l3-epB" id="9b9-b6-RNb"/>
             </connections>
         </placeholder>
@@ -39,7 +40,7 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="checkbox type" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qgF-MF-lth">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="checkbox type" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qgF-MF-lth" userLabel="radiobutton type">
                             <rect key="frame" x="178" y="136.5" width="136" height="34"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="qgF-MF-lth" secondAttribute="height" multiplier="4:1" id="xf0-mr-CgJ"/>
@@ -47,7 +48,7 @@
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="checkbox status" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hYw-3i-glO">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="checkbox status" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hYw-3i-glO" userLabel="radiobutton status">
                             <rect key="frame" x="178" y="177.5" width="136" height="34"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="hYw-3i-glO" secondAttribute="height" multiplier="4:1" id="dEw-Xy-IcB"/>
@@ -55,7 +56,7 @@
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="checkbox align" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LCw-QB-Mfv">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="checkbox align" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LCw-QB-Mfv" userLabel="radiobbuton align">
                             <rect key="frame" x="178" y="218.5" width="136" height="34"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="LCw-QB-Mfv" secondAttribute="height" multiplier="4:1" id="oh9-jY-Ayp"/>
@@ -63,7 +64,7 @@
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Checkbox text" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RnL-ig-JUl">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Checkbox text" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RnL-ig-JUl" userLabel="radiobutton text">
                             <rect key="frame" x="8" y="273" width="298" height="34"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
@@ -82,7 +83,7 @@
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="string" keyPath="title" value="Radio Button"/>
                                 <userDefinedRuntimeAttribute type="string" keyPath="ibType" value="idle"/>
-                                <userDefinedRuntimeAttribute type="string" keyPath="ibStatus" value="selected"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="ibStatus" value="unselected"/>
                                 <userDefinedRuntimeAttribute type="string" keyPath="ibAlign" value="left"/>
                             </userDefinedRuntimeAttributes>
                         </view>

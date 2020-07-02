@@ -9,5 +9,5 @@ import Foundation
 
 /// Used to route events form internal checkbox views to AndesRadioButton
 internal protocol AndesRadioButtonViewDelegate: AnyObject {
-   func buttonTapped()
+   func radioButtonTapped()
 }

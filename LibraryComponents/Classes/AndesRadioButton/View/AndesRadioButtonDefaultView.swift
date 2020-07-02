@@ -9,6 +9,14 @@ import Foundation
 class AndesRadioButtonDefaultView: UIView, AndesRadioButtonView {
     @IBOutlet weak var radioButtonRightBtn: UIButton!
 
+    @IBOutlet weak var labelToLeftButtonConstraint: NSLayoutConstraint!
+    @IBOutlet weak var labelToLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var labelToRightButtonConstraint: NSLayoutConstraint!
+    @IBOutlet weak var labelToTrailingConstraint: NSLayoutConstraint!
+
+    @IBOutlet weak var rightBox: UIImageView!
+    @IBOutlet weak var leftBox: UIImageView!
+
     @IBOutlet weak var radioButtonLabel: UILabel!
 
     @IBOutlet weak var radioButtonLeftBtn: UIButton!
@@ -44,7 +52,15 @@ class AndesRadioButtonDefaultView: UIView, AndesRadioButtonView {
         setup()
     }
 
-      func update(withConfig config: AndesRadioButtonConfig) {
+    @IBAction func rightBoxTapped(_ sender: Any) {
+        delegate?.radioButtonTapped()
+    }
+
+    @IBAction func leftBoxTapped(_ sender: Any) {
+        delegate?.radioButtonTapped()
+    }
+
+    func update(withConfig config: AndesRadioButtonConfig) {
           self.config = config
           updateView()
       }
@@ -65,34 +81,49 @@ class AndesRadioButtonDefaultView: UIView, AndesRadioButtonView {
     func updateView() {
         clearView()
         self.radioButtonLabel.text = config.title
-
-        if config.align == AndesRadioButtonAlign.left {
-            self.radioButtonRightBtn.isHidden = true
-            self.radioButtonLeftBtn.isHidden = false
-            self.radioButtonLeftBtn.backgroundColor = config.backgroundColor
-            self.radioButtonLeftBtn.layer.cornerRadius = radioButtonLeftBtn.frame.width/2
-            self.radioButtonLeftBtn.titleEdgeInsets = UIEdgeInsets(top: 4.0, left: 4.0, bottom: 4.0, right: 4.0)
-        } else {
-            self.radioButtonRightBtn.isHidden = false
-            self.radioButtonLeftBtn.isHidden = true
-            self.radioButtonRightBtn.backgroundColor = config.backgroundColor
-            self.radioButtonRightBtn.layer.cornerRadius = radioButtonLeftBtn.frame.width/2
-            self.radioButtonRightBtn.titleEdgeInsets = UIEdgeInsets(top: 4.0, left: 4.0, bottom: 4.0, right: 4.0)
-        }
+        setupButtonView()
+        updateBoxesBorders()
 
         self.radioButtonLabel.setAndesStyle(style: AndesStyleSheetManager.styleSheet.bodyM(color: config.textColor))
-        let borderColor: UIColor? = config.borderColor
-        let borderSize: CGFloat? = config.borderSize
-        if let currentBorderColor = borderColor, let currentBorderSize = borderSize {
-            if self.radioButtonLeftBtn.isHidden == false {
-                self.radioButtonLeftBtn.layer.borderColor = currentBorderColor.cgColor
-                self.radioButtonLeftBtn.layer.borderWidth = currentBorderSize
+
+    }
+
+    func setupButtonView() {
+        if config.align == .left {
+            self.rightBox.isHidden = true
+            self.leftBox.isHidden = false
+            self.radioButtonRightBtn.isHidden = true
+            self.radioButtonLeftBtn.isHidden = false
+            self.leftBox.backgroundColor = config.backgroundColor
+            self.leftBox.layer.cornerRadius = self.leftBox.frame.width/2
+            self.labelToTrailingConstraint.priority = .defaultHigh
+            self.labelToRightButtonConstraint.priority = .defaultLow
+            self.labelToLeftButtonConstraint.priority = .defaultHigh
+            self.labelToLeadingConstraint.priority = .defaultLow
+        } else {
+            self.rightBox.isHidden = false
+            self.leftBox.isHidden = true
+            self.radioButtonRightBtn.isHidden = false
+            self.radioButtonLeftBtn.isHidden = true
+            self.rightBox.backgroundColor = config.backgroundColor
+            self.rightBox.layer.cornerRadius = self.rightBox.frame.width/2
+            self.labelToTrailingConstraint.priority = .defaultLow
+            self.labelToRightButtonConstraint.priority = .defaultHigh
+            self.labelToLeftButtonConstraint.priority = .defaultLow
+            self.labelToLeadingConstraint.priority = .defaultHigh
+        }
+    }
+
+    func updateBoxesBorders() {
+        if let currentBorderColor = config.borderColor, let currentBorderSize = config.borderSize {
+            if !self.leftBox.isHidden {
+                self.leftBox.layer.borderColor = currentBorderColor.cgColor
+                self.leftBox.layer.borderWidth = currentBorderSize
             } else {
-                self.radioButtonRightBtn.layer.borderColor = currentBorderColor.cgColor
-                self.radioButtonRightBtn.layer.borderWidth = currentBorderSize
+                self.rightBox.layer.borderColor = currentBorderColor.cgColor
+                self.rightBox.layer.borderWidth = currentBorderSize
             }
         }
-
     }
 
     func clearView() {

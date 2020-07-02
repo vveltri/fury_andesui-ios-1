@@ -14,7 +14,7 @@ internal struct AndesRadioButtonConfig {
     var textColor: UIColor!
     var align: AndesRadioButtonAlign = AndesRadioButtonAlign.left
     var backgroundColor: UIColor = UIColor.Andes.white
-    var borderSize: CGFloat = 2
+    var borderSize: CGFloat? = 2
     var type: AndesRadioButtonTypeProtocol! = AndesRadioButtonTypeIdle()
     var status: AndesRadioButtonStatusProtocol! = AndesRadioButtonStatusUnselected()
 
