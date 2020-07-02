@@ -4,6 +4,9 @@
 - TextField/TextArea: allows for custom input views | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
 - TextField: add textFieldShouldReturn to public delegate | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
 
+### 🛠 Bug fixes
+- AndesMessage: Constraints priority fix | Authors: [@MaxiTalenti](https://github.com/mercadolibre/fury_andesui-ios)
+
 # v3.4.0
 ### 🛠 Bug fixes
 - TextField, TextArea: listen to resign and becomeFirstResponder | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
