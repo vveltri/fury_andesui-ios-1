@@ -10,7 +10,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AndesRadioButtonViewController" customModule="AndesUI_DemoApp" customModuleProvider="target">
             <connections>
+                <outlet property="alignTxt" destination="LCw-QB-Mfv" id="ptX-m3-Wwg"/>
+                <outlet property="clearBtn" destination="jAR-mm-eeW" id="HiL-mP-l2v"/>
                 <outlet property="radioButton" destination="zhE-sd-tpD" id="DpP-qY-LKm"/>
+                <outlet property="radioButtonTxt" destination="RnL-ig-JUl" id="5GZ-Qc-QyS"/>
+                <outlet property="statusTxt" destination="hYw-3i-glO" id="TD0-Zy-Pir"/>
+                <outlet property="typeText" destination="qgF-MF-lth" id="R4E-5n-8Tx"/>
+                <outlet property="updateBtn" destination="QmN-5v-7sp" id="14d-FC-W6P"/>
                 <outlet property="view" destination="iN0-l3-epB" id="9b9-b6-RNb"/>
             </connections>
         </placeholder>
@@ -72,10 +78,16 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QmN-5v-7sp">
                             <rect key="frame" x="8" y="327" width="51" height="30"/>
                             <state key="normal" title="Update"/>
+                            <connections>
+                                <action selector="updateTapped:" destination="-1" eventType="touchUpInside" id="doT-su-8nS"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jAR-mm-eeW">
                             <rect key="frame" x="270" y="327" width="36" height="30"/>
                             <state key="normal" title="Clear"/>
+                            <connections>
+                                <action selector="clearTapped:" destination="-1" eventType="touchUpInside" id="rJX-3F-wfW"/>
+                            </connections>
                         </button>
                         <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="45" translatesAutoresizingMaskIntoConstraints="NO" id="zhE-sd-tpD" customClass="AndesRadioButton" customModule="AndesUI">
                             <rect key="frame" x="37" y="50" width="240" height="45"/>
