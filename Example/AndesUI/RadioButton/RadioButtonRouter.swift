@@ -18,7 +18,7 @@ class RadioButtonAppRouter: NSObject {
 
 extension RadioButtonAppRouter: RadioButtonRouter {
     func route(from: UIViewController) {
-        view = AndesShowcasePageViewController(controllers: [AndesRadioButtonViewController()])
+        view = AndesShowcasePageViewController(controllers: [AndesRadioButtonViewController(), RadioButtonObjCViewController()])
         view.title = "Andes RadioButton"
         from.navigationController?.pushViewController(view, animated: true)
     }

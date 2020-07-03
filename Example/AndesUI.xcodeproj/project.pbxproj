@@ -87,6 +87,9 @@
 		F830F883249400020043D5AF /* CheckboxRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F830F882249400020043D5AF /* CheckboxRouter.swift */; };
 		F830F885249400760043D5AF /* AndesCheckboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F830F884249400760043D5AF /* AndesCheckboxViewController.swift */; };
 		F830F8872494127C0043D5AF /* AndesCheckboxViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F830F8862494127C0043D5AF /* AndesCheckboxViewController.xib */; };
+		F85E051E24AF68150059C6FA /* RadioButtonObjCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F85E051D24AF68150059C6FA /* RadioButtonObjCViewController.m */; };
+		F85E052024AF69B20059C6FA /* RadioButtonObjCViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F85E051F24AF69B20059C6FA /* RadioButtonObjCViewController.xib */; };
+		F85E052324AF79900059C6FA /* AndesRadioButtonTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85E052124AF756B0059C6FA /* AndesRadioButtonTest.swift */; };
 		F899354124A0DA98004BC82D /* AndesCheckboxShowcaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F899354024A0DA98004BC82D /* AndesCheckboxShowcaseViewController.swift */; };
 		F899354324A0DADB004BC82D /* AndesCheckboxShowcaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F899354224A0DADB004BC82D /* AndesCheckboxShowcaseViewController.xib */; };
 		F899354524A0EC7B004BC82D /* CheckboxObjCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F899354424A0EC7B004BC82D /* CheckboxObjCViewController.m */; };
@@ -218,6 +221,10 @@
 		F830F882249400020043D5AF /* CheckboxRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxRouter.swift; sourceTree = "<group>"; };
 		F830F884249400760043D5AF /* AndesCheckboxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndesCheckboxViewController.swift; sourceTree = "<group>"; };
 		F830F8862494127C0043D5AF /* AndesCheckboxViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AndesCheckboxViewController.xib; sourceTree = "<group>"; };
+		F85E051C24AF67BE0059C6FA /* RadioButtonObjCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RadioButtonObjCViewController.h; sourceTree = "<group>"; };
+		F85E051D24AF68150059C6FA /* RadioButtonObjCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RadioButtonObjCViewController.m; sourceTree = "<group>"; };
+		F85E051F24AF69B20059C6FA /* RadioButtonObjCViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RadioButtonObjCViewController.xib; sourceTree = "<group>"; };
+		F85E052124AF756B0059C6FA /* AndesRadioButtonTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndesRadioButtonTest.swift; sourceTree = "<group>"; };
 		F899354024A0DA98004BC82D /* AndesCheckboxShowcaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndesCheckboxShowcaseViewController.swift; sourceTree = "<group>"; };
 		F899354224A0DADB004BC82D /* AndesCheckboxShowcaseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AndesCheckboxShowcaseViewController.xib; sourceTree = "<group>"; };
 		F899354424A0EC7B004BC82D /* CheckboxObjCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckboxObjCViewController.m; sourceTree = "<group>"; };
@@ -343,6 +350,7 @@
 				9CAD81E723FD62C900D43EB9 /* AndesIconsProviderTests.swift */,
 				86E0A35C2493BDA9003D338C /* AndesTagSimpleTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
+				F85E052124AF756B0059C6FA /* AndesRadioButtonTest.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -642,6 +650,9 @@
 			children = (
 				F8249D0724ABCA4E002A6456 /* AndesRadioButtonViewController.swift */,
 				F8249D0924ABCAC8002A6456 /* AndesRadioButtonViewController.xib */,
+				F85E051C24AF67BE0059C6FA /* RadioButtonObjCViewController.h */,
+				F85E051D24AF68150059C6FA /* RadioButtonObjCViewController.m */,
+				F85E051F24AF69B20059C6FA /* RadioButtonObjCViewController.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -802,6 +813,7 @@
 				F830F8872494127C0043D5AF /* AndesCheckboxViewController.xib in Resources */,
 				9C9B5A8823ECB08D0007234B /* Localizable.strings in Resources */,
 				8617BD202499B6570071319C /* SnackbarViewController.xib in Resources */,
+				F85E052024AF69B20059C6FA /* RadioButtonObjCViewController.xib in Resources */,
 				9CE112FD23D20B0E0017B770 /* MessageObjCViewController.xib in Resources */,
 				86A1E30924815A1700B59D1D /* AndesTagShowcaseViewController.xib in Resources */,
 				86A1E3122481E56300B59D1D /* TagObjCViewController.xib in Resources */,
@@ -940,6 +952,7 @@
 				90530B07242BF9ED005E056A /* BadgesRouter.swift in Sources */,
 				8617BD1F2499B6570071319C /* SnackbarViewController.swift in Sources */,
 				6A3C9CFD23C692B6007D0C8B /* HomeViewController.swift in Sources */,
+				F85E051E24AF68150059C6FA /* RadioButtonObjCViewController.m in Sources */,
 				90F4781F243534F0001CEC90 /* BadgeObjCViewController.m in Sources */,
 				8617BD172499B5860071319C /* SnackbarRouter.swift in Sources */,
 				90530B0B242BFAA7005E056A /* AndesBadgeShowcaseViewController.swift in Sources */,
@@ -968,6 +981,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C592C0C2450A6B70038785E /* AndesTextFieldSideComponentTests.swift in Sources */,
+				F85E052324AF79900059C6FA /* AndesRadioButtonTest.swift in Sources */,
 				9CAD81E923FD66ED00D43EB9 /* AndesIconsProviderTests.swift in Sources */,
 				9C592C0B2450A6B70038785E /* AndesTextAreaTests.swift in Sources */,
 				E615508A23D619E300417B5F /* AndesButtonTests.swift in Sources */,
