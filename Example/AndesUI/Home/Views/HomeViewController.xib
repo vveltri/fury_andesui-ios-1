@@ -148,18 +148,6 @@
                                             </connections>
                                         </view>
                                         <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="9Bv-gW-s5F" customClass="AndesButton" customModule="AndesUI">
-                                            <rect key="frame" x="0.0" y="288" width="382" height="40"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <accessibility key="accessibilityConfiguration" identifier="andesBadge" label="Badges showcase"/>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="string" keyPath="text" value="Andes Checkbox"/>
-                                                <userDefinedRuntimeAttribute type="string" keyPath="ibSize" value="Large"/>
-                                            </userDefinedRuntimeAttributes>
-                                            <connections>
-                                                <action selector="goToCheckboxTapped:" destination="-1" eventType="touchUpInside" id="Jdc-Lk-uF9"/>
-                                            </connections>
-                                        </view>
-                                        <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="9Bv-gW-s5F" customClass="AndesButton" customModule="AndesUI">
                                             <rect key="frame" x="0.0" y="240" width="382" height="40"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <accessibility key="accessibilityConfiguration" identifier="andesTag" label="Tag showcase"/>

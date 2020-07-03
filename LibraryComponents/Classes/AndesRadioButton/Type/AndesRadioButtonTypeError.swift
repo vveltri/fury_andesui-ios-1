@@ -6,10 +6,9 @@
 //
 
 import Foundation
-// Handle radio button error type
+
+/// Handle radio button error type
 class AndesRadioButtonTypeError: AndesRadioButtonTypeProtocol {
-    var borderColor: UIColor? = UIColor.Andes.red500
-    var borderSize: CGFloat? = 2
+    var tintColor: UIColor = UIColor.Andes.red500
     var textColor: UIColor = UIColor.Andes.gray800
-    var backgroundColor: UIColor = UIColor.Andes.white
 }

@@ -10,13 +10,12 @@ import Foundation
 /// used to define the ui of internal AndesRadioButton views
 internal struct AndesRadioButtonConfig {
     var title: String?
-    var borderColor: UIColor?
+    var tintColor: UIColor?
     var textColor: UIColor!
     var align: AndesRadioButtonAlign = AndesRadioButtonAlign.left
-    var backgroundColor: UIColor = UIColor.Andes.white
-    var borderSize: CGFloat? = 2
     var type: AndesRadioButtonTypeProtocol! = AndesRadioButtonTypeIdle()
     var status: AndesRadioButtonStatusProtocol! = AndesRadioButtonStatusUnselected()
+    var filled: Bool = false
 
     init () {
 
@@ -28,7 +27,7 @@ internal struct AndesRadioButtonConfig {
         self.status = AndesRadioButtonStatusFactory.provide(radiobutton.status)
         self.type = AndesRadioButtonTypeFactory.provide(radiobutton.type, status: radiobutton.status)
         self.textColor = type.textColor
-        self.borderColor = type.borderColor
-        self.backgroundColor = type.backgroundColor
+        self.tintColor = type.tintColor
+        self.filled = radiobutton.status == .selected && radiobutton.type != .error
     }
 }

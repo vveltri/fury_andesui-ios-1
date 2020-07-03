@@ -6,20 +6,18 @@
 //
 
 import Foundation
+
 class AndesRadioButtonDefaultView: UIView, AndesRadioButtonView {
-    @IBOutlet weak var radioButtonRightBtn: UIButton!
+
+    @IBOutlet weak var radioButtonLabel: UILabel!
 
     @IBOutlet weak var labelToLeftButtonConstraint: NSLayoutConstraint!
     @IBOutlet weak var labelToLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var labelToRightButtonConstraint: NSLayoutConstraint!
     @IBOutlet weak var labelToTrailingConstraint: NSLayoutConstraint!
 
-    @IBOutlet weak var rightBox: UIImageView!
-    @IBOutlet weak var leftBox: UIImageView!
-
-    @IBOutlet weak var radioButtonLabel: UILabel!
-
-    @IBOutlet weak var radioButtonLeftBtn: UIButton!
+    @IBOutlet weak var leftRadioButton: AndesRadioButtonControl!
+    @IBOutlet weak var rightRadioButton: AndesRadioButtonControl!
 
     @IBOutlet var radioButtonView: UIView!
 
@@ -43,7 +41,6 @@ class AndesRadioButtonDefaultView: UIView, AndesRadioButtonView {
         self.config = AndesRadioButtonConfig()
         super.init(coder: coder)
         setup()
-
     }
 
     init() {
@@ -52,87 +49,60 @@ class AndesRadioButtonDefaultView: UIView, AndesRadioButtonView {
         setup()
     }
 
-    @IBAction func rightBoxTapped(_ sender: Any) {
-        delegate?.radioButtonTapped()
-    }
-
-    @IBAction func leftBoxTapped(_ sender: Any) {
+    func radioButtonTapped(_ sender: AndesRadioButtonControl) {
         delegate?.radioButtonTapped()
     }
 
     func update(withConfig config: AndesRadioButtonConfig) {
-          self.config = config
-          updateView()
-      }
+        self.config = config
+        updateView()
+    }
 
-      func loadNib() {
-             let bundle = AndesBundle.bundle()
-             bundle.loadNibNamed("AndesRadioButtonDefaultView", owner: self, options: nil)
-      }
+    func loadNib() {
+        let bundle = AndesBundle.bundle()
+        bundle.loadNibNamed("AndesRadioButtonDefaultView", owner: self, options: nil)
+    }
 
     func setup() {
         loadNib()
         self.addSubview(radioButtonView)
         radioButtonView.pinToSuperview()
         radioButtonView.translatesAutoresizingMaskIntoConstraints = false
+        leftRadioButton.tapCallback = radioButtonTapped
         updateView()
     }
 
     func updateView() {
-        clearView()
         self.radioButtonLabel.text = config.title
-        setupButtonView()
-        updateBoxesBorders()
-
         self.radioButtonLabel.setAndesStyle(style: AndesStyleSheetManager.styleSheet.bodyM(color: config.textColor))
-
+        setupButtonView()
+        updateRadioButtonsStyles()
     }
 
     func setupButtonView() {
         if config.align == .left {
-            self.rightBox.isHidden = true
-            self.leftBox.isHidden = false
-            self.radioButtonRightBtn.isHidden = true
-            self.radioButtonLeftBtn.isHidden = false
-            self.leftBox.backgroundColor = config.backgroundColor
-            self.leftBox.layer.cornerRadius = self.leftBox.frame.width/2
+            self.rightRadioButton.isHidden = true
+            self.leftRadioButton.isHidden = false
             self.labelToTrailingConstraint.priority = .defaultHigh
             self.labelToRightButtonConstraint.priority = .defaultLow
             self.labelToLeftButtonConstraint.priority = .defaultHigh
             self.labelToLeadingConstraint.priority = .defaultLow
+            self.leftRadioButton.filled = config.filled
         } else {
-            self.rightBox.isHidden = false
-            self.leftBox.isHidden = true
-            self.radioButtonRightBtn.isHidden = false
-            self.radioButtonLeftBtn.isHidden = true
-            self.rightBox.backgroundColor = config.backgroundColor
-            self.rightBox.layer.cornerRadius = self.rightBox.frame.width/2
+            self.rightRadioButton.isHidden = false
+            self.leftRadioButton.isHidden = true
             self.labelToTrailingConstraint.priority = .defaultLow
             self.labelToRightButtonConstraint.priority = .defaultHigh
             self.labelToLeftButtonConstraint.priority = .defaultLow
             self.labelToLeadingConstraint.priority = .defaultHigh
+            self.rightRadioButton.filled = config.filled
         }
     }
 
-    func updateBoxesBorders() {
-        if let currentBorderColor = config.borderColor, let currentBorderSize = config.borderSize {
-            if !self.leftBox.isHidden {
-                self.leftBox.layer.borderColor = currentBorderColor.cgColor
-                self.leftBox.layer.borderWidth = currentBorderSize
-            } else {
-                self.rightBox.layer.borderColor = currentBorderColor.cgColor
-                self.rightBox.layer.borderWidth = currentBorderSize
-            }
+    func updateRadioButtonsStyles() {
+        if let tintColor = config.tintColor {
+            self.leftRadioButton.color = tintColor
+            self.rightRadioButton.color = tintColor
         }
     }
-
-    func clearView() {
-        self.radioButtonLeftBtn.layer.borderColor = UIColor.clear.cgColor
-        self.radioButtonRightBtn.layer.borderColor = UIColor.clear.cgColor
-        self.radioButtonLeftBtn.layer.borderWidth = 0
-        self.radioButtonRightBtn.layer.borderWidth = 0
-        self.radioButtonLeftBtn.layer.backgroundColor = UIColor.clear.cgColor
-        self.radioButtonRightBtn.layer.backgroundColor = UIColor.clear.cgColor
-    }
-
 }

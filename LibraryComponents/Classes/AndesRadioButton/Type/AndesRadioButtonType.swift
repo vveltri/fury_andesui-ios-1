@@ -6,7 +6,8 @@
 //
 
 import Foundation
-//Used to set the radiobutton type
+
+/// Used to set the radiobutton type
 @objc public enum AndesRadioButtonType: Int, AndesEnumStringConvertible {
     case idle
     case disabled

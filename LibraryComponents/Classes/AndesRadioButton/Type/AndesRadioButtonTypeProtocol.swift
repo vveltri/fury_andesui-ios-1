@@ -8,8 +8,6 @@
 import Foundation
 
 internal protocol AndesRadioButtonTypeProtocol {
-    var borderColor: UIColor? { get }
+    var tintColor: UIColor { get }
     var textColor: UIColor { get }
-    var backgroundColor: UIColor { get }
-    var borderSize: CGFloat? { get }
 }

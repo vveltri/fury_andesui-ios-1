@@ -14,5 +14,4 @@ internal protocol AndesRadioButtonView: UIView {
     // expose behaviour to AndesCheckbox common to all Andes Views
     var delegate: AndesRadioButtonViewDelegate? { get set }
     func update(withConfig config: AndesRadioButtonConfig)
-
 }
