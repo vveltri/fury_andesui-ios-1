@@ -25,11 +25,12 @@ class AndesRadioButtonDefaultView: UIView, AndesRadioButtonView {
 
     var config: AndesRadioButtonConfig
 
-    init(withConfig config: AndesRadioButtonConfig) {
-         self.config = config
-         super.init(frame: .zero)
-         setup()
-     }
+    init(withConfig config: AndesRadioButtonConfig, delegate: AndesRadioButtonViewDelegate? = nil) {
+        self.config = config
+        self.delegate = delegate
+        super.init(frame: .zero)
+        setup()
+    }
 
     override init(frame: CGRect) {
         self.config = AndesRadioButtonConfig()
@@ -77,6 +78,7 @@ class AndesRadioButtonDefaultView: UIView, AndesRadioButtonView {
         self.radioButtonLabel.setAndesStyle(style: AndesStyleSheetManager.styleSheet.bodyM(color: config.textColor))
         setupButtonView()
         updateRadioButtonsStyles()
+        updateAccessibilityProperties()
     }
 
     func setupButtonView() {
@@ -103,6 +105,18 @@ class AndesRadioButtonDefaultView: UIView, AndesRadioButtonView {
         if let tintColor = config.tintColor {
             self.leftRadioButton.color = tintColor
             self.rightRadioButton.color = tintColor
+        }
+    }
+
+    func updateAccessibilityProperties() {
+        if let accessibilityTraits = self.delegate?.buttonAccesibilityTraits() {
+            if config.align == .left {
+                self.leftRadioButton.accessibilityTraits = accessibilityTraits
+                self.leftRadioButton.accessibilityLabel = config.title
+            } else {
+                self.rightRadioButton.accessibilityTraits = accessibilityTraits
+                self.rightRadioButton.accessibilityLabel = config.title
+            }
         }
     }
 }

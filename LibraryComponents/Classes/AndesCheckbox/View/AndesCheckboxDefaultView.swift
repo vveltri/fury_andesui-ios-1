@@ -152,7 +152,7 @@ class AndesCheckboxDefaultView: UIView, AndesCheckboxView {
 
     func updateAccessibilityProperties() {
         if let accessibilityTraits = self.delegate?.buttonAccesibilityTraits() {
-            if config.align == AndesCheckboxAlign.left {
+            if config.align == .left {
                 self.leftTappableArea.accessibilityTraits = accessibilityTraits
                 self.leftTappableArea.accessibilityLabel = config.title
             } else {
