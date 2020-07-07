@@ -70,6 +70,7 @@ class AndesRadioButtonDefaultView: UIView, AndesRadioButtonView {
         radioButtonView.pinToSuperview()
         radioButtonView.translatesAutoresizingMaskIntoConstraints = false
         leftRadioButton.tapCallback = radioButtonTapped
+        self.radioButtonLabel.isAccessibilityElement = false
         updateView()
     }
 
@@ -111,9 +112,11 @@ class AndesRadioButtonDefaultView: UIView, AndesRadioButtonView {
     func updateAccessibilityProperties() {
         if let accessibilityTraits = self.delegate?.buttonAccesibilityTraits() {
             if config.align == .left {
+                self.leftRadioButton.isAccessibilityElement = true
                 self.leftRadioButton.accessibilityTraits = accessibilityTraits
                 self.leftRadioButton.accessibilityLabel = config.title
             } else {
+                self.rightRadioButton.isAccessibilityElement = true
                 self.rightRadioButton.accessibilityTraits = accessibilityTraits
                 self.rightRadioButton.accessibilityLabel = config.title
             }
