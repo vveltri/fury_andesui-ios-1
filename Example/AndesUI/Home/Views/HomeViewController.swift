@@ -22,6 +22,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var messagesBtn: AndesButton!
     @IBOutlet weak var badgesBtn: AndesButton!
     @IBOutlet weak var welcomeMessage: AndesMessage!
+    @IBOutlet weak var radioButton: AndesButton!
     @IBOutlet weak var textFieldBtn: AndesButton!
     @IBOutlet weak var checkboxBtn: AndesButton!
     @IBOutlet weak var tagBtn: AndesButton!
@@ -76,6 +77,10 @@ class HomeViewController: UIViewController {
 
     @IBAction func goToCheckboxTapped(_ sender: Any) {
         presenter.presentCheckbox()
+    }
+
+    @IBAction func goToRadioButtonTapped(_ sender: Any) {
+        presenter.presentRadioButton()
     }
 
     @IBAction func goToSpecsTapped(_ sender: Any) {
