@@ -14,7 +14,6 @@ internal struct AndesRadioButtonConfig {
     var textColor: UIColor!
     var align: AndesRadioButtonAlign = AndesRadioButtonAlign.left
     var type: AndesRadioButtonTypeProtocol! = AndesRadioButtonTypeIdle()
-    var status: AndesRadioButtonStatusProtocol! = AndesRadioButtonStatusUnselected()
     var filled: Bool = false
 
     init () {
@@ -24,7 +23,6 @@ internal struct AndesRadioButtonConfig {
     init(for radiobutton: AndesRadioButton) {
         self.title = radiobutton.title
         self.align = radiobutton.align
-        self.status = AndesRadioButtonStatusFactory.provide(radiobutton.status)
         self.type = AndesRadioButtonTypeFactory.provide(radiobutton.type, status: radiobutton.status)
         self.textColor = type.textColor
         self.tintColor = type.tintColor
