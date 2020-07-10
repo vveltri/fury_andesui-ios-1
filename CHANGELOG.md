@@ -1,4 +1,4 @@
-## Unpublished
+## v3.5.0
 ### 🚀 Features
 - New component: AndesSnackbar | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
 - TextField/TextArea: allows for custom input views | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
