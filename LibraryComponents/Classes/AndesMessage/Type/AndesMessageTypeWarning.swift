@@ -11,5 +11,6 @@ class AndesMessageTypeWarning: AndesMessageTypeProtocol {
     var secondaryColor: UIColor = UIColor.Andes.orange600
     var primaryButtonPressedColor: UIColor = UIColor.Andes.orange800
     var secondaryButtonPressedColor: UIColor = UIColor.Andes.orange700
+    var linkButtonPressedColor: UIColor = .clear
     var icon: String = AndesIcons.feedbackWarning16
 }

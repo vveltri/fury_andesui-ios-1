@@ -95,6 +95,49 @@ class AndesMessageTests: QuickSpec {
                       //Then
                       expect((message.contentView as! AndesMessageDefaultView).bodyLabel.text).to(match(descToChange))
                   }
+                it("changes andes message view dinamycally to actionsView") {
+                    //Given
+                    let message = AndesMessage(frame: .zero)
+
+                    //When
+                    message.setPrimaryAction("Primary", handler: nil)
+                    message.setSecondaryAction("Secondary", handler: nil)
+
+                    //Then
+                    expect(message.contentView.isKind(of: AndesMessageWithActionsView.self)).to(beTrue())
+                }
+                it("changes andes message view dinamycally to actionsView") {
+                    //Given
+                    let message = AndesMessage(frame: .zero)
+
+                    //When
+                    message.setLinkAction("Link", handler: nil)
+
+                    //Then
+                    expect(message.contentView.isKind(of: AndesMessageWithActionsView.self)).to(beTrue())
+                }
+                it("changes andes message view dinamycally back to defaultView") {
+                    //Given
+                    let message = AndesMessage(frame: .zero)
+
+                    //When
+                    message.setPrimaryAction("Primary", handler: nil)
+                    message.setPrimaryAction("", handler: nil)
+
+                    //Then
+                    expect(message.contentView.isKind(of: AndesMessageDefaultView.self)).to(beTrue())
+                }
+                it("changes andes message view dinamycally back to defaultView") {
+                    //Given
+                    let message = AndesMessage(frame: .zero)
+
+                    //When
+                    message.setLinkAction("Primary", handler: nil)
+                    message.setLinkAction("", handler: nil)
+
+                    //Then
+                    expect(message.contentView.isKind(of: AndesMessageDefaultView.self)).to(beTrue())
+                }
                 it("when title is empty or nil, title is hidden") {
                     //Given
                     let message = AndesMessage(frame: .zero)
@@ -124,6 +167,17 @@ class AndesMessageTests: QuickSpec {
 
                     //When
                     message.setSecondaryAction("Secondary", handler: nil)
+
+                    //Then
+                    expect(message.contentView.isKind(of: AndesMessageDefaultView.self)).to(beTrue())
+                }
+                it("dont show actions if primary and link actions are setted") {
+                    //Given
+                    let message = AndesMessage(frame: .zero)
+
+                    //When
+                    message.setPrimaryAction("Primary", handler: nil)
+                    message.setLinkAction("Link", handler: nil)
 
                     //Then
                     expect(message.contentView.isKind(of: AndesMessageDefaultView.self)).to(beTrue())
@@ -169,6 +223,20 @@ class AndesMessageTests: QuickSpec {
 
                     //When
                     (message.contentView as! AndesMessageWithActionsView).secondaryButtonTapped(self)
+
+                    //Then
+                    expect(called).toEventually(beTrue())
+                }
+            }
+            context("AndesMessage Link Action") {
+                it("calls link button handler") {
+                    //Given
+                    let message = AndesMessage(frame: .zero)
+                    var called = false
+                    message.setLinkAction("Link") { _ in called = true}
+
+                    //When
+                    (message.contentView as! AndesMessageWithActionsView).primaryButtonTapped(self)
 
                     //Then
                     expect(called).toEventually(beTrue())
