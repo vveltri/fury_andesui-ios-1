@@ -13,12 +13,22 @@ internal class AndesMessageViewConfigFactory {
 
         var config = AndesMessageViewConfig(backgroundColor: hierarchyIns.backgroundColor, pipeColor: hierarchyIns.pipeColor, textColor: hierarchyIns.textColor, titleText: message.title, bodyText: message.body, icon: typeIns.icon, iconBackgroundColor: hierarchyIns.accentColor, isDismissable: message.isDismissable, dismissIconColor: hierarchyIns.textColor)
 
-        if let primaryText = message.primaryActionText {
+        if let primaryText = message.primaryActionText, !primaryText.isEmpty {
             config.primaryActionConfig = AndesButtonViewConfigFactory.provide(hierarchy: hierarchyIns.primaryButtonHierarchy, size: AndesButtonSizeMedium(), text: primaryText, icon: nil)
         }
 
-        if let secondaryText = message.secondaryActionText {
+        if let secondaryText = message.secondaryActionText, !secondaryText.isEmpty {
             config.secondaryActionConfig = AndesButtonViewConfigFactory.provide(hierarchy: hierarchyIns.secondaryButtonHierarchy, size: AndesButtonSizeMedium(), text: secondaryText, icon: nil)
+        }
+
+        if let linkText = message.linkActionText, !linkText.isEmpty {
+            let textAttr: [NSAttributedString.Key: Any] = message.hierarchy == .loud ? [.underlineStyle: NSUnderlineStyle.single.rawValue] : [:]
+
+            config.linkActionConfig = AndesButtonViewConfigFactory.provide(hierarchy: hierarchyIns.linkButtonHierarchy,
+                                                                           size: AndesLinkButtonSizeMedium(),
+                                                                           text: linkText,
+                                                                           textattributes: textAttr,
+                                                                           icon: nil)
         }
 
         return config

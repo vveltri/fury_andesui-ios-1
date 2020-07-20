@@ -26,6 +26,7 @@ class MessageViewController: UIViewController, MessageView {
     @IBOutlet weak var descTextView: UITextView!
     @IBOutlet weak var primaryActionTextField: UITextField!
     @IBOutlet weak var secondaryActionTextField: UITextField!
+    @IBOutlet weak var linkActionTextField: UITextField!
     @IBOutlet weak var dismissibleSwitch: UISwitch!
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var showAgainBtn: AndesButton!
@@ -54,6 +55,7 @@ class MessageViewController: UIViewController, MessageView {
         [titleTextField,
          secondaryActionTextField,
          primaryActionTextField,
+         linkActionTextField,
          descTextView].forEach({
             $0!.layer.borderColor = UIColor.lightGray.cgColor
             $0!.layer.borderWidth = 1
@@ -108,6 +110,7 @@ class MessageViewController: UIViewController, MessageView {
             self.descTextView.text = messageView.body
             self.primaryActionTextField.text = messageView.primaryActionText
             self.secondaryActionTextField.text = messageView.secondaryActionText
+            self.linkActionTextField.text = messageView.linkActionText
         }
 
         UIView.transition(with: configView, duration: 0.3, options: .transitionCrossDissolve, animations: {
@@ -123,12 +126,15 @@ class MessageViewController: UIViewController, MessageView {
         })
     }
 
-    func validate(body: String, primary: String, secondary: String) -> String? {
+    func validate(body: String, primary: String, secondary: String, link: String) -> String? {
         guard !body.isEmpty else {
             return "message.error.emptyBody".localized
         }
         guard secondary.isEmpty || !primary.isEmpty else {
             return "message.error.primaryNotSet".localized
+        }
+        guard link.isEmpty || primary.isEmpty else {
+            return "message.error.linkAndActionsCoexistance".localized
         }
         return nil
     }
@@ -144,7 +150,8 @@ class MessageViewController: UIViewController, MessageView {
         let body = descTextView.text!
         let primary = primaryActionTextField.text!
         let secondary = secondaryActionTextField.text!
-        if let err = validate(body: body, primary: primary, secondary: secondary) {
+        let link = linkActionTextField.text!
+        if let err = validate(body: body, primary: primary, secondary: secondary, link: link) {
             errorLabel.text = err
             errorLabel.isHidden = false
             return
@@ -160,7 +167,7 @@ class MessageViewController: UIViewController, MessageView {
         messageView.hierarchy = hierarchy
         messageView.setPrimaryAction(primary, handler: {[unowned self] _ in self.didPressButton()})
         messageView.setSecondaryAction(secondary, handler: {[unowned self] _ in self.didPressButton()})
-
+        messageView.setLinkAction(link, handler: {[unowned self] _ in self.didPressButton()})
         showConfigTapped(sender)
     }
 }

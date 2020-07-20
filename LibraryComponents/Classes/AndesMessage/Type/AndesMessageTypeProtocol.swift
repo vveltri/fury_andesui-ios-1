@@ -12,5 +12,6 @@ internal protocol AndesMessageTypeProtocol {
     var secondaryColor: UIColor { get }
     var primaryButtonPressedColor: UIColor { get }
     var secondaryButtonPressedColor: UIColor { get }
+    var linkButtonPressedColor: UIColor { get }
     var icon: String { get }
 }

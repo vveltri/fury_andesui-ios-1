@@ -10,6 +10,7 @@ import UIKit
 class AndesMessageWithActionsView: AndesMessageAbstractView {
     @IBOutlet weak var primaryAction: AndesButton!
     @IBOutlet weak var secondaryAction: AndesButton!
+    @IBOutlet weak var spacingBetweenBodyAndActions: NSLayoutConstraint!
 
     override func loadNib() {
         let bundle = AndesBundle.bundle()
@@ -21,13 +22,21 @@ class AndesMessageWithActionsView: AndesMessageAbstractView {
         primaryAction.size = .medium
         secondaryAction.size = .medium
 
-        primaryAction.updateWithCustomConfig(config.primaryActionConfig!)
+        if let primaryConfig = config.primaryActionConfig {
+            primaryAction.updateWithCustomConfig(primaryConfig)
+            spacingBetweenBodyAndActions.constant = 16.0
+        }
 
         if let sConfig = config.secondaryActionConfig {
             secondaryAction.isHidden = false
             secondaryAction.updateWithCustomConfig(sConfig)
         } else {
             secondaryAction.isHidden = true
+        }
+
+        if let linkConfig = config.linkActionConfig {
+            primaryAction.updateWithCustomConfig(linkConfig)
+            spacingBetweenBodyAndActions.constant = 8.0
         }
     }
 

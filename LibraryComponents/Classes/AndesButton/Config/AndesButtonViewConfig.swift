@@ -17,6 +17,7 @@ internal struct AndesButtonViewConfig {
 
     var text: String
     var textColor: UIColor
+    var textAttributes: [NSAttributedString.Key: Any]
     var textDisableColor: UIColor
     var font: UIFont
 

@@ -15,4 +15,5 @@ internal protocol AndesMessageHierarchyProtocol {
     var accentColor: UIColor { get }
     var primaryButtonHierarchy: AndesButtonHierarchyProtocol { get }
     var secondaryButtonHierarchy: AndesButtonHierarchyProtocol { get }
+    var linkButtonHierarchy: AndesButtonHierarchyProtocol { get }
 }

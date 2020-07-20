@@ -11,6 +11,8 @@ struct AndesMessageHierarchyLoud: AndesMessageHierarchyProtocol {
 
     var secondaryButtonHierarchy: AndesButtonHierarchyProtocol
 
+    var linkButtonHierarchy: AndesButtonHierarchyProtocol
+
     var dismissButtonColor: UIColor = AndesStyleSheetManager.styleSheet.textColorWhite
 
     var textColor: UIColor = AndesStyleSheetManager.styleSheet.textColorWhite
@@ -27,5 +29,6 @@ struct AndesMessageHierarchyLoud: AndesMessageHierarchyProtocol {
         accentColor = type.secondaryColor
         primaryButtonHierarchy = PrimaryMessageActionButtonHierarchy(backgroundColor: type.secondaryColor, pressedColor: type.primaryButtonPressedColor)
         secondaryButtonHierarchy = SecondaryMessageActionButtonHierarchy(textColor: textColor, pressedColor: type.secondaryButtonPressedColor)
+        linkButtonHierarchy = LinkMessageActionButtonHierarchy(textColor: textColor, pressedColor: type.linkButtonPressedColor)
     }
 }

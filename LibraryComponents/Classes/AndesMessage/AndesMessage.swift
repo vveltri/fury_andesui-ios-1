@@ -58,6 +58,12 @@ import UIKit
            }
        }
 
+    @IBInspectable public var linkActionText: String? {
+        didSet {
+            self.reDrawContentViewIfNeededThenUpdate()
+        }
+    }
+
     // triggered when user presses dismiss
     private var dismissHandler: ((_ message: AndesMessage) -> Void)?
 
@@ -143,11 +149,22 @@ import UIKit
         reDrawContentViewIfNeededThenUpdate()
     }
 
+    /// Link action, when defined with a title a button will show on the message
+    /// - Parameters:
+    ///   - title: Link text
+    ///   - handler: handler to trigger when link is pressed
+    @objc public func setLinkAction(_ title: String, handler: ((_ message: AndesMessage) -> Void)?) {
+        self.linkActionText = title
+        self.onPrimaryActionPressed = handler
+        reDrawContentViewIfNeededThenUpdate()
+    }
+
     /// Should return a view depending on which message variant is selected
     private func provideView() -> AndesMessageView {
         let config = AndesMessageViewConfigFactory.provideConfig(for: self)
 
-        if let pText = primaryActionText, !pText.isEmpty {
+        // XOR between primaryAction and linkAction
+        if (primaryActionText != nil && !primaryActionText!.isEmpty) != (linkActionText != nil && !linkActionText!.isEmpty) {
             return AndesMessageWithActionsView(withConfig: config)
         } else {
             return AndesMessageDefaultView(withConfig: config)

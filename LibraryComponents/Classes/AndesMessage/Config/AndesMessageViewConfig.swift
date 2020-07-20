@@ -27,6 +27,7 @@ internal struct AndesMessageViewConfig {
 
     var primaryActionConfig: AndesButtonViewConfig?
     var secondaryActionConfig: AndesButtonViewConfig?
+    var linkActionConfig: AndesButtonViewConfig?
 
     init(backgroundColor: UIColor, pipeColor: UIColor, textColor: UIColor, titleText: String?, bodyText: String, icon: String?, iconBackgroundColor: UIColor, isDismissable: Bool, dismissIconColor: UIColor) {
         self.backgroundColor = backgroundColor

@@ -1,4 +1,8 @@
-## Unpublished
+## v3.6.0
+### 🚀 Features
+- Andes Message: Now allows to have a `Link Action` in the place of primary button, it has the same function as a button with a new layout defined by Andes's UX. | Authors: [@lelalesi](https://github.com/lelalesi)
+
+## v3.5.0
 ### 🚀 Features
 - New component: AndesSnackbar | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
 - TextField/TextArea: allows for custom input views | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)

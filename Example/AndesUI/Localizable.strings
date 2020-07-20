@@ -21,6 +21,7 @@
 "message.button.hideConfig" = "Hide Config";
 "message.error.emptyBody" = "Body can't be empty";
 "message.error.primaryNotSet" = "Can't have secondary action without primary";
+"message.error.linkAndActionsCoexistance" = "Can't have an action and a link at the same time";
 "message.default.title" = "Title here!";
 "message.default.body" = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
 

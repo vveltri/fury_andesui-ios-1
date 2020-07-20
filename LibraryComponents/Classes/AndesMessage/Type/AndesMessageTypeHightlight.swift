@@ -11,5 +11,6 @@ class AndesMessageTypeHightlight: AndesMessageTypeProtocol {
     var secondaryColor: UIColor = AndesStyleSheetManager.styleSheet.accentColor600
     var primaryButtonPressedColor: UIColor = AndesStyleSheetManager.styleSheet.accentColor800
     var secondaryButtonPressedColor: UIColor = AndesStyleSheetManager.styleSheet.accentColor700
+    var linkButtonPressedColor: UIColor = .clear
     var icon: String = AndesIcons.feedbackInfo16
 }
