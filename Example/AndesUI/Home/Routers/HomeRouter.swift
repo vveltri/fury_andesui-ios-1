@@ -19,6 +19,7 @@ protocol HomeRouter: NSObject {
     func routerRadioButton()
     func routeTags()
     func routeSnackbar()
+	func routeToThumbnail()
 }
 
 class HomeAppRouter: NSObject {
@@ -34,6 +35,7 @@ class HomeAppRouter: NSObject {
     let radioButtonRouter = RadioButtonAppRouter()
     let tagRouter = TagsAppRouter()
     let snackbarRouter = SnackbarAppRouter()
+	let thumbnailRouter = ThumbnailAppRouter()
 }
 
 extension HomeAppRouter: HomeRouter {
@@ -82,4 +84,9 @@ extension HomeAppRouter: HomeRouter {
     func routeSnackbar() {
         snackbarRouter.route(from: view)
     }
+
+	func routeToThumbnail() {
+		thumbnailRouter.route(from: view)
+	}
+
 }

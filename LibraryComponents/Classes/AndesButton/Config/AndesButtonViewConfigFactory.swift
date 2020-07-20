@@ -11,7 +11,9 @@ import Foundation
 The responsability of the factory is to provide the ViewConfig from the user specified attributes
 */
 internal class AndesButtonViewConfigFactory {
+
     static func provide(hierarchy: AndesButtonHierarchy, size: AndesButtonSize, text: String, textattributes: [NSAttributedString.Key: Any] = [:], icon: AndesButtonIcon?) -> AndesButtonViewConfig {
+
         let buttonHierarchy = AndesButtonHierarchyFactory.provideStyle(key: hierarchy)
         let buttonSize = AndesButtonSizeFactory.provideStyle(key: size, icon: icon)
         return provide(hierarchy: buttonHierarchy,
