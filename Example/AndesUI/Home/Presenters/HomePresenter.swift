@@ -18,6 +18,7 @@ protocol HomePresenter: NSObject {
     func presentRadioButton()
     func presentTags()
     func presentSnackbar()
+	func presentThumbnail()
 }
 
 class HomeViewPresenter: NSObject {
@@ -64,4 +65,8 @@ extension HomeViewPresenter: HomePresenter {
     func presentSnackbar() {
         router.routeSnackbar()
     }
+
+	func presentThumbnail() {
+		router.routeToThumbnail()
+	}
 }
