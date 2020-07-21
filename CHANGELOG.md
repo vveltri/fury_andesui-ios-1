@@ -13,6 +13,7 @@
 
 ### 🛠 Bug fixes
 - AndesMessage: Constraints priority fix | Authors: [@MaxiTalenti](https://github.com/mercadolibre/fury_andesui-ios)
+- AndesColor: Background color has alpha but has to be solid | Authors: [@jcenturion18](https://github.com/jcenturion18/)
 
 # v3.4.0
 ### 🛠 Bug fixes
