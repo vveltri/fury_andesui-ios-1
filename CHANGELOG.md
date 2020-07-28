@@ -1,3 +1,7 @@
+## Unpublished
+### 🚀 Features
+- New component: AndesCard | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
+
 ## v3.7.0
 ### 🚀 Features
 - New component: AndesThumbnail | Authors: [@alejoecheguia](https://github.com/alejoecheguia)

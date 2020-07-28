@@ -16,5 +16,7 @@ internal struct AndesIcons {
     static let feedbackInfo16 = "andes_ui_feedback_info_16"
     static let feedbackSuccess16 = "andes_ui_feedback_success_16"
     static let feedbackWarning16 = "andes_ui_feedback_warning_16"
-	static let fallback32 = "andes_ui_fallback_32"
+    static let chevronRight16 = "andes_ui_chevron_right_16"
+    static let chevronRight20 = "andes_ui_chevron_right_20"
+    static let fallback32 = "andes_ui_fallback_32"
 }

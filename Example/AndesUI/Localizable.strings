@@ -27,4 +27,10 @@
 
 "badge.button.updateConfig" = "Update";
 
-
+"card.button.changeConfigButton" = "Change Configuration";
+"card.button.hideConfigButton" = "Hide Configuration";
+"card.button.updateButton" = "Update";
+"card.default.title" = "Title here!";
+"card.default.link" = "Link";
+"card.actions.linkMsg" = "Link action pressed";
+"card.actions.cardMsg" = "Card action pressed";

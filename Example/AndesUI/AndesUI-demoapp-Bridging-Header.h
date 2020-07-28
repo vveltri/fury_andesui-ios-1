@@ -11,4 +11,5 @@
 #import "CheckboxObjCViewController.h"
 #import "SnackbarObjCViewController.h"
 #import "RadioButtonObjCViewController.h"
+#import "CardObjCViewController.h"
 #import "ThumbnailObjCViewController.h"

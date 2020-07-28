@@ -27,6 +27,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var checkboxBtn: AndesButton!
     @IBOutlet weak var tagBtn: AndesButton!
     @IBOutlet weak var snackbarBtn: AndesButton!
+    @IBOutlet weak var cardBtn: AndesButton!
     @IBOutlet weak var specsButton: AndesButton!
     @IBOutlet weak var contributingButton: AndesButton!
 	@IBOutlet weak var thumbnailBtn: AndesButton!
@@ -108,9 +109,13 @@ class HomeViewController: UIViewController {
         presenter.presentSnackbar()
     }
 
-	@IBAction func goToThumbnailTapped(_ sender: Any) {
-		presenter.presentThumbnail()
-	}
+    @IBAction func cardBtnTapped(_ sender: Any) {
+        presenter.presentCard()
+    }
+
+    @IBAction func goToThumbnailTapped(_ sender: Any) {
+	presenter.presentThumbnail()
+    }
 }
 
 extension HomeViewController: HomeView {

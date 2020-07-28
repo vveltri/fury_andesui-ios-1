@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="badgesBtn" destination="6KW-tw-Wm7" id="fHM-Jj-4Fy"/>
                 <outlet property="button" destination="pzX-2Z-8ZP" id="mDt-cx-9G3"/>
+                <outlet property="cardBtn" destination="RSJ-jO-HhG" id="sHG-0l-VNm"/>
                 <outlet property="checkboxBtn" destination="nQg-JB-1Sl" id="aJZ-e0-enA"/>
                 <outlet property="contributingButton" destination="U75-6J-iuH" id="zA5-oc-yCo"/>
                 <outlet property="messagesBtn" destination="iA2-9b-o7k" id="hLz-sQ-2WS"/>
@@ -171,6 +172,18 @@
                                                 <action selector="snackbarBtnTapped:" destination="-1" eventType="touchUpInside" id="E6y-h5-MfU"/>
                                             </connections>
                                         </view>
+                                        <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="RSJ-jO-HhG" userLabel="Card Btn" customClass="AndesButton" customModule="AndesUI">
+                                            <rect key="frame" x="0.0" y="384" width="382" height="40"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="andesCard" label="Card showcases"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="text" value="Andes Card"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="ibSize" value="Large"/>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="cardBtnTapped:" destination="-1" eventType="touchUpInside" id="4jA-EG-0D8"/>
+                                            </connections>
+                                        </view>
                                         <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="OpI-tK-pNV" customClass="AndesButton" customModule="AndesUI">
                                             <rect key="frame" x="0.0" y="384" width="382" height="40"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -186,6 +199,7 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="x2S-1u-jO7" firstAttribute="trailing" secondItem="9Hm-nl-pHd" secondAttribute="trailing" id="48j-EC-yGH"/>
+                                        <constraint firstItem="RSJ-jO-HhG" firstAttribute="leading" secondItem="eek-t9-Hwx" secondAttribute="leading" id="9VQ-F6-8qD"/>
                                         <constraint firstItem="OpI-tK-pNV" firstAttribute="trailing" secondItem="eek-t9-Hwx" secondAttribute="trailing" id="5b3-oV-xPM"/>
                                         <constraint firstItem="OpI-tK-pNV" firstAttribute="leading" secondItem="eek-t9-Hwx" secondAttribute="leading" id="7VW-87-kBA"/>
                                         <constraint firstItem="eek-t9-Hwx" firstAttribute="trailing" secondItem="9Bv-gW-s5F" secondAttribute="trailing" id="HBs-Rs-U3Y"/>
@@ -193,6 +207,7 @@
                                         <constraint firstItem="nQg-JB-1Sl" firstAttribute="trailing" secondItem="6KW-tw-Wm7" secondAttribute="trailing" id="T3t-x0-y4j"/>
                                         <constraint firstItem="6KW-tw-Wm7" firstAttribute="trailing" secondItem="iA2-9b-o7k" secondAttribute="trailing" id="TK3-J5-Z4t"/>
                                         <constraint firstItem="x2S-1u-jO7" firstAttribute="leading" secondItem="9Hm-nl-pHd" secondAttribute="leading" id="XLa-bv-cNz"/>
+                                        <constraint firstItem="RSJ-jO-HhG" firstAttribute="trailing" secondItem="eek-t9-Hwx" secondAttribute="trailing" id="ZHE-Pa-tY9"/>
                                         <constraint firstItem="eek-t9-Hwx" firstAttribute="leading" secondItem="9Bv-gW-s5F" secondAttribute="leading" id="eTY-JI-CLj"/>
                                         <constraint firstItem="6KW-tw-Wm7" firstAttribute="leading" secondItem="iA2-9b-o7k" secondAttribute="leading" id="iDI-vo-dFa"/>
                                         <constraint firstItem="nQg-JB-1Sl" firstAttribute="leading" secondItem="6KW-tw-Wm7" secondAttribute="leading" id="jOv-Qy-bS1"/>
