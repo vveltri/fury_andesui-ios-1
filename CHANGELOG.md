@@ -1,6 +1,7 @@
-## Unpublished
+## v3.8.0
 ### 🚀 Features
 - New component: AndesCard | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
+- Andes Message: Added capability to show Links into the message body | Authors: [@magustingil](https://github.com/magustingil)
 
 ## v3.7.0
 ### 🚀 Features
