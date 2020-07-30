@@ -65,6 +65,18 @@ class MessageViewController: UIViewController, MessageView {
     fileprivate func setupBaseMessage() {
         messageView.title = "message.default.title".localized
         messageView.body = "message.default.body".localized
+
+        let links = [
+            AndesBodyLink(startIndex: 0, endIndex: 5),
+            AndesBodyLink(startIndex: 79, endIndex: 123),
+            AndesBodyLink(startIndex: 50, endIndex: 40),
+            AndesBodyLink(startIndex: 79, endIndex: 124),
+            AndesBodyLink(startIndex: -1, endIndex: 10),
+            AndesBodyLink(startIndex: -1, endIndex: -10)
+        ]
+
+        messageView.setBodyLinks(AndesBodyLinks(links: links, listener: {[unowned self] index in self.didPressBodyLink(index)}))
+
         messageView.onDismiss {[unowned self] _ in
                 self.showAgainBtn.isHidden = false
             }
@@ -83,6 +95,12 @@ class MessageViewController: UIViewController, MessageView {
 
     func didPressButton() {
         let alert = UIAlertController(title: "message.actions.pressedMsg".localized, message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+
+    func didPressBodyLink(_ index: Int) {
+        let alert = UIAlertController(title: "message.actions.pressedMsg".localized, message: "Body link pressed at position: \(index)", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }

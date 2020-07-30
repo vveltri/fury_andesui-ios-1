@@ -29,7 +29,11 @@ internal struct AndesMessageViewConfig {
     var secondaryActionConfig: AndesButtonViewConfig?
     var linkActionConfig: AndesButtonViewConfig?
 
-    init(backgroundColor: UIColor, pipeColor: UIColor, textColor: UIColor, titleText: String?, bodyText: String, icon: String?, iconBackgroundColor: UIColor, isDismissable: Bool, dismissIconColor: UIColor) {
+    var bodyLinks: AndesBodyLinks?
+    var bodyLinkIsUnderline: Bool = false
+    var bodyLinkTextColor: UIColor = AndesStyleSheetManager.styleSheet.accentColor500
+
+    init(backgroundColor: UIColor, pipeColor: UIColor, textColor: UIColor, titleText: String?, bodyText: String, icon: String?, iconBackgroundColor: UIColor, isDismissable: Bool, dismissIconColor: UIColor, bodyLinks: AndesBodyLinks?, bodyLinkIsUnderline: Bool, bodyLinkTextColor: UIColor) {
         self.backgroundColor = backgroundColor
         self.pipeColor = pipeColor
 
@@ -43,6 +47,10 @@ internal struct AndesMessageViewConfig {
 
         self.iconBackgroundColor = iconBackgroundColor
         self.dismissIconColor = dismissIconColor
+
+        self.bodyLinks = bodyLinks
+        self.bodyLinkIsUnderline = bodyLinkIsUnderline
+        self.bodyLinkTextColor = bodyLinkTextColor
     }
 
     init() {

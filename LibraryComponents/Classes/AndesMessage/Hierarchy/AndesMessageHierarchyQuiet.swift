@@ -23,6 +23,10 @@ struct AndesMessageHierarchyQuiet: AndesMessageHierarchyProtocol {
 
     var accentColor: UIColor
 
+    var bodyLinkIsUnderline: Bool
+
+    var bodyLinkTextColor: UIColor
+
     init(type: AndesMessageTypeProtocol) {
         pipeColor = type.primaryColor
         accentColor = type.primaryColor
@@ -31,5 +35,7 @@ struct AndesMessageHierarchyQuiet: AndesMessageHierarchyProtocol {
         linkButtonHierarchy = LinkMessageActionButtonHierarchy(textColor: AndesStyleSheetManager.styleSheet.accentColor500,
                                                                pressedColor: type.linkButtonPressedColor
         )
+        bodyLinkIsUnderline = false
+        bodyLinkTextColor = AndesStyleSheetManager.styleSheet.accentColor500
     }
 }

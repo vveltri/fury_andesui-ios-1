@@ -73,6 +73,8 @@ import UIKit
     // triggered when user presses secondary
     private var onSecondaryActionPressed: ((_ message: AndesMessage) -> Void)?
 
+    public var bodyLinks: AndesBodyLinks?
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setup()
@@ -156,6 +158,11 @@ import UIKit
     @objc public func setLinkAction(_ title: String, handler: ((_ message: AndesMessage) -> Void)?) {
         self.linkActionText = title
         self.onPrimaryActionPressed = handler
+        reDrawContentViewIfNeededThenUpdate()
+    }
+
+    public func setBodyLinks(_ bodyLinks: AndesBodyLinks) {
+        self.bodyLinks = bodyLinks
         reDrawContentViewIfNeededThenUpdate()
     }
 

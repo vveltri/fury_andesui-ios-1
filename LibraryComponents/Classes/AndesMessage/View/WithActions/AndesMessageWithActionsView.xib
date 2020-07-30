@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AndesMessageWithActionsView" customModule="AndesUI">
             <connections>
-                <outlet property="bodyLabel" destination="58O-gd-Aup" id="ohB-Bn-CwC"/>
+                <outlet property="bodyTextView" destination="d73-Ie-8ZP" id="Exd-N6-Lxd"/>
                 <outlet property="dismissButton" destination="AH2-H9-2Dt" id="Xox-4a-AFE"/>
                 <outlet property="iconContainerView" destination="Mbf-ep-nbj" id="yea-3i-LtJ"/>
                 <outlet property="iconView" destination="KSx-w5-sbK" id="Qwx-DJ-uKG"/>
@@ -72,7 +72,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="CPr-he-XXd">
-                    <rect key="frame" x="48" y="15.5" width="194" height="46"/>
+                    <rect key="frame" x="48" y="15.5" width="194" height="67.5"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KcW-WK-QzY">
                             <rect key="frame" x="0.0" y="0.0" width="194" height="20.5"/>
@@ -80,16 +80,19 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="body" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="58O-gd-Aup">
-                            <rect key="frame" x="0.0" y="25.5" width="194" height="20.5"/>
+                        <textView opaque="NO" multipleTouchEnabled="YES" contentMode="left" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" text="body" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="d73-Ie-8ZP">
+                            <rect key="frame" x="0.0" y="25.5" width="194" height="42"/>
+                            <accessibility key="accessibilityConfiguration">
+                                <accessibilityTraits key="traits" staticText="YES"/>
+                            </accessibility>
+                            <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
                     </subviews>
                 </stackView>
                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="50" placeholderIntrinsicHeight="21.5" translatesAutoresizingMaskIntoConstraints="NO" id="HbG-CF-Oqd" customClass="AndesButton" customModule="AndesUI">
-                    <rect key="frame" x="48" y="77.5" width="50" height="21.5"/>
+                    <rect key="frame" x="48" y="99" width="50" height="0.0"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <accessibility key="accessibilityConfiguration" identifier="andesMessagePrimaryAction"/>
                     <connections>
@@ -97,7 +100,7 @@
                     </connections>
                 </view>
                 <view contentMode="scaleToFill" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" placeholderIntrinsicWidth="322" placeholderIntrinsicHeight="21.5" translatesAutoresizingMaskIntoConstraints="NO" id="UDP-xQ-Pdx" customClass="AndesButton" customModule="AndesUI">
-                    <rect key="frame" x="114" y="77.5" width="164" height="21.5"/>
+                    <rect key="frame" x="114" y="88.5" width="164" height="21.5"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <accessibility key="accessibilityConfiguration" identifier="andesMessageSecondaryAction"/>
                     <connections>
