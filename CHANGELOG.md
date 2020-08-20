@@ -1,3 +1,7 @@
+## Unpublished
+### 🛠 Bug fixes
+- AndesCard: The provided view now support tappable actions | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
+
 ## v3.8.0
 ### 🚀 Features
 - New component: AndesCard | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
