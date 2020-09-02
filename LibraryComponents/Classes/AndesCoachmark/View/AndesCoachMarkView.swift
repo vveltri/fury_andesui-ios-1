@@ -7,12 +7,12 @@
 
 import UIKit
 
-public class AndesCoachMarkView: UIView {
+@objc public class AndesCoachMarkView: UIView {
     let overlayLayer = CAShapeLayer()
     let maskLayer = CAShapeLayer()
 
-    public weak var delegate: AndesCoachMarkViewDelegate?
-    public let overlayColor: UIColor = UIColor.Andes.gray800
+    @objc public weak var delegate: AndesCoachMarkViewDelegate?
+    @objc public let overlayColor: UIColor = UIColor.Andes.gray800
 
     var highlightedView: AndesCoachMarkHighlightedView?
 
@@ -40,7 +40,7 @@ public class AndesCoachMarkView: UIView {
     var onExit: (() -> Void)?
 
     // MARK: - Initialization
-    public init(model: AndesCoachMarkEntity) {
+    @objc public init(model: AndesCoachMarkEntity) {
         self.onExit = model.completionHandler
         self.presenter = AndesCoachMarkPresenter(model: model)
 
@@ -100,7 +100,7 @@ public class AndesCoachMarkView: UIView {
         fatalError("This class does not support NSCoding")
     }
 
-    public func start() {
+    @objc public func start() {
         presenter.start()
     }
 
