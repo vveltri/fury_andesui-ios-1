@@ -1,4 +1,4 @@
-## Unpublished
+## v3.9.0
 ### 🚀 Features
 - New component: AndesCoachMark | Authors: [@jdbandoniml](https://github.com/jdbandoniml)
 ### 🛠 Bug fixes
