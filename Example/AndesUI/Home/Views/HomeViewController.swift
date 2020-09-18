@@ -121,6 +121,10 @@ class HomeViewController: UIViewController {
     @IBAction func goToThumbnailTapped(_ sender: Any) {
 	presenter.presentThumbnail()
     }
+
+    @IBAction func goToTextFieldsCodeTapped(_ sender: Any) {
+        presenter.presentTextFieldsCode()
+    }
 }
 
 extension HomeViewController: HomeView {

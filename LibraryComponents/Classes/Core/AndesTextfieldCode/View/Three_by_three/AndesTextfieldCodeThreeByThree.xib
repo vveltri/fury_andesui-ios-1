@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AndesTextfieldCodeThreeByThree" customModule="AndesUI">
+            <connections>
+                <outlet property="andesCodeTextFieldView" destination="meE-a0-F7v" id="xSc-Kl-m8W"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="meE-a0-F7v" userLabel="AndesCodeTextFieldView">
+                    <rect key="frame" x="3" y="405" width="408" height="85.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Código de seguridad esto es una prueba de un texto muy largo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="euF-OO-WSV" userLabel="Label">
+                            <rect key="frame" x="2" y="0.0" width="406" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="FJP-TL-9JL">
+                            <rect key="frame" x="0.0" y="-12.5" width="398" height="128"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R6L-Mr-nGw" customClass="AndesTextField" customModule="AndesUI">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="128"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="38" id="in7-nJ-hzi"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pcq-TR-835" customClass="AndesTextField" customModule="AndesUI">
+                                    <rect key="frame" x="58" y="0.0" width="50" height="128"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="38" id="cI6-he-DPW"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8T7-Kn-nqa" customClass="AndesTextField" customModule="AndesUI">
+                                    <rect key="frame" x="116" y="0.0" width="50" height="128"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="38" id="F3g-pp-8HS"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dE4-5o-69M">
+                                    <rect key="frame" x="174" y="0.0" width="50" height="128"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="8" id="cic-tx-2A5"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Ve-Y1-BWc" customClass="AndesTextField" customModule="AndesUI">
+                                    <rect key="frame" x="232" y="0.0" width="50" height="128"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="38" id="81A-Zz-QMz"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="66L-RX-pjm" customClass="AndesTextField" customModule="AndesUI">
+                                    <rect key="frame" x="290" y="0.0" width="50" height="128"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="38" id="wmI-ZW-vfD"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8bF-Yz-TkY" customClass="AndesTextField" customModule="AndesUI">
+                                    <rect key="frame" x="348" y="0.0" width="50" height="128"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="38" id="2hK-fP-sA3"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="dE4-5o-69M" firstAttribute="leading" secondItem="8T7-Kn-nqa" secondAttribute="trailing" constant="4" id="2Nb-CD-3P0"/>
+                                <constraint firstItem="2Ve-Y1-BWc" firstAttribute="leading" secondItem="dE4-5o-69M" secondAttribute="trailing" constant="4" id="a5k-9C-nbS"/>
+                            </constraints>
+                        </stackView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Helper Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wif-EA-aId" userLabel="HelpLabel">
+                            <rect key="frame" x="2" y="63.5" width="406" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="Wif-EA-aId" secondAttribute="trailing" id="Dlu-rO-9Ki"/>
+                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="FJP-TL-9JL" secondAttribute="trailing" id="Ind-jR-pBP"/>
+                        <constraint firstItem="euF-OO-WSV" firstAttribute="leading" secondItem="meE-a0-F7v" secondAttribute="leading" constant="2" id="NXQ-TZ-TEe"/>
+                        <constraint firstItem="FJP-TL-9JL" firstAttribute="top" secondItem="euF-OO-WSV" secondAttribute="bottom" id="TEp-ay-wAa"/>
+                        <constraint firstItem="FJP-TL-9JL" firstAttribute="leading" secondItem="meE-a0-F7v" secondAttribute="leading" id="Xwm-ka-7mn"/>
+                        <constraint firstItem="euF-OO-WSV" firstAttribute="top" secondItem="meE-a0-F7v" secondAttribute="top" id="dlj-pb-vd7"/>
+                        <constraint firstAttribute="bottom" secondItem="Wif-EA-aId" secondAttribute="bottom" id="ezt-ZZ-sX9"/>
+                        <constraint firstItem="Wif-EA-aId" firstAttribute="top" secondItem="FJP-TL-9JL" secondAttribute="bottom" id="lTn-9i-QvL"/>
+                        <constraint firstAttribute="trailing" secondItem="euF-OO-WSV" secondAttribute="trailing" id="rOZ-mD-o1D"/>
+                        <constraint firstItem="Wif-EA-aId" firstAttribute="leading" secondItem="meE-a0-F7v" secondAttribute="leading" constant="2" id="zpV-EH-edq"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="meE-a0-F7v" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="Efk-qL-NlK"/>
+                <constraint firstItem="meE-a0-F7v" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="lDQ-IR-owc"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="139" y="105"/>
+        </view>
+    </objects>
+</document>

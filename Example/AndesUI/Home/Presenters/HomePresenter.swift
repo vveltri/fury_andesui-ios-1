@@ -21,6 +21,7 @@ protocol HomePresenter: NSObject {
     func presentSnackbar()
     func presentCard()
     func presentThumbnail()
+    func presentTextFieldsCode()
 }
 
 class HomeViewPresenter: NSObject {
@@ -78,5 +79,9 @@ extension HomeViewPresenter: HomePresenter {
 
     func presentThumbnail() {
 	router.routeToThumbnail()
+    }
+
+    func presentTextFieldsCode() {
+        router.routeToTextFieldsCode()
     }
 }
