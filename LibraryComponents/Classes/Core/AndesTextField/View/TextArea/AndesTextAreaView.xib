@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -48,7 +48,7 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Placeholder text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BBy-K7-RYS">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Placeholder text" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BBy-K7-RYS">
                     <rect key="frame" x="14" y="82" width="386" height="16"/>
                     <accessibility key="accessibilityConfiguration" label="Helper Text"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -92,6 +92,7 @@
                 <constraint firstItem="PSm-MB-uON" firstAttribute="top" secondItem="7zg-V8-fqP" secondAttribute="top" constant="2" id="jM4-Gd-5Bt"/>
                 <constraint firstItem="PSm-MB-uON" firstAttribute="leading" secondItem="6j7-M2-Xfr" secondAttribute="leading" id="mtl-8G-SFI"/>
                 <constraint firstItem="7zg-V8-fqP" firstAttribute="top" secondItem="jQF-k4-Vbe" secondAttribute="bottom" constant="8" id="qTn-wC-2a7"/>
+                <constraint firstItem="yHM-MY-Oip" firstAttribute="top" relation="greaterThanOrEqual" secondItem="BBy-K7-RYS" secondAttribute="bottom" constant="21" id="soF-BA-eMD"/>
                 <constraint firstItem="6j7-M2-Xfr" firstAttribute="top" secondItem="osO-R3-Okw" secondAttribute="top" id="vLf-Sr-eIA"/>
                 <constraint firstItem="7zg-V8-fqP" firstAttribute="leading" secondItem="6j7-M2-Xfr" secondAttribute="leading" priority="250" id="vXx-Md-nqX"/>
             </constraints>
