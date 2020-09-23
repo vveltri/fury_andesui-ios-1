@@ -1,5 +1,6 @@
 ## (to be published)
 ### 🛠 Bug fixes
+- AndesMessage body `lineHeight` changed  | Authors: [@lelalesi](https://github.com/lelalesi)
 - AndesTextArea placeholder text lines changed, and bottom constrain added  | Authors: [@frank8MELI](https://github.com/frank8MELI)
 
 ## v3.9.0
