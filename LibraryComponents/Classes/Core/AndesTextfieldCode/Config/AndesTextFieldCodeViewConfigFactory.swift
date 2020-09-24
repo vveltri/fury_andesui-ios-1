@@ -10,9 +10,6 @@ import Foundation
 final class AndesTextFieldCodeViewConfigFactory {
 
     static func provideInternalConfig(from textFieldCode: AndesTextfieldCode) -> AndesTextFieldCodeViewConfig {
-        let label = textFieldCode.label
-        let helpLabel = textFieldCode.helpLabel
-        let style = textFieldCode.style
-        return AndesTextFieldCodeViewConfig(label: label, helpLabel: helpLabel, style: style)
+        return AndesTextFieldCodeViewConfig(labelText: textFieldCode.label, helperText: textFieldCode.helpLabel, style: textFieldCode.style, state: textFieldCode.state, text: textFieldCode.text)
     }
 }
