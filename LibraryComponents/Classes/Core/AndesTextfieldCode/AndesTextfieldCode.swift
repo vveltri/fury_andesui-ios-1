@@ -9,39 +9,64 @@ import Foundation
 
 @objc public class AndesTextfieldCode: UIView {
 
-    internal var contentView: AndesTextfieldCodeProtocol?
+    var contentView: AndesTextfieldCodeProtocol!
 
+    /// Text for the label of the AndesTextFieldCode.
     @objc public var label: String? = "" {
         didSet {
-            // update
+            updateContentView()
         }
     }
 
+    /// Text for the helpLabel of the AndesTextFieldCode.
     @objc public var helpLabel: String? = "" {
         didSet {
-            // update
+            updateContentView()
         }
     }
 
-    @objc public var style: String = "" {
+    /// The style of an AndesTextFieldCode defines the amount of input boxes and how they are grouped.
+    @objc public var style: AndesTextfieldCodeStyle = .THREESOME {
         didSet {
-            // update
+            updateContentView(oldStyle: oldValue)
         }
     }
 
-    @objc public init(label: String?, helpLabel: String?, style: String) {
-        super.init(frame: .zero)
-        self.label = label
-        self.helpLabel = helpLabel
-        self.style = style
-        setup()
+    /// The state of an AndesTextFieldCode defines its behaviours and colours.
+    @objc public var state: AndesTextfieldCodeState = .IDLE {
+        didSet {
+            updateContentView()
+        }
+    }
+
+    /// The text of an AndesTextFieldCode defines the whole text entered taken from all input boxes.
+    @objc public var text: String = "" {
+        didSet {
+            updateContentView()
+        }
     }
 
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
+        setup()
+    }
+
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        setup()
+    }
+
+    @objc public init(label: String?, helpLabel: String?, style: AndesTextfieldCodeStyle, state: AndesTextfieldCodeState) {
+        self.label = label
+        self.helpLabel = helpLabel
+        self.style = style
+        self.state = state
+        super.init(frame: .zero)
+        setup()
     }
 }
 
+// MARK: Privates
 private extension AndesTextfieldCode {
     func setup() {
         translatesAutoresizingMaskIntoConstraints = false
@@ -49,27 +74,53 @@ private extension AndesTextfieldCode {
         drawContentView(with: provideView())
     }
 
-    func drawContentView(with newView: AndesTextfieldCodeProtocol) {
+    func drawContentView(with newView: AndesTextfieldCodeAbstractView) {
         contentView = newView
         if let contentView = contentView {
-//            backgroundColor = .brown
             addSubview(contentView)
-            leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
-            trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
-            topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-            bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+            NSLayoutConstraint.activate([
+                leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+                trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+                topAnchor.constraint(equalTo: contentView.topAnchor),
+                bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            ])
         }
     }
 
-    func provideView() -> AndesTextfieldCodeProtocol {
+    /// Should return a view depending on which AndesTextfieldCode variant is selected.
+    func provideView() -> AndesTextfieldCodeAbstractView {
         let config = AndesTextFieldCodeViewConfigFactory.provideInternalConfig(from: self)
         switch config.style {
-        case "threesome":
+        case .THREESOME:
             return AndesTextfieldCodeThreesome(config: config)
-        case "foursome":
+        case .FOURSOME:
             return AndesTextfieldCodeFoursome(config: config)
-        default:
+        case .THREE_BY_THREE:
             return AndesTextfieldCodeThreeByThree(config: config)
         }
+    }
+
+    func updateContentView() {
+        let config = AndesTextFieldCodeViewConfigFactory.provideInternalConfig(from: self)
+        contentView?.update(withConfig: config)
+    }
+
+    func updateContentView(oldStyle: AndesTextfieldCodeStyle) {
+        if oldStyle != style {
+            reDrawContentViewIfNeededThenUpdate()
+        } else {
+            let config = AndesTextFieldCodeViewConfigFactory.provideInternalConfig(from: self)
+            contentView?.update(withConfig: config)
+        }
+    }
+
+    /// Check if view needs to be redrawn, and then update it. This method should be called on all modifiers that may need to change which internal view should be rendered.
+    func reDrawContentViewIfNeededThenUpdate() {
+        let newView = provideView()
+        if Swift.type(of: newView) !== Swift.type(of: contentView) {
+            contentView.removeFromSuperview()
+            drawContentView(with: newView)
+        }
+        updateContentView()
     }
 }
