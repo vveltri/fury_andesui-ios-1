@@ -9,17 +9,17 @@ import Foundation
 
 @objc public enum AndesTextfieldCodeState: Int, AndesEnumStringConvertible {
 
-    case idle
-    case error
-    case disabled
+    case IDLE
+    case ERROR
+    case DISABLED
 
     public static func keyFor(_ value: AndesTextfieldCodeState) -> String {
         switch value {
-        case .idle:
+        case .IDLE:
             return "IDLE"
-        case .error:
+        case .ERROR:
             return "ERROR"
-        case .disabled:
+        case .DISABLED:
             return "DISABLED"
         }
     }

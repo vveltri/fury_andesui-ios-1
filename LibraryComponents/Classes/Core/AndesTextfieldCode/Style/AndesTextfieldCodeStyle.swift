@@ -9,17 +9,17 @@ import Foundation
 
 @objc public enum AndesTextfieldCodeStyle: Int, AndesEnumStringConvertible {
 
-    case threesome
-    case foursome
-    case threeByThree
+    case THREESOME
+    case FOURSOME
+    case THREE_BY_THREE
 
     public static func keyFor(_ value: AndesTextfieldCodeStyle) -> String {
         switch value {
-        case .threesome:
+        case .THREESOME:
             return "THREESOME"
-        case .foursome:
+        case .FOURSOME:
             return "FOURSOME"
-        case .threeByThree:
+        case .THREE_BY_THREE:
             return "THREE_BY_THREE"
         }
     }

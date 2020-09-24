@@ -10,11 +10,11 @@ import Foundation
 final class AndesTextfieldCodeStateFactory {
     static func getState(_ state: AndesTextfieldCodeState) -> AndesTextfieldCodeStateProtocol {
         switch state {
-        case .idle:
+        case .IDLE:
             return AndesTextfieldCodeStateIdle()
-        case .error:
+        case .ERROR:
             return AndesTextfieldCodeStateError()
-        case .disabled:
+        case .DISABLED:
             return AndesTextfieldCodeStateDisabled()
         }
     }
