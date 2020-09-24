@@ -11,4 +11,7 @@ protocol AndesTextfieldCodeStateProtocol {
     var labelTextColor: UIColor { get }
     var helperTextColor: UIColor { get }
     var helperSemibold: Bool { get }
+    var helperIconName: String? { get }
+    var helperIconTintColor: UIColor? { get }
+    var helperIconBgColor: UIColor { get }
 }
