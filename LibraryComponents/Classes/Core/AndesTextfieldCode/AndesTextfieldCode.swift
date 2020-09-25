@@ -40,10 +40,9 @@ import Foundation
     }
 
     /// The text of an AndesTextFieldCode defines the whole text entered taken from all input boxes.
-    @objc public var text: String = "" {
-        didSet {
-            updateContentView()
-        }
+    @IBInspectable public var text: String {
+        get { return contentView.text }
+        set { setText(newValue: newValue) }
     }
 
     required init?(coder: NSCoder) {
@@ -118,9 +117,19 @@ private extension AndesTextfieldCode {
     func reDrawContentViewIfNeededThenUpdate() {
         let newView = provideView()
         if Swift.type(of: newView) !== Swift.type(of: contentView) {
+            let oldText = contentView.text
             contentView.removeFromSuperview()
             drawContentView(with: newView)
+            if !oldText.isEmpty {
+                setText(newValue: oldText)
+            }
         }
         updateContentView()
+    }
+
+    func setText(newValue: String) {
+        if let contentView = contentView as? AndesTextfieldCodeAbstractView {
+            contentView.setText(newValue: newValue)
+        }
     }
 }

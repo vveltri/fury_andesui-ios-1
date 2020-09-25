@@ -13,14 +13,13 @@ struct AndesTextFieldCodeViewConfig {
     var helperText: String?
     var style: AndesTextfieldCodeStyle = .THREESOME
     var state: AndesTextfieldCodeState = .IDLE
-    var text: String = ""
     var labelStyle: AndesFontStyle = getLabelStyle(AndesStyleSheetManager.styleSheet.textColorPrimary)
     var helperStyle: AndesFontStyle = getHelperTextStyle(AndesStyleSheetManager.styleSheet.textColorSecondary)
     var helperIcon: String?
     var helperIconTintColor: UIColor?
     var helperIconBgColor: UIColor?
 
-    init(labelText: String?, helperText: String?, style: AndesTextfieldCodeStyle, state: AndesTextfieldCodeState, text: String) {
+    init(labelText: String?, helperText: String?, style: AndesTextfieldCodeStyle, state: AndesTextfieldCodeState) {
         self.labelText = labelText
         self.helperText = helperText
         self.style = style
@@ -30,7 +29,6 @@ struct AndesTextFieldCodeViewConfig {
         self.helperIcon = AndesTextFieldCodeViewConfig.getHelperIcon(state)
         self.helperIconTintColor = AndesTextFieldCodeViewConfig.getHelperIconTintColor(state)
         self.helperIconBgColor = AndesTextFieldCodeViewConfig.getHelperIconBgColor(state)
-        self.text = text
     }
 
     init() {
