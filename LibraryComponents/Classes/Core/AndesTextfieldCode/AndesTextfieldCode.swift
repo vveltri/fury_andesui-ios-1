@@ -12,14 +12,14 @@ import Foundation
     var contentView: AndesTextfieldCodeView!
 
     /// Text for the label of the AndesTextFieldCode.
-    @objc public var label: String? = "" {
+    @objc public var label: String? {
         didSet {
             updateContentView()
         }
     }
 
     /// Text for the helpLabel of the AndesTextFieldCode.
-    @objc public var helpLabel: String? = "" {
+    @objc public var helpLabel: String? {
         didSet {
             updateContentView()
         }
