@@ -9,7 +9,7 @@ import Foundation
 
 @objc public class AndesTextfieldCode: UIView {
 
-    var contentView: AndesTextfieldCodeView!
+    var contentView: AndesTextFieldCodeView!
 
     /// Text for the label of the AndesTextFieldCode.
     @objc public var label: String? {

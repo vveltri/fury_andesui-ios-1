@@ -7,7 +7,7 @@
 
 import Foundation
 
-class AndesTextfieldCodeAbstractView: UIControl, AndesTextfieldCodeView {
+class AndesTextfieldCodeAbstractView: UIControl, AndesTextFieldCodeView {
 
     // MARK: Views
     @IBOutlet weak var andesCodeTextFieldView: UIView!
