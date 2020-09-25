@@ -60,11 +60,11 @@ private extension TextFieldsCodeViewController {
 // MARK: Actions
 private extension TextFieldsCodeViewController {
     @IBAction func updateTapped(_ sender: Any) {
+        andesTextfieldCode?.style = style
         andesTextfieldCode?.text = textTextField.text ?? ""
         andesTextfieldCode?.label = labelTextField.text
         andesTextfieldCode?.helpLabel = helpLabelTextField.text
         andesTextfieldCode?.state = state
-        andesTextfieldCode?.style = style
     }
 
     @IBAction func clearTapped(_ sender: Any) {
