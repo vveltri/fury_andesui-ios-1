@@ -1,5 +1,5 @@
 //
-//  AndesTextfieldCodeAbstractView.swift
+//  AndesTextFieldCodeAbstractView.swift
 //  AndesUI
 //
 //  Created by Esteban Adrian Boffa on 16/09/2020.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class AndesTextfieldCodeAbstractView: UIControl, AndesTextFieldCodeView {
+class AndesTextFieldCodeAbstractView: UIControl, AndesTextFieldCodeView {
 
     // MARK: Views
     @IBOutlet weak var andesCodeTextFieldView: UIView!
@@ -40,7 +40,7 @@ class AndesTextfieldCodeAbstractView: UIControl, AndesTextFieldCodeView {
 }
 
 // MARK: Publics
-extension AndesTextfieldCodeAbstractView {
+extension AndesTextFieldCodeAbstractView {
     func update(withConfig config: AndesTextFieldCodeViewConfig) {
         self.config = config
         updateView()
@@ -60,7 +60,7 @@ extension AndesTextfieldCodeAbstractView {
 }
 
 // MARK: Privates
-private extension AndesTextfieldCodeAbstractView {
+private extension AndesTextFieldCodeAbstractView {
     func setup() {
         translatesAutoresizingMaskIntoConstraints = false
         clipsToBounds = true
@@ -158,7 +158,7 @@ private extension AndesTextfieldCodeAbstractView {
 }
 
 // MARK: AndesTextFieldDelegate
-extension AndesTextfieldCodeAbstractView: AndesTextFieldDelegate {
+extension AndesTextFieldCodeAbstractView: AndesTextFieldDelegate {
     func andesTextField(_ textField: AndesTextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         return isDecimalNumber(string) && updatedTextIsMinorOrEqualToOneDigit(currentText: textField.text, range: range, newString: string)
     }

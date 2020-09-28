@@ -1,5 +1,5 @@
 //
-//  AndesTextfieldCode.swift
+//  AndesTextFieldCode.swift
 //  AndesUI
 //
 //  Created by Esteban Adrian Boffa on 16/09/2020.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-@objc public class AndesTextfieldCode: UIView {
+@objc public class AndesTextFieldCode: UIView {
 
     var contentView: AndesTextFieldCodeView!
 
@@ -26,14 +26,14 @@ import Foundation
     }
 
     /// The style of an AndesTextFieldCode defines the amount of input boxes and how they are grouped.
-    @objc public var style: AndesTextfieldCodeStyle = .THREESOME {
+    @objc public var style: AndesTextFieldCodeStyle = .THREESOME {
         didSet {
             updateContentView(oldStyle: oldValue)
         }
     }
 
     /// The state of an AndesTextFieldCode defines its behaviours and colours.
-    @objc public var state: AndesTextfieldCodeState = .IDLE {
+    @objc public var state: AndesTextFieldCodeState = .IDLE {
         didSet {
             updateContentView()
         }
@@ -55,7 +55,7 @@ import Foundation
         setup()
     }
 
-    @objc public init(label: String?, helpLabel: String?, style: AndesTextfieldCodeStyle, state: AndesTextfieldCodeState) {
+    @objc public init(label: String?, helpLabel: String?, style: AndesTextFieldCodeStyle, state: AndesTextFieldCodeState) {
         self.label = label
         self.helpLabel = helpLabel
         self.style = style
@@ -66,14 +66,14 @@ import Foundation
 }
 
 // MARK: Privates
-private extension AndesTextfieldCode {
+private extension AndesTextFieldCode {
     func setup() {
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .clear
         drawContentView(with: provideView())
     }
 
-    func drawContentView(with newView: AndesTextfieldCodeAbstractView) {
+    func drawContentView(with newView: AndesTextFieldCodeAbstractView) {
         contentView = newView
         if let contentView = contentView {
             addSubview(contentView)
@@ -87,15 +87,15 @@ private extension AndesTextfieldCode {
     }
 
     /// Should return a view depending on which AndesTextfieldCode variant is selected.
-    func provideView() -> AndesTextfieldCodeAbstractView {
+    func provideView() -> AndesTextFieldCodeAbstractView {
         let config = AndesTextFieldCodeViewConfigFactory.provideInternalConfig(from: self)
         switch config.style {
         case .THREESOME:
-            return AndesTextfieldCodeThreesome(config: config)
+            return AndesTextFieldCodeThreesome(config: config)
         case .FOURSOME:
-            return AndesTextfieldCodeFoursome(config: config)
+            return AndesTextFieldCodeFoursome(config: config)
         case .THREE_BY_THREE:
-            return AndesTextfieldCodeThreeByThree(config: config)
+            return AndesTextFieldCodeThreeByThree(config: config)
         }
     }
 
@@ -104,7 +104,7 @@ private extension AndesTextfieldCode {
         contentView?.update(withConfig: config)
     }
 
-    func updateContentView(oldStyle: AndesTextfieldCodeStyle) {
+    func updateContentView(oldStyle: AndesTextFieldCodeStyle) {
         if oldStyle != style {
             reDrawContentViewIfNeededThenUpdate()
         } else {
@@ -128,7 +128,7 @@ private extension AndesTextfieldCode {
     }
 
     func setText(newValue: String) {
-        if let contentView = contentView as? AndesTextfieldCodeAbstractView {
+        if let contentView = contentView as? AndesTextFieldCodeAbstractView {
             contentView.setText(newValue: newValue)
         }
     }

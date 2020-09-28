@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AndesTextfieldCodeFoursome" customModule="AndesUI">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AndesTextFieldCodeFoursome" customModule="AndesUI">
             <connections>
                 <outlet property="andesCodeTextFieldView" destination="ceZ-IA-wzV" id="kr6-dP-eNT"/>
                 <outlet property="helpLabel" destination="Nku-pS-q9q" id="HFf-9w-CjJ"/>

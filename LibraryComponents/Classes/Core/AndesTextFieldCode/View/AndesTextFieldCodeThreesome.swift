@@ -1,5 +1,5 @@
 //
-//  AndesTextfieldCodeThreesome.swift
+//  AndesTextFieldCodeThreesome.swift
 //  AndesUI
 //
 //  Created by Esteban Adrian Boffa on 16/09/2020.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class AndesTextfieldCodeThreesome: AndesTextfieldCodeAbstractView {
+final class AndesTextFieldCodeThreesome: AndesTextFieldCodeAbstractView {
 
     override internal func loadNib() {
         let bundle = AndesBundle.bundle()

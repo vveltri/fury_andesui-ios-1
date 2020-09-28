@@ -1,5 +1,5 @@
 //
-//  AndesTextfieldCodeStateError.swift
+//  AndesTextFieldCodeStateError.swift
 //  AndesUI
 //
 //  Created by Esteban Adrian Boffa on 22/09/2020.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct AndesTextfieldCodeStateError: AndesTextfieldCodeStateProtocol {
+struct AndesTextFieldCodeStateError: AndesTextFieldCodeStateProtocol {
     var labelTextColor: UIColor = AndesStyleSheetManager.styleSheet.textColorNegative
     var helperTextColor: UIColor = AndesStyleSheetManager.styleSheet.textColorNegative
     var helperSemibold: Bool = true

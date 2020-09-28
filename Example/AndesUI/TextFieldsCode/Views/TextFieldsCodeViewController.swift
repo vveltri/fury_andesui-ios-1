@@ -22,9 +22,9 @@ final class TextFieldsCodeViewController: UIViewController {
 
     var statePicker: UIPickerView = UIPickerView()
     var stylePicker: UIPickerView = UIPickerView()
-    var state: AndesTextfieldCodeState = .IDLE
-    var style: AndesTextfieldCodeStyle = .THREESOME
-    var andesTextfieldCode: AndesTextfieldCode?
+    var state: AndesTextFieldCodeState = .IDLE
+    var style: AndesTextFieldCodeStyle = .THREESOME
+    var andesTextfieldCode: AndesTextFieldCode?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +35,7 @@ final class TextFieldsCodeViewController: UIViewController {
 // MARK: UI
 private extension TextFieldsCodeViewController {
     func renderViews() {
-        andesTextfieldCode = AndesTextfieldCode(label: nil, helpLabel: nil, style: .THREESOME, state: .IDLE)
+        andesTextfieldCode = AndesTextFieldCode(label: nil, helpLabel: nil, style: .THREESOME, state: .IDLE)
         if let andesTextfieldCode = andesTextfieldCode {
             view.addSubview(andesTextfieldCode)
             NSLayoutConstraint.activate([
@@ -89,11 +89,11 @@ extension TextFieldsCodeViewController: UIPickerViewDelegate, UIPickerViewDataSo
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == statePicker {
             stateTextField.resignFirstResponder()
-            state = AndesTextfieldCodeState.init(rawValue: row)!
+            state = AndesTextFieldCodeState.init(rawValue: row)!
             stateTextField.text = state.toString()
         } else if pickerView == stylePicker {
             styleTextField.resignFirstResponder()
-            style = AndesTextfieldCodeStyle.init(rawValue: row)!
+            style = AndesTextFieldCodeStyle.init(rawValue: row)!
             styleTextField.text = style.toString()
         }
     }
@@ -114,11 +114,11 @@ extension TextFieldsCodeViewController: UIPickerViewDelegate, UIPickerViewDataSo
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView == statePicker {
-            let state = AndesTextfieldCodeState.init(rawValue: row)!
+            let state = AndesTextFieldCodeState.init(rawValue: row)!
             return state.toString()
         }
         if pickerView == stylePicker {
-            let style = AndesTextfieldCodeStyle.init(rawValue: row)!
+            let style = AndesTextFieldCodeStyle.init(rawValue: row)!
             return style.toString()
         }
         return ""
