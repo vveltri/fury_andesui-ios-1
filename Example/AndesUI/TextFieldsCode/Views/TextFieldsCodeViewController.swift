@@ -12,6 +12,7 @@ import AndesUI
 final class TextFieldsCodeViewController: UIViewController {
 
     // MARK: IBOutlets
+    @IBOutlet weak var andesTextFieldCode: AndesTextFieldCode!
     @IBOutlet weak var textFieldCodeTitle: UILabel!
     @IBOutlet weak var stateTextField: UITextField!
     @IBOutlet weak var styleTextField: UITextField!
@@ -24,7 +25,9 @@ final class TextFieldsCodeViewController: UIViewController {
     var stylePicker: UIPickerView = UIPickerView()
     var state: AndesTextFieldCodeState = .IDLE
     var style: AndesTextFieldCodeStyle = .THREESOME
-    var andesTextfieldCode: AndesTextFieldCode?
+
+//    Uncomment so as to instantiate AndesTextFieldCode programatically
+//    var textFieldCode: AndesTextFieldCode?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,15 +38,16 @@ final class TextFieldsCodeViewController: UIViewController {
 // MARK: UI
 private extension TextFieldsCodeViewController {
     func renderViews() {
-        andesTextfieldCode = AndesTextFieldCode(label: nil, helpLabel: nil, style: .THREESOME, state: .IDLE)
-        if let andesTextfieldCode = andesTextfieldCode {
-            view.addSubview(andesTextfieldCode)
-            NSLayoutConstraint.activate([
-                andesTextfieldCode.topAnchor.constraint(equalTo: textFieldCodeTitle.bottomAnchor, constant: 24),
-                andesTextfieldCode.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32),
-                andesTextfieldCode.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32)
-            ])
-        }
+//      Uncomment for instantiate AndesTextFieldCode programatically
+//        textFieldCode = AndesTextFieldCode(label: nil, helpLabel: nil, style: .THREESOME, state: .IDLE)
+//        if let textFieldCode = textFieldCode {
+//            view.addSubview(textFieldCode)
+//            NSLayoutConstraint.activate([
+//                textFieldCode.topAnchor.constraint(equalTo: textFieldCodeTitle.bottomAnchor, constant: 24),
+//                textFieldCode.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32),
+//                textFieldCode.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32)
+//            ])
+//        }
         createPickerViews()
     }
 
@@ -60,19 +64,33 @@ private extension TextFieldsCodeViewController {
 // MARK: Actions
 private extension TextFieldsCodeViewController {
     @IBAction func updateTapped(_ sender: Any) {
-        andesTextfieldCode?.style = style
-        andesTextfieldCode?.text = textTextField.text ?? ""
-        andesTextfieldCode?.label = labelTextField.text
-        andesTextfieldCode?.helpLabel = helpLabelTextField.text
-        andesTextfieldCode?.state = state
+        andesTextFieldCode?.style = style
+        andesTextFieldCode?.text = textTextField.text ?? ""
+        andesTextFieldCode?.label = labelTextField.text
+        andesTextFieldCode?.helpLabel = helpLabelTextField.text
+        andesTextFieldCode?.state = state
+
+//    Uncomment for instantiate AndesTextFieldCode programatically
+//        textFieldCode?.style = style
+//        textFieldCode?.text = textTextField.text ?? ""
+//        textFieldCode?.label = labelTextField.text
+//        textFieldCode?.helpLabel = helpLabelTextField.text
+//        textFieldCode?.state = state
     }
 
     @IBAction func clearTapped(_ sender: Any) {
-        andesTextfieldCode?.text = ""
-        andesTextfieldCode?.label = ""
-        andesTextfieldCode?.helpLabel = ""
-        andesTextfieldCode?.state = .IDLE
-        andesTextfieldCode?.style = .THREESOME
+        andesTextFieldCode?.text = ""
+        andesTextFieldCode?.label = ""
+        andesTextFieldCode?.helpLabel = ""
+        andesTextFieldCode?.state = .IDLE
+        andesTextFieldCode?.style = .THREESOME
+
+//    Uncomment for instantiate AndesTextFieldCode programatically
+//        textFieldCode?.text = ""
+//        textFieldCode?.label = ""
+//        textFieldCode?.helpLabel = ""
+//        textFieldCode?.state = .IDLE
+//        textFieldCode?.style = .THREESOME
 
         textTextField.text = ""
         labelTextField.text = ""
