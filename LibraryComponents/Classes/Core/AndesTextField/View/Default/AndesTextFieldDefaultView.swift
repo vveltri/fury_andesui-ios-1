@@ -106,7 +106,7 @@ class AndesTextFieldDefaultView: AndesTextFieldAbstractView {
 
 extension AndesTextFieldAbstractView: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        return delegate?.textField(shouldChangeCharactersIn: range, replacementString: text) != false
+        return delegate?.textField(shouldChangeCharactersIn: range, replacementString: string) != false
     }
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
