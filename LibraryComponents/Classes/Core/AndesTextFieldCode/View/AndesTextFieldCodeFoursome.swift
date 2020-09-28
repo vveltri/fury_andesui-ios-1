@@ -11,6 +11,6 @@ final class AndesTextFieldCodeFoursome: AndesTextFieldCodeAbstractView {
 
     override internal func loadNib() {
         let bundle = AndesBundle.bundle()
-        bundle.loadNibNamed("AndesTextfieldCodeFoursome", owner: self, options: nil)
+        bundle.loadNibNamed("AndesTextFieldCodeFoursome", owner: self, options: nil)
     }
 }
