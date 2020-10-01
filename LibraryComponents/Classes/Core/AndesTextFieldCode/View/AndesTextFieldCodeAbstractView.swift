@@ -17,7 +17,8 @@ class AndesTextFieldCodeAbstractView: UIControl, AndesTextFieldCodeView {
     @IBOutlet weak var helperIconImageView: UIImageView!
 
     // MARK: Constraints
-    @IBOutlet weak var helpLabelLeadingConstraint: NSLayoutConstraint!
+    var helpLabelLeadingIconConstraint = NSLayoutConstraint()
+    var helpLabelLeadingConstraint = NSLayoutConstraint()
 
     var text: String = ""
     internal var config: AndesTextFieldCodeViewConfig
@@ -71,6 +72,7 @@ private extension AndesTextFieldCodeAbstractView {
         loadNib()
         pinXibViewToSelf()
         setupAndesTextFields()
+        setupConstraints()
         updateView()
     }
 
@@ -99,16 +101,23 @@ private extension AndesTextFieldCodeAbstractView {
         updateState()
     }
 
+    func setupConstraints() {
+        helpLabelLeadingIconConstraint = helpLabel.leftAnchor.constraint(equalTo: helperIconImageView.rightAnchor, constant: 6)
+        helpLabelLeadingConstraint = helpLabel.leadingAnchor.constraint(equalTo: andesCodeTextFieldView.leadingAnchor, constant: 2)
+    }
+
     func updateIcon() {
         if let icon = config.helperIcon, !icon.isEmpty {
             helperIconImageView.isHidden = false
             AndesIconsProvider.loadIcon(name: icon, placeItInto: helperIconImageView)
             helperIconImageView.tintColor = config.helperIconTintColor
             helperIconImageView.backgroundColor = config.helperIconBgColor
-            helpLabelLeadingConstraint.priority = .defaultLow
+            helpLabelLeadingConstraint.isActive = false
+            helpLabelLeadingIconConstraint.isActive = true
         } else {
             helperIconImageView.isHidden = true
-            helpLabelLeadingConstraint.priority = .defaultHigh
+            helpLabelLeadingIconConstraint.isActive = false
+            helpLabelLeadingConstraint.isActive = true
         }
     }
 

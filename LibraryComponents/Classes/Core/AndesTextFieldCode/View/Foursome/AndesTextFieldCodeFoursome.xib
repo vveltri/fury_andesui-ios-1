@@ -12,7 +12,6 @@
             <connections>
                 <outlet property="andesCodeTextFieldView" destination="ceZ-IA-wzV" id="kr6-dP-eNT"/>
                 <outlet property="helpLabel" destination="Nku-pS-q9q" id="HFf-9w-CjJ"/>
-                <outlet property="helpLabelLeadingConstraint" destination="sPy-Cl-WYj" id="ZpG-ZX-kOx"/>
                 <outlet property="helperIconImageView" destination="8Ap-MT-L9o" id="UjN-hD-43c"/>
                 <outlet property="label" destination="un9-B6-u0r" id="XDI-d7-4KC"/>
                 <outlet property="stackView" destination="SqJ-6d-xQ1" id="8PR-wd-62j"/>
@@ -99,9 +98,8 @@
                         <constraint firstItem="un9-B6-u0r" firstAttribute="top" secondItem="ceZ-IA-wzV" secondAttribute="top" id="ZtA-sL-jKw"/>
                         <constraint firstItem="8Ap-MT-L9o" firstAttribute="top" secondItem="Nku-pS-q9q" secondAttribute="top" constant="2" id="iRM-TP-gsg"/>
                         <constraint firstItem="un9-B6-u0r" firstAttribute="leading" secondItem="ceZ-IA-wzV" secondAttribute="leading" constant="2" id="o9k-W9-WJa"/>
-                        <constraint firstItem="Nku-pS-q9q" firstAttribute="leading" secondItem="8Ap-MT-L9o" secondAttribute="trailing" priority="500" constant="6" id="qhZ-cn-d8f"/>
+                        <constraint firstItem="Nku-pS-q9q" firstAttribute="leading" secondItem="8Ap-MT-L9o" secondAttribute="trailing" constant="6" placeholder="YES" id="qhZ-cn-d8f"/>
                         <constraint firstAttribute="trailing" secondItem="un9-B6-u0r" secondAttribute="trailing" id="r51-gW-mXH"/>
-                        <constraint firstItem="Nku-pS-q9q" firstAttribute="leading" secondItem="ceZ-IA-wzV" secondAttribute="leading" priority="250" constant="2" id="sPy-Cl-WYj"/>
                     </constraints>
                 </view>
             </subviews>

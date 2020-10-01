@@ -12,7 +12,6 @@
             <connections>
                 <outlet property="andesCodeTextFieldView" destination="YvZ-R9-lMO" id="s0d-jy-Itu"/>
                 <outlet property="helpLabel" destination="EWf-KP-xK8" id="gtk-LP-nPe"/>
-                <outlet property="helpLabelLeadingConstraint" destination="VGs-v4-n0f" id="TGw-Wh-Ue8"/>
                 <outlet property="helperIconImageView" destination="nyk-Tq-aUF" id="eA4-6P-HoO"/>
                 <outlet property="label" destination="fZO-AW-6YD" id="gQ5-Iq-EbA"/>
                 <outlet property="stackView" destination="rVP-DC-gaQ" id="wT3-ah-tx1"/>
@@ -91,18 +90,11 @@
                         <constraint firstAttribute="trailing" secondItem="EWf-KP-xK8" secondAttribute="trailing" id="83G-VX-x4y"/>
                         <constraint firstItem="EWf-KP-xK8" firstAttribute="top" secondItem="rVP-DC-gaQ" secondAttribute="bottom" id="Hh1-6n-gWz"/>
                         <constraint firstItem="nyk-Tq-aUF" firstAttribute="top" secondItem="EWf-KP-xK8" secondAttribute="top" constant="2" id="Iuq-jU-BE4"/>
-                        <constraint firstItem="EWf-KP-xK8" firstAttribute="leading" secondItem="YvZ-R9-lMO" secondAttribute="leading" priority="250" constant="2" id="VGs-v4-n0f"/>
+                        <constraint firstItem="EWf-KP-xK8" firstAttribute="leading" secondItem="nyk-Tq-aUF" secondAttribute="trailing" constant="6" placeholder="YES" id="RKp-R9-itM"/>
                         <constraint firstItem="fZO-AW-6YD" firstAttribute="leading" secondItem="YvZ-R9-lMO" secondAttribute="leading" constant="2" id="ZHQ-En-hAC"/>
                         <constraint firstItem="fZO-AW-6YD" firstAttribute="top" secondItem="YvZ-R9-lMO" secondAttribute="top" id="aBc-PD-C1c"/>
                         <constraint firstAttribute="bottom" secondItem="EWf-KP-xK8" secondAttribute="bottom" id="bok-TL-hTx"/>
                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="rVP-DC-gaQ" secondAttribute="trailing" id="gt2-yC-ftA"/>
-                        <constraint firstItem="EWf-KP-xK8" firstAttribute="leading" secondItem="nyk-Tq-aUF" secondAttribute="trailing" priority="500" constant="6" id="oBm-4D-rQE">
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                    <integer key="value" value="6"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                        </constraint>
                         <constraint firstItem="nyk-Tq-aUF" firstAttribute="leading" secondItem="YvZ-R9-lMO" secondAttribute="leading" constant="2" id="oKw-wA-FkA"/>
                         <constraint firstAttribute="trailing" secondItem="fZO-AW-6YD" secondAttribute="trailing" id="z9f-wv-WmB"/>
                     </constraints>
