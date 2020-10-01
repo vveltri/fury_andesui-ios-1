@@ -1,3 +1,7 @@
+## v3.9.2
+### 🚀 Features
+- Added icons to LocalIcons | Authors: [@ignaguri](https://github.com/ignaguri)
+
 ## v3.9.1
 ### 🛠 Bug fixes
 - AndesMessage body `lineHeight` changed  | Authors: [@lelalesi](https://github.com/lelalesi)
