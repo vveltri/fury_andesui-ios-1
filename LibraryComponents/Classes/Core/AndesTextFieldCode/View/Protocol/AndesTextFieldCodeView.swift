@@ -12,5 +12,6 @@ import Foundation
  */
 protocol AndesTextFieldCodeView: UIView {
     var text: String { get set }
+    func setText(_ newValue: String)
     func update(withConfig config: AndesTextFieldCodeViewConfig)
 }

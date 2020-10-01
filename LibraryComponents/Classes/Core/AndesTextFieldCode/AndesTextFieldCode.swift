@@ -28,7 +28,7 @@ import Foundation
     /// The style of an AndesTextFieldCode defines the amount of input boxes and how they are grouped.
     @objc public var style: AndesTextFieldCodeStyle = .THREESOME {
         didSet {
-            updateContentView(oldStyle: oldValue)
+            reDrawContentViewIfNeededThenUpdate()
         }
     }
 
@@ -42,7 +42,7 @@ import Foundation
     /// The text of an AndesTextFieldCode defines the whole text entered taken from all input boxes.
     @IBInspectable public var text: String {
         get { return contentView.text }
-        set { setText(newValue: newValue) }
+        set { contentView.setText(newValue) }
     }
 
     required init?(coder: NSCoder) {
@@ -73,21 +73,19 @@ private extension AndesTextFieldCode {
         drawContentView(with: provideView())
     }
 
-    func drawContentView(with newView: AndesTextFieldCodeAbstractView) {
+    func drawContentView(with newView: AndesTextFieldCodeView) {
         contentView = newView
-        if let contentView = contentView {
-            addSubview(contentView)
-            NSLayoutConstraint.activate([
-                leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-                trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-                topAnchor.constraint(equalTo: contentView.topAnchor),
-                bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
-            ])
-        }
+        addSubview(contentView)
+        NSLayoutConstraint.activate([
+            leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            topAnchor.constraint(equalTo: contentView.topAnchor),
+            bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+        ])
     }
 
     /// Should return a view depending on which AndesTextfieldCode variant is selected.
-    func provideView() -> AndesTextFieldCodeAbstractView {
+    func provideView() -> AndesTextFieldCodeView {
         let config = AndesTextFieldCodeViewConfigFactory.provideInternalConfig(from: self)
         switch config.style {
         case .THREESOME:
@@ -104,15 +102,6 @@ private extension AndesTextFieldCode {
         contentView?.update(withConfig: config)
     }
 
-    func updateContentView(oldStyle: AndesTextFieldCodeStyle) {
-        if oldStyle != style {
-            reDrawContentViewIfNeededThenUpdate()
-        } else {
-            let config = AndesTextFieldCodeViewConfigFactory.provideInternalConfig(from: self)
-            contentView?.update(withConfig: config)
-        }
-    }
-
     /// Check if view needs to be redrawn, and then update it. This method should be called on all modifiers that may need to change which internal view should be rendered.
     func reDrawContentViewIfNeededThenUpdate() {
         let newView = provideView()
@@ -120,17 +109,9 @@ private extension AndesTextFieldCode {
             let oldText = contentView.text
             contentView.removeFromSuperview()
             drawContentView(with: newView)
-            if !oldText.isEmpty {
-                setText(newValue: oldText)
-            }
+            if !oldText.isEmpty { contentView.setText(oldText) }
         }
         updateContentView()
-    }
-
-    func setText(newValue: String) {
-        if let contentView = contentView as? AndesTextFieldCodeAbstractView {
-            contentView.setText(newValue: newValue)
-        }
     }
 }
 

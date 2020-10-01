@@ -45,8 +45,11 @@ extension AndesTextFieldCodeAbstractView {
         self.config = config
         updateView()
     }
+}
 
-    func setText(newValue: String) {
+// MARK: AndesTextFieldCodeView implementation
+extension AndesTextFieldCodeAbstractView {
+    func setText(_ newValue: String) {
         let newValueIsEmpty = newValue.isEmpty
         let numericCharacters = Array(newValue.filter { isDecimalNumber(String($0)) })
         let andesTextFieldsArray = stackView.arrangedSubviews.compactMap { $0 as? AndesTextField }
