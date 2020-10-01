@@ -20,16 +20,16 @@ struct AndesTextFieldCodeViewConfig {
     var helperIconTintColor: UIColor?
     var helperIconBgColor: UIColor?
 
-    init(labelText: String?, helperText: String?, style: AndesTextFieldCodeStyle, state: AndesTextFieldCodeState) {
+    init(labelText: String?, helperText: String?, style: AndesTextFieldCodeStyle, state: AndesTextFieldCodeState, stateStyle: AndesTextFieldCodeStateProtocol) {
         self.labelText = labelText
         self.helperText = helperText
         self.style = style
         self.state = state
-        self.labelStyle = AndesTextFieldCodeViewConfig.getLabelStyle(state)
-        self.helperStyle = AndesTextFieldCodeViewConfig.getHelperTextStyle(state)
-        self.helperIcon = AndesTextFieldCodeViewConfig.getHelperIcon(state)
-        self.helperIconTintColor = AndesTextFieldCodeViewConfig.getHelperIconTintColor(state)
-        self.helperIconBgColor = AndesTextFieldCodeViewConfig.getHelperIconBgColor(state)
+        self.labelStyle = AndesTextFieldCodeViewConfig.getLabelStyle(stateStyle)
+        self.helperStyle = AndesTextFieldCodeViewConfig.getHelperTextStyle(stateStyle)
+        self.helperIcon = stateStyle.helperIconName
+        self.helperIconTintColor = stateStyle.helperIconTintColor
+        self.helperIconBgColor = stateStyle.helperIconBgColor
     }
 
     init() {
@@ -38,12 +38,13 @@ struct AndesTextFieldCodeViewConfig {
 
 // MARK: Privates
 private extension AndesTextFieldCodeViewConfig {
-    static func getLabelStyle(_ state: AndesTextFieldCodeState) -> AndesFontStyle {
-        return AndesTextFieldCodeViewConfig.getLabelStyle(AndesTextFieldCodeStateFactory.getState(state).labelTextColor)
+
+    static func getLabelStyle(_ stateStyle: AndesTextFieldCodeStateProtocol) -> AndesFontStyle {
+        return AndesTextFieldCodeViewConfig.getLabelStyle(stateStyle.labelTextColor)
     }
 
-    static func getHelperTextStyle(_ state: AndesTextFieldCodeState) -> AndesFontStyle {
-        AndesTextFieldCodeViewConfig.getHelperTextStyle(AndesTextFieldCodeStateFactory.getState(state).helperTextColor, semiBold: AndesTextFieldCodeStateFactory.getState(state).helperSemibold)
+    static func getHelperTextStyle(_ stateStyle: AndesTextFieldCodeStateProtocol) -> AndesFontStyle {
+        AndesTextFieldCodeViewConfig.getHelperTextStyle(stateStyle.helperTextColor, semiBold: stateStyle.helperSemibold)
     }
 
     static func getLabelStyle(_ color: UIColor) -> AndesFontStyle {
@@ -53,17 +54,5 @@ private extension AndesTextFieldCodeViewConfig {
     static func getHelperTextStyle(_ color: UIColor, semiBold: Bool = false) -> AndesFontStyle {
         let font = semiBold ? AndesStyleSheetManager.styleSheet.semiboldSystemFontOfSize(size: 13) : AndesStyleSheetManager.styleSheet.regularSystemFont(size: 13)
         return AndesFontStyle(textColor: color, font: font, sketchLineHeight: 14)
-    }
-
-    static func getHelperIcon(_ state: AndesTextFieldCodeState) -> String? {
-        return AndesTextFieldCodeStateFactory.getState(state).helperIconName
-    }
-
-    static func getHelperIconTintColor(_ state: AndesTextFieldCodeState) -> UIColor? {
-        return AndesTextFieldCodeStateFactory.getState(state).helperIconTintColor
-    }
-
-    static func getHelperIconBgColor(_ state: AndesTextFieldCodeState) -> UIColor {
-        return AndesTextFieldCodeStateFactory.getState(state).helperIconBgColor
     }
 }
