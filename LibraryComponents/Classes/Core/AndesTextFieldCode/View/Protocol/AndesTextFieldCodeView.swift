@@ -11,7 +11,7 @@ import Foundation
  Internal protocol that specifies the behaviour a view must provide to be a valid representation of an AndesTextFieldCode.
  */
 protocol AndesTextFieldCodeView: UIView {
-    var text: String { get set }
+    var text: String { get }
     func setText(_ newValue: String)
     func update(withConfig config: AndesTextFieldCodeViewConfig)
 }
