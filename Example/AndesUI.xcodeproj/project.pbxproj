@@ -109,6 +109,9 @@
 		9CF562DA24589A8B008AD504 /* UITestMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF562D924589A8B008AD504 /* UITestMessage.swift */; };
 		9CF562E22459F9B3008AD504 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF562E12459F9B3008AD504 /* UITextField.swift */; };
 		9CF562E4245A082C008AD504 /* UITestBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF562E3245A082C008AD504 /* UITestBadge.swift */; };
+		CEA2960725128C5000FB625F /* TextFieldsCodeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2960625128C5000FB625F /* TextFieldsCodeRouter.swift */; };
+		CEA2960925128CAB00FB625F /* TextFieldsCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2960825128CAB00FB625F /* TextFieldsCodeViewController.swift */; };
+		CEA2960B25128DF900FB625F /* TextFieldsCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA2960A25128DF900FB625F /* TextFieldsCodeViewController.xib */; };
 		E5306024ED10F08F50962867 /* Pods_AndesUI_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49891841870D889A9CDC91E2 /* Pods_AndesUI_Tests.framework */; };
 		E615508A23D619E300417B5F /* AndesButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E615508823D6196C00417B5F /* AndesButtonTests.swift */; };
 		F8249D0524ABC9AD002A6456 /* RadioButtonRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8249D0424ABC9AD002A6456 /* RadioButtonRouter.swift */; };
@@ -273,6 +276,9 @@
 		9CF562E12459F9B3008AD504 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		9CF562E3245A082C008AD504 /* UITestBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestBadge.swift; sourceTree = "<group>"; };
 		AC98BF20D5812F377975A7D9 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		CEA2960625128C5000FB625F /* TextFieldsCodeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldsCodeRouter.swift; sourceTree = "<group>"; };
+		CEA2960825128CAB00FB625F /* TextFieldsCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldsCodeViewController.swift; sourceTree = "<group>"; };
+		CEA2960A25128DF900FB625F /* TextFieldsCodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextFieldsCodeViewController.xib; sourceTree = "<group>"; };
 		D9A567E4C1B9D9CA9DFC1E89 /* Pods-AndesUI_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AndesUI_Tests.release.xcconfig"; path = "Target Support Files/Pods-AndesUI_Tests/Pods-AndesUI_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		E3E9B26B74F98D6773C98C88 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		E615508823D6196C00417B5F /* AndesButtonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AndesButtonTests.swift; sourceTree = "<group>"; };
@@ -408,6 +414,7 @@
 		607FACD21AFB9204008FA782 /* Example for AndesUI */ = {
 			isa = PBXGroup;
 			children = (
+				CEA2960325128BB600FB625F /* TextFieldsCode */,
 				80B22F1524DC583400FE9197 /* Coachmark */,
 				9C9B5A7F23ECADA60007234B /* Additions */,
 				90530B05242BF9D9005E056A /* Badges */,
@@ -804,6 +811,32 @@
 			path = "AndesUI - UITests";
 			sourceTree = "<group>";
 		};
+		CEA2960325128BB600FB625F /* TextFieldsCode */ = {
+			isa = PBXGroup;
+			children = (
+				CEA2960425128C1400FB625F /* Router */,
+				CEA2960525128C1B00FB625F /* Views */,
+			);
+			path = TextFieldsCode;
+			sourceTree = "<group>";
+		};
+		CEA2960425128C1400FB625F /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				CEA2960625128C5000FB625F /* TextFieldsCodeRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		CEA2960525128C1B00FB625F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CEA2960825128CAB00FB625F /* TextFieldsCodeViewController.swift */,
+				CEA2960A25128DF900FB625F /* TextFieldsCodeViewController.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		F8249D0324ABC98D002A6456 /* RadioButton */ = {
 			isa = PBXGroup;
 			children = (
@@ -976,6 +1009,7 @@
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				9CA28813244761F200E299C3 /* TextAreaViewController.xib in Resources */,
 				9CE112DD23CE58910017B770 /* MessageViewController.xib in Resources */,
+				CEA2960B25128DF900FB625F /* TextFieldsCodeViewController.xib in Resources */,
 				F899354824A0EE22004BC82D /* CheckboxObjCViewController.xib in Resources */,
 				F8C3694F24A62E9D00B93DAC /* AndesCheckboxInitViewController.xib in Resources */,
 				8082FA3F24FEC62A00E97F1A /* CoachmarkObjCViewController.xib in Resources */,
@@ -1113,6 +1147,7 @@
 				6D2152EC241BCD0E001CEA8D /* AndesShowcasePageViewController.swift in Sources */,
 				8634C9E824AB774700DB7B9F /* SnackbarObjCViewController.m in Sources */,
 				9CA2881124475DE700E299C3 /* TextAreaViewController.swift in Sources */,
+				CEA2960925128CAB00FB625F /* TextFieldsCodeViewController.swift in Sources */,
 				F8249D0524ABC9AD002A6456 /* RadioButtonRouter.swift in Sources */,
 				F899354124A0DA98004BC82D /* AndesCheckboxShowcaseViewController.swift in Sources */,
 				023ADCE324ACC2930076C3F3 /* ThumbnailRouter.swift in Sources */,
@@ -1152,6 +1187,7 @@
 				F830F885249400760043D5AF /* AndesCheckboxViewController.swift in Sources */,
 				6A186A6823AC0FBB00420556 /* ButtonsRouter.swift in Sources */,
 				6A3C9CFB23C692B6007D0C8B /* HomePresenter.swift in Sources */,
+				CEA2960725128C5000FB625F /* TextFieldsCodeRouter.swift in Sources */,
 				9C9B5A8123ECADB80007234B /* String+Additions.swift in Sources */,
 				F8D7CB1A24A388D7003D5294 /* AndesCheckboxInitViewController.swift in Sources */,
 				86A1E3042481599500B59D1D /* TagRouter.swift in Sources */,
