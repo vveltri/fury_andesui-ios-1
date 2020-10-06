@@ -57,11 +57,11 @@ jobs:
           paths:
             - Pods            
       - run:
-          name: Run tests on iOS 11.4
-          command: ./scripts/run_tests.sh 11.4
+          name: Run tests on iOS 13.5
+          command: ./scripts/run_tests.sh 13.5
       - run:
-          name: Run test on iOS 12.2
-          command: ./scripts/run_tests.sh 12.2
+          name: Run test on iOS 14.0
+          command: ./scripts/run_tests.sh 14.0
       - run:
           name: Run Coverage Report
           command: ./scripts/run_coverage_report.sh
