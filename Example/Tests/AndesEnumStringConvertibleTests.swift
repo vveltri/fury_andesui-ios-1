@@ -43,9 +43,9 @@ class AndesEnumStringConvertibleTests: QuickSpec {
                     let wrongKey = "fail"
 
                     //When check called expect
-                    expect {
+                    expect(expression: {
                         TestEnum.checkValidEnum(property: "IBProperty", key: wrongKey)
-                    }.to(throwAssertion())
+                    }).to(throwAssertion())
                 }
             }
 
