@@ -1,3 +1,7 @@
+## Unpublished
+### 🚀 Features
+- Xcode 12 compatibility
+
 ## v3.9.1
 ### 🛠 Bug fixes
 - AndesMessage body `lineHeight` changed  | Authors: [@lelalesi](https://github.com/lelalesi)
