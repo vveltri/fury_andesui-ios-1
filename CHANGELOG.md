@@ -1,3 +1,7 @@
+## (Not published)
+### 🛠 Bug fixes
+- AndesCoachmark index out of bounds | Authors: [@lelalesi](https://github.com/lelalesi)
+
 ## v3.9.1
 ### 🛠 Bug fixes
 - AndesMessage body `lineHeight` changed  | Authors: [@lelalesi](https://github.com/lelalesi)
