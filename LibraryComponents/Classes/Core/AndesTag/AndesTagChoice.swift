@@ -1,15 +1,15 @@
 //
-//  AndesTag.swift
+//  AndesTagChoice.swift
 //  AndesUI
 //
-//  Created by Samuel Sainz on 5/27/20.
+//  Created by Facundo Conil on 9/24/20.
 //
 
 import Foundation
 
-@objc public class AndesTagSimple: UIView {
+@objc public class AndesTagChoice: UIView {
 
-    internal var contentView: AndesTagSimpleView!
+    internal var contentView: AndesTagChoiceView!
 
     /// Text shown by the Simple Tag
     @objc public var text: String? {
@@ -25,8 +25,15 @@ import Foundation
         }
     }
 
-    /// Type indicates different color styles for different semantic pruposes
-    @objc public var type: AndesTagType = .neutral {
+    /// State indicates different color styles for different semantic pruposes
+    @objc public var state: AndesTagState = .idle {
+        didSet {
+            self.updateContentView()
+        }
+    }
+
+    /// Type indicates different tags type for different semantic pruposes
+    @objc public var type: AndesTagChoiceType = .simple {
         didSet {
             self.updateContentView()
         }
@@ -39,15 +46,11 @@ import Foundation
         }
     }
 
-    /// If the tag is dismissible, a close button is shown in the right side
-    @objc public var isDismissible: Bool = false {
-        didSet {
-            self.updateContentView()
-        }
-    }
+    /// Set if the view has to animate when tag was selected. Default value `true`
+    @objc public var shouldAnimateTag: Bool = true
 
-    /// Callback invoked when dismiss button is tapped
-    internal var didDismiss: ((AndesTagSimple) -> Void)?
+    /// Callback invoked when tag is tapped
+    internal var shouldSelectTag: (() -> Bool)?
 
     public required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -59,28 +62,28 @@ import Foundation
         setup()
     }
 
-    @objc public init(text: String, size: AndesTagSize, type: AndesTagType, isDismissible: Bool) {
+    @objc public init(text: String, size: AndesTagSize, type: AndesTagChoiceType, state: AndesTagState) {
         super.init(frame: .zero)
         self.text = text
         self.size = size
         self.type = type
-        self.isDismissible = isDismissible
+        self.state = state
         setup()
     }
 
-    @objc public init(text: String, size: AndesTagSize, type: AndesTagType, isDismissible: Bool, leftContent: AndesTagLeftContent?) {
+    @objc public init(text: String, size: AndesTagSize, type: AndesTagChoiceType, state: AndesTagState, leftContent: AndesTagLeftContent?) {
         super.init(frame: .zero)
         self.text = text
         self.size = size
         self.type = type
-        self.isDismissible = isDismissible
+        self.state = state
         self.leftContent = leftContent
         setup()
     }
 
-    /// Set dismiss callback to be invoked when dismiss button is pressed
-    @objc public func setDidDismiss(callback: @escaping ((AndesTagSimple) -> Void)) {
-        self.didDismiss = callback
+    /// Set callback to be invoked when tag is pressed
+    @objc public func shouldSelectTag(callback: @escaping (() -> Bool)) {
+        self.shouldSelectTag = callback
     }
 
     private func setup() {
@@ -89,7 +92,7 @@ import Foundation
         drawContentView(with: provideView())
     }
 
-    private func drawContentView(with newView: AndesTagSimpleView) {
+    private func drawContentView(with newView: AndesTagChoiceView) {
         self.contentView = newView
         self.contentView.delegate = self
         addSubview(contentView)
@@ -110,27 +113,40 @@ import Foundation
     }
 
     private func updateContentView() {
-        let config = AndesTagViewConfigFactory.provideInternalConfig(fromSimpleTag: self)
+        let config = AndesTagViewConfigFactory.provideInternalConfig(fromChoiceTag: self)
         contentView.update(withConfig: config)
     }
 
     /// Should return a view depending on which Badge modifier is selected
-    private func provideView() -> AndesTagSimpleView {
-        let config = AndesTagViewConfigFactory.provideInternalConfig(fromSimpleTag: self)
+    private func provideView() -> AndesTagChoiceView {
+        let config = AndesTagViewConfigFactory.provideInternalConfig(fromChoiceTag: self)
+        return AndesTagChoiceView(withConfig: config)
+    }
 
-        return AndesTagSimpleView(withConfig: config)
+    /// Check `shouldSelectTag` callback to change state if needed
+    private func checkForSelection() {
+        guard let callback = self.shouldSelectTag else { return }
+        let result = callback()
+        guard result else { return }
+        changeState()
+    }
+
+    /// Change tag state to `selected` or `idle`
+    private func changeState() {
+        if case .selected = self.state {
+            self.state = .idle
+        } else {
+            self.state = .selected
+        }
     }
 }
 
-extension AndesTagSimple: AndesTagViewDelegate {
+extension AndesTagChoice: AndesTagViewDelegate {
     func didTapTagRightButton() {
-        guard let callback = self.didDismiss else {
-            return
-        }
-        callback(self)
+        checkForSelection()
     }
 
     func didTapTagView() {
-        // Do nothing
+        checkForSelection()
     }
 }

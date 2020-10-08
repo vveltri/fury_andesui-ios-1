@@ -8,5 +8,6 @@
 import Foundation
 
 protocol AndesTagViewDelegate: AnyObject {
-    func didTapDismiss()
+    func didTapTagRightButton()
+    func didTapTagView()
 }
