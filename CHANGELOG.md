@@ -1,5 +1,5 @@
 
-## (Not published)
+## v3.10.0
 ### 🚀 Features
 - New component AndesTagChoice | Authors: [@fconilmeli](https://github.com/fconilmeli)
 - Added icons to LocalIcons | Authors: [@ignaguri](https://github.com/ignaguri)
