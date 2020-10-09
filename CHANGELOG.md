@@ -1,6 +1,8 @@
-## (to be published)
+## (Not published)
 ### 🚀 Features
 - New component AndesTagChoice | Authors: [@fconilmeli](https://github.com/fconilmeli)
+### 🛠 Bug fixes
+- AndesCoachmark index out of bounds | Authors: [@lelalesi](https://github.com/lelalesi)
 
 ## v3.9.1
 ### 🛠 Bug fixes
