@@ -1,6 +1,8 @@
+
 ## (Not published)
 ### 🚀 Features
 - New component AndesTagChoice | Authors: [@fconilmeli](https://github.com/fconilmeli)
+- Added icons to LocalIcons | Authors: [@ignaguri](https://github.com/ignaguri)
 ### 🛠 Bug fixes
 - AndesCoachmark index out of bounds | Authors: [@lelalesi](https://github.com/lelalesi)
 
