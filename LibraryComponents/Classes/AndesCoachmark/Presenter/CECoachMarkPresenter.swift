@@ -16,7 +16,7 @@ class AndesCoachMarkPresenter {
     private var currentIndex = -1
 
     private var currentStep: AndesCoachMarkStepEntity? {
-        if currentIndex < 0 { return nil }
+        if currentIndex < 0 || model.steps.isEmpty { return nil }
         return model.steps[currentIndex]
     }
 
