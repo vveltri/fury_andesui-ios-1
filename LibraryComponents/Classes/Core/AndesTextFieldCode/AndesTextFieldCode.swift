@@ -45,6 +45,8 @@ import Foundation
         set { contentView.setText(newValue) }
     }
 
+    @objc public weak var delegate: AndesTextFieldCodeDelegate?
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setup()
@@ -88,6 +90,7 @@ private extension AndesTextFieldCode {
 
     func drawContentView(with newView: AndesTextFieldCodeView) {
         contentView = newView
+        contentView.delegate = self
         addSubview(contentView)
         NSLayoutConstraint.activate([
             leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
@@ -125,6 +128,17 @@ private extension AndesTextFieldCode {
             if !oldText.isEmpty { contentView.setText(oldText) }
         }
         updateContentView()
+    }
+}
+
+// MARK: AndesTextFieldCodeDelegate
+extension AndesTextFieldCode: AndesTextFieldCodeDelegate {
+    public func textDidChange(_ text: String) {
+        delegate?.textDidChange?(text)
+    }
+
+    public func textDidComplete(_ isComplete: Bool) {
+        delegate?.textDidComplete?(isComplete)
     }
 }
 

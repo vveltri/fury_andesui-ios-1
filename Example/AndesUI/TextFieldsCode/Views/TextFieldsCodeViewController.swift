@@ -50,7 +50,7 @@ private extension TextFieldsCodeViewController {
 //            ])
 //        }
 
-        andesTextFieldCode.setFocus()
+        andesTextFieldCode.delegate = self
         createPickerViews()
     }
 
@@ -143,5 +143,16 @@ extension TextFieldsCodeViewController: UIPickerViewDelegate, UIPickerViewDataSo
             return style.toString()
         }
         return ""
+    }
+}
+
+// MARK: AndesTextFieldCodeDelegate
+extension TextFieldsCodeViewController: AndesTextFieldCodeDelegate {
+    func textDidChange(_ text: String) {
+        print("textDidChange: \(text)")
+    }
+
+    func textDidComplete(_ isComplete: Bool) {
+        print("textDidComplete: \(isComplete)")
     }
 }

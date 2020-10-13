@@ -20,8 +20,15 @@ class AndesTextFieldCodeAbstractView: UIControl, AndesTextFieldCodeView {
     var helpLabelLeadingIconConstraint = NSLayoutConstraint()
     var helpLabelLeadingConstraint = NSLayoutConstraint()
 
-    var text: String = ""
     var config: AndesTextFieldCodeViewConfig
+    weak var delegate: AndesTextFieldCodeDelegate?
+
+    var text: String = "" {
+        didSet {
+            delegate?.textDidChange?(text)
+            delegate?.textDidComplete?(allTextFieldsCompleted())
+        }
+    }
 
     // Privates
     private var focusSet = false
@@ -89,6 +96,7 @@ extension AndesTextFieldCodeAbstractView {
             focusSet = true
             return
         }
+
         let textFieldsArray = getTextFieldsArray()
         textFieldsArray.first(where: { $0.isFirstResponder })?.resignFirstResponder()
         let textField = textFieldsArray.first(where: { $0.text.isEmpty }) ?? textFieldsArray.last
@@ -224,6 +232,10 @@ private extension AndesTextFieldCodeAbstractView {
 
     func isLastTextField(_ textField: AndesTextField) -> Bool {
         return textField === getTextFieldsArray().last
+    }
+
+    func allTextFieldsCompleted() -> Bool {
+        return getTextFieldsArray().first(where: { $0.text.isEmpty }) == nil
     }
 
     func fillTextFieldsWith(text: String, from startIndex: Int) {
