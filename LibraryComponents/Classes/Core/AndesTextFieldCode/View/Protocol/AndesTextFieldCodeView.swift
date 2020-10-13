@@ -14,4 +14,6 @@ protocol AndesTextFieldCodeView: UIView {
     var text: String { get }
     func setText(_ newValue: String)
     func update(withConfig config: AndesTextFieldCodeViewConfig)
+    func setFocus()
+    func removeFocus()
 }

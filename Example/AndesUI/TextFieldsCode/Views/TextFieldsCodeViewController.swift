@@ -26,8 +26,8 @@ final class TextFieldsCodeViewController: UIViewController {
     var state: AndesTextFieldCodeState = .IDLE
     var style: AndesTextFieldCodeStyle = .THREESOME
 
-//    Uncomment so as to instantiate AndesTextFieldCode programatically
-//    var textFieldCode: AndesTextFieldCode?
+    // AndesTextFieldCode programatically
+    var textFieldCode: AndesTextFieldCode?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +39,7 @@ final class TextFieldsCodeViewController: UIViewController {
 private extension TextFieldsCodeViewController {
     func renderViews() {
 //      Uncomment for instantiate AndesTextFieldCode programatically
+//        andesTextFieldCode.removeFromSuperview()
 //        textFieldCode = AndesTextFieldCode(label: nil, helpLabel: nil, style: .THREESOME, state: .IDLE)
 //        if let textFieldCode = textFieldCode {
 //            view.addSubview(textFieldCode)
@@ -48,6 +49,8 @@ private extension TextFieldsCodeViewController {
 //                textFieldCode.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32)
 //            ])
 //        }
+
+        andesTextFieldCode.setFocus()
         createPickerViews()
     }
 
@@ -65,17 +68,17 @@ private extension TextFieldsCodeViewController {
 private extension TextFieldsCodeViewController {
     @IBAction func updateTapped(_ sender: Any) {
         andesTextFieldCode?.style = style
+        andesTextFieldCode?.state = state
         andesTextFieldCode?.text = textTextField.text ?? ""
         andesTextFieldCode?.label = labelTextField.text
         andesTextFieldCode?.helpLabel = helpLabelTextField.text
-        andesTextFieldCode?.state = state
 
-//    Uncomment for instantiate AndesTextFieldCode programatically
-//        textFieldCode?.style = style
-//        textFieldCode?.text = textTextField.text ?? ""
-//        textFieldCode?.label = labelTextField.text
-//        textFieldCode?.helpLabel = helpLabelTextField.text
-//        textFieldCode?.state = state
+        // AndesTextFieldCode programatically
+        textFieldCode?.style = style
+        textFieldCode?.state = state
+        textFieldCode?.text = textTextField.text ?? ""
+        textFieldCode?.label = labelTextField.text
+        textFieldCode?.helpLabel = helpLabelTextField.text
     }
 
     @IBAction func clearTapped(_ sender: Any) {
@@ -85,12 +88,12 @@ private extension TextFieldsCodeViewController {
         andesTextFieldCode?.state = .IDLE
         andesTextFieldCode?.style = .THREESOME
 
-//    Uncomment for instantiate AndesTextFieldCode programatically
-//        textFieldCode?.text = ""
-//        textFieldCode?.label = ""
-//        textFieldCode?.helpLabel = ""
-//        textFieldCode?.state = .IDLE
-//        textFieldCode?.style = .THREESOME
+        // AndesTextFieldCode programatically
+        textFieldCode?.text = ""
+        textFieldCode?.label = ""
+        textFieldCode?.helpLabel = ""
+        textFieldCode?.state = .IDLE
+        textFieldCode?.style = .THREESOME
 
         textTextField.text = ""
         labelTextField.text = ""

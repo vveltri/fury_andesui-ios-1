@@ -65,6 +65,19 @@ import Foundation
     }
 }
 
+// MARK: Publics
+extension AndesTextFieldCode {
+    /// Set focus on the component.
+    @objc open func setFocus() {
+        contentView.setFocus()
+    }
+
+    /// Remove focus from the component.
+    @objc open func removeFocus() {
+        contentView.removeFocus()
+    }
+}
+
 // MARK: Privates
 private extension AndesTextFieldCode {
     func setup() {

@@ -104,7 +104,7 @@ class AndesTextFieldDefaultView: AndesTextFieldAbstractView {
 
 }
 
-extension AndesTextFieldAbstractView: UITextFieldDelegate {
+extension AndesTextFieldAbstractView: TextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         return delegate?.textField(shouldChangeCharactersIn: range, replacementString: string) != false
     }
@@ -123,6 +123,10 @@ extension AndesTextFieldAbstractView: UITextFieldDelegate {
 
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         return delegate?.shouldBeginEditing() != false
+    }
+
+    func textField(_ textField: UITextField, didDeleteBackwardAnd wasEmpty: Bool) {
+        delegate?.textField(textField, didDeleteBackwardAnd: wasEmpty)
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
