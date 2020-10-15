@@ -5,6 +5,7 @@
 - Added icons to LocalIcons | Authors: [@ignaguri](https://github.com/ignaguri)
 ### 🛠 Bug fixes
 - AndesCoachmark index out of bounds | Authors: [@lelalesi](https://github.com/lelalesi)
+- AndesThumbnailSize fix key for size value  | Authors: [@mzangl-meli](https://github.com/mzangl-meli)
 
 ## v3.9.1
 ### 🛠 Bug fixes
