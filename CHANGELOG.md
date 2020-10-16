@@ -1,3 +1,16 @@
+
+## v3.10.0
+### 🚀 Features
+- New component AndesTagChoice | Authors: [@fconilmeli](https://github.com/fconilmeli)
+- Added icons to LocalIcons | Authors: [@ignaguri](https://github.com/ignaguri)
+### 🛠 Bug fixes
+- AndesCoachmark index out of bounds | Authors: [@lelalesi](https://github.com/lelalesi)
+
+## v3.9.1
+### 🛠 Bug fixes
+- AndesMessage body `lineHeight` changed  | Authors: [@lelalesi](https://github.com/lelalesi)
+- AndesTextArea placeholder text lines changed, and bottom constrain added  | Authors: [@frank8MELI](https://github.com/frank8MELI)
+
 ## v3.9.0
 ### 🚀 Features
 - New component: AndesCoachMark | Authors: [@jdbandoniml](https://github.com/jdbandoniml)
