@@ -1,3 +1,6 @@
+## (to be published)
+### 🚀 Features
+- Adding accessibility to AndesTagChoice component | Authors: [@fconilmeli](https://github.com/fconilmeli)
 
 ## v3.11.0
 ### 🚀 Features

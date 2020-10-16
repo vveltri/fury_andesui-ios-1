@@ -30,7 +30,9 @@ internal class AndesTagViewConfigFactory {
         let rightButtonWidth = tag.isDismissible ? size.rightButtonWidth : 0
         let rightButtonImageName = tag.isDismissible ? AndesIcons.close16 : nil
 
-        return AndesTagViewConfig(backgroundColor: backgroundColor, borderColor: borderColor, buttonColor: buttonColor, height: height, horizontalPadding: horizontalPadding, cornerRadius: cornerRadius, text: text, textFont: textFont, textColor: textColor, leftContent: leftContent, rightButtonImageName: rightButtonImageName, rightButtonWidth: rightButtonWidth)
+        let accesibilityLabel = "Cerrar".localized()
+
+        return AndesTagViewConfig(backgroundColor: backgroundColor, borderColor: borderColor, buttonColor: buttonColor, height: height, horizontalPadding: horizontalPadding, cornerRadius: cornerRadius, text: text, textFont: textFont, textColor: textColor, leftContent: leftContent, rightButtonImageName: rightButtonImageName, rightButtonWidth: rightButtonWidth, accessibilityLabel: accesibilityLabel)
     }
 
     static func provideInternalConfig(fromChoiceTag tag: AndesTagChoice) -> AndesTagViewConfig {
@@ -64,6 +66,9 @@ internal class AndesTagViewConfigFactory {
 
         let shouldAnimateRightContent: Bool = tag.shouldAnimateTag
 
-        return AndesTagViewConfig(backgroundColor: backgroundColor, borderColor: borderColor, buttonColor: buttonColor, height: height, horizontalPadding: horizontalPadding, cornerRadius: cornerRadius, text: text, textFont: textFont, textColor: textColor, leftContent: leftContent, rightButtonImageName: rightButtonImageName, rightButtonWidth: rightButtonWidth, shouldAnimateRightContent: shouldAnimateRightContent)
+        let accessibilityTextSelected = tag.state == .selected ? "Seleccionado".localized() : ""
+        let accessibilityLabel = "\(text ?? "")\(accessibilityTextSelected)"
+
+        return AndesTagViewConfig(backgroundColor: backgroundColor, borderColor: borderColor, buttonColor: buttonColor, height: height, horizontalPadding: horizontalPadding, cornerRadius: cornerRadius, text: text, textFont: textFont, textColor: textColor, leftContent: leftContent, rightButtonImageName: rightButtonImageName, rightButtonWidth: rightButtonWidth, shouldAnimateRightContent: shouldAnimateRightContent, accessibilityLabel: accessibilityLabel)
     }
 }
