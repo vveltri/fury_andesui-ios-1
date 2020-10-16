@@ -243,7 +243,7 @@ private extension AndesTextFieldCodeAbstractView {
         var textIndex = 0
         for (index, textField) in getTextFieldsArray().enumerated() where index >= startIndex && textIndex < characters.count {
             textField.text = String(characters[textIndex])
-            textIndex = textIndex + 1
+            textIndex += 1
         }
     }
 
