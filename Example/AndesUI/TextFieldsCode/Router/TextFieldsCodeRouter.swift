@@ -13,14 +13,14 @@ protocol TextFieldsCodeRouter: NSObject {
 }
 
 final class TextFieldsCodeAppRouter: NSObject {
-    var textFieldsCodeVC: TextFieldsCodeViewController?
+    var view: AndesShowcasePageViewController?
 }
 
 extension TextFieldsCodeAppRouter: TextFieldsCodeRouter {
     func route(from: UIViewController) {
-        textFieldsCodeVC = TextFieldsCodeViewController()
-        if let textFieldsCodeVC = textFieldsCodeVC {
-            from.navigationController?.pushViewController(textFieldsCodeVC, animated: true)
+        view = AndesShowcasePageViewController(controllers: [TextFieldsCodeViewController(), TextFieldsCodeObjCViewController()])
+        if let view = view {
+            from.navigationController?.pushViewController(view, animated: true)
         }
     }
 }
