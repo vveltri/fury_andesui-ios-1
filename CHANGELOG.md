@@ -1,11 +1,16 @@
 
+## v3.11.0
+### 🚀 Features
+
+### 🛠 Bug fixes
+- AndesThumbnailSize fix key for size value  | Authors: [@mzangl-meli](https://github.com/mzangl-meli)
+
 ## v3.10.0
 ### 🚀 Features
 - New component AndesTagChoice | Authors: [@fconilmeli](https://github.com/fconilmeli)
 - Added icons to LocalIcons | Authors: [@ignaguri](https://github.com/ignaguri)
 ### 🛠 Bug fixes
 - AndesCoachmark index out of bounds | Authors: [@lelalesi](https://github.com/lelalesi)
-- AndesThumbnailSize fix key for size value  | Authors: [@mzangl-meli](https://github.com/mzangl-meli)
 
 ## v3.9.1
 ### 🛠 Bug fixes
