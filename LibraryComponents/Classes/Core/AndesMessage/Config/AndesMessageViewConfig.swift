@@ -62,6 +62,6 @@ internal struct AndesMessageViewConfig {
     }
 
     private static func getBodyStyle(_ color: UIColor) -> AndesFontStyle {
-        return AndesFontStyle(textColor: color, font: AndesStyleSheetManager.styleSheet.regularSystemFont(size: 14), sketchLineHeight: 20)
+        return AndesFontStyle(textColor: color, font: AndesStyleSheetManager.styleSheet.regularSystemFont(size: 14), sketchLineHeight: 18)
     }
 }

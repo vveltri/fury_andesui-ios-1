@@ -67,10 +67,11 @@
     rightTags.spacing = 6.0;
 
     [self addSimpleTagsWithLeftContentToStack:rightTags];
-    
+
     [tagsStack addArrangedSubview:leftTags];
     [tagsStack addArrangedSubview:rightTags];
     [_stackView addArrangedSubview:tagsStack];
+
 }
 
 - (void)addSimpleTagsWithSize:(AndesTagSize)size toStack:(UIStackView *)stackView
