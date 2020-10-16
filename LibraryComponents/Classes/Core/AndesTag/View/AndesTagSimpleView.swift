@@ -40,7 +40,7 @@ class AndesTagSimpleView: AndesTagAbstractView {
             }
             self.rightButton.tintColor = self.config.buttonColor
             self.trailingConstraint.constant = 0
-            self.rightButton.accessibilityLabel = "Cerrar".localized()
+            self.rightButton.accessibilityLabel = config.accessibilityLabel
         } else {
             self.trailingConstraint.constant = config.horizontalPadding ?? 0
         }
