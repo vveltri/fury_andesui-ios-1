@@ -34,9 +34,11 @@ internal struct AndesTagViewConfig {
 
     var shouldAnimateRightContent: Bool = false
 
+    var accessibilityLabel: String = ""
+
     init() {}
 
-    init(backgroundColor: UIColor, borderColor: UIColor, buttonColor: UIColor, height: CGFloat, horizontalPadding: CGFloat, cornerRadius: CGFloat, text: String?, textFont: UIFont, textColor: UIColor, leftContent: AndesTagLeftContent? = nil, rightButtonImageName: String?, rightButtonWidth: CGFloat, shouldAnimateRightContent: Bool = false) {
+    init(backgroundColor: UIColor, borderColor: UIColor, buttonColor: UIColor, height: CGFloat, horizontalPadding: CGFloat, cornerRadius: CGFloat, text: String?, textFont: UIFont, textColor: UIColor, leftContent: AndesTagLeftContent? = nil, rightButtonImageName: String?, rightButtonWidth: CGFloat, shouldAnimateRightContent: Bool = false, accessibilityLabel: String) {
         self.backgroundColor = backgroundColor
         self.borderColor = borderColor
         self.buttonColor = buttonColor
@@ -50,5 +52,6 @@ internal struct AndesTagViewConfig {
         self.rightButtonImageName = rightButtonImageName
         self.rightButtonWidth = rightButtonWidth
         self.shouldAnimateRightContent = shouldAnimateRightContent
+        self.accessibilityLabel = accessibilityLabel
     }
 }

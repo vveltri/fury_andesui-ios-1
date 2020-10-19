@@ -12,11 +12,12 @@ class AndesTagChoiceView: AndesTagSimpleView {
     override func updateView() {
         super.updateView()
         self.rightButton.isUserInteractionEnabled = false
+        self.isAccessibilityElement = true
+        self.accessibilityLabel = config.accessibilityLabel
     }
 
     override func setupRightContent() {
         super.setupRightContent()
-        self.rightButton.isAccessibilityElement = false
         if config.shouldAnimateRightContent {
             UIView.animate(withDuration: 0.3) {
                 self.layoutIfNeeded()

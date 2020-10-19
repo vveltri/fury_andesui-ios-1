@@ -1,6 +1,7 @@
-## v3.10.1 (Not published)
+## v3.11.0 (Not published)
 ### 🚀 Features
 - New component AndesTextFieldCdoe | Authors: [@eboffa](https://github.com/eboffa)
+- Adding accessibility to AndesTagChoice component | Authors: [@fconilmeli](https://github.com/fconilmeli)
 
 ## v3.10.0
 ### 🚀 Features
