@@ -12,3 +12,5 @@ file_length:
   warning: 500
   error: 1200
 reporter: "xcode" # reporter type (xcode, json, csv, checkstyle, junit, html, emoji, sonarqube, markdown)
+identifier_name:
+  allowed_symbols: "_"
