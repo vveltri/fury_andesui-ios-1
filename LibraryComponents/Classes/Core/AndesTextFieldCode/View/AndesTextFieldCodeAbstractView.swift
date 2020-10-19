@@ -272,6 +272,13 @@ private extension AndesTextFieldCodeAbstractView {
     func cleanTextFields() {
         getTextFieldsArray().forEach { $0.text = "" }
     }
+
+    func getFirstAvailableTextFieldIndex() -> Int {
+        for (index, textField) in getTextFieldsArray().enumerated() where textField.text.isEmpty {
+            return index
+        }
+        return getTextFieldsArray().count - 1
+    }
 }
 
 // MARK: AndesTextFieldDelegate
@@ -286,14 +293,22 @@ extension AndesTextFieldCodeAbstractView: AndesTextFieldDelegate {
         // When one textField is focused no other textfield should be focusable
         guard textFieldsArray.first(where: { $0.isFirstResponder }) == nil else { return false }
 
-        let selectedIndex = getSelectedIndex(textField)
         // An empty textField is focusable if previous textField is already filled
+        let selectedIndex = getSelectedIndex(textField)
         if textField.text.isEmpty, selectedIndex > 0 {
-            return textFieldsArray[selectedIndex - 1].text.isEmpty ? false : true
+            if !textFieldsArray[selectedIndex - 1].text.isEmpty {
+                 return true
+            } else {
+                setFocusOnTextFieldWith(index: getFirstAvailableTextFieldIndex(), deleteBackwardPressed: false)
+                return false
+            }
         }
 
         // A textField that is not empty is only focusable when it is the last textField
-        if !textField.text.isEmpty, !isLastTextField(textField) { return false }
+        if !textField.text.isEmpty, !isLastTextField(textField) {
+            setFocusOnTextFieldWith(index: getFirstAvailableTextFieldIndex(), deleteBackwardPressed: false)
+            return false
+        }
 
         // Fix textAlignment when last textField is focused and it is not empty
         if !textField.text.isEmpty {
