@@ -1,6 +1,8 @@
-## (to be published)
+## v3.11.0
 ### 🚀 Features
 - Adding accessibility to AndesTagChoice component | Authors: [@fconilmeli](https://github.com/fconilmeli)
+### 🛠 Bug fixes
+- AndesThumbnailSize fix key for size value  | Authors: [@mzangl-meli](https://github.com/mzangl-meli)
 
 ## v3.10.0
 ### 🚀 Features
