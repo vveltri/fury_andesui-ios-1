@@ -146,21 +146,21 @@ extension AndesTextFieldCode: AndesTextFieldCodeDelegate {
 public extension AndesTextFieldCode {
     @available(*, unavailable, message: "This property is reserved for Interface Builder. Use 'state' instead.")
     @IBInspectable var ibState: String {
-        set(val) {
-            state = AndesTextFieldCodeState.checkValidEnum(property: "IB State", key: val)
-        }
         get {
             return ""
+        }
+        set(val) {
+            state = AndesTextFieldCodeState.checkValidEnum(property: "IB State", key: val)
         }
     }
 
     @available(*, unavailable, message: "This property is reserved for Interface Builder. Use 'style' instead.")
     @IBInspectable var ibStyle: String {
-        set(val) {
-            style = AndesTextFieldCodeStyle.checkValidEnum(property: "IB Style", key: val)
-        }
         get {
             return ""
+        }
+        set(val) {
+            style = AndesTextFieldCodeStyle.checkValidEnum(property: "IB Style", key: val)
         }
     }
 }
