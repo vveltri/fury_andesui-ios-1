@@ -98,7 +98,6 @@ extension AndesTextFieldCodeAbstractView {
         }
 
         let textFieldsArray = getTextFieldsArray()
-        textFieldsArray.first(where: { $0.isFirstResponder })?.resignFirstResponder()
         let textField = textFieldsArray.first(where: { $0.text.isEmpty }) ?? textFieldsArray.last
         textField?.becomeFirstResponder()
     }
@@ -250,7 +249,6 @@ private extension AndesTextFieldCodeAbstractView {
     func setFocusOnTextFieldWith(index: Int, deleteBackwardPressed: Bool) {
         let textFieldsArray = getTextFieldsArray()
         if index < textFieldsArray.count {
-            textFieldsArray.first(where: { $0.isFirstResponder })?.resignFirstResponder()
             if deleteBackwardPressed { textFieldsArray[index].text = "" }
             textFieldsArray[index].becomeFirstResponder()
         } else if let lastTextField = textFieldsArray.last, !lastTextField.text.isEmpty {
@@ -289,9 +287,6 @@ extension AndesTextFieldCodeAbstractView: AndesTextFieldDelegate {
 
     func andesTextFieldShouldBeginEditing(_ textField: AndesTextField) -> Bool {
         let textFieldsArray = getTextFieldsArray()
-
-        // When one textField is focused no other textfield should be focusable
-        guard textFieldsArray.first(where: { $0.isFirstResponder }) == nil else { return false }
 
         // An empty textField is focusable if previous textField is already filled
         let selectedIndex = getSelectedIndex(textField)
