@@ -1,43 +1,48 @@
-## v3.11.0 (Not published)
+# v3.12.0 (Not published)
 ### 🚀 Features
-- New component AndesTextFieldCdoe | Authors: [@eboffa](https://github.com/eboffa)
-- Adding accessibility to AndesTagChoice component | Authors: [@fconilmeli](https://github.com/fconilmeli)
+- New component AndesTextFieldCode | Authors: [@eboffa](https://github.com/eboffa)
 
-## v3.10.0
+# v3.11.0
+### 🚀 Features
+- Adding accessibility to AndesTagChoice component | Authors: [@fconilmeli](https://github.com/fconilmeli)
+### 🛠 Bug fixes
+- AndesThumbnailSize fix key for size value  | Authors: [@mzangl-meli](https://github.com/mzangl-meli)
+
+# v3.10.0
 ### 🚀 Features
 - New component AndesTagChoice | Authors: [@fconilmeli](https://github.com/fconilmeli)
 - Added icons to LocalIcons | Authors: [@ignaguri](https://github.com/ignaguri)
 ### 🛠 Bug fixes
 - AndesCoachmark index out of bounds | Authors: [@lelalesi](https://github.com/lelalesi)
 
-## v3.9.1
+# v3.9.1
 ### 🛠 Bug fixes
 - AndesMessage body `lineHeight` changed  | Authors: [@lelalesi](https://github.com/lelalesi)
 - AndesTextArea placeholder text lines changed, and bottom constrain added  | Authors: [@frank8MELI](https://github.com/frank8MELI)
 
-## v3.9.0
+# v3.9.0
 ### 🚀 Features
 - New component: AndesCoachMark | Authors: [@jdbandoniml](https://github.com/jdbandoniml)
 ### 🛠 Bug fixes
 - AndesCard: The provided view now support tappable actions | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
 
-## v3.8.0
+# v3.8.0
 ### 🚀 Features
 - New component: AndesCard | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
 - Andes Message: Added capability to show Links into the message body | Authors: [@magustingil](https://github.com/magustingil)
 
-## v3.7.0
+# v3.7.0
 ### 🚀 Features
 - New component: AndesThumbnail | Authors: [@alejoecheguia](https://github.com/alejoecheguia)
 
 ### 🛠 Bug fixes
 - AndesSnackbar: Fixes snackbarsQueue logic when a snackbar is no longer visible| Authors: [@EdenTorres](https://github.com/mercadolibre/fury_andesui-ios) 
 
-## v3.6.0
+# v3.6.0
 ### 🚀 Features
 - Andes Message: Now allows to have a `Link Action` in the place of primary button, it has the same function as a button with a new layout defined by Andes's UX. | Authors: [@lelalesi](https://github.com/lelalesi)
 
-## v3.5.0
+# v3.5.0
 ### 🚀 Features
 - New component: AndesSnackbar | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
 - TextField/TextArea: allows for custom input views | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
