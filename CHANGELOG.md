@@ -1,4 +1,4 @@
-# v3.12.0 (Not published)
+# v3.12.0
 ### 🚀 Features
 - New component AndesTextFieldCode | Authors: [@eboffa](https://github.com/eboffa)
 
