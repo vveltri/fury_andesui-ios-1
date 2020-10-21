@@ -150,10 +150,12 @@ import UIKit
 
 extension AndesTextField {
     // MARK: - Keyboard Management
+    @discardableResult
     @objc public override func resignFirstResponder() -> Bool {
         contentView.resignFirstResponder()
     }
 
+    @discardableResult
     @objc public override func becomeFirstResponder() -> Bool {
         contentView.becomeFirstResponder()
     }
@@ -173,6 +175,10 @@ extension AndesTextField {
 }
 
 extension AndesTextField: AndesTextFieldViewDelegate {
+    func textField(_ textField: UITextField, didDeleteBackwardAnd wasEmpty: Bool) {
+        delegate?.andesTextField?(self, didDeleteBackwardAnd: wasEmpty)
+    }
+
     func shouldBeginEditing() -> Bool {
         return delegate?.andesTextFieldShouldBeginEditing?(self) != false
     }

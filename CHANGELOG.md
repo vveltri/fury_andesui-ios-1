@@ -1,3 +1,7 @@
+# v3.12.0 (Not published)
+### 🚀 Features
+- New component AndesTextFieldCode | Authors: [@eboffa](https://github.com/eboffa)
+
 # v3.11.0
 ### 🚀 Features
 - Adding accessibility to AndesTagChoice component | Authors: [@fconilmeli](https://github.com/fconilmeli)

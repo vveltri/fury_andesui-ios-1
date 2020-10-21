@@ -17,9 +17,11 @@ internal protocol AndesTextFieldViewDelegate: AnyObject {
     func didChange()
     func didTapRightAction()
     func shouldReturn() -> Bool
+    func textField(_ textField: UITextField, didDeleteBackwardAnd wasEmpty: Bool)
 }
 
 extension AndesTextFieldViewDelegate { // optional (implemented only on textfield or text area only)
     func didTapRightAction() {}
     func shouldReturn() -> Bool {return true}
+    func textField(_ textField: UITextField, didDeleteBackwardAnd wasEmpty: Bool) {}
 }
