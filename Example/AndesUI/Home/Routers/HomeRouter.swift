@@ -22,6 +22,7 @@ protocol HomeRouter: NSObject {
     func routeSnackbar()
     func routeCard()
     func routeToThumbnail()
+    func routeToListView()
 }
 
 class HomeAppRouter: NSObject {
@@ -40,6 +41,7 @@ class HomeAppRouter: NSObject {
     let snackbarRouter = SnackbarAppRouter()
     let cardRouter = CardAppRouter()
     let thumbnailRouter = ThumbnailAppRouter()
+    let listRouter = ListViewAppRouter()
 }
 
 extension HomeAppRouter: HomeRouter {
@@ -99,7 +101,11 @@ extension HomeAppRouter: HomeRouter {
     }
 
     func routeToThumbnail() {
-	thumbnailRouter.route(from: view)
+        thumbnailRouter.route(from: view)
+    }
+
+    func routeToListView() {
+        listRouter.route(from: view)
     }
 
 }
