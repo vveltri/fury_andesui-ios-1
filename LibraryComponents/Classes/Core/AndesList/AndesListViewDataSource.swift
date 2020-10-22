@@ -9,6 +9,6 @@ import Foundation
 
 @objc public protocol AndesListViewDataSource {
 
-    @objc func tableView(_ tableView: AndesListView, cellForRowAt indexPath: IndexPath) -> AndesListViewCell
+    @objc func andesListView(_ listView: AndesListView, cellForRowAt indexPath: IndexPath) -> AndesListViewCell
 
 }

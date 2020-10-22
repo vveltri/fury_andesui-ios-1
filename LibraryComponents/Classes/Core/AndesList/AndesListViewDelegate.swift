@@ -9,6 +9,6 @@ import Foundation
 /// Protocol of AndesListView behaviour
 @objc public protocol AndesListViewDelegate {
 
-    @objc optional func andesListView(didSelectRowAt indexPath: IndexPath)
+    @objc optional func andesListView(_ listView: AndesListView, didSelectRowAt indexPath: IndexPath)
 
 }

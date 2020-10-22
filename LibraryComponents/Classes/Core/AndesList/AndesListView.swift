@@ -14,35 +14,33 @@ import Foundation
 
     @objc public var title: String?
 
-    @objc public var numberOfRows: NSNumber? {
-        get {
-            return _numberOfRows as NSNumber?
-        }
-        set(newNumber) {
-            _numberOfRows = newNumber?.intValue
-        }
-    }
+    @objc public var numberOfRows: Int
 
-    @objc public var numberOfSection: NSNumber?
+    @objc public var numberOfSection: Int
 
     @objc public func reloadData() {
         self.tableView.reloadData()
     }
 
     private var tableView: UITableView = UITableView()
-    private var _numberOfRows: Int?
 
     required init?(coder: NSCoder) {
+        self.numberOfSection = 0
+        self.numberOfRows = 0
         super.init(coder: coder)
         setup()
     }
 
     override public init(frame: CGRect) {
+        self.numberOfSection = 0
+        self.numberOfRows = 0
         super.init(frame: frame)
         setup()
     }
 
     init() {
+        self.numberOfSection = 0
+        self.numberOfRows = 0
         super.init(frame: .zero)
         setup()
     }
@@ -70,7 +68,7 @@ extension AndesListView: UITableViewDelegate {
 
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        self.delegate?.andesListView?(didSelectRowAt: indexPath)
+        self.delegate?.andesListView?(self, didSelectRowAt: indexPath)
     }
 
 }
@@ -78,19 +76,19 @@ extension AndesListView: UITableViewDelegate {
 extension AndesListView: UITableViewDataSource {
 
     public func numberOfSections(in tableView: UITableView) -> Int {
-        return numberOfSection?.intValue ?? 0
+        return numberOfSection 
     }
 
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return numberOfRows?.intValue ?? 0
+        return numberOfRows 
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let customCell = dataSource?.tableView(self, cellForRowAt: indexPath) else {return UITableViewCell()}
+        guard let customCell = dataSource?.andesListView(self, cellForRowAt: indexPath) else {return UITableViewCell()}
         switch customCell.type {
         case .andesDefault:
             let cell = tableView.dequeueReusableCell(withIdentifier: "AndesListDefaultViewCell") as! AndesListDefaultViewCell
-            cell.titleLbl.text = customCell.title
+            cell.display(indexPath: indexPath, customCell: customCell)
             return cell
         case .andesLeft:
             let cell = tableView.dequeueReusableCell(withIdentifier: "AndesListLeftViewCell") as! AndesListLeftViewCell

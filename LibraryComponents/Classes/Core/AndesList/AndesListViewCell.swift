@@ -9,26 +9,30 @@ import UIKit
 
 @objc public class AndesListViewCell: UITableViewCell {
 
-    public var title: String
+    public var title: String = String()
     public var type: AndesCellType?
+    public var fontStyle: AndesFontStyle = AndesFontStyle(textColor: .black,
+                                                          font: UIFont.boldSystemFont(ofSize: 16),
+                                                          lineSpacing: 2)
+    public var heightCell: CGFloat = 0
+    public var paddingLeftCell: CGFloat = 0
+    public var paddingRightCell: CGFloat = 0
 
     var view = self
 
     required init?(coder: NSCoder) {
-        self.title = String()
         super.init(coder: coder)
         setup()
     }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        self.title = String()
         super.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: "AndesListViewCell")
         setup()
     }
 
     private func setup() {
         self.backgroundColor = .clear
-        drawContentView()
+//        drawContentView()
     }
 
     private func drawContentView() {

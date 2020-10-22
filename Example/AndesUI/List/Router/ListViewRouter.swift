@@ -18,7 +18,8 @@ class ListViewAppRouter: NSObject {
 
 extension ListViewAppRouter: ListViewRouter {
     func route(from: UIViewController) {
-        view = AndesShowcasePageViewController(controllers: [ListViewViewController()])
+        view = AndesShowcasePageViewController(controllers: [ListViewViewController(),
+                                                             ListViewObjcViewController()])
         view.title = "AndesListView"
         from.navigationController?.pushViewController(view, animated: true)
     }

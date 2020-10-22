@@ -7,6 +7,7 @@
 //
 
 #import "ListViewObjcViewController.h"
+#import <AndesUI-Swift.h>
 
 @interface ListViewObjcViewController ()
 @property (weak, nonatomic) IBOutlet AndesListView *listView;
@@ -21,8 +22,8 @@
     _listView.delegate = self;
     _listView.dataSource = self;
     titleArray = [[NSMutableArray alloc] initWithObjects:@"Titulo 1", @"Titulo 2", nil];
-    _listView.numberOfRows = [titleArray count];
-    _listView.numberOfSection = 1
+    _listView.numberOfRows = titleArray.count;
+    _listView.numberOfSection = 1;
     [_listView reloadData];
     
     // Do any additional setup after loading the view from its nib.
@@ -38,8 +39,11 @@
 }
 */
 
-- (AndesListViewCell * _Nonnull)tableView:(AndesListView * _Nonnull)tableView cellForRowAt:(NSIndexPath * _Nonnull)indexPath {
-    <#code#>
+- (AndesListViewCell * _Nonnull)andesListView:(AndesListView * _Nonnull)tableView cellForRowAt:(NSIndexPath * _Nonnull)indexPath {
+    AndesDefaultViewCellConfig *cell = [[AndesDefaultViewCellConfig alloc]
+                                        initWithTitle:[titleArray objectAtIndex:indexPath.row]
+                                        size:AndesListSizeLarge];
+    return cell;
 }
 
 
