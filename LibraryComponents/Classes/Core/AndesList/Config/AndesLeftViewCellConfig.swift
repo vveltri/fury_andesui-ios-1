@@ -10,13 +10,13 @@ import Foundation
 public class AndesLeftViewCellConfig: AndesListViewCell {
     public var icon: AndesThumbnail?
 
-    public init(title: String, icon: AndesThumbnail? = nil, size: AndesListSize? = nil) {
+    public init(title: String, icon: AndesThumbnail? = nil, size: AndesListSize? = nil, description: String) {
         super.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: "AndesListLeftViewCell")
-        let config = AndesListViewCellTypeFactory.provide(withSize: size ?? AndesListSize.medium)
-        self.type = .andesLeft
+        let hasDescription = description.isEmpty ? false : true
+        let config = AndesListViewCellTypeFactory.provide(withSize: size ?? AndesListSize.medium, hasDescription: hasDescription)
+        self.type = .chevron
         self.icon = icon
         self.title = title
-        self.heightCell = config.height
         self.fontStyle = config.font
         self.paddingLeftCell = config.paddingLeft
         self.paddingRightCell = config.paddingRight

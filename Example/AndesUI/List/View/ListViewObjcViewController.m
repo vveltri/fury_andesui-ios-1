@@ -21,7 +21,7 @@
     
     _listView.delegate = self;
     _listView.dataSource = self;
-    titleArray = [[NSMutableArray alloc] initWithObjects:@"Titulo 1", @"Titulo 2", nil];
+    titleArray = [[NSMutableArray alloc] initWithObjects:@"AndesList 1 -- Andes Default Cell -- Andes Default Cell -- Andes Default Cell -- Andes Default Cell -- Andes Default Cell -- Andes Default Cell -- Andes Default Cell -- Andes Default Cell", @"Titulo 2", nil];
     _listView.numberOfRows = titleArray.count;
     _listView.numberOfSection = 1;
     [_listView reloadData];
@@ -42,7 +42,8 @@
 - (AndesListViewCell * _Nonnull)andesListView:(AndesListView * _Nonnull)tableView cellForRowAt:(NSIndexPath * _Nonnull)indexPath {
     AndesDefaultViewCellConfig *cell = [[AndesDefaultViewCellConfig alloc]
                                         initWithTitle:[titleArray objectAtIndex:indexPath.row]
-                                        size:AndesListSizeLarge];
+                                        size:AndesListSizeLarge
+                                        descriptionTitle: @"Descripción de la fila"];
     return cell;
 }
 

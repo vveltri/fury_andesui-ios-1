@@ -55,12 +55,12 @@ import Foundation
     }
 
     private func drawContentView() {
-        self.tableView.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.height)
+        self.tableView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(self.tableView)
-        leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        self.tableView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        self.tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        self.tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        self.tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
     }
 }
 
@@ -76,22 +76,30 @@ extension AndesListView: UITableViewDelegate {
 extension AndesListView: UITableViewDataSource {
 
     public func numberOfSections(in tableView: UITableView) -> Int {
-        return numberOfSection 
+        return numberOfSection
     }
 
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return numberOfRows 
+        return numberOfRows
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let customCell = dataSource?.andesListView(self, cellForRowAt: indexPath) else {return UITableViewCell()}
         switch customCell.type {
-        case .andesDefault:
+        case .simple:
             let cell = tableView.dequeueReusableCell(withIdentifier: "AndesListDefaultViewCell") as! AndesListDefaultViewCell
             cell.display(indexPath: indexPath, customCell: customCell)
             return cell
-        case .andesLeft:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "AndesListLeftViewCell") as! AndesListLeftViewCell
+        case .chevron:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "AndesListDefaultViewCell") as! AndesListDefaultViewCell
+            cell.titleLbl.text = customCell.title
+            return cell
+        case .radioButton:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "AndesListDefaultViewCell") as! AndesListDefaultViewCell
+            cell.titleLbl.text = customCell.title
+            return cell
+        case .checkBox:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "AndesListDefaultViewCell") as! AndesListDefaultViewCell
             cell.titleLbl.text = customCell.title
             return cell
         default:

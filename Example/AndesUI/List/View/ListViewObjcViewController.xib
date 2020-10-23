@@ -23,15 +23,15 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="422"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="89V-Kh-4vx" secondAttribute="height" multiplier="207:211" id="NR4-7M-QSg"/>
+                        <constraint firstAttribute="width" secondItem="89V-Kh-4vx" secondAttribute="height" multiplier="207:211" id="zQb-0e-Hts"/>
                     </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
-                <constraint firstItem="89V-Kh-4vx" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="2Vo-Hk-ih7"/>
-                <constraint firstItem="89V-Kh-4vx" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="j5r-F4-8JG"/>
-                <constraint firstItem="89V-Kh-4vx" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="nMY-jW-86j"/>
+                <constraint firstItem="89V-Kh-4vx" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="1CI-R0-Aj9"/>
+                <constraint firstItem="89V-Kh-4vx" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="1dJ-DF-keH"/>
+                <constraint firstItem="89V-Kh-4vx" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="lRw-lT-565"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <point key="canvasLocation" x="137.68115942028987" y="120.53571428571428"/>

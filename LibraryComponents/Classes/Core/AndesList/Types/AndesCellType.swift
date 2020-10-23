@@ -8,13 +8,17 @@
 import Foundation
 
 public enum AndesCellType: Int, AndesEnumStringConvertible {
-    case andesDefault
-    case andesLeft
+    case simple
+    case chevron
+    case radioButton
+    case checkBox
 
     public static func keyFor(_ value: AndesCellType) -> String {
         switch value {
-        case .andesDefault: return "DEFAULT"
-        case .andesLeft: return "LEFT"
+        case .simple: return "SIMPLE"
+        case .chevron: return "CHEVRON"
+        case .radioButton: return "RADIOBUTTOM"
+        case .checkBox: return "CHECKBOX"
         }
     }
 }

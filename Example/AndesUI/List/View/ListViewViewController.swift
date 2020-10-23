@@ -21,9 +21,9 @@ class ListViewViewController: UIViewController {
         listView.delegate = self
         listView.dataSource = self
 
-        titleArray = ["AndesList 1 -- AndesDefaultCell",
+        titleArray = ["AndesList 1 -- Andes Default Cell -- Andes Default Cell -- Andes Default Cell -- Andes Default Cell -- Andes Default Cell -- Andes Default Cell -- Andes Default Cell -- Andes Default Cell",
                       "AndesList 1 -- AndesDefaultCell",
-                      "AndesList 1 -- AndesDefaultCell"]
+                      "AndesList 1 -- Andes Default Cell"]
 
         listView.numberOfRows = titleArray?.count ?? 0
         listView.numberOfSection = 1
@@ -41,7 +41,9 @@ extension ListViewViewController: AndesListViewDelegate {
 
 extension ListViewViewController: AndesListViewDataSource {
     func andesListView(_ listView: AndesListView, cellForRowAt indexPath: IndexPath) -> AndesListViewCell {
-        let cell = AndesDefaultViewCellConfig(withTitle: titleArray?[indexPath.row] ?? "", size: .small)
+        let cell = AndesDefaultViewCellConfig(withTitle: titleArray?[indexPath.row] ?? "",
+                                              size: .medium,
+                                              descriptionTitle: "Descripción -- Descripción -- Descripción -- Descripción")
         return cell
     }
 }
