@@ -43,7 +43,7 @@ extension ListViewViewController: AndesListViewDataSource {
     func andesListView(_ listView: AndesListView, cellForRowAt indexPath: IndexPath) -> AndesListViewCell {
         let cell = AndesDefaultViewCellConfig(withTitle: titleArray?[indexPath.row] ?? "",
                                               size: .medium,
-                                              descriptionTitle: "Descripción -- Descripción -- Descripción -- Descripción")
+                                              descriptionText: "Descripción -- Descripción -- Descripción -- Descripción")
         return cell
     }
 }

@@ -25,7 +25,7 @@ class AndesListDefaultViewCell: AndesListViewCell {
         self.titleLbl.text = customCell.title
         self.titleLbl.setAndesStyle(style: customCell.fontStyle)
         self.titleLbl.heightAnchor.constraint(greaterThanOrEqualToConstant: customCell.titleHeightConstraint).isActive = true
-        self.descriptionLbl.text = customCell.descriptionTitle
+        self.descriptionLbl.text = customCell.descriptionText
         self.descriptionLbl.setAndesStyle(style: customCell.fontDescriptionStyle)
         self.descriptionLbl.heightAnchor.constraint(equalToConstant: customCell.descriptionHeight).isActive = true
         self.paddingLeftConstraint.constant = customCell.paddingLeftCell

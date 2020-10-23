@@ -9,23 +9,23 @@ import Foundation
 
 public class AndesDefaultViewCellConfig: AndesListViewCell {
 
-    @objc public init(withTitle title: String, size: AndesListSize, descriptionTitle: String) {
+    @objc public init(withTitle title: String, size: AndesListSize, descriptionText: String) {
         super.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: "AndesDefaultCell")
-        cellConfig(withTitle: title, size: size, descriptionTitle: descriptionTitle)
+        cellConfig(withTitle: title, size: size, descriptionText: descriptionText)
     }
 
-    public init(withTitle title: String, size: AndesListSize? = .medium, descriptionTitle: String? = String()) {
+    public init(withTitle title: String, size: AndesListSize? = .medium, descriptionText: String? = String()) {
         super.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: "AndesDefaultCell")
-        guard let size = size, let descriptionTitle = descriptionTitle else { return }
-        cellConfig(withTitle: title, size: size, descriptionTitle: descriptionTitle)
+        guard let size = size, let descriptionText = descriptionText else { return }
+        cellConfig(withTitle: title, size: size, descriptionText: descriptionText)
     }
 
-    private func cellConfig(withTitle title: String, size: AndesListSize, descriptionTitle: String) {
-        let hasDescription = (description.isEmpty ) ? false : true
+    private func cellConfig(withTitle title: String, size: AndesListSize, descriptionText: String) {
+        let hasDescription = (descriptionText.isEmpty ) ? false : true
         let config = AndesListViewCellTypeFactory.provide(withSize: size, hasDescription: hasDescription)
         self.type = .simple
         self.title = title
-        self.descriptionTitle = descriptionTitle
+        self.descriptionText = descriptionText
         self.fontStyle = config.font
         self.fontDescriptionStyle = config.fontDescription
         self.paddingLeftCell = config.paddingLeft

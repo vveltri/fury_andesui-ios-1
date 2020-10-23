@@ -10,7 +10,7 @@ import UIKit
 @objc public class AndesListViewCell: UITableViewCell {
 
     public var title: String = String()
-    public var descriptionTitle: String = String()
+    public var descriptionText: String = String()
     public var type: AndesCellType?
     public var fontStyle: AndesFontStyle = AndesFontStyle(textColor: .black,
                                                           font: UIFont.boldSystemFont(ofSize: 16),

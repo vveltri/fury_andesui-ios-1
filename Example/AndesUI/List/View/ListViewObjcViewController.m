@@ -43,7 +43,7 @@
     AndesDefaultViewCellConfig *cell = [[AndesDefaultViewCellConfig alloc]
                                         initWithTitle:[titleArray objectAtIndex:indexPath.row]
                                         size:AndesListSizeLarge
-                                        descriptionTitle: @"Descripción de la fila"];
+                                        descriptionText: @"Descripción de la fila"];
     return cell;
 }
 
