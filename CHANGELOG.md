@@ -1,3 +1,7 @@
+## Unpublished
+### 🚀 Features
+- Xcode 12 compatibility
+
 # v3.12.0
 ### 🚀 Features
 - New component AndesTextFieldCode | Authors: [@eboffa](https://github.com/eboffa)
