@@ -29,22 +29,22 @@ class AndesTagSimpleView: AndesTagAbstractView {
         textLabel.font = config.textFont
         textLabel.textColor = config.textColor
 
-        setupDismissButton()
+        setupRightContent()
         updateLeftContentView()
     }
 
-    func setupDismissButton() {
-        if config.isDismissable {
-            AndesIconsProvider.loadIcon(name: "andes_ui_close_16") { dismissImage in
-                self.rightButton.setImage(dismissImage, for: .normal)
+    func setupRightContent() {
+        if let rightButtonImageName = config.rightButtonImageName {
+            AndesIconsProvider.loadIcon(name: rightButtonImageName) { image in
+                self.rightButton.setImage(image, for: .normal)
             }
-            self.rightButton.tintColor = config.buttonColor
+            self.rightButton.tintColor = self.config.buttonColor
             self.trailingConstraint.constant = 0
-            self.rightButton.accessibilityLabel = "Cerrar".localized()
+            self.rightButton.accessibilityLabel = config.accessibilityLabel
         } else {
             self.trailingConstraint.constant = config.horizontalPadding ?? 0
         }
-        self.rightButtonWidthConstraint.constant = config.rightButtonWidth
+        self.rightButtonWidthConstraint.constant = self.config.rightButtonWidth
     }
 
     func updateLeftContentView() {
@@ -68,6 +68,10 @@ class AndesTagSimpleView: AndesTagAbstractView {
     }
 
     override func rightButtonTapped(_ sender: Any) {
-        self.delegate?.didTapDismiss()
+        self.delegate?.didTapTagRightButton()
+    }
+
+    override func handleTap(_ sender: UITapGestureRecognizer? = nil) {
+        self.delegate?.didTapTagView()
     }
 }

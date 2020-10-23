@@ -21,14 +21,14 @@ The AndesThumbnailSize contains the differents sizes that a Thumbnail supports
 
 	public static func keyFor(_ value: AndesThumbnailSize) -> String {
 		switch value {
-		case .size24: return "24"
-		case .size32: return "32"
-		case .size40: return "40"
-		case .size48: return "48"
-		case .size56: return "56"
-		case .size64: return "64"
-		case .size72: return "72"
-		case .size80: return "80"
+        case .size24: return "size_24"
+        case .size32: return "size_32"
+        case .size40: return "size_40"
+        case .size48: return "size_48"
+        case .size56: return "size_56"
+        case .size64: return "size_64"
+        case .size72: return "size_72"
+        case .size80: return "size_80"
 		}
 	}
 }
