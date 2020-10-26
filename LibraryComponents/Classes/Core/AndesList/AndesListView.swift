@@ -14,9 +14,12 @@ import Foundation
 
     @objc public var title: String?
 
-    @objc public var numberOfRows: Int
+    @objc public var numberOfRows: Int = 0
 
-    @objc public var numberOfSection: Int
+    @objc public var separatorStyle: AndesSeparatorStyleListView = .none
+
+    // TODO
+    var numberOfSection: Int = 1
 
     @objc public func reloadData() {
         self.tableView.reloadData()
@@ -25,22 +28,16 @@ import Foundation
     private var tableView: UITableView = UITableView()
 
     required init?(coder: NSCoder) {
-        self.numberOfSection = 0
-        self.numberOfRows = 0
         super.init(coder: coder)
         setup()
     }
 
     override public init(frame: CGRect) {
-        self.numberOfSection = 0
-        self.numberOfRows = 0
         super.init(frame: frame)
         setup()
     }
 
     init() {
-        self.numberOfSection = 0
-        self.numberOfRows = 0
         super.init(frame: .zero)
         setup()
     }
@@ -49,7 +46,9 @@ import Foundation
         translatesAutoresizingMaskIntoConstraints = false
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        tableView.register(UINib(nibName: "AndesListDefaultViewCell", bundle: AndesBundle.bundle()), forCellReuseIdentifier: "AndesListDefaultViewCell")
+        self.tableView.separatorStyle = .none
+        self.tableView.separatorInset.left = UIScreen.main.bounds.width
+        tableView.register(UINib(nibName: "AndesListSimpleViewCell", bundle: AndesBundle.bundle()), forCellReuseIdentifier: "AndesListSimpleViewCell")
         tableView.register(UINib(nibName: "AndesListLeftViewCell", bundle: AndesBundle.bundle()), forCellReuseIdentifier: "AndesListLeftViewCell")
         drawContentView()
     }
@@ -87,23 +86,30 @@ extension AndesListView: UITableViewDataSource {
         guard let customCell = dataSource?.andesListView(self, cellForRowAt: indexPath) else {return UITableViewCell()}
         switch customCell.type {
         case .simple:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "AndesListDefaultViewCell") as! AndesListDefaultViewCell
-            cell.display(indexPath: indexPath, customCell: customCell)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "AndesListSimpleViewCell") as! AndesListSimpleViewCell
+            cell.display(indexPath: indexPath, customCell: customCell, separatorStyle: self.separatorStyle)
             return cell
         case .chevron:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "AndesListDefaultViewCell") as! AndesListDefaultViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "AndesListSimpleViewCell") as! AndesListSimpleViewCell
             cell.titleLbl.text = customCell.title
             return cell
         case .radioButton:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "AndesListDefaultViewCell") as! AndesListDefaultViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "AndesListSimpleViewCell") as! AndesListSimpleViewCell
             cell.titleLbl.text = customCell.title
             return cell
         case .checkBox:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "AndesListDefaultViewCell") as! AndesListDefaultViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "AndesListSimpleViewCell") as! AndesListSimpleViewCell
             cell.titleLbl.text = customCell.title
             return cell
         default:
             return UITableViewCell()
+        }
+    }
+
+    public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if tableView.numberOfRows(inSection: indexPath.section) - 1 <= indexPath.row {
+            let cell = cell as! AndesListSimpleViewCell
+            cell.setupSeparatorStyle(separatorStyle: .none)
         }
     }
 }

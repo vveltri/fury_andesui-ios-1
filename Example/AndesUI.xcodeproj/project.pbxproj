@@ -426,20 +426,19 @@
 		607FACD21AFB9204008FA782 /* Example for AndesUI */ = {
 			isa = PBXGroup;
 			children = (
-				F02A3156253A4F3F006BC3F3 /* List */,
-				80B22F1524DC583400FE9197 /* Coachmark */,
 				9C9B5A7F23ECADA60007234B /* Additions */,
+				6A22DCBC23C918EA00BBFEA0 /* AndesUI-demoapp-Bridging-Header.h */,
+				57F34E912225DE0900454D8B /* AndesUIAppDelegate.swift */,
 				90530B05242BF9D9005E056A /* Badges */,
+				6A186A6223AC0FBB00420556 /* Buttons */,
 				4905899F24BE38240044FD0B /* Card */,
 				F830F8802493FEEF0043D5AF /* Checkbox */,
+				80B22F1524DC583400FE9197 /* Coachmark */,
 				86D656B3248FF78300E62C1E /* Extensions */,
 				6A3C9CF223C692B6007D0C8B /* Home */,
-				6A186A6223AC0FBB00420556 /* Buttons */,
-				023ADCE124ACC26D0076C3F3 /* Thumbnail */,
-				57F34E912225DE0900454D8B /* AndesUIAppDelegate.swift */,
-				6A22DCBC23C918EA00BBFEA0 /* AndesUI-demoapp-Bridging-Header.h */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
+				F02A3156253A4F3F006BC3F3 /* List */,
 				9C9B5A8723ECB08D0007234B /* Localizable.strings */,
 				9CE112D923CE58590017B770 /* Messages */,
 				9CB172952422575B00B61431 /* PageController */,
@@ -448,6 +447,7 @@
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 				86A1E3022481596C00B59D1D /* Tag */,
 				6D2152E7241BCC20001CEA8D /* TextFields */,
+				023ADCE124ACC26D0076C3F3 /* Thumbnail */,
 				9C9B5A8923ECEE650007234B /* WhatsNew */,
 			);
 			name = "Example for AndesUI";

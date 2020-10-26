@@ -21,9 +21,13 @@
     
     _listView.delegate = self;
     _listView.dataSource = self;
-    titleArray = [[NSMutableArray alloc] initWithObjects:@"AndesList 1 -- Andes Default Cell -- Andes Default Cell -- Andes Default Cell -- Andes Default Cell -- Andes Default Cell -- Andes Default Cell -- Andes Default Cell -- Andes Default Cell", @"Titulo 2", nil];
+    _listView.separatorStyle = AndesSeparatorStyleListViewSingleLine;
+    titleArray = [[NSMutableArray alloc] initWithObjects:@"AndesList 1 -- Andes Default Cell -- Andes Default Cell -- Andes Default Cell -- Andes Default Cell -- Andes Default Cell -- Andes Default Cell -- Andes Default Cell -- Andes Default Cell",
+                  @"Titulo 2",
+                  @"Titulo 3",
+                  @"Titulo 4", nil];
+    
     _listView.numberOfRows = titleArray.count;
-    _listView.numberOfSection = 1;
     [_listView reloadData];
     
     // Do any additional setup after loading the view from its nib.
@@ -40,10 +44,10 @@
 */
 
 - (AndesListViewCell * _Nonnull)andesListView:(AndesListView * _Nonnull)tableView cellForRowAt:(NSIndexPath * _Nonnull)indexPath {
-    AndesDefaultViewCellConfig *cell = [[AndesDefaultViewCellConfig alloc]
+    AndesSimpleViewCellConfig *cell = [[AndesSimpleViewCellConfig alloc]
                                         initWithTitle:[titleArray objectAtIndex:indexPath.row]
                                         size:AndesListSizeLarge
-                                        descriptionText: @"Descripción de la fila"];
+                                        subTitle: @"Descripción de la fila"];
     return cell;
 }
 

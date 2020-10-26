@@ -10,19 +10,19 @@ import UIKit
 @objc public class AndesListViewCell: UITableViewCell {
 
     public var title: String = String()
-    public var descriptionText: String = String()
+    public var subTitle: String = String()
     public var type: AndesCellType?
     public var fontStyle: AndesFontStyle = AndesFontStyle(textColor: .black,
                                                           font: UIFont.boldSystemFont(ofSize: 16),
                                                           lineSpacing: 2)
-    public var fontDescriptionStyle: AndesFontStyle = AndesFontStyle(textColor: .black,
+    public var fontSubTitleStyle: AndesFontStyle = AndesFontStyle(textColor: .black,
                                                                      font: UIFont.boldSystemFont(ofSize: 16),
                                                                      lineSpacing: 2)
     public var paddingLeftCell: CGFloat = 0
     public var paddingRightCell: CGFloat = 0
     public var paddingTopCell: CGFloat = 0
     public var paddingBottomCell: CGFloat = 0
-    public var descriptionHeight: CGFloat = 0
+    public var subTitleHeight: CGFloat = 0
     public var separatorHeight: CGFloat = 0
     public var heightConstraint: CGFloat = 0
     public var titleHeightConstraint: CGFloat = 0
