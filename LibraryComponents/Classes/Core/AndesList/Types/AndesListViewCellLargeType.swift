@@ -12,62 +12,51 @@ struct AndesListViewCellLargeType: AndesListViewCellTypeProtocol {
     var font = AndesFontStyle(textColor: UIColor.Andes.gray800,
                               font: AndesStyleSheetManager.styleSheet.regularSystemFont(size: AndesFontSize.bodyL),
                               lineSpacing: 5)
-
     var fontDescription = AndesFontStyle(textColor: UIColor.Andes.gray450,
                               font: AndesStyleSheetManager.styleSheet.regularSystemFont(size: AndesFontSize.bodyM),
                               lineSpacing: 5)
+    var height: CGFloat = 68
+    var paddingLeft: CGFloat = 24
+    var paddingRight: CGFloat = 24
+    var paddingTop: CGFloat = 28
+    var paddingBottom: CGFloat = 28
+    var descriptionHeight: CGFloat = 0
+    var separatorHeight: CGFloat = 0
+    var titleHeight: CGFloat = 12
+    var chevronImage: String? = "andes_ui_chevron_right_24"
+    var chevronSize: CGFloat? = 24
+    var imageLeft: UIImage?
+    var imageSizeConstraint: CGFloat? = 0
+    var separatorImageWidth: CGFloat? = 0
+    var paddingTopImage: CGFloat?
+    var paddingBottomImage: CGFloat?
+    var paddingBottomChevron: CGFloat? = 26
+    var paddingTopChevron: CGFloat? = 26
+    var separatorChevronWidth: CGFloat? = 12
 
-    var heightConstraint: CGFloat
-
-    var paddingLeft: CGFloat
-
-    var paddingRight: CGFloat
-
-    var paddingTop: CGFloat
-
-    var paddingBottom: CGFloat
-
-    var descriptionHeight: CGFloat
-
-    var separatorHeight: CGFloat
-
-    var titleHeightConstraint: CGFloat
-
-    init(withDescription hasDescription: Bool) {
-        if !hasDescription {
-
-            heightConstraint = 68
-
-            titleHeightConstraint = 12
-
-            paddingLeft = 24
-
-            paddingRight = 24
-
-            paddingTop = 28
-
-            paddingBottom = 28
-
-            descriptionHeight = 0
-
-            separatorHeight = 0
-        } else {
-
-            heightConstraint = 96
-
-            titleHeightConstraint = 12
-
-            paddingLeft = 24
-
-            paddingRight = 24
-
-            paddingTop = 28
-
+    init(withDescription hasDescription: Bool, thumbnail: AndesThumbnail? = nil) {
+        if hasDescription {
+            height = 96
             paddingBottom = 29
-
             descriptionHeight = 10
-
             separatorHeight = 15
+        }
+        if let thumbnail = thumbnail {
+            imageLeft = thumbnail.image
+            switch thumbnail.type {
+            case .icon:
+                imageSizeConstraint = 24
+                separatorImageWidth = 16
+                paddingTopImage = 27
+            case .imageCircle, .imageSquare:
+                height = 96
+                imageSizeConstraint = 56
+                separatorImageWidth = 16
+                paddingTopImage = 24
+                paddingBottomImage = 24
+                paddingTopChevron = 40
+                paddingBottomChevron = 40
+            }
         }
     }
 }

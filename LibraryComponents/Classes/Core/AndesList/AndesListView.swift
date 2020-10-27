@@ -26,6 +26,8 @@ import Foundation
     }
 
     private var tableView: UITableView = UITableView()
+    private var dataSourceSelf: AndesListViewTableViewDataSource?
+    private var delegateSelf: AndesListViewTableViewDelegate?
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -44,12 +46,18 @@ import Foundation
 
     private func setup() {
         translatesAutoresizingMaskIntoConstraints = false
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
+        dataSourceSelf = AndesListViewTableViewDataSource(listView: self)
+        delegateSelf = AndesListViewTableViewDelegate(listView: self)
+        self.tableView.delegate = delegateSelf
+        self.tableView.dataSource = dataSourceSelf
         self.tableView.separatorStyle = .none
         self.tableView.separatorInset.left = UIScreen.main.bounds.width
-        tableView.register(UINib(nibName: "AndesListSimpleViewCell", bundle: AndesBundle.bundle()), forCellReuseIdentifier: "AndesListSimpleViewCell")
-        tableView.register(UINib(nibName: "AndesListLeftViewCell", bundle: AndesBundle.bundle()), forCellReuseIdentifier: "AndesListLeftViewCell")
+        tableView.register(UINib(nibName: "AndesListSimpleViewCell",
+                                 bundle: AndesBundle.bundle()),
+                           forCellReuseIdentifier: "AndesListSimpleViewCell")
+        tableView.register(UINib(nibName: "AndesListCevronViewCell",
+                                 bundle: AndesBundle.bundle()),
+                           forCellReuseIdentifier: "AndesListCevronViewCell")
         drawContentView()
     }
 
@@ -63,53 +71,26 @@ import Foundation
     }
 }
 
-extension AndesListView: UITableViewDelegate {
+extension AndesListView: AndesListViewProtocol {
 
-    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        self.delegate?.andesListView?(self, didSelectRowAt: indexPath)
+    func cellForRowAt(indexPath: IndexPath) -> AndesListViewCell {
+        guard let customCell = dataSource?.andesListView(self, cellForRowAt: indexPath) else {return AndesListViewCell()}
+        return customCell
     }
 
-}
-
-extension AndesListView: UITableViewDataSource {
-
-    public func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections() -> Int {
         return numberOfSection
     }
 
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func getNumberOfRows() -> Int {
         return numberOfRows
     }
 
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let customCell = dataSource?.andesListView(self, cellForRowAt: indexPath) else {return UITableViewCell()}
-        switch customCell.type {
-        case .simple:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "AndesListSimpleViewCell") as! AndesListSimpleViewCell
-            cell.display(indexPath: indexPath, customCell: customCell, separatorStyle: self.separatorStyle)
-            return cell
-        case .chevron:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "AndesListSimpleViewCell") as! AndesListSimpleViewCell
-            cell.titleLbl.text = customCell.title
-            return cell
-        case .radioButton:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "AndesListSimpleViewCell") as! AndesListSimpleViewCell
-            cell.titleLbl.text = customCell.title
-            return cell
-        case .checkBox:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "AndesListSimpleViewCell") as! AndesListSimpleViewCell
-            cell.titleLbl.text = customCell.title
-            return cell
-        default:
-            return UITableViewCell()
-        }
+    func getSeparatorStyle() -> AndesSeparatorStyleListView {
+        return self.separatorStyle
     }
 
-    public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if tableView.numberOfRows(inSection: indexPath.section) - 1 <= indexPath.row {
-            let cell = cell as! AndesListSimpleViewCell
-            cell.setupSeparatorStyle(separatorStyle: .none)
-        }
+    func didSelectRowAt(indexPath: IndexPath) {
+        self.delegate?.andesListView?(self, didSelectRowAt: indexPath)
     }
 }

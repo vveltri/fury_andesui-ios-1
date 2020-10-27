@@ -115,10 +115,11 @@
 		E5306024ED10F08F50962867 /* Pods_AndesUI_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49891841870D889A9CDC91E2 /* Pods_AndesUI_Tests.framework */; };
 		E615508A23D619E300417B5F /* AndesButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E615508823D6196C00417B5F /* AndesButtonTests.swift */; };
 		F02A315A253A4F87006BC3F3 /* ListViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02A3159253A4F87006BC3F3 /* ListViewRouter.swift */; };
-		F02A315D253A5035006BC3F3 /* ListViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02A315B253A5035006BC3F3 /* ListViewViewController.swift */; };
-		F02A315E253A5035006BC3F3 /* ListViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F02A315C253A5035006BC3F3 /* ListViewViewController.xib */; };
-		F077909A254094D40050BB76 /* ListViewObjcViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0779098254094D40050BB76 /* ListViewObjcViewController.m */; };
-		F077909B254094D40050BB76 /* ListViewObjcViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0779099254094D40050BB76 /* ListViewObjcViewController.xib */; };
+		F02A315D253A5035006BC3F3 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02A315B253A5035006BC3F3 /* ListViewController.swift */; };
+		F02A315E253A5035006BC3F3 /* ListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F02A315C253A5035006BC3F3 /* ListViewController.xib */; };
+		F077909A254094D40050BB76 /* ListObjcViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0779098254094D40050BB76 /* ListObjcViewController.m */; };
+		F077909B254094D40050BB76 /* ListObjcViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0779099254094D40050BB76 /* ListObjcViewController.xib */; };
+		F09BE7662548B5300033843F /* AndesListViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09BE7652548B5300033843F /* AndesListViewTests.swift */; };
 		F8249D0524ABC9AD002A6456 /* RadioButtonRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8249D0424ABC9AD002A6456 /* RadioButtonRouter.swift */; };
 		F8249D0824ABCA4E002A6456 /* AndesRadioButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8249D0724ABCA4E002A6456 /* AndesRadioButtonViewController.swift */; };
 		F8249D0A24ABCAC8002A6456 /* AndesRadioButtonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8249D0924ABCAC8002A6456 /* AndesRadioButtonViewController.xib */; };
@@ -290,11 +291,12 @@
 		E615508823D6196C00417B5F /* AndesButtonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AndesButtonTests.swift; sourceTree = "<group>"; };
 		E61E8ED6239E9A7A00F85A8A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F02A3159253A4F87006BC3F3 /* ListViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewRouter.swift; sourceTree = "<group>"; };
-		F02A315B253A5035006BC3F3 /* ListViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewViewController.swift; sourceTree = "<group>"; };
-		F02A315C253A5035006BC3F3 /* ListViewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListViewViewController.xib; sourceTree = "<group>"; };
-		F0779097254094D40050BB76 /* ListViewObjcViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListViewObjcViewController.h; sourceTree = "<group>"; };
-		F0779098254094D40050BB76 /* ListViewObjcViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListViewObjcViewController.m; sourceTree = "<group>"; };
-		F0779099254094D40050BB76 /* ListViewObjcViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListViewObjcViewController.xib; sourceTree = "<group>"; };
+		F02A315B253A5035006BC3F3 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		F02A315C253A5035006BC3F3 /* ListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListViewController.xib; sourceTree = "<group>"; };
+		F0779097254094D40050BB76 /* ListObjcViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListObjcViewController.h; sourceTree = "<group>"; };
+		F0779098254094D40050BB76 /* ListObjcViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListObjcViewController.m; sourceTree = "<group>"; };
+		F0779099254094D40050BB76 /* ListObjcViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListObjcViewController.xib; sourceTree = "<group>"; };
+		F09BE7652548B5300033843F /* AndesListViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndesListViewTests.swift; sourceTree = "<group>"; };
 		F1687EB5920F308AFA904326 /* Pods-AndesUI-demoapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AndesUI-demoapp.debug.xcconfig"; path = "Target Support Files/Pods-AndesUI-demoapp/Pods-AndesUI-demoapp.debug.xcconfig"; sourceTree = "<group>"; };
 		F8249D0424ABC9AD002A6456 /* RadioButtonRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonRouter.swift; sourceTree = "<group>"; };
 		F8249D0724ABCA4E002A6456 /* AndesRadioButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndesRadioButtonViewController.swift; sourceTree = "<group>"; };
@@ -465,24 +467,25 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				80D6914D24E438AE002CF3BC /* Commons */,
-				80D6914224E1BE4A002CF3BC /* CoachmarkTests */,
-				F8C93A3724A272A200ADCE1C /* AndesCheckboxTest.swift */,
-				9C592C082450A6980038785E /* TextFieldTests */,
-				8634C9DF24A6509300DB7B9F /* SnackbarTests */,
 				90F4782124363A8F001CEC90 /* AndesBadgeTests.swift */,
 				E615508823D6196C00417B5F /* AndesButtonTests.swift */,
-				9C592C0D2450A6BD0038785E /* AndesEnumStringConvertibleTests.swift */,
-				607FACEB1AFB9204008FA782 /* AndesStyleSheetTests.swift */,
-				9CE112ED23D103080017B770 /* AndesButtonTests.swift */,
-				9CE112EF23D1DE0A0017B770 /* AndesMessageTests.swift */,
-				9CAD81E723FD62C900D43EB9 /* AndesIconsProviderTests.swift */,
-				86E0A35C2493BDA9003D338C /* AndesTagSimpleTests.swift */,
-				6D87741E252CF01B00C74B83 /* AndesTagChoiceTests.swift */,
-				02683A5A24B36E1000C3FD9A /* AndesThumbnailTests.swift */,
-				607FACE91AFB9204008FA782 /* Supporting Files */,
-				F85E052124AF756B0059C6FA /* AndesRadioButtonTest.swift */,
 				49BC90AD24C5FAE6007A03D3 /* AndesCardTests.swift */,
+				F8C93A3724A272A200ADCE1C /* AndesCheckboxTest.swift */,
+				9C592C0D2450A6BD0038785E /* AndesEnumStringConvertibleTests.swift */,
+				9CAD81E723FD62C900D43EB9 /* AndesIconsProviderTests.swift */,
+				9CE112EF23D1DE0A0017B770 /* AndesMessageTests.swift */,
+				F85E052124AF756B0059C6FA /* AndesRadioButtonTest.swift */,
+				607FACEB1AFB9204008FA782 /* AndesStyleSheetTests.swift */,
+				6D87741E252CF01B00C74B83 /* AndesTagChoiceTests.swift */,
+				86E0A35C2493BDA9003D338C /* AndesTagSimpleTests.swift */,
+				02683A5A24B36E1000C3FD9A /* AndesThumbnailTests.swift */,
+				80D6914224E1BE4A002CF3BC /* CoachmarkTests */,
+				80D6914D24E438AE002CF3BC /* Commons */,
+				F09BE7642548B4E90033843F /* ListTests */,
+				8634C9DF24A6509300DB7B9F /* SnackbarTests */,
+				607FACE91AFB9204008FA782 /* Supporting Files */,
+				9C592C082450A6980038785E /* TextFieldTests */,
+				9CE112ED23D103080017B770 /* AndesButtonTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -839,11 +842,11 @@
 		F02A3157253A4F61006BC3F3 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F02A315B253A5035006BC3F3 /* ListViewViewController.swift */,
-				F02A315C253A5035006BC3F3 /* ListViewViewController.xib */,
-				F0779097254094D40050BB76 /* ListViewObjcViewController.h */,
-				F0779098254094D40050BB76 /* ListViewObjcViewController.m */,
-				F0779099254094D40050BB76 /* ListViewObjcViewController.xib */,
+				F02A315B253A5035006BC3F3 /* ListViewController.swift */,
+				F02A315C253A5035006BC3F3 /* ListViewController.xib */,
+				F0779097254094D40050BB76 /* ListObjcViewController.h */,
+				F0779098254094D40050BB76 /* ListObjcViewController.m */,
+				F0779099254094D40050BB76 /* ListObjcViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -854,6 +857,14 @@
 				F02A3159253A4F87006BC3F3 /* ListViewRouter.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		F09BE7642548B4E90033843F /* ListTests */ = {
+			isa = PBXGroup;
+			children = (
+				F09BE7652548B5300033843F /* AndesListViewTests.swift */,
+			);
+			name = ListTests;
 			sourceTree = "<group>";
 		};
 		F8249D0324ABC98D002A6456 /* RadioButton */ = {
@@ -1026,7 +1037,7 @@
 				90530B0C242BFAA7005E056A /* AndesBadgeShowcaseViewController.xib in Resources */,
 				9C9B5A9223ECF2120007234B /* CHANGELOG.md in Resources */,
 				490589A624BE3CA70044FD0B /* CardViewController.xib in Resources */,
-				F02A315E253A5035006BC3F3 /* ListViewViewController.xib in Resources */,
+				F02A315E253A5035006BC3F3 /* ListViewController.xib in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				9CA28813244761F200E299C3 /* TextAreaViewController.xib in Resources */,
 				9CE112DD23CE58910017B770 /* MessageViewController.xib in Resources */,
@@ -1051,7 +1062,7 @@
 				6D2152F9241C1210001CEA8D /* TextFieldViewController.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 				6A22DCC123C918EA00BBFEA0 /* AndesUIViewController.xib in Resources */,
-				F077909B254094D40050BB76 /* ListViewObjcViewController.xib in Resources */,
+				F077909B254094D40050BB76 /* ListObjcViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1174,7 +1185,7 @@
 				90530B11242BFD15005E056A /* BadgeViewController.swift in Sources */,
 				9CD1071D23EDF3A90081232D /* UIView+Additions.swift in Sources */,
 				57F34E9E2225DE0900454D8B /* AndesUIAppDelegate.swift in Sources */,
-				F02A315D253A5035006BC3F3 /* ListViewViewController.swift in Sources */,
+				F02A315D253A5035006BC3F3 /* ListViewController.swift in Sources */,
 				F8249D0824ABCA4E002A6456 /* AndesRadioButtonViewController.swift in Sources */,
 				6A3C9CFA23C692B6007D0C8B /* HomeRouter.swift in Sources */,
 				9CE112DB23CE587B0017B770 /* MessageViewController.swift in Sources */,
@@ -1214,7 +1225,7 @@
 				F02A315A253A4F87006BC3F3 /* ListViewRouter.swift in Sources */,
 				86A1E3042481599500B59D1D /* TagRouter.swift in Sources */,
 				86A1E30824815A1700B59D1D /* AndesTagShowcaseViewController.swift in Sources */,
-				F077909A254094D40050BB76 /* ListViewObjcViewController.m in Sources */,
+				F077909A254094D40050BB76 /* ListObjcViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1224,6 +1235,7 @@
 			files = (
 				80D6915B24EC1287002CF3BC /* AndesCoachmarkFooterTests.swift in Sources */,
 				80D6915524E5C397002CF3BC /* AndesCoachmarkBodyViewMock.swift in Sources */,
+				F09BE7662548B5300033843F /* AndesListViewTests.swift in Sources */,
 				9C592C0C2450A6B70038785E /* AndesTextFieldSideComponentTests.swift in Sources */,
 				80D6915924EC0E98002CF3BC /* AndesCoachmarkNavBarTests.swift in Sources */,
 				80D6914F24E438C2002CF3BC /* MockSwift.swift in Sources */,

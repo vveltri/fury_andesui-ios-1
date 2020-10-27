@@ -25,7 +25,17 @@ import UIKit
     public var subTitleHeight: CGFloat = 0
     public var separatorHeight: CGFloat = 0
     public var heightConstraint: CGFloat = 0
-    public var titleHeightConstraint: CGFloat = 0
+    public var titleHeight: CGFloat = 0
+    public var chevron: String?
+    public var chevronSize: CGFloat? = 0
+    public var imageLeft: UIImage?
+    public var imageSize: CGFloat? = 0
+    public var separatorThumbnailWidth: CGFloat? = 0
+    public var paddingTopImage: CGFloat? = 0
+    public var paddingBottomImage: CGFloat? = 0
+    public var separatorChevronWidth: CGFloat? = 0
+    public var paddingTopChevron: CGFloat? = 0
+    public var paddingBottomChevron: CGFloat? = 0
 
     var view = self
 

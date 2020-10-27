@@ -11,19 +11,17 @@ public class AndesSimpleViewCellConfig: AndesListViewCell {
 
     @objc public init(withTitle title: String, size: AndesListSize, subTitle: String) {
         super.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: "")
-        cellConfig(withTitle: title, size: size, subTitle: subTitle)
+        self.cellConfig(withTitle: title, size: size, subTitle: subTitle)
     }
 
-    public init(withTitle title: String, size: AndesListSize?, subTitle: String?) {
+    public init(withTitle title: String, size: AndesListSize? = .medium, subTitle: String? = String()) {
         super.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: "")
         guard let size = size, let subTitle = subTitle else { return }
-        cellConfig(withTitle: title, size: size, subTitle: subTitle)
+        self.cellConfig(withTitle: title, size: size, subTitle: subTitle)
     }
 
-    private func cellConfig(withTitle title: String, size: AndesListSize? = .medium, subTitle: String? = String()) {
-        guard let size = size, let subTitle = subTitle else { return }
-        let hasDescription = (subTitle.isEmpty ) ? false : true
-        let config = AndesListViewCellTypeFactory.provide(withSize: size, hasDescription: hasDescription)
+    private func cellConfig(withTitle title: String, size: AndesListSize, subTitle: String) {
+        let config = AndesListViewCellTypeFactory.provide(withSize: size, subTitle: !subTitle.isEmpty)
         self.type = .simple
         self.title = title
         self.subTitle = subTitle
@@ -35,8 +33,8 @@ public class AndesSimpleViewCellConfig: AndesListViewCell {
         self.paddingBottomCell = config.paddingBottom
         self.subTitleHeight = config.descriptionHeight
         self.separatorHeight = config.separatorHeight
-        self.heightConstraint = config.heightConstraint
-        self.titleHeightConstraint = config.titleHeightConstraint
+        self.heightConstraint = config.height
+        self.titleHeight = config.titleHeight
     }
 
     required init?(coder: NSCoder) {

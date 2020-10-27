@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ListViewObjcViewController : UIViewController <AndesListViewDataSource, AndesListViewDelegate> {
+@interface ListObjcViewController : UIViewController <AndesListViewDataSource, AndesListViewDelegate> {
     NSMutableArray *titleArray;
 }
 

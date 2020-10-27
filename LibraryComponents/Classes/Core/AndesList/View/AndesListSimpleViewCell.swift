@@ -22,10 +22,10 @@ class AndesListSimpleViewCell: AndesListViewCell {
         super.awakeFromNib()
     }
 
-    func display(indexPath: IndexPath, customCell: AndesListViewCell, separatorStyle: AndesSeparatorStyleListView) {
+    internal func display(indexPath: IndexPath, customCell: AndesListViewCell, separatorStyle: AndesSeparatorStyleListView) {
         self.titleLbl.text = customCell.title
         self.titleLbl.setAndesStyle(style: customCell.fontStyle)
-        self.titleLbl.heightAnchor.constraint(greaterThanOrEqualToConstant: customCell.titleHeightConstraint).isActive = true
+        self.titleLbl.heightAnchor.constraint(greaterThanOrEqualToConstant: customCell.titleHeight).isActive = true
         self.subTitleLbl.text = customCell.subTitle
         self.subTitleLbl.setAndesStyle(style: customCell.fontSubTitleStyle)
         self.subTitleLbl.heightAnchor.constraint(equalToConstant: customCell.subTitleHeight).isActive = true

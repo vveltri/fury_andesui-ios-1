@@ -6,15 +6,15 @@
 //  Copyright © 2020 MercadoLibre. All rights reserved.
 //
 
-#import "ListViewObjcViewController.h"
+#import "ListObjcViewController.h"
 #import <AndesUI-Swift.h>
 
-@interface ListViewObjcViewController ()
+@interface ListObjcViewController ()
 @property (weak, nonatomic) IBOutlet AndesListView *listView;
 
 @end
 
-@implementation ListViewObjcViewController
+@implementation ListObjcViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
