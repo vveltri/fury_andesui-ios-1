@@ -45,14 +45,22 @@ extension ListViewController: AndesListViewDelegate {
 
 extension ListViewController: AndesListViewDataSource {
     func andesListView(_ listView: AndesListView, cellForRowAt indexPath: IndexPath) -> AndesListViewCell {
-//        let cell = AndesSimpleViewCellConfig(withTitle: titleArray?[indexPath.row] ?? "",
-//                                             subTitle: "Descripción -- Descripción -- Descripción -- Descripción")
-        let thumbnail = AndesThumbnail(hierarchy: .defaultHierarchy, type: .icon, size: .size24, state: .enabled, image: UIImage(named: "andes") ?? UIImage(), accentColor: UIColor.clear)
 
+        /**********************************************/
+
+//        let cell = AndesSimpleViewCellConfig(withTitle: titleArray?[indexPath.row] ?? "",
+//                                             size: .medium,
+//                                             subTitle: "Descripción -- Descripción -- Descripción -- Descripción")
+        /**********************************************/
+
+        /**********************************************/
+        let thumbnail = AndesThumbnail(hierarchy: .defaultHierarchy, type: .imageCircle, size: .size24, state: .enabled, image: UIImage(named: "andes") ?? UIImage(), accentColor: UIColor.clear)
+//
         let cell = AndesChevronViewCellConfig(withTitle: titleArray?[indexPath.row] ?? "",
                                               size: .small,
                                               subTitle: "Descripción de la celda",
                                               thumbnail: thumbnail)
+        /**********************************************/
         return cell
     }
 }

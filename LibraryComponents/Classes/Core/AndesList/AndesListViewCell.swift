@@ -51,13 +51,5 @@ import UIKit
 
     private func setup() {
         self.backgroundColor = .clear
-//        drawContentView()
-    }
-
-    private func drawContentView() {
-        leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
     }
 }

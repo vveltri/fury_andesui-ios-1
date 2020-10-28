@@ -9,6 +9,7 @@ import Foundation
 
 public class AndesChevronViewCellConfig: AndesListViewCell {
 
+    @available(swift, obsoleted: 1.0)
     @objc public init(withTitle title: String,
                       size: AndesListSize,
                       subTitle: String,

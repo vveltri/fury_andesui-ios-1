@@ -21,4 +21,10 @@ internal class AndesListViewTableViewDelegate: NSObject, UITableViewDelegate {
         listView.didSelectRowAt?(indexPath: indexPath)
     }
 
+    internal func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if tableView.numberOfRows(inSection: indexPath.section) - 1 <= indexPath.row {
+            let cell = cell as! AndesListSimpleViewCell
+            cell.setupSeparatorStyle(separatorStyle: .none)
+        }
+    }
 }

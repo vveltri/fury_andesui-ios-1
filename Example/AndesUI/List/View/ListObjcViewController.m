@@ -21,7 +21,7 @@
     
     _listView.delegate = self;
     _listView.dataSource = self;
-    _listView.separatorStyle = AndesSeparatorStyleListViewSingleLine;
+    _listView.separatorStyle = AndesSeparatorStyleSingleLine;
     titleArray = [[NSMutableArray alloc] initWithObjects:@"AndesList 1 -- Andes Default Cell -- Andes Default Cell -- Andes Default Cell -- Andes Default Cell -- Andes Default Cell -- Andes Default Cell -- Andes Default Cell -- Andes Default Cell",
                   @"Titulo 2",
                   @"Titulo 3",

@@ -35,14 +35,6 @@ internal class AndesListViewTableViewDataSource: NSObject, UITableViewDataSource
             let cell = tableView.dequeueReusableCell(withIdentifier: "AndesListCevronViewCell") as! AndesListCevronViewCell
             cell.display(indexPath: indexPath, customCell: customCell, separatorStyle: listView.getSeparatorStyle())
             return cell
-        case .radioButton:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "AndesListSimpleViewCell") as! AndesListSimpleViewCell
-            cell.titleLbl.text = customCell.title
-            return cell
-        case .checkBox:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "AndesListSimpleViewCell") as! AndesListSimpleViewCell
-            cell.titleLbl.text = customCell.title
-            return cell
         default:
             return UITableViewCell()
         }

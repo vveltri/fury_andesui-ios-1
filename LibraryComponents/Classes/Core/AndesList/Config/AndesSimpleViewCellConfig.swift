@@ -9,13 +9,14 @@ import Foundation
 
 public class AndesSimpleViewCellConfig: AndesListViewCell {
 
+    @available(swift, obsoleted: 1.0)
     @objc public init(withTitle title: String, size: AndesListSize, subTitle: String) {
-        super.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: "")
+        super.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: "AndesSimpleViewCellConfig")
         self.cellConfig(withTitle: title, size: size, subTitle: subTitle)
     }
 
     public init(withTitle title: String, size: AndesListSize? = .medium, subTitle: String? = String()) {
-        super.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: "")
+        super.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: "AndesSimpleViewCellConfig")
         guard let size = size, let subTitle = subTitle else { return }
         self.cellConfig(withTitle: title, size: size, subTitle: subTitle)
     }

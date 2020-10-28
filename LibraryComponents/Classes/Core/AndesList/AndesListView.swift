@@ -16,7 +16,16 @@ import Foundation
 
     @objc public var numberOfRows: Int = 0
 
-    @objc public var separatorStyle: AndesSeparatorStyleListView = .none
+    @objc public var separatorStyle: AndesSeparatorStyle = .none
+
+    @IBInspectable var listType: String {
+        set(val) {
+            self.listAllowedType = AndesCellType.checkValidEnum(property: listType, key: val)
+        }
+        get {
+            return self.listAllowedType.toString()
+        }
+    }
 
     // TODO
     var numberOfSection: Int = 1
@@ -28,19 +37,16 @@ import Foundation
     private var tableView: UITableView = UITableView()
     private var dataSourceSelf: AndesListViewTableViewDataSource?
     private var delegateSelf: AndesListViewTableViewDelegate?
+    private var listAllowedType: AndesCellType = .simple
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setup()
     }
 
-    override public init(frame: CGRect) {
-        super.init(frame: frame)
-        setup()
-    }
-
-    init() {
+    init(type: String) {
         super.init(frame: .zero)
+        listAllowedType = AndesCellType.checkValidEnum(property: type, key: type)
         setup()
     }
 
@@ -62,19 +68,17 @@ import Foundation
     }
 
     private func drawContentView() {
-        self.tableView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(self.tableView)
-        self.tableView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        self.tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        self.tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        self.tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        self.tableView.pinToSuperview()
     }
 }
 
 extension AndesListView: AndesListViewProtocol {
 
     func cellForRowAt(indexPath: IndexPath) -> AndesListViewCell {
-        guard let customCell = dataSource?.andesListView(self, cellForRowAt: indexPath) else {return AndesListViewCell()}
+        guard let customCell = dataSource?.andesListView(self, cellForRowAt: indexPath), customCell.type == listAllowedType else {
+            fatalError("List type not allowed")
+        }
         return customCell
     }
 
@@ -86,7 +90,7 @@ extension AndesListView: AndesListViewProtocol {
         return numberOfRows
     }
 
-    func getSeparatorStyle() -> AndesSeparatorStyleListView {
+    func getSeparatorStyle() -> AndesSeparatorStyle {
         return self.separatorStyle
     }
 

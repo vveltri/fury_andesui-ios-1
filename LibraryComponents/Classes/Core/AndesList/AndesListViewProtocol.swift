@@ -11,6 +11,6 @@ import Foundation
     func getNumberOfRows() -> Int
     func numberOfSections() -> Int
     func cellForRowAt(indexPath: IndexPath) -> AndesListViewCell
-    func getSeparatorStyle() -> AndesSeparatorStyleListView
+    func getSeparatorStyle() -> AndesSeparatorStyle
     @objc optional func didSelectRowAt(indexPath: IndexPath)
 }

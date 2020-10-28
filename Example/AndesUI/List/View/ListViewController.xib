@@ -25,6 +25,9 @@
                     <constraints>
                         <constraint firstAttribute="width" secondItem="e1M-cg-BO9" secondAttribute="height" multiplier="375:458" id="gzN-T4-KAK"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="listType" value="chevron"/>
+                    </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
             <constraints>

@@ -22,15 +22,7 @@ class AndesListCevronViewCell: AndesListSimpleViewCell {
     @IBOutlet weak var paddingTopChevronConstraint: NSLayoutConstraint!
     @IBOutlet weak var paddingBottomChevronConstraint: NSLayoutConstraint!
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-
-    internal override func display(indexPath: IndexPath, customCell: AndesListViewCell, separatorStyle: AndesSeparatorStyleListView) {
+    internal override func display(indexPath: IndexPath, customCell: AndesListViewCell, separatorStyle: AndesSeparatorStyle) {
         self.titleLbl.text = customCell.title
         self.titleLbl.setAndesStyle(style: customCell.fontStyle)
         self.titleLbl.heightAnchor.constraint(greaterThanOrEqualToConstant: customCell.titleHeight).isActive = true

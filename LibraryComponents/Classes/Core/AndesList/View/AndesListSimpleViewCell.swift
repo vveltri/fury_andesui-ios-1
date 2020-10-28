@@ -18,11 +18,7 @@ class AndesListSimpleViewCell: AndesListViewCell {
     @IBOutlet weak var separatorHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var separatorView: UIView!
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
-    internal func display(indexPath: IndexPath, customCell: AndesListViewCell, separatorStyle: AndesSeparatorStyleListView) {
+    internal func display(indexPath: IndexPath, customCell: AndesListViewCell, separatorStyle: AndesSeparatorStyle) {
         self.titleLbl.text = customCell.title
         self.titleLbl.setAndesStyle(style: customCell.fontStyle)
         self.titleLbl.heightAnchor.constraint(greaterThanOrEqualToConstant: customCell.titleHeight).isActive = true
@@ -37,7 +33,7 @@ class AndesListSimpleViewCell: AndesListViewCell {
         setupSeparatorStyle(separatorStyle: separatorStyle)
     }
 
-    func setupSeparatorStyle(separatorStyle: AndesSeparatorStyleListView) {
+    func setupSeparatorStyle(separatorStyle: AndesSeparatorStyle) {
         switch separatorStyle {
         case .none:
             separatorView.backgroundColor = .clear
