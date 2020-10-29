@@ -21,6 +21,7 @@ class ListViewController: UIViewController {
         listView.delegate = self
         listView.dataSource = self
         listView.separatorStyle = .singleLine
+        listView.listType = "chevron"
 
         titleArray = ["AndesList 1 -- Andes Default Cell -- Andes Default Cell -- Andes Default Cell -- Andes Default Cell -- Andes Default Cell",
                       "AndesList 1 -- Andes Default Cell",
@@ -48,7 +49,7 @@ extension ListViewController: AndesListViewDataSource {
 
         /**********************************************/
 
-//        let cell = AndesSimpleViewCellConfig(withTitle: titleArray?[indexPath.row] ?? "",
+//        let cell = AndesSimpleViewCell(withTitle: titleArray?[indexPath.row] ?? "",
 //                                             size: .medium,
 //                                             subTitle: "Descripción -- Descripción -- Descripción -- Descripción")
         /**********************************************/
@@ -56,11 +57,12 @@ extension ListViewController: AndesListViewDataSource {
         /**********************************************/
         let thumbnail = AndesThumbnail(hierarchy: .defaultHierarchy, type: .imageCircle, size: .size24, state: .enabled, image: UIImage(named: "andes") ?? UIImage(), accentColor: UIColor.clear)
 //
-        let cell = AndesChevronViewCellConfig(withTitle: titleArray?[indexPath.row] ?? "",
+        let cell = AndesChevronViewCell(withTitle: titleArray?[indexPath.row] ?? "",
                                               size: .small,
                                               subTitle: "Descripción de la celda",
                                               thumbnail: thumbnail)
         /**********************************************/
+
         return cell
     }
 }

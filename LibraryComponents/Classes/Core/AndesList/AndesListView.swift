@@ -18,7 +18,7 @@ import Foundation
 
     @objc public var separatorStyle: AndesSeparatorStyle = .none
 
-    @IBInspectable var listType: String {
+    @IBInspectable public var listType: String {
         set(val) {
             self.listAllowedType = AndesCellType.checkValidEnum(property: listType, key: val)
         }

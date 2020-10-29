@@ -44,7 +44,7 @@
 */
 
 - (AndesListViewCell * _Nonnull)andesListView:(AndesListView * _Nonnull)tableView cellForRowAt:(NSIndexPath * _Nonnull)indexPath {
-    AndesSimpleViewCellConfig *cell = [[AndesSimpleViewCellConfig alloc]
+    AndesSimpleViewCell *cell = [[AndesSimpleViewCell alloc]
                                         initWithTitle:[titleArray objectAtIndex:indexPath.row]
                                         size:AndesListSizeLarge
                                         subTitle: @"Descripción de la fila"];

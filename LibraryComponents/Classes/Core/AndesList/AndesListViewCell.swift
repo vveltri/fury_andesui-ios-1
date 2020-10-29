@@ -37,19 +37,11 @@ import UIKit
     public var paddingTopChevron: CGFloat? = 0
     public var paddingBottomChevron: CGFloat? = 0
 
-    var view = self
-
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setup()
     }
 
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: "AndesListViewCell")
-        setup()
-    }
-
-    private func setup() {
-        self.backgroundColor = .clear
+    init() {
+        super.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: "")
     }
 }
