@@ -262,6 +262,18 @@ class AndesListViewTests: QuickSpec {
                     //Then
                     expect(self.didSelected).to(beTrue())
                 }
+
+                it("Check cellForRowAt delegate") {
+                    //Given
+                    self.cellType = .simple
+                    self.thumbnailType = .icon
+
+                    //When
+                    let cell = self.internalListView?.cellForRowAt(indexPath: IndexPath(row: 1, section: 0))
+
+                    //Then
+                    expect(cell).to(beAKindOf(AndesListViewCell.self))
+                }
             }
         }
 
