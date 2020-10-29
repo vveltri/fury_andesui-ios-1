@@ -9,15 +9,22 @@ import Foundation
 
 @objc public class AndesListView: UIView {
 
+    /// Set the delegate to use own methods
     @objc public weak var delegate: AndesListViewDelegate?
+
+    /// Set the dataSource to use own methods
     @objc public weak var dataSource: AndesListViewDataSource?
 
-    @objc public var title: String?
-
+    /// Set the number or rows, default value 0
     @objc public var numberOfRows: Int = 0
 
+    /// Set the number of section
+    var numberOfSection: Int = 1
+
+    /// Set the separator style, default value .none
     @objc public var separatorStyle: AndesSeparatorStyle = .none
 
+    /// Set the list type, default value simple
     @IBInspectable public var listType: String {
         set(val) {
             self.listAllowedType = AndesCellType.checkValidEnum(property: listType, key: val)
@@ -26,9 +33,6 @@ import Foundation
             return self.listAllowedType.toString()
         }
     }
-
-    // TODO
-    var numberOfSection: Int = 1
 
     @objc public func reloadData() {
         self.tableView.reloadData()
@@ -50,6 +54,7 @@ import Foundation
         setup()
     }
 
+    /// Setup delegates and register UITableViewCell on the UITableView
     private func setup() {
         translatesAutoresizingMaskIntoConstraints = false
         dataSourceSelf = AndesListViewTableViewDataSource(listView: self)
@@ -73,6 +78,7 @@ import Foundation
     }
 }
 
+/// Use (UITableViewDelegate and UITableViewDatasource) in a independent protocol
 extension AndesListView: AndesListViewProtocol {
 
     func cellForRowAt(indexPath: IndexPath) -> AndesListViewCell {

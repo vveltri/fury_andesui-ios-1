@@ -49,11 +49,11 @@ public class AndesChevronViewCell: AndesListViewCell {
         self.titleHeight = config.titleHeight
         self.chevron = config.chevronImage
         self.chevronSize = config.chevronSize
-        self.imageLeft = config.imageLeft
-        self.imageSize = config.imageSizeConstraint
-        self.separatorThumbnailWidth = config.separatorImageWidth
-        self.paddingTopImage = config.paddingTopImage
-        self.paddingBottomImage = config.paddingBottomImage
+        self.thumbnailLeft = config.thumbnailLeft
+        self.thumbnailSize = config.thumbnailSize
+        self.separatorThumbnailWidth = config.separatorThumbnailWidth
+        self.paddingTopThumbnail = config.paddingTopThumbnail
+        self.paddingBottomThumbnail = config.paddingBottomThumbnail
         self.paddingTopChevron = config.paddingTopChevron
         self.paddingBottomChevron = config.paddingBottomChevron
         self.separatorChevronWidth = config.separatorChevronWidth

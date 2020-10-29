@@ -10,19 +10,19 @@ import Foundation
 public class AndesSimpleViewCell: AndesListViewCell {
 
     @available(swift, obsoleted: 1.0)
-    @objc public init(withTitle title: String, size: AndesListSize, subTitle: String) {
+    @objc public init(withTitle title: String, size: AndesListSize, subTitle: String, thumbnail: AndesThumbnail? = nil) {
         super.init()
-        self.cellConfig(withTitle: title, size: size, subTitle: subTitle)
+        self.cellConfig(withTitle: title, size: size, subTitle: subTitle, thumbnail: thumbnail)
     }
 
-    public init(withTitle title: String, size: AndesListSize? = .medium, subTitle: String? = String()) {
+    public init(withTitle title: String, size: AndesListSize? = .medium, subTitle: String? = String(), thumbnail: AndesThumbnail? = nil) {
         super.init()
         guard let size = size, let subTitle = subTitle else { return }
-        self.cellConfig(withTitle: title, size: size, subTitle: subTitle)
+        self.cellConfig(withTitle: title, size: size, subTitle: subTitle, thumbnail: thumbnail)
     }
 
-    private func cellConfig(withTitle title: String, size: AndesListSize, subTitle: String) {
-        let config = AndesListViewCellTypeFactory.provide(withSize: size, subTitle: !subTitle.isEmpty)
+    private func cellConfig(withTitle title: String, size: AndesListSize, subTitle: String, thumbnail: AndesThumbnail? = nil) {
+        let config = AndesListViewCellTypeFactory.provide(withSize: size, subTitle: !subTitle.isEmpty, thumbnail: thumbnail)
         self.type = .simple
         self.title = title
         self.subTitle = subTitle
@@ -36,6 +36,11 @@ public class AndesSimpleViewCell: AndesListViewCell {
         self.separatorHeight = config.separatorHeight
         self.heightConstraint = config.height
         self.titleHeight = config.titleHeight
+        self.thumbnailLeft = config.thumbnailLeft
+        self.thumbnailSize = config.thumbnailSize
+        self.separatorThumbnailWidth = config.separatorThumbnailWidth
+        self.paddingTopThumbnail = config.paddingTopThumbnail
+        self.paddingBottomThumbnail = config.paddingBottomThumbnail
     }
 
     required init?(coder: NSCoder) {

@@ -23,7 +23,7 @@ class ListViewController: UIViewController {
         listView.delegate = self
         listView.dataSource = self
         listView.separatorStyle = .singleLine
-        listView.listType = "chevron"
+        listView.listType = "simple"
 
         titleArray = ["AndesList 1 -- Andes Default Cell -- Andes Default Cell -- Andes Default Cell -- Andes Default Cell -- Andes Default Cell",
                       "AndesList 1 -- Andes Default Cell",
@@ -49,22 +49,23 @@ extension ListViewController: AndesListViewDelegate {
 extension ListViewController: AndesListViewDataSource {
     func andesListView(_ listView: AndesListView, cellForRowAt indexPath: IndexPath) -> AndesListViewCell {
 
-        /**********************************************/
-
-//        let cell = AndesSimpleViewCell(withTitle: titleArray?[indexPath.row] ?? "",
-//                                             size: .medium,
-//                                             subTitle: "Descripción -- Descripción -- Descripción -- Descripción")
-        /**********************************************/
-
-        /**********************************************/
         let thumbnail = AndesThumbnail(hierarchy: .defaultHierarchy, type: .imageCircle, size: .size24, state: .enabled, image: UIImage(named: "andes") ?? UIImage(), accentColor: UIColor.clear)
-//
-        let cell = AndesChevronViewCell(withTitle: titleArray?[indexPath.row] ?? "",
-                                              size: .small,
-                                              subTitle: "Descripción de la celda",
-                                              thumbnail: thumbnail)
+
         /**********************************************/
 
-        return cell
+        let simpleCell = AndesSimpleViewCell(withTitle: titleArray?[indexPath.row] ?? "",
+                                             size: .medium,
+                                             subTitle: "Descripción--Descripción--Descripción--Descripción",
+                                             thumbnail: thumbnail)
+        /********************************************/
+
+        /**********************************************/
+//        let chevronCell = AndesChevronViewCell(withTitle: titleArray?[indexPath.row] ?? "",
+//                                              size: .small,
+//                                              subTitle: "Descripción de la celda",
+//                                              thumbnail: thumbnail)
+        /**********************************************/
+
+        return simpleCell
     }
 }

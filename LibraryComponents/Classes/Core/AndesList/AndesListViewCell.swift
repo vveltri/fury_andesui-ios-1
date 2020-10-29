@@ -9,6 +9,13 @@ import UIKit
 
 @objc public class AndesListViewCell: UITableViewCell {
 
+    @IBOutlet weak var thumbnailImg: UIImageView!
+    @IBOutlet weak var thumbnailWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var thumbnailHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var spaceThumbnailWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var paddingTopThumbnailConstraint: NSLayoutConstraint!
+    @IBOutlet weak var paddingBottomThumbnailConstraint: NSLayoutConstraint!
+
     public var title: String = String()
     public var subTitle: String = String()
     public var type: AndesCellType?
@@ -28,11 +35,11 @@ import UIKit
     public var titleHeight: CGFloat = 0
     public var chevron: String?
     public var chevronSize: CGFloat? = 0
-    public var imageLeft: UIImage?
-    public var imageSize: CGFloat? = 0
+    public var thumbnailLeft: UIImage?
+    public var thumbnailSize: CGFloat? = 0
     public var separatorThumbnailWidth: CGFloat? = 0
-    public var paddingTopImage: CGFloat? = 0
-    public var paddingBottomImage: CGFloat? = 0
+    public var paddingTopThumbnail: CGFloat? = 0
+    public var paddingBottomThumbnail: CGFloat? = 0
     public var separatorChevronWidth: CGFloat? = 0
     public var paddingTopChevron: CGFloat? = 0
     public var paddingBottomChevron: CGFloat? = 0

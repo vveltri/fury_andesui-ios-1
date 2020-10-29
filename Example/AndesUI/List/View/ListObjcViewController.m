@@ -44,10 +44,26 @@
 */
 
 - (AndesListViewCell * _Nonnull)andesListView:(AndesListView * _Nonnull)tableView cellForRowAt:(NSIndexPath * _Nonnull)indexPath {
+    
+    AndesThumbnail *thumbnail = [[AndesThumbnail alloc]initWithHierarchy:AndesThumbnailHierarchyLoud
+                                                                    type:AndesThumbnailTypeIcon
+                                                                    size:AndesThumbnailSizeSize24
+                                                                   state:AndesThumbnailStateEnabled
+                                                                   image:[UIImage imageNamed:@"andes"]
+                                                             accentColor:[UIColor clearColor]];
+    
     AndesSimpleViewCell *cell = [[AndesSimpleViewCell alloc]
-                                        initWithTitle:[titleArray objectAtIndex:indexPath.row]
-                                        size:AndesListSizeLarge
-                                        subTitle: @"Descripción de la fila"];
+                                 initWithTitle:[titleArray objectAtIndex:indexPath.row]
+                                 size:AndesListSizeLarge
+                                 subTitle: @"Descripción de la fila"
+                                 thumbnail: thumbnail];
+    
+    AndesChevronViewCell *chevronCell = [[AndesChevronViewCell alloc]initWithTitle:[titleArray objectAtIndex:indexPath.row]
+                                                                              size:AndesListSizeMedium
+                                                                          subTitle:@"Descripción de la fila"
+                                                                         thumbnail:thumbnail];
+    
+    
     return cell;
 }
 

@@ -25,11 +25,11 @@ struct AndesListViewCellLargeType: AndesListViewCellTypeProtocol {
     var titleHeight: CGFloat = 12
     var chevronImage: String? = "andes_ui_chevron_right_24"
     var chevronSize: CGFloat? = 24
-    var imageLeft: UIImage?
-    var imageSizeConstraint: CGFloat? = 0
-    var separatorImageWidth: CGFloat? = 0
-    var paddingTopImage: CGFloat?
-    var paddingBottomImage: CGFloat?
+    var thumbnailLeft: UIImage?
+    var thumbnailSize: CGFloat? = 0
+    var separatorThumbnailWidth: CGFloat? = 0
+    var paddingTopThumbnail: CGFloat?
+    var paddingBottomThumbnail: CGFloat?
     var paddingBottomChevron: CGFloat? = 26
     var paddingTopChevron: CGFloat? = 26
     var separatorChevronWidth: CGFloat? = 12
@@ -42,18 +42,18 @@ struct AndesListViewCellLargeType: AndesListViewCellTypeProtocol {
             separatorHeight = 15
         }
         if let thumbnail = thumbnail {
-            imageLeft = thumbnail.image
+            thumbnailLeft = thumbnail.image
             switch thumbnail.type {
             case .icon:
-                imageSizeConstraint = 24
-                separatorImageWidth = 16
-                paddingTopImage = 27
+                thumbnailSize = 24
+                separatorThumbnailWidth = 16
+                paddingTopThumbnail = 27
             case .imageCircle, .imageSquare:
                 height = 96
-                imageSizeConstraint = 56
-                separatorImageWidth = 16
-                paddingTopImage = 24
-                paddingBottomImage = 24
+                thumbnailSize = 56
+                separatorThumbnailWidth = 16
+                paddingTopThumbnail = 24
+                paddingBottomThumbnail = 24
                 paddingTopChevron = 40
                 paddingBottomChevron = 40
             }

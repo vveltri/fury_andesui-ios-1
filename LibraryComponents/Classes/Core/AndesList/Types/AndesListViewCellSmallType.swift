@@ -25,29 +25,29 @@ struct AndesListViewCellSmallType: AndesListViewCellTypeProtocol {
     var titleHeight: CGFloat = 9
     var chevronImage: String? = "andes_ui_chevron_right_12"
     var chevronSize: CGFloat? = 12
-    var imageLeft: UIImage?
-    var imageSizeConstraint: CGFloat? = 0
-    var separatorImageWidth: CGFloat? = 0
-    var paddingTopImage: CGFloat?
-    var paddingBottomImage: CGFloat?
+    var thumbnailLeft: UIImage?
+    var thumbnailSize: CGFloat? = 0
+    var separatorThumbnailWidth: CGFloat? = 0
+    var paddingTopThumbnail: CGFloat?
+    var paddingBottomThumbnail: CGFloat?
     var paddingBottomChevron: CGFloat? = 18
     var paddingTopChevron: CGFloat? = 18
     var separatorChevronWidth: CGFloat? = 12
 
     init(withThumbnail thumbnail: AndesThumbnail? = nil) {
        if let thumbnail = thumbnail {
-        imageLeft = thumbnail.image
+        thumbnailLeft = thumbnail.image
             switch thumbnail.type {
             case .icon:
-                imageSizeConstraint = 16
-                separatorImageWidth = 8
-                paddingTopImage = 16
+                thumbnailSize = 16
+                separatorThumbnailWidth = 8
+                paddingTopThumbnail = 16
             case .imageCircle, .imageSquare:
                 height = 56
-                imageSizeConstraint = 32
-                separatorImageWidth = 12
-                paddingTopImage = 12
-                paddingBottomImage = 12
+                thumbnailSize = 32
+                separatorThumbnailWidth = 12
+                paddingTopThumbnail = 12
+                paddingBottomThumbnail = 12
                 paddingTopChevron = 22
                 paddingBottomChevron = 22
             }

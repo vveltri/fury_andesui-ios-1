@@ -30,6 +30,14 @@ class AndesListSimpleViewCell: AndesListViewCell {
         self.paddingTopConstraint.constant = customCell.paddingTopCell
         self.paddingBottomConstraint.constant = customCell.paddingBottomCell
         self.separatorHeightConstraint.constant = customCell.separatorHeight
+        if let imageSize = customCell.thumbnailSize {
+            self.thumbnailWidthConstraint.constant = imageSize
+            self.thumbnailHeightConstraint.constant = imageSize
+            self.paddingTopThumbnailConstraint.constant = customCell.paddingTopThumbnail ?? 0
+            self.paddingBottomThumbnailConstraint.constant = customCell.paddingBottomThumbnail ?? 0
+            self.thumbnailImg.image = customCell.thumbnailLeft
+            self.spaceThumbnailWidthConstraint.constant = customCell.separatorThumbnailWidth ?? 0
+        }
         setupSeparatorStyle(separatorStyle: separatorStyle)
     }
 

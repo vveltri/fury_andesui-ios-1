@@ -12,12 +12,6 @@ class AndesListCevronViewCell: AndesListSimpleViewCell {
     @IBOutlet weak var chevronImg: UIImageView!
     @IBOutlet weak var chevronWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var chevronHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var thumbnailImg: UIImageView!
-    @IBOutlet weak var thumbnailWidthConstraint: NSLayoutConstraint!
-    @IBOutlet weak var thumbnailHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var spaceThumbnailWidthConstraint: NSLayoutConstraint!
-    @IBOutlet weak var paddingTopThumbnailConstraint: NSLayoutConstraint!
-    @IBOutlet weak var paddingBottomThumbnailConstraint: NSLayoutConstraint!
     @IBOutlet weak var spaceChevronWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var paddingTopChevronConstraint: NSLayoutConstraint!
     @IBOutlet weak var paddingBottomChevronConstraint: NSLayoutConstraint!
@@ -43,12 +37,12 @@ class AndesListCevronViewCell: AndesListSimpleViewCell {
             self.paddingBottomChevronConstraint.constant = customCell.paddingBottomChevron ?? 0
             self.spaceChevronWidthConstraint.constant = customCell.separatorChevronWidth ?? 0
         }
-        if let imageSize = customCell.imageSize {
+        if let imageSize = customCell.thumbnailSize {
             self.thumbnailWidthConstraint.constant = imageSize
             self.thumbnailHeightConstraint.constant = imageSize
-            self.paddingTopThumbnailConstraint.constant = customCell.paddingTopImage ?? 0
-            self.paddingBottomThumbnailConstraint.constant = customCell.paddingBottomImage ?? 0
-            self.thumbnailImg.image = customCell.imageLeft
+            self.paddingTopThumbnailConstraint.constant = customCell.paddingTopThumbnail ?? 0
+            self.paddingBottomThumbnailConstraint.constant = customCell.paddingBottomThumbnail ?? 0
+            self.thumbnailImg.image = customCell.thumbnailLeft
             self.spaceThumbnailWidthConstraint.constant = customCell.separatorThumbnailWidth ?? 0
         }
         setupSeparatorStyle(separatorStyle: separatorStyle)

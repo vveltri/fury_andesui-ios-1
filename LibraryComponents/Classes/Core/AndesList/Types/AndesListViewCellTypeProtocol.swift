@@ -20,11 +20,11 @@ internal protocol AndesListViewCellTypeProtocol {
     var titleHeight: CGFloat { get }
     var chevronImage: String? { get }
     var chevronSize: CGFloat? { get }
-    var imageLeft: UIImage? { get }
-    var imageSizeConstraint: CGFloat? { get }
-    var separatorImageWidth: CGFloat? { get }
-    var paddingTopImage: CGFloat? { get }
-    var paddingBottomImage: CGFloat? { get }
+    var thumbnailLeft: UIImage? { get }
+    var thumbnailSize: CGFloat? { get }
+    var separatorThumbnailWidth: CGFloat? { get }
+    var paddingTopThumbnail: CGFloat? { get }
+    var paddingBottomThumbnail: CGFloat? { get }
     var separatorChevronWidth: CGFloat? { get }
     var paddingTopChevron: CGFloat? { get }
     var paddingBottomChevron: CGFloat? { get }
