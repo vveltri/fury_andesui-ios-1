@@ -11,19 +11,17 @@ import AndesUI
 
 class ListViewController: UIViewController {
 
-    @IBOutlet weak var listView: AndesListView!
+    @IBOutlet weak var andesList: AndesList!
 
     var titleArray: [String]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        listView = AndesListView(type: "simple")
-
-        listView.delegate = self
-        listView.dataSource = self
-        listView.separatorStyle = .singleLine
-        listView.listType = "simple"
+        andesList.delegate = self
+        andesList.dataSource = self
+        andesList.separatorStyle = .singleLine
+        andesList.listType = "simple"
 
         titleArray = ["AndesList 1 -- Andes Default Cell -- Andes Default Cell -- Andes Default Cell -- Andes Default Cell -- Andes Default Cell",
                       "AndesList 1 -- Andes Default Cell",
@@ -33,38 +31,30 @@ class ListViewController: UIViewController {
                       "AndesList 1 -- Andes Default Cell",
                       "AndesList 1 -- Andes Default Cell"]
 
-        listView.numberOfRows = titleArray?.count ?? 0
+        andesList.numberOfRows = titleArray?.count ?? 0
 
-        listView.reloadData()
+        andesList.reloadData()
     }
 
 }
 
-extension ListViewController: AndesListViewDelegate {
-    func andesListView(_ listView: AndesListView, didSelectRowAt indexPath: IndexPath) {
-        print("andesListView: \(indexPath.row)")
+extension ListViewController: AndesListDelegate {
+    func andesList(_ listView: AndesList, didSelectRowAt indexPath: IndexPath) {
+        print("IndexPath row: \(indexPath.row)")
     }
 }
 
-extension ListViewController: AndesListViewDataSource {
-    func andesListView(_ listView: AndesListView, cellForRowAt indexPath: IndexPath) -> AndesListViewCell {
+extension ListViewController: AndesListDataSource {
+    func andesList(_ listView: AndesList, cellForRowAt indexPath: IndexPath) -> AndesListCell {
 
-        let thumbnail = AndesThumbnail(hierarchy: .defaultHierarchy, type: .imageCircle, size: .size24, state: .enabled, image: UIImage(named: "andes") ?? UIImage(), accentColor: UIColor.clear)
+        let thumbnail = AndesThumbnail(hierarchy: .defaultHierarchy, type: .icon, size: .size24, state: .enabled, image: UIImage(named: "andes") ?? UIImage(), accentColor: UIColor.clear)
 
-        /**********************************************/
-
-        let simpleCell = AndesSimpleViewCell(withTitle: titleArray?[indexPath.row] ?? "",
+        let simpleCell = AndesSimpleCell(withTitle: titleArray?[indexPath.row] ?? "",
                                              size: .medium,
                                              subTitle: "Descripción--Descripción--Descripción--Descripción",
                                              thumbnail: thumbnail)
-        /********************************************/
 
-        /**********************************************/
-//        let chevronCell = AndesChevronViewCell(withTitle: titleArray?[indexPath.row] ?? "",
-//                                              size: .small,
-//                                              subTitle: "Descripción de la celda",
-//                                              thumbnail: thumbnail)
-        /**********************************************/
+        AndesChevronCell()
 
         return simpleCell
     }
