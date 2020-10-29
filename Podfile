@@ -11,13 +11,14 @@ use_frameworks!
 target 'AndesUI-demoapp' do
     pod 'AndesUI', :path => './'
     pod 'AndesUI/AndesCoachmark', :path => './'
+    pod 'AndesUI/AndesBottomSheet', :path => './'
     pod 'IQKeyboardManagerSwift', '6.3.0'
 
     target 'AndesUI_Tests' do
         inherit! :search_paths
 
         pod 'Quick', '~> 1.2.0'
-        pod 'Nimble', '~> 7.3.0'        
+        pod 'Nimble', '~> 7.3.0'
     end
 end
 
