@@ -7,33 +7,33 @@
 
 import Foundation
 
-internal class AndesListViewTableViewDataSource: NSObject, UITableViewDataSource {
+internal class AndesListTableViewDataSource: NSObject, UITableViewDataSource {
 
-    var listView: AndesListViewProtocol
+    var listProtocol: AndesListProtocol
 
-    init(listView: AndesListViewProtocol) {
-        self.listView = listView
+    init(listProtocol: AndesListProtocol) {
+        self.listProtocol = listProtocol
         super.init()
     }
 
     internal func numberOfSections(in tableView: UITableView) -> Int {
-        return listView.numberOfSections()
+        return listProtocol.numberOfSections()
     }
 
     internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listView.getNumberOfRows()
+        return listProtocol.getNumberOfRows()
     }
 
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let customCell = listView.cellForRowAt(indexPath: indexPath)
+        let customCell = listProtocol.cellForRowAt(indexPath: indexPath)
         switch customCell.type {
         case .simple:
             let cell = tableView.dequeueReusableCell(withIdentifier: "AndesListSimpleViewCell") as! AndesListSimpleViewCell
-            cell.display(indexPath: indexPath, customCell: customCell, separatorStyle: listView.getSeparatorStyle())
+            cell.display(indexPath: indexPath, customCell: customCell, separatorStyle: listProtocol.getSeparatorStyle())
             return cell
         case .chevron:
             let cell = tableView.dequeueReusableCell(withIdentifier: "AndesListCevronViewCell") as! AndesListCevronViewCell
-            cell.display(indexPath: indexPath, customCell: customCell, separatorStyle: listView.getSeparatorStyle())
+            cell.display(indexPath: indexPath, customCell: customCell, separatorStyle: listProtocol.getSeparatorStyle())
             return cell
         default:
             return UITableViewCell()

@@ -1,5 +1,5 @@
 //
-//  AndesListViewCellPaddingLarge.swift
+//  AndesListCellLargeType.swift
 //  AndesUI
 //
 //  Created by Jonathan Alonso Pinto on 22/10/20.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct AndesListViewCellLargeType: AndesListViewCellTypeProtocol {
+struct AndesListCellLargeType: AndesListCellTypeProtocol {
 
     var font = AndesFontStyle(textColor: UIColor.Andes.gray800,
                               font: AndesStyleSheetManager.styleSheet.regularSystemFont(size: AndesFontSize.bodyL),

@@ -41,7 +41,7 @@ class HomeAppRouter: NSObject {
     let snackbarRouter = SnackbarAppRouter()
     let cardRouter = CardAppRouter()
     let thumbnailRouter = ThumbnailAppRouter()
-    let listRouter = ListViewAppRouter()
+    let listRouter = ListAppRouter()
 }
 
 extension HomeAppRouter: HomeRouter {

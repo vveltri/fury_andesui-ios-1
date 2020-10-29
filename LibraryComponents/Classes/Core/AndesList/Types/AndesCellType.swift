@@ -1,5 +1,5 @@
 //
-//  TypesCell.swift
+//  AndesCellType.swift
 //  AndesUI
 //
 //  Created by Jonathan Alonso Pinto on 20/10/20.

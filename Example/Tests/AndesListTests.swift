@@ -1,5 +1,5 @@
 //
-//  AndesListViewTest.swift
+//  AndesListTest.swift
 //  AndesUI_Tests
 //
 //  Created by Jonathan Alonso Pinto on 27/10/20.
@@ -10,12 +10,12 @@ import Quick
 import Nimble
 @testable import AndesUI
 
-class AndesListViewTests: QuickSpec {
+class AndesListTests: QuickSpec {
 
     var titleArray: [String]?
-    var internalListView: AndesListView?
-    weak var myDelegate: AndesListViewTableViewDelegate?
-    var myDataSource: AndesListViewTableViewDataSource?
+    var internalAndesList: AndesList?
+    var myDataSource: AndesListTableViewDataSource?
+    var myDelegate: AndesListTableViewDelegate?
     var cellType: AndesCellType?
     var thumbnailType: AndesThumbnailType?
     var didSelected: Bool = false
@@ -32,11 +32,11 @@ class AndesListViewTests: QuickSpec {
 
                 it("Has the right simple cell view medium type with icon") {
                     //Given
-                    let simplecell = AndesSimpleViewCell(withTitle: "Title",
+                    let simplecell = AndesSimpleCell(withTitle: "Title",
                                                          size: .medium,
                                                          subTitle: "Sub title")
 
-                    let chevronCell = AndesChevronViewCell(withTitle: "Title",
+                    let chevronCell = AndesChevronCell(withTitle: "Title",
                                                           size: .medium,
                                                           subTitle: "Descripción de la celda",
                                                           thumbnail: self.icon)
@@ -44,17 +44,17 @@ class AndesListViewTests: QuickSpec {
                     //When
 
                     //Then
-                    expect(simplecell.isKind(of: AndesListViewCell.self)).to(beTrue())
-                    expect(chevronCell.isKind(of: AndesListViewCell.self)).to(beTrue())
+                    expect(simplecell.isKind(of: AndesListCell.self)).to(beTrue())
+                    expect(chevronCell.isKind(of: AndesListCell.self)).to(beTrue())
                 }
 
                 it("Has the right simple cell view small type with icon") {
                     //Given
-                    let simplecell = AndesSimpleViewCell(withTitle: "Title",
+                    let simplecell = AndesSimpleCell(withTitle: "Title",
                                                          size: .small,
                                                          subTitle: "Sub title")
 
-                    let chevronCell = AndesChevronViewCell(withTitle: "Title",
+                    let chevronCell = AndesChevronCell(withTitle: "Title",
                                                           size: .small,
                                                           subTitle: "Descripción de la celda",
                                                           thumbnail: self.icon)
@@ -62,17 +62,17 @@ class AndesListViewTests: QuickSpec {
                     //When
 
                     //Then
-                    expect(simplecell.isKind(of: AndesListViewCell.self)).to(beTrue())
-                    expect(chevronCell.isKind(of: AndesListViewCell.self)).to(beTrue())
+                    expect(simplecell.isKind(of: AndesListCell.self)).to(beTrue())
+                    expect(chevronCell.isKind(of: AndesListCell.self)).to(beTrue())
                 }
 
                 it("Has the right simple cell view large type with icon") {
                     //Given
-                    let simplecell = AndesSimpleViewCell(withTitle: "Title",
+                    let simplecell = AndesSimpleCell(withTitle: "Title",
                                                          size: .large,
                                                          subTitle: "Sub title")
 
-                    let chevronCell = AndesChevronViewCell(withTitle: "Title",
+                    let chevronCell = AndesChevronCell(withTitle: "Title",
                                                           size: .large,
                                                           subTitle: "Descripción de la celda",
                                                           thumbnail: self.icon)
@@ -80,17 +80,17 @@ class AndesListViewTests: QuickSpec {
                     //When
 
                     //Then
-                    expect(simplecell.isKind(of: AndesListViewCell.self)).to(beTrue())
-                    expect(chevronCell.isKind(of: AndesListViewCell.self)).to(beTrue())
+                    expect(simplecell.isKind(of: AndesListCell.self)).to(beTrue())
+                    expect(chevronCell.isKind(of: AndesListCell.self)).to(beTrue())
                 }
 
                 it("Has the right simple cell view medium type with image circle") {
                     //Given
-                    let simplecell = AndesSimpleViewCell(withTitle: "Title",
+                    let simplecell = AndesSimpleCell(withTitle: "Title",
                                                          size: .medium,
                                                          subTitle: "Sub title")
 
-                    let chevronCell = AndesChevronViewCell(withTitle: "Title",
+                    let chevronCell = AndesChevronCell(withTitle: "Title",
                                                           size: .medium,
                                                           subTitle: "Descripción de la celda",
                                                           thumbnail: self.thumbnail)
@@ -98,17 +98,17 @@ class AndesListViewTests: QuickSpec {
                     //When
 
                     //Then
-                    expect(simplecell.isKind(of: AndesListViewCell.self)).to(beTrue())
-                    expect(chevronCell.isKind(of: AndesListViewCell.self)).to(beTrue())
+                    expect(simplecell.isKind(of: AndesListCell.self)).to(beTrue())
+                    expect(chevronCell.isKind(of: AndesListCell.self)).to(beTrue())
                 }
 
                 it("Has the right simple cell view small type with image circle") {
                     //Given
-                    let simplecell = AndesSimpleViewCell(withTitle: "Title",
+                    let simplecell = AndesSimpleCell(withTitle: "Title",
                                                          size: .small,
                                                          subTitle: "Sub title")
 
-                    let chevronCell = AndesChevronViewCell(withTitle: "Title",
+                    let chevronCell = AndesChevronCell(withTitle: "Title",
                                                           size: .small,
                                                           subTitle: "Descripción de la celda",
                                                           thumbnail: self.thumbnail)
@@ -116,17 +116,17 @@ class AndesListViewTests: QuickSpec {
                     //When
 
                     //Then
-                    expect(simplecell.isKind(of: AndesListViewCell.self)).to(beTrue())
-                    expect(chevronCell.isKind(of: AndesListViewCell.self)).to(beTrue())
+                    expect(simplecell.isKind(of: AndesListCell.self)).to(beTrue())
+                    expect(chevronCell.isKind(of: AndesListCell.self)).to(beTrue())
                 }
 
                 it("Has the right simple cell view large type with image circle") {
                     //Given
-                    let simplecell = AndesSimpleViewCell(withTitle: "Title",
+                    let simplecell = AndesSimpleCell(withTitle: "Title",
                                                          size: .large,
                                                          subTitle: "Sub title")
 
-                    let chevronCell = AndesChevronViewCell(withTitle: "Title",
+                    let chevronCell = AndesChevronCell(withTitle: "Title",
                                                           size: .large,
                                                           subTitle: "Descripción de la celda",
                                                           thumbnail: self.thumbnail)
@@ -134,8 +134,8 @@ class AndesListViewTests: QuickSpec {
                     //When
 
                     //Then
-                    expect(simplecell.isKind(of: AndesListViewCell.self)).to(beTrue())
-                    expect(chevronCell.isKind(of: AndesListViewCell.self)).to(beTrue())
+                    expect(simplecell.isKind(of: AndesListCell.self)).to(beTrue())
+                    expect(chevronCell.isKind(of: AndesListCell.self)).to(beTrue())
                 }
             }
         }
@@ -144,17 +144,17 @@ class AndesListViewTests: QuickSpec {
             context("AndesList Implementation self delegate") {
 
                 beforeEach {
-                    self.internalListView = AndesListView(type: "simple")
-                    self.internalListView?.dataSource = self
-                    self.internalListView?.delegate = self
+                    self.internalAndesList = AndesList(type: "simple")
+                    self.internalAndesList?.dataSource = self
+                    self.internalAndesList?.delegate = self
 
-                    self.myDelegate = AndesListViewTableViewDelegate(listView: self)
-                    self.myDataSource = AndesListViewTableViewDataSource(listView: self)
+                    self.myDelegate = AndesListTableViewDelegate(listProtocol: self)
+                    self.myDataSource = AndesListTableViewDataSource(listProtocol: self)
 
                     self.titleArray = ["Title 1", "Title 2"]
-                    self.internalListView?.numberOfRows = self.titleArray?.count ?? 0
+                    self.internalAndesList?.numberOfRows = self.titleArray?.count ?? 0
 
-                    self.internalListView!.reloadData()
+                    self.internalAndesList!.reloadData()
                 }
 
                 it("Check numberOfRowsInSection dataSource in TableView") {
@@ -178,7 +178,7 @@ class AndesListViewTests: QuickSpec {
 
                 it("Check cellForRowAt delegate with simple cell and icon in TableView") {
                     //Given
-                    self.internalListView?.listType = "simple"
+                    self.internalAndesList?.listType = "simple"
                     self.cellType = .simple
                     self.thumbnailType = .icon
                     let table = UITableView()
@@ -192,12 +192,12 @@ class AndesListViewTests: QuickSpec {
                     let cell = self.myDataSource?.tableView(table, cellForRowAt: IndexPath(row: 1, section: 0))
 
                     //Then
-                    expect(cell).to(beAKindOf(AndesListViewCell.self))
+                    expect(cell).to(beAKindOf(AndesListCell.self))
                 }
 
                 it("Check cellForRowAt delegate with chevron cell and icon in TableView") {
                     //Given
-                    self.internalListView?.listType = "chevron"
+                    self.internalAndesList?.listType = "chevron"
                     self.cellType = .chevron
                     self.thumbnailType = .icon
                     let table = UITableView()
@@ -211,11 +211,11 @@ class AndesListViewTests: QuickSpec {
                     let cell = self.myDataSource?.tableView(table, cellForRowAt: IndexPath(row: 1, section: 0))
 
                     //Then
-                    expect(cell).to(beAKindOf(AndesListViewCell.self))
+                    expect(cell).to(beAKindOf(AndesListCell.self))
                 }
                 it("Check cellForRowAt delegate with simple cell and ImageCircle in TableView") {
                     //Given
-                    self.internalListView?.listType = "simple"
+                    self.internalAndesList?.listType = "simple"
                     self.cellType = .simple
                     self.thumbnailType = .imageCircle
                     let table = UITableView()
@@ -229,12 +229,12 @@ class AndesListViewTests: QuickSpec {
                     let cell = self.myDataSource?.tableView(table, cellForRowAt: IndexPath(row: 1, section: 0))
 
                     //Then
-                    expect(cell).to(beAKindOf(AndesListViewCell.self))
+                    expect(cell).to(beAKindOf(AndesListCell.self))
                 }
 
                 it("Check cellForRowAt delegate with chevron cell and ImageCircle in TableView") {
                     //Given
-                    self.internalListView?.listType = "chevron"
+                    self.internalAndesList?.listType = "chevron"
                     self.cellType = .chevron
                     self.thumbnailType = .imageCircle
                     let table = UITableView()
@@ -248,7 +248,7 @@ class AndesListViewTests: QuickSpec {
                     let cell = self.myDataSource?.tableView(table, cellForRowAt: IndexPath(row: 1, section: 0))
 
                     //Then
-                    expect(cell).to(beAKindOf(AndesListViewCell.self))
+                    expect(cell).to(beAKindOf(AndesListCell.self))
                 }
 
                 it("Check didSelectRowAt delegate") {
@@ -257,7 +257,7 @@ class AndesListViewTests: QuickSpec {
                     self.thumbnailType = .icon
 
                     //When
-                    self.internalListView?.didSelectRowAt(indexPath: IndexPath(row: 1, section: 0))
+                    self.internalAndesList?.didSelectRowAt(indexPath: IndexPath(row: 1, section: 0))
 
                     //Then
                     expect(self.didSelected).to(beTrue())
@@ -269,10 +269,10 @@ class AndesListViewTests: QuickSpec {
                     self.thumbnailType = .icon
 
                     //When
-                    let cell = self.internalListView?.cellForRowAt(indexPath: IndexPath(row: 1, section: 0))
+                    let cell = self.internalAndesList?.cellForRowAt(indexPath: IndexPath(row: 1, section: 0))
 
                     //Then
-                    expect(cell).to(beAKindOf(AndesListViewCell.self))
+                    expect(cell).to(beAKindOf(AndesListCell.self))
                 }
             }
         }
@@ -281,66 +281,66 @@ class AndesListViewTests: QuickSpec {
             context("AndesList Implementation own delegate") {
 
                 beforeEach {
-                    self.internalListView = AndesListView(type: "simple")
-                    self.internalListView?.dataSource = self
-                    self.internalListView?.delegate = self
+                    self.internalAndesList = AndesList(type: "simple")
+                    self.internalAndesList?.dataSource = self
+                    self.internalAndesList?.delegate = self
 
-                    self.myDelegate = AndesListViewTableViewDelegate(listView: self.internalListView!)
-                    self.myDataSource = AndesListViewTableViewDataSource(listView: self.internalListView!)
+                    self.myDelegate = AndesListTableViewDelegate(listProtocol: self.internalAndesList!)
+                    self.myDataSource = AndesListTableViewDataSource(listProtocol: self.internalAndesList!)
 
                     self.titleArray = ["Title 1", "Title 2"]
-                    self.internalListView?.numberOfRows = self.titleArray?.count ?? 0
+                    self.internalAndesList?.numberOfRows = self.titleArray?.count ?? 0
 
-                    self.internalListView!.reloadData()
+                    self.internalAndesList!.reloadData()
                 }
 
                 it("Check separator Style") {
                     //Given
-                    self.internalListView?.listType = "chevron"
+                    self.internalAndesList?.listType = "chevron"
                     self.cellType = .chevron
                     self.thumbnailType = .icon
                     let style = AndesSeparatorStyle.none
 
                     //When
-                    self.internalListView?.separatorStyle = .none
+                    self.internalAndesList?.separatorStyle = .none
 
                     //Then
-                    expect(self.internalListView?.getSeparatorStyle()).to(equal(style))
+                    expect(self.internalAndesList?.getSeparatorStyle()).to(equal(style))
                 }
             }
         }
     }
 }
 
-extension AndesListViewTests: AndesListViewDataSource {
-    func andesListView(_ listView: AndesListView, cellForRowAt indexPath: IndexPath) -> AndesListViewCell {
+extension AndesListTests: AndesListDataSource {
+    func andesList(_ listView: AndesList, cellForRowAt indexPath: IndexPath) -> AndesListCell {
         switch cellType {
         case .simple:
-            let cell = AndesSimpleViewCell(withTitle: titleArray?[indexPath.row] ?? "",
+            let cell = AndesSimpleCell(withTitle: titleArray?[indexPath.row] ?? "",
                                                  size: .medium,
                                                  subTitle: "Descripción -- Descripción -- Descripción -- Descripción")
             return cell
         case .chevron:
             let thumbnail = AndesThumbnail(hierarchy: .defaultHierarchy, type: self.thumbnailType!, size: .size24, state: .enabled, image: UIImage(named: "andes") ?? UIImage(), accentColor: UIColor.clear)
 
-            let cell = AndesChevronViewCell(withTitle: titleArray?[indexPath.row] ?? "",
+            let cell = AndesChevronCell(withTitle: titleArray?[indexPath.row] ?? "",
                                                   size: .medium,
                                                   subTitle: "Descripción de la celda",
                                                   thumbnail: thumbnail)
             return cell
         default:
-            return AndesListViewCell()
+            return AndesListCell()
         }
     }
 }
 
-extension AndesListViewTests: AndesListViewDelegate {
-    func andesListView(_ listView: AndesListView, didSelectRowAt indexPath: IndexPath) {
+extension AndesListTests: AndesListDelegate {
+    func andesList(_ listView: AndesList, didSelectRowAt indexPath: IndexPath) {
         self.didSelected = true
     }
 }
 
-extension AndesListViewTests: AndesListViewProtocol {
+extension AndesListTests: AndesListProtocol {
     func getNumberOfRows() -> Int {
         return self.titleArray?.count ?? 0
     }
@@ -349,8 +349,8 @@ extension AndesListViewTests: AndesListViewProtocol {
         return 1
     }
 
-    func cellForRowAt(indexPath: IndexPath) -> AndesListViewCell {
-        let customCell = self.andesListView(self.internalListView!, cellForRowAt: indexPath)
+    func cellForRowAt(indexPath: IndexPath) -> AndesListCell {
+        let customCell = self.andesList(self.internalAndesList!, cellForRowAt: indexPath)
         return customCell
     }
 

@@ -1,5 +1,5 @@
 //
-//  AndesListViewCellPaddingProtocol.swift
+//  AndesListCellTypeProtocol.swift
 //  AndesUI
 //
 //  Created by Jonathan Alonso Pinto on 22/10/20.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-internal protocol AndesListViewCellTypeProtocol {
+internal protocol AndesListCellTypeProtocol {
     var font: AndesFontStyle { get }
     var fontDescription: AndesFontStyle { get }
     var height: CGFloat { get }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class AndesSimpleViewCell: AndesListViewCell {
+public class AndesSimpleCell: AndesListCell {
 
     @available(swift, obsoleted: 1.0)
     @objc public init(withTitle title: String, size: AndesListSize, subTitle: String, thumbnail: AndesThumbnail? = nil) {
@@ -22,7 +22,7 @@ public class AndesSimpleViewCell: AndesListViewCell {
     }
 
     private func cellConfig(withTitle title: String, size: AndesListSize, subTitle: String, thumbnail: AndesThumbnail? = nil) {
-        let config = AndesListViewCellTypeFactory.provide(withSize: size, subTitle: !subTitle.isEmpty, thumbnail: thumbnail)
+        let config = AndesListCellTypeFactory.provide(withSize: size, subTitle: !subTitle.isEmpty, thumbnail: thumbnail)
         self.type = .simple
         self.title = title
         self.subTitle = subTitle

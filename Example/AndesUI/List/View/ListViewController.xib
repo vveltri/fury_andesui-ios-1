@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ListViewController" customModule="AndesUI_DemoApp" customModuleProvider="target">
             <connections>
-                <outlet property="listView" destination="e1M-cg-BO9" id="rQF-SK-3tf"/>
+                <outlet property="andesList" destination="e1M-cg-BO9" id="rQF-SK-3tf"/>
                 <outlet property="view" destination="Ijj-Hq-gN2" id="iUA-Pp-gPk"/>
             </connections>
         </placeholder>
@@ -19,15 +19,12 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e1M-cg-BO9" customClass="AndesListView" customModule="AndesUI">
+                <view contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e1M-cg-BO9" customClass="AndesList" customModule="AndesUI">
                     <rect key="frame" x="0.0" y="44" width="375" height="458"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="e1M-cg-BO9" secondAttribute="height" multiplier="375:458" id="gzN-T4-KAK"/>
                     </constraints>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="listType" value="chevron"/>
-                    </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
             <constraints>

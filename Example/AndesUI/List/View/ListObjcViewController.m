@@ -10,7 +10,7 @@
 #import <AndesUI-Swift.h>
 
 @interface ListObjcViewController ()
-@property (weak, nonatomic) IBOutlet AndesListView *listView;
+@property (weak, nonatomic) IBOutlet AndesList *listView;
 
 @end
 
@@ -43,7 +43,7 @@
 }
 */
 
-- (AndesListViewCell * _Nonnull)andesListView:(AndesListView * _Nonnull)tableView cellForRowAt:(NSIndexPath * _Nonnull)indexPath {
+- (AndesListCell * _Nonnull)andesList:(AndesList * _Nonnull)tableView cellForRowAt:(NSIndexPath * _Nonnull)indexPath {
     
     AndesThumbnail *thumbnail = [[AndesThumbnail alloc]initWithHierarchy:AndesThumbnailHierarchyLoud
                                                                     type:AndesThumbnailTypeIcon
@@ -52,13 +52,13 @@
                                                                    image:[UIImage imageNamed:@"andes"]
                                                              accentColor:[UIColor clearColor]];
     
-    AndesSimpleViewCell *cell = [[AndesSimpleViewCell alloc]
+    AndesSimpleCell *cell = [[AndesSimpleCell alloc]
                                  initWithTitle:[titleArray objectAtIndex:indexPath.row]
                                  size:AndesListSizeLarge
                                  subTitle: @"Descripción de la fila"
                                  thumbnail: thumbnail];
     
-    AndesChevronViewCell *chevronCell = [[AndesChevronViewCell alloc]initWithTitle:[titleArray objectAtIndex:indexPath.row]
+    AndesChevronCell *chevronCell = [[AndesChevronCell alloc]initWithTitle:[titleArray objectAtIndex:indexPath.row]
                                                                               size:AndesListSizeMedium
                                                                           subTitle:@"Descripción de la fila"
                                                                          thumbnail:thumbnail];

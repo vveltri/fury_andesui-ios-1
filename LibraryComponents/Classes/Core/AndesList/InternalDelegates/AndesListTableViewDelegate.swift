@@ -7,23 +7,23 @@
 
 import Foundation
 
-internal class AndesListViewTableViewDelegate: NSObject, UITableViewDelegate {
+internal class AndesListTableViewDelegate: NSObject, UITableViewDelegate {
 
-    var listView: AndesListViewProtocol
+    var listProtocol: AndesListProtocol
 
-    init(listView: AndesListViewProtocol) {
-        self.listView = listView
+    init(listProtocol: AndesListProtocol) {
+        self.listProtocol = listProtocol
         super.init()
     }
 
     internal func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        listView.didSelectRowAt?(indexPath: indexPath)
+        listProtocol.didSelectRowAt?(indexPath: indexPath)
     }
 
     internal func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if tableView.numberOfRows(inSection: indexPath.section) - 1 <= indexPath.row {
-            let cell = cell as! AndesListSimpleViewCell
+            let cell = cell as! AndesListCell
             cell.setupSeparatorStyle(separatorStyle: .none)
         }
     }

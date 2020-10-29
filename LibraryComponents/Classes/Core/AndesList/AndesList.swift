@@ -1,5 +1,5 @@
 //
-//  AndesListView.swift
+//  AndesList.swift
 //  AndesUI
 //
 //  Created by Jonathan Alonso Pinto on 16/10/20.
@@ -7,13 +7,13 @@
 
 import Foundation
 
-@objc public class AndesListView: UIView {
+@objc public class AndesList: UIView {
 
     /// Set the delegate to use own methods
-    @objc public weak var delegate: AndesListViewDelegate?
+    @objc public weak var delegate: AndesListDelegate?
 
     /// Set the dataSource to use own methods
-    @objc public weak var dataSource: AndesListViewDataSource?
+    @objc public weak var dataSource: AndesListDataSource?
 
     /// Set the number or rows, default value 0
     @objc public var numberOfRows: Int = 0
@@ -39,8 +39,8 @@ import Foundation
     }
 
     private var tableView: UITableView = UITableView()
-    private var dataSourceSelf: AndesListViewTableViewDataSource?
-    private var delegateSelf: AndesListViewTableViewDelegate?
+    private var dataSourceSelf: AndesListTableViewDataSource?
+    private var delegateSelf: AndesListTableViewDelegate?
     private var listAllowedType: AndesCellType = .simple
 
     required init?(coder: NSCoder) {
@@ -57,8 +57,8 @@ import Foundation
     /// Setup delegates and register UITableViewCell on the UITableView
     private func setup() {
         translatesAutoresizingMaskIntoConstraints = false
-        dataSourceSelf = AndesListViewTableViewDataSource(listView: self)
-        delegateSelf = AndesListViewTableViewDelegate(listView: self)
+        dataSourceSelf = AndesListTableViewDataSource(listProtocol: self)
+        delegateSelf = AndesListTableViewDelegate(listProtocol: self)
         self.tableView.delegate = delegateSelf
         self.tableView.dataSource = dataSourceSelf
         self.tableView.separatorStyle = .none
@@ -79,11 +79,11 @@ import Foundation
 }
 
 /// Use (UITableViewDelegate and UITableViewDatasource) in a independent protocol
-extension AndesListView: AndesListViewProtocol {
+extension AndesList: AndesListProtocol {
 
-    func cellForRowAt(indexPath: IndexPath) -> AndesListViewCell {
-        guard let customCell = dataSource?.andesListView(self, cellForRowAt: indexPath), customCell.type == listAllowedType else {
-            fatalError("List type not allowed")
+    func cellForRowAt(indexPath: IndexPath) -> AndesListCell {
+        guard let customCell = dataSource?.andesList(self, cellForRowAt: indexPath), customCell.type == listAllowedType else {
+            fatalError("Cell type not allowed, should be \(listAllowedType.toString()) type")
         }
         return customCell
     }
@@ -101,6 +101,6 @@ extension AndesListView: AndesListViewProtocol {
     }
 
     func didSelectRowAt(indexPath: IndexPath) {
-        self.delegate?.andesListView?(self, didSelectRowAt: indexPath)
+        self.delegate?.andesList?(self, didSelectRowAt: indexPath)
     }
 }

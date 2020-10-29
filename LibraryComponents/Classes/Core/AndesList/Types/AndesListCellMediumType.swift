@@ -1,5 +1,5 @@
 //
-//  AndesListViewCellPaddingMedium.swift
+//  AndesListCellMediumType.swift
 //  AndesUI
 //
 //  Created by Jonathan Alonso Pinto on 22/10/20.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct AndesListViewCellMediumType: AndesListViewCellTypeProtocol {
+struct AndesListCellMediumType: AndesListCellTypeProtocol {
 
     var font = AndesFontStyle(textColor: UIColor.Andes.gray800,
                               font: AndesStyleSheetManager.styleSheet.regularSystemFont(size: AndesFontSize.bodyM),

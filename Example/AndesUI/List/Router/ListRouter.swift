@@ -1,5 +1,5 @@
 //
-//  ListViewRouter.swift
+//  ListRouter.swift
 //  AndesUI-demoapp
 //
 //  Created by Jonathan Alonso Pinto on 16/10/20.
@@ -12,11 +12,11 @@ protocol ListRouter: NSObject {
     func route(from: UIViewController)
 }
 
-class ListViewAppRouter: NSObject {
+class ListAppRouter: NSObject {
     var view: AndesShowcasePageViewController!
 }
 
-extension ListViewAppRouter: ListRouter {
+extension ListAppRouter: ListRouter {
     func route(from: UIViewController) {
         view = AndesShowcasePageViewController(controllers: [ListViewController(),
                                                              ListObjcViewController()])

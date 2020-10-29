@@ -1,0 +1,95 @@
+//
+//  AndesListCell.swift
+//  AndesUI
+//
+//  Created by Jonathan Alonso Pinto on 16/10/20.
+//
+
+import UIKit
+
+@objc public class AndesListCell: UITableViewCell {
+
+    @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet weak var subTitleLbl: UILabel!
+    @IBOutlet weak var paddingLeftConstraint: NSLayoutConstraint!
+    @IBOutlet weak var paddingRightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var paddingTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var paddingBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var separatorHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var separatorView: UIView!
+    @IBOutlet weak var thumbnailImg: UIImageView!
+    @IBOutlet weak var thumbnailWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var thumbnailHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var spaceThumbnailWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var paddingTopThumbnailConstraint: NSLayoutConstraint!
+    @IBOutlet weak var paddingBottomThumbnailConstraint: NSLayoutConstraint!
+
+    public var title: String = String()
+    public var subTitle: String = String()
+    public var type: AndesCellType?
+    public var fontStyle: AndesFontStyle = AndesFontStyle(textColor: .black,
+                                                          font: UIFont.boldSystemFont(ofSize: 16),
+                                                          lineSpacing: 2)
+    public var fontSubTitleStyle: AndesFontStyle = AndesFontStyle(textColor: .black,
+                                                                     font: UIFont.boldSystemFont(ofSize: 16),
+                                                                     lineSpacing: 2)
+    public var paddingLeftCell: CGFloat = 0
+    public var paddingRightCell: CGFloat = 0
+    public var paddingTopCell: CGFloat = 0
+    public var paddingBottomCell: CGFloat = 0
+    public var subTitleHeight: CGFloat = 0
+    public var separatorHeight: CGFloat = 0
+    public var heightConstraint: CGFloat = 0
+    public var titleHeight: CGFloat = 0
+    public var chevron: String?
+    public var chevronSize: CGFloat? = 0
+    public var thumbnailLeft: UIImage?
+    public var thumbnailSize: CGFloat? = 0
+    public var separatorThumbnailWidth: CGFloat? = 0
+    public var paddingTopThumbnail: CGFloat? = 0
+    public var paddingBottomThumbnail: CGFloat? = 0
+    public var separatorChevronWidth: CGFloat? = 0
+    public var paddingTopChevron: CGFloat? = 0
+    public var paddingBottomChevron: CGFloat? = 0
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+
+    init() {
+        super.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: "")
+    }
+
+    func setup(customCell: AndesListCell, separatorStyle: AndesSeparatorStyle) {
+        self.titleLbl.text = customCell.title
+        self.titleLbl.setAndesStyle(style: customCell.fontStyle)
+        self.titleLbl.heightAnchor.constraint(greaterThanOrEqualToConstant: customCell.titleHeight).isActive = true
+        self.subTitleLbl.text = customCell.subTitle
+        self.subTitleLbl.setAndesStyle(style: customCell.fontSubTitleStyle)
+        self.subTitleLbl.heightAnchor.constraint(equalToConstant: customCell.subTitleHeight).isActive = true
+        self.paddingLeftConstraint.constant = customCell.paddingLeftCell
+        self.paddingRightConstraint.constant = customCell.paddingRightCell
+        self.paddingTopConstraint.constant = customCell.paddingTopCell
+        self.paddingBottomConstraint.constant = customCell.paddingBottomCell
+        self.separatorHeightConstraint.constant = customCell.separatorHeight
+        if let imageSize = customCell.thumbnailSize {
+            self.thumbnailWidthConstraint.constant = imageSize
+            self.thumbnailHeightConstraint.constant = imageSize
+            self.paddingTopThumbnailConstraint.constant = customCell.paddingTopThumbnail ?? 0
+            self.paddingBottomThumbnailConstraint.constant = customCell.paddingBottomThumbnail ?? 0
+            self.thumbnailImg.image = customCell.thumbnailLeft
+            self.spaceThumbnailWidthConstraint.constant = customCell.separatorThumbnailWidth ?? 0
+        }
+        setupSeparatorStyle(separatorStyle: separatorStyle)
+    }
+
+    func setupSeparatorStyle(separatorStyle: AndesSeparatorStyle) {
+        switch separatorStyle {
+        case .none:
+            separatorView.backgroundColor = .clear
+        case .singleLine:
+            separatorView.backgroundColor = UIColor.Andes.gray100
+        }
+
+    }
+}
