@@ -18,6 +18,8 @@ class ListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+//        listView = AndesListView(type: "simple")
+
         listView.delegate = self
         listView.dataSource = self
         listView.separatorStyle = .singleLine

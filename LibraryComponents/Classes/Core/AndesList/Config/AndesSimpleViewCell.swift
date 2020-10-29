@@ -1,5 +1,5 @@
 //
-//  CellConfiguration.swift
+//  AndesSimpleViewCell.swift
 //  AndesUI
 //
 //  Created by Jonathan Alonso Pinto on 20/10/20.

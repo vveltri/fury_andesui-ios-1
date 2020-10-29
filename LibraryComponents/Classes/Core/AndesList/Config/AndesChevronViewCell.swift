@@ -1,5 +1,5 @@
 //
-//  AndesChevronViewCellConfig.swift
+//  AndesChevronViewCell.swift
 //  AndesUI
 //
 //  Created by Jonathan Alonso Pinto on 26/10/20.

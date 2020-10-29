@@ -32,11 +32,11 @@ class AndesListViewTests: QuickSpec {
 
                 it("Has the right simple cell view medium type with icon") {
                     //Given
-                    let simplecell = AndesSimpleViewCellConfig(withTitle: "Title",
+                    let simplecell = AndesSimpleViewCell(withTitle: "Title",
                                                          size: .medium,
                                                          subTitle: "Sub title")
 
-                    let chevronCell = AndesChevronViewCellConfig(withTitle: "Title",
+                    let chevronCell = AndesChevronViewCell(withTitle: "Title",
                                                           size: .medium,
                                                           subTitle: "Descripción de la celda",
                                                           thumbnail: self.icon)
@@ -50,11 +50,11 @@ class AndesListViewTests: QuickSpec {
 
                 it("Has the right simple cell view small type with icon") {
                     //Given
-                    let simplecell = AndesSimpleViewCellConfig(withTitle: "Title",
+                    let simplecell = AndesSimpleViewCell(withTitle: "Title",
                                                          size: .small,
                                                          subTitle: "Sub title")
 
-                    let chevronCell = AndesChevronViewCellConfig(withTitle: "Title",
+                    let chevronCell = AndesChevronViewCell(withTitle: "Title",
                                                           size: .small,
                                                           subTitle: "Descripción de la celda",
                                                           thumbnail: self.icon)
@@ -68,11 +68,11 @@ class AndesListViewTests: QuickSpec {
 
                 it("Has the right simple cell view large type with icon") {
                     //Given
-                    let simplecell = AndesSimpleViewCellConfig(withTitle: "Title",
+                    let simplecell = AndesSimpleViewCell(withTitle: "Title",
                                                          size: .large,
                                                          subTitle: "Sub title")
 
-                    let chevronCell = AndesChevronViewCellConfig(withTitle: "Title",
+                    let chevronCell = AndesChevronViewCell(withTitle: "Title",
                                                           size: .large,
                                                           subTitle: "Descripción de la celda",
                                                           thumbnail: self.icon)
@@ -86,11 +86,11 @@ class AndesListViewTests: QuickSpec {
 
                 it("Has the right simple cell view medium type with image circle") {
                     //Given
-                    let simplecell = AndesSimpleViewCellConfig(withTitle: "Title",
+                    let simplecell = AndesSimpleViewCell(withTitle: "Title",
                                                          size: .medium,
                                                          subTitle: "Sub title")
 
-                    let chevronCell = AndesChevronViewCellConfig(withTitle: "Title",
+                    let chevronCell = AndesChevronViewCell(withTitle: "Title",
                                                           size: .medium,
                                                           subTitle: "Descripción de la celda",
                                                           thumbnail: self.thumbnail)
@@ -104,11 +104,11 @@ class AndesListViewTests: QuickSpec {
 
                 it("Has the right simple cell view small type with image circle") {
                     //Given
-                    let simplecell = AndesSimpleViewCellConfig(withTitle: "Title",
+                    let simplecell = AndesSimpleViewCell(withTitle: "Title",
                                                          size: .small,
                                                          subTitle: "Sub title")
 
-                    let chevronCell = AndesChevronViewCellConfig(withTitle: "Title",
+                    let chevronCell = AndesChevronViewCell(withTitle: "Title",
                                                           size: .small,
                                                           subTitle: "Descripción de la celda",
                                                           thumbnail: self.thumbnail)
@@ -122,11 +122,11 @@ class AndesListViewTests: QuickSpec {
 
                 it("Has the right simple cell view large type with image circle") {
                     //Given
-                    let simplecell = AndesSimpleViewCellConfig(withTitle: "Title",
+                    let simplecell = AndesSimpleViewCell(withTitle: "Title",
                                                          size: .large,
                                                          subTitle: "Sub title")
 
-                    let chevronCell = AndesChevronViewCellConfig(withTitle: "Title",
+                    let chevronCell = AndesChevronViewCell(withTitle: "Title",
                                                           size: .large,
                                                           subTitle: "Descripción de la celda",
                                                           thumbnail: self.thumbnail)
@@ -304,14 +304,14 @@ extension AndesListViewTests: AndesListViewDataSource {
     func andesListView(_ listView: AndesListView, cellForRowAt indexPath: IndexPath) -> AndesListViewCell {
         switch cellType {
         case .simple:
-            let cell = AndesSimpleViewCellConfig(withTitle: titleArray?[indexPath.row] ?? "",
+            let cell = AndesSimpleViewCell(withTitle: titleArray?[indexPath.row] ?? "",
                                                  size: .medium,
                                                  subTitle: "Descripción -- Descripción -- Descripción -- Descripción")
             return cell
         case .chevron:
             let thumbnail = AndesThumbnail(hierarchy: .defaultHierarchy, type: self.thumbnailType!, size: .size24, state: .enabled, image: UIImage(named: "andes") ?? UIImage(), accentColor: UIColor.clear)
 
-            let cell = AndesChevronViewCellConfig(withTitle: titleArray?[indexPath.row] ?? "",
+            let cell = AndesChevronViewCell(withTitle: titleArray?[indexPath.row] ?? "",
                                                   size: .medium,
                                                   subTitle: "Descripción de la celda",
                                                   thumbnail: thumbnail)
