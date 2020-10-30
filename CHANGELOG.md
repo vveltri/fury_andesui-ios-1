@@ -1,6 +1,7 @@
 ## Unpublished
 ### 🚀 Features
 - Xcode 12 compatibility
+- Fixes in App Delegate and Page Controller in Test App
 
 # v3.12.0
 ### 🚀 Features
