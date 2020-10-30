@@ -9,7 +9,7 @@
 import UIKit
 
 protocol HomeRouter: NSObject {
-    func route(from: UIViewController)
+    func start(in window: UIWindow)
     func routeToCoachmark()
     func routeToButton()
     func routeToMessages()
@@ -46,14 +46,12 @@ class HomeAppRouter: NSObject {
 
 extension HomeAppRouter: HomeRouter {
 
-    func route(from: UIViewController) {
+    func start(in window: UIWindow) {
         presenter = HomeViewPresenter(view: view, router: self)
         view.presenter = presenter
 
-        let navigation = UINavigationController(rootViewController: view)
-        navigation.modalPresentationStyle = .fullScreen
-
-        from.present(navigation, animated: false, completion: nil)
+        window.rootViewController = UINavigationController(rootViewController: view)
+        window.makeKeyAndVisible()
     }
 
     func routeToCoachmark() {
