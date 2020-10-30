@@ -14,9 +14,9 @@ private enum Constants {
 class AndesBottomSheetContentViewController: UIViewController {
 
     private(set) var viewController: UIViewController
+    private(set) var titleBar = AndesBottomSheetTitleBar()
 
     private let grabView = AndesBottomSheetGrab()
-    private let titleBar = AndesBottomSheetTitleBar()
     private let contentView: UIStackView = {
         let stackView = UIStackView(frame: .zero)
         stackView.axis = .vertical
@@ -40,6 +40,7 @@ class AndesBottomSheetContentViewController: UIViewController {
         setupContentView()
         setupContent()
         setupCornerRadius()
+        setupTitle()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -60,13 +61,17 @@ class AndesBottomSheetContentViewController: UIViewController {
 
     private func setupContent() {
         contentView.addArrangedSubview(grabView)
-        //contentView.addArrangedSubview(titleBar)
+        contentView.addArrangedSubview(titleBar)
 
         viewController.willMove(toParent: self)
         addChild(viewController)
         viewController.view.translatesAutoresizingMaskIntoConstraints = false
         contentView.addArrangedSubview(viewController.view)
         viewController.didMove(toParent: self)
+    }
+
+    private func setupTitle() {
+
     }
 
     private func calculatePreferredContentSize() {

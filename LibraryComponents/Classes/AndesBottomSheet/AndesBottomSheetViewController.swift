@@ -20,7 +20,8 @@ public protocol AndesBottomSheetViewControllerDelegate: class {
     func sheetViewController(_ sheetViewController: AndesBottomSheetViewController, heightDidChange height: CGFloat)
 }
 
-@objc open class AndesBottomSheetViewController: UIViewController {
+@objc
+open class AndesBottomSheetViewController: UIViewController {
 
     public var rootViewController: UIViewController {
         get {
@@ -35,6 +36,12 @@ public protocol AndesBottomSheetViewControllerDelegate: class {
     }
 
     public weak var delegate: AndesBottomSheetViewControllerDelegate?
+
+    public var titleBar: AndesBottomSheetTitleBar {
+        get {
+            contentController.titleBar
+        }
+    }
 
     private(set) var dimmerView: UIView = UIView()
 

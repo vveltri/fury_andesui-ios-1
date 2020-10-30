@@ -12,7 +12,6 @@ class BottomSheetSwiftExampleViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Bottom Sheet"
         view.backgroundColor = .white
 
         let button = AndesButton(text: "Open Sheet", hierarchy: .loud, size: .large)

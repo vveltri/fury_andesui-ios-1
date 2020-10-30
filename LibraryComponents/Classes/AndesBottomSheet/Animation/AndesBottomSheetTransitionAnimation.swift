@@ -64,7 +64,7 @@ class AndesBottomSheetDismissingTransitionAnimation: NSObject, UIViewControllerA
 
         UIView.animate(withDuration: AndesBottomSheetDismissingTransitionAnimation.duration,
                        delay: 0.0,
-                       options: [.curveEaseOut],
+                       options: [.curveEaseIn],
                        animations: {
             fromViewController.dimmerView.alpha = 0.0
             contentView.transform = CGAffineTransform(translationX: 0, y: contentView.bounds.height)
