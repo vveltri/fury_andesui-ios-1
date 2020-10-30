@@ -25,12 +25,12 @@ class AndesUIAppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: AndesStyleSheetManager.styleSheet.bgColorWhite]
 
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        let viewController = UIViewController()
+        let viewController = BottomSheetSwiftExampleViewController()
         let navController = UINavigationController(rootViewController: viewController)
         window?.rootViewController = navController
         window?.makeKeyAndVisible()
 
-        homeRouter.route(from: viewController)
+        //homeRouter.route(from: viewController)
 
         // Disable dark mode.
         if #available(iOS 13.0, *) {
