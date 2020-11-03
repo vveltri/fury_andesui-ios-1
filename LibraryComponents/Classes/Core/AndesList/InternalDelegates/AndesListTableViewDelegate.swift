@@ -23,7 +23,9 @@ internal class AndesListTableViewDelegate: NSObject, UITableViewDelegate {
 
     internal func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if tableView.numberOfRows(inSection: indexPath.section) - 1 <= indexPath.row {
-            let cell = cell as! AndesListCell
+            guard let cell = cell as? AndesListCell else {
+                fatalError("The dequeued cell is not an instance of AndesListSimpleViewCell.")
+            }
             cell.setupSeparatorStyle(separatorStyle: .none)
         }
     }
