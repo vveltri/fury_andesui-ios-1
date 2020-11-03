@@ -172,6 +172,15 @@ extension AndesTextField {
             contentView.customInputView = newValue
         }
     }
+
+    @objc override public var inputAccessoryView: UIView? {
+        get {
+            return contentView.customInputAccessoryView
+        }
+        set {
+            contentView.customInputAccessoryView = newValue
+        }
+    }
 }
 
 extension AndesTextField: AndesTextFieldViewDelegate {
