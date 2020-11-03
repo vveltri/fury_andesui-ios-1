@@ -32,6 +32,17 @@ class AndesTextFieldDefaultView: AndesTextFieldAbstractView {
         }
     }
 
+    private var accessoryView: UIView?
+    override var customInputAccessoryView: UIView? {
+        get {
+            return accessoryView
+        }
+        set (value) {
+            accessoryView = value
+            textField.inputAccessoryView = value
+        }
+    }
+
     var currentVisibilities: [AndesTextFieldComponentVisibility] {
         return self.text.isEmpty ? [.always] : [.always, .whenNotEmpty]
     }
