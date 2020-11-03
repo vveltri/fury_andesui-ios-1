@@ -14,8 +14,6 @@ class AndesListTests: QuickSpec {
 
     var titleArray: [String]?
     var internalAndesList: AndesList?
-    weak var myDelegate: AndesListTableViewDelegate?
-    var myDataSource: AndesListTableViewDataSource?
     var cellType: AndesCellType?
     var thumbnailType: AndesThumbnailType?
     var didSelected: Bool = false
@@ -142,14 +140,15 @@ class AndesListTests: QuickSpec {
 
         describe("AndesList should draw it's view based on style and size") {
             context("AndesList Implementation self delegate") {
+                var myDelegate: AndesListTableViewDelegate?
+                var myDataSource: AndesListTableViewDataSource?
 
                 beforeEach {
+                    myDelegate = AndesListTableViewDelegate(listProtocol: self)
+                    myDataSource = AndesListTableViewDataSource(listProtocol: self)
                     self.internalAndesList = AndesList(type: "simple")
                     self.internalAndesList?.dataSource = self
                     self.internalAndesList?.delegate = self
-
-                    self.myDelegate = AndesListTableViewDelegate(listProtocol: self)
-                    self.myDataSource = AndesListTableViewDataSource(listProtocol: self)
 
                     self.titleArray = ["Title 1", "Title 2"]
                     self.internalAndesList?.numberOfRows = self.titleArray?.count ?? 0
@@ -159,18 +158,18 @@ class AndesListTests: QuickSpec {
 
                 it("Check numberOfRowsInSection dataSource in TableView") {
                     // Then
-                    expect(self.myDataSource?.tableView(UITableView(), numberOfRowsInSection: 2)) == self.titleArray?.count
+                    expect(myDataSource?.tableView(UITableView(), numberOfRowsInSection: 2)) == self.titleArray?.count
                 }
 
                 it("Check numberOfSections dataSource in TableView") {
                     //Then
-                    expect(self.myDataSource?.numberOfSections(in: UITableView())) == 1
+                    expect(myDataSource?.numberOfSections(in: UITableView())) == 1
                 }
 
                 it("Check didSelectRowAt delegate in TableView") {
 
                     //When
-                    self.myDelegate?.tableView(UITableView(), didSelectRowAt: IndexPath(row: 1, section: 0))
+                    myDelegate?.tableView(UITableView(), didSelectRowAt: IndexPath(row: 1, section: 0))
 
                     //Then
                     expect(self.didSelected).to(beTrue())
@@ -182,14 +181,14 @@ class AndesListTests: QuickSpec {
                     self.cellType = .simple
                     self.thumbnailType = .icon
                     let table = UITableView()
-                    table.dataSource = self.myDataSource
-                    table.delegate = self.myDelegate
+                    table.dataSource = myDataSource
+                    table.delegate = myDelegate
                     table.register(UINib(nibName: "AndesListSimpleViewCell",
                                          bundle: AndesBundle.bundle()),
                                    forCellReuseIdentifier: "AndesListSimpleViewCell")
 
                     //When
-                    let cell = self.myDataSource?.tableView(table, cellForRowAt: IndexPath(row: 1, section: 0))
+                    let cell = myDataSource?.tableView(table, cellForRowAt: IndexPath(row: 1, section: 0))
 
                     //Then
                     expect(cell).to(beAKindOf(AndesListCell.self))
@@ -201,14 +200,14 @@ class AndesListTests: QuickSpec {
                     self.cellType = .chevron
                     self.thumbnailType = .icon
                     let table = UITableView()
-                    table.dataSource = self.myDataSource
-                    table.delegate = self.myDelegate
+                    table.dataSource = myDataSource
+                    table.delegate = myDelegate
                     table.register(UINib(nibName: "AndesListCevronViewCell",
                                          bundle: AndesBundle.bundle()),
                                    forCellReuseIdentifier: "AndesListCevronViewCell")
 
                     //When
-                    let cell = self.myDataSource?.tableView(table, cellForRowAt: IndexPath(row: 1, section: 0))
+                    let cell = myDataSource?.tableView(table, cellForRowAt: IndexPath(row: 1, section: 0))
 
                     //Then
                     expect(cell).to(beAKindOf(AndesListCell.self))
@@ -219,14 +218,14 @@ class AndesListTests: QuickSpec {
                     self.cellType = .simple
                     self.thumbnailType = .imageCircle
                     let table = UITableView()
-                    table.dataSource = self.myDataSource
-                    table.delegate = self.myDelegate
+                    table.dataSource = myDataSource
+                    table.delegate = myDelegate
                     table.register(UINib(nibName: "AndesListSimpleViewCell",
                                          bundle: AndesBundle.bundle()),
                                    forCellReuseIdentifier: "AndesListSimpleViewCell")
 
                     //When
-                    let cell = self.myDataSource?.tableView(table, cellForRowAt: IndexPath(row: 1, section: 0))
+                    let cell = myDataSource?.tableView(table, cellForRowAt: IndexPath(row: 1, section: 0))
 
                     //Then
                     expect(cell).to(beAKindOf(AndesListCell.self))
@@ -238,14 +237,14 @@ class AndesListTests: QuickSpec {
                     self.cellType = .chevron
                     self.thumbnailType = .imageCircle
                     let table = UITableView()
-                    table.dataSource = self.myDataSource
-                    table.delegate = self.myDelegate
+                    table.dataSource = myDataSource
+                    table.delegate = myDelegate
                     table.register(UINib(nibName: "AndesListCevronViewCell",
                                          bundle: AndesBundle.bundle()),
                                    forCellReuseIdentifier: "AndesListCevronViewCell")
 
                     //When
-                    let cell = self.myDataSource?.tableView(table, cellForRowAt: IndexPath(row: 1, section: 0))
+                    let cell = myDataSource?.tableView(table, cellForRowAt: IndexPath(row: 1, section: 0))
 
                     //Then
                     expect(cell).to(beAKindOf(AndesListCell.self))
@@ -284,9 +283,6 @@ class AndesListTests: QuickSpec {
                     self.internalAndesList = AndesList(type: "simple")
                     self.internalAndesList?.dataSource = self
                     self.internalAndesList?.delegate = self
-
-                    self.myDelegate = AndesListTableViewDelegate(listProtocol: self.internalAndesList!)
-                    self.myDataSource = AndesListTableViewDataSource(listProtocol: self.internalAndesList!)
 
                     self.titleArray = ["Title 1", "Title 2"]
                     self.internalAndesList?.numberOfRows = self.titleArray?.count ?? 0
