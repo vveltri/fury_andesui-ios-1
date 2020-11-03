@@ -16,27 +16,31 @@ private enum Constants {
     static let sizes: [AndesBottomSheetSize] = [.min(.intrinsic, .percent(0.66)), .percent(0.9)]
 }
 
+@objc
 public protocol AndesBottomSheetViewControllerDelegate: class {
-    func sheetViewController(_ sheetViewController: AndesBottomSheetViewController, heightDidChange height: CGFloat)
+    @objc func sheetViewController(_ sheetViewController: AndesBottomSheetViewController, heightDidChange height: CGFloat)
 }
 
-@objc
 open class AndesBottomSheetViewController: UIViewController {
 
+    @objc
     public var rootViewController: UIViewController {
         get {
             return contentController.viewController
         }
     }
 
+    @objc
     public var scrollView: UIScrollView? {
         didSet {
             scrollView?.panGestureRecognizer.require(toFail: panGestureRecognizer)
         }
     }
 
+    @objc
     public weak var delegate: AndesBottomSheetViewControllerDelegate?
 
+    @objc
     public var titleBar: AndesBottomSheetTitleBar {
         get {
             contentController.titleBar
@@ -54,6 +58,7 @@ open class AndesBottomSheetViewController: UIViewController {
     private let sizeManager: AndesBottomSheetSizeManager!
     private var heightConstraintManager: AndesBottomSheetHeightConstraintManager!
 
+    @objc
     public init(rootViewController: UIViewController) {
         self.contentController = AndesBottomSheetContentViewController(viewController: rootViewController)
         self.sizeManager = AndesBottomSheetSizeManager(sizes: Constants.sizes)

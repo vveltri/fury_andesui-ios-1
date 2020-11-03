@@ -17,6 +17,7 @@ private enum Constants {
 @objc
 public class AndesBottomSheetTitleBar: UIView {
 
+    @objc
     public var text: String? {
         get {
             return textLabel.text
@@ -26,6 +27,7 @@ public class AndesBottomSheetTitleBar: UIView {
         }
     }
 
+    @objc
     public var textAlignment: NSTextAlignment {
         get {
             return textLabel.textAlignment
@@ -43,6 +45,7 @@ public class AndesBottomSheetTitleBar: UIView {
         return textLabel
     }()
 
+    @objc
     init() {
         super.init(frame: .zero)
         setup()
@@ -52,7 +55,7 @@ public class AndesBottomSheetTitleBar: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func setup() {
+    private func setup() {
         backgroundColor = Constants.backgroundColor
         textLabel.translatesAutoresizingMaskIntoConstraints = false
         addSubview(textLabel)

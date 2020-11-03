@@ -29,6 +29,8 @@ class BottomSheetSwiftExampleViewController: UIViewController {
     @objc
     private func openSheet() {
         let sheet = AndesBottomSheetViewController(rootViewController: BottomSheetExampleContentViewController())
+        sheet.titleBar.text = "Elige una categoría"
+        sheet.titleBar.textAlignment = .center
         present(sheet, animated: true)
     }
 }

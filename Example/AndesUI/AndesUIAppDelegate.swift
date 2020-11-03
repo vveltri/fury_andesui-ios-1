@@ -25,7 +25,7 @@ class AndesUIAppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: AndesStyleSheetManager.styleSheet.bgColorWhite]
 
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        let viewController = BottomSheetSwiftExampleViewController()
+        let viewController = BottomSheetObjectiveCExampleViewController()
         let navController = UINavigationController(rootViewController: viewController)
         window?.rootViewController = navController
         window?.makeKeyAndVisible()

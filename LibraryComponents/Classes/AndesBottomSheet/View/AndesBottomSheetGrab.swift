@@ -27,7 +27,7 @@ class AndesBottomSheetGrab: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func setup() {
+    private func setup() {
         backgroundColor = Constants.backgroundColor
 
         let grab = UIView()
