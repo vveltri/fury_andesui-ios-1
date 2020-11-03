@@ -15,4 +15,5 @@
 #import "CardObjCViewController.h"
 #import "ThumbnailObjCViewController.h"
 #import "CoachmarkObjCViewController.h"
+#import "TextFieldsCodeObjCViewController.h"
 #import "ListObjcViewController.h"

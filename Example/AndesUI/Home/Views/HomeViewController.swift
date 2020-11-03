@@ -125,6 +125,10 @@ class HomeViewController: UIViewController {
     @IBAction func goToListViewTapped(_ sender: Any) {
         presenter.presentListView()
     }
+
+    @IBAction func goToTextFieldsCodeTapped(_ sender: Any) {
+        presenter.presentTextFieldsCode()
+    }
 }
 
 extension HomeViewController: HomeView {

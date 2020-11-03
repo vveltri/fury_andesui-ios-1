@@ -45,4 +45,8 @@ import Foundation
     /// - Parameter textField: the textfield that's triggering the event
     @objc optional func andesTextFieldShouldReturn(_ textField: AndesTextField) -> Bool
 
+    /// Asks the delegate if the deleteBackward key was pressed.
+    /// - Parameter textField: the textfield that's triggering the event
+    /// - Parameter wasEmpty: notifies if the textField text was empty before deleteBackward key was pressed.
+    @objc optional func andesTextField(_ textField: AndesTextField, didDeleteBackwardAnd wasEmpty: Bool)
 }
