@@ -13,7 +13,7 @@ import UIKit
 
 private enum Constants {
     static let backgroundColor: UIColor = UIColor.Andes.gray800
-    static let sizes: [AndesBottomSheetSize] = [.min(.intrinsic, .percent(0.66)), .percent(0.9)]
+    static let sizes: [AndesBottomSheetSize] = [.min(.intrinsic, .percent(0.66)), .min(.intrinsic, .percent(0.9))]
 }
 
 @objc
@@ -33,7 +33,8 @@ open class AndesBottomSheetViewController: UIViewController {
     @objc
     public var scrollView: UIScrollView? {
         didSet {
-            scrollView?.panGestureRecognizer.require(toFail: panGestureRecognizer)
+            contentController.scrollView = scrollView
+            setupScrollView()
         }
     }
 
@@ -81,6 +82,7 @@ open class AndesBottomSheetViewController: UIViewController {
         setupPanGestureRecognizer()
         setupTapGestureRecognizer()
         setupPanEffects()
+        setupScrollView()
     }
 
     open override func viewDidLayoutSubviews() {
@@ -148,6 +150,10 @@ open class AndesBottomSheetViewController: UIViewController {
         panEffects.append(VelocityDismissPanEffect(contentController: contentController, presentingController: presentingViewController, sizeManager: sizeManager))
         panEffects.append(StretchingPanEffect(sizeManager: sizeManager, heightManager: heightConstraintManager))
         panEffects.append(PullDownPanEffect(contentController: contentController, presentingController: presentingViewController, dimmerView: dimmerView, sizeManager: sizeManager, heightManager: heightConstraintManager))
+    }
+
+    private func setupScrollView() {
+        scrollView?.panGestureRecognizer.require(toFail: panGestureRecognizer)
     }
 
     @objc

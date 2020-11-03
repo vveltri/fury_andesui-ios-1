@@ -16,6 +16,8 @@ class AndesBottomSheetContentViewController: UIViewController {
     private(set) var viewController: UIViewController
     private(set) var titleBar = AndesBottomSheetTitleBar()
 
+    var scrollView: UIScrollView?
+
     private let grabView = AndesBottomSheetGrab()
     private let contentView: UIStackView = {
         let stackView = UIStackView(frame: .zero)
@@ -41,6 +43,7 @@ class AndesBottomSheetContentViewController: UIViewController {
         setupContent()
         setupCornerRadius()
         setupTitle()
+        setupScrollView()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -72,6 +75,16 @@ class AndesBottomSheetContentViewController: UIViewController {
 
     private func setupTitle() {
 
+    }
+
+    private func setupScrollView() {
+        // Attempt to find scrollview in view or first level subviews
+        if let scrollView = viewController.view as? UIScrollView {
+            self.scrollView = scrollView
+        } else {
+            self.scrollView = viewController.view.subviews
+                .first(where: { $0 is UIScrollView }) as? UIScrollView
+        }
     }
 
     private func calculatePreferredContentSize() {
