@@ -34,8 +34,8 @@ struct AndesListCellMediumType: AndesListCellTypeProtocol {
     var paddingTopChevron: CGFloat? = 20
     var separatorChevronWidth: CGFloat? = 12
 
-    init(withDescription hasDescription: Bool, thumbnail: AndesThumbnail? = nil) {
-        if hasDescription {
+    init(subTitleIsEmpty: Bool, thumbnail: AndesThumbnail? = nil) {
+        if !subTitleIsEmpty {
             height = 68
             paddingBottom = 18
             descriptionHeight = 9
@@ -52,9 +52,9 @@ struct AndesListCellMediumType: AndesListCellTypeProtocol {
                 height = 68
                 thumbnailSize = 40
                 separatorThumbnailWidth = 16
-                paddingTopThumbnail = hasDescription ? 18 : 14
+                paddingTopThumbnail = subTitleIsEmpty ? 18 : 14
                 paddingBottomThumbnail = 14
-                paddingTopChevron = hasDescription ? 30 : 26
+                paddingTopChevron = subTitleIsEmpty ? 30 : 26
                 paddingBottomChevron = 26
             }
         }

@@ -9,15 +9,15 @@ import Foundation
 
 class AndesListCellTypeFactory {
     static func provide(withSize size: AndesListSize,
-                        subTitle: Bool, thumbnail: AndesThumbnail? = nil) -> AndesListCellTypeProtocol {
+                        subTitleIsEmpty: Bool, thumbnail: AndesThumbnail? = nil) -> AndesListCellTypeProtocol {
 
         switch size {
         case .large:
-            return AndesListCellLargeType(withDescription: subTitle, thumbnail: thumbnail)
+            return AndesListCellLargeType(subTitleIsEmpty: subTitleIsEmpty, thumbnail: thumbnail)
         case .small:
             return AndesListCellSmallType(withThumbnail: thumbnail)
         case .medium:
-            return AndesListCellMediumType(withDescription: subTitle, thumbnail: thumbnail)
+            return AndesListCellMediumType(subTitleIsEmpty: subTitleIsEmpty, thumbnail: thumbnail)
         }
     }
 }

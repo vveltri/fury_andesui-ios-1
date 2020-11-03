@@ -34,8 +34,8 @@ struct AndesListCellLargeType: AndesListCellTypeProtocol {
     var paddingTopChevron: CGFloat? = 26
     var separatorChevronWidth: CGFloat? = 12
 
-    init(withDescription hasDescription: Bool, thumbnail: AndesThumbnail? = nil) {
-        if hasDescription {
+    init(subTitleIsEmpty: Bool, thumbnail: AndesThumbnail? = nil) {
+        if !subTitleIsEmpty {
             height = 96
             paddingBottom = 29
             descriptionHeight = 10

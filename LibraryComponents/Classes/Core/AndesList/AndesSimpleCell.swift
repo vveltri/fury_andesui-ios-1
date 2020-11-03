@@ -22,7 +22,9 @@ public class AndesSimpleCell: AndesListCell {
     }
 
     private func cellConfig(withTitle title: String, size: AndesListSize, subTitle: String, thumbnail: AndesThumbnail? = nil) {
-        let config = AndesListCellTypeFactory.provide(withSize: size, subTitle: !subTitle.isEmpty, thumbnail: thumbnail)
+        let config = AndesListCellTypeFactory.provide(withSize: size,
+                                                      subTitleIsEmpty: subTitle.isEmpty,
+                                                      thumbnail: thumbnail)
         self.type = .simple
         self.title = title
         self.subTitle = subTitle
