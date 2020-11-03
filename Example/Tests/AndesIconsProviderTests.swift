@@ -46,7 +46,6 @@ class AndesIconsProviderTests: QuickSpec {
                    //Given
                    let strategy = IconsStrategyTest()
                    let imageView = UIImageView()
-                    
 
                    //When
                    AndesIconsProvider.strategy = strategy
@@ -54,7 +53,7 @@ class AndesIconsProviderTests: QuickSpec {
                    //Then
                    expect(imageView.image).toEventuallyNot(beNil())
                 }
-            
+
                 it("search for icon and place into uiview with failure ") {
                    //Given
                    let strategy = IconsStrategyTest()
@@ -69,7 +68,7 @@ class AndesIconsProviderTests: QuickSpec {
                    //Then
                    expect(failureCalled).toEventually(beTrue())
                 }
-            
+
                 it("search for icon and there's a failure ") {
                 //Given
                 let strategy = IconsStrategyTest()

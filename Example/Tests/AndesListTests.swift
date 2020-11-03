@@ -15,7 +15,7 @@ class AndesListTests: QuickSpec {
     var titleArray: [String]?
     var internalAndesList: AndesList?
     var myDataSource: AndesListTableViewDataSource?
-    var myDelegate: AndesListTableViewDelegate?
+    weak var myDelegate: AndesListTableViewDelegate?
     var cellType: AndesCellType?
     var thumbnailType: AndesThumbnailType?
     var didSelected: Bool = false

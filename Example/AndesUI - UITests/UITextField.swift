@@ -8,7 +8,7 @@
 
 import XCTest
 class AndesUI_UITestsTextField: XCTestCase {
-    
+
     let app = XCUIApplication()
 
     override func setUp() {
@@ -21,7 +21,7 @@ class AndesUI_UITestsTextField: XCTestCase {
     override func tearDown() {
         super.tearDown()
     }
-    
+
     func testFieldScreen() {
         app.buttons["andesTextField"].tap()
         app.swipeLeft()
