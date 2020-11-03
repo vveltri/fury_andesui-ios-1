@@ -28,11 +28,15 @@ internal class AndesListTableViewDataSource: NSObject, UITableViewDataSource {
         let customCell = listProtocol.cellForRowAt(indexPath: indexPath)
         switch customCell.type {
         case .simple:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "AndesListSimpleViewCell") as! AndesListSimpleViewCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "AndesListSimpleViewCell", for: indexPath) as? AndesListSimpleViewCell else {
+                fatalError("The dequeued cell is not an instance of AndesListSimpleViewCell.")
+            }
             cell.display(indexPath: indexPath, customCell: customCell, separatorStyle: listProtocol.getSeparatorStyle())
             return cell
         case .chevron:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "AndesListCevronViewCell") as! AndesListCevronViewCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "AndesListCevronViewCell", for: indexPath) as? AndesListCevronViewCell else {
+                fatalError("The dequeued cell is not an instance of AndesListCevronViewCell.")
+            }
             cell.display(indexPath: indexPath, customCell: customCell, separatorStyle: listProtocol.getSeparatorStyle())
             return cell
         default:
