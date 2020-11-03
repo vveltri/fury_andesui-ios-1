@@ -54,8 +54,6 @@ extension ListViewController: AndesListDataSource {
                                              subTitle: "Descripción--Descripción--Descripción--Descripción",
                                              thumbnail: thumbnail)
 
-        AndesChevronCell()
-
         return simpleCell
     }
 }
