@@ -21,7 +21,7 @@
     [super viewDidLoad];
     [[self view] setBackgroundColor:[UIColor whiteColor]];
     
-    AndesButton* button = [[AndesButton alloc] initWithText:@"Open sheet"
+    AndesButton* button = [[AndesButton alloc] initWithText:@"Open Andes Button Demo"
                                                   hierarchy:AndesButtonHierarchyLoud
                                                        size:AndesButtonSizeLarge
                                                        icon:nil];
@@ -34,29 +34,11 @@
         [[button leftAnchor] constraintEqualToAnchor:[[self view] leftAnchor] constant:16],
         [[button rightAnchor] constraintEqualToAnchor:[[self view] rightAnchor] constant:-16]
     ]];
-    
-    AndesButton* scrollable = [[AndesButton alloc] initWithText:@"Open scrollable sheet"
-                                                  hierarchy:AndesButtonHierarchyLoud
-                                                       size:AndesButtonSizeLarge
-                                                       icon:nil];
-    [scrollable setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [scrollable addTarget:self action:@selector(openScrollableSheet) forControlEvents:UIControlEventTouchUpInside];
-    [[self view] addSubview:scrollable];
-    
-    [NSLayoutConstraint activateConstraints:@[
-        [[scrollable topAnchor] constraintEqualToAnchor:[button bottomAnchor] constant:16],
-        [[scrollable leftAnchor] constraintEqualToAnchor:[[self view] leftAnchor] constant:16],
-        [[scrollable rightAnchor] constraintEqualToAnchor:[[self view] rightAnchor] constant:-16]
-    ]];
 }
 
 - (void)openSheet {
-
-}
-
-- (void)openScrollableSheet {
-    AndesBottomSheetViewController* sheet = [[AndesBottomSheetViewController alloc] initWithRootViewController: [BottomSheetExampleScrollableContentViewController new]];
-    [[sheet titleBar] setText:@"Rainbow 🌈"];
+    AndesBottomSheetViewController* sheet = [[AndesBottomSheetViewController alloc] initWithRootViewController: [ButtonsViewController new]];
+    [[sheet titleBar] setText:@"Andes Button Demo"];
     [[sheet titleBar] setTextAlignment:NSTextAlignmentLeft];
     [self presentViewController:sheet animated:YES completion:nil];
 }

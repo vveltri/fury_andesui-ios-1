@@ -69,7 +69,7 @@ class BottomSheetSwiftExampleViewController: UIViewController {
 
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Enable title"
+        label.text = "Show title"
         label.textColor = UIColor.Andes.gray800
         label.font = AndesStyleSheetManager.styleSheet.semiboldSystemFontOfSize(size: AndesFontSize.bodyM)
 
