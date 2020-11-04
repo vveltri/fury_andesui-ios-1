@@ -146,7 +146,7 @@ open class AndesBottomSheetViewController: UIViewController {
 
     private func setupTapGestureRecognizer() {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapped(_:)))
-        view.addGestureRecognizer(tapGestureRecognizer)
+        dimmerView.addGestureRecognizer(tapGestureRecognizer)
     }
 
     private func setupPanEffects() {
