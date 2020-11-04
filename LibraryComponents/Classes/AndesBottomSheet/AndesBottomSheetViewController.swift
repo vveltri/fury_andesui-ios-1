@@ -1,13 +1,11 @@
 //
 //  
-//  AndesBottomSheet.swift
+//  AndesBottomSheetViewController.swift
 //  AndesUI
 //
 //  Created by Tomi De Lucca on 29/10/2020.
 //
 //
-
-import Foundation
 
 import UIKit
 
@@ -32,7 +30,6 @@ public protocol AndesBottomSheetViewControllerDelegate: class {
 }
 
 open class AndesBottomSheetViewController: UIViewController {
-
     @objc
     public var rootViewController: UIViewController {
         get {
@@ -88,7 +85,6 @@ open class AndesBottomSheetViewController: UIViewController {
 
     open override func viewDidLoad() {
         super.viewDidLoad()
-
         setupView()
         setupOverlayView()
         setupContentViewController()
@@ -124,12 +120,7 @@ open class AndesBottomSheetViewController: UIViewController {
         dimmerView.backgroundColor = Constants.backgroundColor
         view.addSubview(dimmerView)
         dimmerView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            dimmerView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            dimmerView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            dimmerView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            dimmerView.topAnchor.constraint(equalTo: view.topAnchor)
-        ])
+        dimmerView.pinToSuperview()
     }
 
     private func setupContentViewController() {
@@ -139,8 +130,8 @@ open class AndesBottomSheetViewController: UIViewController {
         heightConstraintManager = AndesBottomSheetHeightConstraintManager(constraint: contentController.view.heightAnchor.constraint(equalToConstant: sizeManager.currentDimension),
                                                                           delegate: self)
         NSLayoutConstraint.activate([
-            contentController.view.leftAnchor.constraint(equalTo: view.leftAnchor),
-            contentController.view.rightAnchor.constraint(equalTo: view.rightAnchor),
+            contentController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            contentController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             contentController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             contentController.view.topAnchor.constraint(greaterThanOrEqualTo: view.topAnchor)
         ])

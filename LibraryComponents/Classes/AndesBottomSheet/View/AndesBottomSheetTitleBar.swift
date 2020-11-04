@@ -16,7 +16,6 @@ private enum Constants {
 
 @objc
 public class AndesBottomSheetTitleBar: UIView {
-
     @objc
     public var text: String? {
         get {
@@ -70,9 +69,9 @@ public class AndesBottomSheetTitleBar: UIView {
         bottomConstraint.priority = .defaultHigh
         NSLayoutConstraint.activate([
             textLabel.topAnchor.constraint(equalTo: topAnchor, constant: Constants.insets.top),
-            textLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: Constants.insets.left),
+            textLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constants.insets.left),
             bottomConstraint,
-            textLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -Constants.insets.right)
+            textLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Constants.insets.right)
         ])
         textLabel.setContentHuggingPriority(.required, for: .vertical)
     }

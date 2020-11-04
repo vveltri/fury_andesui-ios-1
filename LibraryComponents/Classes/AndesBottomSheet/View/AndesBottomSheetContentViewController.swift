@@ -12,7 +12,6 @@ private enum Constants {
 }
 
 class AndesBottomSheetContentViewController: UIViewController {
-
     private(set) var viewController: UIViewController
     private(set) var titleBar = AndesBottomSheetTitleBar()
 
@@ -50,7 +49,6 @@ class AndesBottomSheetContentViewController: UIViewController {
         setupContentView()
         setupContent()
         setupCornerRadius()
-        setupTitle()
         setupScrollView()
     }
 
@@ -83,10 +81,6 @@ class AndesBottomSheetContentViewController: UIViewController {
         viewController.didMove(toParent: self)
 
         viewController.view.layoutIfNeeded()
-    }
-
-    private func setupTitle() {
-
     }
 
     private func setupScrollView() {
