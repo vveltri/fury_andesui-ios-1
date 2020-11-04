@@ -2,6 +2,9 @@
 ### 🚀 Features
 - Xcode 12 compatibility
 
+### 🛠 Bug fixes
+- AndesCheckbox tappable area extended  | Authors: [@ggiovanniniml](https://github.com/ggiovanniniml)
+
 # v3.12.0
 ### 🚀 Features
 - New component AndesTextFieldCode | Authors: [@eboffa](https://github.com/eboffa)
