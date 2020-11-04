@@ -26,7 +26,7 @@ private enum Size: Int {
 }
 
 private struct Configuration {
-    var titleEnabled: Bool = false
+    var titleEnabled: Bool = true
     var size: Size = .medium
 }
 

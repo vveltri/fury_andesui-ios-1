@@ -11,9 +11,6 @@ import UIKit
 
 private enum Constants {
     static let backgroundColor: UIColor = UIColor.Andes.gray800
-    static let sizes: [AndesBottomSheetSize] = [.min(.intrinsic, .percent(0.60)),
-                                                .min(.intrinsic, .fixedFromTop(Constants.marginFromTop))]
-
     static var marginFromTop: CGFloat {
         get {
             if #available(iOS 11.0, *) {
@@ -22,6 +19,8 @@ private enum Constants {
             return UIApplication.shared.statusBarFrame.height
         }
     }
+    static let sizes: [AndesBottomSheetSize] = [.min(.intrinsic, .percent(0.60)),
+                                                .min(.intrinsic, .fixedFromTop(Constants.marginFromTop))]
 }
 
 @objc

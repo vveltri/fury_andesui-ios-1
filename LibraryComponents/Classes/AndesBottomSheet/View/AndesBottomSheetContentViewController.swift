@@ -9,6 +9,8 @@ import UIKit
 
 private enum Constants {
     static let cornerRadius: CGFloat = 6.0
+    static let headerGradientHeight: CGFloat = 6.0
+    static let headerGradientMaxOffset: CGFloat = 10.0
 }
 
 class AndesBottomSheetContentViewController: UIViewController {
@@ -26,7 +28,7 @@ class AndesBottomSheetContentViewController: UIViewController {
         return stackView
     }()
 
-    private let headerGradientView = AndesBottomSheetTitleBarGradient(maxOffset: 10.0)
+    private let headerGradientView = AndesBottomSheetTitleBarGradient(maxOffset: Constants.headerGradientMaxOffset)
 
     private let contentView: UIStackView = {
         let stackView = UIStackView(frame: .zero)
@@ -99,7 +101,7 @@ class AndesBottomSheetContentViewController: UIViewController {
             headerGradientView.topAnchor.constraint(equalTo: headerContentView.bottomAnchor),
             headerGradientView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
             headerGradientView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
-            headerGradientView.heightAnchor.constraint(equalToConstant: 6.0)
+            headerGradientView.heightAnchor.constraint(equalToConstant: Constants.headerGradientHeight)
         ])
         if let scrollView = scrollView {
             scrollViewContentOffsetObservation = scrollView.observe(\.contentOffset,
