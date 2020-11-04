@@ -23,11 +23,6 @@ private enum Constants {
                                                 .min(.intrinsic, .fixedFromTop(Constants.marginFromTop))]
 }
 
-@objc
-public protocol AndesBottomSheetViewControllerDelegate: class {
-    @objc func sheetViewController(_ sheetViewController: AndesBottomSheetViewController, heightDidChange height: CGFloat)
-}
-
 open class AndesBottomSheetViewController: UIViewController {
     @objc
     public var rootViewController: UIViewController {

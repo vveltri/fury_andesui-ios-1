@@ -188,9 +188,3 @@ class ResizePanEffect: PanEffect {
         previousTranslation = translation.y
     }
 }
-
-private extension CGFloat {
-    func sign() -> CGFloat {
-        return self > 0 ? 1.0 : -1.0
-    }
-}
