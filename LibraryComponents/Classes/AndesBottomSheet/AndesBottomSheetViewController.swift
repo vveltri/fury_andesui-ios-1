@@ -11,7 +11,7 @@ import UIKit
 
 private enum Constants {
     static let backgroundColor: UIColor = UIColor.Andes.gray800
-    static let sizes: [AndesBottomSheetSize] = [.min(.intrinsic, .percent(0.66)),
+    static let sizes: [AndesBottomSheetSize] = [.min(.intrinsic, .percent(0.60)),
                                                 .min(.intrinsic, .fixedFromTop(Constants.marginFromTop))]
 
     static var marginFromTop: CGFloat {

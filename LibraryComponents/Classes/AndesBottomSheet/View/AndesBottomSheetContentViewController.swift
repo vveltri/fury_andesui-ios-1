@@ -26,12 +26,16 @@ class AndesBottomSheetContentViewController: UIViewController {
         return stackView
     }()
 
+    private let headerGradientView = AndesBottomSheetTitleBarGradient(maxOffset: 10.0)
+
     private let contentView: UIStackView = {
         let stackView = UIStackView(frame: .zero)
         stackView.axis = .vertical
         stackView.alignment = .fill
         return stackView
     }()
+
+    private var scrollViewContentOffsetObservation: NSKeyValueObservation?
 
     init(viewController: UIViewController) {
         self.viewController = viewController
@@ -43,6 +47,10 @@ class AndesBottomSheetContentViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    deinit {
+        removeObservers()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -50,6 +58,7 @@ class AndesBottomSheetContentViewController: UIViewController {
         setupContent()
         setupCornerRadius()
         setupScrollView()
+        setupGradient()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -83,6 +92,24 @@ class AndesBottomSheetContentViewController: UIViewController {
         viewController.view.layoutIfNeeded()
     }
 
+    private func setupGradient() {
+        headerGradientView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(headerGradientView)
+        NSLayoutConstraint.activate([
+            headerGradientView.topAnchor.constraint(equalTo: headerContentView.bottomAnchor),
+            headerGradientView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
+            headerGradientView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
+            headerGradientView.heightAnchor.constraint(equalToConstant: 6.0)
+        ])
+        if let scrollView = scrollView {
+            scrollViewContentOffsetObservation = scrollView.observe(\.contentOffset,
+                                                                    options: [.old, .new]) { [weak self] _, _ in
+                guard let self = self else { return }
+                self.updateGradientShadow()
+            }
+        }
+    }
+
     private func setupScrollView() {
         // Attempt to find scrollview in view or first level subviews
         if let scrollView = viewController.view as? UIScrollView {
@@ -109,6 +136,15 @@ class AndesBottomSheetContentViewController: UIViewController {
             return internalScrollView.contentSize
         }
         return viewController.view.bounds.size
+    }
+
+    private func removeObservers() {
+        scrollViewContentOffsetObservation?.invalidate()
+    }
+
+    private func updateGradientShadow() {
+        guard let internalScrollView = scrollView else { return }
+        headerGradientView.update(with: internalScrollView.contentOffset.y)
     }
 
     private func setupCornerRadius() {
