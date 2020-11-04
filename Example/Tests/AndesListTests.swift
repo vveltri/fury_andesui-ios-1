@@ -313,16 +313,16 @@ extension AndesListTests: AndesListDataSource {
         switch cellType {
         case .simple:
             let cell = AndesSimpleCell(withTitle: titleArray?[indexPath.row] ?? "",
-                                                 size: .medium,
-                                                 subTitle: "Descripción -- Descripción -- Descripción -- Descripción")
+                                       size: .medium,
+                                       subTitle: "Descripción -- Descripción -- Descripción -- Descripción")
             return cell
         case .chevron:
             let thumbnail = AndesThumbnail(hierarchy: .defaultHierarchy, type: self.thumbnailType!, size: .size24, state: .enabled, image: UIImage(named: "andes") ?? UIImage(), accentColor: UIColor.clear)
 
             let cell = AndesChevronCell(withTitle: titleArray?[indexPath.row] ?? "",
-                                                  size: .medium,
-                                                  subTitle: "Descripción de la celda",
-                                                  thumbnail: thumbnail)
+                                        size: .medium,
+                                        subTitle: "Descripción de la celda",
+                                        thumbnail: thumbnail)
             return cell
         default:
             return AndesListCell()
