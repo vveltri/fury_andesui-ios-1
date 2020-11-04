@@ -122,7 +122,6 @@
 		E662DEB1254B300900A86D10 /* BottomSheetRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E662DEB0254B300900A86D10 /* BottomSheetRouter.swift */; };
 		E662DEB3254B305100A86D10 /* BottomSheetSwiftExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E662DEB2254B305100A86D10 /* BottomSheetSwiftExampleViewController.swift */; };
 		E662DEB6254B308D00A86D10 /* BottomSheetObjectiveCExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E662DEB5254B308D00A86D10 /* BottomSheetObjectiveCExampleViewController.m */; };
-		E662DECB254B7F8F00A86D10 /* BottomSheetExampleContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E662DECA254B7F8F00A86D10 /* BottomSheetExampleContentViewController.swift */; };
 		E662DECD2551B81100A86D10 /* BottomSheetExampleScrollableContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E662DECC2551B81100A86D10 /* BottomSheetExampleScrollableContentViewController.swift */; };
 		F8249D0524ABC9AD002A6456 /* RadioButtonRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8249D0424ABC9AD002A6456 /* RadioButtonRouter.swift */; };
 		F8249D0824ABCA4E002A6456 /* AndesRadioButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8249D0724ABCA4E002A6456 /* AndesRadioButtonViewController.swift */; };
@@ -304,7 +303,6 @@
 		E662DEB2254B305100A86D10 /* BottomSheetSwiftExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetSwiftExampleViewController.swift; sourceTree = "<group>"; };
 		E662DEB4254B308D00A86D10 /* BottomSheetObjectiveCExampleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BottomSheetObjectiveCExampleViewController.h; sourceTree = "<group>"; };
 		E662DEB5254B308D00A86D10 /* BottomSheetObjectiveCExampleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BottomSheetObjectiveCExampleViewController.m; sourceTree = "<group>"; };
-		E662DECA254B7F8F00A86D10 /* BottomSheetExampleContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetExampleContentViewController.swift; sourceTree = "<group>"; };
 		E662DECC2551B81100A86D10 /* BottomSheetExampleScrollableContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetExampleScrollableContentViewController.swift; sourceTree = "<group>"; };
 		F1687EB5920F308AFA904326 /* Pods-AndesUI-demoapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AndesUI-demoapp.debug.xcconfig"; path = "Target Support Files/Pods-AndesUI-demoapp/Pods-AndesUI-demoapp.debug.xcconfig"; sourceTree = "<group>"; };
 		F8249D0424ABC9AD002A6456 /* RadioButtonRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonRouter.swift; sourceTree = "<group>"; };
@@ -883,7 +881,6 @@
 				E662DEB2254B305100A86D10 /* BottomSheetSwiftExampleViewController.swift */,
 				E662DEB4254B308D00A86D10 /* BottomSheetObjectiveCExampleViewController.h */,
 				E662DEB5254B308D00A86D10 /* BottomSheetObjectiveCExampleViewController.m */,
-				E662DECA254B7F8F00A86D10 /* BottomSheetExampleContentViewController.swift */,
 				E662DECC2551B81100A86D10 /* BottomSheetExampleScrollableContentViewController.swift */,
 			);
 			path = BottomSheet;
@@ -1208,7 +1205,6 @@
 				90530B11242BFD15005E056A /* BadgeViewController.swift in Sources */,
 				9CD1071D23EDF3A90081232D /* UIView+Additions.swift in Sources */,
 				57F34E9E2225DE0900454D8B /* AndesUIAppDelegate.swift in Sources */,
-				E662DECB254B7F8F00A86D10 /* BottomSheetExampleContentViewController.swift in Sources */,
 				E662DEB3254B305100A86D10 /* BottomSheetSwiftExampleViewController.swift in Sources */,
 				F8249D0824ABCA4E002A6456 /* AndesRadioButtonViewController.swift in Sources */,
 				6A3C9CFA23C692B6007D0C8B /* HomeRouter.swift in Sources */,

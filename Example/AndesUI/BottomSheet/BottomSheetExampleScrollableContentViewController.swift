@@ -9,10 +9,29 @@
 import AndesUI
 
 class BottomSheetExampleScrollableContentViewController: UIViewController {
+    private let rainbow = [UIColor(red: 0.873, green: 0.001, blue: 0.000, alpha: 1.00),
+                           UIColor(red: 0.998, green: 0.386, blue: 0.176, alpha: 1.00),
+                           UIColor(red: 0.998, green: 0.968, blue: 0.000, alpha: 1.00),
+                           UIColor(red: 0.002, green: 0.741, blue: 0.004, alpha: 1.00),
+                           UIColor(red: 0.001, green: 0.615, blue: 0.997, alpha: 1.00),
+                           UIColor(red: 0.000, green: 0.000, blue: 0.519, alpha: 1.00),
+                           UIColor(red: 0.247, green: 0.000, blue: 1.000, alpha: 1.00)]
+
+    private let rowHeight: CGFloat
+
+    init(rowHeight: CGFloat) {
+        self.rowHeight = rowHeight
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .black
+        view.backgroundColor = rainbow.last!
 
         let scrollView = buildRainbowView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -35,19 +54,11 @@ class BottomSheetExampleScrollableContentViewController: UIViewController {
         let scrollView = UIScrollView()
         scrollView.addSubview(stackView)
 
-        let rainbow = [UIColor(red: 0.873, green: 0.001, blue: 0.000, alpha: 1.00),
-                                  UIColor(red: 0.998, green: 0.386, blue: 0.176, alpha: 1.00),
-                                  UIColor(red: 0.998, green: 0.968, blue: 0.000, alpha: 1.00),
-                                  UIColor(red: 0.002, green: 0.741, blue: 0.004, alpha: 1.00),
-                                  UIColor(red: 0.001, green: 0.615, blue: 0.997, alpha: 1.00),
-                                  UIColor(red: 0.000, green: 0.000, blue: 0.519, alpha: 1.00),
-                                  UIColor(red: 0.247, green: 0.000, blue: 1.000, alpha: 1.00)]
-
         for color in rainbow {
             let view = UIView()
             view.translatesAutoresizingMaskIntoConstraints = false
             view.backgroundColor = color
-            view.heightAnchor.constraint(equalToConstant: 10).isActive = true
+            view.heightAnchor.constraint(equalToConstant: rowHeight).isActive = true
             stackView.addArrangedSubview(view)
         }
 

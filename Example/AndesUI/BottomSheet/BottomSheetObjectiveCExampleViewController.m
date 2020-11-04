@@ -51,10 +51,7 @@
 }
 
 - (void)openSheet {
-    AndesBottomSheetViewController* sheet = [[AndesBottomSheetViewController alloc] initWithRootViewController: [BottomSheetExampleContentViewController new]];
-    [[sheet titleBar] setText:@"Elige una categoría es un texto muy muy muy largo y quiero ver los puntos"];
-    [[sheet titleBar] setTextAlignment:NSTextAlignmentRight];
-    [self presentViewController:sheet animated:YES completion:nil];
+
 }
 
 - (void)openScrollableSheet {
