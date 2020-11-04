@@ -7,21 +7,12 @@
 
 import Foundation
 
-protocol AndesBottomSheetHeightManager {
-    func getHeight() -> CGFloat
-    func setHeight(_ height: CGFloat)
-}
-
-protocol AndesBottomSheetHeightConstraintManagerDelegate: class {
-    func heightDidChange(_ height: CGFloat)
-}
-
-class AndesBottomSheetHeightConstraintManager: AndesBottomSheetHeightManager {
-    weak var delegate: AndesBottomSheetHeightConstraintManagerDelegate?
+class AndesBottomSheetHeightManager {
+    weak var delegate: AndesBottomSheetHeightManagerDelegate?
 
     private var contentControllerViewHeightConstraint: NSLayoutConstraint
 
-    init(constraint: NSLayoutConstraint, delegate: AndesBottomSheetHeightConstraintManagerDelegate) {
+    init(constraint: NSLayoutConstraint, delegate: AndesBottomSheetHeightManagerDelegate) {
         self.contentControllerViewHeightConstraint = constraint
         self.delegate = delegate
     }

@@ -61,14 +61,19 @@ open class AndesBottomSheetViewController: UIViewController {
     private var panGestureRecognizer: UIPanGestureRecognizer!
 
     private let sizeManager: AndesBottomSheetSizeManager!
-    private var heightConstraintManager: AndesBottomSheetHeightConstraintManager!
+    private var heightConstraintManager: AndesBottomSheetHeightManager!
+
+    private let transitioningConformance = AndesBottomSheetViewControllerTransitioningConformance()
+    private lazy var gestureRecognizerConformance = {
+       return AndesBottomSheetViewControllerGestureRecognizerConformance(sizeManager: sizeManager)
+    }()
 
     @objc
     public init(rootViewController: UIViewController) {
         self.contentController = AndesBottomSheetContentViewController(viewController: rootViewController)
         self.sizeManager = AndesBottomSheetSizeManager(sizes: Constants.sizes)
         super.init(nibName: nil, bundle: nil)
-        self.transitioningDelegate = self
+        self.transitioningDelegate = transitioningConformance
         self.modalPresentationStyle = .overCurrentContext
     }
 
@@ -122,8 +127,8 @@ open class AndesBottomSheetViewController: UIViewController {
         contentController.willMove(toParent: self)
         addChild(contentController)
         view.addSubview(contentController.view)
-        heightConstraintManager = AndesBottomSheetHeightConstraintManager(constraint: contentController.view.heightAnchor.constraint(equalToConstant: sizeManager.currentDimension),
-                                                                          delegate: self)
+        heightConstraintManager = AndesBottomSheetHeightManager(constraint: contentController.view.heightAnchor.constraint(equalToConstant: sizeManager.currentDimension),
+                                                                delegate: self)
         NSLayoutConstraint.activate([
             contentController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             contentController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -135,7 +140,7 @@ open class AndesBottomSheetViewController: UIViewController {
 
     private func setupPanGestureRecognizer() {
         panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panned(_:)))
-        panGestureRecognizer.delegate = self
+        panGestureRecognizer.delegate = gestureRecognizerConformance
         view.addGestureRecognizer(panGestureRecognizer)
     }
 
@@ -152,6 +157,7 @@ open class AndesBottomSheetViewController: UIViewController {
     }
 
     private func setupScrollView() {
+        gestureRecognizerConformance.scrollView = scrollView
         scrollView?.panGestureRecognizer.require(toFail: panGestureRecognizer)
     }
 
@@ -168,42 +174,8 @@ open class AndesBottomSheetViewController: UIViewController {
     }
 }
 
-extension AndesBottomSheetViewController: AndesBottomSheetHeightConstraintManagerDelegate {
+extension AndesBottomSheetViewController: AndesBottomSheetHeightManagerDelegate {
     func heightDidChange(_ height: CGFloat) {
         delegate?.sheetViewController(self, heightDidChange: height)
-    }
-}
-
-extension AndesBottomSheetViewController: UIGestureRecognizerDelegate {
-    open func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        guard let gestureRecognizer = gestureRecognizer as? UIPanGestureRecognizer else { return true }
-        guard let scrollView = self.scrollView, scrollView.window != nil else { return true }
-
-        let point = gestureRecognizer.location(in: view)
-        let pointInChildScrollView = view.convert(point, to: scrollView).y - scrollView.contentOffset.y
-
-        guard pointInChildScrollView > 0, pointInChildScrollView < scrollView.bounds.height else { return true }
-
-        let topInset = scrollView.contentInset.top
-        let velocity = gestureRecognizer.velocity(in: gestureRecognizer.view?.superview)
-
-        guard abs(velocity.y) > abs(velocity.x), scrollView.contentOffset.y <= -topInset else { return false }
-
-        if velocity.y < 0 {
-            let containerHeight = sizeManager.currentDimension
-            return sizeManager.dimension(for: sizeManager.max()) > containerHeight && containerHeight < sizeManager.dimension(for: .percent(1.0))
-        }
-
-        return true
-    }
-}
-
-extension AndesBottomSheetViewController: UIViewControllerTransitioningDelegate {
-    open func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return AndesBottomSheetPresentingTransitionAnimation()
-    }
-
-    open func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return AndesBottomSheetDismissingTransitionAnimation()
     }
 }
