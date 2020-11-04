@@ -53,15 +53,17 @@
                                                              accentColor:[UIColor clearColor]];
     
     AndesSimpleCell *cell = [[AndesSimpleCell alloc]
-                                 initWithTitle:[titleArray objectAtIndex:indexPath.row]
-                                 size:AndesListSizeLarge
-                                 subTitle: @"Descripción de la fila"
-                                 thumbnail: thumbnail];
+                             initWithTitle:[titleArray objectAtIndex:indexPath.row]
+                             size:AndesListSizeLarge
+                             subTitle: @"Descripción de la fila"
+                             thumbnail: thumbnail
+                             numberOfLines: 2];
     
     AndesChevronCell *chevronCell = [[AndesChevronCell alloc]initWithTitle:[titleArray objectAtIndex:indexPath.row]
-                                                                              size:AndesListSizeMedium
-                                                                          subTitle:@"Descripción de la fila"
-                                                                         thumbnail:thumbnail];
+                                                                      size:AndesListSizeMedium
+                                                                  subTitle:@"Descripción de la fila"
+                                                                 thumbnail:thumbnail
+                                                             numberOfLines: 0];
     
     
     return cell;
