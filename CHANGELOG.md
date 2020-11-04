@@ -5,6 +5,8 @@
 
 ### 🛠 Bug fixes
 - Fixes in App Delegate and Page Controller in Test App | Authors: [@tomidelucca](https://github.com/tomidelucca)
+- AndesCheckbox tappable area extended  | Authors: [@ggiovanniniml](https://github.com/ggiovanniniml)
+
 
 # v3.12.0
 ### 🚀 Features
