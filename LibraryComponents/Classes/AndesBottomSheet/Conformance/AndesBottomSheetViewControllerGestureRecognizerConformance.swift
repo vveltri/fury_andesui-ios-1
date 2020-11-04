@@ -16,7 +16,7 @@ class AndesBottomSheetViewControllerGestureRecognizerConformance: NSObject, UIGe
         self.sizeManager = sizeManager
     }
 
-    open func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         guard let gestureRecognizer = gestureRecognizer as? UIPanGestureRecognizer,
             let view = gestureRecognizer.view,
             let sizeManager = sizeManager else { return true }

@@ -8,11 +8,11 @@
 import Foundation
 
 class AndesBottomSheetViewControllerTransitioningConformance: NSObject, UIViewControllerTransitioningDelegate {
-    open func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return AndesBottomSheetPresentingTransitionAnimation()
     }
 
-    open func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return AndesBottomSheetDismissingTransitionAnimation()
     }
 }
