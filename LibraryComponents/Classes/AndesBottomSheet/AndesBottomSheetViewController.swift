@@ -103,6 +103,7 @@ open class AndesBottomSheetViewController: UIViewController {
     }
 
     open override func preferredContentSizeDidChange(forChildContentContainer container: UIContentContainer) {
+        super.preferredContentSizeDidChange(forChildContentContainer: container)
         guard !isPanning else { return }
         heightConstraintManager.setActive(false)
         sizeManager.sheetViewSize = view.bounds.size
