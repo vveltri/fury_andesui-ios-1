@@ -11,6 +11,7 @@ import UIKit
 
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var subTitleLbl: UILabel!
+    @IBOutlet weak var descriptionHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var paddingLeftConstraint: NSLayoutConstraint!
     @IBOutlet weak var paddingRightConstraint: NSLayoutConstraint!
     @IBOutlet weak var paddingTopConstraint: NSLayoutConstraint!
@@ -51,6 +52,7 @@ import UIKit
     internal var separatorChevronWidth: CGFloat? = 0
     internal var paddingTopChevron: CGFloat? = 0
     internal var paddingBottomChevron: CGFloat? = 0
+    internal var numberOfLines: Int = 0
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -66,7 +68,7 @@ import UIKit
         self.titleLbl.heightAnchor.constraint(greaterThanOrEqualToConstant: customCell.titleHeight).isActive = true
         self.subTitleLbl.text = customCell.subTitle
         self.subTitleLbl.setAndesStyle(style: customCell.fontSubTitleStyle)
-        self.subTitleLbl.heightAnchor.constraint(equalToConstant: customCell.subTitleHeight).isActive = true
+        self.descriptionHeightConstraint.constant = customCell.subTitleHeight
         self.paddingLeftConstraint.constant = customCell.paddingLeftCell
         self.paddingRightConstraint.constant = customCell.paddingRightCell
         self.paddingTopConstraint.constant = customCell.paddingTopCell
@@ -80,6 +82,11 @@ import UIKit
             self.thumbnailImg.image = customCell.thumbnailLeft
             self.spaceThumbnailWidthConstraint.constant = customCell.separatorThumbnailWidth ?? 0
         }
+        self.titleLbl.adjustsFontSizeToFitWidth = false
+        self.titleLbl.lineBreakMode = .byTruncatingTail
+        self.titleLbl.numberOfLines = customCell.numberOfLines
+        self.subTitleLbl.adjustsFontSizeToFitWidth = false
+        self.subTitleLbl.lineBreakMode = .byTruncatingTail
         setupSeparatorStyle(separatorStyle: separatorStyle)
     }
 

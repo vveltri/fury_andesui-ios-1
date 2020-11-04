@@ -38,7 +38,7 @@ struct AndesListCellLargeType: AndesListCellTypeProtocol {
         if !subTitleIsEmpty {
             height = 96
             paddingBottom = 29
-            descriptionHeight = 10
+            descriptionHeight = 17
             separatorHeight = 15
         }
         if let thumbnail = thumbnail {

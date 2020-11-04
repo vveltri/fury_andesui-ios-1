@@ -10,18 +10,38 @@ import Foundation
 public class AndesSimpleCell: AndesListCell {
 
     @available(swift, obsoleted: 1.0)
-    @objc public init(withTitle title: String, size: AndesListSize, subTitle: String, thumbnail: AndesThumbnail? = nil) {
+    @objc public init(withTitle title: String,
+                      size: AndesListSize,
+                      subTitle: String,
+                      thumbnail: AndesThumbnail? = nil,
+                      numberOfLines: Int) {
         super.init()
-        self.cellConfig(withTitle: title, size: size, subTitle: subTitle, thumbnail: thumbnail)
+        self.cellConfig(withTitle: title,
+                        size: size,
+                        subTitle: subTitle,
+                        thumbnail: thumbnail,
+                        numberOfLines: numberOfLines)
     }
 
-    public init(withTitle title: String, size: AndesListSize? = .medium, subTitle: String? = String(), thumbnail: AndesThumbnail? = nil) {
+    public init(withTitle title: String,
+                size: AndesListSize? = .medium,
+                subTitle: String? = String(),
+                thumbnail: AndesThumbnail? = nil,
+                numberOfLines: Int? = 0) {
         super.init()
-        guard let size = size, let subTitle = subTitle else { return }
-        self.cellConfig(withTitle: title, size: size, subTitle: subTitle, thumbnail: thumbnail)
+        guard let size = size, let subTitle = subTitle, let numberOfLines = numberOfLines else { return }
+        self.cellConfig(withTitle: title,
+                        size: size,
+                        subTitle: subTitle,
+                        thumbnail: thumbnail,
+                        numberOfLines: numberOfLines)
     }
 
-    private func cellConfig(withTitle title: String, size: AndesListSize, subTitle: String, thumbnail: AndesThumbnail? = nil) {
+    private func cellConfig(withTitle title: String,
+                            size: AndesListSize,
+                            subTitle: String,
+                            thumbnail: AndesThumbnail? = nil,
+                            numberOfLines: Int) {
         let config = AndesListCellTypeFactory.provide(withSize: size,
                                                       subTitleIsEmpty: subTitle.isEmpty,
                                                       thumbnail: thumbnail)
@@ -43,6 +63,7 @@ public class AndesSimpleCell: AndesListCell {
         self.separatorThumbnailWidth = config.separatorThumbnailWidth
         self.paddingTopThumbnail = config.paddingTopThumbnail
         self.paddingBottomThumbnail = config.paddingBottomThumbnail
+        self.numberOfLines = numberOfLines
     }
 
     required init?(coder: NSCoder) {
