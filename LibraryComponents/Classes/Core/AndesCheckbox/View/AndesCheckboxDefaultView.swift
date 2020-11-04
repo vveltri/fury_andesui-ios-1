@@ -17,10 +17,9 @@ class AndesCheckboxDefaultView: UIView, AndesCheckboxView {
     @IBOutlet weak var labelToTrailingConstraint: NSLayoutConstraint!
 
     @IBOutlet weak var leftBox: UIImageView!
-    @IBOutlet weak var leftTappableArea: UIButton!
-
     @IBOutlet weak var rightBox: UIImageView!
-    @IBOutlet weak var rightTappableArea: UIButton!
+    
+    @IBOutlet weak var tappableArea: UIButton!
 
     @IBOutlet var checkboxView: UIView!
 
@@ -40,11 +39,7 @@ class AndesCheckboxDefaultView: UIView, AndesCheckboxView {
         updateView()
     }
 
-    @IBAction func leftButtonTapped(_ sender: Any) {
-        self.delegate?.checkboxTapped()
-    }
-
-    @IBAction func rightButtonTapped(_ sender: Any) {
+    @IBAction func checkboxTapped(_ sender: Any) {
         self.delegate?.checkboxTapped()
     }
 
@@ -116,8 +111,6 @@ class AndesCheckboxDefaultView: UIView, AndesCheckboxView {
         if config.align == .left {
             self.rightBox.isHidden = true
             self.leftBox.isHidden = false
-            self.rightTappableArea.isHidden = true
-            self.leftTappableArea.isHidden = false
             self.leftBox.backgroundColor = config.backgroundColor
             self.leftBox.layer.cornerRadius = config.cornerRadius
             self.labelToTrailingConstraint.priority = .defaultHigh
@@ -127,8 +120,6 @@ class AndesCheckboxDefaultView: UIView, AndesCheckboxView {
         } else {
             self.rightBox.isHidden = false
             self.leftBox.isHidden = true
-            self.rightTappableArea.isHidden = false
-            self.leftTappableArea.isHidden = true
             self.rightBox.backgroundColor = config.backgroundColor
             self.rightBox.layer.cornerRadius = config.cornerRadius
             self.labelToTrailingConstraint.priority = .defaultLow
@@ -152,13 +143,8 @@ class AndesCheckboxDefaultView: UIView, AndesCheckboxView {
 
     func updateAccessibilityProperties() {
         if let accessibilityTraits = self.delegate?.buttonAccesibilityTraits() {
-            if config.align == .left {
-                self.leftTappableArea.accessibilityTraits = accessibilityTraits
-                self.leftTappableArea.accessibilityLabel = config.title
-            } else {
-                self.rightTappableArea.accessibilityTraits = accessibilityTraits
-                self.rightTappableArea.accessibilityLabel = config.title
-            }
+            self.tappableArea.accessibilityTraits = accessibilityTraits
+            self.tappableArea.accessibilityLabel = config.title
         }
     }
 
