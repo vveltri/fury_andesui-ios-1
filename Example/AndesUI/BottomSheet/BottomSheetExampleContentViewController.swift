@@ -28,7 +28,7 @@ class BottomSheetExampleContentViewController: UIViewController {
             label.rightAnchor.constraint(equalTo: view.rightAnchor),
             label.topAnchor.constraint(equalTo: view.topAnchor),
             label.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            view.heightAnchor.constraint(greaterThanOrEqualToConstant: 400)
+            view.heightAnchor.constraint(greaterThanOrEqualToConstant: 300)
         ])
     }
 }

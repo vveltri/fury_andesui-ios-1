@@ -34,12 +34,33 @@
         [[button leftAnchor] constraintEqualToAnchor:[[self view] leftAnchor] constant:16],
         [[button rightAnchor] constraintEqualToAnchor:[[self view] rightAnchor] constant:-16]
     ]];
+    
+    AndesButton* scrollable = [[AndesButton alloc] initWithText:@"Open scrollable sheet"
+                                                  hierarchy:AndesButtonHierarchyLoud
+                                                       size:AndesButtonSizeLarge
+                                                       icon:nil];
+    [scrollable setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [scrollable addTarget:self action:@selector(openScrollableSheet) forControlEvents:UIControlEventTouchUpInside];
+    [[self view] addSubview:scrollable];
+    
+    [NSLayoutConstraint activateConstraints:@[
+        [[scrollable topAnchor] constraintEqualToAnchor:[button bottomAnchor] constant:16],
+        [[scrollable leftAnchor] constraintEqualToAnchor:[[self view] leftAnchor] constant:16],
+        [[scrollable rightAnchor] constraintEqualToAnchor:[[self view] rightAnchor] constant:-16]
+    ]];
 }
 
 - (void)openSheet {
     AndesBottomSheetViewController* sheet = [[AndesBottomSheetViewController alloc] initWithRootViewController: [BottomSheetExampleContentViewController new]];
-    [[sheet titleBar] setText:@"Elige una categoría"];
+    [[sheet titleBar] setText:@"Elige una categoría es un texto muy muy muy largo y quiero ver los puntos"];
     [[sheet titleBar] setTextAlignment:NSTextAlignmentRight];
+    [self presentViewController:sheet animated:YES completion:nil];
+}
+
+- (void)openScrollableSheet {
+    AndesBottomSheetViewController* sheet = [[AndesBottomSheetViewController alloc] initWithRootViewController: [BottomSheetExampleScrollableContentViewController new]];
+    [[sheet titleBar] setText:@"Rainbow 🌈"];
+    [[sheet titleBar] setTextAlignment:NSTextAlignmentLeft];
     [self presentViewController:sheet animated:YES completion:nil];
 }
 

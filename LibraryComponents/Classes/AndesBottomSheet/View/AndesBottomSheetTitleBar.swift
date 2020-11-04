@@ -24,6 +24,7 @@ public class AndesBottomSheetTitleBar: UIView {
         }
         set {
             textLabel.text = newValue
+            setupHeightForText()
         }
     }
 
@@ -45,10 +46,15 @@ public class AndesBottomSheetTitleBar: UIView {
         return textLabel
     }()
 
+    private lazy var heightConstraint: NSLayoutConstraint = {
+        return heightAnchor.constraint(equalToConstant: 0)
+    }()
+
     @objc
     init() {
         super.init(frame: .zero)
         setup()
+        setupHeightForText()
     }
 
     required init?(coder: NSCoder) {
@@ -59,12 +65,19 @@ public class AndesBottomSheetTitleBar: UIView {
         backgroundColor = Constants.backgroundColor
         textLabel.translatesAutoresizingMaskIntoConstraints = false
         addSubview(textLabel)
+
+        let bottomConstraint = textLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -Constants.insets.bottom)
+        bottomConstraint.priority = .defaultHigh
         NSLayoutConstraint.activate([
             textLabel.topAnchor.constraint(equalTo: topAnchor, constant: Constants.insets.top),
             textLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: Constants.insets.left),
-            textLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -Constants.insets.bottom),
+            bottomConstraint,
             textLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -Constants.insets.right)
         ])
         textLabel.setContentHuggingPriority(.required, for: .vertical)
+    }
+
+    private func setupHeightForText() {
+        heightConstraint.isActive = text == nil
     }
 }

@@ -13,7 +13,17 @@ import UIKit
 
 private enum Constants {
     static let backgroundColor: UIColor = UIColor.Andes.gray800
-    static let sizes: [AndesBottomSheetSize] = [.min(.intrinsic, .percent(0.66)), .min(.intrinsic, .percent(0.9))]
+    static let sizes: [AndesBottomSheetSize] = [.min(.intrinsic, .percent(0.66)),
+                                                .min(.intrinsic, .fixedFromTop(Constants.marginFromTop))]
+
+    static var marginFromTop: CGFloat {
+        get {
+            if #available(iOS 11.0, *) {
+                return UIApplication.shared.keyWindow?.safeAreaInsets.top ?? 100.0
+            }
+            return UIApplication.shared.statusBarFrame.height
+        }
+    }
 }
 
 @objc
@@ -32,8 +42,11 @@ open class AndesBottomSheetViewController: UIViewController {
 
     @objc
     public var scrollView: UIScrollView? {
-        didSet {
-            contentController.scrollView = scrollView
+        get {
+            return contentController.scrollView
+        }
+        set {
+            contentController.scrollView = newValue
             setupScrollView()
         }
     }

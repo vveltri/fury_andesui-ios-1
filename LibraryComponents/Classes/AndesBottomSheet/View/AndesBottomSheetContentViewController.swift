@@ -19,6 +19,14 @@ class AndesBottomSheetContentViewController: UIViewController {
     var scrollView: UIScrollView?
 
     private let grabView = AndesBottomSheetGrab()
+
+    private let headerContentView: UIStackView = {
+        let stackView = UIStackView(frame: .zero)
+        stackView.axis = .vertical
+        stackView.alignment = .fill
+        return stackView
+    }()
+
     private let contentView: UIStackView = {
         let stackView = UIStackView(frame: .zero)
         stackView.axis = .vertical
@@ -60,17 +68,21 @@ class AndesBottomSheetContentViewController: UIViewController {
         contentView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(contentView)
         contentView.pinToSuperview()
+        headerContentView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addArrangedSubview(headerContentView)
     }
 
     private func setupContent() {
-        contentView.addArrangedSubview(grabView)
-        contentView.addArrangedSubview(titleBar)
+        headerContentView.addArrangedSubview(grabView)
+        headerContentView.addArrangedSubview(titleBar)
 
         viewController.willMove(toParent: self)
         addChild(viewController)
         viewController.view.translatesAutoresizingMaskIntoConstraints = false
         contentView.addArrangedSubview(viewController.view)
         viewController.didMove(toParent: self)
+
+        viewController.view.layoutIfNeeded()
     }
 
     private func setupTitle() {
@@ -88,10 +100,21 @@ class AndesBottomSheetContentViewController: UIViewController {
     }
 
     private func calculatePreferredContentSize() {
-        let targetSize = CGSize(width: view.bounds.width, height: UIView.layoutFittingCompressedSize.height)
         let currentSize = preferredContentSize
-        let newSize = view.systemLayoutSizeFitting(targetSize)
-        if newSize != currentSize { preferredContentSize = newSize }
+        let targetSize = CGSize(width: view.bounds.width, height: UIView.layoutFittingCompressedSize.height)
+        let headerSize = headerContentView.systemLayoutSizeFitting(targetSize)
+        let contentSize = calculateContentSize()
+        let newSize = CGSize(width: view.bounds.width, height: headerSize.height + contentSize.height)
+        if newSize != currentSize {
+            preferredContentSize = newSize
+        }
+    }
+
+    private func calculateContentSize() -> CGSize {
+        if let internalScrollView = scrollView {
+            return internalScrollView.contentSize
+        }
+        return viewController.view.bounds.size
     }
 
     private func setupCornerRadius() {
