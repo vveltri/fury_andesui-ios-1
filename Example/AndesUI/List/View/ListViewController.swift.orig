@@ -44,7 +44,9 @@ class ListViewController: UIViewController {
         andesList.delegate = self
         andesList.dataSource = self
         andesList.separatorStyle = .singleLine
+        andesList.numberOfRows = 15
 
+<<<<<<< HEAD
         buildCell()
     }
 
@@ -69,6 +71,15 @@ class ListViewController: UIViewController {
         self.radioButtonChevron.status = .unselected
         buildCell()
         andesList.reloadData()
+=======
+        titleArray = ["AndesList 1 -- Andes Default Cell -- Andes Default Cell -- Andes Default Cell -- Andes Default Cell -- Andes Default Cell",
+                      "AndesList 1 -- Andes Default Cell",
+                      "AndesList 1 -- Andes Default Cell",
+                      "AndesList 1 -- Andes Default Cell",
+                      "AndesList 1 -- Andes Default Cell",
+                      "AndesList 1 -- Andes Default Cell",
+                      "AndesList 1 -- Andes Default Cell"]
+>>>>>>> feature/numberOfLines
     }
 
     func didTapIdle(radiobutton: AndesRadioButton) {
@@ -142,7 +153,19 @@ extension ListViewController: AndesListDelegate {
 
 extension ListViewController: AndesListDataSource {
     func andesList(_ listView: AndesList, cellForRowAt indexPath: IndexPath) -> AndesListCell {
+<<<<<<< HEAD
         return self.cell
+=======
+
+        let thumbnail = AndesThumbnail(hierarchy: .defaultHierarchy, type: .imageCircle, size: .size24, state: .enabled, image: UIImage(named: "andes") ?? UIImage(), accentColor: UIColor.clear)
+
+        let simpleCell = AndesSimpleCell(withTitle: titleArray?[indexPath.row] ?? "",
+                                             size: .medium,
+                                             subTitle: "Descripción--Descripción--Descripción--Descripción",
+                                             thumbnail: thumbnail)
+
+        return simpleCell
+>>>>>>> feature/numberOfLines
     }
     func numberOfSections(_ listView: AndesList) -> Int {
         return 1

@@ -51,16 +51,16 @@ class AndesTagAbstractView: UIView, AndesTagViewProtocol {
         bottomAnchor.constraint(equalTo: tagView.bottomAnchor).isActive = true
     }
 
-        func setup() {
-            let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
-            addGestureRecognizer(tap)
-            loadNib()
-            translatesAutoresizingMaskIntoConstraints = false
-            pinXibViewToSelf()
-            updateView()
-            self.clipsToBounds = true
-            tagView.clipsToBounds = true
-        }
+    func setup() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
+        addGestureRecognizer(tap)
+        loadNib()
+        translatesAutoresizingMaskIntoConstraints = false
+        pinXibViewToSelf()
+        updateView()
+        self.clipsToBounds = true
+        tagView.clipsToBounds = true
+    }
 
     /// Override this method on each Badge View to setup its unique components
     func updateView() {

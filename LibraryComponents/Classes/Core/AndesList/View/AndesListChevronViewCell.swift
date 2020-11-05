@@ -1,5 +1,5 @@
 //
-//  AndesListCevronViewCell.swift
+//  AndesListChevronViewCell.swift
 //  AndesUI
 //
 //  Created by Jonathan Alonso Pinto on 26/10/20.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AndesListCevronViewCell: AndesListCell {
+class AndesListChevronViewCell: AndesListCell {
 
     @IBOutlet weak var chevronImg: UIImageView!
     @IBOutlet weak var chevronWidthConstraint: NSLayoutConstraint!

@@ -23,7 +23,7 @@ protocol HomeRouter: NSObject {
     func routeCard()
     func routeToThumbnail()
     func routeToTextFieldsCode()
-    func routeToListView()
+    func routeToList()
 }
 
 class HomeAppRouter: NSObject {
@@ -106,7 +106,7 @@ extension HomeAppRouter: HomeRouter {
         thumbnailRouter.route(from: view)
     }
 
-    func routeToListView() {
+    func routeToList() {
         listRouter.route(from: view)
     }
 
