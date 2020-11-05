@@ -42,7 +42,7 @@ public class AndesSimpleCell: AndesListCell {
                             subTitle: String,
                             thumbnail: AndesThumbnail? = nil,
                             numberOfLines: Int) {
-        let config = AndesListCellTypeFactory.provide(withSize: size,
+        let config = AndesListCellFactory.provide(withSize: size,
                                                       subTitleIsEmpty: subTitle.isEmpty,
                                                       thumbnail: thumbnail)
         self.type = .simple
