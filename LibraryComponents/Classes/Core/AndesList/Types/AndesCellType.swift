@@ -17,7 +17,7 @@ public enum AndesCellType: Int, AndesEnumStringConvertible {
         switch value {
         case .simple: return "SIMPLE"
         case .chevron: return "CHEVRON"
-        case .radioButton: return "RADIOBUTTOM"
+        case .radioButton: return "RADIOBUTTON"
         case .checkBox: return "CHECKBOX"
         }
     }

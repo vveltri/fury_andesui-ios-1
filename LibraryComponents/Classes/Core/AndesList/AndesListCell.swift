@@ -24,33 +24,33 @@ import UIKit
     @IBOutlet weak var paddingTopThumbnailConstraint: NSLayoutConstraint!
     @IBOutlet weak var paddingBottomThumbnailConstraint: NSLayoutConstraint!
 
-    internal var title: String = String()
-    internal var subTitle: String = String()
-    internal var type: AndesCellType?
-    internal var fontStyle: AndesFontStyle = AndesFontStyle(textColor: .black,
+    var title: String = String()
+    var subTitle: String = String()
+    var type: AndesCellType?
+    var fontStyle: AndesFontStyle = AndesFontStyle(textColor: .black,
                                                           font: UIFont.boldSystemFont(ofSize: 16),
                                                           lineSpacing: 2)
-    internal var fontSubTitleStyle: AndesFontStyle = AndesFontStyle(textColor: .black,
+    var fontSubTitleStyle: AndesFontStyle = AndesFontStyle(textColor: .black,
                                                                      font: UIFont.boldSystemFont(ofSize: 16),
                                                                      lineSpacing: 2)
-    internal var paddingLeftCell: CGFloat = 0
-    internal var paddingRightCell: CGFloat = 0
-    internal var paddingTopCell: CGFloat = 0
-    internal var paddingBottomCell: CGFloat = 0
-    internal var subTitleHeight: CGFloat = 0
-    internal var separatorHeight: CGFloat = 0
-    internal var heightConstraint: CGFloat = 0
-    internal var titleHeight: CGFloat = 0
-    internal var chevron: String?
-    internal var chevronSize: CGFloat? = 0
-    internal var thumbnailLeft: UIImage?
-    internal var thumbnailSize: CGFloat? = 0
-    internal var separatorThumbnailWidth: CGFloat? = 0
-    internal var paddingTopThumbnail: CGFloat? = 0
-    internal var paddingBottomThumbnail: CGFloat? = 0
-    internal var separatorChevronWidth: CGFloat? = 0
-    internal var paddingTopChevron: CGFloat? = 0
-    internal var paddingBottomChevron: CGFloat? = 0
+    var paddingLeftCell: CGFloat = 0
+    var paddingRightCell: CGFloat = 0
+    var paddingTopCell: CGFloat = 0
+    var paddingBottomCell: CGFloat = 0
+    var subTitleHeight: CGFloat = 0
+    var separatorHeight: CGFloat = 0
+    var heightConstraint: CGFloat = 0
+    var titleHeight: CGFloat = 0
+    var chevron: String?
+    var chevronSize: CGFloat? = 0
+    var thumbnailLeft: UIImage?
+    var thumbnailSize: CGFloat? = 0
+    var separatorThumbnailWidth: CGFloat? = 0
+    var paddingTopThumbnail: CGFloat? = 0
+    var paddingBottomThumbnail: CGFloat? = 0
+    var separatorChevronWidth: CGFloat? = 0
+    var paddingTopChevron: CGFloat? = 0
+    var paddingBottomChevron: CGFloat? = 0
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -79,6 +79,13 @@ import UIKit
             self.paddingBottomThumbnailConstraint.constant = customCell.paddingBottomThumbnail ?? 0
             self.thumbnailImg.image = customCell.thumbnailLeft
             self.spaceThumbnailWidthConstraint.constant = customCell.separatorThumbnailWidth ?? 0
+        } else {
+            self.thumbnailWidthConstraint.constant = 0
+            self.thumbnailHeightConstraint.constant = 0
+            self.paddingTopThumbnailConstraint.constant = 0
+            self.paddingBottomThumbnailConstraint.constant = 0
+            self.thumbnailImg.image = nil
+            self.spaceThumbnailWidthConstraint.constant = 0
         }
         setupSeparatorStyle(separatorStyle: separatorStyle)
     }

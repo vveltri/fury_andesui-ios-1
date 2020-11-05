@@ -15,12 +15,6 @@ import Foundation
     /// Set the dataSource to use own methods
     @objc public weak var dataSource: AndesListDataSource?
 
-    /// Set the number or rows, default value 0
-    @objc public var numberOfRows: Int = 0
-
-    /// Set the number of section
-    var numberOfSection: Int = 1
-
     /// Set the separator style, default value .none
     @objc public var separatorStyle: AndesSeparatorStyle = .none
 
@@ -39,8 +33,8 @@ import Foundation
     }
 
     private var tableView: UITableView = UITableView()
-    private var dataSourceSelf: AndesListTableViewDataSource?
-    private var delegateSelf: AndesListTableViewDelegate?
+    private var internalDataSource: AndesListTableViewDataSource?
+    private weak var internalDelegate: AndesListTableViewDelegate?
     private var listAllowedType: AndesCellType = .simple
 
     required init?(coder: NSCoder) {
@@ -57,10 +51,10 @@ import Foundation
     /// Setup delegates and register UITableViewCell on the UITableView
     private func setup() {
         translatesAutoresizingMaskIntoConstraints = false
-        dataSourceSelf = AndesListTableViewDataSource(listProtocol: self)
-        delegateSelf = AndesListTableViewDelegate(listProtocol: self)
-        self.tableView.delegate = delegateSelf
-        self.tableView.dataSource = dataSourceSelf
+        internalDataSource = AndesListTableViewDataSource(listProtocol: self)
+        internalDelegate = AndesListTableViewDelegate(listProtocol: self)
+        self.tableView.delegate = internalDelegate
+        self.tableView.dataSource = internalDataSource
         self.tableView.separatorStyle = .none
         self.tableView.separatorInset.left = UIScreen.main.bounds.width
         tableView.register(UINib(nibName: "AndesListSimpleViewCell",
@@ -80,20 +74,19 @@ import Foundation
 
 /// Use (UITableViewDelegate and UITableViewDatasource) in a independent protocol
 extension AndesList: AndesListProtocol {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return dataSource?.numberOfSections(in: self) ?? 0
+    }
+
+    func andesList(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dataSource?.andesList(self, numberOfRowsInSection: section) ?? 0
+    }
 
     func cellForRowAt(indexPath: IndexPath) -> AndesListCell {
         guard let customCell = dataSource?.andesList(self, cellForRowAt: indexPath), customCell.type == listAllowedType else {
             fatalError("Cell type not allowed, should be \(listAllowedType.toString()) type")
         }
         return customCell
-    }
-
-    func numberOfSections() -> Int {
-        return numberOfSection
-    }
-
-    func getNumberOfRows() -> Int {
-        return numberOfRows
     }
 
     func getSeparatorStyle() -> AndesSeparatorStyle {

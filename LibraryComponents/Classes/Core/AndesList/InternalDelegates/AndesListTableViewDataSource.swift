@@ -17,11 +17,11 @@ internal class AndesListTableViewDataSource: NSObject, UITableViewDataSource {
     }
 
     internal func numberOfSections(in tableView: UITableView) -> Int {
-        return listProtocol.numberOfSections()
+        return listProtocol.numberOfSections(in: tableView)
     }
 
     internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listProtocol.getNumberOfRows()
+        return listProtocol.andesList(tableView, numberOfRowsInSection: section)
     }
 
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

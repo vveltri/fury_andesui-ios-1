@@ -30,10 +30,6 @@ class ListViewController: UIViewController {
                       "AndesList 1 -- Andes Default Cell",
                       "AndesList 1 -- Andes Default Cell",
                       "AndesList 1 -- Andes Default Cell"]
-
-        andesList.numberOfRows = titleArray?.count ?? 0
-
-        andesList.reloadData()
     }
 
 }
@@ -55,5 +51,12 @@ extension ListViewController: AndesListDataSource {
                                              thumbnail: thumbnail)
 
         return simpleCell
+    }
+    func numberOfSections(in listView: AndesList) -> Int {
+        return 1
+    }
+
+    func andesList(_ listView: AndesList, numberOfRowsInSection section: Int) -> Int {
+        return self.titleArray?.count ?? 0
     }
 }
