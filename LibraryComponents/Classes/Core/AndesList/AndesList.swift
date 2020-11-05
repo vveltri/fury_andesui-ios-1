@@ -20,11 +20,11 @@ import Foundation
 
     /// Set the list type, default value simple
     @IBInspectable public var listType: String {
-        set(val) {
-            self.listAllowedType = AndesCellType.checkValidEnum(property: listType, key: val)
-        }
         get {
             return self.listAllowedType.toString()
+        }
+        set(val) {
+            self.listAllowedType = AndesCellType.checkValidEnum(property: listType, key: val)
         }
     }
 
@@ -33,9 +33,11 @@ import Foundation
     }
 
     private var tableView: UITableView = UITableView()
-    private var internalDataSource: AndesListTableViewDataSource?
-    private weak var internalDelegate: AndesListTableViewDelegate?
     private var listAllowedType: AndesCellType = .simple
+    private var internalDataSource: AndesListTableViewDataSource?
+    //swiftlint:disable weak_delegate
+    private var internalDelegate: AndesListTableViewDelegate?
+    //swiftlint:enable weak_delegate
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -83,7 +85,8 @@ extension AndesList: AndesListProtocol {
     }
 
     func cellForRowAt(indexPath: IndexPath) -> AndesListCell {
-        guard let customCell = dataSource?.andesList(self, cellForRowAt: indexPath), customCell.type == listAllowedType else {
+        guard let customCell = dataSource?.andesList(self, cellForRowAt: indexPath),
+              customCell.type == listAllowedType else {
             fatalError("Cell type not allowed, should be \(listAllowedType.toString()) type")
         }
         return customCell
