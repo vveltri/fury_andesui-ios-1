@@ -33,8 +33,14 @@ import Foundation
     }
 
     private var tableView: UITableView = UITableView()
-    private var internalDataSource: AndesListTableViewDataSource?
-    private weak var internalDelegate: AndesListTableViewDelegate?
+    private lazy var internalDataSource: AndesListTableViewDataSource? = {
+        let internalDataSource = AndesListTableViewDataSource(listProtocol: self)
+        return internalDataSource
+    }()
+    private lazy weak var internalDelegate: AndesListTableViewDelegate? = {
+        let internalDelegate = AndesListTableViewDelegate(listProtocol: self)
+        return internalDelegate
+    }()
     private var listAllowedType: AndesCellType = .simple
 
     required init?(coder: NSCoder) {
@@ -51,8 +57,6 @@ import Foundation
     /// Setup delegates and register UITableViewCell on the UITableView
     private func setup() {
         translatesAutoresizingMaskIntoConstraints = false
-        internalDataSource = AndesListTableViewDataSource(listProtocol: self)
-        internalDelegate = AndesListTableViewDelegate(listProtocol: self)
         self.tableView.delegate = internalDelegate
         self.tableView.dataSource = internalDataSource
         self.tableView.separatorStyle = .none
