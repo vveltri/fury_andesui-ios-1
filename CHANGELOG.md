@@ -2,6 +2,7 @@
 ### 🚀 Features
 - Xcode 12 compatibility | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
 - AndesTextField adds support of inputAccessoryView | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
+- New component AndesBottomSheetViewController | Authors: [@tomidelucca](https://github.com/tomidelucca)
 
 ### 🛠 Bug fixes
 - Fixes in App Delegate and Page Controller in Test App | Authors: [@tomidelucca](https://github.com/tomidelucca)

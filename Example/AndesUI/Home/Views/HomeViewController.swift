@@ -125,6 +125,10 @@ class HomeViewController: UIViewController {
     @IBAction func goToTextFieldsCodeTapped(_ sender: Any) {
         presenter.presentTextFieldsCode()
     }
+
+    @IBAction func bottomSheetTapped(_ sender: Any) {
+        presenter.presentBottomSheet()
+    }
 }
 
 extension HomeViewController: HomeView {
