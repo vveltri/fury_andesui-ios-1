@@ -22,10 +22,10 @@
     _listView.delegate = self;
     _listView.dataSource = self;
     _listView.separatorStyle = AndesSeparatorStyleSingleLine;
-    titleArray = [[NSMutableArray alloc] initWithObjects:@"AndesList 1 -- Andes Default Cell -- Andes Default Cell -- Andes Default Cell -- Andes Default Cell -- Andes Default Cell -- Andes Default Cell -- Andes Default Cell -- Andes Default Cell",
-                  @"Titulo 2",
-                  @"Titulo 3",
-                  @"Titulo 4", nil];
+    titleArray = [[NSMutableArray alloc] initWithObjects:@"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                  @"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                  @"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                  @"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", nil];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -51,13 +51,13 @@
     AndesSimpleCell *cell = [[AndesSimpleCell alloc]
                              initWithTitle:[titleArray objectAtIndex:indexPath.row]
                              size:AndesListSizeLarge
-                             subTitle: @"Descripción de la fila"
+                             subTitle: @"Lorem ipsum dolor sit amet"
                              thumbnail: thumbnail
                              numberOfLines: 2];
     
     AndesChevronCell *chevronCell = [[AndesChevronCell alloc]initWithTitle:[titleArray objectAtIndex:indexPath.row]
                                                                       size:AndesListSizeMedium
-                                                                  subTitle:@"Descripción de la fila"
+                                                                  subTitle:@"Lorem ipsum dolor sit amet"
                                                                  thumbnail:thumbnail
                                                              numberOfLines: 0];
     

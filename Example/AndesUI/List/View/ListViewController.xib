@@ -66,7 +66,7 @@
                                 <userDefinedRuntimeAttribute type="string" keyPath="text" value="Clear"/>
                             </userDefinedRuntimeAttributes>
                             <connections>
-                                <action selector="valuesDefault" destination="-1" eventType="touchUpInside" id="a3i-CJ-LUd"/>
+                                <action selector="setValuesDefault" destination="-1" eventType="touchUpInside" id="a3i-CJ-LUd"/>
                             </connections>
                         </view>
                     </subviews>

@@ -28,13 +28,10 @@ class ListViewController: UIViewController {
     var image: AndesThumbnail?
     var numberOfLines: Int?
 
-    var titleArray: [String]?
     var simpleCellSelected: Bool = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.valuesDefault()
 
         radioButtonSimple.setRadioButtonTapped(callback: didTapIdle(radiobutton:))
         radioButtonChevron.setRadioButtonTapped(callback: didTapIdle(radiobutton:))
@@ -45,7 +42,7 @@ class ListViewController: UIViewController {
         andesList.dataSource = self
         andesList.separatorStyle = .singleLine
 
-        buildCell()
+        self.setValuesDefault()
     }
 
     @IBAction func update() {
@@ -53,9 +50,9 @@ class ListViewController: UIViewController {
         andesList.reloadData()
     }
 
-    @IBAction func valuesDefault() {
-        self.titleTxt.text = "Title default"
-        self.descriptionTxt.text = "Description default"
+    @IBAction func setValuesDefault() {
+        self.titleTxt.text = "list.label.titleCell".localized
+        self.descriptionTxt.text = "list.label.subTitleCell".localized
         self.size = .medium
         self.image = nil
         self.numberOfLines = 0
@@ -67,8 +64,7 @@ class ListViewController: UIViewController {
         self.radioButtonThumbnail.status = .unselected
         self.radioButtonSimple.status = .selected
         self.radioButtonChevron.status = .unselected
-        buildCell()
-        andesList.reloadData()
+        self.update()
     }
 
     func didTapIdle(radiobutton: AndesRadioButton) {
@@ -111,7 +107,7 @@ class ListViewController: UIViewController {
 
     func getTitleRow() -> String {
         if self.titleTxt.text.isEmpty {
-            return "Title default"
+            return "list.label.titleCell".localized
         }
         return self.titleTxt.text
     }
@@ -132,11 +128,19 @@ class ListViewController: UIViewController {
             size = .large
         }
     }
+
+    func onCellActionPressed(msg: String) {
+        let alert = UIAlertController(title: "list.actions.titleAlert".localized,
+                                      message: "\("list.actions.msgAlert".localized) row: \(msg)",
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
 extension ListViewController: AndesListDelegate {
     func andesList(_ listView: AndesList, didSelectRowAt indexPath: IndexPath) {
-        print("IndexPath row: \(indexPath.row)")
+        self.onCellActionPressed(msg: "\(indexPath.row)")
     }
 }
 
@@ -149,6 +153,6 @@ extension ListViewController: AndesListDataSource {
     }
 
     func andesList(_ listView: AndesList, numberOfRowsInSection section: Int) -> Int {
-        return self.titleArray?.count ?? 0
+        return 15
     }
 }
