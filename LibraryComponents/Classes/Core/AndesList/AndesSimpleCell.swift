@@ -27,9 +27,9 @@ public class AndesSimpleCell: AndesListCell {
                 size: AndesListSize? = .medium,
                 subTitle: String? = String(),
                 thumbnail: AndesThumbnail? = nil,
-                numberOfLines: Int? = 0) {
+                numberOfLines: Int = 0) {
         super.init()
-        guard let size = size, let subTitle = subTitle, let numberOfLines = numberOfLines else { return }
+        guard let size = size, let subTitle = subTitle else { return }
         self.cellConfig(withTitle: title,
                         size: size,
                         subTitle: subTitle,
