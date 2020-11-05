@@ -7,7 +7,7 @@
 
 import Foundation
 
-@objc internal class AndesListTableViewDelegate: NSObject, UITableViewDelegate {
+internal class AndesListTableViewDelegate: NSObject, UITableViewDelegate {
 
     var listProtocol: AndesListProtocol
 
