@@ -31,7 +31,7 @@ public class AndesChevronCell: AndesListCell {
                             size: AndesListSize,
                             subTitle: String,
                             thumbnail: AndesThumbnail? = nil) {
-        let config = AndesListCellTypeFactory.provide(withSize: size,
+        let config = AndesListCellFactory.provide(withSize: size,
                                                       subTitleIsEmpty: subTitle.isEmpty,
                                                       thumbnail: thumbnail)
         self.type = .chevron

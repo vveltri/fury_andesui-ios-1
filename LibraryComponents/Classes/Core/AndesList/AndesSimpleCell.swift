@@ -21,10 +21,14 @@ public class AndesSimpleCell: AndesListCell {
         self.cellConfig(withTitle: title, size: size, subTitle: subTitle, thumbnail: thumbnail)
     }
 
-    private func cellConfig(withTitle title: String, size: AndesListSize, subTitle: String, thumbnail: AndesThumbnail? = nil) {
-        let config = AndesListCellTypeFactory.provide(withSize: size,
-                                                      subTitleIsEmpty: subTitle.isEmpty,
-                                                      thumbnail: thumbnail)
+    private func cellConfig(withTitle title: String,
+                            size: AndesListSize,
+                            subTitle: String,
+                            thumbnail: AndesThumbnail? = nil) {
+
+        let config = AndesListCellFactory.provide(withSize: size,
+                                                  subTitleIsEmpty: subTitle.isEmpty,
+                                                  thumbnail: thumbnail)
         self.type = .simple
         self.title = title
         self.subTitle = subTitle
