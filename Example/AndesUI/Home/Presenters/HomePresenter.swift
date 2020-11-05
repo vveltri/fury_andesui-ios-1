@@ -83,7 +83,7 @@ extension HomeViewPresenter: HomePresenter {
     }
 
     func presentListView() {
-        router.routeToListView()
+        router.routeToList()
     }
 
     func presentTextFieldsCode() {

@@ -26,10 +26,6 @@
                   @"Titulo 2",
                   @"Titulo 3",
                   @"Titulo 4", nil];
-    
-    _listView.numberOfRows = titleArray.count;
-    [_listView reloadData];
-    
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -69,5 +65,13 @@
     return cell;
 }
 
+- (NSInteger)andesList:(AndesList * _Nonnull)listView numberOfRowsInSection:(NSInteger)section {
+    return titleArray.count;
+}
+
+
+- (NSInteger)numberOfSections:(AndesList * _Nonnull)listView {
+    return 1;
+}
 
 @end

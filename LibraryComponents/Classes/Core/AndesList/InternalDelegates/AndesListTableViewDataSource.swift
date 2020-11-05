@@ -17,11 +17,11 @@ internal class AndesListTableViewDataSource: NSObject, UITableViewDataSource {
     }
 
     internal func numberOfSections(in tableView: UITableView) -> Int {
-        return listProtocol.numberOfSections()
+        return listProtocol.numberOfSections(in: tableView)
     }
 
     internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listProtocol.getNumberOfRows()
+        return listProtocol.tableView(tableView, numberOfRowsInSection: section)
     }
 
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -34,8 +34,8 @@ internal class AndesListTableViewDataSource: NSObject, UITableViewDataSource {
             cell.display(indexPath: indexPath, customCell: customCell, separatorStyle: listProtocol.getSeparatorStyle())
             return cell
         case .chevron:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "AndesListCevronViewCell", for: indexPath) as? AndesListCevronViewCell else {
-                fatalError("The dequeued cell is not an instance of AndesListCevronViewCell.")
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "AndesListChevronViewCell", for: indexPath) as? AndesListChevronViewCell else {
+                fatalError("The dequeued cell is not an instance of AndesListChevronViewCell.")
             }
             cell.display(indexPath: indexPath, customCell: customCell, separatorStyle: listProtocol.getSeparatorStyle())
             return cell

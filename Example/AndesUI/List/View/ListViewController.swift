@@ -30,10 +30,6 @@ class ListViewController: UIViewController {
                       "AndesList 1 -- Andes Default Cell",
                       "AndesList 1 -- Andes Default Cell",
                       "AndesList 1 -- Andes Default Cell"]
-
-        andesList.numberOfRows = titleArray?.count ?? 0
-
-        andesList.reloadData()
     }
 
 }
@@ -47,7 +43,7 @@ extension ListViewController: AndesListDelegate {
 extension ListViewController: AndesListDataSource {
     func andesList(_ listView: AndesList, cellForRowAt indexPath: IndexPath) -> AndesListCell {
 
-        let thumbnail = AndesThumbnail(hierarchy: .defaultHierarchy, type: .icon, size: .size24, state: .enabled, image: UIImage(named: "andes") ?? UIImage(), accentColor: UIColor.clear)
+        let thumbnail = AndesThumbnail(hierarchy: .defaultHierarchy, type: .imageCircle, size: .size24, state: .enabled, image: UIImage(named: "andes") ?? UIImage(), accentColor: UIColor.clear)
 
         let simpleCell = AndesSimpleCell(withTitle: titleArray?[indexPath.row] ?? "",
                                              size: .medium,
@@ -55,5 +51,12 @@ extension ListViewController: AndesListDataSource {
                                              thumbnail: thumbnail)
 
         return simpleCell
+    }
+    func numberOfSections(_ listView: AndesList) -> Int {
+        return 1
+    }
+
+    func andesList(_ listView: AndesList, numberOfRowsInSection section: Int) -> Int {
+        return self.titleArray?.count ?? 0
     }
 }
