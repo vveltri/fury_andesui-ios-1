@@ -14,3 +14,5 @@ file_length:
 reporter: "xcode" # reporter type (xcode, json, csv, checkstyle, junit, html, emoji, sonarqube, markdown)
 identifier_name:
   allowed_symbols: "_"
+weak_delegate:
+    excluded: "AndesList.swift"

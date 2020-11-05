@@ -44,7 +44,6 @@ import Foundation
 
     public init(type: String) {
         super.init(frame: .zero)
-        listAllowedType = AndesCellType.checkValidEnum(property: type, key: type)
         setup()
     }
 
