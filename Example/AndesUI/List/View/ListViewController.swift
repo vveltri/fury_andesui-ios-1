@@ -43,7 +43,7 @@ extension ListViewController: AndesListDelegate {
 extension ListViewController: AndesListDataSource {
     func andesList(_ listView: AndesList, cellForRowAt indexPath: IndexPath) -> AndesListCell {
 
-        let thumbnail = AndesThumbnail(hierarchy: .defaultHierarchy, type: .icon, size: .size24, state: .enabled, image: UIImage(named: "andes") ?? UIImage(), accentColor: UIColor.clear)
+        let thumbnail = AndesThumbnail(hierarchy: .defaultHierarchy, type: .imageCircle, size: .size24, state: .enabled, image: UIImage(named: "andes") ?? UIImage(), accentColor: UIColor.clear)
 
         let simpleCell = AndesSimpleCell(withTitle: titleArray?[indexPath.row] ?? "",
                                              size: .medium,
@@ -52,7 +52,7 @@ extension ListViewController: AndesListDataSource {
 
         return simpleCell
     }
-    func numberOfSections(in listView: AndesList) -> Int {
+    func numberOfSections(_ listView: AndesList) -> Int {
         return 1
     }
 

@@ -10,7 +10,7 @@ import Foundation
 @objc internal protocol AndesListProtocol {
     func cellForRowAt(indexPath: IndexPath) -> AndesListCell
     func numberOfSections(in tableView: UITableView) -> Int
-    func andesList(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     func getSeparatorStyle() -> AndesSeparatorStyle
     @objc optional func didSelectRowAt(indexPath: IndexPath)
 }

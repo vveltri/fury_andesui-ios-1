@@ -11,6 +11,6 @@ import Foundation
 
     @objc func andesList(_ listView: AndesList, cellForRowAt indexPath: IndexPath) -> AndesListCell
     @objc func andesList(_ listView: AndesList, numberOfRowsInSection section: Int) -> Int
-    @objc func numberOfSections(in listView: AndesList) -> Int
+    @objc func numberOfSections(_ listView: AndesList) -> Int
 
 }

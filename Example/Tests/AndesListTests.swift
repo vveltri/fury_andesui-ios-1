@@ -151,7 +151,6 @@ class AndesListTests: QuickSpec {
                     self.internalAndesList?.delegate = self
 
                     self.titleArray = ["Title 1", "Title 2"]
-                    self.internalAndesList?.numberOfRows = self.titleArray?.count ?? 0
 
                     self.internalAndesList!.reloadData()
                 }
@@ -173,6 +172,24 @@ class AndesListTests: QuickSpec {
 
                     //Then
                     expect(self.didSelected).to(beTrue())
+                }
+
+                it("Check cellForRowAt delegate with simple cell without icon in TableView") {
+                    //Given
+                    self.internalAndesList?.listType = "simple"
+                    self.cellType = .simple
+                    let table = UITableView()
+                    table.dataSource = myDataSource
+                    table.delegate = myDelegate
+                    table.register(UINib(nibName: "AndesListSimpleViewCell",
+                                         bundle: AndesBundle.bundle()),
+                                   forCellReuseIdentifier: "AndesListSimpleViewCell")
+
+                    //When
+                    let cell = myDataSource?.tableView(table, cellForRowAt: IndexPath(row: 1, section: 0))
+
+                    //Then
+                    expect(cell).to(beAKindOf(AndesListCell.self))
                 }
 
                 it("Check cellForRowAt delegate with simple cell and icon in TableView") {
@@ -202,9 +219,9 @@ class AndesListTests: QuickSpec {
                     let table = UITableView()
                     table.dataSource = myDataSource
                     table.delegate = myDelegate
-                    table.register(UINib(nibName: "AndesListCevronViewCell",
+                    table.register(UINib(nibName: "AndesListChevronViewCell",
                                          bundle: AndesBundle.bundle()),
-                                   forCellReuseIdentifier: "AndesListCevronViewCell")
+                                   forCellReuseIdentifier: "AndesListChevronViewCell")
 
                     //When
                     let cell = myDataSource?.tableView(table, cellForRowAt: IndexPath(row: 1, section: 0))
@@ -239,9 +256,9 @@ class AndesListTests: QuickSpec {
                     let table = UITableView()
                     table.dataSource = myDataSource
                     table.delegate = myDelegate
-                    table.register(UINib(nibName: "AndesListCevronViewCell",
+                    table.register(UINib(nibName: "AndesListChevronViewCell",
                                          bundle: AndesBundle.bundle()),
-                                   forCellReuseIdentifier: "AndesListCevronViewCell")
+                                   forCellReuseIdentifier: "AndesListChevronViewCell")
 
                     //When
                     let cell = myDataSource?.tableView(table, cellForRowAt: IndexPath(row: 1, section: 0))
@@ -285,7 +302,6 @@ class AndesListTests: QuickSpec {
                     self.internalAndesList?.delegate = self
 
                     self.titleArray = ["Title 1", "Title 2"]
-                    self.internalAndesList?.numberOfRows = self.titleArray?.count ?? 0
 
                     self.internalAndesList!.reloadData()
                 }
@@ -309,6 +325,14 @@ class AndesListTests: QuickSpec {
 }
 
 extension AndesListTests: AndesListDataSource {
+    func andesList(_ listView: AndesList, numberOfRowsInSection section: Int) -> Int {
+        return self.titleArray?.count ?? 0
+    }
+
+    func numberOfSections(_ listView: AndesList) -> Int {
+        return 1
+    }
+
     func andesList(_ listView: AndesList, cellForRowAt indexPath: IndexPath) -> AndesListCell {
         switch cellType {
         case .simple:
@@ -337,13 +361,21 @@ extension AndesListTests: AndesListDelegate {
 }
 
 extension AndesListTests: AndesListProtocol {
-    func getNumberOfRows() -> Int {
-        return self.titleArray?.count ?? 0
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return titleArray?.count ?? 0
     }
 
-    func numberOfSections() -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+
+//    func andesList(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return self.andesList(self.internalAndesList!, numberOfRowsInSection: section)
+//    }
+//
+//    func numberOfSections(in tableView: UITableView) -> Int {
+//        return self.numberOfSections(in: tableView)
+//    }
 
     func cellForRowAt(indexPath: IndexPath) -> AndesListCell {
         let customCell = self.andesList(self.internalAndesList!, cellForRowAt: indexPath)

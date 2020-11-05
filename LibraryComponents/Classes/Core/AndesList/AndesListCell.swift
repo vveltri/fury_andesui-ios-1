@@ -44,7 +44,7 @@ import UIKit
     var chevron: String?
     var chevronSize: CGFloat? = 0
     var thumbnailLeft: UIImage?
-    var thumbnailSize: CGFloat? = 0
+    var thumbnailSize: CGFloat?
     var separatorThumbnailWidth: CGFloat? = 0
     var paddingTopThumbnail: CGFloat? = 0
     var paddingBottomThumbnail: CGFloat? = 0
@@ -72,7 +72,7 @@ import UIKit
         self.paddingTopConstraint.constant = customCell.paddingTopCell
         self.paddingBottomConstraint.constant = customCell.paddingBottomCell
         self.separatorHeightConstraint.constant = customCell.separatorHeight
-        if let imageSize = customCell.thumbnailSize {
+        if let imageSize = customCell.thumbnailSize, imageSize != 0.0 {
             self.thumbnailWidthConstraint.constant = imageSize
             self.thumbnailHeightConstraint.constant = imageSize
             self.paddingTopThumbnailConstraint.constant = customCell.paddingTopThumbnail ?? 0

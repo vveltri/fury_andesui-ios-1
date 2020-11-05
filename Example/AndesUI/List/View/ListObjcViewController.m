@@ -64,12 +64,12 @@
 }
 
 - (NSInteger)andesList:(AndesList * _Nonnull)listView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return titleArray.count;
 }
 
 
-- (NSInteger)numberOfSectionsIn:(AndesList * _Nonnull)listView {
-    return titleArray.count;
+- (NSInteger)numberOfSections:(AndesList * _Nonnull)listView {
+    return 1;
 }
 
 @end

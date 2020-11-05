@@ -60,9 +60,9 @@ import Foundation
         tableView.register(UINib(nibName: "AndesListSimpleViewCell",
                                  bundle: AndesBundle.bundle()),
                            forCellReuseIdentifier: "AndesListSimpleViewCell")
-        tableView.register(UINib(nibName: "AndesListCevronViewCell",
+        tableView.register(UINib(nibName: "AndesListChevronViewCell",
                                  bundle: AndesBundle.bundle()),
-                           forCellReuseIdentifier: "AndesListCevronViewCell")
+                           forCellReuseIdentifier: "AndesListChevronViewCell")
         drawContentView()
     }
 
@@ -75,10 +75,10 @@ import Foundation
 /// Use (UITableViewDelegate and UITableViewDatasource) in a independent protocol
 extension AndesList: AndesListProtocol {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return dataSource?.numberOfSections(in: self) ?? 0
+        return dataSource?.numberOfSections(self) ?? 0
     }
 
-    func andesList(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSource?.andesList(self, numberOfRowsInSection: section) ?? 0
     }
 
