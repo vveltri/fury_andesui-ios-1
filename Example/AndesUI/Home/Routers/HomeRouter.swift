@@ -9,7 +9,7 @@
 import UIKit
 
 protocol HomeRouter: NSObject {
-    func route(from: UIViewController)
+    func start(in window: UIWindow)
     func routeToCoachmark()
     func routeToButton()
     func routeToMessages()
@@ -23,6 +23,7 @@ protocol HomeRouter: NSObject {
     func routeCard()
     func routeToThumbnail()
     func routeToTextFieldsCode()
+    func routeToBottomSheet()
     func routeToList()
 }
 
@@ -43,19 +44,18 @@ class HomeAppRouter: NSObject {
     let cardRouter = CardAppRouter()
     let thumbnailRouter = ThumbnailAppRouter()
     let textFieldsCodeRouter = TextFieldsCodeAppRouter()
+    let bottomSheetRouter = BottomSheetAppRouter()
     let listRouter = ListAppRouter()
 }
 
 extension HomeAppRouter: HomeRouter {
 
-    func route(from: UIViewController) {
+    func start(in window: UIWindow) {
         presenter = HomeViewPresenter(view: view, router: self)
         view.presenter = presenter
 
-        let navigation = UINavigationController(rootViewController: view)
-        navigation.modalPresentationStyle = .fullScreen
-
-        from.present(navigation, animated: false, completion: nil)
+        window.rootViewController = UINavigationController(rootViewController: view)
+        window.makeKeyAndVisible()
     }
 
     func routeToCoachmark() {
@@ -112,5 +112,9 @@ extension HomeAppRouter: HomeRouter {
 
     func routeToTextFieldsCode() {
         textFieldsCodeRouter.route(from: view)
+    }
+
+    func routeToBottomSheet() {
+        bottomSheetRouter.route(from: view)
     }
 }

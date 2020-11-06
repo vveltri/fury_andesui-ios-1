@@ -123,11 +123,15 @@ class HomeViewController: UIViewController {
     }
 
     @IBAction func goToListViewTapped(_ sender: Any) {
-        presenter.presentListView()
+        presenter.presentList()
     }
 
     @IBAction func goToTextFieldsCodeTapped(_ sender: Any) {
         presenter.presentTextFieldsCode()
+    }
+
+    @IBAction func bottomSheetTapped(_ sender: Any) {
+        presenter.presentBottomSheet()
     }
 }
 
