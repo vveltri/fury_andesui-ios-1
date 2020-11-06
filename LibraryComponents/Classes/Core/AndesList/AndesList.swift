@@ -7,6 +7,9 @@
 
 import Foundation
 
+/**
+ This class is a custom UITableView to AndesUI
+*/
 @objc public class AndesList: UIView {
 
     /// Set the delegate to use own methods
@@ -28,8 +31,14 @@ import Foundation
         }
     }
 
+    /// This method reload the data
     @objc public func reloadData() {
         self.tableView.reloadData()
+    }
+
+    public init(type: String) {
+        super.init(frame: .zero)
+        setup()
     }
 
     private var tableView: UITableView = UITableView()
@@ -41,12 +50,6 @@ import Foundation
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setup()
-    }
-
-    public init(type: String) {
-        super.init(frame: .zero)
-        listAllowedType = AndesCellType.checkValidEnum(property: type, key: type)
         setup()
     }
 

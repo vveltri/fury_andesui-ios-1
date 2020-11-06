@@ -7,6 +7,11 @@
 
 import UIKit
 
+/**
+ This class is a custom cell to AndesUI
+ - Requires: See the AndesSimpleCell and AndesChevronCell documentation to integration
+ - Important: This class cannot be initialize
+*/
 @objc public class AndesListCell: UITableViewCell {
 
     @IBOutlet weak var titleLbl: UILabel!

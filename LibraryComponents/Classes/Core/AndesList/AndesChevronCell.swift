@@ -7,8 +7,22 @@
 
 import Foundation
 
+/**
+ This class is a custom cell to AndesUI, this cell has a basic configuration and a chevron to the right
+*/
 public class AndesChevronCell: AndesListCell {
 
+    /**
+     This method initialize an AndesChevronCell with title, size, subtitle, thumbnail and numberOfLines
+     - Parameters:
+       - title: Set the title for the cell
+       - size: Set the size for the cell, the values are small, medium and large, the default is medium
+       - subTitle: Set the subtitle for the cell
+       - thumbnail: Set a thumbnail to the left of the cell
+       - numberOfLines: Set the number of lines to the cell title, the default is 0
+     - Author: Mobile architecture
+     - Date: november 6th, 2020
+    */
     @available(swift, obsoleted: 1.0)
     @objc public init(withTitle title: String,
                       size: AndesListSize,
@@ -19,6 +33,17 @@ public class AndesChevronCell: AndesListCell {
         self.cellConfig(withTitle: title, size: size, subTitle: subTitle, thumbnail: thumbnail, numberOfLines: numberOfLines)
     }
 
+    /**
+     This method initialize an AndesChevronCell with title, size, subtitle, thumbnail and numberOfLines
+     - Parameters:
+       - title: Set the title for the cell
+       - size: Set the size for the cell, the values are small, medium and large, the default is medium
+       - subTitle: Set the subtitle for the cell
+       - thumbnail: Set a thumbnail to the left of the cell
+       - numberOfLines: Set the number of lines to the cell title, the default is 0
+     - Author: Mobile architecture
+     - Date: november 6th, 2020
+    */
     public init(withTitle title: String,
                 size: AndesListSize? = .medium,
                 subTitle: String? = String(),
