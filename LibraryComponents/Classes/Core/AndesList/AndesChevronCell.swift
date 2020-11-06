@@ -13,57 +13,57 @@ import Foundation
 public class AndesChevronCell: AndesListCell {
 
     /**
-     This method initialize an AndesChevronCell with title, size, subtitle, thumbnail and numberOfLines
+     This method initialize an AndesChevronCell to draw the row just objc
      - Parameters:
        - title: Set the title for the cell
        - size: Set the size for the cell, the values are small, medium and large, the default is medium
        - subTitle: Set the subtitle for the cell
        - thumbnail: Set a thumbnail to the left of the cell
        - numberOfLines: Set the number of lines to the cell title, the default is 0
-     - Author: Mobile architecture
-     - Date: november 6th, 2020
+     - Authors: @Jona
+     - Version : Available since 3.13.0
     */
     @available(swift, obsoleted: 1.0)
     @objc public init(withTitle title: String,
                       size: AndesListSize,
-                      subTitle: String,
+                      subtitle: String,
                       thumbnail: AndesThumbnail? = nil,
                       numberOfLines: Int) {
         super.init()
-        self.cellConfig(withTitle: title, size: size, subTitle: subTitle, thumbnail: thumbnail, numberOfLines: numberOfLines)
+        self.cellConfig(withTitle: title, size: size, subtitle: subtitle, thumbnail: thumbnail, numberOfLines: numberOfLines)
     }
 
     /**
-     This method initialize an AndesChevronCell with title, size, subtitle, thumbnail and numberOfLines
+     This method initialize an AndesChevronCell to draw the row just objc
      - Parameters:
        - title: Set the title for the cell
        - size: Set the size for the cell, the values are small, medium and large, the default is medium
        - subTitle: Set the subtitle for the cell
        - thumbnail: Set a thumbnail to the left of the cell
        - numberOfLines: Set the number of lines to the cell title, the default is 0
-     - Author: Mobile architecture
-     - Date: november 6th, 2020
+     - Authors: @Jona
+     - Version : Available since 3.13.0
     */
     public init(withTitle title: String,
                 size: AndesListSize? = .medium,
-                subTitle: String? = String(),
+                subtitle: String? = String(),
                 thumbnail: AndesThumbnail? = nil, numberOfLines: Int = 0) {
         super.init()
-        guard let size = size, let subTitle = subTitle else { return }
-        self.cellConfig(withTitle: title, size: size, subTitle: subTitle, thumbnail: thumbnail, numberOfLines: numberOfLines)
+        guard let size = size, let subtitle = subtitle else { return }
+        self.cellConfig(withTitle: title, size: size, subtitle: subtitle, thumbnail: thumbnail, numberOfLines: numberOfLines)
     }
 
     private func cellConfig(withTitle title: String,
                             size: AndesListSize,
-                            subTitle: String,
+                            subtitle: String,
                             thumbnail: AndesThumbnail? = nil,
                             numberOfLines: Int) {
         let config = AndesListCellFactory.provide(withSize: size,
-                                                      subTitleIsEmpty: subTitle.isEmpty,
+                                                      subTitleIsEmpty: subtitle.isEmpty,
                                                       thumbnail: thumbnail)
         self.type = .chevron
         self.title = title
-        self.subTitle = subTitle
+        self.subtitle = subtitle
         self.fontStyle = config.font
         self.fontSubTitleStyle = config.fontDescription
         self.paddingLeftCell = config.paddingLeft

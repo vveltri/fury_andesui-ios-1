@@ -13,66 +13,66 @@ import Foundation
 public class AndesSimpleCell: AndesListCell {
 
     /**
-     This method initialize an AndesSimpleCell with title, size, subtitle, thumbnail and numberOfLines
+     This method initialize an AndesSimpleCell to draw the row just objc
      - Parameters:
        - title: Set the title for the cell
        - size: Set the size for the cell, the values are small, medium and large, the default is medium
-       - subTitle: Set the subtitle for the cell
+       - subtitle: Set the subtitle for the cell
        - thumbnail: Set a thumbnail to the left of the cell
        - numberOfLines: Set the number of lines to the cell title, the default is 0
-     - Author: Mobile architecture
-     - Date: november 6th, 2020
+     - Authors: @Jona
+     - Version : Available since 3.13.0
     */
     @available(swift, obsoleted: 1.0)
     @objc public init(withTitle title: String,
                       size: AndesListSize,
-                      subTitle: String,
+                      subtitle: String,
                       thumbnail: AndesThumbnail? = nil,
                       numberOfLines: Int) {
         super.init()
         self.cellConfig(withTitle: title,
                         size: size,
-                        subTitle: subTitle,
+                        subtitle: subtitle,
                         thumbnail: thumbnail,
                         numberOfLines: numberOfLines)
     }
 
     /**
-     This method initialize an AndesSimpleCell with title, size, subtitle, thumbnail and numberOfLines, some parameters are optionals
+     This method initialize an AndesSimpleCell to draw the row
      - Parameters:
        - title: Set the title for the cell
        - size: Set the size for the cell, the values are small, medium and large, the default is medium, optional parameter
        - subTitle: Set the subtitle for the cell, optional parameter
        - thumbnail: Set a thumbnail to the left of the cell, optional parameter
        - numberOfLines: Set the number of lines to the cell title, the default is 0, optional parameter
-     - Author: Mobile architecture
-     - Date: november 6th, 2020
+     - Authors: @Jona
+     - Version : Available since 3.13.0
     */
     public init(withTitle title: String,
                 size: AndesListSize? = .medium,
-                subTitle: String? = String(),
+                subtitle: String? = String(),
                 thumbnail: AndesThumbnail? = nil,
                 numberOfLines: Int = 0) {
         super.init()
-        guard let size = size, let subTitle = subTitle else { return }
+        guard let size = size, let subtitle = subtitle else { return }
         self.cellConfig(withTitle: title,
                         size: size,
-                        subTitle: subTitle,
+                        subtitle: subtitle,
                         thumbnail: thumbnail,
                         numberOfLines: numberOfLines)
     }
 
     private func cellConfig(withTitle title: String,
                             size: AndesListSize,
-                            subTitle: String,
+                            subtitle: String,
                             thumbnail: AndesThumbnail? = nil,
                             numberOfLines: Int) {
         let config = AndesListCellFactory.provide(withSize: size,
-                                                      subTitleIsEmpty: subTitle.isEmpty,
+                                                      subTitleIsEmpty: subtitle.isEmpty,
                                                       thumbnail: thumbnail)
         self.type = .simple
         self.title = title
-        self.subTitle = subTitle
+        self.subtitle = subtitle
         self.fontStyle = config.font
         self.fontSubTitleStyle = config.fontDescription
         self.paddingLeftCell = config.paddingLeft
