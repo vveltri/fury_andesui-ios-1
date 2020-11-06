@@ -13,24 +13,26 @@ public class AndesChevronCell: AndesListCell {
     @objc public init(withTitle title: String,
                       size: AndesListSize,
                       subTitle: String,
-                      thumbnail: AndesThumbnail? = nil) {
+                      thumbnail: AndesThumbnail? = nil,
+                      numberOfLines: Int) {
         super.init()
-        self.cellConfig(withTitle: title, size: size, subTitle: subTitle, thumbnail: thumbnail)
+        self.cellConfig(withTitle: title, size: size, subTitle: subTitle, thumbnail: thumbnail, numberOfLines: numberOfLines)
     }
 
     public init(withTitle title: String,
                 size: AndesListSize? = .medium,
                 subTitle: String? = String(),
-                thumbnail: AndesThumbnail? = nil) {
+                thumbnail: AndesThumbnail? = nil, numberOfLines: Int = 0) {
         super.init()
         guard let size = size, let subTitle = subTitle else { return }
-        self.cellConfig(withTitle: title, size: size, subTitle: subTitle, thumbnail: thumbnail)
+        self.cellConfig(withTitle: title, size: size, subTitle: subTitle, thumbnail: thumbnail, numberOfLines: numberOfLines)
     }
 
     private func cellConfig(withTitle title: String,
                             size: AndesListSize,
                             subTitle: String,
-                            thumbnail: AndesThumbnail? = nil) {
+                            thumbnail: AndesThumbnail? = nil,
+                            numberOfLines: Int) {
         let config = AndesListCellFactory.provide(withSize: size,
                                                       subTitleIsEmpty: subTitle.isEmpty,
                                                       thumbnail: thumbnail)
@@ -57,6 +59,7 @@ public class AndesChevronCell: AndesListCell {
         self.paddingTopChevron = config.paddingTopChevron
         self.paddingBottomChevron = config.paddingBottomChevron
         self.separatorChevronWidth = config.separatorChevronWidth
+        self.numberOfLines = numberOfLines
     }
 
     required init?(coder: NSCoder) {

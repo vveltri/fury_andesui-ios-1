@@ -88,6 +88,9 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="749" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hbr-Qi-n4w">
                                         <rect key="frame" x="0.0" y="43.5" width="288" height="6.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="6.5" id="VXI-Cg-W4F"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -167,6 +170,7 @@
                 <outlet property="chevronHeightConstraint" destination="yYD-xu-fG7" id="rBq-d0-Kkt"/>
                 <outlet property="chevronImg" destination="bYM-4q-U5L" id="MVW-dI-aKh"/>
                 <outlet property="chevronWidthConstraint" destination="8om-tb-8wp" id="rbK-TF-Dlm"/>
+                <outlet property="descriptionHeightConstraint" destination="VXI-Cg-W4F" id="iHW-GE-aOF"/>
                 <outlet property="paddingBottomChevronConstraint" destination="DHx-P7-sxQ" id="5HQ-bO-6aP"/>
                 <outlet property="paddingBottomConstraint" destination="eMs-vm-1Cq" id="NNU-Bv-d7C"/>
                 <outlet property="paddingBottomThumbnailConstraint" destination="0S7-3B-pBX" id="TX0-Ue-R0m"/>
