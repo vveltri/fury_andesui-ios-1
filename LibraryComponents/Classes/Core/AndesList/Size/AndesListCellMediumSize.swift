@@ -8,7 +8,12 @@
 import Foundation
 
 struct AndesListCellMediumSize: AndesListCellSizeProtocol {
-
+    var font = AndesFontStyle(textColor: UIColor.Andes.gray800,
+                              font: AndesStyleSheetManager.styleSheet.regularSystemFont(size: AndesFontSize.bodyM),
+                              lineSpacing: 2)
+    var fontDescription = AndesFontStyle(textColor: UIColor.Andes.gray450,
+                              font: AndesStyleSheetManager.styleSheet.regularSystemFont(size: AndesFontSize.bodyS),
+                              lineSpacing: 1)
     var height: CGFloat = 48
     var paddingLeft: CGFloat = 16
     var paddingRight: CGFloat = 16

@@ -8,14 +8,7 @@
 import Foundation
 
 class AndesListCellTypeFactory {
-    static func provideType(withSize size: AndesListSize, thumbnail: AndesThumbnail? = nil) -> AndesListCellTypeProtocol {
-        switch size {
-        case .large:
-            return AndesListCellLargeType(thumbnail: thumbnail)
-        case .small:
-            return AndesListCellSmallType(withThumbnail: thumbnail)
-        case .medium:
-            return AndesListCellMediumType(thumbnail: thumbnail)
-        }
+    static func provideType(withthumbnail thumbnail: AndesThumbnail? = nil) -> AndesListCellTypeProtocol {
+        return AndesListCellType(thumbnail: thumbnail)
     }
 }

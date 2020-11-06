@@ -85,7 +85,8 @@ extension AndesList: AndesListProtocol {
     }
 
     func cellForRowAt(indexPath: IndexPath) -> AndesListCell {
-        guard let customCell = dataSource?.andesList(self, cellForRowAt: indexPath), customCell.type == listAllowedType else {
+        guard let customCell = dataSource?.andesList(self, cellForRowAt: indexPath),
+              customCell.type == listAllowedType else {
             fatalError("Cell type not allowed, should be \(listAllowedType.toString()) type")
         }
         return customCell

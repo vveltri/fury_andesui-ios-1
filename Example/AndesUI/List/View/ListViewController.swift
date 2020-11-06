@@ -12,51 +12,147 @@ import AndesUI
 class ListViewController: UIViewController {
 
     @IBOutlet weak var andesList: AndesList!
+    @IBOutlet weak var radioButtonSimple: AndesRadioButton!
+    @IBOutlet weak var radioButtonChevron: AndesRadioButton!
+    @IBOutlet weak var radioButtonIcon: AndesRadioButton!
+    @IBOutlet weak var radioButtonThumbnail: AndesRadioButton!
+    @IBOutlet weak var titleTxt: AndesTextField!
+    @IBOutlet weak var numberOfLinesTitle: UITextField!
+    @IBOutlet weak var descriptionTxt: AndesTextField!
+    @IBOutlet weak var selection: UISegmentedControl!
 
-    var titleArray: [String]?
+    let icon = AndesThumbnail(hierarchy: .defaultHierarchy, type: .icon, size: .size24, state: .enabled, image: UIImage(named: "andes") ?? UIImage(), accentColor: UIColor.clear)
+    let thumbnail = AndesThumbnail(hierarchy: .defaultHierarchy, type: .imageCircle, size: .size24, state: .enabled, image: UIImage(named: "andes") ?? UIImage(), accentColor: UIColor.clear)
+    var cell: AndesListCell!
+    var size: AndesListSize?
+    var image: AndesThumbnail?
+    var numberOfLines: Int?
+
+    var simpleCellSelected: Bool = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        radioButtonSimple.setRadioButtonTapped(callback: didTapIdle(radiobutton:))
+        radioButtonChevron.setRadioButtonTapped(callback: didTapIdle(radiobutton:))
+        radioButtonIcon.setRadioButtonTapped(callback: didTapIdle(radiobutton:))
+        radioButtonThumbnail.setRadioButtonTapped(callback: didTapIdle(radiobutton:))
+
         andesList.delegate = self
         andesList.dataSource = self
         andesList.separatorStyle = .singleLine
-        andesList.listType = "simple"
 
-        titleArray = ["AndesList 1 -- Andes Default Cell -- Andes Default Cell -- Andes Default Cell -- Andes Default Cell -- Andes Default Cell",
-                      "AndesList 1 -- Andes Default Cell",
-                      "AndesList 1 -- Andes Default Cell",
-                      "AndesList 1 -- Andes Default Cell",
-                      "AndesList 1 -- Andes Default Cell",
-                      "AndesList 1 -- Andes Default Cell",
-                      "AndesList 1 -- Andes Default Cell"]
+        self.setValuesDefault()
     }
 
+    @IBAction func update() {
+        buildCell()
+        andesList.reloadData()
+    }
+
+    @IBAction func setValuesDefault() {
+        self.titleTxt.text = "list.label.titleCell".localized
+        self.descriptionTxt.text = "list.label.subTitleCell".localized
+        self.size = .medium
+        self.image = nil
+        self.numberOfLines = 0
+        andesList.listType = "simple"
+        simpleCellSelected = true
+        selection.selectedSegmentIndex = 1
+        self.numberOfLinesTitle.text = "0"
+        self.radioButtonIcon.status = .unselected
+        self.radioButtonThumbnail.status = .unselected
+        self.radioButtonSimple.status = .selected
+        self.radioButtonChevron.status = .unselected
+        self.update()
+    }
+
+    func didTapIdle(radiobutton: AndesRadioButton) {
+        if radiobutton == self.radioButtonSimple {
+            self.radioButtonSimple.status = .selected
+            self.radioButtonChevron.status = .unselected
+            simpleCellSelected = true
+            andesList.listType = "simple"
+        } else if radiobutton == self.radioButtonChevron {
+            self.radioButtonSimple.status = .unselected
+            self.radioButtonChevron.status = .selected
+            simpleCellSelected = false
+            andesList.listType = "chevron"
+        } else if radiobutton == self.radioButtonIcon {
+            self.radioButtonIcon.status = .selected
+            self.radioButtonThumbnail.status = .unselected
+            self.image = icon
+        } else if radiobutton == self.radioButtonThumbnail {
+            self.radioButtonIcon.status = .unselected
+            self.radioButtonThumbnail.status = .selected
+            self.image = thumbnail
+        }
+    }
+
+    func buildCell() {
+        if simpleCellSelected {
+            cell = AndesSimpleCell(withTitle: getTitleRow(),
+                                   size: self.size,
+                                   subTitle: self.descriptionTxt.text,
+                                   thumbnail: self.image,
+                                   numberOfLines: self.getNumberOfLines())
+        } else {
+            cell = AndesChevronCell(withTitle: getTitleRow(),
+                                    size: self.size,
+                                    subTitle: self.descriptionTxt.text,
+                                    thumbnail: self.image,
+                                    numberOfLines: self.getNumberOfLines())
+        }
+    }
+
+    func getTitleRow() -> String {
+        if self.titleTxt.text.isEmpty {
+            return "list.label.titleCell".localized
+        }
+        return self.titleTxt.text
+    }
+
+    func getNumberOfLines() -> Int {
+        if let lines = Int(self.numberOfLinesTitle.text ?? "0") {
+            return lines
+        }
+        return 0
+    }
+
+    @IBAction func valueChangeSegmented() {
+        if selection.selectedSegmentIndex == 0 {
+            size = .small
+        } else if selection.selectedSegmentIndex == 1 {
+            size = .medium
+        } else {
+            size = .large
+        }
+    }
+
+    func onCellActionPressed(msg: String) {
+        let alert = UIAlertController(title: "list.actions.titleAlert".localized,
+                                      message: "\("list.actions.msgAlert".localized) row: \(msg)",
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
 extension ListViewController: AndesListDelegate {
     func andesList(_ listView: AndesList, didSelectRowAt indexPath: IndexPath) {
-        print("IndexPath row: \(indexPath.row)")
+        self.onCellActionPressed(msg: "\(indexPath.row)")
     }
 }
 
 extension ListViewController: AndesListDataSource {
     func andesList(_ listView: AndesList, cellForRowAt indexPath: IndexPath) -> AndesListCell {
-
-        let thumbnail = AndesThumbnail(hierarchy: .defaultHierarchy, type: .imageCircle, size: .size24, state: .enabled, image: UIImage(named: "andes") ?? UIImage(), accentColor: UIColor.clear)
-
-        let simpleCell = AndesSimpleCell(withTitle: titleArray?[indexPath.row] ?? "",
-                                             size: .medium,
-                                             subTitle: "Descripción--Descripción--Descripción--Descripción",
-                                             thumbnail: thumbnail)
-
-        return simpleCell
+        return self.cell
     }
     func numberOfSections(_ listView: AndesList) -> Int {
         return 1
     }
 
     func andesList(_ listView: AndesList, numberOfRowsInSection section: Int) -> Int {
-        return self.titleArray?.count ?? 0
+        return 15
     }
 }

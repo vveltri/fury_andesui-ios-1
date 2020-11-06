@@ -8,6 +8,8 @@
 import Foundation
 
 protocol AndesListCellSizeProtocol {
+    var font: AndesFontStyle { get }
+    var fontDescription: AndesFontStyle { get }
     var height: CGFloat { get }
     var paddingLeft: CGFloat { get }
     var paddingRight: CGFloat { get }
