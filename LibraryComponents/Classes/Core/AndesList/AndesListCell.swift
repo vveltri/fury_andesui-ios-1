@@ -9,7 +9,7 @@ import UIKit
 
 /**
  This class is a custom cell to AndesUI
- - Requires: See the AndesSimpleCell and AndesChevronCell documentation for integration
+ - Requires: See the AndesSimpleCell and AndesChevronCell documentation to integration
  - Important: This class cannot be initialize
 */
 @objc public class AndesListCell: UITableViewCell {
@@ -31,7 +31,7 @@ import UIKit
     @IBOutlet weak var paddingBottomThumbnailConstraint: NSLayoutConstraint!
 
     var title: String = String()
-    var subtitle: String = String()
+    var subTitle: String = String()
     var type: AndesCellType?
     var fontStyle: AndesFontStyle = AndesFontStyle(textColor: .black,
                                                           font: UIFont.boldSystemFont(ofSize: 16),
@@ -71,7 +71,7 @@ import UIKit
         self.titleLbl.text = customCell.title
         self.titleLbl.setAndesStyle(style: customCell.fontStyle)
         self.titleLbl.heightAnchor.constraint(greaterThanOrEqualToConstant: customCell.titleHeight).isActive = true
-        self.subTitleLbl.text = customCell.subtitle
+        self.subTitleLbl.text = customCell.subTitle
         self.subTitleLbl.setAndesStyle(style: customCell.fontSubTitleStyle)
         self.descriptionHeightConstraint.constant = customCell.subTitleHeight
         self.paddingLeftConstraint.constant = customCell.paddingLeftCell
