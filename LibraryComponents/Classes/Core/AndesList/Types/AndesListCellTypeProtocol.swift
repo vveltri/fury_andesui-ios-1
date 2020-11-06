@@ -8,8 +8,6 @@
 import Foundation
 
 protocol AndesListCellTypeProtocol {
-    var font: AndesFontStyle { get }
-    var fontDescription: AndesFontStyle { get }
     var chevronImage: String { get }
     var thumbnailLeft: UIImage? { get }
 }

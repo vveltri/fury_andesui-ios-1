@@ -12,10 +12,10 @@ class AndesListCellFactory {
                         subTitleIsEmpty: Bool, thumbnail: AndesThumbnail? = nil) -> AndesListCellConfig {
 
         let cellSize = AndesListCellSizeFactory.provideSize(withSize: size, subTitleIsEmpty: subTitleIsEmpty, thumbnail: thumbnail)
-        let cellType = AndesListCellTypeFactory.provideType(withSize: size, thumbnail: thumbnail)
+        let cellType = AndesListCellTypeFactory.provideType(withthumbnail: thumbnail)
 
-        return AndesListCellConfig(font: cellType.font,
-                                   fontDescription: cellType.fontDescription,
+        return AndesListCellConfig(font: cellSize.font,
+                                   fontDescription: cellSize.fontDescription,
                                    height: cellSize.height,
                                    paddingLeft: cellSize.paddingLeft,
                                    paddingRight: cellSize.paddingRight,
