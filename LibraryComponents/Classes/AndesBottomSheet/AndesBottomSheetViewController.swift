@@ -32,23 +32,18 @@ open class AndesBottomSheetViewController: UIViewController {
     }
 
     @objc
-    public var scrollView: UIScrollView? {
-        get {
-            return contentController.scrollView
-        }
-        set {
-            contentController.scrollView = newValue
-            setupScrollView()
-        }
-    }
-
-    @objc
     public weak var delegate: AndesBottomSheetViewControllerDelegate?
 
     @objc
     public var titleBar: AndesBottomSheetTitleBar {
         get {
             contentController.titleBar
+        }
+    }
+
+    private var scrollView: UIScrollView? {
+        get {
+            return contentController.scrollView
         }
     }
 
