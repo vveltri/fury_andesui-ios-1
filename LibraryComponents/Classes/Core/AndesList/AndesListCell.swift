@@ -9,7 +9,7 @@ import UIKit
 
 /**
  This class is a custom cell to AndesUI
- - Requires: See the AndesSimpleCell and AndesChevronCell documentation to integration
+ - Requires: See the AndesSimpleCell and AndesChevronCell documentation for integration
  - Important: This class cannot be initialize
 */
 @objc public class AndesListCell: UITableViewCell {
