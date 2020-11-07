@@ -17,7 +17,7 @@ public class AndesChevronCell: AndesListCell {
      - Parameters:
        - title: Set the title for the cell
        - size: Set the size for the cell, the values are small, medium and large, the default is medium
-       - subTitle: Set the subtitle for the cell
+       - subtitle: Set the subtitle for the cell
        - thumbnail: Set a thumbnail to the left of the cell
        - numberOfLines: Set the number of lines to the cell title, the default is 0
      - Authors: @Jona
@@ -38,7 +38,7 @@ public class AndesChevronCell: AndesListCell {
      - Parameters:
        - title: Set the title for the cell
        - size: Set the size for the cell, the values are small, medium and large, the default is medium
-       - subTitle: Set the subtitle for the cell
+       - subtitle: Set the subtitle for the cell
        - thumbnail: Set a thumbnail to the left of the cell
        - numberOfLines: Set the number of lines to the cell title, the default is 0
      - Authors: @Jona
