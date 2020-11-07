@@ -12,42 +12,42 @@ public class AndesSimpleCell: AndesListCell {
     @available(swift, obsoleted: 1.0)
     @objc public init(withTitle title: String,
                       size: AndesListSize,
-                      subTitle: String,
+                      subtitle: String,
                       thumbnail: AndesThumbnail? = nil,
                       numberOfLines: Int) {
         super.init()
         self.cellConfig(withTitle: title,
                         size: size,
-                        subTitle: subTitle,
+                        subtitle: subtitle,
                         thumbnail: thumbnail,
                         numberOfLines: numberOfLines)
     }
 
     public init(withTitle title: String,
                 size: AndesListSize? = .medium,
-                subTitle: String? = String(),
+                subtitle: String? = String(),
                 thumbnail: AndesThumbnail? = nil,
                 numberOfLines: Int = 0) {
         super.init()
-        guard let size = size, let subTitle = subTitle else { return }
+        guard let size = size, let subtitle = subtitle else { return }
         self.cellConfig(withTitle: title,
                         size: size,
-                        subTitle: subTitle,
+                        subtitle: subtitle,
                         thumbnail: thumbnail,
                         numberOfLines: numberOfLines)
     }
 
     private func cellConfig(withTitle title: String,
                             size: AndesListSize,
-                            subTitle: String,
+                            subtitle: String,
                             thumbnail: AndesThumbnail? = nil,
                             numberOfLines: Int) {
         let config = AndesListCellFactory.provide(withSize: size,
-                                                      subTitleIsEmpty: subTitle.isEmpty,
+                                                      subTitleIsEmpty: subtitle.isEmpty,
                                                       thumbnail: thumbnail)
         self.type = .simple
         self.title = title
-        self.subTitle = subTitle
+        self.subtitle = subtitle
         self.fontStyle = config.font
         self.fontSubTitleStyle = config.fontDescription
         self.paddingLeftCell = config.paddingLeft

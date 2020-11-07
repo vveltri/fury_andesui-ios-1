@@ -40,13 +40,13 @@
     AndesSimpleCell *cell = [[AndesSimpleCell alloc]
                              initWithTitle:[titleArray objectAtIndex:indexPath.row]
                              size:AndesListSizeLarge
-                             subTitle: @"Lorem ipsum dolor sit amet"
+                             subtitle: @"Lorem ipsum dolor sit amet"
                              thumbnail: thumbnail
                              numberOfLines: 2];
     
     AndesChevronCell *chevronCell = [[AndesChevronCell alloc]initWithTitle:[titleArray objectAtIndex:indexPath.row]
                                                                       size:AndesListSizeMedium
-                                                                  subTitle:@"Lorem ipsum dolor sit amet"
+                                                                  subtitle:@"Lorem ipsum dolor sit amet"
                                                                  thumbnail:thumbnail
                                                              numberOfLines: 0];
     

@@ -10,7 +10,7 @@ import UIKit
 @objc public class AndesListCell: UITableViewCell {
 
     @IBOutlet weak var titleLbl: UILabel!
-    @IBOutlet weak var subTitleLbl: UILabel!
+    @IBOutlet weak var subtitleLbl: UILabel!
     @IBOutlet weak var descriptionHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var paddingLeftConstraint: NSLayoutConstraint!
     @IBOutlet weak var paddingRightConstraint: NSLayoutConstraint!
@@ -26,7 +26,7 @@ import UIKit
     @IBOutlet weak var paddingBottomThumbnailConstraint: NSLayoutConstraint!
 
     var title: String = String()
-    var subTitle: String = String()
+    var subtitle: String = String()
     var type: AndesCellType?
     var fontStyle: AndesFontStyle = AndesFontStyle(textColor: .black,
                                                           font: UIFont.boldSystemFont(ofSize: 16),
@@ -66,8 +66,8 @@ import UIKit
         self.titleLbl.text = customCell.title
         self.titleLbl.setAndesStyle(style: customCell.fontStyle)
         self.titleLbl.heightAnchor.constraint(greaterThanOrEqualToConstant: customCell.titleHeight).isActive = true
-        self.subTitleLbl.text = customCell.subTitle
-        self.subTitleLbl.setAndesStyle(style: customCell.fontSubTitleStyle)
+        self.subtitleLbl.text = customCell.subtitle
+        self.subtitleLbl.setAndesStyle(style: customCell.fontSubTitleStyle)
         self.descriptionHeightConstraint.constant = customCell.subTitleHeight
         self.paddingLeftConstraint.constant = customCell.paddingLeftCell
         self.paddingRightConstraint.constant = customCell.paddingRightCell
@@ -92,8 +92,8 @@ import UIKit
         self.titleLbl.adjustsFontSizeToFitWidth = false
         self.titleLbl.lineBreakMode = .byTruncatingTail
         self.titleLbl.numberOfLines = customCell.numberOfLines
-        self.subTitleLbl.adjustsFontSizeToFitWidth = false
-        self.subTitleLbl.lineBreakMode = .byTruncatingTail
+        self.subtitleLbl.adjustsFontSizeToFitWidth = false
+        self.subtitleLbl.lineBreakMode = .byTruncatingTail
         setupSeparatorStyle(separatorStyle: separatorStyle)
     }
 

@@ -183,7 +183,7 @@
                 <outlet property="separatorView" destination="phG-aB-h4I" id="ta9-eA-Wku"/>
                 <outlet property="spaceChevronWidthConstraint" destination="UDb-0E-GTP" id="9re-Vi-VHI"/>
                 <outlet property="spaceThumbnailWidthConstraint" destination="Njx-Cg-Pp3" id="pQG-f0-rW5"/>
-                <outlet property="subTitleLbl" destination="hbr-Qi-n4w" id="KCX-ZB-BT0"/>
+                <outlet property="subtitleLbl" destination="hbr-Qi-n4w" id="x9p-Uk-CLc"/>
                 <outlet property="thumbnailHeightConstraint" destination="RAH-hI-eK7" id="U9h-WN-Iee"/>
                 <outlet property="thumbnailImg" destination="JpY-MC-bK8" id="cyB-jr-cl1"/>
                 <outlet property="thumbnailWidthConstraint" destination="g6C-DZ-oFD" id="rDu-1o-ssN"/>

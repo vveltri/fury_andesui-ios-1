@@ -144,7 +144,7 @@
                 <outlet property="separatorHeightConstraint" destination="QjH-Ee-YlR" id="pGl-Kv-CHI"/>
                 <outlet property="separatorView" destination="f8g-Xf-MbM" id="CUZ-NK-JNF"/>
                 <outlet property="spaceThumbnailWidthConstraint" destination="gBo-Eo-gWa" id="XJM-Lr-xIK"/>
-                <outlet property="subTitleLbl" destination="Vq1-AS-boY" id="hvX-mC-SQL"/>
+                <outlet property="subtitleLbl" destination="Vq1-AS-boY" id="WI6-gB-xwW"/>
                 <outlet property="thumbnailHeightConstraint" destination="8yu-yt-6n4" id="WEK-r5-iCo"/>
                 <outlet property="thumbnailImg" destination="7C7-hi-o08" id="RZF-4T-Nyg"/>
                 <outlet property="thumbnailWidthConstraint" destination="taY-9j-c3v" id="5pC-6t-pcJ"/>

@@ -93,13 +93,13 @@ class ListViewController: UIViewController {
         if simpleCellSelected {
             cell = AndesSimpleCell(withTitle: getTitleRow(),
                                    size: self.size,
-                                   subTitle: self.descriptionTxt.text,
+                                   subtitle: self.descriptionTxt.text,
                                    thumbnail: self.image,
                                    numberOfLines: self.getNumberOfLines())
         } else {
             cell = AndesChevronCell(withTitle: getTitleRow(),
                                     size: self.size,
-                                    subTitle: self.descriptionTxt.text,
+                                    subtitle: self.descriptionTxt.text,
                                     thumbnail: self.image,
                                     numberOfLines: self.getNumberOfLines())
         }
