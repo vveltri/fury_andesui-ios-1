@@ -32,11 +32,11 @@ class AndesListTests: QuickSpec {
                     //Given
                     let simplecell = AndesSimpleCell(withTitle: "Title",
                                                          size: .medium,
-                                                         subTitle: "Sub title")
+                                                         subtitle: "Sub title")
 
                     let chevronCell = AndesChevronCell(withTitle: "Title",
                                                           size: .medium,
-                                                          subTitle: "Descripción de la celda",
+                                                          subtitle: "Descripción de la celda",
                                                           thumbnail: self.icon)
 
                     //When
@@ -50,11 +50,11 @@ class AndesListTests: QuickSpec {
                     //Given
                     let simplecell = AndesSimpleCell(withTitle: "Title",
                                                          size: .small,
-                                                         subTitle: "Sub title")
+                                                         subtitle: "Sub title")
 
                     let chevronCell = AndesChevronCell(withTitle: "Title",
                                                           size: .small,
-                                                          subTitle: "Descripción de la celda",
+                                                          subtitle: "Descripción de la celda",
                                                           thumbnail: self.icon)
 
                     //When
@@ -68,11 +68,11 @@ class AndesListTests: QuickSpec {
                     //Given
                     let simplecell = AndesSimpleCell(withTitle: "Title",
                                                          size: .large,
-                                                         subTitle: "Sub title")
+                                                         subtitle: "Sub title")
 
                     let chevronCell = AndesChevronCell(withTitle: "Title",
                                                           size: .large,
-                                                          subTitle: "Descripción de la celda",
+                                                          subtitle: "Descripción de la celda",
                                                           thumbnail: self.icon)
 
                     //When
@@ -86,11 +86,11 @@ class AndesListTests: QuickSpec {
                     //Given
                     let simplecell = AndesSimpleCell(withTitle: "Title",
                                                          size: .medium,
-                                                         subTitle: "Sub title")
+                                                         subtitle: "Sub title")
 
                     let chevronCell = AndesChevronCell(withTitle: "Title",
                                                           size: .medium,
-                                                          subTitle: "Descripción de la celda",
+                                                          subtitle: "Descripción de la celda",
                                                           thumbnail: self.thumbnail)
 
                     //When
@@ -104,11 +104,11 @@ class AndesListTests: QuickSpec {
                     //Given
                     let simplecell = AndesSimpleCell(withTitle: "Title",
                                                          size: .small,
-                                                         subTitle: "Sub title")
+                                                         subtitle: "Sub title")
 
                     let chevronCell = AndesChevronCell(withTitle: "Title",
                                                           size: .small,
-                                                          subTitle: "Descripción de la celda",
+                                                          subtitle: "Descripción de la celda",
                                                           thumbnail: self.thumbnail)
 
                     //When
@@ -122,11 +122,11 @@ class AndesListTests: QuickSpec {
                     //Given
                     let simplecell = AndesSimpleCell(withTitle: "Title",
                                                          size: .large,
-                                                         subTitle: "Sub title")
+                                                         subtitle: "Sub title")
 
                     let chevronCell = AndesChevronCell(withTitle: "Title",
                                                           size: .large,
-                                                          subTitle: "Descripción de la celda",
+                                                          subtitle: "Descripción de la celda",
                                                           thumbnail: self.thumbnail)
 
                     //When
@@ -338,14 +338,14 @@ extension AndesListTests: AndesListDataSource {
         case .simple:
             let cell = AndesSimpleCell(withTitle: titleArray?[indexPath.row] ?? "",
                                        size: .medium,
-                                       subTitle: "Descripción -- Descripción -- Descripción -- Descripción")
+                                       subtitle: "Descripción -- Descripción -- Descripción -- Descripción")
             return cell
         case .chevron:
             let thumbnail = AndesThumbnail(hierarchy: .defaultHierarchy, type: self.thumbnailType!, size: .size24, state: .enabled, image: UIImage(named: "andes") ?? UIImage(), accentColor: UIColor.clear)
 
             let cell = AndesChevronCell(withTitle: titleArray?[indexPath.row] ?? "",
                                         size: .medium,
-                                        subTitle: "Descripción de la celda",
+                                        subtitle: "Descripción de la celda",
                                         thumbnail: thumbnail)
             return cell
         default:
