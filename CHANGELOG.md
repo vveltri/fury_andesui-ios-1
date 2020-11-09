@@ -1,4 +1,4 @@
-## Unpublished
+# v3.13.0
 ### 🚀 Features
 - Xcode 12 compatibility | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
 - AndesTextField adds support of inputAccessoryView | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
