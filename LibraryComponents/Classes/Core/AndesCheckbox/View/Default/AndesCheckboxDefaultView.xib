@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -48,7 +48,7 @@
                         <constraint firstAttribute="width" constant="16" id="y19-ze-T7D"/>
                     </constraints>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tab-mw-4wG">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tab-mw-4wG">
                     <rect key="frame" x="4" y="8" width="32" height="32"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="32" id="HLY-FP-5tZ"/>
@@ -58,7 +58,7 @@
                         <action selector="leftButtonTapped:" destination="-1" eventType="touchUpInside" id="5xn-MI-IFl"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lmV-Ba-ZbW">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lmV-Ba-ZbW">
                     <rect key="frame" x="117" y="8" width="32" height="32"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="32" id="RFM-9z-asM"/>
@@ -87,7 +87,7 @@
                 <constraint firstItem="vNJ-co-emm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" priority="250" constant="12" id="wyf-lI-yn5"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-180" y="-119"/>
+            <point key="canvasLocation" x="-180.43478260869566" y="-119.19642857142857"/>
         </view>
     </objects>
 </document>
