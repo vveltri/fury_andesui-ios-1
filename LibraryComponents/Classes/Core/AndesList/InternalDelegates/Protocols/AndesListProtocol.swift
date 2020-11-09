@@ -12,5 +12,6 @@ import Foundation
     func numberOfSections(in tableView: UITableView) -> Int
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     func getSeparatorStyle() -> AndesSeparatorStyle
+    func getSelectionStyle() -> UITableViewCell.SelectionStyle
     @objc optional func didSelectRowAt(indexPath: IndexPath)
 }

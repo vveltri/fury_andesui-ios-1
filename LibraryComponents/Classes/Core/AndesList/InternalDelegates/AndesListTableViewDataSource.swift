@@ -31,12 +31,14 @@ internal class AndesListTableViewDataSource: NSObject, UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "AndesListSimpleViewCell", for: indexPath) as? AndesListSimpleViewCell else {
                 fatalError("The dequeued cell is not an instance of AndesListSimpleViewCell.")
             }
+            cell.selectionStyle = listProtocol.getSelectionStyle()
             cell.display(indexPath: indexPath, customCell: customCell, separatorStyle: listProtocol.getSeparatorStyle())
             return cell
         case .chevron:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "AndesListChevronViewCell", for: indexPath) as? AndesListChevronViewCell else {
                 fatalError("The dequeued cell is not an instance of AndesListChevronViewCell.")
             }
+            cell.selectionStyle = listProtocol.getSelectionStyle()
             cell.display(indexPath: indexPath, customCell: customCell, separatorStyle: listProtocol.getSeparatorStyle())
             return cell
         default:
