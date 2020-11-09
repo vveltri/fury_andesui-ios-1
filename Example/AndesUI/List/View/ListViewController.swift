@@ -153,6 +153,6 @@ extension ListViewController: AndesListDataSource {
     }
 
     func andesList(_ listView: AndesList, numberOfRowsInSection section: Int) -> Int {
-        return 15
+        return Int.random(lower: 500, 1200)
     }
 }

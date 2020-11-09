@@ -22,10 +22,6 @@
     _listView.delegate = self;
     _listView.dataSource = self;
     _listView.separatorStyle = AndesSeparatorStyleSingleLine;
-    titleArray = [[NSMutableArray alloc] initWithObjects:@"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-                  @"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                  @"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                  @"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", nil];
 }
 
 - (AndesListCell * _Nonnull)andesList:(AndesList * _Nonnull)tableView cellForRowAt:(NSIndexPath * _Nonnull)indexPath {
@@ -38,15 +34,17 @@
                                                              accentColor:[UIColor clearColor]];
     
     AndesSimpleCell *cell = [[AndesSimpleCell alloc]
-                             initWithTitle:[titleArray objectAtIndex:indexPath.row]
+                             initWithTitle:[NSString
+                                            stringWithFormat:@"Lorem ipsum dolor sit amet title - %ld", (long)indexPath.row]
                              size:AndesListSizeLarge
-                             subtitle: @"Lorem ipsum dolor sit amet"
+                             subtitle: @"Lorem ipsum dolor sit amet description"
                              thumbnail: thumbnail
                              numberOfLines: 2];
     
-    AndesChevronCell *chevronCell = [[AndesChevronCell alloc]initWithTitle:[titleArray objectAtIndex:indexPath.row]
+    AndesChevronCell *chevronCell = [[AndesChevronCell alloc]initWithTitle:[NSString
+                                                                            stringWithFormat:@"Lorem ipsum dolor sit amet title - %ld", (long)indexPath.row]
                                                                       size:AndesListSizeMedium
-                                                                  subtitle:@"Lorem ipsum dolor sit amet"
+                                                                  subtitle:@"Lorem ipsum dolor sit amet subtitle"
                                                                  thumbnail:thumbnail
                                                              numberOfLines: 0];
     
@@ -55,12 +53,17 @@
 }
 
 - (NSInteger)andesList:(AndesList * _Nonnull)listView numberOfRowsInSection:(NSInteger)section {
-    return titleArray.count;
+    return 100;
 }
 
 
 - (NSInteger)numberOfSections:(AndesList * _Nonnull)listView {
-    return 1;
+    return [self getRandomNumberBetween:500 to:1200];
+}
+
+-(int)getRandomNumberBetween:(int)from to:(int)to
+{
+    return (int)from + arc4random() % (to-from+1);
 }
 
 @end
