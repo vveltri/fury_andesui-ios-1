@@ -17,7 +17,7 @@ class ListViewController: UIViewController {
     @IBOutlet weak var radioButtonIcon: AndesRadioButton!
     @IBOutlet weak var radioButtonThumbnail: AndesRadioButton!
     @IBOutlet weak var titleTxt: AndesTextField!
-    @IBOutlet weak var numberOfLinesTitle: UITextField!
+    @IBOutlet weak var numberOfLinesTitle: AndesTextField!
     @IBOutlet weak var descriptionTxt: AndesTextField!
     @IBOutlet weak var selection: UISegmentedControl!
 
@@ -41,6 +41,8 @@ class ListViewController: UIViewController {
         andesList.delegate = self
         andesList.dataSource = self
         andesList.separatorStyle = .singleLine
+        andesList.selectionStyle = .defaultStyle
+        andesList.listType = .simple
 
         self.setValuesDefault()
     }
@@ -56,7 +58,7 @@ class ListViewController: UIViewController {
         self.size = .medium
         self.image = nil
         self.numberOfLines = 0
-        andesList.listType = "simple"
+        andesList.listType = .simple
         simpleCellSelected = true
         selection.selectedSegmentIndex = 1
         self.numberOfLinesTitle.text = "0"
@@ -72,12 +74,12 @@ class ListViewController: UIViewController {
             self.radioButtonSimple.status = .selected
             self.radioButtonChevron.status = .unselected
             simpleCellSelected = true
-            andesList.listType = "simple"
+            andesList.listType = .simple
         } else if radiobutton == self.radioButtonChevron {
             self.radioButtonSimple.status = .unselected
             self.radioButtonChevron.status = .selected
             simpleCellSelected = false
-            andesList.listType = "chevron"
+            andesList.listType = .chevron
         } else if radiobutton == self.radioButtonIcon {
             self.radioButtonIcon.status = .selected
             self.radioButtonThumbnail.status = .unselected
@@ -113,7 +115,7 @@ class ListViewController: UIViewController {
     }
 
     func getNumberOfLines() -> Int {
-        if let lines = Int(self.numberOfLinesTitle.text ?? "0") {
+        if let lines = Int(self.numberOfLinesTitle.text) {
             return lines
         }
         return 0

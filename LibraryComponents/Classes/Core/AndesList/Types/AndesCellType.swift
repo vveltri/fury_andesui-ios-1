@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum AndesCellType: Int, AndesEnumStringConvertible {
+@objc public enum AndesCellType: Int, AndesEnumStringConvertible {
     case simple
     case chevron
     case radioButton

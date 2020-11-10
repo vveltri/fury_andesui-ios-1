@@ -1,4 +1,8 @@
-## Unpublished
+# Unpublished
+### 🚀 Features
+- New component AndesList | Authors: [@joalonsopint](https://github.com/joalonsopint)
+
+# v3.13.0
 ### 🚀 Features
 - Xcode 12 compatibility | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
 - AndesTextField adds support of inputAccessoryView | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
@@ -7,6 +11,7 @@
 ### 🛠 Bug fixes
 - Fixes in App Delegate and Page Controller in Test App | Authors: [@tomidelucca](https://github.com/tomidelucca)
 - AndesCheckbox tappable area extended  | Authors: [@ggiovanniniml](https://github.com/ggiovanniniml)
+- AndesCheckbox lateral padding fixed  | Authors: [@ggiovanniniml](https://github.com/ggiovanniniml)
 
 
 # v3.12.0
