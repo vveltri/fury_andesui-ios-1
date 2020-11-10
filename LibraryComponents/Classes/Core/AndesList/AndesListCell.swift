@@ -95,6 +95,7 @@ import UIKit
         self.subtitleLbl.adjustsFontSizeToFitWidth = false
         self.subtitleLbl.lineBreakMode = .byTruncatingTail
         setupSeparatorStyle(separatorStyle: separatorStyle)
+        self.updateAccessibilityProperties()
     }
 
     func setupSeparatorStyle(separatorStyle: AndesSeparatorStyle) {
@@ -104,6 +105,11 @@ import UIKit
         case .singleLine:
             separatorView.backgroundColor = UIColor.Andes.gray100
         }
+    }
 
+    func updateAccessibilityProperties() {
+        self.thumbnailImg.isAccessibilityElement = true
+        self.thumbnailImg.accessibilityTraits = accessibilityTraits
+        self.thumbnailImg.accessibilityLabel = "Imagen"
     }
 }
