@@ -146,7 +146,7 @@ class AndesListTests: QuickSpec {
                 beforeEach {
                     myDelegate = AndesListTableViewDelegate(listProtocol: self)
                     myDataSource = AndesListTableViewDataSource(listProtocol: self)
-                    self.internalAndesList = AndesList(type: "simple")
+                    self.internalAndesList = AndesList(type: .simple)
                     self.internalAndesList?.dataSource = self
                     self.internalAndesList?.delegate = self
 
@@ -297,7 +297,7 @@ class AndesListTests: QuickSpec {
             context("AndesList Implementation own delegate") {
 
                 beforeEach {
-                    self.internalAndesList = AndesList(type: "simple")
+                    self.internalAndesList = AndesList(type: .simple)
                     self.internalAndesList?.dataSource = self
                     self.internalAndesList?.delegate = self
 
@@ -370,6 +370,11 @@ class AndesListTests: QuickSpec {
 
                     //Then
                     expect(self.internalAndesList?.getSelectionStyle()).to(equal(UITableViewCell.SelectionStyle.none))
+                }
+
+                it("Validation type") {
+                    //Then
+                    expect(self.internalAndesList?.listType).to(equal(.simple))
                 }
             }
         }
