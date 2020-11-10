@@ -319,6 +319,58 @@ class AndesListTests: QuickSpec {
                     //Then
                     expect(self.internalAndesList?.getSeparatorStyle()).to(equal(style))
                 }
+
+                it("Check selection Style gray color") {
+                    //Given
+                    self.internalAndesList?.listType = "simple"
+                    self.cellType = .chevron
+                    self.thumbnailType = .icon
+
+                    //When
+                    self.internalAndesList?.selectionStyle = .gray
+
+                    //Then
+                    expect(self.internalAndesList?.getSelectionStyle()).to(equal(UITableViewCell.SelectionStyle.gray))
+                }
+
+                it("Check selection Style blue color") {
+                    //Given
+                    self.internalAndesList?.listType = "simple"
+                    self.cellType = .chevron
+                    self.thumbnailType = .icon
+
+                    //When
+                    self.internalAndesList?.selectionStyle = .blue
+
+                    //Then
+                    expect(self.internalAndesList?.getSelectionStyle()).to(equal(UITableViewCell.SelectionStyle.blue))
+                }
+
+                it("Check selection Style default color") {
+                    //Given
+                    self.internalAndesList?.listType = "simple"
+                    self.cellType = .chevron
+                    self.thumbnailType = .icon
+
+                    //When
+                    self.internalAndesList?.selectionStyle = .defaultStyle
+
+                    //Then
+                    expect(self.internalAndesList?.getSelectionStyle()).to(equal(UITableViewCell.SelectionStyle.default))
+                }
+
+                it("Check selection Style none color") {
+                    //Given
+                    self.internalAndesList?.listType = "simple"
+                    self.cellType = .chevron
+                    self.thumbnailType = .icon
+
+                    //When
+                    self.internalAndesList?.selectionStyle = .none
+
+                    //Then
+                    expect(self.internalAndesList?.getSelectionStyle()).to(equal(UITableViewCell.SelectionStyle.none))
+                }
             }
         }
     }
@@ -369,14 +421,6 @@ extension AndesListTests: AndesListProtocol {
         return 1
     }
 
-//    func andesList(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return self.andesList(self.internalAndesList!, numberOfRowsInSection: section)
-//    }
-//
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        return self.numberOfSections(in: tableView)
-//    }
-
     func cellForRowAt(indexPath: IndexPath) -> AndesListCell {
         let customCell = self.andesList(self.internalAndesList!, cellForRowAt: indexPath)
         return customCell
@@ -388,5 +432,9 @@ extension AndesListTests: AndesListProtocol {
 
     func didSelectRowAt(indexPath: IndexPath) {
         self.didSelected = true
+    }
+
+    func getSelectionStyle() -> UITableViewCell.SelectionStyle {
+        return .gray
     }
 }

@@ -17,7 +17,7 @@ class ListViewController: UIViewController {
     @IBOutlet weak var radioButtonIcon: AndesRadioButton!
     @IBOutlet weak var radioButtonThumbnail: AndesRadioButton!
     @IBOutlet weak var titleTxt: AndesTextField!
-    @IBOutlet weak var numberOfLinesTitle: UITextField!
+    @IBOutlet weak var numberOfLinesTitle: AndesTextField!
     @IBOutlet weak var descriptionTxt: AndesTextField!
     @IBOutlet weak var selection: UISegmentedControl!
 
@@ -41,6 +41,7 @@ class ListViewController: UIViewController {
         andesList.delegate = self
         andesList.dataSource = self
         andesList.separatorStyle = .singleLine
+        andesList.selectionStyle = .defaultStyle
 
         self.setValuesDefault()
     }
@@ -113,7 +114,7 @@ class ListViewController: UIViewController {
     }
 
     func getNumberOfLines() -> Int {
-        if let lines = Int(self.numberOfLinesTitle.text ?? "0") {
+        if let lines = Int(self.numberOfLinesTitle.text) {
             return lines
         }
         return 0
