@@ -22,7 +22,16 @@ internal class AndesDatePickerAbstractView: UIView, AndesDatePickerView {
 
     private let selectedDate: Date = Date()
     private lazy var dayCalendar = AndesDayDatePicker()
+    private var calendar = Calendar(identifier: .iso8601)
     private lazy var daysToRender = dayCalendar.getDaysInMonth(Date(), selectedDate: selectedDate)
+
+    private var baseDate: Date {
+        didSet {
+            daysToRender = dayCalendar.getDaysInMonth(baseDate, selectedDate: selectedDate)
+            dataCollectionView?.days = daysToRender
+            datePickerCollectionView.reloadData()
+        }
+    }
 
     override public var frame: CGRect {
         didSet {
@@ -33,6 +42,7 @@ internal class AndesDatePickerAbstractView: UIView, AndesDatePickerView {
     // MARK: - Instantiate
 
     internal init() {
+        baseDate = Date()
         self.backgroundLayer = CALayer()
         super.init(frame: .zero)
         setup()
@@ -40,6 +50,7 @@ internal class AndesDatePickerAbstractView: UIView, AndesDatePickerView {
     }
 
     required init?(coder: NSCoder) {
+        baseDate = Date()
         self.backgroundLayer = CALayer()
         super.init(coder: coder)
         setup()
@@ -72,6 +83,7 @@ internal class AndesDatePickerAbstractView: UIView, AndesDatePickerView {
         datePickerCollectionView.isScrollEnabled = false
 
         dataCollectionView = AndesDatePickerSettingCollection(baseDate: Date(), daysToRender: daysToRender)
+        dataCollectionView?.delegate = self
         datePickerCollectionView.dataSource = dataCollectionView
         datePickerCollectionView.delegate = dataCollectionView
 
@@ -83,5 +95,15 @@ internal class AndesDatePickerAbstractView: UIView, AndesDatePickerView {
 
     @IBAction func updateTapped(_ sender: AndesButton) {
         print("button pressed")
+    }
+}
+
+extension AndesDatePickerAbstractView: AndesDatePickerSettingCollectionDelegate {
+    func didTouchNextMonth() {
+        baseDate = calendar.date(byAdding: .month, value: 1, to: baseDate) ?? baseDate
+    }
+
+    func didTouchPreviousMonth() {
+        baseDate = calendar.date(byAdding: .month, value: -1, to: baseDate) ?? baseDate
     }
 }

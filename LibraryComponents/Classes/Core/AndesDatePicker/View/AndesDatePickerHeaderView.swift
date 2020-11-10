@@ -7,6 +7,11 @@
 
 import UIKit
 
+protocol AndesDatePickerHeaderViewDelegate {
+    func nextMonth()
+    func previousMonth()
+}
+
 class AndesDatePickerHeaderView: UICollectionReusableView {
 
     enum DaysOfWeek: Int {
@@ -16,6 +21,7 @@ class AndesDatePickerHeaderView: UICollectionReusableView {
     // MARK: - Attributes
 
     static let identifier = String(describing: AndesDatePickerHeaderView.self)
+    weak var delegate: AndesDatePickerHeaderViewDelegate?
 
     private let weekDaysStackView: UIStackView = {
         let horizontalStack = UIStackView()
@@ -37,6 +43,22 @@ class AndesDatePickerHeaderView: UICollectionReusableView {
         return label
     }()
 
+    private let previousButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(didTouchPreviousMonth), for: .touchUpInside)
+
+        return button
+    }()
+
+    private let nextButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(didTouchNextMonth(_:)), for: .touchUpInside)
+
+        return button
+    }()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
 
@@ -47,9 +69,27 @@ class AndesDatePickerHeaderView: UICollectionReusableView {
         weekDaysStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0).isActive = true
 
         addSubview(monthLabel)
-        monthLabel.bottomAnchor.constraint(equalTo: weekDaysStackView.topAnchor, constant: 20).isActive = true
+        monthLabel.bottomAnchor.constraint(equalTo: weekDaysStackView.topAnchor, constant: -20).isActive = true
         monthLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         monthLabel.text = "Novembro 2020"
+
+        addSubview(previousButton)
+        AndesIconsProvider.loadIcon(name: AndesIcons.chevronLeft24) { icon in
+            previousButton.setImage(icon.withRenderingMode(.alwaysOriginal), for: .normal)
+        }
+        previousButton.centerYAnchor.constraint(equalTo: monthLabel.centerYAnchor).isActive = true
+        previousButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8).isActive = true
+        previousButton.widthAnchor.constraint(equalTo: previousButton.widthAnchor, constant: 24).isActive = true
+        previousButton.heightAnchor.constraint(equalTo: previousButton.heightAnchor, constant: 24).isActive = true
+
+        addSubview(nextButton)
+        AndesIconsProvider.loadIcon(name: AndesIcons.chevronRight24) { icon in
+            nextButton.setImage(icon.withRenderingMode(.alwaysOriginal), for: .normal)
+        }
+        nextButton.centerYAnchor.constraint(equalTo: monthLabel.centerYAnchor).isActive = true
+        nextButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 8).isActive = true
+        nextButton.widthAnchor.constraint(equalTo: previousButton.widthAnchor, constant: 24).isActive = true
+        nextButton.heightAnchor.constraint(equalTo: previousButton.heightAnchor, constant: 24).isActive = true
 
         populateDaysOfWeek()
     }
@@ -58,7 +98,7 @@ class AndesDatePickerHeaderView: UICollectionReusableView {
         super.init(coder: coder)
     }
 
-    func populateDaysOfWeek() {
+    private func populateDaysOfWeek() {
         for day in 1...7 {
             let label = UILabel()
             label.text = getDayOfWeek(number: day)
@@ -71,7 +111,7 @@ class AndesDatePickerHeaderView: UICollectionReusableView {
         }
     }
 
-    func getDayOfWeek(number: Int) -> String {
+    private func getDayOfWeek(number: Int) -> String {
         switch DaysOfWeek(rawValue: number) {
         case .monday:
             return "MON"
@@ -90,5 +130,15 @@ class AndesDatePickerHeaderView: UICollectionReusableView {
         default:
             return ""
         }
+    }
+
+    // MARK: - IBActions
+
+    @objc func didTouchPreviousMonth(_ sender: UIButton) {
+        delegate?.previousMonth()
+    }
+
+    @objc func didTouchNextMonth(_ sender: UIButton) {
+        delegate?.nextMonth()
     }
 }

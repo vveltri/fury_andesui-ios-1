@@ -7,11 +7,17 @@
 
 import UIKit
 
+protocol AndesDatePickerSettingCollectionDelegate {
+    func didTouchNextMonth()
+    func didTouchPreviousMonth()
+}
+
 @objc public class AndesDatePickerSettingCollection: NSObject, UICollectionViewDataSource {
 
     // MARK: - Attributes
 
     var days: [AndesDayDatePicker] = []
+    weak var delegate: AndesDatePickerSettingCollectionDelegate?
     private var calendar = Calendar(identifier: .iso8601)
     private var header: AndesDatePickerHeaderView?
 
@@ -62,10 +68,21 @@ extension AndesDatePickerSettingCollection: UICollectionViewDelegateFlowLayout {
         switch kind {
         case UICollectionView.elementKindSectionHeader:
             header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: AndesDatePickerHeaderView.identifier, for: indexPath) as? AndesDatePickerHeaderView
+            header?.delegate = self
 
             return header ?? UICollectionReusableView()
         default:
             return UICollectionReusableView()
         }
+    }
+}
+
+extension AndesDatePickerSettingCollection: AndesDatePickerHeaderViewDelegate {
+    func nextMonth() {
+        delegate?.didTouchNextMonth()
+    }
+
+    func previousMonth() {
+        delegate?.didTouchPreviousMonth()
     }
 }
