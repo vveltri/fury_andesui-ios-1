@@ -32,8 +32,9 @@ import Foundation
         self.tableView.reloadData()
     }
 
-    public init(type: String) {
+    public init(type: AndesCellType = .simple) {
         super.init(frame: .zero)
+        self.listType = type
         setup()
     }
 

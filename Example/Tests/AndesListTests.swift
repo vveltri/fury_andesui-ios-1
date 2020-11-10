@@ -146,7 +146,7 @@ class AndesListTests: QuickSpec {
                 beforeEach {
                     myDelegate = AndesListTableViewDelegate(listProtocol: self)
                     myDataSource = AndesListTableViewDataSource(listProtocol: self)
-                    self.internalAndesList = AndesList(type: "simple")
+                    self.internalAndesList = AndesList(type: .simple)
                     self.internalAndesList?.dataSource = self
                     self.internalAndesList?.delegate = self
 
@@ -176,7 +176,7 @@ class AndesListTests: QuickSpec {
 
                 it("Check cellForRowAt delegate with simple cell without icon in TableView") {
                     //Given
-                    self.internalAndesList?.listType = "simple"
+                    self.internalAndesList?.listType = .simple
                     self.cellType = .simple
                     let table = UITableView()
                     table.dataSource = myDataSource
@@ -194,7 +194,7 @@ class AndesListTests: QuickSpec {
 
                 it("Check cellForRowAt delegate with simple cell and icon in TableView") {
                     //Given
-                    self.internalAndesList?.listType = "simple"
+                    self.internalAndesList?.listType = .simple
                     self.cellType = .simple
                     self.thumbnailType = .icon
                     let table = UITableView()
@@ -213,7 +213,7 @@ class AndesListTests: QuickSpec {
 
                 it("Check cellForRowAt delegate with chevron cell and icon in TableView") {
                     //Given
-                    self.internalAndesList?.listType = "chevron"
+                    self.internalAndesList?.listType = .chevron
                     self.cellType = .chevron
                     self.thumbnailType = .icon
                     let table = UITableView()
@@ -231,7 +231,7 @@ class AndesListTests: QuickSpec {
                 }
                 it("Check cellForRowAt delegate with simple cell and ImageCircle in TableView") {
                     //Given
-                    self.internalAndesList?.listType = "simple"
+                    self.internalAndesList?.listType = .simple
                     self.cellType = .simple
                     self.thumbnailType = .imageCircle
                     let table = UITableView()
@@ -250,7 +250,7 @@ class AndesListTests: QuickSpec {
 
                 it("Check cellForRowAt delegate with chevron cell and ImageCircle in TableView") {
                     //Given
-                    self.internalAndesList?.listType = "chevron"
+                    self.internalAndesList?.listType = .chevron
                     self.cellType = .chevron
                     self.thumbnailType = .imageCircle
                     let table = UITableView()
@@ -297,7 +297,7 @@ class AndesListTests: QuickSpec {
             context("AndesList Implementation own delegate") {
 
                 beforeEach {
-                    self.internalAndesList = AndesList(type: "simple")
+                    self.internalAndesList = AndesList(type: .simple)
                     self.internalAndesList?.dataSource = self
                     self.internalAndesList?.delegate = self
 
@@ -308,7 +308,7 @@ class AndesListTests: QuickSpec {
 
                 it("Check separator Style") {
                     //Given
-                    self.internalAndesList?.listType = "chevron"
+                    self.internalAndesList?.listType = .chevron
                     self.cellType = .chevron
                     self.thumbnailType = .icon
                     let style = AndesSeparatorStyle.none
@@ -322,7 +322,7 @@ class AndesListTests: QuickSpec {
 
                 it("Check selection Style gray color") {
                     //Given
-                    self.internalAndesList?.listType = "simple"
+                    self.internalAndesList?.listType = .simple
                     self.cellType = .chevron
                     self.thumbnailType = .icon
 
@@ -335,7 +335,7 @@ class AndesListTests: QuickSpec {
 
                 it("Check selection Style blue color") {
                     //Given
-                    self.internalAndesList?.listType = "simple"
+                    self.internalAndesList?.listType = .simple
                     self.cellType = .chevron
                     self.thumbnailType = .icon
 
@@ -348,7 +348,7 @@ class AndesListTests: QuickSpec {
 
                 it("Check selection Style default color") {
                     //Given
-                    self.internalAndesList?.listType = "simple"
+                    self.internalAndesList?.listType = .simple
                     self.cellType = .chevron
                     self.thumbnailType = .icon
 
@@ -361,7 +361,7 @@ class AndesListTests: QuickSpec {
 
                 it("Check selection Style none color") {
                     //Given
-                    self.internalAndesList?.listType = "simple"
+                    self.internalAndesList?.listType = .simple
                     self.cellType = .chevron
                     self.thumbnailType = .icon
 
@@ -370,6 +370,11 @@ class AndesListTests: QuickSpec {
 
                     //Then
                     expect(self.internalAndesList?.getSelectionStyle()).to(equal(UITableViewCell.SelectionStyle.none))
+                }
+
+                it("Validation type") {
+                    //Then
+                    expect(self.internalAndesList?.listType).to(equal(.simple))
                 }
             }
         }
