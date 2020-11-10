@@ -18,6 +18,9 @@ import Foundation
     /// Set the separator style, default value .none
     @objc public var separatorStyle: AndesSeparatorStyle = .none
 
+    /// Set the selection style, default value .default
+    @objc public var selectionStyle: AndesSelectionStyle = .defaultStyle
+
     /// Set the list type, default value simple
     @IBInspectable public var listType: String {
         get {
@@ -98,5 +101,18 @@ extension AndesList: AndesListProtocol {
 
     func didSelectRowAt(indexPath: IndexPath) {
         self.delegate?.andesList?(self, didSelectRowAt: indexPath)
+    }
+
+    func getSelectionStyle() -> UITableViewCell.SelectionStyle {
+        switch selectionStyle {
+        case .none:
+            return .none
+        case .blue:
+            return .blue
+        case .gray:
+            return .gray
+        case .defaultStyle:
+            return .default
+        }
     }
 }

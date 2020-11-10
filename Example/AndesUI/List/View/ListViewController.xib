@@ -13,7 +13,7 @@
             <connections>
                 <outlet property="andesList" destination="e1M-cg-BO9" id="rQF-SK-3tf"/>
                 <outlet property="descriptionTxt" destination="X5o-bZ-wtE" id="BDK-YW-yKF"/>
-                <outlet property="numberOfLinesTitle" destination="ovC-fa-d7d" id="4IX-EC-NBI"/>
+                <outlet property="numberOfLinesTitle" destination="nqV-M3-a9O" id="wH0-oF-fpd"/>
                 <outlet property="radioButtonChevron" destination="kq9-IH-nlE" id="yoi-nd-fPy"/>
                 <outlet property="radioButtonIcon" destination="QXn-dg-Twr" id="Lq3-kk-UaQ"/>
                 <outlet property="radioButtonSimple" destination="hkB-1q-Uk8" id="b0g-6S-WY0"/>
@@ -29,11 +29,14 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e1M-cg-BO9" customClass="AndesList" customModule="AndesUI">
-                    <rect key="frame" x="0.0" y="342" width="375" height="377"/>
+                    <rect key="frame" x="0.0" y="434" width="375" height="285"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="4LV-i7-NTA">
-                    <rect key="frame" x="39" y="59" width="297" height="32"/>
+                    <rect key="frame" x="39" y="103" width="297" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="31" id="8Sw-rj-muY"/>
+                    </constraints>
                     <segments>
                         <segment title="Small"/>
                         <segment title="Medium"/>
@@ -44,7 +47,7 @@
                     </connections>
                 </segmentedControl>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="gMT-PO-lnQ">
-                    <rect key="frame" x="86" y="283" width="204" height="35"/>
+                    <rect key="frame" x="86" y="391" width="204" height="35"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CWa-CE-1mS" customClass="AndesButton" customModule="AndesUI">
                             <rect key="frame" x="0.0" y="0.0" width="99" height="35"/>
@@ -75,13 +78,13 @@
                     </constraints>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="qds-fC-qas">
-                    <rect key="frame" x="43" y="98" width="288" height="101"/>
+                    <rect key="frame" x="43" y="142" width="288" height="101"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="lQz-zh-ivX">
-                            <rect key="frame" x="0.0" y="0.0" width="140" height="101"/>
+                            <rect key="frame" x="0.0" y="0.0" width="135" height="101"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hkB-1q-Uk8" customClass="AndesRadioButton" customModule="AndesUI">
-                                    <rect key="frame" x="0.0" y="0.0" width="140" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="135" height="50"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="string" keyPath="title" value="Simple"/>
@@ -90,7 +93,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kq9-IH-nlE" customClass="AndesRadioButton" customModule="AndesUI">
-                                    <rect key="frame" x="0.0" y="51" width="140" height="50"/>
+                                    <rect key="frame" x="0.0" y="51" width="135" height="50"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="string" keyPath="title" value="Chevron"/>
@@ -99,11 +102,19 @@
                                 </view>
                             </subviews>
                         </stackView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qBg-T1-EkH">
+                            <rect key="frame" x="143" y="0.0" width="2" height="101"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="101" id="4JJ-Kt-f6d"/>
+                                <constraint firstAttribute="width" constant="2" id="L1V-qE-x9V"/>
+                            </constraints>
+                        </view>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="4cM-Ra-0hb">
-                            <rect key="frame" x="148" y="0.0" width="140" height="101"/>
+                            <rect key="frame" x="153" y="0.0" width="135" height="101"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QXn-dg-Twr" customClass="AndesRadioButton" customModule="AndesUI">
-                                    <rect key="frame" x="0.0" y="0.0" width="140" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="135" height="50"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="string" keyPath="title" value="Icon"/>
@@ -111,7 +122,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0X0-tL-FSM" customClass="AndesRadioButton" customModule="AndesUI">
-                                    <rect key="frame" x="0.0" y="51" width="140" height="50"/>
+                                    <rect key="frame" x="0.0" y="51" width="135" height="50"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="string" keyPath="title" value="Thumbnail"/>
@@ -122,35 +133,60 @@
                         </stackView>
                     </subviews>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="lQz-zh-ivX" secondAttribute="trailing" constant="148" id="6eX-n8-1aq"/>
                         <constraint firstAttribute="width" secondItem="qds-fC-qas" secondAttribute="height" multiplier="288:101" id="CqS-Wt-ic2"/>
+                        <constraint firstItem="qBg-T1-EkH" firstAttribute="centerY" secondItem="qds-fC-qas" secondAttribute="centerY" id="u2e-hM-qEt"/>
+                        <constraint firstItem="qBg-T1-EkH" firstAttribute="centerX" secondItem="qds-fC-qas" secondAttribute="centerX" id="x5h-ey-BdO"/>
                     </constraints>
                 </stackView>
-                <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="1pv-p7-Px1">
-                    <rect key="frame" x="43" y="206" width="288" height="35"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tUk-30-IJQ">
+                    <rect key="frame" x="43" y="260" width="288" height="70.333333333333314"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8dA-25-TgZ" customClass="AndesTextField" customModule="AndesUI">
-                            <rect key="frame" x="0.0" y="0.0" width="242" height="35"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yBp-Tm-oEj">
+                            <rect key="frame" x="0.0" y="0.0" width="288" height="20"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Título" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ilf-BT-Tei">
+                                    <rect key="frame" x="0.0" y="0.0" width="168.66666666666666" height="20"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Número de líneas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jqy-IB-q1s">
+                                    <rect key="frame" x="168.66666666666666" y="0.0" width="119.33333333333334" height="20"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
                             <constraints>
-                                <constraint firstAttribute="height" constant="35" id="6a0-2M-nOk"/>
+                                <constraint firstAttribute="height" constant="20" id="NGa-aj-Sxu"/>
                             </constraints>
-                        </view>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ovC-fa-d7d">
-                            <rect key="frame" x="245" y="0.0" width="43" height="35"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                        </textField>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="1pv-p7-Px1">
+                            <rect key="frame" x="0.0" y="20.000000000000004" width="288" height="50.333333333333343"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8dA-25-TgZ" customClass="AndesTextField" customModule="AndesUI">
+                                    <rect key="frame" x="0.0" y="0.0" width="235" height="50.333333333333336"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nqV-M3-a9O" customClass="AndesTextField" customModule="AndesUI">
+                                    <rect key="frame" x="238" y="0.0" width="50" height="50.333333333333336"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                </view>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="nqV-M3-a9O" firstAttribute="leading" secondItem="1pv-p7-Px1" secondAttribute="leading" constant="238" id="DCj-2E-SIH"/>
+                            </constraints>
+                        </stackView>
                     </subviews>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="8dA-25-TgZ" secondAttribute="trailing" constant="46" id="Drv-m6-qZT"/>
+                        <constraint firstAttribute="height" constant="70.329999999999998" id="AYb-aF-o5M"/>
                     </constraints>
                 </stackView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X5o-bZ-wtE" customClass="AndesTextField" customModule="AndesUI">
-                    <rect key="frame" x="43" y="243" width="288" height="35"/>
+                    <rect key="frame" x="43" y="334" width="288" height="50"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="35" id="mbl-S5-oYT"/>
+                        <constraint firstAttribute="height" constant="50" id="mbl-S5-oYT"/>
                     </constraints>
                 </view>
             </subviews>
@@ -159,23 +195,24 @@
                 <constraint firstItem="elp-bJ-LVV" firstAttribute="bottom" secondItem="e1M-cg-BO9" secondAttribute="bottom" constant="59" id="52d-3C-ZE7"/>
                 <constraint firstItem="qds-fC-qas" firstAttribute="top" secondItem="4LV-i7-NTA" secondAttribute="bottom" constant="8" symbolic="YES" id="631-3T-qdN"/>
                 <constraint firstItem="elp-bJ-LVV" firstAttribute="trailing" secondItem="qds-fC-qas" secondAttribute="trailing" constant="44" id="8a7-D8-Njo"/>
-                <constraint firstItem="elp-bJ-LVV" firstAttribute="trailing" secondItem="1pv-p7-Px1" secondAttribute="trailing" constant="44" id="HQ1-Af-OWC"/>
-                <constraint firstItem="1pv-p7-Px1" firstAttribute="top" secondItem="qds-fC-qas" secondAttribute="bottom" constant="7" id="Ife-iu-o93"/>
                 <constraint firstItem="elp-bJ-LVV" firstAttribute="trailing" secondItem="X5o-bZ-wtE" secondAttribute="trailing" constant="44" id="Jfg-m7-tZ9"/>
                 <constraint firstItem="4LV-i7-NTA" firstAttribute="leading" secondItem="elp-bJ-LVV" secondAttribute="leading" constant="39" id="MN0-n8-1jh"/>
-                <constraint firstItem="gMT-PO-lnQ" firstAttribute="top" secondItem="X5o-bZ-wtE" secondAttribute="bottom" constant="5" id="PLh-dS-lOR"/>
-                <constraint firstItem="1pv-p7-Px1" firstAttribute="leading" secondItem="elp-bJ-LVV" secondAttribute="leading" constant="43" id="RMl-3Y-CUa"/>
                 <constraint firstItem="X5o-bZ-wtE" firstAttribute="leading" secondItem="elp-bJ-LVV" secondAttribute="leading" constant="43" id="SdE-bZ-rVo"/>
                 <constraint firstItem="gMT-PO-lnQ" firstAttribute="leading" secondItem="elp-bJ-LVV" secondAttribute="leading" constant="86" id="UQf-1f-Gdo"/>
                 <constraint firstItem="elp-bJ-LVV" firstAttribute="trailing" secondItem="gMT-PO-lnQ" secondAttribute="trailing" constant="85" id="Ulj-Oz-IKr"/>
-                <constraint firstItem="X5o-bZ-wtE" firstAttribute="top" secondItem="1pv-p7-Px1" secondAttribute="bottom" constant="2" id="XwF-u2-mEw"/>
+                <constraint firstItem="tUk-30-IJQ" firstAttribute="top" secondItem="qds-fC-qas" secondAttribute="bottom" constant="17" id="aM5-tr-ozZ"/>
+                <constraint firstItem="tUk-30-IJQ" firstAttribute="leading" secondItem="elp-bJ-LVV" secondAttribute="leading" constant="43" id="aSp-nO-c6W"/>
                 <constraint firstItem="e1M-cg-BO9" firstAttribute="trailing" secondItem="elp-bJ-LVV" secondAttribute="trailing" id="d9a-qw-Dr0"/>
                 <constraint firstItem="4LV-i7-NTA" firstAttribute="top" secondItem="elp-bJ-LVV" secondAttribute="top" constant="15" id="dfi-mn-Fbd"/>
-                <constraint firstItem="e1M-cg-BO9" firstAttribute="top" secondItem="gMT-PO-lnQ" secondAttribute="bottom" constant="24" id="eco-za-Gxx"/>
+                <constraint firstItem="e1M-cg-BO9" firstAttribute="top" secondItem="gMT-PO-lnQ" secondAttribute="bottom" constant="8" id="eco-za-Gxx"/>
+                <constraint firstItem="X5o-bZ-wtE" firstAttribute="top" secondItem="tUk-30-IJQ" secondAttribute="bottom" constant="3.6666666666666856" id="gAv-6b-GBp"/>
                 <constraint firstItem="qds-fC-qas" firstAttribute="leading" secondItem="elp-bJ-LVV" secondAttribute="leading" constant="43" id="jlg-hB-vUr"/>
+                <constraint firstItem="gMT-PO-lnQ" firstAttribute="top" secondItem="X5o-bZ-wtE" secondAttribute="bottom" constant="7" id="lcK-36-xuf"/>
+                <constraint firstItem="elp-bJ-LVV" firstAttribute="trailing" secondItem="tUk-30-IJQ" secondAttribute="trailing" constant="44" id="piP-8p-k0Y"/>
                 <constraint firstItem="elp-bJ-LVV" firstAttribute="trailing" secondItem="4LV-i7-NTA" secondAttribute="trailing" constant="39" id="qlE-IT-jhX"/>
                 <constraint firstItem="e1M-cg-BO9" firstAttribute="leading" secondItem="elp-bJ-LVV" secondAttribute="leading" id="zBj-uU-1Dk"/>
             </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
             <point key="canvasLocation" x="-7.2000000000000002" y="5.9113300492610836"/>
         </view>
     </objects>
