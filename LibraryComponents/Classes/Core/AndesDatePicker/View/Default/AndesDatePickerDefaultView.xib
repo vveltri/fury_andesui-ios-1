@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,12 +18,12 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="354" height="443"/>
+            <rect key="frame" x="0.0" y="0.0" width="354" height="400"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ueB-fH-35l" customClass="AndesButton" customModule="AndesUI">
-                    <rect key="frame" x="0.0" y="393" width="354" height="50"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <rect key="frame" x="10" y="334" width="334" height="50"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="9Ri-Bg-zAk"/>
                     </constraints>
@@ -31,8 +32,8 @@
                     </connections>
                 </view>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="eVy-Cx-dw9">
-                    <rect key="frame" x="17" y="49" width="320" height="326"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <rect key="frame" x="17" y="16" width="320" height="302"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ymR-rO-DDl">
                         <size key="itemSize" width="128" height="128"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -41,19 +42,24 @@
                     </collectionViewFlowLayout>
                 </collectionView>
             </subviews>
-            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="eVy-Cx-dw9" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="17" id="3Hx-Sj-eVk"/>
-                <constraint firstItem="ueB-fH-35l" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="4ba-8h-noO"/>
-                <constraint firstItem="ueB-fH-35l" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="AeH-Aj-rQw"/>
-                <constraint firstItem="ueB-fH-35l" firstAttribute="top" secondItem="eVy-Cx-dw9" secondAttribute="bottom" constant="18" id="LUW-Bd-S4R"/>
-                <constraint firstItem="eVy-Cx-dw9" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="49" id="ajI-Ay-33F"/>
-                <constraint firstItem="ueB-fH-35l" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="wig-0E-Ot9"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="eVy-Cx-dw9" secondAttribute="trailing" constant="17" id="yM1-K3-MQg"/>
+                <constraint firstItem="ueB-fH-35l" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" constant="-10" id="4ba-8h-noO"/>
+                <constraint firstItem="ueB-fH-35l" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="AeH-Aj-rQw"/>
+                <constraint firstItem="eVy-Cx-dw9" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="GlK-TK-uD1"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="eVy-Cx-dw9" secondAttribute="trailing" constant="17" id="OK9-8U-L3C"/>
+                <constraint firstItem="ueB-fH-35l" firstAttribute="top" secondItem="eVy-Cx-dw9" secondAttribute="bottom" constant="16" id="SSg-Jp-Hz6"/>
+                <constraint firstItem="eVy-Cx-dw9" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="17" id="ZbT-bD-J6k"/>
+                <constraint firstItem="ueB-fH-35l" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" constant="-16" id="wig-0E-Ot9"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="137.68115942028987" y="152.34375"/>
         </view>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

@@ -7,28 +7,65 @@
 
 import UIKit
 
-class AndesDatePickerSettingCollection: NSObject, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+@objc public class AndesDatePickerSettingCollection: NSObject, UICollectionViewDataSource {
+
+    // MARK: - Attributes
+
+    var days: [AndesDayDatePicker] = []
+    private var calendar = Calendar(identifier: .iso8601)
+    private var header: AndesDatePickerHeaderView?
+
+    private var baseDate: Date
+
+    private var numberOfWeeksInBaseDate: Int {
+        let headerSection = 3
+        let weeks = calendar.range(of: .weekOfMonth, in: .month, for: baseDate)?.count ?? 0
+        return weeks + headerSection
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AndesCalendarCollectionViewCell.identifier, for: indexPath)
+    // MARK: - Initializer
 
-        cell.backgroundColor = .yellow
+    init(baseDate: Date, daysToRender days: [AndesDayDatePicker]) {
+        self.days = days
+        self.baseDate = baseDate
+    }
+
+    // MARK: - UICollectionViewDataSource
+
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return days.count
+    }
+
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let day = days[indexPath.item]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AndesDatePickerCell.identifier, for: indexPath) as! AndesDatePickerCell
+        cell.day = day
 
         return cell
     }
 }
 
-extension AndesDatePickerSettingCollection: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("selected item in collection view")
+extension AndesDatePickerSettingCollection: UICollectionViewDelegateFlowLayout {
+
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = Int(collectionView.frame.width / 7)
+        let height = Int(collectionView.frame.height) / numberOfWeeksInBaseDate
+
+        return CGSize(width: width, height: height)
     }
-}
 
-class AndesCalendarCollectionViewCell: UICollectionViewCell {
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: 80.0)
+    }
 
-    static let identifier = String(describing: AndesCalendarCollectionViewCell.self)
+    public func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        switch kind {
+        case UICollectionView.elementKindSectionHeader:
+            header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: AndesDatePickerHeaderView.identifier, for: indexPath) as? AndesDatePickerHeaderView
 
+            return header ?? UICollectionReusableView()
+        default:
+            return UICollectionReusableView()
+        }
+    }
 }

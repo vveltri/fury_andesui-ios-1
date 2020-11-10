@@ -20,10 +20,14 @@ internal class AndesDatePickerAbstractView: UIView, AndesDatePickerView {
     internal var backgroundLayer: CALayer
     internal var dataCollectionView: AndesDatePickerSettingCollection?
 
+    private let selectedDate: Date = Date()
+    private lazy var dayCalendar = AndesDayDatePicker()
+    private lazy var daysToRender = dayCalendar.getDaysInMonth(Date(), selectedDate: selectedDate)
+
     override public var frame: CGRect {
         didSet {
-               datePickerView?.frame = frame
-           }
+            datePickerView?.frame = frame
+        }
     }
 
     // MARK: - Instantiate
@@ -50,22 +54,29 @@ internal class AndesDatePickerAbstractView: UIView, AndesDatePickerView {
 
     private func setup() {
         loadNib()
+        datePickerView.layer.cornerRadius = 12
         translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(datePickerView)
         backgroundLayer = datePickerView.layer
         datePickerView.pinToSuperview()
+
+        buttonPrimary.text = "Confirmar"
+        buttonPrimary.size = .large
     }
 
     func setupCollectionView() {
         let layout = UICollectionViewFlowLayout()
-        layout.minimumLineSpacing = 0
+        layout.minimumLineSpacing = 5
         layout.minimumInteritemSpacing = 0
         datePickerCollectionView.collectionViewLayout = layout
+        datePickerCollectionView.isScrollEnabled = false
 
-        dataCollectionView = AndesDatePickerSettingCollection()
+        dataCollectionView = AndesDatePickerSettingCollection(baseDate: Date(), daysToRender: daysToRender)
         datePickerCollectionView.dataSource = dataCollectionView
+        datePickerCollectionView.delegate = dataCollectionView
 
-        datePickerCollectionView.register(AndesCalendarCollectionViewCell.self, forCellWithReuseIdentifier: AndesCalendarCollectionViewCell.identifier)
+        datePickerCollectionView.register(AndesDatePickerCell.self, forCellWithReuseIdentifier: AndesDatePickerCell.identifier)
+        datePickerCollectionView.register(AndesDatePickerHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "AndesDatePickerHeaderView")
     }
 
     // MARK: - IBAction
