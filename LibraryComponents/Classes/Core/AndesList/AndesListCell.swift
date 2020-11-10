@@ -53,6 +53,7 @@ import UIKit
     var paddingTopChevron: CGFloat? = 0
     var paddingBottomChevron: CGFloat? = 0
     var numberOfLines: Int = 0
+    var thumbnailType: AndesThumbnailType?
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -95,7 +96,7 @@ import UIKit
         self.subtitleLbl.adjustsFontSizeToFitWidth = false
         self.subtitleLbl.lineBreakMode = .byTruncatingTail
         setupSeparatorStyle(separatorStyle: separatorStyle)
-        self.updateAccessibilityProperties()
+        self.updateAccessibilityProperties(thumbnailType: customCell.thumbnailType)
     }
 
     func setupSeparatorStyle(separatorStyle: AndesSeparatorStyle) {
@@ -107,9 +108,10 @@ import UIKit
         }
     }
 
-    func updateAccessibilityProperties() {
+    func updateAccessibilityProperties(thumbnailType: AndesThumbnailType?) {
         self.thumbnailImg.isAccessibilityElement = true
         self.thumbnailImg.accessibilityTraits = accessibilityTraits
-        self.thumbnailImg.accessibilityLabel = "Imagen"
+        guard let type = thumbnailType else { return }
+        self.thumbnailImg.accessibilityLabel = type == .icon ? "icon accessibility".localized() : "image accessibility".localized()
     }
 }
