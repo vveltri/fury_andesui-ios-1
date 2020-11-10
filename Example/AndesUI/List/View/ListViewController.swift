@@ -42,6 +42,7 @@ class ListViewController: UIViewController {
         andesList.dataSource = self
         andesList.separatorStyle = .singleLine
         andesList.selectionStyle = .defaultStyle
+        andesList.listType = .simple
 
         self.setValuesDefault()
     }
@@ -57,7 +58,7 @@ class ListViewController: UIViewController {
         self.size = .medium
         self.image = nil
         self.numberOfLines = 0
-        andesList.listType = "simple"
+        andesList.listType = .simple
         simpleCellSelected = true
         selection.selectedSegmentIndex = 1
         self.numberOfLinesTitle.text = "0"
@@ -73,12 +74,12 @@ class ListViewController: UIViewController {
             self.radioButtonSimple.status = .selected
             self.radioButtonChevron.status = .unselected
             simpleCellSelected = true
-            andesList.listType = "simple"
+            andesList.listType = .simple
         } else if radiobutton == self.radioButtonChevron {
             self.radioButtonSimple.status = .unselected
             self.radioButtonChevron.status = .selected
             simpleCellSelected = false
-            andesList.listType = "chevron"
+            andesList.listType = .chevron
         } else if radiobutton == self.radioButtonIcon {
             self.radioButtonIcon.status = .selected
             self.radioButtonThumbnail.status = .unselected

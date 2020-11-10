@@ -25,14 +25,7 @@ import Foundation
     @objc public var selectionStyle: AndesSelectionStyle = .defaultStyle
 
     /// Set the list type, default value simple
-    @IBInspectable public var listType: String {
-        get {
-            return self.listAllowedType.toString()
-        }
-        set(val) {
-            self.listAllowedType = AndesCellType.checkValidEnum(property: listType, key: val)
-        }
-    }
+    @objc public var listType: AndesCellType = .simple
 
     /// This method reload the data
     @objc public func reloadData() {
@@ -45,7 +38,6 @@ import Foundation
     }
 
     private var tableView: UITableView = UITableView()
-    private var listAllowedType: AndesCellType = .simple
     private var internalDataSource: AndesListTableViewDataSource?
     //swiftlint:disable weak_delegate
     private var internalDelegate: AndesListTableViewDelegate?
@@ -59,19 +51,27 @@ import Foundation
     /// Setup delegates and register UITableViewCell on the UITableView
     private func setup() {
         translatesAutoresizingMaskIntoConstraints = false
+        self.tableView.separatorStyle = .none
+        self.tableView.separatorInset.left = UIScreen.main.bounds.width
+        setupDelegates()
+        registerNib()
+        drawContentView()
+    }
+
+    private func setupDelegates() {
         internalDataSource = AndesListTableViewDataSource(listProtocol: self)
         internalDelegate = AndesListTableViewDelegate(listProtocol: self)
         self.tableView.delegate = internalDelegate
         self.tableView.dataSource = internalDataSource
-        self.tableView.separatorStyle = .none
-        self.tableView.separatorInset.left = UIScreen.main.bounds.width
+    }
+
+    private func registerNib() {
         tableView.register(UINib(nibName: "AndesListSimpleViewCell",
                                  bundle: AndesBundle.bundle()),
                            forCellReuseIdentifier: "AndesListSimpleViewCell")
         tableView.register(UINib(nibName: "AndesListChevronViewCell",
                                  bundle: AndesBundle.bundle()),
                            forCellReuseIdentifier: "AndesListChevronViewCell")
-        drawContentView()
     }
 
     private func drawContentView() {
@@ -92,8 +92,8 @@ extension AndesList: AndesListProtocol {
 
     func cellForRowAt(indexPath: IndexPath) -> AndesListCell {
         guard let customCell = dataSource?.andesList(self, cellForRowAt: indexPath),
-              customCell.type == listAllowedType else {
-            fatalError("Cell type not allowed, should be \(listAllowedType.toString()) type")
+              customCell.type == listType else {
+            fatalError("Cell type not allowed, should be \(listType.toString()) type")
         }
         return customCell
     }
@@ -116,6 +116,18 @@ extension AndesList: AndesListProtocol {
             return .gray
         case .defaultStyle:
             return .default
+        }
+    }
+}
+
+extension AndesList {
+    @available(*, unavailable, message: "This property is reserved for Interface Builder. Use 'listType' instead.")
+    @IBInspectable public var ibType: String {
+        get {
+            return self.listType.toString()
+        }
+        set(val) {
+            self.listType = AndesCellType.checkValidEnum(property: "IB type", key: val)
         }
     }
 }
