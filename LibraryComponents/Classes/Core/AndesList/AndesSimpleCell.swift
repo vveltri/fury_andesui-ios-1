@@ -7,8 +7,22 @@
 
 import Foundation
 
+/**
+ This class is a custom cell to AndesUI, this cell has a basic configuration
+*/
 public class AndesSimpleCell: AndesListCell {
 
+    /**
+     This method initialize an AndesSimpleCell to draw the row just objc
+     - Parameters:
+       - title: Set the title for the cell
+       - size: Set the size for the cell, the values are small, medium and large, the default is medium
+       - subtitle: Set the subtitle for the cell
+       - thumbnail: Set a thumbnail to the left of the cell
+       - numberOfLines: Set the number of lines to the cell title, the default is 0
+     - Authors: @Jona
+     - Version : Available since 3.13.0
+    */
     @available(swift, obsoleted: 1.0)
     @objc public init(withTitle title: String,
                       size: AndesListSize,
@@ -23,6 +37,17 @@ public class AndesSimpleCell: AndesListCell {
                         numberOfLines: numberOfLines)
     }
 
+    /**
+     This method initialize an AndesSimpleCell to draw the row
+     - Parameters:
+       - title: Set the title for the cell
+       - size: Set the size for the cell, the values are small, medium and large, the default is medium, optional parameter
+       - subtitle: Set the subtitle for the cell, optional parameter
+       - thumbnail: Set a thumbnail to the left of the cell, optional parameter
+       - numberOfLines: Set the number of lines to the cell title, the default is 0, optional parameter
+     - Authors: @Jona
+     - Version : Available since 3.13.0
+    */
     public init(withTitle title: String,
                 size: AndesListSize? = .medium,
                 subtitle: String? = String(),
