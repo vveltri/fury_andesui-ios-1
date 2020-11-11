@@ -18,7 +18,6 @@ let andesVersion = "2.3.0"
 var deviceLanguage = ""
 var locale = ""
 
-
 func setupSnapshot(_ app: XCUIApplication, waitForAnimations: Bool = true) {
     Snapshot.setupSnapshot(app, waitForAnimations: waitForAnimations)
 }

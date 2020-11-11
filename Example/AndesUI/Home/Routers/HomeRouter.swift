@@ -24,6 +24,7 @@ protocol HomeRouter: NSObject {
     func routeToThumbnail()
     func routeToTextFieldsCode()
     func routeToBottomSheet()
+    func routeToList()
 }
 
 class HomeAppRouter: NSObject {
@@ -44,6 +45,7 @@ class HomeAppRouter: NSObject {
     let thumbnailRouter = ThumbnailAppRouter()
     let textFieldsCodeRouter = TextFieldsCodeAppRouter()
     let bottomSheetRouter = BottomSheetAppRouter()
+    let listRouter = ListAppRouter()
 }
 
 extension HomeAppRouter: HomeRouter {
@@ -101,7 +103,11 @@ extension HomeAppRouter: HomeRouter {
     }
 
     func routeToThumbnail() {
-	thumbnailRouter.route(from: view)
+        thumbnailRouter.route(from: view)
+    }
+
+    func routeToList() {
+        listRouter.route(from: view)
     }
 
     func routeToTextFieldsCode() {

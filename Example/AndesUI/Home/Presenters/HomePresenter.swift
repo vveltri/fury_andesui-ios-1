@@ -23,6 +23,7 @@ protocol HomePresenter: NSObject {
     func presentThumbnail()
     func presentTextFieldsCode()
     func presentBottomSheet()
+    func presentList()
 }
 
 class HomeViewPresenter: NSObject {
@@ -81,6 +82,10 @@ extension HomeViewPresenter: HomePresenter {
 
     func presentThumbnail() {
         router.routeToThumbnail()
+    }
+
+    func presentList() {
+        router.routeToList()
     }
 
     func presentTextFieldsCode() {

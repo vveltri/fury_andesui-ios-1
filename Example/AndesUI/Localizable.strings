@@ -34,3 +34,9 @@
 "card.default.link" = "Link";
 "card.actions.linkMsg" = "Link action pressed";
 "card.actions.cardMsg" = "Card action pressed";
+
+
+"list.label.titleCell" = "Title cell default";
+"list.label.subTitleCell" = "Subtitle cell default";
+"list.actions.titleAlert" = "Title alert";
+"list.actions.msgAlert" = "Message alert";

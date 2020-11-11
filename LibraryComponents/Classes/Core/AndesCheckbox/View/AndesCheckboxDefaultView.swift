@@ -18,7 +18,7 @@ class AndesCheckboxDefaultView: UIView, AndesCheckboxView {
 
     @IBOutlet weak var leftBox: UIImageView!
     @IBOutlet weak var rightBox: UIImageView!
-    
+
     @IBOutlet weak var tappableArea: UIButton!
 
     @IBOutlet var checkboxView: UIView!

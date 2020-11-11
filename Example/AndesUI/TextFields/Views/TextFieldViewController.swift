@@ -9,11 +9,7 @@
 import Foundation
 import AndesUI
 
-protocol TextFieldView: NSObject {
-
-}
-
-class TextFieldViewController: UIViewController, TextFieldView {
+class TextFieldViewController: UIViewController {
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var textField: AndesTextField!
     @IBOutlet weak var stateTField: UITextField!
