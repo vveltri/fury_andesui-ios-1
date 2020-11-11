@@ -32,7 +32,7 @@ import UIKit
 
     var title: String = String()
     var subtitle: String = String()
-    var type: AndesCellType?
+    @objc public internal(set) var type: AndesCellType = .simple
     var fontStyle: AndesFontStyle = AndesFontStyle(textColor: .black,
                                                           font: UIFont.boldSystemFont(ofSize: 16),
                                                           lineSpacing: 2)
