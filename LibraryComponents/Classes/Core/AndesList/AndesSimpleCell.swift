@@ -89,6 +89,7 @@ public class AndesSimpleCell: AndesListCell {
         self.paddingTopThumbnail = config.paddingTopThumbnail
         self.paddingBottomThumbnail = config.paddingBottomThumbnail
         self.numberOfLines = numberOfLines
+        self.thumbnailType = thumbnail?.type
     }
 
     required init?(coder: NSCoder) {

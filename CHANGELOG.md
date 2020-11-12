@@ -1,6 +1,7 @@
 # Unpublished
 ### 🚀 Features
 - New component AndesList | Authors: [@joalonsopint](https://github.com/joalonsopint)
+- Adding accessibility to AndesListCell componente | Authors: [@joalonsopint](https://github.com/joalonsopint)
 
 # v3.13.0
 ### 🚀 Features
