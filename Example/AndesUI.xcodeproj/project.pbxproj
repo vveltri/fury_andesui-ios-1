@@ -326,6 +326,7 @@
 		F09C4F052551BC98005621F8 /* ListRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListRouter.swift; sourceTree = "<group>"; };
 		F09C4F612551BDB7005621F8 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		F09C50502551EEE8005621F8 /* AndesListTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AndesListTests.swift; sourceTree = "<group>"; };
+		F1687EB5920F308AFA904326 /* Pods-AndesUI-demoapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AndesUI-demoapp.debug.xcconfig"; path = "Target Support Files/Pods-AndesUI-demoapp/Pods-AndesUI-demoapp.debug.xcconfig"; sourceTree = "<group>"; };
 		F8249D0424ABC9AD002A6456 /* RadioButtonRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonRouter.swift; sourceTree = "<group>"; };
 		F8249D0724ABCA4E002A6456 /* AndesRadioButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndesRadioButtonViewController.swift; sourceTree = "<group>"; };
 		F8249D0924ABCAC8002A6456 /* AndesRadioButtonViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AndesRadioButtonViewController.xib; sourceTree = "<group>"; };
