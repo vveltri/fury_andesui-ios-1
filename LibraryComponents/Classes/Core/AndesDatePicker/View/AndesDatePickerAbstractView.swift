@@ -7,6 +7,10 @@
 
 import Foundation
 
+protocol AndesDatePickerAbstractViewDelegate: class {
+    func didSelectDate(_ date: Date)
+}
+
 internal class AndesDatePickerAbstractView: UIView, AndesDatePickerView {
 
     // MARK: - IBOutlet
@@ -18,9 +22,10 @@ internal class AndesDatePickerAbstractView: UIView, AndesDatePickerView {
     // MARK: - Attributes
 
     internal var backgroundLayer: CALayer
+    weak var delegate: AndesDatePickerAbstractViewDelegate?
     internal var dataCollectionView: AndesDatePickerSettingCollection?
 
-    private let selectedDate: Date = Date()
+    internal var selectedDate = Date()
     private lazy var dayCalendar = AndesDayDatePicker()
     private var calendar = Calendar(identifier: .iso8601)
     private lazy var daysToRender = dayCalendar.getDaysInMonth(Date(), selectedDate: selectedDate)
@@ -29,6 +34,7 @@ internal class AndesDatePickerAbstractView: UIView, AndesDatePickerView {
         didSet {
             daysToRender = dayCalendar.getDaysInMonth(baseDate, selectedDate: selectedDate)
             dataCollectionView?.days = daysToRender
+            dataCollectionView?.currentDate = baseDate
             datePickerCollectionView.reloadData()
         }
     }
@@ -99,6 +105,11 @@ internal class AndesDatePickerAbstractView: UIView, AndesDatePickerView {
 }
 
 extension AndesDatePickerAbstractView: AndesDatePickerSettingCollectionDelegate {
+    func didSelectDate(_ date: Date) {
+        selectedDate = date
+        delegate?.didSelectDate(selectedDate)
+    }
+
     func didTouchNextMonth() {
         baseDate = calendar.date(byAdding: .month, value: 1, to: baseDate) ?? baseDate
     }

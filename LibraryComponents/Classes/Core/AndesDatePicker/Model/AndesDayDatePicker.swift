@@ -7,14 +7,15 @@
 
 import Foundation
 
-struct AndesDayDatePicker {
+@objc public class AndesDayDatePicker: NSObject {
 
     // MARK: - Attributes
 
     private(set) var date: Date
     private(set) var number: String
-    private(set) var selected: Bool
     private(set) var isCurrentMonth: Bool
+
+    var selected: Bool
 
     private lazy var dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
@@ -31,7 +32,7 @@ struct AndesDayDatePicker {
 
     // MARK: - Struct methods
 
-    mutating func getDaysInMonth(_ date: Date, selectedDate: Date) -> [AndesDayDatePicker] {
+    func getDaysInMonth(_ date: Date, selectedDate: Date) -> [AndesDayDatePicker] {
         guard let monthData = try? AndesMonthDatePicker.getMonthData(date) else {
             fatalError("error to load the month in date: \(date)")
         }
@@ -55,7 +56,7 @@ struct AndesDayDatePicker {
         return days
     }
 
-    mutating func generateStartOfNextMonth(using firstDayOfDisplayedMonth: Date, selectedDate: Date) -> [AndesDayDatePicker] {
+    func generateStartOfNextMonth(using firstDayOfDisplayedMonth: Date, selectedDate: Date) -> [AndesDayDatePicker] {
 
         let calendar = Calendar(identifier: .gregorian)
         guard let lastDayInMonth = calendar.date(byAdding: DateComponents(month: 1, day: -1),

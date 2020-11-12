@@ -107,18 +107,16 @@ class AndesDatePickerCell: UICollectionViewCell {
     }
 
     func applySelectedStyle() {
-          accessibilityTraits.insert(.selected)
-          accessibilityHint = nil
-          numberLabel.textColor = isSmallScreenSize ? .systemBlue : .white
-          selectionBackgroundView.isHidden = isSmallScreenSize
+        accessibilityTraits.insert(.selected)
+        accessibilityHint = nil
+        numberLabel.textColor = isSmallScreenSize ? .systemBlue : .white
+        selectionBackgroundView.isHidden = isSmallScreenSize
       }
 
-    // 4
-      func applyDefaultStyle(isWithinDisplayedMonth: Bool) {
-          accessibilityTraits.remove(.selected)
-          accessibilityHint = "Tap to select"
-
+    func applyDefaultStyle(isWithinDisplayedMonth: Bool) {
+        accessibilityTraits.remove(.selected)
+        accessibilityHint = "Tap to select"
         numberLabel.textColor = isWithinDisplayedMonth ? UIColor.Andes.gray800 : UIColor.Andes.gray250
-          selectionBackgroundView.isHidden = true
-      }
+        selectionBackgroundView.isHidden = true
+    }
 }

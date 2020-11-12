@@ -7,9 +7,10 @@
 
 import UIKit
 
-protocol AndesDatePickerSettingCollectionDelegate {
+protocol AndesDatePickerSettingCollectionDelegate: AnyObject {
     func didTouchNextMonth()
     func didTouchPreviousMonth()
+    func didSelectDate(_ date: Date)
 }
 
 @objc public class AndesDatePickerSettingCollection: NSObject, UICollectionViewDataSource {
@@ -17,23 +18,18 @@ protocol AndesDatePickerSettingCollectionDelegate {
     // MARK: - Attributes
 
     var days: [AndesDayDatePicker] = []
+    var currentDate: Date
+
     weak var delegate: AndesDatePickerSettingCollectionDelegate?
+
     private var calendar = Calendar(identifier: .iso8601)
     private var header: AndesDatePickerHeaderView?
-
-    private var baseDate: Date
-
-    private var numberOfWeeksInBaseDate: Int {
-        let headerSection = 3
-        let weeks = calendar.range(of: .weekOfMonth, in: .month, for: baseDate)?.count ?? 0
-        return weeks + headerSection
-    }
 
     // MARK: - Initializer
 
     init(baseDate: Date, daysToRender days: [AndesDayDatePicker]) {
         self.days = days
-        self.baseDate = baseDate
+        self.currentDate = baseDate
     }
 
     // MARK: - UICollectionViewDataSource
@@ -51,11 +47,21 @@ protocol AndesDatePickerSettingCollectionDelegate {
     }
 }
 
+extension AndesDatePickerSettingCollection: UICollectionViewDelegate {
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        days.forEach({ $0.selected = false })
+        let day = days[indexPath.item]
+        day.selected.toggle()
+        delegate?.didSelectDate(day.date)
+        collectionView.reloadData()
+    }
+}
+
 extension AndesDatePickerSettingCollection: UICollectionViewDelegateFlowLayout {
 
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = Int(collectionView.frame.width / 7)
-        let height = Int(collectionView.frame.height) / numberOfWeeksInBaseDate
+        let height = 33
 
         return CGSize(width: width, height: height)
     }
@@ -69,7 +75,7 @@ extension AndesDatePickerSettingCollection: UICollectionViewDelegateFlowLayout {
         case UICollectionView.elementKindSectionHeader:
             header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: AndesDatePickerHeaderView.identifier, for: indexPath) as? AndesDatePickerHeaderView
             header?.delegate = self
-
+            header?.currentDate = currentDate
             return header ?? UICollectionReusableView()
         default:
             return UICollectionReusableView()

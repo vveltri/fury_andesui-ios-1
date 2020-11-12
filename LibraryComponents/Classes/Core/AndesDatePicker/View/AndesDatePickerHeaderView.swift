@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol AndesDatePickerHeaderViewDelegate {
+protocol AndesDatePickerHeaderViewDelegate: AnyObject {
     func nextMonth()
     func previousMonth()
 }
@@ -22,6 +22,22 @@ class AndesDatePickerHeaderView: UICollectionReusableView {
 
     static let identifier = String(describing: AndesDatePickerHeaderView.self)
     weak var delegate: AndesDatePickerHeaderViewDelegate?
+
+    private lazy var dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.calendar = Calendar(identifier: .gregorian)
+        dateFormatter.locale = Locale.autoupdatingCurrent
+        dateFormatter.setLocalizedDateFormatFromTemplate("MMMM y")
+        return dateFormatter
+    }()
+
+    var currentDate = Date() {
+        didSet {
+            monthLabel.text = dateFormatter.string(from: currentDate)
+        }
+    }
+
+    // MARK: - UIComponents
 
     private let weekDaysStackView: UIStackView = {
         let horizontalStack = UIStackView()
