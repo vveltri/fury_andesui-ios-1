@@ -63,9 +63,7 @@ extension AndesDatePickerSettingCollection: UICollectionViewDelegateFlowLayout {
 
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = Int(collectionView.frame.width / 7)
-        let height = 33
-
-        return CGSize(width: width, height: height)
+        return CGSize(width: width, height: 29)
     }
 
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {

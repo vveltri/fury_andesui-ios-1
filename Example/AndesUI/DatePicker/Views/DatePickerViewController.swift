@@ -30,12 +30,12 @@ class DatePickerViewController: UIViewController {
 
         guard let currentDate = calendar.date(from: DateComponents(year: 2020, month: 11, day: 15)) else { return }
 
-//        datePickerView.setDatePickerDate(minDate: currentDate, maxDate: dueDate) { selectedDate in
-//            print(selectedDate)
-//        }
-
-        datePickerView.setDatePickerDate { selectedDate in
+        datePickerView.setDatePickerDate(minDate: currentDate, maxDate: dueDate) { selectedDate in
             print(selectedDate)
         }
+
+//        datePickerView.setDatePickerDate { selectedDate in
+//            print(selectedDate)
+//        }
     }
 }

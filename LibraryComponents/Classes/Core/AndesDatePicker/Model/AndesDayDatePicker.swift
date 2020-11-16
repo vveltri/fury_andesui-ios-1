@@ -79,11 +79,12 @@ import Foundation
         let days: [AndesDayDatePicker] = (1...additionalDays)
             .map {
                 let date = calendar.date(byAdding: .day, value: $0, to: lastDayInMonth) ?? lastDayInMonth
+                isValid = hasRange() ? dateIsInRange(date) : true
 
                 return AndesDayDatePicker(date: date,
                                         number: dateFormatter.string(from: date),
                                         selected: calendar.isDate(date, inSameDayAs: selectedDate),
-                                        isCurrentMonth: false)
+                                        isCurrentMonth: false, isValid: isValid)
         }
 
         return days

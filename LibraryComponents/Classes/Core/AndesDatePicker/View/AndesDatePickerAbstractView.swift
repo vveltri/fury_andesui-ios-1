@@ -114,10 +114,6 @@ extension AndesDatePickerAbstractView: AndesDatePickerSettingCollectionDelegate 
 
     func didTouchNextMonth() {
         baseDate = calendar.date(byAdding: .month, value: 1, to: baseDate) ?? baseDate
-
-        print(baseDate)
-
-        print("")
     }
 
     func didTouchPreviousMonth() {
