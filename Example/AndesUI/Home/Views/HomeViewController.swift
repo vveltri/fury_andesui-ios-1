@@ -90,6 +90,10 @@ class HomeViewController: UIViewController {
         presenter.presentRadioButton()
     }
 
+    @IBAction func goToDatePickerTapped(_ sender: Any) {
+        presenter.presentDatePicker()
+    }
+
     @IBAction func goToSpecsTapped(_ sender: Any) {
         guard let url = URL(string: "https://company-161429.frontify.com/d/kxHCRixezmfK/n-a") else { return }
         UIApplication.shared.open(url)

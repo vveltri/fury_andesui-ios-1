@@ -8,7 +8,7 @@
 import Foundation
 
 protocol AndesDatePickerAbstractViewDelegate: class {
-    func didSelectDate(_ date: Date)
+    func didSelectDate(_ date: Date?)
 }
 
 internal class AndesDatePickerAbstractView: UIView, AndesDatePickerView {
@@ -21,18 +21,19 @@ internal class AndesDatePickerAbstractView: UIView, AndesDatePickerView {
 
     // MARK: - Attributes
 
-    internal var backgroundLayer: CALayer
+    internal var backgroundLayer = CALayer()
     weak var delegate: AndesDatePickerAbstractViewDelegate?
     internal var dataCollectionView: AndesDatePickerSettingCollection?
 
-    internal var selectedDate = Date()
-    private lazy var dayCalendar = AndesDayDatePicker()
+    internal var selectedDate: Date? = Date()
+    internal var maxDate: Date?
+    private var dayCalendar = AndesDayDatePicker()
     private var calendar = Calendar(identifier: .iso8601)
-    private lazy var daysToRender = dayCalendar.getDaysInMonth(Date(), selectedDate: selectedDate)
+    private lazy var daysToRender = dayCalendar.getDaysInMonth(Date())
 
     private var baseDate: Date {
         didSet {
-            daysToRender = dayCalendar.getDaysInMonth(baseDate, selectedDate: selectedDate)
+            daysToRender = dayCalendar.getDaysInMonth(baseDate)
             dataCollectionView?.days = daysToRender
             dataCollectionView?.currentDate = baseDate
             datePickerCollectionView.reloadData()
@@ -49,18 +50,14 @@ internal class AndesDatePickerAbstractView: UIView, AndesDatePickerView {
 
     internal init() {
         baseDate = Date()
-        self.backgroundLayer = CALayer()
         super.init(frame: .zero)
         setup()
-        setupCollectionView()
     }
 
     required init?(coder: NSCoder) {
         baseDate = Date()
-        self.backgroundLayer = CALayer()
         super.init(coder: coder)
         setup()
-        setupCollectionView()
     }
 
     internal func loadNib() {
@@ -68,6 +65,11 @@ internal class AndesDatePickerAbstractView: UIView, AndesDatePickerView {
     }
 
     // MARK: - Class methods
+
+    func setDates(start: Date?, end: Date?) {
+        dayCalendar = AndesDayDatePicker(startDate: start, endDate: end)
+        setupCollectionView()
+    }
 
     private func setup() {
         loadNib()
@@ -105,13 +107,17 @@ internal class AndesDatePickerAbstractView: UIView, AndesDatePickerView {
 }
 
 extension AndesDatePickerAbstractView: AndesDatePickerSettingCollectionDelegate {
-    func didSelectDate(_ date: Date) {
+    func didSelectDate(_ date: Date?) {
         selectedDate = date
         delegate?.didSelectDate(selectedDate)
     }
 
     func didTouchNextMonth() {
         baseDate = calendar.date(byAdding: .month, value: 1, to: baseDate) ?? baseDate
+
+        print(baseDate)
+
+        print("")
     }
 
     func didTouchPreviousMonth() {

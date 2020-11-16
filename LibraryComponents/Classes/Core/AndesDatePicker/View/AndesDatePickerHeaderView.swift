@@ -87,7 +87,6 @@ class AndesDatePickerHeaderView: UICollectionReusableView {
         addSubview(monthLabel)
         monthLabel.bottomAnchor.constraint(equalTo: weekDaysStackView.topAnchor, constant: -20).isActive = true
         monthLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        monthLabel.text = "Novembro 2020"
 
         addSubview(previousButton)
         AndesIconsProvider.loadIcon(name: AndesIcons.chevronLeft24) { icon in

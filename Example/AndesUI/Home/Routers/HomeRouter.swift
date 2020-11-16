@@ -23,6 +23,7 @@ protocol HomeRouter: NSObject {
     func routeCard()
     func routeToThumbnail()
     func routeToTextFieldsCode()
+    func routeToDatePicker()
 }
 
 class HomeAppRouter: NSObject {
@@ -42,6 +43,7 @@ class HomeAppRouter: NSObject {
     let cardRouter = CardAppRouter()
     let thumbnailRouter = ThumbnailAppRouter()
     let textFieldsCodeRouter = TextFieldsCodeAppRouter()
+    let datePickerRouter = DatePickerAppRouter()
 }
 
 extension HomeAppRouter: HomeRouter {
@@ -101,10 +103,14 @@ extension HomeAppRouter: HomeRouter {
     }
 
     func routeToThumbnail() {
-	thumbnailRouter.route(from: view)
+        thumbnailRouter.route(from: view)
     }
 
     func routeToTextFieldsCode() {
         textFieldsCodeRouter.route(from: view)
+    }
+
+    func routeToDatePicker() {
+        datePickerRouter.route(from: view)
     }
 }

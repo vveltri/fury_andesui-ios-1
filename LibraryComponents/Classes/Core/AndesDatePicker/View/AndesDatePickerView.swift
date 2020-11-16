@@ -8,6 +8,5 @@
 import Foundation
 
 internal protocol AndesDatePickerView: UIView {
-
     func setupCollectionView()
 }

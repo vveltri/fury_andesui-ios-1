@@ -12,35 +12,29 @@ import UIKit
     // MARK: - Attributes
 
     internal var contentView: AndesDatePickerView
+    private var datePickerView = AndesDatePickerDefaultView()
 
-    @objc public var startDate: Date
-    @objc public var endDate: Date
+    internal var didTapped: ((Date?) -> Void)?
 
-    internal var didTapped: ((Date) -> Void)?
-
-    @objc public func setDatePickerDate(callback: @escaping ((Date) -> Void)) {
+    @objc public func setDatePickerDate(minDate: Date? = nil, maxDate: Date? = nil, callback: @escaping ((Date?) -> Void)) {
         self.didTapped = callback
+        datePickerView.setDates(start: minDate, end: maxDate)
     }
 
     // MARK: - Initializer
 
-    @objc public init(startDate: Date, endDate: Date) {
-        let datePickerView = AndesDatePickerDefaultView()
+    @objc public init() {
         contentView = datePickerView
-        self.startDate = startDate
-        self.endDate = endDate
         super.init(frame: .zero)
         setup()
         datePickerView.delegate = self
     }
 
     required init?(coder: NSCoder) {
-        let datePickerView = AndesDatePickerDefaultView()
         contentView = datePickerView
-        self.startDate = Date()
-        self.endDate = Date()
         super.init(coder: coder)
         setup()
+        datePickerView.delegate = self
     }
 
     private func setup() {
@@ -52,7 +46,7 @@ import UIKit
 }
 
 extension AndesDatePicker: AndesDatePickerAbstractViewDelegate {
-    func didSelectDate(_ date: Date) {
+    func didSelectDate(_ date: Date?) {
         didTapped?(date)
     }
 }

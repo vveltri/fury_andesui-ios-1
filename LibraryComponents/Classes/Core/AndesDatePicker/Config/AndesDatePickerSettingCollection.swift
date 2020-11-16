@@ -10,7 +10,7 @@ import UIKit
 protocol AndesDatePickerSettingCollectionDelegate: AnyObject {
     func didTouchNextMonth()
     func didTouchPreviousMonth()
-    func didSelectDate(_ date: Date)
+    func didSelectDate(_ date: Date?)
 }
 
 @objc public class AndesDatePickerSettingCollection: NSObject, UICollectionViewDataSource {
@@ -49,11 +49,13 @@ protocol AndesDatePickerSettingCollectionDelegate: AnyObject {
 
 extension AndesDatePickerSettingCollection: UICollectionViewDelegate {
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        days.forEach({ $0.selected = false })
         let day = days[indexPath.item]
-        day.selected.toggle()
-        delegate?.didSelectDate(day.date)
-        collectionView.reloadData()
+        if day.isValid {
+            days.forEach({ $0.selected = false })
+            day.selected.toggle()
+            collectionView.reloadData()
+        }
+        day.isValid ? delegate?.didSelectDate(day.date) : delegate?.didSelectDate(nil)
     }
 }
 
