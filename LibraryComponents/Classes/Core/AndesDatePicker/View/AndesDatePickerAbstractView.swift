@@ -8,7 +8,7 @@
 import Foundation
 
 protocol AndesDatePickerAbstractViewDelegate: class {
-    func didSelectDate(_ date: Date?)
+    func didSelectDate(_ date: Date?, _ isConfirmed: Bool)
 }
 
 internal class AndesDatePickerAbstractView: UIView, AndesDatePickerView {
@@ -25,7 +25,14 @@ internal class AndesDatePickerAbstractView: UIView, AndesDatePickerView {
     weak var delegate: AndesDatePickerAbstractViewDelegate?
     internal var dataCollectionView: AndesDatePickerSettingCollection?
 
-    internal var selectedDate: Date? = Date()
+    internal var selectedDate: Date? = Date() {
+        didSet {
+            if selectedDate != nil {
+                lastSelectedDate = selectedDate
+            }
+        }
+    }
+    internal var lastSelectedDate: Date?
     internal var maxDate: Date?
     private var dayCalendar = AndesDayDatePicker()
     private var calendar = Calendar(identifier: .iso8601)
@@ -66,8 +73,9 @@ internal class AndesDatePickerAbstractView: UIView, AndesDatePickerView {
 
     // MARK: - Class methods
 
-    func setDates(start: Date?, end: Date?) {
-        dayCalendar = AndesDayDatePicker(startDate: start, endDate: end)
+    func setDates(maxDate: Date?) {
+        dayCalendar = AndesDayDatePicker(endDate: maxDate)
+        dayCalendar.delegate = self
         setupCollectionView()
     }
 
@@ -81,6 +89,8 @@ internal class AndesDatePickerAbstractView: UIView, AndesDatePickerView {
 
         buttonPrimary.text = "Confirmar"
         buttonPrimary.size = .large
+
+        buttonPrimary.isEnabled = false
     }
 
     func setupCollectionView() {
@@ -101,15 +111,16 @@ internal class AndesDatePickerAbstractView: UIView, AndesDatePickerView {
 
     // MARK: - IBAction
 
-    @IBAction func updateTapped(_ sender: AndesButton) {
-        print("button pressed")
+    @IBAction func didTouchConfirm(_ sender: AndesButton) {
+        delegate?.didSelectDate(lastSelectedDate, true)
     }
 }
 
 extension AndesDatePickerAbstractView: AndesDatePickerSettingCollectionDelegate {
     func didSelectDate(_ date: Date?) {
         selectedDate = date
-        delegate?.didSelectDate(selectedDate)
+        buttonPrimary.isEnabled = true
+        delegate?.didSelectDate(selectedDate, false)
     }
 
     func didTouchNextMonth() {
@@ -118,5 +129,12 @@ extension AndesDatePickerAbstractView: AndesDatePickerSettingCollectionDelegate 
 
     func didTouchPreviousMonth() {
         baseDate = calendar.date(byAdding: .month, value: -1, to: baseDate) ?? baseDate
+    }
+}
+
+extension AndesDatePickerAbstractView: AndesDayDatePickerDelegate {
+    func didSelectEnabledDay(_ day: Date?) {
+        buttonPrimary.isEnabled = true
+        self.lastSelectedDate = day
     }
 }

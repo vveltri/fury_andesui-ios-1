@@ -23,19 +23,21 @@ class DatePickerViewController: UIViewController {
     }
 
     func setupDatePicker() {
-        var calendar = Calendar(identifier: .gregorian)
-        calendar.timeZone = TimeZone(abbreviation: "UTC")!
 
-        guard let dueDate = calendar.date(from: DateComponents(year: 2020, month: 11, day: 20)) else { return }
+        var dayComponent = DateComponents()
+        dayComponent.day = 7
+        let theCalendar = Calendar.current
+        let nextDate = theCalendar.date(byAdding: dayComponent, to: Date())
 
-        guard let currentDate = calendar.date(from: DateComponents(year: 2020, month: 11, day: 15)) else { return }
-
-        datePickerView.setDatePickerDate(minDate: currentDate, maxDate: dueDate) { selectedDate in
-            print(selectedDate)
-        }
-
-//        datePickerView.setDatePickerDate { selectedDate in
+//        datePickerView.setDatePickerDate(maxDate: nextDate) { (selectedDate, isConfirmed) in
+//            print("callback: -")
 //            print(selectedDate)
+//            print(isConfirmed)
 //        }
+
+        datePickerView.setDatePickerDate { selectedDate, isConfirmed  in
+            print(selectedDate)
+            print(isConfirmed)
+        }
     }
 }

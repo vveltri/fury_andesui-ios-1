@@ -20,10 +20,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="avs-Hj-oZh" customClass="AndesDatePicker" customModule="AndesUI">
-                    <rect key="frame" x="30" y="258" width="354" height="380"/>
+                    <rect key="frame" x="30" y="274" width="354" height="378"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="380" id="9U8-0A-hS6"/>
+                        <constraint firstAttribute="height" constant="378" id="9U8-0A-hS6"/>
                     </constraints>
                 </view>
             </subviews>
@@ -32,7 +32,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="avs-Hj-oZh" secondAttribute="trailing" constant="30" id="8hz-aY-J1W"/>
                 <constraint firstItem="avs-Hj-oZh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="H7G-WK-bhg"/>
                 <constraint firstItem="avs-Hj-oZh" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Qic-od-zbr"/>
-                <constraint firstItem="avs-Hj-oZh" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="yNe-lI-aTr"/>
+                <constraint firstItem="avs-Hj-oZh" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="15" id="yNe-lI-aTr"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="70" y="113"/>

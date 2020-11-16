@@ -7,6 +7,10 @@
 
 import Foundation
 
+protocol AndesDayDatePickerDelegate: class {
+    func didSelectEnabledDay(_ day: Date?)
+}
+
 @objc public class AndesDayDatePicker: NSObject {
 
     // MARK: - Attributes
@@ -14,12 +18,19 @@ import Foundation
     private(set) var date: Date
     private(set) var number: String
     private(set) var isCurrentMonth: Bool
-    private(set) var isToday: Bool
     private(set) var isValid: Bool
-    private(set) var startDate: Date?
-    private(set) var endDate: Date?
+    private(set) var dueDate: Date?
 
-    var selected: Bool
+    private(set) var lastDay: Date?
+
+    var selected: Bool {
+        didSet {
+            if selected {
+                delegate?.didSelectEnabledDay(lastDay)
+            }
+        }
+    }
+    weak var delegate: AndesDayDatePickerDelegate?
 
     private lazy var dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
@@ -27,14 +38,12 @@ import Foundation
         return dateFormatter
     }()
 
-    init(date: Date? = Date(), number: String = "", selected: Bool = false, isCurrentMonth: Bool = false, isToday: Bool = false, startDate: Date? = nil, endDate: Date? = nil, isValid: Bool = false) {
+    init(date: Date? = Date(), number: String = "", selected: Bool = false, isCurrentMonth: Bool = false, endDate: Date? = nil, isValid: Bool = false) {
         self.date = date ?? Date()
         self.number = number
         self.selected = selected
         self.isCurrentMonth = isCurrentMonth
-        self.isToday = isToday
-        self.startDate = startDate
-        self.endDate = endDate
+        self.dueDate = endDate
         self.isValid = isValid
     }
 
@@ -54,11 +63,16 @@ import Foundation
 
             let calendar = Calendar(identifier: .gregorian)
             let date = calendar.date(byAdding: .day, value: dayOffSet, to: firstDay) ?? firstDay
+            self.lastDay = date
 
             let isCurrentMonth = hasRange() ? dateIsInRange(date) : day >= offsetToInitialRow
             isValid = hasRange() ? dateIsInRange(date) : true
 
-            return AndesDayDatePicker(date: date, number: dateFormatter.string(from: date), selected: selected, isCurrentMonth: isCurrentMonth, isToday: calendar.isDateInToday(date), isValid: isValid)
+            if let endDate = dueDate {
+                selected = calendar.compare(date, to: endDate, toGranularity: .day) == .orderedSame
+            }
+
+            return AndesDayDatePicker(date: date, number: dateFormatter.string(from: date), selected: selected, isCurrentMonth: isCurrentMonth, endDate: dueDate, isValid: isValid)
         }
 
         days += generateStartOfNextMonth(using: firstDay, selectedDate: Date())
@@ -91,20 +105,16 @@ import Foundation
     }
 
     private func dateIsInRange(_ date: Date) -> Bool {
-        guard let start = startDate, let end = endDate else { return false }
+        guard let end = dueDate else { return false }
 
-        if date.compare(start) == .orderedSame && date.compare(end) == .orderedAscending {
+        if Calendar.current.compare(date, to: Date(), toGranularity: .day) == .orderedDescending && Calendar.current.compare(date, to: end, toGranularity: .day) == .orderedSame {
             return true
         }
 
-        if date.compare(start) == .orderedDescending && date.compare(end) == .orderedSame {
-            return true
-        }
-
-        return date.compare(start) == .orderedDescending && date.compare(end) == .orderedAscending
+        return date.compare(Date()) == .orderedDescending && date.compare(end) == .orderedAscending
     }
 
-    private func hasRange() -> Bool {
-        return (startDate != nil) && (endDate != nil)
+    func hasRange() -> Bool {
+        return dueDate != nil
     }
 }

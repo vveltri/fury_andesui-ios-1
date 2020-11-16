@@ -76,6 +76,8 @@ extension AndesDatePickerSettingCollection: UICollectionViewDelegateFlowLayout {
             header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: AndesDatePickerHeaderView.identifier, for: indexPath) as? AndesDatePickerHeaderView
             header?.delegate = self
             header?.currentDate = currentDate
+            header?.togglePreviousButton(days: days)
+
             return header ?? UICollectionReusableView()
         default:
             return UICollectionReusableView()

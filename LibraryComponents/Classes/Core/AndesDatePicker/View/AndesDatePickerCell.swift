@@ -95,7 +95,6 @@ class AndesDatePickerCell: UICollectionViewCell {
 
     func updateSelectionStatus() {
         guard let day = day else { return }
-        day.isToday ? applyTodayStyleFont() : applyTodayStyleFontDefault()
         day.selected ? applySelectedStyle() : applyDefaultStyle(isWithinDisplayedMonth: day.isCurrentMonth)
     }
 
@@ -105,16 +104,6 @@ class AndesDatePickerCell: UICollectionViewCell {
         let widthGreaterThanHeight =
             UIScreen.main.bounds.width > UIScreen.main.bounds.height
         return isCompact && (smallWidth || widthGreaterThanHeight)
-    }
-
-    func applyTodayStyleFont() {
-        numberLabel.font = AndesStyleSheetManager.styleSheet.semiboldSystemFontOfSize(size: 14.0)
-        selectionBackgroundView.isHidden = true
-    }
-
-    func applyTodayStyleFontDefault() {
-        numberLabel.font = AndesStyleSheetManager.styleSheet.regularSystemFont(size: 14.0)
-        selectionBackgroundView.isHidden = true
     }
 
     func applySelectedStyle() {
