@@ -34,11 +34,11 @@ internal class AndesDatePickerAbstractView: UIView, AndesDatePickerView {
     }
     internal var lastSelectedDate: Date?
     internal var maxDate: Date?
-    private var dayCalendar = AndesDayDatePicker()
+    private(set) var dayCalendar = AndesDayDatePicker()
     private var calendar = Calendar(identifier: .iso8601)
-    private lazy var daysToRender = dayCalendar.getDaysInMonth(Date())
+    private(set) lazy var daysToRender = dayCalendar.getDaysInMonth(Date())
 
-    private var baseDate: Date {
+    private(set) var baseDate: Date {
         didSet {
             daysToRender = dayCalendar.getDaysInMonth(baseDate)
             dataCollectionView?.days = daysToRender
@@ -67,9 +67,7 @@ internal class AndesDatePickerAbstractView: UIView, AndesDatePickerView {
         setup()
     }
 
-    internal func loadNib() {
-        fatalError("This should be override by a subclass")
-    }
+    internal func loadNib() { }
 
     // MARK: - Class methods
 

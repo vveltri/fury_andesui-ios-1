@@ -21,6 +21,8 @@ struct AndesMonthDatePicker {
 
     // MARK: - Struct methods
 
+    /// this method creates AndesMonthDatePicker object, that contains: the number of days in the month, first day month
+
     static func getMonthData(_ date: Date) throws -> AndesMonthDatePicker {
         let calendar = Calendar(identifier: .gregorian)
 
@@ -31,11 +33,7 @@ struct AndesMonthDatePicker {
 
         var firstWeekDay = calendar.component(.weekday, from: firstDay)
 
-        if firstWeekDay == 1 {
-            firstWeekDay = 7
-        } else {
-            firstWeekDay = firstWeekDay-1
-        }
+        if firstWeekDay == 1 { firstWeekDay = 7 } else { firstWeekDay = firstWeekDay-1 }
 
         return AndesMonthDatePicker(daysNumber: daysNumberInMonth, firstDay: firstDay, firstWeekday: firstWeekDay)
     }

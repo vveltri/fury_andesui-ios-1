@@ -129,19 +129,19 @@ class AndesDatePickerHeaderView: UICollectionReusableView {
     private func getDayOfWeek(number: Int) -> String {
         switch DaysOfWeek(rawValue: number) {
         case .monday:
-            return "MON"
+            return "SEG"
         case .tuesday:
-            return "TUE"
+            return "TER"
         case .wednesday:
-            return "WED"
+            return "QUA"
         case .thursday:
-            return "THU"
+            return "QUI"
         case .friday:
-            return "FRI"
+            return "SEX"
         case .saturday:
-            return "SAT"
+            return "SAB"
         case .sunday:
-            return "SUN"
+            return "DOM"
         default:
             return ""
         }

@@ -7,6 +7,8 @@
 
 import UIKit
 
+/// This class has all collectionview implementation (UICollectionViewDataSource and UICollectionViewDelegate)
+
 protocol AndesDatePickerSettingCollectionDelegate: AnyObject {
     func didTouchNextMonth()
     func didTouchPreviousMonth()

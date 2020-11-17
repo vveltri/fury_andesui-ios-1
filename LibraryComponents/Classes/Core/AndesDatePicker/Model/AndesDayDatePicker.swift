@@ -49,6 +49,8 @@ protocol AndesDayDatePickerDelegate: class {
 
     // MARK: - Struct methods
 
+    /// this method creates all days of the month
+
     func getDaysInMonth(_ currentDate: Date) -> [AndesDayDatePicker] {
         guard let monthData = try? AndesMonthDatePicker.getMonthData(currentDate) else {
             fatalError("error to load the month in date: \(date)")
@@ -80,6 +82,8 @@ protocol AndesDayDatePickerDelegate: class {
         return days
     }
 
+    /// this method creates the missing days to fill the last week
+
     func generateStartOfNextMonth(using firstDayOfDisplayedMonth: Date, selectedDate: Date) -> [AndesDayDatePicker] {
 
         let calendar = Calendar(identifier: .gregorian)
@@ -103,6 +107,8 @@ protocol AndesDayDatePickerDelegate: class {
 
         return days
     }
+
+    /// given a date it checks if it is within the range
 
     private func dateIsInRange(_ date: Date) -> Bool {
         guard let end = dueDate else { return false }

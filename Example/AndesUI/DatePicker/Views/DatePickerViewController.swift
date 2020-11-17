@@ -14,6 +14,7 @@ class DatePickerViewController: UIViewController {
     // MARK: - IBOutlet
 
     @IBOutlet weak var datePickerView: AndesDatePicker!
+    @IBOutlet weak var dateLabel: UILabel!
 
     // MARK: - Initializer
 
@@ -23,21 +24,13 @@ class DatePickerViewController: UIViewController {
     }
 
     func setupDatePicker() {
-
-        var dayComponent = DateComponents()
-        dayComponent.day = 7
-        let theCalendar = Calendar.current
-        let nextDate = theCalendar.date(byAdding: dayComponent, to: Date())
-
-//        datePickerView.setDatePickerDate(maxDate: nextDate) { (selectedDate, isConfirmed) in
-//            print("callback: -")
-//            print(selectedDate)
-//            print(isConfirmed)
-//        }
-
         datePickerView.setDatePickerDate { selectedDate, isConfirmed  in
-            print(selectedDate)
-            print(isConfirmed)
+            if isConfirmed {
+                guard let date = selectedDate else { return }
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "dd/MMM/yyyy"
+                self.dateLabel.text = dateFormatter.string(from: date)
+            }
         }
     }
 }

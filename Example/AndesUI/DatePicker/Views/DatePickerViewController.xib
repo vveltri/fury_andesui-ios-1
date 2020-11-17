@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DatePickerViewController" customModule="AndesUI_DemoApp" customModuleProvider="target">
             <connections>
+                <outlet property="dateLabel" destination="xT5-NF-ilD" id="Jbv-3h-bXU"/>
                 <outlet property="datePickerView" destination="avs-Hj-oZh" id="X8C-EG-rRC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -26,12 +27,28 @@
                         <constraint firstAttribute="height" constant="378" id="9U8-0A-hS6"/>
                     </constraints>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="selected date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VIi-zF-Poa">
+                    <rect key="frame" x="30" y="672" width="112" height="21"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xT5-NF-ilD">
+                    <rect key="frame" x="150" y="672" width="0.0" height="0.0"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
+                <constraint firstItem="VIi-zF-Poa" firstAttribute="top" secondItem="avs-Hj-oZh" secondAttribute="bottom" constant="20" id="74D-R1-cSI"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="avs-Hj-oZh" secondAttribute="trailing" constant="30" id="8hz-aY-J1W"/>
+                <constraint firstItem="xT5-NF-ilD" firstAttribute="leading" secondItem="VIi-zF-Poa" secondAttribute="trailing" constant="8" id="CJY-jI-IMf"/>
+                <constraint firstItem="VIi-zF-Poa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="EhF-W3-98n"/>
                 <constraint firstItem="avs-Hj-oZh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="H7G-WK-bhg"/>
                 <constraint firstItem="avs-Hj-oZh" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Qic-od-zbr"/>
+                <constraint firstItem="xT5-NF-ilD" firstAttribute="top" secondItem="avs-Hj-oZh" secondAttribute="bottom" constant="20" id="guh-2E-6CD"/>
                 <constraint firstItem="avs-Hj-oZh" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="15" id="yNe-lI-aTr"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
