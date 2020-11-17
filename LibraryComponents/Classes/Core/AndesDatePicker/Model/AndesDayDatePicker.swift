@@ -51,7 +51,7 @@ protocol AndesDayDatePickerDelegate: class {
 
     /// this method creates all days of the month
 
-    func getDaysInMonth(_ currentDate: Date) -> [AndesDayDatePicker] {
+    func getDaysInMonth(_ currentDate: Date, _ selectedDate: Date?) -> [AndesDayDatePicker] {
         guard let monthData = try? AndesMonthDatePicker.getMonthData(currentDate) else {
             fatalError("error to load the month in date: \(date)")
         }
@@ -70,8 +70,10 @@ protocol AndesDayDatePickerDelegate: class {
             let isCurrentMonth = hasRange() ? dateIsInRange(date) : day >= offsetToInitialRow
             isValid = hasRange() ? dateIsInRange(date) : true
 
-            if let endDate = dueDate {
-                selected = calendar.compare(date, to: endDate, toGranularity: .day) == .orderedSame
+            if dueDate != nil && selectedDate == nil {
+                selected = calendar.compare(date, to: dueDate ?? Date(), toGranularity: .day) == .orderedSame
+            } else {
+                selected = calendar.isDate(date, inSameDayAs: selectedDate ?? Date())
             }
 
             return AndesDayDatePicker(date: date, number: dateFormatter.string(from: date), selected: selected, isCurrentMonth: isCurrentMonth, endDate: dueDate, isValid: isValid)

@@ -36,11 +36,11 @@ internal class AndesDatePickerAbstractView: UIView, AndesDatePickerView {
     internal var maxDate: Date?
     private(set) var dayCalendar = AndesDayDatePicker()
     private var calendar = Calendar(identifier: .iso8601)
-    private(set) lazy var daysToRender = dayCalendar.getDaysInMonth(Date())
+    private(set) lazy var daysToRender = dayCalendar.getDaysInMonth(Date(), nil)
 
     private(set) var baseDate: Date {
         didSet {
-            daysToRender = dayCalendar.getDaysInMonth(baseDate)
+            daysToRender = dayCalendar.getDaysInMonth(baseDate, selectedDate)
             dataCollectionView?.days = daysToRender
             dataCollectionView?.currentDate = baseDate
             datePickerCollectionView.reloadData()
@@ -132,7 +132,7 @@ extension AndesDatePickerAbstractView: AndesDatePickerSettingCollectionDelegate 
 
 extension AndesDatePickerAbstractView: AndesDayDatePickerDelegate {
     func didSelectEnabledDay(_ day: Date?) {
+        selectedDate = day
         buttonPrimary.isEnabled = true
-        self.lastSelectedDate = day
     }
 }

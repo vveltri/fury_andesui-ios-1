@@ -24,6 +24,21 @@ class DatePickerViewController: UIViewController {
     }
 
     func setupDatePicker() {
+
+//                var dayComponent = DateComponents()
+//                dayComponent.day = 7
+//                let theCalendar = Calendar.current
+//                let nextDate = theCalendar.date(byAdding: dayComponent, to: Date())
+//
+//                datePickerView.setDatePickerDate(maxDate: nextDate) { (selectedDate, isConfirmed) in
+//                    if isConfirmed {
+//                        guard let date = selectedDate else { return }
+//                        let dateFormatter = DateFormatter()
+//                        dateFormatter.dateFormat = "dd/MMM/yyyy"
+//                        self.dateLabel.text = dateFormatter.string(from: date)
+//                    }
+//                }
+
         datePickerView.setDatePickerDate { selectedDate, isConfirmed  in
             if isConfirmed {
                 guard let date = selectedDate else { return }
