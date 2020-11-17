@@ -2,6 +2,10 @@
 ### 🚀 Features
 - Xcode 12 compatibility
 
+# v3.15.0
+### 🚀 Features
+- Date Picker component | Authors: [@AndriuCoelho](https://github.com/AndriuCoelho)
+
 # v3.12.0
 ### 🚀 Features
 - New component AndesTextFieldCode | Authors: [@eboffa](https://github.com/eboffa)
