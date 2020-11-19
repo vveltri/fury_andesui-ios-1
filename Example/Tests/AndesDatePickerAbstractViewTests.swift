@@ -29,7 +29,7 @@ class AndesDatePickerAbstractViewTests: QuickSpec {
         describe("Test: checks that when instantiating the class, it is configured correctly") {
             context("Verify base date") {
                 it("Initial properties correctly setted") {
-                    expect(self.internalView.buttonPrimary.isEnabled).to(equal(false))
+                    expect(self.internalView.buttonPrimary.isEnabled).to(equal(true))
                 }
 
                 it("CollectionView data source should not be nil") {
