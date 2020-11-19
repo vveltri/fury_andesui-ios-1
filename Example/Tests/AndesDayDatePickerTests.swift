@@ -37,7 +37,7 @@ class AndesDayDatePickerTests: QuickSpec {
                         fatalError("error to create date")
                     }
 
-                    let daysToRender = self.internalView.dayCalendar.getDaysInMonth(currentDate)
+                    let daysToRender = self.internalView.dayCalendar.getDaysInMonth(currentDate, Date())
 
                     expect(daysToRender.count).to(equal(42))
 
