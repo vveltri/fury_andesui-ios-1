@@ -1,6 +1,8 @@
 # Unpublished
 ### 🛠 Bug fixes
 - AndesTagChoice text color changed. | Authors: [@JBAZANCARRIZ](https://github.com/JBAZANCARRIZ)
+
+# v3.14.0
 ### 🚀 Features
 - New component AndesList | Authors: [@joalonsopint](https://github.com/joalonsopint)
 - Adding accessibility to AndesListCell componente | Authors: [@joalonsopint](https://github.com/joalonsopint)
