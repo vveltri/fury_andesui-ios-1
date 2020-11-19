@@ -133,6 +133,10 @@ class HomeViewController: UIViewController {
     @IBAction func bottomSheetTapped(_ sender: Any) {
         presenter.presentBottomSheet()
     }
+
+    @IBAction func dropdownTapped(_ sender: Any) {
+        presenter.presentDropdown()
+    }
 }
 
 extension HomeViewController: HomeView {

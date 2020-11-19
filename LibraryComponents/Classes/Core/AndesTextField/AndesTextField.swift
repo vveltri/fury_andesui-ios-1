@@ -85,6 +85,10 @@ import UIKit
 
     internal private(set) var isEditing: Bool = false
 
+    internal func updateWithCustomConfig(_ config: AndesTextFieldViewConfig) {
+        contentView.update(withConfig: config)
+    }
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setup()
@@ -208,13 +212,13 @@ extension AndesTextField: AndesTextFieldViewDelegate {
 
     func didBeginEditing() {
         isEditing = true
-        updateContentView()
+//        updateContentView()
         delegate?.andesTextFieldDidBeginEditing?(self)
     }
 
     func didEndEditing(text: String) {
         isEditing = false
-        updateContentView()
+//        updateContentView()
         delegate?.andesTextFieldDidEndEditing?(self)
     }
 

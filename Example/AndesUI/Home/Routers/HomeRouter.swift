@@ -25,6 +25,7 @@ protocol HomeRouter: NSObject {
     func routeToTextFieldsCode()
     func routeToBottomSheet()
     func routeToList()
+    func routetoDropdown()
 }
 
 class HomeAppRouter: NSObject {
@@ -46,6 +47,7 @@ class HomeAppRouter: NSObject {
     let textFieldsCodeRouter = TextFieldsCodeAppRouter()
     let bottomSheetRouter = BottomSheetAppRouter()
     let listRouter = ListAppRouter()
+    let dropdownRouter = DropdownAppRouter()
 }
 
 extension HomeAppRouter: HomeRouter {
@@ -116,5 +118,9 @@ extension HomeAppRouter: HomeRouter {
 
     func routeToBottomSheet() {
         bottomSheetRouter.route(from: view)
+    }
+
+    func routetoDropdown() {
+        dropdownRouter.route(from: view)
     }
 }
