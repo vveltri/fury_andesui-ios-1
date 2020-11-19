@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -10,49 +10,86 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DatePickerViewController" customModule="AndesUI_DemoApp" customModuleProvider="target">
             <connections>
-                <outlet property="dateLabel" destination="xT5-NF-ilD" id="Jbv-3h-bXU"/>
+                <outlet property="buttonReset" destination="fON-RU-0Fi" id="MoG-tc-zCY"/>
+                <outlet property="buttonSetDate" destination="MIE-SN-Mgg" id="Dka-GP-vCx"/>
                 <outlet property="datePickerView" destination="avs-Hj-oZh" id="X8C-EG-rRC"/>
+                <outlet property="maxDateTextField" destination="vC4-EL-PKP" id="NYK-oU-1kW"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="avs-Hj-oZh" customClass="AndesDatePicker" customModule="AndesUI">
-                    <rect key="frame" x="30" y="274" width="354" height="378"/>
+                    <rect key="frame" x="30" y="0.0" width="315" height="378"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="378" id="9U8-0A-hS6"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="selected date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VIi-zF-Poa">
-                    <rect key="frame" x="30" y="672" width="112" height="21"/>
-                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Setup max date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="loz-8P-QbD">
+                    <rect key="frame" x="30" y="388" width="99.5" height="17"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xT5-NF-ilD">
-                    <rect key="frame" x="150" y="672" width="0.0" height="0.0"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="dd / MM / yyyy" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vC4-EL-PKP" userLabel="TextTextField">
+                    <rect key="frame" x="30" y="410" width="315" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="tqm-jj-ySo"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MIE-SN-Mgg" customClass="AndesButton" customModule="AndesUI">
+                    <rect key="frame" x="30" y="465" width="175" height="50"/>
+                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="175" id="deM-Ky-ZPM"/>
+                        <constraint firstAttribute="height" constant="50" id="yu0-hD-tXl"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="text" value="Set MIN MAX Date"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="didTouchSetDate:" destination="-1" eventType="touchUpInside" id="Nvj-M4-8OG"/>
+                    </connections>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fON-RU-0Fi" customClass="AndesButton" customModule="AndesUI">
+                    <rect key="frame" x="260" y="465" width="85" height="50"/>
+                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="MoT-bS-QRs"/>
+                        <constraint firstAttribute="width" constant="85" id="fhv-Je-Wth"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="text" value="Reset"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="didTouchResetCalendar:" destination="-1" eventType="touchUpInside" id="5OI-rc-tgl"/>
+                    </connections>
+                </view>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
-                <constraint firstItem="VIi-zF-Poa" firstAttribute="top" secondItem="avs-Hj-oZh" secondAttribute="bottom" constant="20" id="74D-R1-cSI"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="avs-Hj-oZh" secondAttribute="trailing" constant="30" id="8hz-aY-J1W"/>
-                <constraint firstItem="xT5-NF-ilD" firstAttribute="leading" secondItem="VIi-zF-Poa" secondAttribute="trailing" constant="8" id="CJY-jI-IMf"/>
-                <constraint firstItem="VIi-zF-Poa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="EhF-W3-98n"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="vC4-EL-PKP" secondAttribute="trailing" constant="30" id="C9h-hT-ADJ"/>
+                <constraint firstItem="loz-8P-QbD" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="Cmh-U4-Efg"/>
+                <constraint firstItem="vC4-EL-PKP" firstAttribute="top" secondItem="loz-8P-QbD" secondAttribute="bottom" constant="5" id="GFL-bK-usR"/>
                 <constraint firstItem="avs-Hj-oZh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="H7G-WK-bhg"/>
+                <constraint firstItem="fON-RU-0Fi" firstAttribute="top" secondItem="vC4-EL-PKP" secondAttribute="bottom" constant="15" id="Jgi-XU-2kG"/>
+                <constraint firstItem="vC4-EL-PKP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="QVK-Xi-SOz"/>
                 <constraint firstItem="avs-Hj-oZh" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Qic-od-zbr"/>
-                <constraint firstItem="xT5-NF-ilD" firstAttribute="top" secondItem="avs-Hj-oZh" secondAttribute="bottom" constant="20" id="guh-2E-6CD"/>
-                <constraint firstItem="avs-Hj-oZh" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="15" id="yNe-lI-aTr"/>
+                <constraint firstItem="loz-8P-QbD" firstAttribute="top" secondItem="avs-Hj-oZh" secondAttribute="bottom" constant="10" id="T6k-bo-qF4"/>
+                <constraint firstItem="MIE-SN-Mgg" firstAttribute="top" secondItem="vC4-EL-PKP" secondAttribute="bottom" constant="15" id="VNS-Sj-LkD"/>
+                <constraint firstItem="avs-Hj-oZh" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Zuj-Yt-no3"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="fON-RU-0Fi" secondAttribute="trailing" constant="30" id="cwL-Ub-KBN"/>
+                <constraint firstItem="MIE-SN-Mgg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="zVl-tW-nAj"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="70" y="113"/>
+            <point key="canvasLocation" x="69.565217391304358" y="112.5"/>
         </view>
     </objects>
 </document>

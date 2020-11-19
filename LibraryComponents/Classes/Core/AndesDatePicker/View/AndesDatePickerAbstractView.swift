@@ -33,7 +33,6 @@ internal class AndesDatePickerAbstractView: UIView, AndesDatePickerView {
         }
     }
     internal var lastSelectedDate: Date?
-    internal var maxDate: Date?
     private(set) var dayCalendar = AndesDayDatePicker()
     private var calendar = Calendar(identifier: .iso8601)
     private(set) lazy var daysToRender = dayCalendar.getDaysInMonth(Date(), nil)
@@ -72,9 +71,11 @@ internal class AndesDatePickerAbstractView: UIView, AndesDatePickerView {
     // MARK: - Class methods
 
     func setDates(maxDate: Date?) {
+        maxDate != nil ? setup() : ()
         dayCalendar = AndesDayDatePicker(endDate: maxDate)
         dayCalendar.delegate = self
         setupCollectionView()
+        baseDate = Date()
     }
 
     private func setup() {
@@ -85,7 +86,7 @@ internal class AndesDatePickerAbstractView: UIView, AndesDatePickerView {
         backgroundLayer = datePickerView.layer
         datePickerView.pinToSuperview()
 
-        buttonPrimary.text = "Confirmar"
+        buttonPrimary.text = "Confirmar".localized()
         buttonPrimary.size = .large
 
         buttonPrimary.isEnabled = false

@@ -11,7 +11,7 @@ protocol AndesDayDatePickerDelegate: class {
     func didSelectEnabledDay(_ day: Date?)
 }
 
-@objc public class AndesDayDatePicker: NSObject {
+@objc class AndesDayDatePicker: NSObject {
 
     // MARK: - Attributes
 
@@ -60,7 +60,7 @@ protocol AndesDayDatePickerDelegate: class {
         let offsetToInitialRow = monthData.firstWeekday
         let firstDay = monthData.firstDay
 
-        var days: [AndesDayDatePicker] = (1..<(daysNumberInMonth + offsetToInitialRow)).map { day in
+        var daysToRenderInMonth: [AndesDayDatePicker] = (1..<(daysNumberInMonth + offsetToInitialRow)).map { day in
             let dayOffSet = isCurrentMonth ? day - offsetToInitialRow : -(offsetToInitialRow - day)
 
             let calendar = Calendar(identifier: .gregorian)
@@ -79,9 +79,9 @@ protocol AndesDayDatePickerDelegate: class {
             return AndesDayDatePicker(date: date, number: dateFormatter.string(from: date), selected: selected, isCurrentMonth: isCurrentMonth, endDate: dueDate, isValid: isValid)
         }
 
-        days += generateStartOfNextMonth(using: firstDay, selectedDate: Date())
+        daysToRenderInMonth += generateStartOfNextMonth(using: firstDay, selectedDate: Date())
 
-        return days
+        return daysToRenderInMonth
     }
 
     /// this method creates the missing days to fill the last week

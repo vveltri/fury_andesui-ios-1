@@ -15,7 +15,7 @@ protocol AndesDatePickerSettingCollectionDelegate: AnyObject {
     func didSelectDate(_ date: Date?)
 }
 
-@objc public class AndesDatePickerSettingCollection: NSObject, UICollectionViewDataSource {
+@objc class AndesDatePickerSettingCollection: NSObject, UICollectionViewDataSource {
 
     // MARK: - Attributes
 
@@ -29,8 +29,8 @@ protocol AndesDatePickerSettingCollectionDelegate: AnyObject {
 
     // MARK: - Initializer
 
-    init(baseDate: Date, daysToRender days: [AndesDayDatePicker]) {
-        self.days = days
+    init(baseDate: Date, daysToRender daysToRenderInMonth: [AndesDayDatePicker]) {
+        self.days = daysToRenderInMonth
         self.currentDate = baseDate
     }
 
