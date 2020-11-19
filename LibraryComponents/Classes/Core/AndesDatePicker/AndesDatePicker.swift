@@ -13,13 +13,13 @@ import UIKit
 
     internal var contentView: AndesDatePickerView
     private var datePickerView = AndesDatePickerDefaultView()
-    internal var didTapped: ((Date?, Bool) -> Void)?
+    internal var didTapped: ((_ selectedDate: Date?, _ isConfirmed: Bool) -> Void)?
 
     /// We can initialize this component in two ways:
     /// 1) Passing a deadline by parameter - we block the choice of the date until the date that was passed by parameter (useful for paying bills for example)
     /// 2) Passing nothing by parameter - Works like a normal calendar
 
-    @objc public func setDatePickerDate(maxDate: Date? = nil, callback: @escaping ((Date?, Bool) -> Void)) {
+    @objc public func setDatePickerDate(maxDate: Date? = nil, callback: @escaping ((_ selectedDate: Date?, _ isConfirmed: Bool) -> Void)) {
         self.didTapped = callback
         datePickerView.setDates(maxDate: maxDate)
     }

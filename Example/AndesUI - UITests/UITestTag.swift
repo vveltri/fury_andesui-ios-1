@@ -21,7 +21,7 @@ class AndesUI_UITestsTag: XCTestCase {
     override func tearDown() {
         super.tearDown()
     }
-    
+
     func testTagScreen() {
         app.buttons["andesTag"].tap()
         app.swipeLeft()

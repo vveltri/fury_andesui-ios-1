@@ -30,6 +30,17 @@ class AndesTextAreaView: AndesTextFieldAbstractView {
         }
     }
 
+    private var accessoryView: UIView?
+    override var customInputAccessoryView: UIView? {
+        get {
+            return accessoryView
+        }
+        set (value) {
+            accessoryView = value
+            textView.inputAccessoryView = value
+        }
+    }
+
     override func loadNib() {
         let bundle = AndesBundle.bundle()
         bundle.loadNibNamed("AndesTextAreaView", owner: self, options: nil)
@@ -38,7 +49,7 @@ class AndesTextAreaView: AndesTextFieldAbstractView {
         textView.isScrollEnabled = false
         textView.clipsToBounds = false
 
-        textView.onNeedsBorderUpdate = { [weak self] (view: UIView) in
+        textView.onNeedsBorderUpdate = { [weak self] (_: UIView) in
             self?.updateBorder()
         }
     }

@@ -1,6 +1,23 @@
-## Unpublished
+# Unpublished
+### 🛠 Bug fixes
+- AndesTagChoice text color changed. | Authors: [@JBAZANCARRIZ](https://github.com/JBAZANCARRIZ)
+
+# v3.14.0
 ### 🚀 Features
-- Xcode 12 compatibility
+- New component AndesList | Authors: [@joalonsopint](https://github.com/joalonsopint)
+- Adding accessibility to AndesListCell componente | Authors: [@joalonsopint](https://github.com/joalonsopint)
+
+# v3.13.0
+### 🚀 Features
+- Xcode 12 compatibility | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
+- AndesTextField adds support of inputAccessoryView | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
+- New component AndesBottomSheetViewController | Authors: [@tomidelucca](https://github.com/tomidelucca)
+
+### 🛠 Bug fixes
+- Fixes in App Delegate and Page Controller in Test App | Authors: [@tomidelucca](https://github.com/tomidelucca)
+- AndesCheckbox tappable area extended  | Authors: [@ggiovanniniml](https://github.com/ggiovanniniml)
+- AndesCheckbox lateral padding fixed  | Authors: [@ggiovanniniml](https://github.com/ggiovanniniml)
+
 
 # v3.15.0
 ### 🚀 Features

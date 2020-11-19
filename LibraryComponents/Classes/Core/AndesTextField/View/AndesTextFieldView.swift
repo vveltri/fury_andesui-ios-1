@@ -14,6 +14,7 @@ internal protocol AndesTextFieldView: UIView {
     var text: String { get set } // input text
     var config: AndesTextFieldViewConfig { get }
     var customInputView: UIView? {get set}
+    var customInputAccessoryView: UIView? { get set }
     func update(withConfig config: AndesTextFieldViewConfig)
     func clear()
 }

@@ -32,6 +32,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var specsButton: AndesButton!
     @IBOutlet weak var contributingButton: AndesButton!
 	@IBOutlet weak var thumbnailBtn: AndesButton!
+
 	@IBOutlet weak var showcaseLabel: UILabel!
 
     override func viewDidLoad() {
@@ -123,11 +124,19 @@ class HomeViewController: UIViewController {
     }
 
     @IBAction func goToThumbnailTapped(_ sender: Any) {
-	presenter.presentThumbnail()
+        presenter.presentThumbnail()
+    }
+
+    @IBAction func goToListViewTapped(_ sender: Any) {
+        presenter.presentList()
     }
 
     @IBAction func goToTextFieldsCodeTapped(_ sender: Any) {
         presenter.presentTextFieldsCode()
+    }
+
+    @IBAction func bottomSheetTapped(_ sender: Any) {
+        presenter.presentBottomSheet()
     }
 }
 

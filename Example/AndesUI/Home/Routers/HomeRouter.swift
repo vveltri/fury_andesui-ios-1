@@ -9,7 +9,7 @@
 import UIKit
 
 protocol HomeRouter: NSObject {
-    func route(from: UIViewController)
+    func start(in window: UIWindow)
     func routeToCoachmark()
     func routeToButton()
     func routeToMessages()
@@ -24,6 +24,8 @@ protocol HomeRouter: NSObject {
     func routeToThumbnail()
     func routeToTextFieldsCode()
     func routeToDatePicker()
+    func routeToBottomSheet()
+    func routeToList()
 }
 
 class HomeAppRouter: NSObject {
@@ -44,18 +46,18 @@ class HomeAppRouter: NSObject {
     let thumbnailRouter = ThumbnailAppRouter()
     let textFieldsCodeRouter = TextFieldsCodeAppRouter()
     let datePickerRouter = DatePickerAppRouter()
+    let bottomSheetRouter = BottomSheetAppRouter()
+    let listRouter = ListAppRouter()
 }
 
 extension HomeAppRouter: HomeRouter {
 
-    func route(from: UIViewController) {
+    func start(in window: UIWindow) {
         presenter = HomeViewPresenter(view: view, router: self)
         view.presenter = presenter
 
-        let navigation = UINavigationController(rootViewController: view)
-        navigation.modalPresentationStyle = .fullScreen
-
-        from.present(navigation, animated: false, completion: nil)
+        window.rootViewController = UINavigationController(rootViewController: view)
+        window.makeKeyAndVisible()
     }
 
     func routeToCoachmark() {
@@ -106,11 +108,19 @@ extension HomeAppRouter: HomeRouter {
         thumbnailRouter.route(from: view)
     }
 
+    func routeToList() {
+        listRouter.route(from: view)
+    }
+
     func routeToTextFieldsCode() {
         textFieldsCodeRouter.route(from: view)
     }
 
     func routeToDatePicker() {
         datePickerRouter.route(from: view)
+    }
+
+    func routeToBottomSheet() {
+        bottomSheetRouter.route(from: view)
     }
 }
