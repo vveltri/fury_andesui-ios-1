@@ -42,7 +42,9 @@ protocol AndesDatePickerSettingCollectionDelegate: AnyObject {
 
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let day = days[indexPath.item]
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AndesDatePickerCell.identifier, for: indexPath) as! AndesDatePickerCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AndesDatePickerCell.identifier, for: indexPath) as? AndesDatePickerCell else {
+            fatalError("error to create AndesDatePickerCell")
+        }
         cell.day = day
 
         return cell
