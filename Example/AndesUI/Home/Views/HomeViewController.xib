@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -37,7 +37,7 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ylf-cA-m4U">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="950"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="1046"/>
                             <subviews>
                                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="382" placeholderIntrinsicHeight="128" translatesAutoresizingMaskIntoConstraints="NO" id="TeE-fb-BDr" customClass="AndesMessage" customModule="AndesUI">
                                     <rect key="frame" x="16" y="16" width="382" height="128"/>
@@ -48,13 +48,13 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="More" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mHc-S7-NqP">
-                                    <rect key="frame" x="16" y="806" width="35.5" height="18"/>
+                                    <rect key="frame" x="16" y="902" width="35.5" height="18"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="wv9-5A-3H3" customClass="AndesButton" customModule="AndesUI">
-                                    <rect key="frame" x="16" y="840" width="382" height="40"/>
+                                    <rect key="frame" x="16" y="936" width="382" height="40"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="string" keyPath="text" value="Andes Specs"/>
@@ -66,7 +66,7 @@
                                     </connections>
                                 </view>
                                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="U75-6J-iuH" userLabel="Contributing Button" customClass="AndesButton" customModule="AndesUI">
-                                    <rect key="frame" x="16" y="890" width="382" height="40"/>
+                                    <rect key="frame" x="16" y="986" width="382" height="40"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="string" keyPath="ibHierarchy" value="quiet"/>
@@ -76,7 +76,7 @@
                                     </connections>
                                 </view>
                                 <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="250" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="A0L-IL-kVl">
-                                    <rect key="frame" x="16" y="208" width="382" height="568"/>
+                                    <rect key="frame" x="16" y="208" width="382" height="664"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="Qc3-Wv-8hf" customClass="AndesButton" customModule="AndesUI">
                                             <rect key="frame" x="0.0" y="0.0" width="382" height="40"/>
@@ -90,8 +90,20 @@
                                                 <action selector="goToCoachmarkWasTapped:" destination="-1" eventType="touchUpInside" id="BwX-Fc-uMk"/>
                                             </connections>
                                         </view>
-                                        <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="pzX-2Z-8ZP" customClass="AndesButton" customModule="AndesUI">
+                                        <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="p8q-My-5kA" customClass="AndesButton" customModule="AndesUI">
                                             <rect key="frame" x="0.0" y="48" width="382" height="40"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="andesButtons" label="Buttons showcase"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="text" value="Andes Bottom Sheet"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="ibSize" value="LARGE"/>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="bottomSheetTapped:" destination="-1" eventType="touchUpInside" id="prW-Nd-yXX"/>
+                                            </connections>
+                                        </view>
+                                        <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="pzX-2Z-8ZP" customClass="AndesButton" customModule="AndesUI">
+                                            <rect key="frame" x="0.0" y="96" width="382" height="40"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <accessibility key="accessibilityConfiguration" identifier="andesButtons" label="Buttons showcase"/>
                                             <userDefinedRuntimeAttributes>
@@ -103,7 +115,7 @@
                                             </connections>
                                         </view>
                                         <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="iA2-9b-o7k" customClass="AndesButton" customModule="AndesUI">
-                                            <rect key="frame" x="0.0" y="96" width="382" height="40"/>
+                                            <rect key="frame" x="0.0" y="144" width="382" height="40"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <accessibility key="accessibilityConfiguration" identifier="andesMessages" label="Messages showcase"/>
                                             <userDefinedRuntimeAttributes>
@@ -115,7 +127,7 @@
                                             </connections>
                                         </view>
                                         <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="9Hm-nl-pHd" customClass="AndesButton" customModule="AndesUI">
-                                            <rect key="frame" x="0.0" y="144" width="382" height="40"/>
+                                            <rect key="frame" x="0.0" y="192" width="382" height="40"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <accessibility key="accessibilityConfiguration" identifier="andesTextField" label="Text fields showcase"/>
                                             <userDefinedRuntimeAttributes>
@@ -126,7 +138,7 @@
                                             </connections>
                                         </view>
                                         <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="Sz2-V9-d6x" userLabel="AndesCodeTextFieldButton" customClass="AndesButton" customModule="AndesUI">
-                                            <rect key="frame" x="0.0" y="192" width="382" height="40"/>
+                                            <rect key="frame" x="0.0" y="240" width="382" height="40"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <accessibility key="accessibilityConfiguration" identifier="andesSnackbar" label="Snackbar showcases"/>
                                             <userDefinedRuntimeAttributes>
@@ -138,7 +150,7 @@
                                             </connections>
                                         </view>
                                         <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="x2S-1u-jO7" userLabel="RadioButton" customClass="AndesButton" customModule="AndesUI">
-                                            <rect key="frame" x="0.0" y="240" width="382" height="40"/>
+                                            <rect key="frame" x="0.0" y="288" width="382" height="40"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <accessibility key="accessibilityConfiguration" identifier="andesBadge" label="Badges showcase"/>
                                             <userDefinedRuntimeAttributes>
@@ -150,7 +162,7 @@
                                             </connections>
                                         </view>
                                         <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="6KW-tw-Wm7" customClass="AndesButton" customModule="AndesUI">
-                                            <rect key="frame" x="0.0" y="288" width="382" height="40"/>
+                                            <rect key="frame" x="0.0" y="336" width="382" height="40"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <accessibility key="accessibilityConfiguration" identifier="andesBadge" label="Badges showcase"/>
                                             <userDefinedRuntimeAttributes>
@@ -162,7 +174,7 @@
                                             </connections>
                                         </view>
                                         <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="nQg-JB-1Sl" customClass="AndesButton" customModule="AndesUI">
-                                            <rect key="frame" x="0.0" y="336" width="382" height="40"/>
+                                            <rect key="frame" x="0.0" y="384" width="382" height="40"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <accessibility key="accessibilityConfiguration" identifier="andesBadge" label="Badges showcase"/>
                                             <userDefinedRuntimeAttributes>
@@ -174,7 +186,7 @@
                                             </connections>
                                         </view>
                                         <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="9Bv-gW-s5F" customClass="AndesButton" customModule="AndesUI">
-                                            <rect key="frame" x="0.0" y="384" width="382" height="40"/>
+                                            <rect key="frame" x="0.0" y="432" width="382" height="40"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <accessibility key="accessibilityConfiguration" identifier="andesTag" label="Tag showcase"/>
                                             <userDefinedRuntimeAttributes>
@@ -186,7 +198,7 @@
                                             </connections>
                                         </view>
                                         <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="eek-t9-Hwx" customClass="AndesButton" customModule="AndesUI">
-                                            <rect key="frame" x="0.0" y="432" width="382" height="40"/>
+                                            <rect key="frame" x="0.0" y="480" width="382" height="40"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <accessibility key="accessibilityConfiguration" identifier="andesSnackbar" label="Snackbar showcases"/>
                                             <userDefinedRuntimeAttributes>
@@ -198,7 +210,7 @@
                                             </connections>
                                         </view>
                                         <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="RSJ-jO-HhG" userLabel="Card Btn" customClass="AndesButton" customModule="AndesUI">
-                                            <rect key="frame" x="0.0" y="480" width="382" height="40"/>
+                                            <rect key="frame" x="0.0" y="528" width="382" height="40"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <accessibility key="accessibilityConfiguration" identifier="andesCard" label="Card showcases"/>
                                             <userDefinedRuntimeAttributes>
@@ -210,7 +222,7 @@
                                             </connections>
                                         </view>
                                         <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="OpI-tK-pNV" customClass="AndesButton" customModule="AndesUI">
-                                            <rect key="frame" x="0.0" y="528" width="382" height="40"/>
+                                            <rect key="frame" x="0.0" y="576" width="382" height="40"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <accessibility key="accessibilityConfiguration" identifier="andesSnackbar" label="Snackbar showcases"/>
                                             <userDefinedRuntimeAttributes>
@@ -219,6 +231,18 @@
                                             </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="goToThumbnailTapped:" destination="-1" eventType="touchUpInside" id="gzW-SD-V8C"/>
+                                            </connections>
+                                        </view>
+                                        <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="ENY-UB-x7c" customClass="AndesButton" customModule="AndesUI">
+                                            <rect key="frame" x="0.0" y="624" width="382" height="40"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="andesSnackbar" label="Snackbar showcases"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="text" value="Andes List"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="ibSize" value="Large"/>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="goToListViewTapped:" destination="-1" eventType="touchUpInside" id="Fgl-Xh-yB1"/>
                                             </connections>
                                         </view>
                                     </subviews>
@@ -243,7 +267,7 @@
                                     </constraints>
                                 </stackView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Showcase" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wKp-SJ-Z6a">
-                                    <rect key="frame" x="16" y="174" width="70" height="18"/>
+                                    <rect key="frame" x="16" y="174" width="69.5" height="18"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
@@ -279,6 +303,7 @@
                     </constraints>
                 </scrollView>
             </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="dLe-Ba-tiJ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="3GN-c5-q2R"/>
@@ -288,7 +313,6 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="dLe-Ba-tiJ" secondAttribute="trailing" id="ic7-qC-p0A"/>
                 <constraint firstItem="ylf-cA-m4U" firstAttribute="height" secondItem="fnl-2z-Ty3" secondAttribute="height" multiplier="0.621027" priority="250" id="o48-nA-0wR"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="137.68115942028987" y="144.64285714285714"/>
         </view>
     </objects>

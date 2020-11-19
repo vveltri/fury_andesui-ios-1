@@ -21,7 +21,7 @@ class AndesUI_UITestsButton: XCTestCase {
     override func tearDown() {
         super.tearDown()
     }
-    
+
     func testButtonScreen() {
         snapshot("Launch")
         app.buttons["andesButtons"].tap()

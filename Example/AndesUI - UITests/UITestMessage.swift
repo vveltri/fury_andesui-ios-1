@@ -21,7 +21,7 @@ class AndesUI_UITestsMessage: XCTestCase {
     override func tearDown() {
         super.tearDown()
     }
-    
+
     func testMessageScreen() {
         app.buttons["andesMessages"].tap()
         app.swipeLeft()

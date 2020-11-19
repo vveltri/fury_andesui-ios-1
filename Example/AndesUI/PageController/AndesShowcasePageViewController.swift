@@ -8,6 +8,7 @@
 
 import UIKit
 import AndesUI
+
 class AndesShowcasePageViewController: UIViewController {
     @IBOutlet var pageControl: UIPageControl!
     @IBOutlet weak var containerView: UIView!
@@ -26,19 +27,24 @@ class AndesShowcasePageViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    fileprivate func setupPageControl() {
+    private func setupPageControl() {
         pageControl.pageIndicatorTintColor = UIColor.gray
         pageControl.currentPageIndicatorTintColor = AndesStyleSheetManager.styleSheet.brandColor500
         pageControl.numberOfPages = controllers.count
     }
 
-    fileprivate func setupPageController() {
+    private func setupPageController() {
         pageController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         pageController.dataSource = self
         pageController.delegate = self
-        pageController.setViewControllers([controllers.first!], direction: .forward, animated: true, completion: nil)
+
+        pageController.willMove(toParentViewController: self)
+        addChildViewController(pageController)
         containerView.addSubview(pageController.view)
         pageController.view.pinTo(view: self.containerView)
+        pageController.didMove(toParentViewController: self)
+
+        pageController.setViewControllers([controllers.first!], direction: .forward, animated: true, completion: nil)
     }
 
     override func viewDidLoad() {

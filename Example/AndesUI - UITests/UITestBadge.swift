@@ -21,7 +21,7 @@ class AndesUI_UITestsBadge: XCTestCase {
     override func tearDown() {
         super.tearDown()
     }
-    
+
     func testBadgeScreen() {
         app.buttons["andesBadge"].tap()
         app.swipeLeft()

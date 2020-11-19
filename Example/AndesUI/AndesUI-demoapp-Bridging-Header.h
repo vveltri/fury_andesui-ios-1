@@ -16,3 +16,5 @@
 #import "ThumbnailObjCViewController.h"
 #import "CoachmarkObjCViewController.h"
 #import "TextFieldsCodeObjCViewController.h"
+#import "BottomSheetObjectiveCExampleViewController.h"
+#import "ListObjcViewController.h"
