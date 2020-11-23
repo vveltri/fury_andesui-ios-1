@@ -54,10 +54,10 @@ public class AndesSimpleCell: AndesListCell {
                 thumbnail: AndesThumbnail? = nil,
                 numberOfLines: Int = 0) {
         super.init()
-        guard let size = size, let subtitle = subtitle else { return }
+        guard let size = size else { return }
         self.cellConfig(withTitle: title,
                         size: size,
-                        subtitle: subtitle,
+                        subtitle: subtitle ?? "",
                         thumbnail: thumbnail,
                         numberOfLines: numberOfLines)
     }

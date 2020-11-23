@@ -13,7 +13,7 @@ class AndesDropdownDefaultView: AndesDropdownAbstractView {
 
     override func loadNib() {
         let bundle = AndesBundle.bundle()
-        bundle.loadNibNamed("AndesDropdownDefaultView", owner: self, options: nil)
+        bundle.loadNibNamed("AndesDropdownViewDefault", owner: self, options: nil)
     }
 
     override func setup() {
@@ -27,15 +27,16 @@ class AndesDropdownDefaultView: AndesDropdownAbstractView {
     }
 
     override func updateView() {
+        
         var stateStyle = AndesTextFieldStateFactory.getState(textField.state, isEditing: textField.isEditing)
         stateStyle.borderColor = self.config.borderColor
-
+        
         let paddings = AndesTextInputPaddingFactory.providePaddingForField(state: textField.state)
+        
+        let rightComponent = AndesTextFieldComponentIcon(andesIconName: config.icon ?? "", tintColor: UIColor.Andes.blueML500)
 
-        let rightComponent = AndesTextFieldComponentIcon(andesIconName: AndesIcons.chevronDown20, tintColor: UIColor.Andes.blueML500)
-
-        self.textField.updateWithCustomConfig(AndesTextFieldViewConfig(labelText: config.labelText,
-                                                                       helperText: config.helperText,
+        self.textField.updateWithCustomConfig(AndesTextFieldViewConfig(labelText: nil,
+                                                                       helperText: nil,
                                                                        counter: config.counter,
                                                                        placeholderText: config.placeholderText,
                                                                        stateStyle: stateStyle,
@@ -44,11 +45,15 @@ class AndesDropdownDefaultView: AndesDropdownAbstractView {
                                                                        inputTraits: textField.inputTraits,
                                                                        paddings: paddings))
     }
+    
+    override func setText(text: String) {
+        self.textField.text = text
+    }
 }
 
 extension AndesDropdownDefaultView: AndesTextFieldDelegate {
-    func andesTextFieldDidBeginEditing(_ textField: AndesTextField) {
-        textField.resignFirstResponder()
+    func andesTextFieldShouldBeginEditing(_ textField: AndesTextField) -> Bool {
         delegate?.didSelectAndesTextField()
+        return false
     }
 }

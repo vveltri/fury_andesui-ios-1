@@ -21,4 +21,9 @@ internal struct AndesIcons {
     static let chevronDown16 = "andes_ui_chevron_down_16"
     static let chevronDown20 = "andes_ui_chevron_down_20"
     static let fallback32 = "andes_ui_fallback_32"
+    static let chevronUp12 = "andes_ui_chevron_up_12"
+    static let chevronUp16 = "andes_ui_chevron_up_16"
+    static let chevronUp20 = "andes_ui_chevron_up_20"
+    static let chevronUp24 = "andes_ui_chevron_up_24"
+    static let chevronUp32 = "andes_ui_chevron_up_32"
 }

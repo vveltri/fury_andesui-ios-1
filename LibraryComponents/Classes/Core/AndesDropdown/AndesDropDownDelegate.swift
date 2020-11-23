@@ -8,5 +8,5 @@
 import Foundation
 
 @objc public protocol AndesDropDownDelegate {
-    func didSelect()
+    func didSelectRowAt(indexPath: IndexPath)
 }

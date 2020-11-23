@@ -13,24 +13,37 @@ class DropdownViewController: UIViewController {
 
     @IBOutlet var andesDropdown: AndesDropdown!
 
+    var cell: [AndesDropDownMenuCellType]? = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let icon = AndesThumbnail(hierarchy: .defaultHierarchy, type: .imageCircle, size: .size24, state: .enabled, image: UIImage(named: "logo_global") ?? UIImage(), accentColor: UIColor.clear)
+
+        cell =
+            [AndesDropDownMenuCellType(title: "Dinero en cuenta", thumbnail: icon),
+             AndesDropDownMenuCellType(title: "Visa debito **** 0899", thumbnail: icon),
+             AndesDropDownMenuCellType(title: "BBVA **** 7788", thumbnail: icon),
+             AndesDropDownMenuCellType(title: "BBVA **** 4545", thumbnail: icon),
+             AndesDropDownMenuCellType(title: "Mercado Créditos", thumbnail: icon)]
+
+        andesDropdown.delegate = self
+        andesDropdown.menuCellType = cell
         andesDropdown.triggerType = .formDropdown
         andesDropdown.menuType = .bottomSheet
-//        andesDropdown.placeholder = "Prueba"
+        andesDropdown.aligmentTitleBottomSheet = NSTextAlignment.center
+        andesDropdown.placeholder = "Placeholder"
+        andesDropdown.titleBottomSheet = "Seleccione"
+        andesDropdown.cellSize = .medium
+        andesDropdown.numberOfLines = 1
+        andesDropdown.separatorStyle = .none
+        andesDropdown.selectionStyle = .defaultStyle
 
-        // Do any additional setup after loading the view.
     }
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension DropdownViewController: AndesDropDownDelegate {
+    func didSelectRowAt(indexPath: IndexPath) {
+        print(indexPath.row)
     }
-    */
-
 }

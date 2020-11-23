@@ -9,16 +9,14 @@ import Foundation
 
 internal struct AndesDropdownViewConfig {
     var borderColor: UIColor
-    var labelText: String?
-    var helperText: String?
     var counter: UInt16
     var placeholderText: String?
+    var icon: String?
 
-    init(borderColor: UIColor, labelText: String?, helperText: String?, counter: UInt16, placeholderText: String?) {
+    init(borderColor: UIColor, counter: UInt16, placeholderText: String?, icon: String?) {
         self.borderColor = borderColor
-        self.labelText = labelText
-        self.helperText = helperText
         self.counter = counter
         self.placeholderText = placeholderText
+        self.icon = icon
     }
 }
