@@ -35,7 +35,7 @@ class AndesDropdownDefaultView: AndesDropdownAbstractView {
 
         let rightComponent = AndesTextFieldComponentIcon(andesIconName: config.icon ?? "", tintColor: UIColor.Andes.blueML500)
 
-        self.textField.updateWithCustomConfig(AndesTextFieldViewConfig(labelText: nil,
+        self.textField.updateWithCustomConfig(AndesTextFieldViewConfig(labelText: config.title,
                                                                        helperText: nil,
                                                                        counter: config.counter,
                                                                        placeholderText: config.placeholderText,

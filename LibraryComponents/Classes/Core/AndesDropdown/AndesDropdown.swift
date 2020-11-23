@@ -14,9 +14,16 @@ import Foundation
     @objc public var triggerType: AndesDropdownTriggerType = .formDropdown {
         didSet {
             self.updateContentView()
+            self.setContentView()
         }
     }
     @objc public var menuType: AndesDropdownMenuType = .bottomSheet {
+        didSet {
+            self.updateContentView()
+        }
+    }
+
+    @objc public var title: String? {
         didSet {
             self.updateContentView()
         }
@@ -26,7 +33,12 @@ import Foundation
 
     @objc public var aligmentTitleBottomSheet: NSTextAlignment = .left
 
-    @objc public var menuCellType: [AndesDropDownMenuCellType]?
+    @objc public var menuCellType: [AndesDropDownMenuCellType]? {
+        didSet {
+            self.updateContentView()
+            self.setContentView()
+        }
+    }
 
     @objc public weak var delegate: AndesDropDownDelegate?
 
@@ -81,7 +93,8 @@ import Foundation
     }
 
     private func provideView() -> AndesDropdownAbstractView {
-        return AndesDropdownDefaultView(withConfig: getConfig(isSelected: false))
+        return AndesDropdownDefaultView(withConfig: getConfig(isSelected: false),
+                                        firstItem: menuCellType?[0].title ?? "")
     }
 
     private func drawContentView(with newView: AndesDropdownAbstractView) {
@@ -97,6 +110,13 @@ import Foundation
 
     private func updateSelectedContentView() {
         contentView.update(withConfig: getConfig(isSelected: true))
+    }
+
+    private func setContentView() {
+        if triggerType == .standalone {
+            guard let title = menuCellType?[0].title else { return }
+            contentView.setText(text: title)
+        }
     }
 }
 

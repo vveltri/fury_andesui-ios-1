@@ -14,11 +14,13 @@ internal class AndesDropdownViewConfigFactory {
             return AndesDropdownViewConfig(borderColor: style.borderColor,
                                            counter: dropdown.counter,
                                            placeholderText: dropdown.placeholder,
-                                           icon: isSelected ? AndesIcons.chevronUp20 : AndesIcons.chevronDown20)
+                                           icon: isSelected ? AndesIcons.chevronUp20 : AndesIcons.chevronDown20,
+                                           title: dropdown.title)
         }
         return AndesDropdownViewConfig(borderColor: UIColor.Andes.gray250,
                                        counter: dropdown.counter,
                                        placeholderText: dropdown.placeholder,
-                                       icon: isSelected ? AndesIcons.chevronUp20 : AndesIcons.chevronDown20)
+                                       icon: isSelected ? AndesIcons.chevronUp20 : AndesIcons.chevronDown20,
+                                       title: dropdown.title)
     }
 }
