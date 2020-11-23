@@ -116,6 +116,8 @@ import Foundation
         if triggerType == .standalone {
             guard let title = menuCellType?[0].title else { return }
             contentView.setText(text: title)
+        } else {
+            contentView.setText(text: "")
         }
     }
 }
