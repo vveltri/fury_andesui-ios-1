@@ -12,6 +12,10 @@ import AndesUI
 class DropdownViewController: UIViewController {
 
     @IBOutlet var andesDropdown: AndesDropdown!
+    @IBOutlet var radioButtonForm: AndesRadioButton!
+    @IBOutlet var radioButtonStandAlone: AndesRadioButton!
+
+    var triggerType: AndesDropdownTriggerType = .formDropdown
 
     var cell: [AndesDropDownMenuCellType]? = []
 
@@ -39,6 +43,21 @@ class DropdownViewController: UIViewController {
         andesDropdown.separatorStyle = .none
         andesDropdown.selectionStyle = .defaultStyle
 
+        radioButtonForm.setRadioButtonTapped(callback: didTapIdle(radiobutton:))
+        radioButtonStandAlone.setRadioButtonTapped(callback: didTapIdle(radiobutton:))
+
+    }
+
+    func didTapIdle(radiobutton: AndesRadioButton) {
+        if radiobutton == radioButtonForm {
+            radioButtonForm.status = .selected
+            radioButtonStandAlone.status = .unselected
+            andesDropdown.triggerType = .formDropdown
+        } else if radiobutton == radioButtonStandAlone {
+            radioButtonForm.status = .unselected
+            radioButtonStandAlone.status = .selected
+            andesDropdown.triggerType = .standalone
+        }
     }
 }
 
