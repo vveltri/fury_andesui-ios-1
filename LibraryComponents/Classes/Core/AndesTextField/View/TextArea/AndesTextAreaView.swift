@@ -49,7 +49,7 @@ class AndesTextAreaView: AndesTextFieldAbstractView {
         textView.isScrollEnabled = false
         textView.clipsToBounds = false
 
-        textView.onNeedsBorderUpdate = { [weak self] (view: UIView) in
+        textView.onNeedsBorderUpdate = { [weak self] (_: UIView) in
             self?.updateBorder()
         }
     }

@@ -72,7 +72,7 @@
                 <constraint firstItem="vNJ-co-emm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" priority="250" constant="12" id="wyf-lI-yn5"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-180" y="-119"/>
+            <point key="canvasLocation" x="-180.43478260869566" y="-119.19642857142857"/>
         </view>
     </objects>
 </document>

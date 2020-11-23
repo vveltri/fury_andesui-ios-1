@@ -1,4 +1,11 @@
 # Unpublished
+### 🛠 Bug fixes
+- AndesTagChoice text color changed. | Authors: [@JBAZANCARRIZ](https://github.com/JBAZANCARRIZ)
+
+### 🚀 Features
+- Date Picker component | Authors: [@AndriuCoelho](https://github.com/AndriuCoelho)
+
+# v3.14.0
 ### 🚀 Features
 - New component AndesList | Authors: [@joalonsopint](https://github.com/joalonsopint)
 - Adding accessibility to AndesListCell componente | Authors: [@joalonsopint](https://github.com/joalonsopint)
@@ -13,7 +20,6 @@
 - Fixes in App Delegate and Page Controller in Test App | Authors: [@tomidelucca](https://github.com/tomidelucca)
 - AndesCheckbox tappable area extended  | Authors: [@ggiovanniniml](https://github.com/ggiovanniniml)
 - AndesCheckbox lateral padding fixed  | Authors: [@ggiovanniniml](https://github.com/ggiovanniniml)
-
 
 # v3.12.0
 ### 🚀 Features

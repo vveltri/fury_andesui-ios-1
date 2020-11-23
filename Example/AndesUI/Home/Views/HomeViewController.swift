@@ -32,6 +32,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var specsButton: AndesButton!
     @IBOutlet weak var contributingButton: AndesButton!
 	@IBOutlet weak var thumbnailBtn: AndesButton!
+
 	@IBOutlet weak var showcaseLabel: UILabel!
 
     override func viewDidLoad() {
@@ -88,6 +89,10 @@ class HomeViewController: UIViewController {
 
     @IBAction func goToRadioButtonTapped(_ sender: Any) {
         presenter.presentRadioButton()
+    }
+
+    @IBAction func goToDatePickerTapped(_ sender: Any) {
+        presenter.presentDatePicker()
     }
 
     @IBAction func goToSpecsTapped(_ sender: Any) {
