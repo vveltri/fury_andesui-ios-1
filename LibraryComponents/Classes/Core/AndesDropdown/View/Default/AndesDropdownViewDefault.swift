@@ -27,12 +27,12 @@ class AndesDropdownDefaultView: AndesDropdownAbstractView {
     }
 
     override func updateView() {
-        
+
         var stateStyle = AndesTextFieldStateFactory.getState(textField.state, isEditing: textField.isEditing)
         stateStyle.borderColor = self.config.borderColor
-        
+
         let paddings = AndesTextInputPaddingFactory.providePaddingForField(state: textField.state)
-        
+
         let rightComponent = AndesTextFieldComponentIcon(andesIconName: config.icon ?? "", tintColor: UIColor.Andes.blueML500)
 
         self.textField.updateWithCustomConfig(AndesTextFieldViewConfig(labelText: nil,
@@ -45,7 +45,7 @@ class AndesDropdownDefaultView: AndesDropdownAbstractView {
                                                                        inputTraits: textField.inputTraits,
                                                                        paddings: paddings))
     }
-    
+
     override func setText(text: String) {
         self.textField.text = text
     }

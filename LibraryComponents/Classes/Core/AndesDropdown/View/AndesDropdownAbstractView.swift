@@ -49,7 +49,7 @@ class AndesDropdownAbstractView: UIView, AndesDropdownView {
     internal func updateView() {
         fatalError("This should be overriden by a subclass")
     }
-    
+
     func setText(text: String) {
         fatalError("This should be overriden by a subclass")
     }

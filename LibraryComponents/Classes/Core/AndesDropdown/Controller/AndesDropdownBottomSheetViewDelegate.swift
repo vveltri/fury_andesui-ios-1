@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol AndesDropdownBottomSheetViewDelegate {
+protocol AndesDropdownBottomSheetViewDelegate: class {
     func didSelectRowAt(indexPath: IndexPath)
     func dismiss()
 }
