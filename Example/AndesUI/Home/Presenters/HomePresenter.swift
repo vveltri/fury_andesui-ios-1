@@ -22,6 +22,7 @@ protocol HomePresenter: NSObject {
     func presentCard()
     func presentThumbnail()
     func presentTextFieldsCode()
+    func presentDatePicker()
     func presentBottomSheet()
     func presentList()
 }
@@ -90,6 +91,10 @@ extension HomeViewPresenter: HomePresenter {
 
     func presentTextFieldsCode() {
         router.routeToTextFieldsCode()
+    }
+
+    func presentDatePicker() {
+        router.routeToDatePicker()
     }
 
     func presentBottomSheet() {
