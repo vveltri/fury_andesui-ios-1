@@ -20,10 +20,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3UI-Tw-b38" customClass="AndesDropdown" customModule="AndesUI">
-                    <rect key="frame" x="42" y="96" width="330" height="73"/>
+                    <rect key="frame" x="42" y="96" width="330" height="80"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="73" id="Xy0-a8-74U"/>
+                        <constraint firstAttribute="height" constant="80" id="Xy0-a8-74U"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="counter">

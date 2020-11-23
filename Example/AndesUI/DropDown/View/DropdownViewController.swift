@@ -32,6 +32,7 @@ class DropdownViewController: UIViewController {
         andesDropdown.triggerType = .formDropdown
         andesDropdown.menuType = .bottomSheet
         andesDropdown.aligmentTitleBottomSheet = NSTextAlignment.center
+        andesDropdown.title = "Medio de pago"
         andesDropdown.placeholder = "Placeholder"
         andesDropdown.titleBottomSheet = "Seleccione"
         andesDropdown.cellSize = .medium
