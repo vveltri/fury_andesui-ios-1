@@ -21,4 +21,11 @@ extension String {
 
         return ceil(boundingBox.width)
     }
+
+    func stringToFloat() -> CGFloat {
+        guard let number = Float(self.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()) else {
+            return 0.0
+        }
+        return CGFloat(number)
+    }
 }

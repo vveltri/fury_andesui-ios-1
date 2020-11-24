@@ -23,7 +23,7 @@ import UIKit
     @IBOutlet weak var paddingBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var separatorHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var separatorView: UIView!
-    @IBOutlet weak var thumbnailImg: UIImageView!
+    @IBOutlet weak var thumbnailImg: AndesThumbnail!
     @IBOutlet weak var thumbnailWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var thumbnailHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var spaceThumbnailWidthConstraint: NSLayoutConstraint!
@@ -50,7 +50,7 @@ import UIKit
     var chevron: String?
     var chevronSize: CGFloat? = 0
     var thumbnailLeft: UIImage?
-    var thumbnailSize: CGFloat?
+    var thumbnailSize: AndesThumbnailSize?
     var separatorThumbnailWidth: CGFloat? = 0
     var paddingTopThumbnail: CGFloat? = 0
     var paddingBottomThumbnail: CGFloat? = 0
@@ -80,19 +80,22 @@ import UIKit
         self.paddingTopConstraint.constant = customCell.paddingTopCell
         self.paddingBottomConstraint.constant = customCell.paddingBottomCell
         self.separatorHeightConstraint.constant = customCell.separatorHeight
-        if let imageSize = customCell.thumbnailSize, imageSize != 0.0 {
-            self.thumbnailWidthConstraint.constant = imageSize
-            self.thumbnailHeightConstraint.constant = imageSize
+        if let imageSize = customCell.thumbnailSize {
+            self.thumbnailWidthConstraint.constant = imageSize.toString().stringToFloat()
+            self.thumbnailHeightConstraint.constant = imageSize.toString().stringToFloat()
             self.paddingTopThumbnailConstraint.constant = customCell.paddingTopThumbnail ?? 0
             self.paddingBottomThumbnailConstraint.constant = customCell.paddingBottomThumbnail ?? 0
             self.thumbnailImg.image = customCell.thumbnailLeft
+            self.thumbnailImg.type = customCell.thumbnailType ?? .icon
+            self.thumbnailImg.size = customCell.thumbnailSize ?? .size24
             self.spaceThumbnailWidthConstraint.constant = customCell.separatorThumbnailWidth ?? 0
+            self.thumbnailImg.isHidden = false
         } else {
             self.thumbnailWidthConstraint.constant = 0
             self.thumbnailHeightConstraint.constant = 0
             self.paddingTopThumbnailConstraint.constant = 0
             self.paddingBottomThumbnailConstraint.constant = 0
-            self.thumbnailImg.image = nil
+            self.thumbnailImg.isHidden = true
             self.spaceThumbnailWidthConstraint.constant = 0
         }
         self.titleLbl.adjustsFontSizeToFitWidth = false
@@ -114,9 +117,11 @@ import UIKit
     }
 
     func updateAccessibilityProperties(thumbnailType: AndesThumbnailType?) {
-        self.thumbnailImg.isAccessibilityElement = true
-        self.thumbnailImg.accessibilityTraits = accessibilityTraits
-        guard let type = thumbnailType else { return }
-        self.thumbnailImg.accessibilityLabel = type == .icon ? "icon accessibility".localized() : "image accessibility".localized()
+        if let thumbnailImg = self.thumbnailImg {
+            thumbnailImg.isAccessibilityElement = true
+            thumbnailImg.accessibilityTraits = accessibilityTraits
+            guard let type = thumbnailType else { return }
+            thumbnailImg.accessibilityLabel = type == .icon ? "icon accessibility".localized() : "image accessibility".localized()
+        }
     }
 }

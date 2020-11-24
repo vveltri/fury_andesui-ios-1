@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -38,13 +38,21 @@
                                             <constraint firstAttribute="height" constant="18" id="oMc-Oi-AVM"/>
                                         </constraints>
                                     </view>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="JpY-MC-bK8">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HKn-Em-AHZ">
                                         <rect key="frame" x="0.0" y="18" width="0.0" height="0.0"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" id="RAH-hI-eK7"/>
-                                            <constraint firstAttribute="width" id="g6C-DZ-oFD"/>
+                                            <constraint firstAttribute="height" id="FKA-Vt-kgN"/>
+                                            <constraint firstAttribute="width" id="pRt-Ts-rvw"/>
                                         </constraints>
                                     </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gxh-3a-6wi" customClass="AndesThumbnail" customModule="AndesUI">
+                                        <rect key="frame" x="0.0" y="18" width="0.0" height="0.0"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" id="BDR-Zp-enQ"/>
+                                            <constraint firstAttribute="width" id="vpZ-ZV-5GG"/>
+                                        </constraints>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Ut-fB-KGT">
                                         <rect key="frame" x="0.0" y="18" width="0.0" height="50"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -184,15 +192,18 @@
                 <outlet property="spaceChevronWidthConstraint" destination="UDb-0E-GTP" id="9re-Vi-VHI"/>
                 <outlet property="spaceThumbnailWidthConstraint" destination="Njx-Cg-Pp3" id="pQG-f0-rW5"/>
                 <outlet property="subtitleLbl" destination="hbr-Qi-n4w" id="x9p-Uk-CLc"/>
-                <outlet property="thumbnailHeightConstraint" destination="RAH-hI-eK7" id="U9h-WN-Iee"/>
-                <outlet property="thumbnailImg" destination="JpY-MC-bK8" id="cyB-jr-cl1"/>
-                <outlet property="thumbnailWidthConstraint" destination="g6C-DZ-oFD" id="rDu-1o-ssN"/>
+                <outlet property="thumbnailHeightConstraint" destination="BDR-Zp-enQ" id="jgD-hU-Xz1"/>
+                <outlet property="thumbnailImg" destination="Gxh-3a-6wi" id="PNX-IC-ies"/>
+                <outlet property="thumbnailWidthConstraint" destination="vpZ-ZV-5GG" id="Vau-lP-vkK"/>
                 <outlet property="titleLbl" destination="PIB-wZ-kBg" id="azZ-4r-z07"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="120.53571428571428"/>
         </tableViewCell>
     </objects>
     <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

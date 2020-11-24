@@ -19,7 +19,7 @@ protocol AndesListCellSizeProtocol {
     var separatorHeight: CGFloat { get }
     var titleHeight: CGFloat { get }
     var chevronSize: CGFloat? { get }
-    var thumbnailSize: CGFloat? { get }
+    var thumbnailSize: AndesThumbnailSize? { get }
     var separatorThumbnailWidth: CGFloat? { get }
     var paddingTopThumbnail: CGFloat? { get }
     var paddingBottomThumbnail: CGFloat? { get }
