@@ -22,14 +22,17 @@ class DropdownViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let icon = AndesThumbnail(hierarchy: .defaultHierarchy, type: .imageCircle, size: .size24, state: .enabled, image: UIImage(named: "logo_global") ?? UIImage(), accentColor: UIColor.clear)
+        let mastercard = AndesThumbnail(hierarchy: .defaultHierarchy, type: .icon, size: .size80, state: .enabled, image: UIImage(named: "mastercard") ?? UIImage(), accentColor: UIColor.systemBlue)
+        let visa = AndesThumbnail(hierarchy: .defaultHierarchy, type: .icon, size: .size80, state: .enabled, image: UIImage(named: "visa") ?? UIImage(), accentColor: UIColor.clear)
+        let american = AndesThumbnail(hierarchy: .defaultHierarchy, type: .icon, size: .size80, state: .enabled, image: UIImage(named: "american") ?? UIImage(), accentColor: UIColor.clear)
+        let mercadocredito = AndesThumbnail(hierarchy: .defaultHierarchy, type: .icon, size: .size80, state: .enabled, image: UIImage(named: "mercadocredito") ?? UIImage(), accentColor: UIColor.clear)
 
         cell =
-            [AndesDropDownMenuCellType(title: "Dinero en cuenta", thumbnail: icon),
-             AndesDropDownMenuCellType(title: "Visa debito **** 0899", thumbnail: icon),
-             AndesDropDownMenuCellType(title: "BBVA **** 7788", thumbnail: icon),
-             AndesDropDownMenuCellType(title: "BBVA **** 4545", thumbnail: icon),
-             AndesDropDownMenuCellType(title: "Mercado Créditos", thumbnail: icon)]
+            [AndesDropDownMenuCellType(title: "Dinero en cuenta", thumbnail: mastercard),
+             AndesDropDownMenuCellType(title: "Visa debito **** 0899", thumbnail: visa),
+             AndesDropDownMenuCellType(title: "BBVA **** 7788", thumbnail: american),
+             AndesDropDownMenuCellType(title: "BBVA **** 4545", thumbnail: american),
+             AndesDropDownMenuCellType(title: "Mercado Créditos", thumbnail: mercadocredito)]
 
         andesDropdown.delegate = self
         andesDropdown.menuCellType = cell
