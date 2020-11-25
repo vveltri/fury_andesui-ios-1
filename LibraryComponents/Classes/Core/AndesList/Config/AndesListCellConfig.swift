@@ -19,7 +19,7 @@ struct AndesListCellConfig {
     var separatorHeight: CGFloat
     var titleHeight: CGFloat
     var chevronSize: CGFloat?
-    var thumbnailSize: AndesThumbnailSize?
+    var thumbnailSize: CGFloat?
     var separatorThumbnailWidth: CGFloat?
     var paddingTopThumbnail: CGFloat?
     var paddingBottomThumbnail: CGFloat?

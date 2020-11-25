@@ -23,7 +23,7 @@ struct AndesListCellMediumSize: AndesListCellSizeProtocol {
     var separatorHeight: CGFloat = 0
     var titleHeight: CGFloat = 11
     var chevronSize: CGFloat? = 16
-    var thumbnailSize: AndesThumbnailSize? = .none
+    var thumbnailSize: CGFloat? = 0
     var separatorThumbnailWidth: CGFloat? = 0
     var paddingTopThumbnail: CGFloat?
     var paddingBottomThumbnail: CGFloat?
@@ -41,16 +41,16 @@ struct AndesListCellMediumSize: AndesListCellSizeProtocol {
         if let thumbnail = thumbnail {
             switch thumbnail.type {
             case .icon:
-                thumbnailSize = .size24
+                thumbnailSize = 20
                 separatorThumbnailWidth = 12
                 paddingTopThumbnail =  18
             case .imageCircle, .imageSquare:
                 height = 68
-                thumbnailSize = .size40
+                thumbnailSize = 40
                 separatorThumbnailWidth = 16
-                paddingTopThumbnail = subTitleIsEmpty ? 18 : 14
+                paddingTopThumbnail = subTitleIsEmpty ? 16 : 21
                 paddingBottomThumbnail = 14
-                paddingTopChevron = subTitleIsEmpty ? 30 : 26
+                paddingTopChevron = subTitleIsEmpty ? 16 : 21
                 paddingBottomChevron = 26
             }
         }

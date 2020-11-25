@@ -26,6 +26,10 @@ import UIKit
     @IBOutlet weak var thumbnailImg: AndesThumbnail!
     @IBOutlet weak var thumbnailWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var thumbnailHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var iconImg: UIImageView!
+    @IBOutlet weak var iconView: UIView!
+    @IBOutlet weak var iconImgWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var iconImgHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var spaceThumbnailWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var paddingTopThumbnailConstraint: NSLayoutConstraint!
     @IBOutlet weak var paddingBottomThumbnailConstraint: NSLayoutConstraint!
@@ -50,7 +54,7 @@ import UIKit
     var chevron: String?
     var chevronSize: CGFloat? = 0
     var thumbnailLeft: UIImage?
-    var thumbnailSize: AndesThumbnailSize?
+    var thumbnailSize: CGFloat?
     var separatorThumbnailWidth: CGFloat? = 0
     var paddingTopThumbnail: CGFloat? = 0
     var paddingBottomThumbnail: CGFloat? = 0
@@ -80,22 +84,41 @@ import UIKit
         self.paddingTopConstraint.constant = customCell.paddingTopCell
         self.paddingBottomConstraint.constant = customCell.paddingBottomCell
         self.separatorHeightConstraint.constant = customCell.separatorHeight
-        if let imageSize = customCell.thumbnailSize {
-            self.thumbnailWidthConstraint.constant = imageSize.toString().stringToFloat()
-            self.thumbnailHeightConstraint.constant = imageSize.toString().stringToFloat()
+        self.iconImgWidthConstraint.constant = 0
+        self.iconImgHeightConstraint.constant = 0
+        self.thumbnailWidthConstraint.constant = 0
+        self.thumbnailHeightConstraint.constant = 0
+        if let imageSize = customCell.thumbnailSize, imageSize != 0.0 {
+            if customCell.thumbnailType == .icon {
+                self.iconImgWidthConstraint.constant = imageSize
+                self.iconImgHeightConstraint.constant = imageSize
+                self.thumbnailWidthConstraint.constant = imageSize
+                self.thumbnailHeightConstraint.constant = imageSize
+                self.iconImg.image = customCell.thumbnailLeft
+                self.thumbnailImg.isHidden = true
+                self.iconView.isHidden = false
+            } else {
+                self.thumbnailWidthConstraint.constant = imageSize
+                self.thumbnailHeightConstraint.constant = imageSize
+                self.iconImgWidthConstraint.constant = imageSize
+                self.iconImgHeightConstraint.constant = imageSize
+                self.thumbnailImg.image = customCell.thumbnailLeft
+                self.thumbnailImg.type = customCell.thumbnailType ?? .imageCircle
+                self.thumbnailImg.size = AndesThumbnailSize.floatToAndesThumbnailSize(value: customCell.thumbnailSize ?? 0)
+                self.thumbnailImg.isHidden = false
+                self.iconView.isHidden = true
+
+            }
             self.paddingTopThumbnailConstraint.constant = customCell.paddingTopThumbnail ?? 0
             self.paddingBottomThumbnailConstraint.constant = customCell.paddingBottomThumbnail ?? 0
-            self.thumbnailImg.image = customCell.thumbnailLeft
-            self.thumbnailImg.type = customCell.thumbnailType ?? .icon
-            self.thumbnailImg.size = customCell.thumbnailSize ?? .size24
             self.spaceThumbnailWidthConstraint.constant = customCell.separatorThumbnailWidth ?? 0
-            self.thumbnailImg.isHidden = false
         } else {
             self.thumbnailWidthConstraint.constant = 0
             self.thumbnailHeightConstraint.constant = 0
             self.paddingTopThumbnailConstraint.constant = 0
             self.paddingBottomThumbnailConstraint.constant = 0
             self.thumbnailImg.isHidden = true
+            self.iconView.isHidden = true
             self.spaceThumbnailWidthConstraint.constant = 0
         }
         self.titleLbl.adjustsFontSizeToFitWidth = false

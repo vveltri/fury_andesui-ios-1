@@ -38,19 +38,30 @@
                                             <constraint firstAttribute="height" constant="18" id="oMc-Oi-AVM"/>
                                         </constraints>
                                     </view>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HKn-Em-AHZ">
-                                        <rect key="frame" x="0.0" y="18" width="0.0" height="0.0"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" id="FKA-Vt-kgN"/>
-                                            <constraint firstAttribute="width" id="pRt-Ts-rvw"/>
-                                        </constraints>
-                                    </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gxh-3a-6wi" customClass="AndesThumbnail" customModule="AndesUI">
                                         <rect key="frame" x="0.0" y="18" width="0.0" height="0.0"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" id="BDR-Zp-enQ"/>
                                             <constraint firstAttribute="width" id="vpZ-ZV-5GG"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p7f-cE-Fbv">
+                                        <rect key="frame" x="0.0" y="18" width="0.0" height="0.0"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Z2U-W0-r45">
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" id="JVh-v0-a70"/>
+                                            <constraint firstItem="Z2U-W0-r45" firstAttribute="leading" secondItem="p7f-cE-Fbv" secondAttribute="leading" id="ZS9-xI-hqd"/>
+                                            <constraint firstItem="Z2U-W0-r45" firstAttribute="top" secondItem="p7f-cE-Fbv" secondAttribute="top" id="g5P-2z-cbY"/>
+                                            <constraint firstAttribute="trailing" secondItem="Z2U-W0-r45" secondAttribute="trailing" id="lF5-jx-dVE"/>
+                                            <constraint firstItem="Z2U-W0-r45" firstAttribute="centerY" secondItem="p7f-cE-Fbv" secondAttribute="centerY" id="mF0-m1-MeG"/>
+                                            <constraint firstAttribute="height" id="qyh-Wh-Zkc"/>
+                                            <constraint firstAttribute="bottom" secondItem="Z2U-W0-r45" secondAttribute="bottom" id="te2-Bh-hD5"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Ut-fB-KGT">
@@ -179,6 +190,10 @@
                 <outlet property="chevronImg" destination="bYM-4q-U5L" id="MVW-dI-aKh"/>
                 <outlet property="chevronWidthConstraint" destination="8om-tb-8wp" id="rbK-TF-Dlm"/>
                 <outlet property="descriptionHeightConstraint" destination="VXI-Cg-W4F" id="iHW-GE-aOF"/>
+                <outlet property="iconImg" destination="Z2U-W0-r45" id="hEl-nA-dSw"/>
+                <outlet property="iconImgHeightConstraint" destination="qyh-Wh-Zkc" id="DCv-17-ezp"/>
+                <outlet property="iconImgWidthConstraint" destination="JVh-v0-a70" id="t6j-og-Y41"/>
+                <outlet property="iconView" destination="p7f-cE-Fbv" id="Gw4-2G-U8O"/>
                 <outlet property="paddingBottomChevronConstraint" destination="DHx-P7-sxQ" id="5HQ-bO-6aP"/>
                 <outlet property="paddingBottomConstraint" destination="eMs-vm-1Cq" id="NNU-Bv-d7C"/>
                 <outlet property="paddingBottomThumbnailConstraint" destination="0S7-3B-pBX" id="TX0-Ue-R0m"/>
