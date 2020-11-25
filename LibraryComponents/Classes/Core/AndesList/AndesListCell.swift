@@ -73,12 +73,28 @@ import UIKit
     }
 
     func setup(customCell: AndesListCell, separatorStyle: AndesSeparatorStyle) {
+        self.setupUIComponents(customCell: customCell)
+        self.setupSeparatorStyle(separatorStyle: separatorStyle)
+        self.setupThumbnail(customCell: customCell)
+        self.setupAccessibilityProperties(thumbnailType: customCell.thumbnailType)
+    }
+
+    func setupUIComponents(customCell: AndesListCell) {
         self.titleLbl.text = customCell.title
         self.titleLbl.setAndesStyle(style: customCell.fontStyle)
         self.titleLbl.heightAnchor.constraint(greaterThanOrEqualToConstant: customCell.titleHeight).isActive = true
         self.subtitleLbl.text = customCell.subtitle
         self.subtitleLbl.setAndesStyle(style: customCell.fontSubTitleStyle)
         self.descriptionHeightConstraint.constant = customCell.subTitleHeight
+        self.setupConstratints(customCell: customCell)
+        self.titleLbl.adjustsFontSizeToFitWidth = false
+        self.titleLbl.lineBreakMode = .byTruncatingTail
+        self.titleLbl.numberOfLines = customCell.numberOfLines
+        self.subtitleLbl.adjustsFontSizeToFitWidth = false
+        self.subtitleLbl.lineBreakMode = .byTruncatingTail
+    }
+
+    func setupConstratints(customCell: AndesListCell) {
         self.paddingLeftConstraint.constant = customCell.paddingLeftCell
         self.paddingRightConstraint.constant = customCell.paddingRightCell
         self.paddingTopConstraint.constant = customCell.paddingTopCell
@@ -88,6 +104,9 @@ import UIKit
         self.iconImgHeightConstraint.constant = 0
         self.thumbnailWidthConstraint.constant = 0
         self.thumbnailHeightConstraint.constant = 0
+    }
+
+    func setupThumbnail(customCell: AndesListCell) {
         if let imageSize = customCell.thumbnailSize, imageSize != 0.0 {
             if customCell.thumbnailType == .icon {
                 self.iconImgWidthConstraint.constant = imageSize
@@ -121,13 +140,6 @@ import UIKit
             self.iconView.isHidden = true
             self.spaceThumbnailWidthConstraint.constant = 0
         }
-        self.titleLbl.adjustsFontSizeToFitWidth = false
-        self.titleLbl.lineBreakMode = .byTruncatingTail
-        self.titleLbl.numberOfLines = customCell.numberOfLines
-        self.subtitleLbl.adjustsFontSizeToFitWidth = false
-        self.subtitleLbl.lineBreakMode = .byTruncatingTail
-        setupSeparatorStyle(separatorStyle: separatorStyle)
-        self.updateAccessibilityProperties(thumbnailType: customCell.thumbnailType)
     }
 
     func setupSeparatorStyle(separatorStyle: AndesSeparatorStyle) {
@@ -139,7 +151,7 @@ import UIKit
         }
     }
 
-    func updateAccessibilityProperties(thumbnailType: AndesThumbnailType?) {
+    func setupAccessibilityProperties(thumbnailType: AndesThumbnailType?) {
         if let thumbnailImg = self.thumbnailImg {
             thumbnailImg.isAccessibilityElement = true
             thumbnailImg.accessibilityTraits = accessibilityTraits
