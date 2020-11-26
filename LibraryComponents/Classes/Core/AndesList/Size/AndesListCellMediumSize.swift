@@ -48,9 +48,9 @@ struct AndesListCellMediumSize: AndesListCellSizeProtocol {
                 height = 68
                 thumbnailSize = 40
                 separatorThumbnailWidth = 16
-                paddingTopThumbnail = subTitleIsEmpty ? 18 : 14
+                paddingTopThumbnail = subTitleIsEmpty ? 16 : 21
                 paddingBottomThumbnail = 14
-                paddingTopChevron = subTitleIsEmpty ? 30 : 26
+                paddingTopChevron = subTitleIsEmpty ? 16 : 21
                 paddingBottomChevron = 26
             }
         }
