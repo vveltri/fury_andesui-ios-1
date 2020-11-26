@@ -11,6 +11,15 @@ class AndesDropdownDefaultView: AndesDropdownAbstractView {
 
     @IBOutlet var textField: AndesTextField!
 
+    override var text: String {
+        get {
+            return textField.text
+        }
+        set(value) {
+            textField.text = value
+        }
+    }
+
     override func loadNib() {
         let bundle = AndesBundle.bundle()
         bundle.loadNibNamed("AndesDropdownViewDefault", owner: self, options: nil)
@@ -44,10 +53,6 @@ class AndesDropdownDefaultView: AndesDropdownAbstractView {
                                                                        rightViewComponent: rightComponent,
                                                                        inputTraits: textField.inputTraits,
                                                                        paddings: paddings))
-    }
-
-    override func setText(text: String) {
-        self.textField.text = text
     }
 }
 
