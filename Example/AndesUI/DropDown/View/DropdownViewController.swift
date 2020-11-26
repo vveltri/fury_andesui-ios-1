@@ -35,7 +35,6 @@ class DropdownViewController: UIViewController {
         andesDropdown.title = "Medio de pago"
         andesDropdown.placeholder = "Placeholder"
         andesDropdown.titleBottomSheet = "Seleccione"
-        andesDropdown.cellSize = .medium
         andesDropdown.numberOfLines = 1
         andesDropdown.separatorStyle = .none
         andesDropdown.selectionStyle = .defaultStyle

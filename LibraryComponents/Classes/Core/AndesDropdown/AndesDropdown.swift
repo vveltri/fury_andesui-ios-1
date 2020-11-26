@@ -11,28 +11,35 @@ import Foundation
 
     private var contentView: AndesDropdownView!
 
+    /// Set the trigger type, default is formDropdown
     @objc public var triggerType: AndesDropdownTriggerType = .formDropdown {
         didSet {
             self.updateContentView()
             self.setContentView()
         }
     }
+
+    /// Set the menu type, default is bottomsheet
     @objc public var menuType: AndesDropdownMenuType = .bottomSheet {
         didSet {
             self.updateContentView()
         }
     }
 
+    /// Set the textfield title
     @objc public var title: String? {
         didSet {
             self.updateContentView()
         }
     }
 
+    /// Set the bottom sheet title
     @objc public var titleBottomSheet: String?
 
+    /// Set the aligment bottom sheet title, default is left
     @objc public var aligmentTitleBottomSheet: NSTextAlignment = .left
 
+    /// Set the cell type
     @objc public var menuCellType: [AndesDropDownMenuCellType]? {
         didSet {
             self.updateContentView()
@@ -40,10 +47,10 @@ import Foundation
         }
     }
 
+    /// Set the delegate
     @objc public weak var delegate: AndesDropDownDelegate?
 
-    @objc public var cellSize: AndesDropdownCellSize = .medium
-
+    /// Set the number of lines for the list, default 0
     @objc public var numberOfLines: Int = 0
 
     /// Set the separator style, default value .none
@@ -52,21 +59,27 @@ import Foundation
     /// Set the selection style, default value .default
     @objc public var selectionStyle: AndesSelectionStyle = .defaultStyle
 
+    /// Set the textfield counter
     @IBInspectable public var counter: UInt16 = 0 {
         didSet {
             self.updateContentView()
         }
     }
 
+    /// Set the textfield placeholder
     @IBInspectable public var placeholder: String? {
         didSet {
             self.updateContentView()
         }
     }
 
-    @IBInspectable public var text: String? {
-        didSet {
-            self.updateContentView()
+    /// Set the textfield text and returns the current textfield text
+    @IBInspectable public var text: String {
+        get {
+            return contentView.text
+        }
+        set {
+            contentView.text = newValue
         }
     }
 
@@ -115,9 +128,9 @@ import Foundation
     private func setContentView() {
         if triggerType == .standalone {
             guard let title = menuCellType?[0].title else { return }
-            contentView.setText(text: title)
+            contentView.text = title
         } else {
-            contentView.setText(text: "")
+            contentView.text = ""
         }
     }
 }
@@ -135,7 +148,7 @@ extension AndesDropdown {
                                                                     bundle: AndesBundle.bundle())
         viewController.delegate = self
         viewController.configController(menuCellType: self.menuCellType,
-                                        cellSize: self.cellSize,
+                                        cellSize: .medium,
                                         numberOfLines: self.numberOfLines,
                                         separatorStyle: self.separatorStyle,
                                         selectionStyle: self.selectionStyle)
@@ -150,7 +163,7 @@ extension AndesDropdown {
 extension AndesDropdown: AndesDropdownBottomSheetViewDelegate {
     func didSelectRowAt(indexPath: IndexPath) {
         rootViewController?.dismiss(animated: true)
-        self.contentView.setText(text: menuCellType?[indexPath.row].title ?? "")
+        self.contentView.text = menuCellType?[indexPath.row].title ?? ""
         delegate?.didSelectRowAt(indexPath: indexPath)
     }
 
