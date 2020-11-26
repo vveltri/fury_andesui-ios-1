@@ -21,8 +21,8 @@ class ListViewController: UIViewController {
     @IBOutlet weak var descriptionTxt: AndesTextField!
     @IBOutlet weak var selection: UISegmentedControl!
 
-    let icon = AndesThumbnail(hierarchy: .defaultHierarchy, type: .icon, size: .size24, state: .enabled, image: UIImage(named: "andes") ?? UIImage(), accentColor: UIColor.clear)
-    let thumbnail = AndesThumbnail(hierarchy: .defaultHierarchy, type: .imageCircle, size: .size24, state: .enabled, image: UIImage(named: "andes") ?? UIImage(), accentColor: UIColor.clear)
+    let icon = AndesThumbnail(hierarchy: .defaultHierarchy, type: .icon, size: .size24, state: .enabled, image: UIImage(named: "clip") ?? UIImage(), accentColor: UIColor.clear)
+    let thumbnail = AndesThumbnail(hierarchy: .defaultHierarchy, type: .imageCircle, size: .size24, state: .enabled, image: UIImage(named: "clip") ?? UIImage(), accentColor: UIColor.clear)
     var cell: AndesListCell!
     var size: AndesListSize?
     var image: AndesThumbnail?

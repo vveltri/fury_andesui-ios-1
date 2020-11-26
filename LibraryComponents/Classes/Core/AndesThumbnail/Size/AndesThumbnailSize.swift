@@ -31,4 +31,8 @@ The AndesThumbnailSize contains the differents sizes that a Thumbnail supports
         case .size80: return "size_80"
 		}
 	}
+
+    public static func floatToAndesThumbnailSize(value: CGFloat) -> AndesThumbnailSize {
+        return self.allCases.first { $0.toString().stringToFloat() == value } ?? .size40
+    }
 }

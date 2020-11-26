@@ -22,10 +22,10 @@ class DropdownViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let mastercard = AndesThumbnail(hierarchy: .defaultHierarchy, type: .icon, size: .size80, state: .enabled, image: UIImage(named: "mastercard") ?? UIImage(), accentColor: UIColor.systemBlue)
-        let visa = AndesThumbnail(hierarchy: .defaultHierarchy, type: .icon, size: .size80, state: .enabled, image: UIImage(named: "visa") ?? UIImage(), accentColor: UIColor.clear)
-        let american = AndesThumbnail(hierarchy: .defaultHierarchy, type: .icon, size: .size80, state: .enabled, image: UIImage(named: "american") ?? UIImage(), accentColor: UIColor.clear)
-        let mercadocredito = AndesThumbnail(hierarchy: .defaultHierarchy, type: .icon, size: .size80, state: .enabled, image: UIImage(named: "mercadocredito") ?? UIImage(), accentColor: UIColor.clear)
+        let mastercard = AndesThumbnail(hierarchy: .defaultHierarchy, type: .imageCircle, size: .size80, state: .enabled, image: UIImage(named: "mastercard") ?? UIImage(), accentColor: UIColor.systemBlue)
+        let visa = AndesThumbnail(hierarchy: .defaultHierarchy, type: .imageCircle, size: .size80, state: .enabled, image: UIImage(named: "visa") ?? UIImage(), accentColor: UIColor.clear)
+        let american = AndesThumbnail(hierarchy: .defaultHierarchy, type: .imageCircle, size: .size80, state: .enabled, image: UIImage(named: "american") ?? UIImage(), accentColor: UIColor.clear)
+        let mercadocredito = AndesThumbnail(hierarchy: .defaultHierarchy, type: .imageCircle, size: .size80, state: .enabled, image: UIImage(named: "mercadocredito") ?? UIImage(), accentColor: UIColor.clear)
 
         cell =
             [AndesDropDownMenuCellType(title: "Dinero en cuenta", thumbnail: mastercard),
@@ -42,7 +42,6 @@ class DropdownViewController: UIViewController {
         andesDropdown.title = "Medio de pago"
         andesDropdown.placeholder = "Placeholder"
         andesDropdown.titleBottomSheet = "Seleccione"
-        andesDropdown.cellSize = .medium
         andesDropdown.numberOfLines = 1
         andesDropdown.separatorStyle = .none
         andesDropdown.selectionStyle = .defaultStyle

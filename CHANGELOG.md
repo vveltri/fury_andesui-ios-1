@@ -1,6 +1,7 @@
-# Unpublished
+# v3.14.1
 ### 🛠 Bug fixes
 - AndesTagChoice text color changed. | Authors: [@JBAZANCARRIZ](https://github.com/JBAZANCARRIZ)
+- AndesList fix border in thumbnail | Authors: [@joalonsopint](https://github.com/joalonsopint)
 
 ### 🚀 Features
 - Date Picker component | Authors: [@AndriuCoelho](https://github.com/AndriuCoelho)
