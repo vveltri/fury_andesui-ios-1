@@ -85,6 +85,7 @@ public class AndesChevronCell: AndesListCell {
         self.paddingBottomChevron = config.paddingBottomChevron
         self.separatorChevronWidth = config.separatorChevronWidth
         self.numberOfLines = numberOfLines
+        self.thumbnailType = thumbnail?.type
     }
 
     required init?(coder: NSCoder) {
