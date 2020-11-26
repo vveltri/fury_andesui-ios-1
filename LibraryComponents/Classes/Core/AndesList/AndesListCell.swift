@@ -62,7 +62,7 @@ import UIKit
     var paddingTopChevron: CGFloat? = 0
     var paddingBottomChevron: CGFloat? = 0
     var numberOfLines: Int = 0
-    var thumbnailType: AndesThumbnailType?
+    var thumbnail: AndesThumbnail?
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -76,7 +76,7 @@ import UIKit
         self.setupUIComponents(customCell: customCell)
         self.setupSeparatorStyle(separatorStyle: separatorStyle)
         self.setupThumbnail(customCell: customCell)
-        self.setupAccessibilityProperties(thumbnailType: customCell.thumbnailType)
+        self.setupAccessibilityProperties(thumbnailType: customCell.thumbnail?.type)
     }
 
     func setupUIComponents(customCell: AndesListCell) {
@@ -108,7 +108,7 @@ import UIKit
 
     func setupThumbnail(customCell: AndesListCell) {
         if let imageSize = customCell.thumbnailSize, imageSize != 0.0 {
-            if customCell.thumbnailType == .icon {
+            if customCell.thumbnail?.type == .icon {
                 self.iconImgWidthConstraint.constant = imageSize
                 self.iconImgHeightConstraint.constant = imageSize
                 self.thumbnailWidthConstraint.constant = imageSize
@@ -122,7 +122,7 @@ import UIKit
                 self.iconImgWidthConstraint.constant = imageSize
                 self.iconImgHeightConstraint.constant = imageSize
                 self.thumbnailImg.image = customCell.thumbnailLeft
-                self.thumbnailImg.type = customCell.thumbnailType ?? .imageCircle
+                self.thumbnailImg.type = customCell.thumbnail?.type ?? .imageCircle
                 self.thumbnailImg.size = AndesThumbnailSize.floatToAndesThumbnailSize(value: customCell.thumbnailSize ?? 0)
                 self.thumbnailImg.isHidden = false
                 self.iconView.isHidden = true
@@ -158,5 +158,9 @@ import UIKit
             guard let type = thumbnailType else { return }
             thumbnailImg.accessibilityLabel = type == .icon ? "icon accessibility".localized() : "image accessibility".localized()
         }
+    }
+
+    func updateSize(size: AndesListSize) {
+        fatalError("This should be overriden by a subclass")
     }
 }
