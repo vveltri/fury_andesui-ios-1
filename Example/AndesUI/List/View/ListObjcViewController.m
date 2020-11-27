@@ -22,28 +22,27 @@
     _listView.delegate = self;
     _listView.dataSource = self;
     _listView.separatorStyle = AndesSeparatorStyleSingleLine;
+    _listView.size = AndesListSizeLarge;
 }
 
 - (AndesListCell * _Nonnull)andesList:(AndesList * _Nonnull)tableView cellForRowAt:(NSIndexPath * _Nonnull)indexPath {
     
-    AndesThumbnail *thumbnail = [[AndesThumbnail alloc]initWithHierarchy:AndesThumbnailHierarchyLoud
+    AndesThumbnail *thumbnail = [[AndesThumbnail alloc]initWithHierarchy:AndesThumbnailHierarchyDefaultHierarchy
                                                                     type:AndesThumbnailTypeIcon
                                                                     size:AndesThumbnailSizeSize24
                                                                    state:AndesThumbnailStateEnabled
-                                                                   image:[UIImage imageNamed:@"andes"]
-                                                             accentColor:[UIColor clearColor]];
+                                                                   image:[UIImage imageNamed:@"clip"]
+                                                             accentColor:NULL];
     
     AndesSimpleCell *cell = [[AndesSimpleCell alloc]
                              initWithTitle:[NSString
                                             stringWithFormat:@"Lorem ipsum dolor sit amet title - %ld", (long)indexPath.row]
-                             size:AndesListSizeLarge
                              subtitle: @"Lorem ipsum dolor sit amet description"
                              thumbnail: thumbnail
                              numberOfLines: 2];
     
     AndesChevronCell *chevronCell = [[AndesChevronCell alloc]initWithTitle:[NSString
                                                                             stringWithFormat:@"Lorem ipsum dolor sit amet title - %ld", (long)indexPath.row]
-                                                                      size:AndesListSizeMedium
                                                                   subtitle:@"Lorem ipsum dolor sit amet subtitle"
                                                                  thumbnail:thumbnail
                                                              numberOfLines: 0];
