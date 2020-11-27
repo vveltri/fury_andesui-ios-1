@@ -9,8 +9,8 @@ import Foundation
 
 class AndesDropdownStyleFactory {
 
-    static func getStyle(_ style: AndesDropdownTriggerType) -> AndesDropdownStyleProtocol? {
-        switch style {
+    static func getStyle(_ trigger: AndesDropdownTriggerType) -> AndesDropdownStyleProtocol? {
+        switch trigger {
         case .formDropdown:
             return nil
         case .standalone:

@@ -12,37 +12,15 @@ import Foundation
     private var contentView: AndesDropdownView!
 
     /// Set the trigger type, default is formDropdown
-    @objc public var triggerType: AndesDropdownTriggerType = .formDropdown {
+    @objc public var triggerType: AndesDropdownTrigger {
         didSet {
             self.updateContentView()
-            self.setContentView()
         }
     }
 
     /// Set the menu type, default is bottomsheet
-    @objc public var menuType: AndesDropdownMenuType = .bottomSheet {
+    @objc public var menuType: AndesDropdownMenu {
         didSet {
-            self.updateContentView()
-        }
-    }
-
-    /// Set the textfield title
-    @objc public var title: String? {
-        didSet {
-            self.updateContentView()
-        }
-    }
-
-    /// Set the bottom sheet title
-    @objc public var titleBottomSheet: String?
-
-    /// Set the aligment bottom sheet title, default is left
-    @objc public var aligmentTitleBottomSheet: NSTextAlignment = .left
-
-    /// Set the cell type
-    @objc public var menuCellType: [AndesDropDownMenuCellType]? {
-        didSet {
-            self.updateContentView()
             self.setContentView()
         }
     }
@@ -50,47 +28,18 @@ import Foundation
     /// Set the delegate
     @objc public weak var delegate: AndesDropDownDelegate?
 
-    /// Set the number of lines for the list, default 0
-    @objc public var numberOfLines: Int = 0
-
-    /// Set the separator style, default value .none
-    @objc public var separatorStyle: AndesSeparatorStyle = .none
-
-    /// Set the selection style, default value .default
-    @objc public var selectionStyle: AndesSelectionStyle = .defaultStyle
-
-    /// Set the textfield counter
-    @IBInspectable public var counter: UInt16 = 0 {
-        didSet {
-            self.updateContentView()
-        }
-    }
-
-    /// Set the textfield placeholder
-    @IBInspectable public var placeholder: String? {
-        didSet {
-            self.updateContentView()
-        }
-    }
-
-    /// Set the textfield text and returns the current textfield text
-    @IBInspectable public var text: String {
-        get {
-            return contentView.text
-        }
-        set {
-            contentView.text = newValue
-        }
-    }
-
     private let rootViewController = UIApplication.shared.keyWindow?.rootViewController
 
     init() {
+        self.triggerType = AndesDropdownTrigger()
+        self.menuType = AndesDropdownMenu(rows: [])
         super.init(frame: .zero)
         setup()
     }
 
     required init?(coder: NSCoder) {
+        self.triggerType = AndesDropdownTrigger()
+        self.menuType = AndesDropdownMenu(rows: [])
         super.init(coder: coder)
         setup()
     }
@@ -106,8 +55,13 @@ import Foundation
     }
 
     private func provideView() -> AndesDropdownAbstractView {
-        return AndesDropdownDefaultView(withConfig: getConfig(isSelected: false),
-                                        firstItem: menuCellType?[0].title ?? "")
+        switch menuType.type {
+        case .botttomSheet:
+            return AndesDropdownDefaultView(withConfig: getConfig(isSelected: false))
+        case .floatingMenu:
+            return AndesDropdownDefaultView(withConfig: getConfig(isSelected: false),
+                                            firstItem: menuType.rows[0].title)
+        }
     }
 
     private func drawContentView(with newView: AndesDropdownAbstractView) {
@@ -126,44 +80,66 @@ import Foundation
     }
 
     private func setContentView() {
-        if triggerType == .standalone {
-            guard let title = menuCellType?[0].title else { return }
-            contentView.text = title
-        } else {
+        let rows = self.getRows()
+        switch self.triggerType.type {
+        case .standalone:
+            contentView.text = rows[0].title
+        case .formDropdown:
             contentView.text = ""
+
         }
+    }
+
+    private func getRows() -> [AndesDropDownMenuCellType] {
+        guard menuType.rows.count != 0 else {
+            fatalError("You should provided the rows")
+        }
+        return menuType.rows
     }
 }
 
 extension AndesDropdown: AndesDropdownViewDelegate {
     func didSelectAndesTextField() {
         updateSelectedContentView()
-        self.openSheet()
+        openMenuType()
+
+    }
+
+    func openMenuType() {
+        switch self.menuType.type {
+        case .botttomSheet:
+            self.openSheet()
+        case .floatingMenu:
+            break
+        }
     }
 }
 
 extension AndesDropdown {
     private func openSheet() {
+        let sheet = AndesBottomSheetViewController(rootViewController: configViewController())
+        sheet.titleBar.text = (self.menuType as? DropdownBottomSheetType)?.title
+        sheet.titleBar.textAlignment = (self.menuType as? DropdownBottomSheetType)?.titleAligment ?? .left
+        rootViewController?.present(sheet, animated: true)
+    }
+
+    func configViewController() -> UIViewController {
         let viewController = AndesDropdownBottomSheetViewController(nibName: "AndesDropdownBottomSheetViewController",
                                                                     bundle: AndesBundle.bundle())
         viewController.delegate = self
-        viewController.configController(menuCellType: self.menuCellType,
+        viewController.configController(menuCellType: menuType.rows,
                                         cellSize: .medium,
-                                        numberOfLines: self.numberOfLines,
-                                        separatorStyle: self.separatorStyle,
-                                        selectionStyle: self.selectionStyle)
-
-        let sheet = AndesBottomSheetViewController(rootViewController: viewController)
-        sheet.titleBar.text = self.titleBottomSheet
-        sheet.titleBar.textAlignment = self.aligmentTitleBottomSheet
-        rootViewController?.present(sheet, animated: true)
+                                        numberOfLines: self.menuType.numberOfLines,
+                                        separatorStyle: (self.menuType as? DropdownBottomSheetType)?.separatorStyle,
+                                        selectionStyle: (self.menuType as? DropdownBottomSheetType)?.selectionStyle)
+        return viewController
     }
 }
 
 extension AndesDropdown: AndesDropdownBottomSheetViewDelegate {
     func didSelectRowAt(indexPath: IndexPath) {
         rootViewController?.dismiss(animated: true)
-        self.contentView.text = menuCellType?[indexPath.row].title ?? ""
+        self.contentView.text = menuType.rows[indexPath.row].title
         delegate?.didSelectRowAt(indexPath: indexPath)
     }
 

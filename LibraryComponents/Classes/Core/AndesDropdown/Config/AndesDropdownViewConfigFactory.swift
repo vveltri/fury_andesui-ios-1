@@ -10,17 +10,15 @@ import Foundation
 internal class AndesDropdownViewConfigFactory {
     static func provide(from dropdown: AndesDropdown, isSelected: Bool) -> AndesDropdownViewConfig {
 
-        if let style = AndesDropdownStyleFactory.getStyle(dropdown.triggerType) {
+        let triggerType = dropdown.triggerType
+        if let style = AndesDropdownStyleFactory.getStyle(triggerType.type) {
             return AndesDropdownViewConfig(borderColor: style.borderColor,
-                                           counter: dropdown.counter,
-                                           placeholderText: dropdown.placeholder,
                                            icon: isSelected ? AndesIcons.chevronUp20 : AndesIcons.chevronDown20,
-                                           title: dropdown.title)
+                                           title: triggerType.title)
         }
         return AndesDropdownViewConfig(borderColor: UIColor.Andes.gray250,
-                                       counter: dropdown.counter,
-                                       placeholderText: dropdown.placeholder,
+                                       placeholderText: (dropdown.triggerType as? FormDropdownCell)?.placeholder,
                                        icon: isSelected ? AndesIcons.chevronUp20 : AndesIcons.chevronDown20,
-                                       title: dropdown.title)
+                                       title: triggerType.title)
     }
 }

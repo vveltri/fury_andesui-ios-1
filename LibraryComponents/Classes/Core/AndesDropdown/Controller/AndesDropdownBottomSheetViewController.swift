@@ -46,14 +46,14 @@ class AndesDropdownBottomSheetViewController: UIViewController {
     func configController(menuCellType: [AndesDropDownMenuCellType]?,
                           cellSize: AndesDropdownCellSize = .medium,
                           numberOfLines: Int = 0,
-                          separatorStyle: AndesSeparatorStyle = .singleLine,
-                          selectionStyle: AndesSelectionStyle = .defaultStyle) {
+                          separatorStyle: AndesSeparatorStyle?,
+                          selectionStyle: AndesSelectionStyle?) {
 
         self.menuCellType = menuCellType
         self.cellSize = cellSize
         self.numberOfLines = numberOfLines
-        self.separatorStyle = separatorStyle
-        self.selectionStyle = selectionStyle
+        self.separatorStyle = separatorStyle ?? .singleLine
+        self.selectionStyle = selectionStyle ?? .defaultStyle
     }
 
     override func viewWillDisappear(_ animated: Bool) {

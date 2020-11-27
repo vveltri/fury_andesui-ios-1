@@ -13,7 +13,7 @@ class DropdownViewController: UIViewController {
 
     @IBOutlet var andesDropdown: AndesDropdown!
 
-    var cell: [AndesDropDownMenuCellType]? = []
+    var cell: [AndesDropDownMenuCellType] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,17 +28,21 @@ class DropdownViewController: UIViewController {
              AndesDropDownMenuCellType(title: "Mercado Créditos", thumbnail: icon)]
 
         andesDropdown.delegate = self
-        andesDropdown.menuCellType = cell
-        andesDropdown.triggerType = .formDropdown
-        andesDropdown.menuType = .bottomSheet
-        andesDropdown.aligmentTitleBottomSheet = NSTextAlignment.center
-        andesDropdown.title = "Medio de pago"
-        andesDropdown.placeholder = "Placeholder"
-        andesDropdown.titleBottomSheet = "Seleccione"
-        andesDropdown.numberOfLines = 1
-        andesDropdown.separatorStyle = .none
-        andesDropdown.selectionStyle = .defaultStyle
+        andesDropdown.triggerType = FormDropdownCell(title: "Title", placeholder: "Placeholder")
+//        andesDropdown.triggerType = StandaloneDropdownCell(title: "Title")
 
+        andesDropdown.menuType = DropdownBottomSheetType(title: "Seleccione",
+                                                         separatorStyle: .singleLine,
+                                                         titleAligment: .right,
+                                                         numberOfLines: 1,
+                                                         rows: cell,
+                                                         selectionStyle: .defaultStyle,
+                                                         cellType: .none)
+
+//        andesDropdown.menuType = DropdownFloatingMenuType(numberOfLines: 1,
+//                                                          rows: cell,
+//                                                          selectionStyle: .none,
+//                                                          cellType: .none)
     }
 }
 

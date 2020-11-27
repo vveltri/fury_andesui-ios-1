@@ -15,8 +15,8 @@ class AndesDropdownDefaultView: AndesDropdownAbstractView {
         get {
             return textField.text
         }
-        set(value) {
-            textField.text = value
+        set {
+            textField.text = newValue
         }
     }
 
@@ -46,7 +46,7 @@ class AndesDropdownDefaultView: AndesDropdownAbstractView {
 
         self.textField.updateWithCustomConfig(AndesTextFieldViewConfig(labelText: config.title,
                                                                        helperText: nil,
-                                                                       counter: config.counter,
+                                                                       counter: 0,
                                                                        placeholderText: config.placeholderText,
                                                                        stateStyle: stateStyle,
                                                                        leftViewComponent: nil,
