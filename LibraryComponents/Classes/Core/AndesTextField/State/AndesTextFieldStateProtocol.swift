@@ -9,8 +9,8 @@ import Foundation
 
 internal protocol AndesTextFieldStateProtocol {
     var borderColor: UIColor { get set }
-    var borderWidth: CGFloat { get set }
-    var borderDashed: Bool { get set }
+    var borderWidth: CGFloat { get }
+    var borderDashed: Bool { get }
 
     var labelTextColor: UIColor { get }
 
@@ -19,8 +19,8 @@ internal protocol AndesTextFieldStateProtocol {
     var helperIconName: String? { get }
     var helperSemibold: Bool { get }
 
-    var backgroundColor: UIColor { get set }
-    var inputTextColor: UIColor { get set }
+    var backgroundColor: UIColor { get }
+    var inputTextColor: UIColor { get }
     var editingEnabled: Bool { get }
 
     var placeholderTextColor: UIColor { get }
