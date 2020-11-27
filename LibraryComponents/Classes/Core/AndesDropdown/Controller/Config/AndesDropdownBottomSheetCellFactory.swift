@@ -13,7 +13,6 @@ class AndesDropdownBottomSheetCellFactory {
         var cell: [AndesSimpleCell] = []
         menuCellType.forEach({ (cellType) in
             cell.append(AndesSimpleCell(withTitle: cellType.title,
-                                        size: size,
                                         subtitle: nil,
                                         thumbnail: cellType.thumbnail,
                                         numberOfLines: numberOfLines))
