@@ -7,7 +7,7 @@
 
 import Foundation
 
-@objc public class AndesDropDownMenuCellType: NSObject {
+@objc public class AndesDropDownMenuCell: NSObject {
     public private(set) var title: String
     public private(set) var thumbnail: AndesThumbnail?
 

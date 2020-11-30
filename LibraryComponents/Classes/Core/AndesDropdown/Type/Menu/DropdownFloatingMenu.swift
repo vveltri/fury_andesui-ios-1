@@ -1,0 +1,22 @@
+//
+//  DropdownFloatingMenuType.swift
+//  AndesUI
+//
+//  Created by Jonathan Alonso Pinto on 27/11/20.
+//
+
+import Foundation
+
+internal class DropdownFloatingMenu: AndesDropdownMenu {
+    init(numberOfLines: Int = 0,
+                         rows: [AndesDropDownMenuCell],
+                         selectionStyle: AndesSelectionStyle,
+                         cellType: AndesDropdownCellType) {
+
+        super.init(numberOfLines: numberOfLines,
+                   rows: rows,
+                   selectionStyle: selectionStyle,
+                   cellType: cellType,
+                   type: .floatingMenu)
+    }
+}

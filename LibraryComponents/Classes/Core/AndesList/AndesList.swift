@@ -27,6 +27,9 @@ import Foundation
     /// Set the list type, default value simple
     @objc public var listType: AndesCellType = .simple
 
+    /// Set the list size, default value medium
+    @objc public var size: AndesListSize = .medium
+
     /// This method reload the data
     @objc public func reloadData() {
         self.tableView.reloadData()
@@ -96,6 +99,7 @@ extension AndesList: AndesListProtocol {
               customCell.type == listType else {
             fatalError("Cell type not allowed, should be \(listType.toString()) type")
         }
+        customCell.updateSize(size: self.size)
         return customCell
     }
 

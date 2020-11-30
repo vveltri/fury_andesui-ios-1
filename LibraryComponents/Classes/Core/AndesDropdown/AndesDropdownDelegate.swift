@@ -7,6 +7,6 @@
 
 import Foundation
 
-@objc public protocol AndesDropDownDelegate {
+@objc public protocol AndesDropdownDelegate {
     func didSelectRowAt(indexPath: IndexPath)
 }

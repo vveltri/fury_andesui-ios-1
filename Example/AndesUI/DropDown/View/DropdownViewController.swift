@@ -17,7 +17,7 @@ class DropdownViewController: UIViewController {
 
     var triggerType: AndesDropdownTriggerType = .formDropdown
 
-    var cell: [AndesDropDownMenuCellType]? = []
+    var cell: [AndesDropDownMenuCell] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,23 +28,26 @@ class DropdownViewController: UIViewController {
         let mercadocredito = AndesThumbnail(hierarchy: .defaultHierarchy, type: .imageCircle, size: .size80, state: .enabled, image: UIImage(named: "mercadocredito") ?? UIImage(), accentColor: UIColor.clear)
 
         cell =
-            [AndesDropDownMenuCellType(title: "Dinero en cuenta", thumbnail: mastercard),
-             AndesDropDownMenuCellType(title: "Visa debito **** 0899", thumbnail: visa),
-             AndesDropDownMenuCellType(title: "BBVA **** 7788", thumbnail: american),
-             AndesDropDownMenuCellType(title: "BBVA **** 4545", thumbnail: american),
-             AndesDropDownMenuCellType(title: "Mercado Créditos", thumbnail: mercadocredito)]
+            [AndesDropDownMenuCell(title: "Dinero en cuenta", thumbnail: mastercard),
+             AndesDropDownMenuCell(title: "Visa debito **** 0899", thumbnail: visa),
+             AndesDropDownMenuCell(title: "BBVA **** 7788", thumbnail: american),
+             AndesDropDownMenuCell(title: "BBVA **** 4545", thumbnail: american),
+             AndesDropDownMenuCell(title: "Mercado Créditos", thumbnail: mercadocredito)]
 
         andesDropdown.delegate = self
-        andesDropdown.menuCellType = cell
-        andesDropdown.triggerType = .formDropdown
-        andesDropdown.menuType = .bottomSheet
-        andesDropdown.aligmentTitleBottomSheet = NSTextAlignment.center
-        andesDropdown.title = "Medio de pago"
-        andesDropdown.placeholder = "Placeholder"
-        andesDropdown.titleBottomSheet = "Seleccione"
-        andesDropdown.numberOfLines = 1
-        andesDropdown.separatorStyle = .none
-        andesDropdown.selectionStyle = .defaultStyle
+        andesDropdown.triggerType = FormDropdownTrigger(title: "Title", placeholder: "Placeholder")
+        andesDropdown.menuType = DropdownBottomSheetMenu(title: "Seleccione",
+                                                         separatorStyle: .none,
+                                                         titleAligment: .right,
+                                                         numberOfLines: 1,
+                                                         rows: cell,
+                                                         selectionStyle: .defaultStyle,
+                                                         cellType: .none)
+
+//        andesDropdown.menuType = DropdownFloatingMenu(numberOfLines: 1,
+//                                                      rows: cell,
+//                                                      selectionStyle: .none,
+//                                                      cellType: .none)
 
         radioButtonForm.setRadioButtonTapped(callback: didTapIdle(radiobutton:))
         radioButtonStandAlone.setRadioButtonTapped(callback: didTapIdle(radiobutton:))
@@ -55,16 +58,16 @@ class DropdownViewController: UIViewController {
         if radiobutton == radioButtonForm {
             radioButtonForm.status = .selected
             radioButtonStandAlone.status = .unselected
-            andesDropdown.triggerType = .formDropdown
+            andesDropdown.triggerType = FormDropdownTrigger(title: "Title", placeholder: "Placeholder")
         } else if radiobutton == radioButtonStandAlone {
             radioButtonForm.status = .unselected
             radioButtonStandAlone.status = .selected
-            andesDropdown.triggerType = .standalone
+            andesDropdown.triggerType = StandaloneDropdownTrigger(title: "Title")
         }
     }
 }
 
-extension DropdownViewController: AndesDropDownDelegate {
+extension DropdownViewController: AndesDropdownDelegate {
     func didSelectRowAt(indexPath: IndexPath) {
         print(indexPath.row)
     }
