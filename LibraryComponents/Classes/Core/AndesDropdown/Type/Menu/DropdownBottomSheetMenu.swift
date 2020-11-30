@@ -7,7 +7,7 @@
 
 import Foundation
 
-@objc public class DropdownBottomSheetType: AndesDropdownMenu {
+@objc public class DropdownBottomSheetMenu: AndesDropdownMenu {
     public var separatorStyle: AndesSeparatorStyle
     public var title: String?
     public var titleAligment: NSTextAlignment?
@@ -16,7 +16,7 @@ import Foundation
                 separatorStyle: AndesSeparatorStyle = .none,
                 titleAligment: NSTextAlignment = .left,
                 numberOfLines: Int = 0,
-                rows: [AndesDropDownMenuCellType],
+                rows: [AndesDropDownMenuCell],
                 selectionStyle: AndesSelectionStyle = .defaultStyle,
                 cellType: AndesDropdownCellType = .none) {
         self.separatorStyle = separatorStyle

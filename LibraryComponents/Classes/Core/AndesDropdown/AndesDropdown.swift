@@ -26,7 +26,7 @@ import Foundation
     }
 
     /// Set the delegate
-    @objc public weak var delegate: AndesDropDownDelegate?
+    @objc public weak var delegate: AndesDropdownDelegate?
 
     private let rootViewController = UIApplication.shared.keyWindow?.rootViewController
 
@@ -80,21 +80,16 @@ import Foundation
     }
 
     private func setContentView() {
-        let rows = self.getRows()
+        guard menuType.rows.count != 0 else {
+            fatalError("You should provided the rows")
+        }
         switch self.triggerType.type {
         case .standalone:
-            contentView.text = rows[0].title
+            contentView.text = menuType.rows[0].title
         case .formDropdown:
             contentView.text = ""
 
         }
-    }
-
-    private func getRows() -> [AndesDropDownMenuCellType] {
-        guard menuType.rows.count != 0 else {
-            fatalError("You should provided the rows")
-        }
-        return menuType.rows
     }
 }
 
@@ -118,8 +113,8 @@ extension AndesDropdown: AndesDropdownViewDelegate {
 extension AndesDropdown {
     private func openSheet() {
         let sheet = AndesBottomSheetViewController(rootViewController: configViewController())
-        sheet.titleBar.text = (self.menuType as? DropdownBottomSheetType)?.title
-        sheet.titleBar.textAlignment = (self.menuType as? DropdownBottomSheetType)?.titleAligment ?? .left
+        sheet.titleBar.text = (self.menuType as? DropdownBottomSheetMenu)?.title
+        sheet.titleBar.textAlignment = (self.menuType as? DropdownBottomSheetMenu)?.titleAligment ?? .left
         rootViewController?.present(sheet, animated: true)
     }
 
@@ -130,8 +125,8 @@ extension AndesDropdown {
         viewController.configController(menuCellType: menuType.rows,
                                         cellSize: .medium,
                                         numberOfLines: self.menuType.numberOfLines,
-                                        separatorStyle: (self.menuType as? DropdownBottomSheetType)?.separatorStyle,
-                                        selectionStyle: (self.menuType as? DropdownBottomSheetType)?.selectionStyle)
+                                        separatorStyle: (self.menuType as? DropdownBottomSheetMenu)?.separatorStyle,
+                                        selectionStyle: (self.menuType as? DropdownBottomSheetMenu)?.selectionStyle)
         return viewController
     }
 }

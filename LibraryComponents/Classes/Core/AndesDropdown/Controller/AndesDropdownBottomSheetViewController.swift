@@ -12,7 +12,7 @@ class AndesDropdownBottomSheetViewController: UIViewController {
     @IBOutlet var andesList: AndesList!
     weak var delegate: AndesDropdownBottomSheetViewDelegate?
 
-    var menuCellType: [AndesDropDownMenuCellType]?
+    var menuCellType: [AndesDropDownMenuCell]?
     var cell: [AndesSimpleCell] = []
     var cellSize: AndesDropdownCellSize = .medium
     var numberOfLines: Int = 0
@@ -43,7 +43,7 @@ class AndesDropdownBottomSheetViewController: UIViewController {
         andesList.reloadData()
     }
 
-    func configController(menuCellType: [AndesDropDownMenuCellType]?,
+    func configController(menuCellType: [AndesDropDownMenuCell]?,
                           cellSize: AndesDropdownCellSize = .medium,
                           numberOfLines: Int = 0,
                           separatorStyle: AndesSeparatorStyle?,
@@ -74,11 +74,11 @@ extension AndesDropdownBottomSheetViewController: AndesListDataSource {
     }
 
     func andesList(_ listView: AndesList, cellForRowAt indexPath: IndexPath) -> AndesListCell {
-        let cell1 = cell[indexPath.row]
-        return cell1
+        let cell = self.cell[indexPath.row]
+        return cell
     }
 
     func andesList(_ listView: AndesList, numberOfRowsInSection section: Int) -> Int {
-        cell.count
+        self.cell.count
     }
 }

@@ -7,11 +7,11 @@
 
 import Foundation
 
-@objc public class FormDropdownCell: AndesDropdownTrigger {
+@objc public class FormDropdownTrigger: AndesDropdownTrigger {
     public private(set) var placeholder: String?
 
     public init(title: String? = String(), placeholder: String? = String()) {
-        super.init(title: title ?? "", type: .formDropdown)
         self.placeholder = placeholder
+        super.init(title: title ?? "", type: .formDropdown)
     }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-@objc public class StandaloneDropdownCell: AndesDropdownTrigger {
+@objc public class StandaloneDropdownTrigger: AndesDropdownTrigger {
     public init(title: String? = String()) {
         super.init(title: title ?? "", type: .standalone)
     }

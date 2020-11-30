@@ -9,10 +9,10 @@ import Foundation
 
 class AndesDropdownStyleFactory {
 
-    static func getStyle(_ trigger: AndesDropdownTriggerType) -> AndesDropdownStyleProtocol? {
+    static func getStyle(_ trigger: AndesDropdownTriggerType) -> AndesDropdownStyleProtocol {
         switch trigger {
         case .formDropdown:
-            return nil
+            return AndesDropdownStyleFormDropdown(borderColor: UIColor.Andes.gray250)
         case .standalone:
             return AndesDropdownStyleStandAlone(borderColor: .clear)
         }

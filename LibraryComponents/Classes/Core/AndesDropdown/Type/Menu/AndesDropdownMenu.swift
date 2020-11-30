@@ -9,13 +9,13 @@ import Foundation
 
 @objc public class AndesDropdownMenu: NSObject {
     private(set) var numberOfLines: Int
-    private(set) var rows: [AndesDropDownMenuCellType]
+    private(set) var rows: [AndesDropDownMenuCell]
     private(set) var selectionStyle: AndesSelectionStyle
     private(set) var cellType: AndesDropdownCellType
     private(set) var type: AndesDropdownMenuType
 
     public init(numberOfLines: Int = 0,
-                rows: [AndesDropDownMenuCellType],
+                rows: [AndesDropDownMenuCell],
                 selectionStyle: AndesSelectionStyle = .defaultStyle,
                 cellType: AndesDropdownCellType = .none,
                 type: AndesDropdownMenuType = .botttomSheet) {
