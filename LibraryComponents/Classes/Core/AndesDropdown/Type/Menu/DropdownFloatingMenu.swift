@@ -7,8 +7,8 @@
 
 import Foundation
 
-internal class DropdownFloatingMenu: AndesDropdownMenu {
-    init(numberOfLines: Int = 0,
+@objc internal class DropdownFloatingMenu: AndesDropdownMenu {
+    @objc init(numberOfLines: Int = 0,
                          rows: [AndesDropDownMenuCell],
                          selectionStyle: AndesSelectionStyle,
                          cellType: AndesDropdownCellType) {

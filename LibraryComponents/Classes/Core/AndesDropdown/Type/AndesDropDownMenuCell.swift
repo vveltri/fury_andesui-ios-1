@@ -11,7 +11,7 @@ import Foundation
     public private(set) var title: String
     public private(set) var thumbnail: AndesThumbnail?
 
-    public init(title: String, thumbnail: AndesThumbnail? = nil) {
+    @objc public init(title: String, thumbnail: AndesThumbnail? = nil) {
         self.title = title
         self.thumbnail = thumbnail
     }

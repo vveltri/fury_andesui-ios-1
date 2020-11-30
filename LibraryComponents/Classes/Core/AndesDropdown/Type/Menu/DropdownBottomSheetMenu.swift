@@ -12,7 +12,7 @@ import Foundation
     public var title: String?
     public var titleAligment: NSTextAlignment?
 
-    public init(title: String? = String(),
+    @objc public init(title: String? = String(),
                 separatorStyle: AndesSeparatorStyle = .none,
                 titleAligment: NSTextAlignment = .left,
                 numberOfLines: Int = 0,
