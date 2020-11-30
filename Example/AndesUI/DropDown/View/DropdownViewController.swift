@@ -15,8 +15,6 @@ class DropdownViewController: UIViewController {
     @IBOutlet var radioButtonForm: AndesRadioButton!
     @IBOutlet var radioButtonStandAlone: AndesRadioButton!
 
-    var triggerType: AndesDropdownTriggerType = .formDropdown
-
     var cell: [AndesDropDownMenuCell] = []
 
     override func viewDidLoad() {

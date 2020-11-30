@@ -18,7 +18,7 @@ class DropdownAppRouter: NSObject {
 
 extension DropdownAppRouter: DropdownRouter {
     func route(from: UIViewController) {
-        view = AndesShowcasePageViewController(controllers: [DropdownViewController()])
+        view = AndesShowcasePageViewController(controllers: [DropdownViewController(), DropDownObjcViewController()])
         view.title = "AndesDropdown"
         from.navigationController?.pushViewController(view, animated: true)
     }
