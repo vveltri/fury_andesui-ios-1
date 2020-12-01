@@ -8,7 +8,9 @@
 import Foundation
 
 @objc public class StandaloneDropdownTrigger: AndesDropdownTrigger {
-    @objc public init(title: String? = String()) {
-        super.init(title: title ?? "", type: .standalone)
+    public private(set) var size: AndesTextSize
+    @objc public init(size: AndesTextSize = .medium) {
+        self.size = size
+        super.init(type: .standalone)
     }
 }

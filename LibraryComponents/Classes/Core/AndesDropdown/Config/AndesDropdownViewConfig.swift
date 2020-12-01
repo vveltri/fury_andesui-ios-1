@@ -12,4 +12,6 @@ internal struct AndesDropdownViewConfig {
     var placeholderText: String? = String()
     var icon: String?
     var title: String?
+    var size: AndesTextSize = .medium
+    var iconColor: UIColor
 }

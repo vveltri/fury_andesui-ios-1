@@ -7,12 +7,10 @@
 
 import Foundation
 
-@objc public class AndesDropdownTrigger: NSObject {
-    private(set) var title: String?
+public class AndesDropdownTrigger: NSObject {
     private(set) var type: AndesDropdownTriggerType
 
-    internal init(title: String = String(), type: AndesDropdownTriggerType = .formDropdown) {
-        self.title = title
+    internal init(type: AndesDropdownTriggerType = .formDropdown) {
         self.type = type
     }
 }

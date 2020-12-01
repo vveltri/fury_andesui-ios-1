@@ -17,11 +17,13 @@ internal class AndesDropdownViewConfigFactory {
             return AndesDropdownViewConfig(borderColor: style.borderColor,
                                            placeholderText: (dropdown.triggerType as? FormDropdownTrigger)?.placeholder,
                                            icon: isSelected ? AndesIcons.chevronUp20 : AndesIcons.chevronDown20,
-                                           title: triggerType.title)
+                                           title: (dropdown.triggerType as? FormDropdownTrigger)?.title,
+                                           iconColor: UIColor.Andes.blueML500)
         case .standalone:
             return AndesDropdownViewConfig(borderColor: style.borderColor,
                                            icon: isSelected ? AndesIcons.chevronUp20 : AndesIcons.chevronDown20,
-                                           title: triggerType.title)
+                                           size: (dropdown.triggerType as? StandaloneDropdownTrigger)!.size,
+                                           iconColor: UIColor.Andes.gray450)
         }
     }
 }

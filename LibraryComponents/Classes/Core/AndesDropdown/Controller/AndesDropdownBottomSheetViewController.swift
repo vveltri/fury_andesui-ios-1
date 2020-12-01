@@ -14,7 +14,6 @@ class AndesDropdownBottomSheetViewController: UIViewController {
 
     var menuCellType: [AndesDropDownMenuCell]?
     var cell: [AndesSimpleCell] = []
-    var cellSize: AndesDropdownCellSize = .medium
     var numberOfLines: Int = 0
     var separatorStyle: AndesSeparatorStyle = .singleLine
     var selectionStyle: AndesSelectionStyle = .defaultStyle
@@ -38,19 +37,17 @@ class AndesDropdownBottomSheetViewController: UIViewController {
     func buildCells() {
         guard let menuCellType = self.menuCellType else { return }
         cell = AndesDropdownBottomSheetCellFactory.provide(menuCellType: menuCellType,
-                                                           size: AndesListSize(rawValue: self.cellSize.rawValue) ?? .medium,
+                                                           size: .medium,
                                                            numberOfLines: self.numberOfLines)
         andesList.reloadData()
     }
 
     func configController(menuCellType: [AndesDropDownMenuCell]?,
-                          cellSize: AndesDropdownCellSize = .medium,
                           numberOfLines: Int = 0,
                           separatorStyle: AndesSeparatorStyle?,
                           selectionStyle: AndesSelectionStyle?) {
 
         self.menuCellType = menuCellType
-        self.cellSize = cellSize
         self.numberOfLines = numberOfLines
         self.separatorStyle = separatorStyle ?? .singleLine
         self.selectionStyle = selectionStyle ?? .defaultStyle
