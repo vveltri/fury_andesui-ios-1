@@ -38,8 +38,7 @@
     [_andesDropdown setMenuType:[[DropdownBottomSheetMenu alloc]initWithSeparatorStyle:AndesSeparatorStyleSingleLine
                                                                          numberOfLines:1
                                                                                   rows:_cellArray
-                                                                        selectionStyle:AndesSelectionStyleDefaultStyle
-                                                                              cellType:AndesDropdownCellTypeNone]];
+                                                                        selectionStyle:AndesSelectionStyleDefaultStyle]];
 }
 
 - (void)config {
