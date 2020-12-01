@@ -13,13 +13,12 @@ import Foundation
     @objc public init(separatorStyle: AndesSeparatorStyle = .none,
                       numberOfLines: Int = 0,
                       rows: [AndesDropDownMenuCell],
-                      selectionStyle: AndesSelectionStyle = .defaultStyle,
-                      cellType: AndesDropdownCellType = .none) {
+                      selectionStyle: AndesSelectionStyle = .defaultStyle) {
         self.separatorStyle = separatorStyle
         super.init(numberOfLines: numberOfLines,
                    rows: rows,
                    selectionStyle: selectionStyle,
-                   cellType: cellType,
+                   cellType: .none,
                    type: .botttomSheet)
     }
 
