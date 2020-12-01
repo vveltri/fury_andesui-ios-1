@@ -142,6 +142,7 @@
 		F0AC4E47255EE312003B364C /* DropdownRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AC4E46255EE312003B364C /* DropdownRouter.swift */; };
 		F0AC4E50255EE400003B364C /* DropdownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AC4E4E255EE400003B364C /* DropdownViewController.swift */; };
 		F0AC4E51255EE400003B364C /* DropdownViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0AC4E4F255EE400003B364C /* DropdownViewController.xib */; };
+		F0E490642576BABB003F9377 /* AndesDropdownTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E4905C2576BA85003F9377 /* AndesDropdownTests.swift */; };
 		F8249D0524ABC9AD002A6456 /* RadioButtonRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8249D0424ABC9AD002A6456 /* RadioButtonRouter.swift */; };
 		F8249D0824ABCA4E002A6456 /* AndesRadioButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8249D0724ABCA4E002A6456 /* AndesRadioButtonViewController.swift */; };
 		F8249D0A24ABCAC8002A6456 /* AndesRadioButtonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8249D0924ABCAC8002A6456 /* AndesRadioButtonViewController.xib */; };
@@ -352,6 +353,7 @@
 		F0AC4E46255EE312003B364C /* DropdownRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownRouter.swift; sourceTree = "<group>"; };
 		F0AC4E4E255EE400003B364C /* DropdownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownViewController.swift; sourceTree = "<group>"; };
 		F0AC4E4F255EE400003B364C /* DropdownViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DropdownViewController.xib; sourceTree = "<group>"; };
+		F0E4905C2576BA85003F9377 /* AndesDropdownTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndesDropdownTests.swift; sourceTree = "<group>"; };
 		F8249D0424ABC9AD002A6456 /* RadioButtonRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonRouter.swift; sourceTree = "<group>"; };
 		F8249D0724ABCA4E002A6456 /* AndesRadioButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndesRadioButtonViewController.swift; sourceTree = "<group>"; };
 		F8249D0924ABCAC8002A6456 /* AndesRadioButtonViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AndesRadioButtonViewController.xib; sourceTree = "<group>"; };
@@ -549,7 +551,6 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				034D6011256363FA00978518 /* DatePicker */,
 				90F4782124363A8F001CEC90 /* AndesBadgeTests.swift */,
 				E615508823D6196C00417B5F /* AndesButtonTests.swift */,
 				49BC90AD24C5FAE6007A03D3 /* AndesCardTests.swift */,
@@ -564,6 +565,8 @@
 				02683A5A24B36E1000C3FD9A /* AndesThumbnailTests.swift */,
 				80D6914224E1BE4A002CF3BC /* CoachmarkTests */,
 				80D6914D24E438AE002CF3BC /* Commons */,
+				034D6011256363FA00978518 /* DatePicker */,
+				F0E4905B2576BA6D003F9377 /* Dropdown */,
 				F09C504F2551EED2005621F8 /* List */,
 				8634C9DF24A6509300DB7B9F /* SnackbarTests */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
@@ -1049,6 +1052,14 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
+		F0E4905B2576BA6D003F9377 /* Dropdown */ = {
+			isa = PBXGroup;
+			children = (
+				F0E4905C2576BA85003F9377 /* AndesDropdownTests.swift */,
+			);
+			name = Dropdown;
+			sourceTree = "<group>";
+		};
 		F8249D0324ABC98D002A6456 /* RadioButton */ = {
 			isa = PBXGroup;
 			children = (
@@ -1453,6 +1464,7 @@
 				80D6914A24E42EBB002CF3BC /* AndesCoachmarkPresenterTests.swift in Sources */,
 				9C592C0E2450A6BD0038785E /* AndesEnumStringConvertibleTests.swift in Sources */,
 				034D60152563F08300978518 /* AndesDayDatePickerTests.swift in Sources */,
+				F0E490642576BABB003F9377 /* AndesDropdownTests.swift in Sources */,
 				80D6914C24E4307F002CF3BC /* AndesCoachmarkStubsResolver.swift in Sources */,
 				F8C93A3A24A272F600ADCE1C /* AndesCheckboxTest.swift in Sources */,
 				80D6914624E2D5AC002CF3BC /* AndesCoachmarkConstantsTests.swift in Sources */,
