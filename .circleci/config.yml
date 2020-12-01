@@ -122,6 +122,14 @@ jobs:
       - run:
           name: Run Deploy
           command: ./scripts/run_deploy.sh
+      - run:
+          name: Build and publish precompiled
+          command: |
+              echo -e "plugin 'cocoapods-precompiled'\n$(cat Podfile)" > Podfile
+              echo "gem 'cocoapods-precompiled', :git => $COCOAPODS_PRECOMPILED_SOURCE" > GemfileTemp
+              bundle install --gemfile GemfileTemp
+              bundle exec pod precompiled create
+              bundle exec pod precompiled publish          
 
 # Define the full workflow.
 workflows:
