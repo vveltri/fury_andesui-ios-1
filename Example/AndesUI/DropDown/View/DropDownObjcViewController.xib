@@ -51,7 +51,7 @@
                     <rect key="frame" x="42" y="156" width="330" height="80"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="DfU-9h-126" secondAttribute="height" multiplier="33:8" id="j5m-Jv-O5V"/>
+                        <constraint firstAttribute="height" constant="80" id="RcX-q5-bU6"/>
                     </constraints>
                 </view>
             </subviews>
@@ -59,13 +59,11 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="Khc-8m-Fx5" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="42" id="1M3-fn-glW"/>
-                <constraint firstItem="DfU-9h-126" firstAttribute="top" secondItem="Khc-8m-Fx5" secondAttribute="bottom" constant="9" id="KDg-b4-nqo"/>
+                <constraint firstItem="DfU-9h-126" firstAttribute="top" secondItem="Khc-8m-Fx5" secondAttribute="bottom" constant="9" id="6iW-0p-6Cr"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="Khc-8m-Fx5" secondAttribute="trailing" constant="42" id="PII-qr-ODI"/>
-                <constraint firstItem="DfU-9h-126" firstAttribute="top" secondItem="Khc-8m-Fx5" secondAttribute="bottom" constant="9" id="gTI-DC-Wpf"/>
                 <constraint firstItem="Khc-8m-Fx5" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="2" id="naR-GL-1gk"/>
-                <constraint firstItem="DfU-9h-126" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="42" id="qrB-Qe-JjW"/>
-                <constraint firstItem="DfU-9h-126" firstAttribute="width" secondItem="DfU-9h-126" secondAttribute="height" multiplier="33:8" id="rDr-1g-lSX"/>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="DfU-9h-126" secondAttribute="trailing" constant="42" id="ypb-P9-LdQ"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="DfU-9h-126" secondAttribute="trailing" constant="42" id="u8X-lV-R4b"/>
+                <constraint firstItem="DfU-9h-126" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="42" id="wOE-1F-rRd"/>
             </constraints>
             <point key="canvasLocation" x="139" y="90"/>
         </view>

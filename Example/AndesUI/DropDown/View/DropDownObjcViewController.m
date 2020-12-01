@@ -35,13 +35,11 @@
 - (void) setup {
     _andesDropdown.delegate = self;
     [_andesDropdown setTriggerType:[[FormDropdownTrigger alloc]initWithTitle:@"Title" placeholder:@"Placeholder"]];
-    [_andesDropdown setMenuType:[[DropdownBottomSheetMenu alloc]initWithTitle:@"Seleccione"
-                                                               separatorStyle:AndesSeparatorStyleSingleLine
-                                                                titleAligment:NSTextAlignmentCenter
-                                                                numberOfLines:1
-                                                                         rows:_cellArray
-                                                               selectionStyle:AndesSelectionStyleDefaultStyle
-                                                                     cellType:AndesDropdownCellTypeNone]];
+    [_andesDropdown setMenuType:[[DropdownBottomSheetMenu alloc]initWithSeparatorStyle:AndesSeparatorStyleSingleLine
+                                                                         numberOfLines:1
+                                                                                  rows:_cellArray
+                                                                        selectionStyle:AndesSelectionStyleDefaultStyle
+                                                                              cellType:AndesDropdownCellTypeNone]];
 }
 
 - (void)config {
@@ -98,7 +96,7 @@
     else if (radioButton == _radioButtonStandAlone) {
         _radioButtonForm.status = AndesRadioButtonStatusUnselected;
         _radioButtonStandAlone.status = AndesRadioButtonStatusSelected;
-        [_andesDropdown setTriggerType:[[StandaloneDropdownTrigger alloc]initWithTitle:@"Title"]];
+        [_andesDropdown setTriggerType:[[StandaloneDropdownTrigger alloc]initWithSize:AndesTextSizeLarge]];
     }
 }
 
