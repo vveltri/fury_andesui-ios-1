@@ -126,8 +126,8 @@ jobs:
           name: Build and publish precompiled
           command: |
               echo -e "plugin 'cocoapods-precompiled'\n$(cat Podfile)" > Podfile
-              echo "gem 'cocoapods-precompiled', :git => $COCOAPODS_PRECOMPILED_SOURCE" > GemfileTemp
-              bundle install --gemfile GemfileTemp
+              echo "gem 'cocoapods-precompiled', :git => $COCOAPODS_PRECOMPILED_SOURCE" >> Gemfile
+              bundle install
               bundle exec pod precompiled create
               bundle exec pod precompiled publish          
 
