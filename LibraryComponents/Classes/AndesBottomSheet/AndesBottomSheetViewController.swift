@@ -19,7 +19,7 @@ private enum Constants {
             return UIApplication.shared.statusBarFrame.height
         }
     }
-    static let sizes: [AndesBottomSheetSize] = [.min(.intrinsic, .percent(0.80)),
+    static let sizes: [AndesBottomSheetSize] = [.min(.intrinsic, .percent(0.60)),
                                                 .min(.intrinsic, .fixedFromTop(Constants.marginFromTop))]
 }
 
