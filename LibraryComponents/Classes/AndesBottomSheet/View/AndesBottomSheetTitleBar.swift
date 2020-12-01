@@ -37,16 +37,6 @@ public class AndesBottomSheetTitleBar: UIView {
         }
     }
 
-    @objc
-        public var numberOfLines: Int {
-            get {
-                return textLabel.numberOfLines
-            }
-            set {
-                textLabel.numberOfLines = newValue
-            }
-        }
-
     private let textLabel: UILabel = {
         let textLabel = UILabel()
         textLabel.font = AndesStyleSheetManager.styleSheet.semiboldSystemFontOfSize(size: AndesFontSize.titleS)
