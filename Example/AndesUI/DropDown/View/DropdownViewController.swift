@@ -34,13 +34,11 @@ class DropdownViewController: UIViewController {
         andesDropdown.menuType = DropdownBottomSheetMenu(separatorStyle: .none,
                                                          numberOfLines: 1,
                                                          rows: cell,
-                                                         selectionStyle: .defaultStyle,
-                                                         cellType: .none)
+                                                         selectionStyle: .defaultStyle)
 
 //        andesDropdown.menuType = DropdownFloatingMenu(numberOfLines: 1,
 //                                                      rows: cell,
-//                                                      selectionStyle: .none,
-//                                                      cellType: .none)
+//                                                      selectionStyle: .none)
     }
 }
 
