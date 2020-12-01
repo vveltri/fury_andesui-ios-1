@@ -29,11 +29,9 @@ class DropdownViewController: UIViewController {
 
         andesDropdown.delegate = self
 //        andesDropdown.triggerType = FormDropdownTrigger(title: "Title", placeholder: "Placeholder")
-        andesDropdown.triggerType = StandaloneDropdownTrigger(title: "Title")
+        andesDropdown.triggerType = StandaloneDropdownTrigger(size: .small)
 
-        andesDropdown.menuType = DropdownBottomSheetMenu(title: "Seleccione",
-                                                         separatorStyle: .none,
-                                                         titleAligment: .right,
+        andesDropdown.menuType = DropdownBottomSheetMenu(separatorStyle: .none,
                                                          numberOfLines: 1,
                                                          rows: cell,
                                                          selectionStyle: .defaultStyle,

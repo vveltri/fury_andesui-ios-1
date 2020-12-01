@@ -42,7 +42,7 @@ class AndesDropdownDefaultView: AndesDropdownAbstractView {
 
         let paddings = AndesTextInputPaddingFactory.providePaddingForField(state: textField.state)
 
-        let rightComponent = AndesTextFieldComponentIcon(andesIconName: config.icon ?? "", tintColor: UIColor.Andes.blueML500)
+        let rightComponent = AndesTextFieldComponentIcon(andesIconName: config.icon ?? "", tintColor: self.config.iconColor)
 
         self.textField.updateWithCustomConfig(AndesTextFieldViewConfig(labelText: config.title,
                                                                        helperText: nil,
@@ -52,7 +52,8 @@ class AndesDropdownDefaultView: AndesDropdownAbstractView {
                                                                        leftViewComponent: nil,
                                                                        rightViewComponent: rightComponent,
                                                                        inputTraits: textField.inputTraits,
-                                                                       paddings: paddings))
+                                                                       paddings: paddings,
+                                                                       size: config.size))
     }
 }
 

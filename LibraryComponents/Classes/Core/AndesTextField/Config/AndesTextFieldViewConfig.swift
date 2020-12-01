@@ -51,7 +51,8 @@ internal struct AndesTextFieldViewConfig {
          rightViewComponent: AndesTextFieldRightComponent?,
          inputTraits: UITextInputTraits?,
          maxLines: UInt16? = nil,
-         paddings: AndesTextInputPadding) {
+         paddings: AndesTextInputPadding,
+         size: AndesTextSize = .medium) {
 
         self.labelText = labelText
         self.helperText = helperText
@@ -62,8 +63,10 @@ internal struct AndesTextFieldViewConfig {
 
         self.labelStyle = AndesTextFieldViewConfig.getLabelStyle(stateStyle.labelTextColor)
         self.counterStyle = AndesTextFieldViewConfig.getCounterTextStyle(stateStyle.helperColor)
-        self.placeholderStyle = AndesTextFieldViewConfig.getInputTextStyle(stateStyle.placeholderTextColor)
-        self.inputTextStyle = AndesTextFieldViewConfig.getInputTextStyle(stateStyle.inputTextColor)
+        self.placeholderStyle = AndesTextFieldViewConfig.getInputTextStyle(stateStyle.placeholderTextColor,
+                                                                           size: size)
+        self.inputTextStyle = AndesTextFieldViewConfig.getInputTextStyle(stateStyle.inputTextColor,
+                                                                         size: size)
         self.inputBgColor = stateStyle.backgroundColor
         self.textFieldBorderColor = stateStyle.borderColor
         self.helperIcon = stateStyle.helperIconName
@@ -94,8 +97,15 @@ internal struct AndesTextFieldViewConfig {
         return AndesFontStyle(textColor: color, font: font, sketchLineHeight: 14)
     }
 
-    internal static func getInputTextStyle(_ color: UIColor) -> AndesFontStyle {
-        return AndesFontStyle(textColor: color, font: AndesStyleSheetManager.styleSheet.regularSystemFont(size: 16), sketchLineHeight: 22)
+    internal static func getInputTextStyle(_ color: UIColor, size: AndesTextSize = .medium) -> AndesFontStyle {
+        switch size {
+        case .small:
+            return AndesFontStyle(textColor: color, font: AndesStyleSheetManager.styleSheet.regularSystemFont(size: 14), sketchLineHeight: 20)
+        case .medium:
+            return AndesFontStyle(textColor: color, font: AndesStyleSheetManager.styleSheet.regularSystemFont(size: 16), sketchLineHeight: 22)
+        case .large:
+            return AndesFontStyle(textColor: color, font: AndesStyleSheetManager.styleSheet.regularSystemFont(size: 18), sketchLineHeight: 24)
+        }
     }
 
     private static func getCounterTextStyle(_ color: UIColor) -> AndesFontStyle {

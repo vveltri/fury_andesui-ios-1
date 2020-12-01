@@ -113,8 +113,6 @@ extension AndesDropdown: AndesDropdownViewDelegate {
 extension AndesDropdown {
     private func openSheet() {
         let sheet = AndesBottomSheetViewController(rootViewController: configViewController())
-        sheet.titleBar.text = (self.menuType as? DropdownBottomSheetMenu)?.title
-        sheet.titleBar.textAlignment = (self.menuType as? DropdownBottomSheetMenu)?.titleAligment ?? .left
         rootViewController?.present(sheet, animated: true)
     }
 
@@ -123,7 +121,6 @@ extension AndesDropdown {
                                                                     bundle: AndesBundle.bundle())
         viewController.delegate = self
         viewController.configController(menuCellType: menuType.rows,
-                                        cellSize: .medium,
                                         numberOfLines: self.menuType.numberOfLines,
                                         separatorStyle: (self.menuType as? DropdownBottomSheetMenu)?.separatorStyle,
                                         selectionStyle: (self.menuType as? DropdownBottomSheetMenu)?.selectionStyle)
