@@ -10,13 +10,12 @@ import Foundation
 @objc internal class DropdownFloatingMenu: AndesDropdownMenu {
     @objc init(numberOfLines: Int = 0,
                          rows: [AndesDropDownMenuCell],
-                         selectionStyle: AndesSelectionStyle,
-                         cellType: AndesDropdownCellType) {
+                         selectionStyle: AndesSelectionStyle) {
 
         super.init(numberOfLines: numberOfLines,
                    rows: rows,
                    selectionStyle: selectionStyle,
-                   cellType: cellType,
+                   cellType: .none,
                    type: .floatingMenu)
     }
 }
