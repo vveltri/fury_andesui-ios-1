@@ -8,7 +8,7 @@
 
 #import "DropDownObjcViewController.h"
 
-@interface DropDownObjcViewController ()
+@interface DropDownObjcViewController () <AndesDropdownDelegate>
 
 @property(weak, nonatomic) IBOutlet AndesDropdown *andesDropdown;
 @property(weak, nonatomic) IBOutlet AndesRadioButton *radioButtonForm;

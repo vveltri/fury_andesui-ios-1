@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DropDownObjcViewController : UIViewController <AndesDropdownDelegate>
+@interface DropDownObjcViewController : UIViewController
 
 @end
 
