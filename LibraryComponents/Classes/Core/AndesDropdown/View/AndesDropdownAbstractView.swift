@@ -13,10 +13,9 @@ class AndesDropdownAbstractView: UIView, AndesDropdownView {
 
     var config: AndesDropdownViewConfig
     weak var delegate: AndesDropdownViewDelegate?
-    var firstItem: String?
     var text: String = ""
 
-    init(withConfig config: AndesDropdownViewConfig, firstItem: String? = String()) {
+    init(withConfig config: AndesDropdownViewConfig) {
         self.config = config
         super.init(frame: .zero)
         setup()

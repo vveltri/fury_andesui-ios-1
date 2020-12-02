@@ -55,13 +55,7 @@ import Foundation
     }
 
     private func provideView() -> AndesDropdownAbstractView {
-        switch menuType.type {
-        case .botttomSheet:
-            return AndesDropdownDefaultView(withConfig: getConfig(isSelected: false))
-        case .floatingMenu:
-            return AndesDropdownDefaultView(withConfig: getConfig(isSelected: false),
-                                            firstItem: menuType.rows[0].title)
-        }
+        return AndesDropdownDefaultView(withConfig: getConfig(isSelected: false))
     }
 
     private func drawContentView(with newView: AndesDropdownAbstractView) {
