@@ -134,8 +134,7 @@ workflows:
           <<: *defaultWorkflow
       - build:
           <<: *deployWorkflow
-  build:
-    ignore:
-        - master
-        - /release\/.*$/
-        - /v\/.*$/
+              ignore:
+                - master
+                - /release\/.*$/
+                - /v\/.*$/
