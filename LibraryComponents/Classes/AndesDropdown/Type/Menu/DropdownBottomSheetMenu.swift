@@ -19,7 +19,7 @@ import Foundation
                    rows: rows,
                    selectionStyle: selectionStyle,
                    cellType: .none,
-                   type: .botttomSheet)
+                   type: .bottomSheet)
     }
 
 }

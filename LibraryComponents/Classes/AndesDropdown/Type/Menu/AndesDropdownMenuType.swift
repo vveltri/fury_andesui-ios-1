@@ -8,12 +8,12 @@
 import Foundation
 
 @objc public enum AndesDropdownMenuType: Int, AndesEnumStringConvertible {
-    case botttomSheet
+    case bottomSheet
     case floatingMenu
 
     public static func keyFor(_ value: AndesDropdownMenuType) -> String {
         switch value {
-        case .botttomSheet: return "BOTTOMSHEET"
+        case .bottomSheet: return "BOTTOMSHEET"
         case .floatingMenu: return "FLOATINGMENU"
         }
     }

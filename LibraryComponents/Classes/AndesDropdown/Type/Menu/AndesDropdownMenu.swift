@@ -18,7 +18,7 @@ import Foundation
                 rows: [AndesDropDownMenuCell],
                 selectionStyle: AndesSelectionStyle = .defaultStyle,
                 cellType: AndesDropdownCellType = .none,
-                type: AndesDropdownMenuType = .botttomSheet) {
+                type: AndesDropdownMenuType = .bottomSheet) {
         self.numberOfLines = numberOfLines
         self.rows = rows
         self.selectionStyle = selectionStyle
