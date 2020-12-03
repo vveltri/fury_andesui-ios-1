@@ -38,6 +38,7 @@ Pod::Spec.new do |s|
     
     s.subspec 'AndesDropdown' do |dropdown|
         dropdown.source_files = 'LibraryComponents/Classes/AndesDropdown/**/*.{h,m,swift}'
+        dropdown.resource_bundle = {'AndesDropdownResources' => ['LibraryComponents/Classes/AndesDropdown/**/*.{xib}']}
         
         dropdown.dependency 'AndesUI/Core'
         dropdown.dependency 'AndesUI/AndesBottomSheet'

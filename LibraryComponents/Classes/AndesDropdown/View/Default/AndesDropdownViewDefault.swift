@@ -21,7 +21,7 @@ class AndesDropdownDefaultView: AndesDropdownAbstractView {
     }
 
     override func loadNib() {
-        let bundle = AndesBundle.bundle()
+        let bundle = AndesDropdownBundle.bundle()
         bundle.loadNibNamed("AndesDropdownViewDefault", owner: self, options: nil)
     }
 
