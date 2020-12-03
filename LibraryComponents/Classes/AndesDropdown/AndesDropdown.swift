@@ -118,7 +118,7 @@ extension AndesDropdown {
 
     func configViewController() -> UIViewController {
         let viewController = AndesDropdownBottomSheetViewController(nibName: "AndesDropdownBottomSheetViewController",
-                                                                    bundle: AndesBundle.bundle())
+                                                                    bundle: AndesDropdownBundle.bundle())
         viewController.delegate = self
         viewController.configController(menuCellType: menuType.rows,
                                         numberOfLines: self.menuType.numberOfLines,
