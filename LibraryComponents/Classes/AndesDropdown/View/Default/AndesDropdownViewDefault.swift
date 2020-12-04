@@ -37,8 +37,9 @@ class AndesDropdownDefaultView: AndesDropdownAbstractView {
 
     override func updateView() {
 
-        var stateStyle = AndesTextFieldStateFactory.getState(textField.state, isEditing: textField.isEditing)
-        stateStyle.borderColor = self.config.borderColor
+        let stateStyle = AndesTextFieldStateFactory.getState(textField.state,
+                                                             isEditing: textField.isEditing,
+                                                             borderColor: self.config.borderColor)
 
         let paddings = AndesTextInputPaddingFactory.providePaddingForField(state: textField.state)
 

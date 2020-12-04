@@ -8,7 +8,7 @@
 import Foundation
 
 internal protocol AndesTextFieldStateProtocol {
-    var borderColor: UIColor { get set }
+    var borderColor: UIColor { get }
     var borderWidth: CGFloat { get }
     var borderDashed: Bool { get }
 
