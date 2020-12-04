@@ -31,4 +31,12 @@ struct AndesTextFieldStateIdle: AndesTextFieldStateProtocol {
         }
     }
 
+    init(focused: Bool, borderColor: UIColor) {
+        if focused {
+            self.borderColor = AndesStyleSheetManager.styleSheet.accentColor
+            borderWidth = 2
+        }
+        self.borderColor = borderColor
+    }
+
 }
