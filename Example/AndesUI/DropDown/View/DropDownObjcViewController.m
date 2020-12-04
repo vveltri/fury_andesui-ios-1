@@ -8,11 +8,15 @@
 
 #import "DropDownObjcViewController.h"
 
-@interface DropDownObjcViewController ()
+@interface DropDownObjcViewController () <AndesTextFieldDelegate>
 
 @property(weak, nonatomic) IBOutlet AndesDropdown *andesDropdown;
 @property(weak, nonatomic) IBOutlet AndesRadioButton *radioButtonForm;
 @property(weak, nonatomic) IBOutlet AndesRadioButton *radioButtonStandAlone;
+@property(weak, nonatomic) IBOutlet AndesTextField *textField;
+@property(weak, nonatomic) IBOutlet AndesTextField *placelholderField;
+@property(weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
+
 @property(nonatomic) AndesDropDownMenuCell *cell;
 @property(nonatomic) NSMutableArray *cellArray;
 
@@ -22,6 +26,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _textField.delegate = self;
+    _placelholderField.delegate = self;
+    [_segmentedControl setEnabled:false];
+    
     [self config];
     [self setup];
     [_radioButtonForm setRadioButtonTappedWithCallback:^(AndesRadioButton *selected) {
@@ -90,17 +98,53 @@
     if (radioButton == _radioButtonForm) {
         _radioButtonForm.status = AndesRadioButtonStatusSelected;
         _radioButtonStandAlone.status = AndesRadioButtonStatusUnselected;
-        [_andesDropdown setTriggerType:[[FormDropdownTrigger alloc]initWithTitle:@"Title" placeholder:@"Placeholder"]];
+        _textField.state = AndesTextInputStateIdle;
+        _placelholderField.state = AndesTextInputStateIdle;
+        [_segmentedControl setEnabled:false];
+        [self updateFormDropdownView:@"" placeholder:@"Placeholder para Dropdown"];
     }
     else if (radioButton == _radioButtonStandAlone) {
         _radioButtonForm.status = AndesRadioButtonStatusUnselected;
         _radioButtonStandAlone.status = AndesRadioButtonStatusSelected;
-        [_andesDropdown setTriggerType:[[StandaloneDropdownTrigger alloc]initWithSize:AndesTextSizeLarge]];
+        _textField.state = AndesTextInputStateDisabled;
+        _placelholderField.state = AndesTextInputStateDisabled;
+        [_segmentedControl setEnabled:true];
+        [self updateStandaloneDropdownView:AndesTextSizeMedium];
     }
+    _textField.text = @"";
+    _placelholderField.text = @"";
+    _segmentedControl.selectedSegmentIndex = 1;
 }
 
 - (void)didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath {
     NSLog(@"%ld", (long)indexPath.row);
+}
+
+- (void)updateFormDropdownView:(NSString *)title placeholder: (NSString *)placeholder  {
+    [_andesDropdown setTriggerType:[[FormDropdownTrigger alloc]initWithTitle:title placeholder:placeholder]];
+}
+
+- (void)updateStandaloneDropdownView:(AndesTextSize)size {
+    [_andesDropdown setTriggerType:[[StandaloneDropdownTrigger alloc]initWithSize:size]];
+}
+
+- (IBAction)valueChangeSegmented {
+    if (_segmentedControl.selectedSegmentIndex == 0) {
+        [self updateStandaloneDropdownView:AndesTextSizeSmall];
+    } else if (_segmentedControl.selectedSegmentIndex == 1) {
+        [self updateStandaloneDropdownView:AndesTextSizeMedium];
+    } else {
+        [self updateStandaloneDropdownView:AndesTextSizeLarge];
+    }
+}
+
+- (void)andesTextFieldDidEndEditing:(AndesTextField *)textField {
+    if ([_andesDropdown.triggerType isMemberOfClass:[FormDropdownTrigger class]]) {
+        [self updateFormDropdownView:_textField.text placeholder:_placelholderField.text];
+    }
+    else {
+        [self updateStandaloneDropdownView:AndesTextSizeMedium];
+    }
 }
 
 @end

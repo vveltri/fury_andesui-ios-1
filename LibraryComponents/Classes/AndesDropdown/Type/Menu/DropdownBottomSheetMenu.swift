@@ -9,7 +9,12 @@ import Foundation
 
 @objc public class DropdownBottomSheetMenu: AndesDropdownMenu {
     public var separatorStyle: AndesSeparatorStyle
-
+    /// This class initialize the bottom sheet
+    /// - Parameters:
+    ///   - separatorStyle: Define the separator style
+    ///   - numberOfLines: Define the number fo lines  to the title
+    ///   - rows: Define the rows
+    ///   - selectionStyle: Define the selection style
     @objc public init(separatorStyle: AndesSeparatorStyle = .none,
                       numberOfLines: Int = 0,
                       rows: [AndesDropDownMenuCell],
