@@ -2,6 +2,10 @@
 ### 🚀 Features
 - AndesDropdown  component  | Authors: [@joalonsopint](https://github.com/joalonsopint)
 
+# v3.16.0
+### 🚀 Features
+- AndesCard: New property to make the padding independent in the body | Authors: [@federiconosmor](https://github.com/federiconosmor)
+
 # v3.15.0
 ### 🛠 Bug fixes
 - AndesList fix removing cell size | Authors: [@joalonsopint](https://github.com/joalonsopint)
