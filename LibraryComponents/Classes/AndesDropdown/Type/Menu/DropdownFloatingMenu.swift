@@ -8,6 +8,11 @@
 import Foundation
 
 @objc internal class DropdownFloatingMenu: AndesDropdownMenu {
+    /// This class initialize the Floating menu
+    /// - Parameters:
+    ///   - numberOfLines: Define the number ot lines to the title
+    ///   - rows: Define the cells
+    ///   - selectionStyle: Define the selection style
     @objc init(numberOfLines: Int = 0,
                          rows: [AndesDropDownMenuCell],
                          selectionStyle: AndesSelectionStyle) {

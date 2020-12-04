@@ -96,7 +96,7 @@ extension AndesDropdown: AndesDropdownViewDelegate {
 
     func openMenuType() {
         switch self.menuType.type {
-        case .botttomSheet:
+        case .bottomSheet:
             self.openSheet()
         case .floatingMenu:
             break
