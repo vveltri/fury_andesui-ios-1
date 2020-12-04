@@ -77,7 +77,7 @@ class AndesDropdownTests: QuickSpec {
                     self.andesDropdown.didSelectAndesTextField()
 
                     //Then
-                    expect((self.andesDropdown.menuType as! DropdownBottomSheetMenu).type).to(equal(.botttomSheet))
+                    expect((self.andesDropdown.menuType as! DropdownBottomSheetMenu).type).to(equal(.bottomSheet))
                     expect(navigationController.visibleViewController).to(beAnInstanceOf(AndesBottomSheetViewController.self))
                 }
                 it("Call delegate") {
