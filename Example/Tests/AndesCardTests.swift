@@ -16,6 +16,7 @@ class AndesCardTests: QuickSpec {
             it("uses by default padding=NONE, style=ELEVATED, type=NONE, hierarchy=PRIMARY") {
                 //Given
                 let defaultPadding = AndesCardPadding.none
+                let defaultBodyPadding = AndesCardBodyPadding.none
                 let defaultStyle = AndesCardStyle.elevated
                 let defaultType = AndesCardType.none
                 let defaultHierarchy = AndesCardHierarchy.primary
@@ -25,6 +26,7 @@ class AndesCardTests: QuickSpec {
 
                 //Then
                 expect(card.padding).to(equal(defaultPadding), description: "The default card padding should be NONE")
+                expect(card.bodyPadding).to(equal(defaultBodyPadding), description: "The default card body padding should be NONE")
                 expect(card.style).to(equal(defaultStyle), description: "The default card style should be ELEVATED")
                 expect(card.type).to(equal(defaultType), description: "The default card type should be NONE")
                 expect(card.hierarchy).to(equal(defaultHierarchy), description: "The default card hierarchy should be PRIMARY")
@@ -35,6 +37,7 @@ class AndesCardTests: QuickSpec {
                 //Given
                 let padding = AndesCardPadding.small
                 let paddingConstant = CGFloat(AndesCardPaddingSmall().paddingSize)
+                let bodyPaddingConstant = CGFloat(AndesCardBodyPaddingSmall().bodyPaddingSize)
                 let style = AndesCardStyle.outline
                 let styleInstance = AndesCardStyleOutline()
                 let type = AndesCardType.error
@@ -51,6 +54,7 @@ class AndesCardTests: QuickSpec {
                 expect((card.contentView as! AndesCardDefaultView).titleLbl.text).to(equal(title))
 
                 expect((card.contentView as! AndesCardDefaultView).topUserViewContainerConstraint.constant).to(equal(paddingConstant))
+                expect((card.contentView as! AndesCardDefaultView).topUserViewContainerConstraint.constant).to(equal(bodyPaddingConstant))
                 expect((card.contentView as! AndesCardDefaultView).leadingUserViewContainerConstraint.constant).to(equal(paddingConstant))
                 expect((card.contentView as! AndesCardDefaultView).trailingUserViewContainerConstraint.constant).to(equal(paddingConstant))
                 expect((card.contentView as! AndesCardDefaultView).bottomUserViewContainerConstraint.constant).to(equal(paddingConstant))
@@ -77,6 +81,32 @@ class AndesCardTests: QuickSpec {
                     expect((card.contentView as! AndesCardDefaultView).leadingUserViewContainerConstraint.constant).to(equal(paddingSize))
                     expect((card.contentView as! AndesCardDefaultView).trailingUserViewContainerConstraint.constant).to(equal(paddingSize))
                     expect((card.contentView as! AndesCardDefaultView).bottomUserViewContainerConstraint.constant).to(equal(paddingSize))
+                }
+
+                it("supports changing body padding dinamically") {
+                    // Given
+                    let paddingToChange = AndesCardPadding.small
+                    let bodyPaddingToChange = AndesCardBodyPadding.none
+                    let card = AndesCard(cardView: UIView(), padding: AndesCardPadding.none)
+
+                    // When
+                    card.title = "Title"
+                    card.padding = paddingToChange
+                    card.bodyPadding = bodyPaddingToChange
+
+                    // Then
+                    let paddingTitleHeight = CGFloat(AndesCardPaddingSmall().titleHeight)
+                    expect((card.contentView as! AndesCardDefaultView).titleContainerHeightConstraint.constant).to(equal(paddingTitleHeight))
+
+                    let paddingTitlePaddingSize = CGFloat(AndesCardPaddingSmall().titlePaddingSize)
+                    expect((card.contentView as! AndesCardDefaultView).titleLblLeadingConstraint.constant).to(equal(paddingTitlePaddingSize))
+                    expect((card.contentView as! AndesCardDefaultView).titleLblTrailingConstraint.constant).to(equal(paddingTitlePaddingSize))
+
+                    let bodyPaddingSize = CGFloat(AndesCardBodyPaddingNone().bodyPaddingSize)
+                    expect((card.contentView as! AndesCardDefaultView).topUserViewContainerConstraint.constant).to(equal(bodyPaddingSize))
+                    expect((card.contentView as! AndesCardDefaultView).leadingUserViewContainerConstraint.constant).to(equal(bodyPaddingSize))
+                    expect((card.contentView as! AndesCardDefaultView).trailingUserViewContainerConstraint.constant).to(equal(bodyPaddingSize))
+                    expect((card.contentView as! AndesCardDefaultView).bottomUserViewContainerConstraint.constant).to(equal(bodyPaddingSize))
                 }
 
                 it("supports changing style dinamically") {
