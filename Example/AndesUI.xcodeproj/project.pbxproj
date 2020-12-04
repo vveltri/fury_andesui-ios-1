@@ -191,7 +191,6 @@
 		03BE93FA256432C8004F3BBD /* DatePickerObjCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DatePickerObjCViewController.h; sourceTree = "<group>"; };
 		03BE93FB256432C8004F3BBD /* DatePickerObjCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DatePickerObjCViewController.m; sourceTree = "<group>"; };
 		03BE940025643307004F3BBD /* DatePickerObjCViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatePickerObjCViewController.xib; sourceTree = "<group>"; };
-		3342B83BB32B2CBB292FBB1B /* Pods-AndesUI_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AndesUI_Tests.debug.xcconfig"; path = "Target Support Files/Pods-AndesUI_Tests/Pods-AndesUI_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		1457C244B30B2C869906FCEF /* Pods-AndesUI_Tests.mds.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AndesUI_Tests.mds.xcconfig"; path = "Target Support Files/Pods-AndesUI_Tests/Pods-AndesUI_Tests.mds.xcconfig"; sourceTree = "<group>"; };
 		26B8C3AA553E1F8A81D560F0 /* Pods-AndesUI_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AndesUI_Tests.release.xcconfig"; path = "Target Support Files/Pods-AndesUI_Tests/Pods-AndesUI_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		3A1AFEA97874D75790DD8C33 /* AndesUI.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = AndesUI.podspec; path = ../AndesUI.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -454,20 +453,6 @@
 			name = DatePicker;
 			sourceTree = "<group>";
 		};
-		4511B896B5EE3851103C28AB /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				F1687EB5920F308AFA904326 /* Pods-AndesUI-demoapp.debug.xcconfig */,
-				6E64FFA0A9C64C1FB0EA4215 /* Pods-AndesUI-demoapp.release.xcconfig */,
-				3342B83BB32B2CBB292FBB1B /* Pods-AndesUI_Tests.debug.xcconfig */,
-				D9A567E4C1B9D9CA9DFC1E89 /* Pods-AndesUI_Tests.release.xcconfig */,
-				705E1889E591A1D6D1E0B47E /* Pods-AndesUI-demoapp.mds.xcconfig */,
-				83BC15984E16075D3226CA24 /* Pods-AndesUI_Tests.mds.xcconfig */,
-			);
-			name = Pods;
-			path = ../Pods;
-			sourceTree = "<group>";
-		};
 		4905899F24BE38240044FD0B /* Card */ = {
 			isa = PBXGroup;
 			children = (
@@ -560,12 +545,6 @@
 			isa = PBXGroup;
 			children = (
 				034D6011256363FA00978518 /* DatePicker */,
-				CEB95875252BC78500C74F01 /* TextFieldsCodeTests */,
-				80D6914D24E438AE002CF3BC /* Commons */,
-				80D6914224E1BE4A002CF3BC /* CoachmarkTests */,
-				F8C93A3724A272A200ADCE1C /* AndesCheckboxTest.swift */,
-				9C592C082450A6980038785E /* TextFieldTests */,
-				8634C9DF24A6509300DB7B9F /* SnackbarTests */,
 				90F4782124363A8F001CEC90 /* AndesBadgeTests.swift */,
 				E615508823D6196C00417B5F /* AndesButtonTests.swift */,
 				49BC90AD24C5FAE6007A03D3 /* AndesCardTests.swift */,
@@ -1632,13 +1611,13 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3.14.0;
+				CURRENT_PROJECT_VERSION = 3.16.0;
 				DEVELOPMENT_TEAM = T9VUHG6RU2;
 				INFOPLIST_FILE = "AndesUI/AndesUI-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)";
-				MARKETING_VERSION = 3.14.0;
+				MARKETING_VERSION = 3.16.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mercadolibre.andesui;
 				PRODUCT_NAME = "AndesUI DemoApp";
@@ -1658,13 +1637,13 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3.14.0;
+				CURRENT_PROJECT_VERSION = 3.16.0;
 				DEVELOPMENT_TEAM = T9VUHG6RU2;
 				INFOPLIST_FILE = "AndesUI/AndesUI-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)";
-				MARKETING_VERSION = 3.14.0;
+				MARKETING_VERSION = 3.16.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mercadolibre.andesui;
 				PRODUCT_NAME = "AndesUI DemoApp";
@@ -1781,13 +1760,13 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3.14.0;
+				CURRENT_PROJECT_VERSION = 3.16.0;
 				DEVELOPMENT_TEAM = T9VUHG6RU2;
 				INFOPLIST_FILE = "AndesUI/AndesUI-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)";
-				MARKETING_VERSION = 3.14.0;
+				MARKETING_VERSION = 3.16.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mercadolibre.andesui;
 				PRODUCT_NAME = "AndesUI DemoApp";
