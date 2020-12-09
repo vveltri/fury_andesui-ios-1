@@ -9,8 +9,6 @@ import Foundation
 
 class AndesDropdownDefaultView: AndesDropdownAbstractView {
 
-    @IBOutlet var textField: AndesTextField!
-
     override var text: String {
         get {
             return textField.text

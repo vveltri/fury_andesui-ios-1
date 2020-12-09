@@ -10,6 +10,12 @@ import Foundation
 @objc public class AndesDropdown: UIView {
 
     private var contentView: AndesDropdownView!
+    private var didSelect: Bool = false {
+        didSet {
+            self.updateContentView()
+            didSelect.toggle()
+        }
+    }
 
     /// Set the trigger type, default is formDropdown
     @objc public var triggerType: AndesDropdownTrigger {
@@ -50,15 +56,15 @@ import Foundation
         drawContentView(with: provideView())
     }
 
-    private func getConfig(isSelected: Bool) -> AndesDropdownViewConfig {
-        return AndesDropdownViewConfigFactory.provide(from: self, isSelected: isSelected)
+    private func getConfig() -> AndesDropdownViewConfig {
+        return AndesDropdownViewConfigFactory.provide(from: self, isSelected: didSelect)
     }
 
-    private func provideView() -> AndesDropdownAbstractView {
-        return AndesDropdownDefaultView(withConfig: getConfig(isSelected: false))
+    private func provideView() -> AndesDropdownView {
+        return AndesDropdownDefaultView(withConfig: getConfig())
     }
 
-    private func drawContentView(with newView: AndesDropdownAbstractView) {
+    private func drawContentView(with newView: AndesDropdownView) {
         self.contentView = newView
         self.contentView.delegate = self
         addSubview(contentView)
@@ -66,30 +72,25 @@ import Foundation
     }
 
     private func updateContentView() {
-        contentView.update(withConfig: getConfig(isSelected: false))
-    }
-
-    private func updateSelectedContentView() {
-        contentView.update(withConfig: getConfig(isSelected: true))
+        contentView.update(withConfig: getConfig())
     }
 
     private func setContentView() {
         guard menuType.rows.count != 0 else {
-            fatalError("You should provided the rows")
+            return
         }
         switch self.triggerType.type {
         case .standalone:
             contentView.text = menuType.rows[0].title
         case .formDropdown:
             contentView.text = ""
-
         }
     }
 }
 
 extension AndesDropdown: AndesDropdownViewDelegate {
     func didSelectAndesTextField() {
-        updateSelectedContentView()
+        didSelect.toggle()
         openMenuType()
 
     }
