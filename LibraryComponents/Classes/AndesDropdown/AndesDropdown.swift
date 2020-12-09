@@ -92,7 +92,6 @@ extension AndesDropdown: AndesDropdownViewDelegate {
     func didSelectAndesTextField() {
         didSelect.toggle()
         openMenuType()
-
     }
 
     func openMenuType() {
@@ -107,18 +106,24 @@ extension AndesDropdown: AndesDropdownViewDelegate {
 
 extension AndesDropdown {
     private func openSheet() {
-        let sheet = AndesBottomSheetViewController(rootViewController: configViewController())
+        guard let viewController = configViewController() else { return }
+        let sheet = AndesBottomSheetViewController(rootViewController: viewController)
         rootViewController?.present(sheet, animated: true)
     }
 
-    func configViewController() -> UIViewController {
+    func configViewController() -> UIViewController? {
+
+        guard let menuType = self.menuType as? DropdownBottomSheetMenu else {
+            return nil
+        }
+
         let viewController = AndesDropdownBottomSheetViewController(nibName: "AndesDropdownBottomSheetViewController",
                                                                     bundle: AndesDropdownBundle.bundle())
         viewController.delegate = self
         viewController.configController(menuCellType: menuType.rows,
                                         numberOfLines: self.menuType.numberOfLines,
-                                        separatorStyle: (self.menuType as? DropdownBottomSheetMenu)?.separatorStyle,
-                                        selectionStyle: (self.menuType as? DropdownBottomSheetMenu)?.selectionStyle)
+                                        separatorStyle: menuType.separatorStyle,
+                                        selectionStyle: menuType.selectionStyle)
         return viewController
     }
 }

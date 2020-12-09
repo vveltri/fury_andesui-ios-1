@@ -25,12 +25,8 @@ internal class AndesTextFieldStateFactory {
         switch state {
         case .idle:
             return AndesTextFieldStateIdle(focused: isEditing, borderColor: borderColor)
-        case .error:
-            return AndesTextFieldStateError(focuesd: isEditing)
-        case .disabled:
-            return AndesTextFieldStateDisabled()
-        case .readOnly:
-            return AndesTextFieldStateReadonly()
+        default:
+            return self.getState(state, isEditing: isEditing)
         }
     }
 }
