@@ -11,7 +11,7 @@ class AndesRotationAnimation: CABasicAnimation {
 
     enum Direction: String {
         case axisX, axisY, axisZ
-        
+
         func getAxisIdentifier() -> String {
             switch self {
             case .axisX:
