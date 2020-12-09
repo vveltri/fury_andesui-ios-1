@@ -10,14 +10,11 @@ import Foundation
 class AndesDropdownBottomSheetCellFactory {
 
     static func provide(menuCellType: [AndesDropDownMenuCell], size: AndesListSize, numberOfLines: Int) -> [AndesSimpleCell] {
-        var cell: [AndesSimpleCell] = []
-        menuCellType.forEach({ (cellType) in
-            cell.append(AndesSimpleCell(withTitle: cellType.title,
-                                        subtitle: nil,
-                                        thumbnail: cellType.thumbnail,
-                                        numberOfLines: numberOfLines))
-        })
-
-        return cell
+        return menuCellType.map {
+            AndesSimpleCell(withTitle: $0.title,
+                            subtitle: nil,
+                            thumbnail: $0.thumbnail,
+                            numberOfLines: numberOfLines)
+        }
     }
 }

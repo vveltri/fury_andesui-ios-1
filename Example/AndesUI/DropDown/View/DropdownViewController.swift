@@ -28,8 +28,8 @@ class DropdownViewController: UIViewController {
              AndesDropDownMenuCell(title: "Mercado Créditos", thumbnail: icon)]
 
         andesDropdown.delegate = self
-//        andesDropdown.triggerType = FormDropdownTrigger(title: "Title", placeholder: "Placeholder")
-        andesDropdown.triggerType = StandaloneDropdownTrigger(size: .small)
+        andesDropdown.triggerType = FormDropdownTrigger(title: "Title", placeholder: "Placeholder")
+//        andesDropdown.triggerType = StandaloneDropdownTrigger(size: .small)
 
         andesDropdown.menuType = DropdownBottomSheetMenu(separatorStyle: .none,
                                                          numberOfLines: 1,

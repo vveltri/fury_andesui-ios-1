@@ -10,6 +10,7 @@ import Foundation
 class AndesDropdownAbstractView: UIView, AndesDropdownView {
 
     @IBOutlet var view: UIView!
+    @IBOutlet var textField: AndesTextField!
 
     var config: AndesDropdownViewConfig
     weak var delegate: AndesDropdownViewDelegate?
