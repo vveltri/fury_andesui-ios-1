@@ -26,26 +26,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _textField.delegate = self;
-    _placelholderField.delegate = self;
-    [_segmentedControl setEnabled:false];
+    self.textField.delegate = self;
+    self.placelholderField.delegate = self;
+    [self.segmentedControl setEnabled:false];
     
     [self config];
     [self setup];
-    [_radioButtonForm setRadioButtonTappedWithCallback:^(AndesRadioButton *selected) {
+    [self.radioButtonForm setRadioButtonTappedWithCallback:^(AndesRadioButton *selected) {
         [self didTapped:selected];
     }];
-    [_radioButtonStandAlone setRadioButtonTappedWithCallback:^(AndesRadioButton *selected) {
+    [self.radioButtonStandAlone setRadioButtonTappedWithCallback:^(AndesRadioButton *selected) {
         [self didTapped:selected];
     }];
 }
 
 - (void) setup {
-    _andesDropdown.delegate = self;
-    [_andesDropdown setTriggerType:[[FormDropdownTrigger alloc]initWithTitle:@"Title" placeholder:@"Placeholder"]];
-    [_andesDropdown setMenuType:[[DropdownBottomSheetMenu alloc]initWithSeparatorStyle:AndesSeparatorStyleSingleLine
+    self.andesDropdown.delegate = self;
+    [self.andesDropdown setTriggerType:[[FormDropdownTrigger alloc]initWithTitle:@"Title" placeholder:@"Placeholder"]];
+    [self.andesDropdown setMenuType:[[DropdownBottomSheetMenu alloc]initWithSeparatorStyle:AndesSeparatorStyleSingleLine
                                                                          numberOfLines:1
-                                                                                  rows:_cellArray
+                                                                                  rows:self.cellArray
                                                                         selectionStyle:AndesSelectionStyleDefaultStyle]];
 }
 
@@ -86,34 +86,34 @@
                                                                                                                    image:[UIImage imageNamed:@"mercadocredito"]
                                                                                                              accentColor:NULL]];
     
-    _cellArray = [[NSMutableArray alloc]init];
-    [_cellArray addObject:mastercard];
-    [_cellArray addObject:visa];
-    [_cellArray addObject:bbva1];
-    [_cellArray addObject:bbva2];
-    [_cellArray addObject:mercadoCreditos];
+    self.cellArray = [[NSMutableArray alloc]init];
+    [self.cellArray addObject:mastercard];
+    [self.cellArray addObject:visa];
+    [self.cellArray addObject:bbva1];
+    [self.cellArray addObject:bbva2];
+    [self.cellArray addObject:mercadoCreditos];
 }
 
 - (void)didTapped:(AndesRadioButton *)radioButton {
-    if (radioButton == _radioButtonForm) {
-        _radioButtonForm.status = AndesRadioButtonStatusSelected;
-        _radioButtonStandAlone.status = AndesRadioButtonStatusUnselected;
-        _textField.state = AndesTextInputStateIdle;
-        _placelholderField.state = AndesTextInputStateIdle;
-        [_segmentedControl setEnabled:false];
+    if (radioButton == self.radioButtonForm) {
+        self.radioButtonForm.status = AndesRadioButtonStatusSelected;
+        self.radioButtonStandAlone.status = AndesRadioButtonStatusUnselected;
+        self.textField.state = AndesTextInputStateIdle;
+        self.placelholderField.state = AndesTextInputStateIdle;
+        [self.segmentedControl setEnabled:false];
         [self updateFormDropdownView:@"" placeholder:@"Placeholder para Dropdown"];
     }
-    else if (radioButton == _radioButtonStandAlone) {
-        _radioButtonForm.status = AndesRadioButtonStatusUnselected;
-        _radioButtonStandAlone.status = AndesRadioButtonStatusSelected;
-        _textField.state = AndesTextInputStateDisabled;
-        _placelholderField.state = AndesTextInputStateDisabled;
-        [_segmentedControl setEnabled:true];
+    else if (radioButton == self.radioButtonStandAlone) {
+        self.radioButtonForm.status = AndesRadioButtonStatusUnselected;
+        self.radioButtonStandAlone.status = AndesRadioButtonStatusSelected;
+        self.textField.state = AndesTextInputStateDisabled;
+        self.placelholderField.state = AndesTextInputStateDisabled;
+        [self.segmentedControl setEnabled:true];
         [self updateStandaloneDropdownView:AndesTextSizeMedium];
     }
-    _textField.text = @"";
-    _placelholderField.text = @"";
-    _segmentedControl.selectedSegmentIndex = 1;
+    self.textField.text = @"";
+    self.placelholderField.text = @"";
+    self.segmentedControl.selectedSegmentIndex = 1;
 }
 
 - (void)didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath {
@@ -121,17 +121,17 @@
 }
 
 - (void)updateFormDropdownView:(NSString *)title placeholder: (NSString *)placeholder  {
-    [_andesDropdown setTriggerType:[[FormDropdownTrigger alloc]initWithTitle:title placeholder:placeholder]];
+    [self.andesDropdown setTriggerType:[[FormDropdownTrigger alloc]initWithTitle:title placeholder:placeholder]];
 }
 
 - (void)updateStandaloneDropdownView:(AndesTextSize)size {
-    [_andesDropdown setTriggerType:[[StandaloneDropdownTrigger alloc]initWithSize:size]];
+    [self.andesDropdown setTriggerType:[[StandaloneDropdownTrigger alloc]initWithSize:size]];
 }
 
 - (IBAction)valueChangeSegmented {
-    if (_segmentedControl.selectedSegmentIndex == 0) {
+    if (self.segmentedControl.selectedSegmentIndex == 0) {
         [self updateStandaloneDropdownView:AndesTextSizeSmall];
-    } else if (_segmentedControl.selectedSegmentIndex == 1) {
+    } else if (self.segmentedControl.selectedSegmentIndex == 1) {
         [self updateStandaloneDropdownView:AndesTextSizeMedium];
     } else {
         [self updateStandaloneDropdownView:AndesTextSizeLarge];
@@ -139,8 +139,8 @@
 }
 
 - (void)andesTextFieldDidEndEditing:(AndesTextField *)textField {
-    if ([_andesDropdown.triggerType isMemberOfClass:[FormDropdownTrigger class]]) {
-        [self updateFormDropdownView:_textField.text placeholder:_placelholderField.text];
+    if ([self.andesDropdown.triggerType isMemberOfClass:[FormDropdownTrigger class]]) {
+        [self updateFormDropdownView:self.textField.text placeholder:self.placelholderField.text];
     }
     else {
         [self updateStandaloneDropdownView:AndesTextSizeMedium];
