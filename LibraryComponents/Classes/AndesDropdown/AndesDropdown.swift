@@ -21,6 +21,7 @@ import Foundation
     @objc public var triggerType: AndesDropdownTrigger {
         didSet {
             self.updateContentView()
+            self.setContentView()
         }
     }
 
