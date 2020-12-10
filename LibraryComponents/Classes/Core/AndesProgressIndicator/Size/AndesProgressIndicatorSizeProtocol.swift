@@ -16,4 +16,5 @@ internal protocol AndesProgressIndicatorSizeProtocol {
     var textSpacing: CGFloat { get }
 
     var textFont: UIFont { get }
+    var horizontalDistribution: Bool { get }
 }

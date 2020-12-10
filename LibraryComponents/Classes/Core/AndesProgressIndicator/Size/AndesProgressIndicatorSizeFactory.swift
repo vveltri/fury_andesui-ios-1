@@ -19,6 +19,10 @@ class AndesProgressIndicatorSizeFactory {
             return AndesProgressIndicatorSizeMedium()
         case .small:
             return AndesProgressIndicatorSizeSmall()
+        case .xSmall:
+            return AndesProgressIndicatorSizeXSmall()
+        case .xxSmall:
+            return AndesProgressIndicatorSizeXXSmall()
         }
     }
 }

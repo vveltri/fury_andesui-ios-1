@@ -11,7 +11,7 @@ internal struct AndesProgressIndicatorSizeSmall: AndesProgressIndicatorSizeProto
     var textSpacing: CGFloat = 16
     var strokeWidth: CGFloat = 2.5
     var height: CGFloat = 24
-
+    var horizontalDistribution: Bool = false
     var textFont: UIFont = AndesStyleSheetManager.styleSheet.regularSystemFont(size: 14)
 
 }

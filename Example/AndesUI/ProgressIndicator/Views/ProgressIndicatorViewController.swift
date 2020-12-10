@@ -14,10 +14,14 @@ class ProgressIndicatorViewController: UIViewController {
     @IBOutlet weak var progressIndicatorLargeWithText: AndesProgressIndicatorIndeterminate!
     @IBOutlet weak var progressIndicatorSmallWithText: AndesProgressIndicatorIndeterminate!
     @IBOutlet weak var progressIndicatorMediumWithText: AndesProgressIndicatorIndeterminate!
+    @IBOutlet weak var progressIndicatorXSmallWithText: AndesProgressIndicatorIndeterminate!
+    @IBOutlet weak var progressIndicatorXXSmallWithText: AndesProgressIndicatorIndeterminate!
 
     @IBOutlet weak var progressIndicatorLargeWithoutText: AndesProgressIndicatorIndeterminate!
     @IBOutlet weak var progressIndicatorSmallWithoutText: AndesProgressIndicatorIndeterminate!
     @IBOutlet weak var progressIndicatorMediumWithoutText: AndesProgressIndicatorIndeterminate!
+    @IBOutlet weak var progressIndicatorXXSmallWithoutText: AndesProgressIndicatorIndeterminate!
+    @IBOutlet weak var progressIndicatorXSmallWithoutText: AndesProgressIndicatorIndeterminate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,20 +42,28 @@ class ProgressIndicatorViewController: UIViewController {
         progressIndicatorLargeWithText.startAnimation()
         progressIndicatorSmallWithText.startAnimation()
         progressIndicatorMediumWithText.startAnimation()
+        progressIndicatorXSmallWithText.startAnimation()
+        progressIndicatorXXSmallWithText.startAnimation()
 
         progressIndicatorLargeWithoutText.startAnimation()
         progressIndicatorSmallWithoutText.startAnimation()
         progressIndicatorMediumWithoutText.startAnimation()
+        progressIndicatorXSmallWithoutText.startAnimation()
+        progressIndicatorXXSmallWithoutText.startAnimation()
     }
 
     private func stopAnimation() {
         progressIndicatorLargeWithText.stopAnimation()
         progressIndicatorSmallWithText.stopAnimation()
         progressIndicatorMediumWithText.stopAnimation()
+        progressIndicatorXSmallWithText.stopAnimation()
+        progressIndicatorXXSmallWithText.stopAnimation()
 
         progressIndicatorLargeWithoutText.stopAnimation()
         progressIndicatorSmallWithoutText.stopAnimation()
         progressIndicatorMediumWithoutText.stopAnimation()
+        progressIndicatorXSmallWithoutText.stopAnimation()
+        progressIndicatorXXSmallWithoutText.stopAnimation()
     }
     private func setupObjcCase() {
         let rightButton = UIBarButtonItem(

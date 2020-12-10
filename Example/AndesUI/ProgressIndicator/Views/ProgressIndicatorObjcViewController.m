@@ -14,9 +14,16 @@
 @property (weak, nonatomic) IBOutlet AndesProgressIndicatorIndeterminate *progressIndicatorMediumWithText;
 @property (weak, nonatomic) IBOutlet AndesProgressIndicatorIndeterminate *progressIndicatorSmallWithText;
 
+@property (weak, nonatomic) IBOutlet AndesProgressIndicatorIndeterminate *progressIndicatorXSmallWithText;
+@property (weak, nonatomic) IBOutlet AndesProgressIndicatorIndeterminate *progressIndicatorXXSmallWithText;
+
+
 @property (weak, nonatomic) IBOutlet AndesProgressIndicatorIndeterminate *progressIndicatorLargeWithoutText;
 @property (weak, nonatomic) IBOutlet AndesProgressIndicatorIndeterminate *progressIndicatorMediumWithoutText;
 @property (weak, nonatomic) IBOutlet AndesProgressIndicatorIndeterminate *progressIndicatorSmallWithoutText;
+
+@property (weak, nonatomic) IBOutlet AndesProgressIndicatorIndeterminate *progressIndicatorXSmallWithoutText;
+@property (weak, nonatomic) IBOutlet AndesProgressIndicatorIndeterminate *progressIndicatorXXSmallWithoutText;
 
 
 @end
@@ -42,20 +49,30 @@
     [self.progressIndicatorLargeWithText startAnimation];
     [self.progressIndicatorMediumWithText startAnimation];
     [self.progressIndicatorSmallWithText startAnimation];
+    [self.progressIndicatorXSmallWithText startAnimation];
+    [self.progressIndicatorXXSmallWithText startAnimation];
+
     
     [self.progressIndicatorLargeWithoutText startAnimation];
     [self.progressIndicatorMediumWithoutText startAnimation];
     [self.progressIndicatorSmallWithoutText startAnimation];
+    [self.progressIndicatorXSmallWithoutText startAnimation];
+    [self.progressIndicatorXXSmallWithoutText startAnimation];
+
 }
 
 - (void)stopAnimation {
     [self.progressIndicatorLargeWithText stopAnimation];
     [self.progressIndicatorMediumWithText stopAnimation];
     [self.progressIndicatorSmallWithText stopAnimation];
+    [self.progressIndicatorXSmallWithText stopAnimation];
+    [self.progressIndicatorXXSmallWithText stopAnimation];
     
     [self.progressIndicatorLargeWithoutText stopAnimation];
     [self.progressIndicatorMediumWithoutText stopAnimation];
     [self.progressIndicatorSmallWithoutText stopAnimation];
+    [self.progressIndicatorXSmallWithoutText stopAnimation];
+    [self.progressIndicatorXXSmallWithoutText stopAnimation];
 }
 
 @end
