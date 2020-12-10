@@ -37,7 +37,7 @@ import Foundation
 
     private let rootViewController = UIApplication.shared.keyWindow?.rootViewController
 
-    init() {
+    @objc public init() {
         self.triggerType = AndesDropdownTrigger()
         self.menuType = AndesDropdownMenu(rows: [])
         super.init(frame: .zero)
