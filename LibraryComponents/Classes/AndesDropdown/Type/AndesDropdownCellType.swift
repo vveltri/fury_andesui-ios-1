@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// This class define the cell type, isSelectable, checkbox and none
 @objc public enum AndesDropdownCellType: Int, AndesEnumStringConvertible {
     case isSelectable
     case checkBox
