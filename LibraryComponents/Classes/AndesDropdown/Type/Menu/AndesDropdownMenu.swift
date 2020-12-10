@@ -14,11 +14,11 @@ import Foundation
     private(set) var cellType: AndesDropdownCellType
     private(set) var type: AndesDropdownMenuType
 
-    internal init(numberOfLines: Int = 0,
-                rows: [AndesDropDownMenuCell],
-                selectionStyle: AndesSelectionStyle = .defaultStyle,
-                cellType: AndesDropdownCellType = .none,
-                type: AndesDropdownMenuType = .bottomSheet) {
+    @objc public init(numberOfLines: Int = 0,
+                      rows: [AndesDropDownMenuCell],
+                      selectionStyle: AndesSelectionStyle = .defaultStyle,
+                      cellType: AndesDropdownCellType = .none,
+                      type: AndesDropdownMenuType = .bottomSheet) {
         self.numberOfLines = numberOfLines
         self.rows = rows
         self.selectionStyle = selectionStyle

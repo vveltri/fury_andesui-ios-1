@@ -24,13 +24,9 @@ class AndesDropdownDefaultView: AndesDropdownAbstractView {
     }
 
     override func setup() {
-        loadNib()
-        translatesAutoresizingMaskIntoConstraints = false
+        super.setup()
         self.textField.delegate = self
-        pinXibViewToSelf()
         updateView()
-        self.backgroundColor = .clear
-        self.clipsToBounds = true
     }
 
     override func updateView() {

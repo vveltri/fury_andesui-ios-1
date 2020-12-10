@@ -8,7 +8,7 @@
 import Foundation
 
 @objc public class DropdownBottomSheetMenu: AndesDropdownMenu {
-    public var separatorStyle: AndesSeparatorStyle
+    @objc public var separatorStyle: AndesSeparatorStyle
     /// This class initialize the bottom sheet
     /// - Parameters:
     ///   - separatorStyle: Define the separator style

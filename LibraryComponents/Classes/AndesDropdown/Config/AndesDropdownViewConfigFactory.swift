@@ -12,17 +12,20 @@ internal class AndesDropdownViewConfigFactory {
 
         let triggerType = dropdown.triggerType
         let style = AndesDropdownStyleFactory.getStyle(triggerType.type)
+        let formTrigger = dropdown.triggerType as? FormDropdownTrigger
+        let standaloneTrigger = dropdown.triggerType as? StandaloneDropdownTrigger
+
         switch triggerType.type {
         case .formDropdown:
             return AndesDropdownViewConfig(borderColor: style.borderColor,
-                                           placeholderText: (dropdown.triggerType as? FormDropdownTrigger)?.placeholder,
+                                           placeholderText: formTrigger?.placeholder,
                                            icon: isSelected ? AndesIcons.chevronUp20 : AndesIcons.chevronDown20,
-                                           title: (dropdown.triggerType as? FormDropdownTrigger)?.title,
+                                           title: formTrigger?.title,
                                            iconColor: UIColor.Andes.blueML500)
         case .standalone:
             return AndesDropdownViewConfig(borderColor: style.borderColor,
                                            icon: isSelected ? AndesIcons.chevronUp20 : AndesIcons.chevronDown20,
-                                           size: (dropdown.triggerType as? StandaloneDropdownTrigger)!.size,
+                                           size: standaloneTrigger?.size ?? .medium,
                                            iconColor: UIColor.Andes.gray450)
         }
     }

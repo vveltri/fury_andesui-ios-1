@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class AndesDropdownTrigger: NSObject {
+@objc public class AndesDropdownTrigger: NSObject {
     private(set) var type: AndesDropdownTriggerType
 
     internal init(type: AndesDropdownTriggerType = .formDropdown) {
