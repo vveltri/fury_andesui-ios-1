@@ -119,9 +119,12 @@ jobs:
       - run:
           name: Install CocoaPods
           command: bundle exec pod install
+      # - run:
+      #     name: Run Deploy
+      #     command: ./scripts/run_deploy.sh
       - run:
-          name: Run Deploy
-          command: ./scripts/run_deploy.sh
+          name: Run MDS demoapp deploy
+          command: ./scripts/run_mds.sh  
 
 # Define the full workflow.
 workflows:
@@ -132,5 +135,3 @@ workflows:
           <<: *defaultWorkflow
       - lint:
           <<: *defaultWorkflow
-      - build:
-          <<: *deployWorkflow
