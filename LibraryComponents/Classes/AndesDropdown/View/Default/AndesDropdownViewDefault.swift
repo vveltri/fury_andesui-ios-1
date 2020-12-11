@@ -51,10 +51,3 @@ class AndesDropdownDefaultView: AndesDropdownAbstractView {
                                                                        size: config.size))
     }
 }
-
-extension AndesDropdownDefaultView: AndesTextFieldDelegate {
-    func andesTextFieldShouldBeginEditing(_ textField: AndesTextField) -> Bool {
-        delegate?.didSelectAndesTextField()
-        return false
-    }
-}
