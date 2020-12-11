@@ -12,18 +12,26 @@ class AndesDropdownAbstractView: UIView, AndesDropdownView {
     @IBOutlet var view: UIView!
     @IBOutlet var textField: AndesTextField!
 
-    var config: AndesDropdownViewConfig
+    var config: AndesDropdownViewConfig?
     weak var delegate: AndesDropdownViewDelegate?
-    var text: String = ""
+    var text: String {
+        get {
+            return textField.text
+        }
+        set {
+            textField.text = newValue
+        }
+    }
 
     init(withConfig config: AndesDropdownViewConfig) {
-        self.config = config
         super.init(frame: .zero)
         setup()
+        updateView()
+        self.textField.delegate = self
     }
 
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
     }
 
     internal func loadNib() {
@@ -53,7 +61,7 @@ class AndesDropdownAbstractView: UIView, AndesDropdownView {
     }
 }
 
-extension AndesDropdownDefaultView: AndesTextFieldDelegate {
+extension AndesDropdownAbstractView: AndesTextFieldDelegate {
     func andesTextFieldShouldBeginEditing(_ textField: AndesTextField) -> Bool {
         delegate?.didSelectAndesTextField()
         return false

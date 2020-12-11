@@ -9,35 +9,23 @@ import Foundation
 
 class AndesDropdownDefaultView: AndesDropdownAbstractView {
 
-    override var text: String {
-        get {
-            return textField.text
-        }
-        set {
-            textField.text = newValue
-        }
-    }
-
     override func loadNib() {
         let bundle = AndesDropdownBundle.bundle()
         bundle.loadNibNamed("AndesDropdownViewDefault", owner: self, options: nil)
     }
 
-    override func setup() {
-        super.setup()
-        self.textField.delegate = self
-        updateView()
-    }
-
     override func updateView() {
+
+        guard let config = self.config else { return }
 
         let stateStyle = AndesTextFieldStateFactory.getState(textField.state,
                                                              isEditing: textField.isEditing,
-                                                             borderColor: self.config.borderColor)
+                                                             borderColor: config.borderColor)
 
         let paddings = AndesTextInputPaddingFactory.providePaddingForField(state: textField.state)
 
-        let rightComponent = AndesTextFieldComponentIcon(andesIconName: config.icon ?? "", tintColor: self.config.iconColor)
+        let rightComponent = AndesTextFieldComponentIcon(andesIconName: config.icon ?? "",
+                                                         tintColor: config.iconColor)
 
         self.textField.updateWithCustomConfig(AndesTextFieldViewConfig(labelText: config.title,
                                                                        helperText: nil,
