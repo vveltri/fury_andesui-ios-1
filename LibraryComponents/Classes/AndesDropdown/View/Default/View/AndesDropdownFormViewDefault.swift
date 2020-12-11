@@ -1,26 +1,37 @@
 //
-//  AndesDropdownDefaultView.swift
+//  DropdownTexfieldViewDefault.swift
 //  AndesUI
 //
-//  Created by Jonathan Alonso Pinto on 13/11/20.
+//  Created by Jonathan Alonso Pinto on 11/12/20.
 //
 
 import Foundation
 
-class AndesDropdownDefaultView: AndesDropdownAbstractView {
-
+class AndesDropdownFormViewDefault: AndesDropdownAbstractView {
+    
+    @IBOutlet var textField: AndesTextField!
+    
+    override var text: String {
+        get {
+            return textField.text
+        }
+        set {
+            textField.text = newValue
+        }
+    }
+    
     override func loadNib() {
         let bundle = AndesDropdownBundle.bundle()
-        bundle.loadNibNamed("AndesDropdownViewDefault", owner: self, options: nil)
+        bundle.loadNibNamed("AndesDropdownFormViewDefault", owner: self, options: nil)
     }
-
+    
     override func updateView() {
 
         guard let config = self.config else { return }
 
         let stateStyle = AndesTextFieldStateFactory.getState(textField.state,
                                                              isEditing: textField.isEditing,
-                                                             borderColor: config.borderColor)
+                                                             borderColor: config.borderColor ?? .clear)
 
         let paddings = AndesTextInputPaddingFactory.providePaddingForField(state: textField.state)
 

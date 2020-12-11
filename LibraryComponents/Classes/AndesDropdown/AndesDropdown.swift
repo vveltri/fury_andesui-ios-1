@@ -62,7 +62,12 @@ import Foundation
     }
 
     private func provideView() -> AndesDropdownView {
-        return AndesDropdownDefaultView(withConfig: getConfig())
+        switch self.triggerType.type {
+        case .formDropdown:
+            return AndesDropdownFormViewDefault(withConfig: getConfig())
+        case .standalone:
+            return AndesDropdownStandaloneViewDefault(withConfig: getConfig())
+        }
     }
 
     private func drawContentView(with newView: AndesDropdownView) {
