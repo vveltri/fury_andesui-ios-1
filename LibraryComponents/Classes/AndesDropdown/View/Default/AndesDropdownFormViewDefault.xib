@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AndesDropdownFormViewDefault" customModule="AndesUI">
             <connections>
                 <outlet property="textField" destination="IZt-hh-NNu" id="jvI-ko-g1s"/>
+                <outlet property="view" destination="3XP-eM-KBf" id="Guh-la-KtV"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

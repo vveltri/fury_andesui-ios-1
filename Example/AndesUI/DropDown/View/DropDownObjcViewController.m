@@ -109,7 +109,7 @@
         self.textField.state = AndesTextInputStateDisabled;
         self.placelholderField.state = AndesTextInputStateDisabled;
         [self.segmentedControl setEnabled:true];
-        [self updateStandaloneDropdownView:AndesTextSizeMedium];
+        [self updateStandaloneDropdownView:AndesStandaloneSizeMedium];
     }
     self.textField.text = @"";
     self.placelholderField.text = @"";
@@ -124,17 +124,17 @@
     [self.andesDropdown setTriggerType:[[FormDropdownTrigger alloc]initWithTitle:title placeholder:placeholder]];
 }
 
-- (void)updateStandaloneDropdownView:(AndesTextSize)size {
+- (void)updateStandaloneDropdownView:(AndesStandaloneSize)size {
     [self.andesDropdown setTriggerType:[[StandaloneDropdownTrigger alloc]initWithSize:size]];
 }
 
 - (IBAction)valueChangeSegmented {
     if (self.segmentedControl.selectedSegmentIndex == 0) {
-        [self updateStandaloneDropdownView:AndesTextSizeSmall];
+        [self updateStandaloneDropdownView:AndesStandaloneSizeSmall];
     } else if (self.segmentedControl.selectedSegmentIndex == 1) {
-        [self updateStandaloneDropdownView:AndesTextSizeMedium];
+        [self updateStandaloneDropdownView:AndesStandaloneSizeMedium];
     } else {
-        [self updateStandaloneDropdownView:AndesTextSizeLarge];
+        [self updateStandaloneDropdownView:AndesStandaloneSizeLarge];
     }
 }
 
@@ -143,7 +143,7 @@
         [self updateFormDropdownView:self.textField.text placeholder:self.placelholderField.text];
     }
     else {
-        [self updateStandaloneDropdownView:AndesTextSizeMedium];
+        [self updateStandaloneDropdownView:AndesStandaloneSizeMedium];
     }
 }
 

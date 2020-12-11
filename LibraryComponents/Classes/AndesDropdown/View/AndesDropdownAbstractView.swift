@@ -18,6 +18,7 @@ class AndesDropdownAbstractView: UIView, AndesDropdownView {
 
     init(withConfig config: AndesDropdownViewConfig) {
         super.init(frame: .zero)
+        self.config = config
         setup()
         updateView()
     }

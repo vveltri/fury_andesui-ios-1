@@ -20,13 +20,4 @@ internal class AndesTextFieldStateFactory {
             return AndesTextFieldStateReadonly()
         }
     }
-
-    static func getState(_ state: AndesTextInputState, isEditing: Bool, borderColor: UIColor) -> AndesTextFieldStateProtocol {
-        switch state {
-        case .idle:
-            return AndesTextFieldStateIdle(focused: isEditing, borderColor: borderColor)
-        default:
-            return self.getState(state, isEditing: isEditing)
-        }
-    }
 }

@@ -8,10 +8,10 @@
 import Foundation
 
 internal struct AndesDropdownViewConfig {
-    var borderColor: UIColor?
     var placeholderText: String?
     var icon: String?
     var title: String?
-    var size: AndesTextSize = .medium
+    var font: AndesFontStyle?
+    var heightChevron: Int?
     var iconColor: UIColor
 }
