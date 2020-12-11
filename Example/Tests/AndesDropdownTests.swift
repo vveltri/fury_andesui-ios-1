@@ -47,7 +47,7 @@ class AndesDropdownTests: QuickSpec {
                     //When
 
                     //Then
-                    expect((self.andesDropdown.triggerType as! StandaloneDropdownTrigger).size).to(equal(AndesTextSize.small))
+                    expect((self.andesDropdown.triggerType as! StandaloneDropdownTrigger).size).to(equal(AndesStandaloneSize.small))
                 }
                 it("DropdownBottomSheetMenu implementation") {
                     //Given
@@ -94,6 +94,54 @@ class AndesDropdownTests: QuickSpec {
 
                     //Then
                     expect(mock.didSelect).to(beTrue())
+                }
+
+                it("Get small size Standalone Dropdown") {
+                    //Given
+                    self.andesDropdown.triggerType = StandaloneDropdownTrigger(size: .small)
+                    self.andesDropdown.menuType = DropdownBottomSheetMenu(separatorStyle: .singleLine,
+                                                                          numberOfLines: 0,
+                                                                          rows: self.cell,
+                                                                          selectionStyle: .defaultStyle)
+
+                    //When
+                    let config = AndesDropdownViewConfigFactory.provide(from: self.andesDropdown, isSelected: false)
+                    let trigger = AndesStandaloneSizeFactory.provideSize(withSize: .small)
+
+                    //Then
+                    expect(trigger.heightChevron).to(beIdenticalTo(config.heightChevron))
+                }
+
+                it("Get medium size Standalone Dropdown") {
+                    //Given
+                    self.andesDropdown.triggerType = StandaloneDropdownTrigger(size: .medium)
+                    self.andesDropdown.menuType = DropdownBottomSheetMenu(separatorStyle: .singleLine,
+                                                                          numberOfLines: 0,
+                                                                          rows: self.cell,
+                                                                          selectionStyle: .defaultStyle)
+
+                    //When
+                    let config = AndesDropdownViewConfigFactory.provide(from: self.andesDropdown, isSelected: false)
+                    let trigger = AndesStandaloneSizeFactory.provideSize(withSize: .medium)
+
+                    //Then
+                    expect(trigger.heightChevron).to(beIdenticalTo(config.heightChevron))
+                }
+
+                it("Get large size Standalone Dropdown") {
+                    //Given
+                    self.andesDropdown.triggerType = StandaloneDropdownTrigger(size: .large)
+                    self.andesDropdown.menuType = DropdownBottomSheetMenu(separatorStyle: .singleLine,
+                                                                          numberOfLines: 0,
+                                                                          rows: self.cell,
+                                                                          selectionStyle: .defaultStyle)
+
+                    //When
+                    let config = AndesDropdownViewConfigFactory.provide(from: self.andesDropdown, isSelected: false)
+                    let trigger = AndesStandaloneSizeFactory.provideSize(withSize: .large)
+
+                    //Then
+                    expect(trigger.heightChevron).to(beIdenticalTo(config.heightChevron))
                 }
 
             }
