@@ -24,10 +24,14 @@ class AndesDropdownStandaloneView: AndesDropdownAbstractView {
     override func loadNib() {
         let bundle = AndesDropdownBundle.bundle()
         bundle.loadNibNamed("AndesDropdownStandaloneView", owner: self, options: nil)
-        self.setupUserInteraction()
     }
 
-    func setupUserInteraction() {
+    override func setup() {
+        super.setup()
+        self.setupGestureRecognizer()
+    }
+
+    func setupGestureRecognizer() {
         titleLbl.isUserInteractionEnabled = true
         iconImg.isUserInteractionEnabled = true
         titleLbl.addGestureRecognizer(self.setRecognizer())
