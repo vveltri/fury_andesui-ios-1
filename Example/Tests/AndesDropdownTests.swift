@@ -74,7 +74,7 @@ class AndesDropdownTests: QuickSpec {
                                                                           selectionStyle: .defaultStyle)
 
                     //When
-                    self.andesDropdown.didSelectAndesTextField()
+                    self.andesDropdown.didSelectTrigger()
 
                     //Then
                     expect((self.andesDropdown.menuType as! DropdownBottomSheetMenu).type).to(equal(.bottomSheet))
