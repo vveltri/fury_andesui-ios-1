@@ -101,7 +101,7 @@ import Foundation
 }
 
 extension AndesDropdown: AndesDropdownViewDelegate {
-    func didSelectAndesTextField() {
+    func didSelectTrigger() {
         didSelect.toggle()
         openMenuType()
     }

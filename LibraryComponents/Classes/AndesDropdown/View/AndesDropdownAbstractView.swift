@@ -53,10 +53,3 @@ class AndesDropdownAbstractView: UIView, AndesDropdownView {
         fatalError("This should be overriden by a subclass")
     }
 }
-
-extension AndesDropdownAbstractView: AndesTextFieldDelegate {
-    func andesTextFieldShouldBeginEditing(_ textField: AndesTextField) -> Bool {
-        delegate?.didSelectAndesTextField()
-        return false
-    }
-}

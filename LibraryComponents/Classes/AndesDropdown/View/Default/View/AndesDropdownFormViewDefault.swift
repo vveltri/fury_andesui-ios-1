@@ -42,3 +42,10 @@ class AndesDropdownFormViewDefault: AndesDropdownAbstractView {
         self.textField.rightContent = rightComponent
     }
 }
+
+extension AndesDropdownFormViewDefault: AndesTextFieldDelegate {
+    func andesTextFieldShouldBeginEditing(_ textField: AndesTextField) -> Bool {
+        delegate?.didSelectTrigger()
+        return false
+    }
+}

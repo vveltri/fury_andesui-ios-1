@@ -24,6 +24,20 @@ class AndesDropdownStandaloneView: AndesDropdownAbstractView {
     override func loadNib() {
         let bundle = AndesDropdownBundle.bundle()
         bundle.loadNibNamed("AndesDropdownStandaloneView", owner: self, options: nil)
+        self.setupUserInteraction()
+    }
+
+    func setupUserInteraction() {
+        titleLbl.isUserInteractionEnabled = true
+        iconImg.isUserInteractionEnabled = true
+        titleLbl.addGestureRecognizer(self.setRecognizer())
+        iconImg.addGestureRecognizer(self.setRecognizer())
+    }
+
+    func setRecognizer() -> UITapGestureRecognizer {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(didSelect))
+        tap.numberOfTapsRequired = 1
+        return tap
     }
 
     override func updateView() {
@@ -35,4 +49,7 @@ class AndesDropdownStandaloneView: AndesDropdownAbstractView {
         titleLbl.setAndesStyle(style: font)
     }
 
+    @objc func didSelect(sender: UITapGestureRecognizer) {
+        delegate?.didSelectTrigger()
+    }
 }

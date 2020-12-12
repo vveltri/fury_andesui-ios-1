@@ -8,5 +8,5 @@
 import Foundation
 
 protocol AndesDropdownViewDelegate: class {
-    func didSelectAndesTextField()
+    func didSelectTrigger()
 }
