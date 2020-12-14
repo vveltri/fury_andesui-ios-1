@@ -8,6 +8,6 @@
 import Foundation
 
 protocol AndesStandaloneSizeProtocol {
-    var font: AndesFontStyle { get set }
-    var widthChevron: CGFloat { get set }
+    var font: AndesFontStyle { get }
+    var widthChevron: CGFloat { get }
 }
