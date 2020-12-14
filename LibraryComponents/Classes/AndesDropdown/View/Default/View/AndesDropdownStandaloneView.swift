@@ -11,6 +11,7 @@ class AndesDropdownStandaloneView: AndesDropdownAbstractView {
 
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var iconImg: UIImageView!
+    @IBOutlet weak var widthConstraint: NSLayoutConstraint!
 
     override var text: String {
         get {
@@ -46,11 +47,12 @@ class AndesDropdownStandaloneView: AndesDropdownAbstractView {
 
     override func updateView() {
 
-        guard let config = self.config, let font = config.font else { return }
+        guard let config = self.config, let font = config.font, let height = config.heightChevron else { return }
 
         AndesIconsProvider.loadIcon(name: config.icon ?? "", placeItInto: iconImg)
         iconImg.tintColor = config.iconColor
         titleLbl.setAndesStyle(style: font)
+        widthConstraint.constant = height
     }
 
     @objc func didSelect(sender: UITapGestureRecognizer) {

@@ -9,5 +9,5 @@ import Foundation
 
 protocol AndesStandaloneSizeProtocol {
     var font: AndesFontStyle { get set }
-    var heightChevron: Int { get set }
+    var widthChevron: CGFloat { get set }
 }

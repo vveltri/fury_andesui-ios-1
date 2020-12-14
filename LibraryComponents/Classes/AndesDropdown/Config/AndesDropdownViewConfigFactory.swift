@@ -24,7 +24,7 @@ internal class AndesDropdownViewConfigFactory {
         case .standalone:
             return AndesDropdownViewConfig(icon: isSelected ? AndesIcons.chevronUp20 : AndesIcons.chevronDown20,
                                            font: standAloneSize.font,
-                                           heightChevron: standAloneSize.heightChevron,
+                                           heightChevron: standAloneSize.widthChevron,
                                            iconColor: UIColor.Andes.gray450)
         }
     }

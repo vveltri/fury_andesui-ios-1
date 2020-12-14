@@ -11,5 +11,5 @@ struct AndesStandaloneSmall: AndesStandaloneSizeProtocol {
     var font = AndesFontStyle(textColor: UIColor.Andes.gray800,
                               font: AndesStyleSheetManager.styleSheet.regularSystemFont(size: AndesFontSize.bodyS),
                               lineSpacing: 5)
-    var heightChevron = 12
+    var widthChevron: CGFloat = 12
 }
