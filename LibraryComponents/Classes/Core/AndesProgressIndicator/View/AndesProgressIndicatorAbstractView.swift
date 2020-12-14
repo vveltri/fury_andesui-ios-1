@@ -63,6 +63,8 @@ class AndesProgressIndicatorAbstractView: UIView, AndesProgressIndicatorView {
         self.textLabel.font = size.textFont
         let labelIsAvailable = config.label != nil
         self.stackView.spacing = labelIsAvailable ? size.textSpacing : 0
+        let axis: NSLayoutConstraint.Axis = size.horizontalDistribution ? .horizontal : .vertical
+        self.stackView.axis = axis
     }
 
     func startAnimation(type: AndesCircularProgressBar.AnimationType) {

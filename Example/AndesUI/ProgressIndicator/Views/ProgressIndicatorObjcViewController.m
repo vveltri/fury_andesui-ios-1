@@ -14,9 +14,14 @@
 @property (weak, nonatomic) IBOutlet AndesProgressIndicatorIndeterminate *progressIndicatorMediumWithText;
 @property (weak, nonatomic) IBOutlet AndesProgressIndicatorIndeterminate *progressIndicatorSmallWithText;
 
+@property (weak, nonatomic) IBOutlet AndesProgressIndicatorIndeterminate *progressIndicatorXSmallWithText;
+
+
 @property (weak, nonatomic) IBOutlet AndesProgressIndicatorIndeterminate *progressIndicatorLargeWithoutText;
 @property (weak, nonatomic) IBOutlet AndesProgressIndicatorIndeterminate *progressIndicatorMediumWithoutText;
 @property (weak, nonatomic) IBOutlet AndesProgressIndicatorIndeterminate *progressIndicatorSmallWithoutText;
+
+@property (weak, nonatomic) IBOutlet AndesProgressIndicatorIndeterminate *progressIndicatorXSmallWithoutText;
 
 
 @end
@@ -42,20 +47,26 @@
     [self.progressIndicatorLargeWithText startAnimation];
     [self.progressIndicatorMediumWithText startAnimation];
     [self.progressIndicatorSmallWithText startAnimation];
+    [self.progressIndicatorXSmallWithText startAnimation];
+
     
     [self.progressIndicatorLargeWithoutText startAnimation];
     [self.progressIndicatorMediumWithoutText startAnimation];
     [self.progressIndicatorSmallWithoutText startAnimation];
+    [self.progressIndicatorXSmallWithoutText startAnimation];
+
 }
 
 - (void)stopAnimation {
     [self.progressIndicatorLargeWithText stopAnimation];
     [self.progressIndicatorMediumWithText stopAnimation];
     [self.progressIndicatorSmallWithText stopAnimation];
+    [self.progressIndicatorXSmallWithText stopAnimation];
     
     [self.progressIndicatorLargeWithoutText stopAnimation];
     [self.progressIndicatorMediumWithoutText stopAnimation];
     [self.progressIndicatorSmallWithoutText stopAnimation];
+    [self.progressIndicatorXSmallWithoutText stopAnimation];
 }
 
 @end

@@ -44,6 +44,7 @@ class AndesProgressIndicatorIndeterminateTest: QuickSpec {
                     expect(contentView.config.size?.height).to(equal(48))
                     expect(contentView.config.size?.strokeWidth).to(equal(4))
                     expect(contentView.config.size?.textSpacing).to(equal(20))
+                    expect(contentView.config.size?.horizontalDistribution).to(beFalse())
                     expect(contentView.config.size?.textFont).to(equal(expectedFont))
                 }
 
@@ -59,6 +60,7 @@ class AndesProgressIndicatorIndeterminateTest: QuickSpec {
                     expect(contentView.config.size?.height).to(equal(32))
                     expect(contentView.config.size?.strokeWidth).to(equal(3))
                     expect(contentView.config.size?.textSpacing).to(equal(16))
+                    expect(contentView.config.size?.horizontalDistribution).to(beFalse())
                     expect(contentView.config.size?.textFont).to(equal(expectedFont))
                 }
 
@@ -74,6 +76,23 @@ class AndesProgressIndicatorIndeterminateTest: QuickSpec {
                     expect(contentView.config.size?.height).to(equal(24))
                     expect(contentView.config.size?.strokeWidth).to(equal(2.5))
                     expect(contentView.config.size?.textSpacing).to(equal(16))
+                    expect(contentView.config.size?.horizontalDistribution).to(beFalse())
+                    expect(contentView.config.size?.textFont).to(equal(expectedFont))
+                }
+
+                it("XSmall size should have a specific style") {
+                    let progressIndicator = AndesProgressIndicatorIndeterminate(size: .xSmall, tint: UIColor.blue)
+                    guard let contentView = progressIndicator.contentView as? AndesProgressIndicatorViewCircular else {
+                        fail()
+                        return
+                    }
+
+                    let expectedFont = AndesStyleSheetManager.styleSheet.regularSystemFont(size: 14)
+
+                    expect(contentView.config.size?.height).to(equal(16))
+                    expect(contentView.config.size?.strokeWidth).to(equal(2))
+                    expect(contentView.config.size?.textSpacing).to(equal(12))
+                    expect(contentView.config.size?.horizontalDistribution).to(beTrue())
                     expect(contentView.config.size?.textFont).to(equal(expectedFont))
                 }
             }
