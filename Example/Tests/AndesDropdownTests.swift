@@ -109,7 +109,7 @@ class AndesDropdownTests: QuickSpec {
                     let trigger = AndesStandaloneSizeFactory.provideSize(withSize: .small)
 
                     //Then
-                    expect(trigger.heightChevron).to(beIdenticalTo(config.heightChevron))
+                    expect(trigger.widthChevron).to(beIdenticalTo(config.heightChevron))
                 }
 
                 it("Get medium size Standalone Dropdown") {
@@ -125,7 +125,7 @@ class AndesDropdownTests: QuickSpec {
                     let trigger = AndesStandaloneSizeFactory.provideSize(withSize: .medium)
 
                     //Then
-                    expect(trigger.heightChevron).to(beIdenticalTo(config.heightChevron))
+                    expect(trigger.widthChevron).to(beIdenticalTo(config.heightChevron))
                 }
 
                 it("Get large size Standalone Dropdown") {
@@ -141,7 +141,7 @@ class AndesDropdownTests: QuickSpec {
                     let trigger = AndesStandaloneSizeFactory.provideSize(withSize: .large)
 
                     //Then
-                    expect(trigger.heightChevron).to(beIdenticalTo(config.heightChevron))
+                    expect(trigger.widthChevron).to(beIdenticalTo(config.heightChevron))
                 }
 
             }
