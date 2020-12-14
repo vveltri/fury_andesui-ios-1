@@ -12,6 +12,7 @@ target 'AndesUI-demoapp' do
     pod 'AndesUI', :path => './'
     pod 'AndesUI/AndesCoachmark', :path => './'
     pod 'AndesUI/AndesBottomSheet', :path => './'
+    pod 'AndesUI/AndesDropdown', :path => './'
     pod 'IQKeyboardManagerSwift', '6.3.0'
 
     target 'AndesUI_Tests' do

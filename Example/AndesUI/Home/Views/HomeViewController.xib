@@ -271,6 +271,18 @@
                                                 <action selector="goToListViewTapped:" destination="-1" eventType="touchUpInside" id="Fgl-Xh-yB1"/>
                                             </connections>
                                         </view>
+                                        <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="66M-do-wIE" customClass="AndesButton" customModule="AndesUI">
+                                            <rect key="frame" x="0.0" y="720" width="382" height="40"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="andesSnackbar" label="Snackbar showcases"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="text" value="Andes Dropdown"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="ibSize" value="Large"/>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="dropdownTapped:" destination="-1" eventType="touchUpInside" id="heE-hv-Hot"/>
+                                            </connections>
+                                        </view>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="x2S-1u-jO7" firstAttribute="trailing" secondItem="9Hm-nl-pHd" secondAttribute="trailing" id="48j-EC-yGH"/>
