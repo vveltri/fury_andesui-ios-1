@@ -1,4 +1,8 @@
-# Unpublished
+# v3.18.0
+### 🚀 Features
+- AndesProgressIndicatorIndeterminate: support new size in AndesProgressIndicator | Authors: [@javff](https://github.com/javff)
+
+# v3.17.0
 ### 🚀 Features
 - AndesProgressIndicatorIndeterminate: New component AndesProgressIndicator| Authors: [@javff](https://github.com/javff)
 - AndesDropdown  component  | Authors: [@joalonsopint](https://github.com/joalonsopint)
