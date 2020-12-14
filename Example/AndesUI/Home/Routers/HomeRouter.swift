@@ -27,6 +27,7 @@ protocol HomeRouter: NSObject {
     func routeToDatePicker()
     func routeToBottomSheet()
     func routeToList()
+    func routetoDropdown()
 }
 
 class HomeAppRouter: NSObject {
@@ -50,6 +51,7 @@ class HomeAppRouter: NSObject {
     let datePickerRouter = DatePickerAppRouter()
     let bottomSheetRouter = BottomSheetAppRouter()
     let listRouter = ListAppRouter()
+    let dropdownRouter = DropdownAppRouter()
 }
 
 extension HomeAppRouter: HomeRouter {
@@ -128,5 +130,9 @@ extension HomeAppRouter: HomeRouter {
 
     func routeToBottomSheet() {
         bottomSheetRouter.route(from: view)
+    }
+
+    func routetoDropdown() {
+        dropdownRouter.route(from: view)
     }
 }

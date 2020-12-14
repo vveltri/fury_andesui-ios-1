@@ -26,6 +26,7 @@ protocol HomePresenter: NSObject {
     func presentDatePicker()
     func presentBottomSheet()
     func presentList()
+    func presentDropdown()
 }
 
 class HomeViewPresenter: NSObject {
@@ -104,5 +105,9 @@ extension HomeViewPresenter: HomePresenter {
 
     func presentBottomSheet() {
         router.routeToBottomSheet()
+    }
+
+    func presentDropdown() {
+        router.routetoDropdown()
     }
 }

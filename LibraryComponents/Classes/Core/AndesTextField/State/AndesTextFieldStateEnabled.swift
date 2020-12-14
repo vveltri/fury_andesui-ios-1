@@ -30,5 +30,4 @@ struct AndesTextFieldStateIdle: AndesTextFieldStateProtocol {
             borderWidth = 2
         }
     }
-
 }
