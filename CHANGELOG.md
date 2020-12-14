@@ -5,6 +5,7 @@
 
 ### 🛠 Bug fixes
 - AndestextField: Fix icon component right and left interaction | Authors: [@joalonsopint](https://github.com/joalonsopint)
+- AndesBottomSheet: Fix title number of lines | Authors: [@joalonsopint](https://github.com/joalonsopint)
 
 # v3.16.0
 ### 🚀 Features
