@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'AndesUI'
-    s.version          = '3.16.0'
+    s.version          = '3.17.0'
     s.summary          = 'AndesUI library for ios app.'
     
     s.description      = 'AndesUI is the UI library of Mercado Libre. It provides the definitions, components and tools to build consistent experiences, with agility and visual quality.'
@@ -47,5 +47,4 @@ Pod::Spec.new do |s|
     s.subspec 'LocalIcons' do |la|
         la.resource_bundle = {'AndesIcons' => ['LibraryComponents/Resources/LocalIcons/Assets/Images.xcassets']}
     end
-    
 end
