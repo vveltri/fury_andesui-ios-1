@@ -15,7 +15,6 @@ import Foundation
     case medium
     case small
     case xSmall
-    case xxSmall
 
     public static func keyFor(_ value: AndesProgressIndicatorSize) -> String {
         switch value {
@@ -23,7 +22,6 @@ import Foundation
         case .medium: return "MEDIUM"
         case .small: return "SMALL"
         case .xSmall: return "XSMALL"
-        case .xxSmall: return "XXSMALL"
         }
     }
 }

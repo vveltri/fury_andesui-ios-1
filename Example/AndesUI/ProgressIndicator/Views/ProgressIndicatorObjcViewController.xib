@@ -19,8 +19,6 @@
                 <outlet property="progressIndicatorSmallWithoutText" destination="Z5h-gg-VDg" id="IOm-EM-R0k"/>
                 <outlet property="progressIndicatorXSmallWithText" destination="FO3-Y7-iPh" id="sRk-TP-7jB"/>
                 <outlet property="progressIndicatorXSmallWithoutText" destination="JKf-GZ-OHG" id="qTC-sL-PBF"/>
-                <outlet property="progressIndicatorXXSmallWithText" destination="tM2-gz-VAa" id="Ant-Wd-ZjI"/>
-                <outlet property="progressIndicatorXXSmallWithoutText" destination="ulh-3c-Lfx" id="qdG-2o-PIz"/>
                 <outlet property="view" destination="tLM-AC-5NT" id="vex-0O-yfB"/>
             </connections>
         </placeholder>
@@ -33,7 +31,7 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="1122"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="pWM-8C-KVw">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="1326"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="1076"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="Circular Indeterminate with Text" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="upZ-ZE-f4H">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="25.5"/>
@@ -91,25 +89,14 @@
                                         <userDefinedRuntimeAttribute type="string" keyPath="label" value="XSmall"/>
                                     </userDefinedRuntimeAttributes>
                                 </view>
-                                <view contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="100" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tM2-gz-VAa" customClass="AndesProgressIndicatorIndeterminate" customModule="AndesUI">
-                                    <rect key="frame" x="0.0" y="550.5" width="414" height="100"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="string" keyPath="ibSize" value="XXSMALL"/>
-                                        <userDefinedRuntimeAttribute type="color" keyPath="tint">
-                                            <color key="value" systemColor="systemPurpleColor"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="string" keyPath="label" value="XXSmall"/>
-                                    </userDefinedRuntimeAttributes>
-                                </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="Circular Indeterminate without Text" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rzP-vc-h36">
-                                    <rect key="frame" x="0.0" y="675.5" width="414" height="25.5"/>
+                                    <rect key="frame" x="0.0" y="550.5" width="414" height="25.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="100" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kri-au-xl7" customClass="AndesProgressIndicatorIndeterminate" customModule="AndesUI">
-                                    <rect key="frame" x="0.0" y="726" width="414" height="100"/>
+                                    <rect key="frame" x="0.0" y="601" width="414" height="100"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="string" keyPath="ibSize" value="LARGE"/>
@@ -122,7 +109,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="100" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mdh-qs-PvD" customClass="AndesProgressIndicatorIndeterminate" customModule="AndesUI">
-                                    <rect key="frame" x="0.0" y="851" width="414" height="100"/>
+                                    <rect key="frame" x="0.0" y="726" width="414" height="100"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="string" keyPath="ibSize" value="MEDIUM"/>
@@ -135,7 +122,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="100" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z5h-gg-VDg" customClass="AndesProgressIndicatorIndeterminate" customModule="AndesUI">
-                                    <rect key="frame" x="0.0" y="976" width="414" height="100"/>
+                                    <rect key="frame" x="0.0" y="851" width="414" height="100"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="string" keyPath="ibSize" value="SMALL"/>
@@ -145,22 +132,12 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="100" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JKf-GZ-OHG" customClass="AndesProgressIndicatorIndeterminate" customModule="AndesUI">
-                                    <rect key="frame" x="0.0" y="1101" width="414" height="100"/>
+                                    <rect key="frame" x="0.0" y="976" width="414" height="100"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="string" keyPath="ibSize" value="XSMALL"/>
                                         <userDefinedRuntimeAttribute type="color" keyPath="tint">
                                             <color key="value" systemColor="systemTealColor"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
-                                </view>
-                                <view contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="100" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ulh-3c-Lfx" customClass="AndesProgressIndicatorIndeterminate" customModule="AndesUI">
-                                    <rect key="frame" x="0.0" y="1226" width="414" height="100"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="string" keyPath="ibSize" value="XXSMALL"/>
-                                        <userDefinedRuntimeAttribute type="color" keyPath="tint">
-                                            <color key="value" systemColor="systemPurpleColor"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </view>
