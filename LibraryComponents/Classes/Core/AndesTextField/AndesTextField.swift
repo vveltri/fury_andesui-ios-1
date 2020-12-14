@@ -85,10 +85,6 @@ import UIKit
 
     internal private(set) var isEditing: Bool = false
 
-    internal func updateWithCustomConfig(_ config: AndesTextFieldViewConfig) {
-        contentView.update(withConfig: config)
-    }
-
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setup()

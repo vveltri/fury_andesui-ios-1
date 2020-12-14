@@ -9,25 +9,18 @@ import Foundation
 
 class AndesDropdownAbstractView: UIView, AndesDropdownView {
 
+    var text: String = ""
+
     @IBOutlet var view: UIView!
-    @IBOutlet var textField: AndesTextField!
 
     var config: AndesDropdownViewConfig?
     weak var delegate: AndesDropdownViewDelegate?
-    var text: String {
-        get {
-            return textField.text
-        }
-        set {
-            textField.text = newValue
-        }
-    }
 
     init(withConfig config: AndesDropdownViewConfig) {
         super.init(frame: .zero)
+        self.config = config
         setup()
         updateView()
-        self.textField.delegate = self
     }
 
     required init?(coder: NSCoder) {
@@ -58,12 +51,5 @@ class AndesDropdownAbstractView: UIView, AndesDropdownView {
 
     internal func updateView() {
         fatalError("This should be overriden by a subclass")
-    }
-}
-
-extension AndesDropdownAbstractView: AndesTextFieldDelegate {
-    func andesTextFieldShouldBeginEditing(_ textField: AndesTextField) -> Bool {
-        delegate?.didSelectAndesTextField()
-        return false
     }
 }

@@ -76,7 +76,7 @@ class DropdownViewController: UIViewController {
         andesDropdown.triggerType = FormDropdownTrigger(title: title, placeholder: placeholder)
     }
 
-    func updateStandaloneDropdownView(size: AndesTextSize = .medium) {
+    func updateStandaloneDropdownView(size: AndesStandaloneSize = .medium) {
         andesDropdown.triggerType = StandaloneDropdownTrigger(size: size)
     }
 

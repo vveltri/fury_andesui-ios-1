@@ -12,7 +12,7 @@ import Foundation
     private var contentView: AndesDropdownView!
     private var didSelect: Bool = false {
         didSet {
-            self.updateContentView()
+            self.updateView()
             didSelect.toggle()
         }
     }
@@ -62,7 +62,12 @@ import Foundation
     }
 
     private func provideView() -> AndesDropdownView {
-        return AndesDropdownDefaultView(withConfig: getConfig())
+        switch self.triggerType.type {
+        case .formDropdown:
+            return AndesDropdownFormViewDefault(withConfig: getConfig())
+        case .standalone:
+            return AndesDropdownStandaloneView(withConfig: getConfig())
+        }
     }
 
     private func drawContentView(with newView: AndesDropdownView) {
@@ -72,7 +77,13 @@ import Foundation
         contentView.pinToSuperview()
     }
 
+    private func updateView() {
+        contentView.update(withConfig: getConfig())
+    }
+
     private func updateContentView() {
+        self.contentView.removeFromSuperview()
+        drawContentView(with: provideView())
         contentView.update(withConfig: getConfig())
     }
 
@@ -90,7 +101,7 @@ import Foundation
 }
 
 extension AndesDropdown: AndesDropdownViewDelegate {
-    func didSelectAndesTextField() {
+    func didSelectTrigger() {
         didSelect.toggle()
         openMenuType()
     }
@@ -137,6 +148,6 @@ extension AndesDropdown: AndesDropdownBottomSheetViewDelegate {
     }
 
     func dismiss() {
-        self.updateContentView()
+        self.updateView()
     }
 }
