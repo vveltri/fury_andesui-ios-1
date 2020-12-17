@@ -99,10 +99,10 @@ class AndesCardAbstractView: UIView, AndesCardView {
     }
 
     private func updatePadding() {
-        topUserViewContainerConstraint.constant = CGFloat(config.padding)
-        leadingUserViewContainerConstraint.constant = CGFloat(config.padding)
-        trailingUserViewContainerConstraint.constant = CGFloat(config.padding)
-        bottomUserViewContainerConstraint.constant = CGFloat(config.padding)
+        topUserViewContainerConstraint.constant = CGFloat(config.bodyPadding)
+        leadingUserViewContainerConstraint.constant = CGFloat(config.bodyPadding)
+        trailingUserViewContainerConstraint.constant = CGFloat(config.bodyPadding)
+        bottomUserViewContainerConstraint.constant = CGFloat(config.bodyPadding)
     }
 
     private func updateBorder() {

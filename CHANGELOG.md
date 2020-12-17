@@ -1,12 +1,31 @@
-# Sin Publicar
-### Release Process
-- Precompile step for ci (no changes in source)
+# Unpublished
+### 🚀 Features
+- AndesProgressIndicatorIndeterminate: support new size in AndesProgressIndicator | Authors: [@javff](https://github.com/javff)
+- AndesDropdown  component  | Authors: [@joalonsopint](https://github.com/joalonsopint)
+
+### 🛠 Bug fixes
+- [Breaking] AndesTagChoice component fix animation parameter | Authors: [@frank8MELI](https://github.com/frank8MELI)
+
+# v3.17.0
+### 🚀 Features
+- AndesProgressIndicatorIndeterminate: New component AndesProgressIndicator| Authors: [@javff](https://github.com/javff)
+
+### 🛠 Bug fixes
+- AndestextField: Fix icon component right and left interaction | Authors: [@joalonsopint](https://github.com/joalonsopint)
+- AndesBottomSheet: Fix title number of lines | Authors: [@joalonsopint](https://github.com/joalonsopint)
+
+# v3.16.0
+### 🚀 Features
+- AndesCard: New property to make the padding independent in the body | Authors: [@federiconosmor](https://github.com/federiconosmor)
+
+# v3.15.0
+### 🛠 Bug fixes
+- AndesList fix removing cell size | Authors: [@joalonsopint](https://github.com/joalonsopint)
+- AndesList fix border in thumbnail | Authors: [@joalonsopint](https://github.com/joalonsopint)
 
 # v3.14.1
 ### 🛠 Bug fixes
 - AndesTagChoice text color changed. | Authors: [@JBAZANCARRIZ](https://github.com/JBAZANCARRIZ)
-- AndesList fix border in thumbnail | Authors: [@joalonsopint](https://github.com/joalonsopint)
-- AndesList fix removing cell size | Authors: [@joalonsopint](https://github.com/joalonsopint)
 
 ### 🚀 Features
 - Date Picker component | Authors: [@AndriuCoelho](https://github.com/AndriuCoelho)

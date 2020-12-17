@@ -17,6 +17,7 @@ protocol HomeView: NSObject {
 class HomeViewController: UIViewController {
 
     weak var presenter: HomePresenter!
+    @IBOutlet weak var progressIndicatorBtn: AndesButton!
     @IBOutlet weak var coachmarkBtn: AndesButton!
     @IBOutlet weak var button: AndesButton!
     @IBOutlet weak var stackView: UIStackView!
@@ -107,6 +108,10 @@ class HomeViewController: UIViewController {
 
     }
 
+    @IBAction func progressIndicatorBtnTapped(_ sender: Any) {
+        presenter.presentProgressIndicator()
+    }
+
     @IBAction func textfieldBtnTapped(_ sender: Any) {
         presenter.presentTextField()
     }
@@ -137,6 +142,10 @@ class HomeViewController: UIViewController {
 
     @IBAction func bottomSheetTapped(_ sender: Any) {
         presenter.presentBottomSheet()
+    }
+
+    @IBAction func dropdownTapped(_ sender: Any) {
+        presenter.presentDropdown()
     }
 }
 
