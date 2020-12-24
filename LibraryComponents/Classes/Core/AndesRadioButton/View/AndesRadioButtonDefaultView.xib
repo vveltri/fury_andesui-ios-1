@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -31,16 +32,17 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tMQ-xe-WWY" customClass="AndesRadioButtonControl" customModule="AndesUI">
-                    <rect key="frame" x="4" y="8" width="32" height="32"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <rect key="frame" x="4" y="6" width="32" height="32"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="32" id="DZq-eE-jax"/>
                         <constraint firstAttribute="height" constant="32" id="aj5-H1-qiM"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="32" id="j3V-iJ-cCP"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UBx-hG-Q69" customClass="AndesRadioButtonControl" customModule="AndesUI">
-                    <rect key="frame" x="144" y="8" width="32" height="32"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <rect key="frame" x="144" y="6" width="32" height="32"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="32" id="94b-Xg-F6T"/>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="32" id="C1K-vJ-jZ4"/>
@@ -55,14 +57,19 @@
                 <constraint firstItem="1Wf-Ci-oc3" firstAttribute="leading" secondItem="d18-F7-uIb" secondAttribute="leading" priority="250" constant="12" id="TeU-4P-92b"/>
                 <constraint firstItem="1Wf-Ci-oc3" firstAttribute="top" secondItem="d18-F7-uIb" secondAttribute="top" constant="12" id="aXd-WI-HlA"/>
                 <constraint firstAttribute="bottom" secondItem="1Wf-Ci-oc3" secondAttribute="bottom" constant="12" id="exm-ys-R35"/>
-                <constraint firstItem="UBx-hG-Q69" firstAttribute="centerY" secondItem="1Wf-Ci-oc3" secondAttribute="centerY" id="r3N-2i-xfx"/>
-                <constraint firstItem="tMQ-xe-WWY" firstAttribute="centerY" secondItem="1Wf-Ci-oc3" secondAttribute="centerY" id="saY-fX-DBu"/>
+                <constraint firstItem="1Wf-Ci-oc3" firstAttribute="top" secondItem="UBx-hG-Q69" secondAttribute="top" constant="6" id="r3N-2i-xfx"/>
+                <constraint firstItem="1Wf-Ci-oc3" firstAttribute="top" secondItem="tMQ-xe-WWY" secondAttribute="top" constant="6" id="saY-fX-DBu"/>
                 <constraint firstAttribute="trailing" secondItem="UBx-hG-Q69" secondAttribute="trailing" constant="4" id="uFe-6X-uGh"/>
                 <constraint firstAttribute="trailing" secondItem="1Wf-Ci-oc3" secondAttribute="trailing" priority="250" constant="12" id="uGC-e4-iLB"/>
-                <constraint firstItem="1Wf-Ci-oc3" firstAttribute="leading" secondItem="tMQ-xe-WWY" secondAttribute="trailing" priority="750" constant="4" id="uO2-4H-fYY"/>
+                <constraint firstItem="1Wf-Ci-oc3" firstAttribute="leading" secondItem="tMQ-xe-WWY" secondAttribute="trailing" constant="4" id="uO2-4H-fYY"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="-36" y="-244"/>
         </view>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

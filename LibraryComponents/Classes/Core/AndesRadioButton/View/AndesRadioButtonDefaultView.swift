@@ -77,12 +77,15 @@ class AndesRadioButtonDefaultView: UIView, AndesRadioButtonView {
     func updateView() {
         self.radioButtonLabel.text = config.title
         self.radioButtonLabel.setAndesStyle(style: AndesStyleSheetManager.styleSheet.bodyM(color: config.textColor))
+        self.radioButtonLabel.numberOfLines = config.titleNumberOfLines ?? 0
         setupButtonView()
         updateRadioButtonsStyles()
         updateAccessibilityProperties()
     }
 
     func setupButtonView() {
+        var radiobuttonConstraint = NSLayoutConstraint()
+
         if config.align == .left {
             self.rightRadioButton.isHidden = true
             self.leftRadioButton.isHidden = false
@@ -91,6 +94,8 @@ class AndesRadioButtonDefaultView: UIView, AndesRadioButtonView {
             self.labelToLeftButtonConstraint.priority = .defaultHigh
             self.labelToLeadingConstraint.priority = .defaultLow
             self.leftRadioButton.filled = config.filled
+
+            radiobuttonConstraint = NSLayoutConstraint(item: self.radioButtonLabel!, attribute: .leading, relatedBy: .equal, toItem: self.leftRadioButton!, attribute: .trailing, multiplier: 1, constant: 0)
         } else {
             self.rightRadioButton.isHidden = false
             self.leftRadioButton.isHidden = true
@@ -99,7 +104,10 @@ class AndesRadioButtonDefaultView: UIView, AndesRadioButtonView {
             self.labelToLeftButtonConstraint.priority = .defaultLow
             self.labelToLeadingConstraint.priority = .defaultHigh
             self.rightRadioButton.filled = config.filled
+
+            radiobuttonConstraint = NSLayoutConstraint(item: self.rightRadioButton!, attribute: .leading, relatedBy: .equal, toItem: radioButtonLabel, attribute: .trailing, multiplier: 1, constant: 0)
         }
+        NSLayoutConstraint.activate([radiobuttonConstraint])
     }
 
     func updateRadioButtonsStyles() {
