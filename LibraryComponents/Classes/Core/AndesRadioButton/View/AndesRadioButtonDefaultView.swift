@@ -78,6 +78,7 @@ class AndesRadioButtonDefaultView: UIView, AndesRadioButtonView {
         self.radioButtonLabel.text = config.title
         self.radioButtonLabel.setAndesStyle(style: AndesStyleSheetManager.styleSheet.bodyM(color: config.textColor))
         self.radioButtonLabel.numberOfLines = config.titleNumberOfLines ?? 0
+        radioButtonLabel.lineBreakMode = .byTruncatingTail
         setupButtonView()
         updateRadioButtonsStyles()
         updateAccessibilityProperties()
