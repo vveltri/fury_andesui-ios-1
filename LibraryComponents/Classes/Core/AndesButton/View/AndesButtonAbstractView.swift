@@ -200,7 +200,7 @@ extension AndesButtonAbstractView {
                 self.spinner.transform = CGAffineTransform(translationX: 0, y: 0)
                 self.spinner.alpha = 1
                 self.contentView.alpha = 0
-        }) { (_) in }
+        })
     }
 
     private func dissapearSpinnerAnimation(completion: (() -> Void)? = nil) {
@@ -219,6 +219,8 @@ extension AndesButtonAbstractView {
                 self.contentView.transform = CGAffineTransform(translationX: 0, y: 0)
                 self.spinner.alpha = 0
                 self.contentView.alpha = 1
-        }) { (_) in }
+        }) { (_) in
+            completion?()
+        }
     }
 }
