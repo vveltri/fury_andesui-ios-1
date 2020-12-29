@@ -194,13 +194,13 @@ extension AndesButtonAbstractView {
 
         UIView.animate(
             withDuration: spinnerTransitionDuration,
-            delay: 0,
-            options: [.curveEaseIn]) {
-            self.contentView.transform = CGAffineTransform(translationX: 0, y: -self.spinnerTransitionPosition)
-            self.spinner.transform = CGAffineTransform(translationX: 0, y: 0)
-            self.spinner.alpha = 1
-            self.contentView.alpha = 0
-        }
+            delay: 0, options: [.curveEaseIn],
+            animations: {
+                self.contentView.transform = CGAffineTransform(translationX: 0, y: -self.spinnerTransitionPosition)
+                self.spinner.transform = CGAffineTransform(translationX: 0, y: 0)
+                self.spinner.alpha = 1
+                self.contentView.alpha = 0
+        }) { (_) in }
     }
 
     private func dissapearSpinnerAnimation(completion: (() -> Void)? = nil) {
@@ -213,15 +213,12 @@ extension AndesButtonAbstractView {
         UIView.animate(
             withDuration: spinnerTransitionDuration,
             delay: 0,
-            options: [.curveEaseIn]) {
-            self.spinner.transform = CGAffineTransform(translationX: 0, y: -self.spinnerTransitionPosition)
-            self.contentView.transform = CGAffineTransform(translationX: 0, y: 0)
-            self.spinner.alpha = 0
-            self.contentView.alpha = 1
-        }
-
-        completion: { (_) in
-            completion?()
-        }
+            options: [.curveEaseIn],
+            animations: {
+                self.spinner.transform = CGAffineTransform(translationX: 0, y: -self.spinnerTransitionPosition)
+                self.contentView.transform = CGAffineTransform(translationX: 0, y: 0)
+                self.spinner.alpha = 0
+                self.contentView.alpha = 1
+        }) { (_) in }
     }
 }
