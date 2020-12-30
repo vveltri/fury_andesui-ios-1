@@ -3,7 +3,7 @@
 - AndesProgressIndicatorIndeterminate: support new size in AndesProgressIndicator | Authors: [@javff](https://github.com/javff)
 - AndesDropdown  component  | Authors: [@joalonsopint](https://github.com/joalonsopint)
 - AndesButton: add spinner variant in AndesButton | Authors: [@javff](https://github.com/javff)
-
+- AndesBottomSheet: Add configurable presentation size | Authors: [@inayabarb](https://github.com/inayabarb)
 ### 🛠 Bug fixes
 - [Breaking] AndesTagChoice component fix animation parameter | Authors: [@frank8MELI](https://github.com/frank8MELI)
 

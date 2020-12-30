@@ -28,6 +28,7 @@ private enum Size: Int {
 private struct Configuration {
     var titleEnabled: Bool = true
     var size: Size = .medium
+    var presentationSize: AndesBottomSheetPresentationSize = .fixed
 }
 
 class BottomSheetSwiftExampleViewController: UIViewController {
@@ -52,6 +53,7 @@ class BottomSheetSwiftExampleViewController: UIViewController {
 
         contentView.addArrangedSubview(buildTitleEnabledRow())
         contentView.addArrangedSubview(buildSizePickerRow())
+        contentView.addArrangedSubview(buildPresentationSizePickerRow())
         contentView.addArrangedSubview(buildOpenSheetButtonRow())
 
         NSLayoutConstraint.activate([
@@ -93,6 +95,14 @@ class BottomSheetSwiftExampleViewController: UIViewController {
         return segmentedControl
     }
 
+    private func buildPresentationSizePickerRow() -> UIView {
+        let segmentedControl = UISegmentedControl(items: ["fixed", "intrinsic"])
+        segmentedControl.translatesAutoresizingMaskIntoConstraints = false
+        segmentedControl.selectedSegmentIndex = configuration.presentationSize.rawValue
+        segmentedControl.addTarget(self, action: #selector(presentationSizePickerDidChange), for: .valueChanged)
+        return segmentedControl
+    }
+
     private func buildOpenSheetButtonRow() -> UIView {
         let button = AndesButton(text: "Open Sheet", hierarchy: .loud, size: .large)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -113,10 +123,17 @@ class BottomSheetSwiftExampleViewController: UIViewController {
     }
 
     @objc
+    private func presentationSizePickerDidChange(sender: Any) {
+        guard let segmented = sender as? UISegmentedControl else { return }
+        configuration.presentationSize = AndesBottomSheetPresentationSize(rawValue: segmented.selectedSegmentIndex) ?? .fixed
+    }
+
+    @objc
     private func openSheet() {
         let sheet = AndesBottomSheetViewController(rootViewController: BottomSheetExampleScrollableContentViewController(rowHeight: configuration.size.toConcreteSize()))
         sheet.titleBar.text = configuration.titleEnabled ? "This is a title" : nil
         sheet.titleBar.textAlignment = randomTextAlignment()
+        sheet.presentationSize = configuration.presentationSize
         present(sheet, animated: true)
     }
 
