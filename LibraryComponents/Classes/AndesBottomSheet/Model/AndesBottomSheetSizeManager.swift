@@ -20,11 +20,7 @@ class AndesBottomSheetSizeManager {
         }
     }
 
-    var current: AndesBottomSheetSize {
-        didSet {
-            arrangePossibleDimensions()
-        }
-    }
+    var current: AndesBottomSheetSize
 
     var currentDimension: CGFloat {
         get {
@@ -38,14 +34,6 @@ class AndesBottomSheetSizeManager {
         self.current = sizes.first ?? .intrinsic
         self.possible = sizes
         arrangePossibleDimensions()
-    }
-
-    public func update(withPresentationSize presentationSize: AndesBottomSheetPresentationStyle) {
-        if presentationSize == .intrinsic && self.current != .intrinsic {
-            self.current = .intrinsic
-        } else if presentationSize == .fixed && self.current == .intrinsic {
-            self.current = self.possible.first ?? .intrinsic
-        }
     }
 
     func floor(height: CGFloat) -> AndesBottomSheetSize {

@@ -42,8 +42,6 @@ open class AndesBottomSheetViewController: UIViewController {
     @objc
     public weak var delegate: AndesBottomSheetViewControllerDelegate?
 
-    private let presentationStyle: AndesBottomSheetPresentationStyle
-
     @objc
     public var titleBar: AndesBottomSheetTitleBar {
         get {
@@ -77,7 +75,6 @@ open class AndesBottomSheetViewController: UIViewController {
     public init(rootViewController: UIViewController, presentationStyle: AndesBottomSheetPresentationStyle) {
         self.contentController = AndesBottomSheetContentViewController(viewController: rootViewController)
         self.sizeManager = AndesBottomSheetSizeManager(sizes: Constants.sizes(forStyle: presentationStyle))
-        self.presentationStyle = presentationStyle
         super.init(nibName: nil, bundle: nil)
         self.transitioningDelegate = transitioningConformance
         self.modalPresentationStyle = .overCurrentContext
