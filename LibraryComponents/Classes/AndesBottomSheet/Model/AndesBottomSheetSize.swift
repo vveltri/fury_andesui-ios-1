@@ -7,7 +7,7 @@
 
 import Foundation
 
-indirect public enum AndesBottomSheetSize: Equatable, Hashable {
+indirect enum AndesBottomSheetSize: Equatable, Hashable {
     case intrinsic
     case percent(CGFloat)
     case fixed(CGFloat)
