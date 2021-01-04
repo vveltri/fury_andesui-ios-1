@@ -28,7 +28,7 @@ private enum Size: Int {
 private struct Configuration {
     var titleEnabled: Bool = true
     var size: Size = .medium
-    var presentationSize: AndesBottomSheetPresentationSize = .fixed
+    var presentationStyle: AndesBottomSheetPresentationStyle = .fixed
 }
 
 class BottomSheetSwiftExampleViewController: UIViewController {
@@ -98,7 +98,7 @@ class BottomSheetSwiftExampleViewController: UIViewController {
     private func buildPresentationSizePickerRow() -> UIView {
         let segmentedControl = UISegmentedControl(items: ["fixed", "intrinsic"])
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
-        segmentedControl.selectedSegmentIndex = configuration.presentationSize.rawValue
+        segmentedControl.selectedSegmentIndex = configuration.presentationStyle.rawValue
         segmentedControl.addTarget(self, action: #selector(presentationSizePickerDidChange), for: .valueChanged)
         return segmentedControl
     }
@@ -125,15 +125,14 @@ class BottomSheetSwiftExampleViewController: UIViewController {
     @objc
     private func presentationSizePickerDidChange(sender: Any) {
         guard let segmented = sender as? UISegmentedControl else { return }
-        configuration.presentationSize = AndesBottomSheetPresentationSize(rawValue: segmented.selectedSegmentIndex) ?? .fixed
+        configuration.presentationStyle = AndesBottomSheetPresentationStyle(rawValue: segmented.selectedSegmentIndex) ?? .fixed
     }
 
     @objc
     private func openSheet() {
-        let sheet = AndesBottomSheetViewController(rootViewController: BottomSheetExampleScrollableContentViewController(rowHeight: configuration.size.toConcreteSize()))
+        let sheet = AndesBottomSheetViewController(rootViewController: BottomSheetExampleScrollableContentViewController(rowHeight: configuration.size.toConcreteSize()), presentationStyle: configuration.presentationStyle)
         sheet.titleBar.text = configuration.titleEnabled ? "This is a title" : nil
         sheet.titleBar.textAlignment = randomTextAlignment()
-        sheet.presentationSize = configuration.presentationSize
         present(sheet, animated: true)
     }
 

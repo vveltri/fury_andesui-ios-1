@@ -40,7 +40,7 @@ class AndesBottomSheetSizeManager {
         arrangePossibleDimensions()
     }
 
-    public func update(withPresentationSize presentationSize: AndesBottomSheetPresentationSize) {
+    public func update(withPresentationSize presentationSize: AndesBottomSheetPresentationStyle) {
         if presentationSize == .intrinsic && self.current != .intrinsic {
             self.current = .intrinsic
         } else if presentationSize == .fixed && self.current == .intrinsic {

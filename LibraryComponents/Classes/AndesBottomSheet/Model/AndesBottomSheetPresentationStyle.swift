@@ -6,11 +6,11 @@
 //
 
 import Foundation
-@objc public enum AndesBottomSheetPresentationSize: Int, AndesEnumStringConvertible {
+@objc public enum AndesBottomSheetPresentationStyle: Int, AndesEnumStringConvertible {
     case fixed
     case intrinsic
 
-    public static func keyFor(_ value: AndesBottomSheetPresentationSize) -> String {
+    public static func keyFor(_ value: AndesBottomSheetPresentationStyle) -> String {
         switch value {
             case .fixed: return "fixed"
             case .intrinsic: return "intrinsic"
