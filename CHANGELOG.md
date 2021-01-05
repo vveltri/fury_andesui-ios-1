@@ -5,6 +5,8 @@
 - AndesButton: add spinner variant in AndesButton | Authors: [@javff](https://github.com/javff)
 - AndesBottomSheet: Add configurable presentation size | Authors: [@inayabarb](https://github.com/inayabarb)
 - AndesButton: Fix trailing closure XCode 11 | Authors [joalonspint](https://github.com/joalonsopint)
+- Added icons to LocalIcons | Authors: [@rbasualdo7](https://github.com/rbasualdo7)
+
 ### 🛠 Bug fixes
 - [Breaking] AndesTagChoice component fix animation parameter | Authors: [@frank8MELI](https://github.com/frank8MELI)
 
