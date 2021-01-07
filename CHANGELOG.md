@@ -3,6 +3,9 @@
 - New component AndesList | Authors: [@joalonsopint](https://github.com/joalonsopint)
 - Adding accessibility to AndesListCell componente | Authors: [@joalonsopint](https://github.com/joalonsopint)
 
+### 🛠 Bug fixes
+- Fixed overlap between helper icon and helper message | Authors: [@andreikedaMELI](https://github.com/andreikedaMELI) 
+
 # v3.13.0
 ### 🚀 Features
 - Xcode 12 compatibility | Authors: [@Mobile-Arq](https://github.com/mercadolibre/fury_andesui-ios)
