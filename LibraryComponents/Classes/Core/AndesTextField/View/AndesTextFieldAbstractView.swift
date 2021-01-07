@@ -69,9 +69,11 @@ class AndesTextFieldAbstractView: UIView, AndesTextFieldView {
             helperIconImageView.backgroundColor = config.helperIconBgColor
             helperIconImageView.tintColor = config.helperIconColor
             helperLeadingToLabelLeading.priority = .defaultLow
+            helperLeadingToLabelLeading.constant = 12
         } else {
             helperIconImageView.isHidden = true
             helperLeadingToLabelLeading.priority = .defaultHigh
+            helperLeadingToLabelLeading.constant = 6
         }
 
         self.updateLabel(text: config.labelText, label: self.labelLabel, style: config.labelStyle)
