@@ -41,7 +41,7 @@ public class AndesBottomSheetTitleBar: UIView {
         let textLabel = UILabel()
         textLabel.font = AndesStyleSheetManager.styleSheet.semiboldSystemFontOfSize(size: AndesFontSize.titleS)
         textLabel.textColor = UIColor.Andes.gray800
-        textLabel.numberOfLines = 1
+        textLabel.numberOfLines = 2
         return textLabel
     }()
 

@@ -25,6 +25,14 @@ import UIKit
 
     /// Sets the padding of the AndesCard
     @objc public var padding: AndesCardPadding = .none {
+        didSet {
+            self.bodyPadding = self.padding.toAndesCardBodyPadding()
+            self.updateContentView()
+        }
+    }
+
+    /// Sets the body padding of the AndesCard
+    @objc public var bodyPadding: AndesCardBodyPadding = .none {
         didSet { self.updateContentView() }
     }
 
@@ -68,6 +76,7 @@ import UIKit
         self.cardView = cardView
         self.title = title
         self.padding = padding
+        self.bodyPadding = self.padding.toAndesCardBodyPadding()
         self.hierarchy = hierarchy
         self.style = style
         self.type = type

@@ -19,6 +19,7 @@ class AndesRadioButtonViewController: UIViewController, RadioButtonView {
     @IBOutlet weak var statusTxt: UITextField!
     @IBOutlet weak var alignTxt: UITextField!
     @IBOutlet weak var radioButtonTxt: UITextField!
+    @IBOutlet weak var numberLinesTxt: UITextField!
 
     @IBOutlet weak var updateBtn: UIButton!
     @IBOutlet weak var clearBtn: UIButton!
@@ -37,6 +38,11 @@ class AndesRadioButtonViewController: UIViewController, RadioButtonView {
 
     @IBAction func updateTapped(_ sender: Any) {
         self.radioButton.title = radioButtonTxt.text
+        self.radioButton.titleNumberOfLines = 0
+
+        if let text = numberLinesTxt.text, let numberLines = Int(text) {
+            self.radioButton.titleNumberOfLines = numberLines
+        }
     }
 
     @IBAction func clearTapped(_ sender: Any) {
@@ -48,6 +54,7 @@ class AndesRadioButtonViewController: UIViewController, RadioButtonView {
         typeText.text = self.radioButton.type.toString()
         statusTxt.text = self.radioButton.status.toString()
         alignTxt.text = self.radioButton.align.toString()
+        numberLinesTxt.text = "0"
 
         radioButtonTxt.text = ""
     }

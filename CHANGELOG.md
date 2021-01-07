@@ -1,5 +1,41 @@
 # Unpublished
 ### 🚀 Features
+- AndesProgressIndicatorIndeterminate: support new size in AndesProgressIndicator | Authors: [@javff](https://github.com/javff)
+- AndesDropdown  component  | Authors: [@joalonsopint](https://github.com/joalonsopint)
+- AndesButton: add spinner variant in AndesButton | Authors: [@javff](https://github.com/javff)
+- AndesBottomSheet: Add configurable presentation size | Authors: [@inayabarb](https://github.com/inayabarb)
+- AndesButton: Fix trailing closure XCode 11 | Authors [joalonspint](https://github.com/joalonsopint)
+- Added icons to LocalIcons | Authors: [@rbasualdo7](https://github.com/rbasualdo7)
+
+### 🛠 Bug fixes
+- [Breaking] AndesTagChoice component fix animation parameter | Authors: [@frank8MELI](https://github.com/frank8MELI)
+
+# v3.17.0
+### 🚀 Features
+- AndesProgressIndicatorIndeterminate: New component AndesProgressIndicator| Authors: [@javff](https://github.com/javff)
+
+### 🛠 Bug fixes
+- AndestextField: Fix icon component right and left interaction | Authors: [@joalonsopint](https://github.com/joalonsopint)
+- AndesBottomSheet: Fix title number of lines | Authors: [@joalonsopint](https://github.com/joalonsopint)
+
+# v3.16.0
+### 🚀 Features
+- AndesCard: New property to make the padding independent in the body | Authors: [@federiconosmor](https://github.com/federiconosmor)
+
+# v3.15.0
+### 🛠 Bug fixes
+- AndesList fix removing cell size | Authors: [@joalonsopint](https://github.com/joalonsopint)
+- AndesList fix border in thumbnail | Authors: [@joalonsopint](https://github.com/joalonsopint)
+
+# v3.14.1
+### 🛠 Bug fixes
+- AndesTagChoice text color changed. | Authors: [@JBAZANCARRIZ](https://github.com/JBAZANCARRIZ)
+
+### 🚀 Features
+- Date Picker component | Authors: [@AndriuCoelho](https://github.com/AndriuCoelho)
+
+# v3.14.0
+### 🚀 Features
 - New component AndesList | Authors: [@joalonsopint](https://github.com/joalonsopint)
 - Adding accessibility to AndesListCell componente | Authors: [@joalonsopint](https://github.com/joalonsopint)
 
@@ -16,7 +52,6 @@
 - Fixes in App Delegate and Page Controller in Test App | Authors: [@tomidelucca](https://github.com/tomidelucca)
 - AndesCheckbox tappable area extended  | Authors: [@ggiovanniniml](https://github.com/ggiovanniniml)
 - AndesCheckbox lateral padding fixed  | Authors: [@ggiovanniniml](https://github.com/ggiovanniniml)
-
 
 # v3.12.0
 ### 🚀 Features

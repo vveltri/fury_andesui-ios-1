@@ -24,4 +24,14 @@ import Foundation
         case .xlarge: return "XLARGE"
         }
     }
+
+    public func toAndesCardBodyPadding() -> AndesCardBodyPadding {
+        switch self {
+        case .none: return .none
+        case .small: return .small
+        case .medium: return .medium
+        case .large: return .large
+        case .xlarge: return .xlarge
+        }
+    }
 }
