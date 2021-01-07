@@ -16,6 +16,8 @@ struct PrimaryMessageActionButtonHierarchy: AndesButtonHierarchyProtocol {
 
     var fontColor: UIColor = AndesStyleSheetManager.styleSheet.textColorWhite
 
+    var spinnerTintColor: UIColor = .clear
+
     init(backgroundColor: UIColor, pressedColor: UIColor) {
         self.idleColor = backgroundColor
         self.pressedColor = pressedColor

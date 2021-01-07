@@ -21,10 +21,9 @@ class ListViewController: UIViewController {
     @IBOutlet weak var descriptionTxt: AndesTextField!
     @IBOutlet weak var selection: UISegmentedControl!
 
-    let icon = AndesThumbnail(hierarchy: .defaultHierarchy, type: .icon, size: .size24, state: .enabled, image: UIImage(named: "andes") ?? UIImage(), accentColor: UIColor.clear)
-    let thumbnail = AndesThumbnail(hierarchy: .defaultHierarchy, type: .imageCircle, size: .size24, state: .enabled, image: UIImage(named: "andes") ?? UIImage(), accentColor: UIColor.clear)
+    let icon = AndesThumbnail(hierarchy: .defaultHierarchy, type: .icon, size: .size24, state: .enabled, image: UIImage(named: "clip") ?? UIImage(), accentColor: UIColor.clear)
+    let thumbnail = AndesThumbnail(hierarchy: .defaultHierarchy, type: .imageCircle, size: .size24, state: .enabled, image: UIImage(named: "clip") ?? UIImage(), accentColor: UIColor.clear)
     var cell: AndesListCell!
-    var size: AndesListSize?
     var image: AndesThumbnail?
     var numberOfLines: Int?
 
@@ -43,6 +42,7 @@ class ListViewController: UIViewController {
         andesList.separatorStyle = .singleLine
         andesList.selectionStyle = .defaultStyle
         andesList.listType = .simple
+        andesList.size = .medium
 
         self.setValuesDefault()
     }
@@ -55,10 +55,11 @@ class ListViewController: UIViewController {
     @IBAction func setValuesDefault() {
         self.titleTxt.text = "list.label.titleCell".localized
         self.descriptionTxt.text = "list.label.subTitleCell".localized
-        self.size = .medium
+        andesList.size = .medium
         self.image = nil
         self.numberOfLines = 0
         andesList.listType = .simple
+        andesList.size = .medium
         simpleCellSelected = true
         selection.selectedSegmentIndex = 1
         self.numberOfLinesTitle.text = "0"
@@ -94,13 +95,11 @@ class ListViewController: UIViewController {
     func buildCell() {
         if simpleCellSelected {
             cell = AndesSimpleCell(withTitle: getTitleRow(),
-                                   size: self.size,
                                    subtitle: self.descriptionTxt.text,
                                    thumbnail: self.image,
                                    numberOfLines: self.getNumberOfLines())
         } else {
             cell = AndesChevronCell(withTitle: getTitleRow(),
-                                    size: self.size,
                                     subtitle: self.descriptionTxt.text,
                                     thumbnail: self.image,
                                     numberOfLines: self.getNumberOfLines())
@@ -123,11 +122,11 @@ class ListViewController: UIViewController {
 
     @IBAction func valueChangeSegmented() {
         if selection.selectedSegmentIndex == 0 {
-            size = .small
+            andesList.size = .small
         } else if selection.selectedSegmentIndex == 1 {
-            size = .medium
+            andesList.size = .medium
         } else {
-            size = .large
+            andesList.size = .large
         }
     }
 

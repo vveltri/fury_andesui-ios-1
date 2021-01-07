@@ -19,6 +19,7 @@ class AndesListTests: QuickSpec {
     var didSelected: Bool = false
     var icon: AndesThumbnail?
     var thumbnail: AndesThumbnail?
+    var size: AndesListSize?
 
     override func spec() {
         describe("AndesList should draw it's view based on style and size") {
@@ -31,11 +32,9 @@ class AndesListTests: QuickSpec {
                 it("Has the right simple cell view medium type with icon") {
                     //Given
                     let simplecell = AndesSimpleCell(withTitle: "Title",
-                                                         size: .medium,
                                                          subtitle: "Sub title")
 
                     let chevronCell = AndesChevronCell(withTitle: "Title",
-                                                          size: .medium,
                                                           subtitle: "Descripción de la celda",
                                                           thumbnail: self.icon)
 
@@ -49,11 +48,9 @@ class AndesListTests: QuickSpec {
                 it("Has the right simple cell view small type with icon") {
                     //Given
                     let simplecell = AndesSimpleCell(withTitle: "Title",
-                                                         size: .small,
                                                          subtitle: "Sub title")
 
                     let chevronCell = AndesChevronCell(withTitle: "Title",
-                                                          size: .small,
                                                           subtitle: "Descripción de la celda",
                                                           thumbnail: self.icon)
 
@@ -67,11 +64,9 @@ class AndesListTests: QuickSpec {
                 it("Has the right simple cell view large type with icon") {
                     //Given
                     let simplecell = AndesSimpleCell(withTitle: "Title",
-                                                         size: .large,
                                                          subtitle: "Sub title")
 
                     let chevronCell = AndesChevronCell(withTitle: "Title",
-                                                          size: .large,
                                                           subtitle: "Descripción de la celda",
                                                           thumbnail: self.icon)
 
@@ -85,11 +80,9 @@ class AndesListTests: QuickSpec {
                 it("Has the right simple cell view medium type with image circle") {
                     //Given
                     let simplecell = AndesSimpleCell(withTitle: "Title",
-                                                         size: .medium,
                                                          subtitle: "Sub title")
 
                     let chevronCell = AndesChevronCell(withTitle: "Title",
-                                                          size: .medium,
                                                           subtitle: "Descripción de la celda",
                                                           thumbnail: self.thumbnail)
 
@@ -103,11 +96,9 @@ class AndesListTests: QuickSpec {
                 it("Has the right simple cell view small type with image circle") {
                     //Given
                     let simplecell = AndesSimpleCell(withTitle: "Title",
-                                                         size: .small,
                                                          subtitle: "Sub title")
 
                     let chevronCell = AndesChevronCell(withTitle: "Title",
-                                                          size: .small,
                                                           subtitle: "Descripción de la celda",
                                                           thumbnail: self.thumbnail)
 
@@ -121,11 +112,9 @@ class AndesListTests: QuickSpec {
                 it("Has the right simple cell view large type with image circle") {
                     //Given
                     let simplecell = AndesSimpleCell(withTitle: "Title",
-                                                         size: .large,
                                                          subtitle: "Sub title")
 
                     let chevronCell = AndesChevronCell(withTitle: "Title",
-                                                          size: .large,
                                                           subtitle: "Descripción de la celda",
                                                           thumbnail: self.thumbnail)
 
@@ -177,6 +166,7 @@ class AndesListTests: QuickSpec {
                 it("Check cellForRowAt delegate with simple cell without icon in TableView") {
                     //Given
                     self.internalAndesList?.listType = .simple
+                    self.internalAndesList?.size = .small
                     self.cellType = .simple
                     let table = UITableView()
                     table.dataSource = myDataSource
@@ -195,6 +185,7 @@ class AndesListTests: QuickSpec {
                 it("Check cellForRowAt delegate with simple cell and icon in TableView") {
                     //Given
                     self.internalAndesList?.listType = .simple
+                    self.internalAndesList?.size = .medium
                     self.cellType = .simple
                     self.thumbnailType = .icon
                     let table = UITableView()
@@ -214,6 +205,7 @@ class AndesListTests: QuickSpec {
                 it("Check cellForRowAt delegate with chevron cell and icon in TableView") {
                     //Given
                     self.internalAndesList?.listType = .chevron
+                    self.internalAndesList?.size = .large
                     self.cellType = .chevron
                     self.thumbnailType = .icon
                     let table = UITableView()
@@ -232,6 +224,7 @@ class AndesListTests: QuickSpec {
                 it("Check cellForRowAt delegate with simple cell and ImageCircle in TableView") {
                     //Given
                     self.internalAndesList?.listType = .simple
+                    self.internalAndesList?.size = .small
                     self.cellType = .simple
                     self.thumbnailType = .imageCircle
                     let table = UITableView()
@@ -251,6 +244,7 @@ class AndesListTests: QuickSpec {
                 it("Check cellForRowAt delegate with chevron cell and ImageCircle in TableView") {
                     //Given
                     self.internalAndesList?.listType = .chevron
+                    self.internalAndesList?.size = .medium
                     self.cellType = .chevron
                     self.thumbnailType = .imageCircle
                     let table = UITableView()
@@ -309,6 +303,7 @@ class AndesListTests: QuickSpec {
                 it("Check separator Style") {
                     //Given
                     self.internalAndesList?.listType = .chevron
+                    self.internalAndesList?.size = .small
                     self.cellType = .chevron
                     self.thumbnailType = .icon
                     let style = AndesSeparatorStyle.none
@@ -323,6 +318,7 @@ class AndesListTests: QuickSpec {
                 it("Check selection Style gray color") {
                     //Given
                     self.internalAndesList?.listType = .simple
+                    self.internalAndesList?.size = .medium
                     self.cellType = .chevron
                     self.thumbnailType = .icon
 
@@ -336,6 +332,7 @@ class AndesListTests: QuickSpec {
                 it("Check selection Style blue color") {
                     //Given
                     self.internalAndesList?.listType = .simple
+                    self.internalAndesList?.size = .large
                     self.cellType = .chevron
                     self.thumbnailType = .icon
 
@@ -349,6 +346,7 @@ class AndesListTests: QuickSpec {
                 it("Check selection Style default color") {
                     //Given
                     self.internalAndesList?.listType = .simple
+                    self.internalAndesList?.size = .small
                     self.cellType = .chevron
                     self.thumbnailType = .icon
 
@@ -362,6 +360,7 @@ class AndesListTests: QuickSpec {
                 it("Check selection Style none color") {
                     //Given
                     self.internalAndesList?.listType = .simple
+                    self.internalAndesList?.size = .medium
                     self.cellType = .chevron
                     self.thumbnailType = .icon
 
@@ -394,16 +393,16 @@ extension AndesListTests: AndesListDataSource {
         switch cellType {
         case .simple:
             let cell = AndesSimpleCell(withTitle: titleArray?[indexPath.row] ?? "",
-                                       size: .medium,
                                        subtitle: "Descripción -- Descripción -- Descripción -- Descripción")
+            cell.updateSize(size: self.size ?? .medium)
             return cell
         case .chevron:
             let thumbnail = AndesThumbnail(hierarchy: .defaultHierarchy, type: self.thumbnailType!, size: .size24, state: .enabled, image: UIImage(named: "andes") ?? UIImage(), accentColor: UIColor.clear)
 
             let cell = AndesChevronCell(withTitle: titleArray?[indexPath.row] ?? "",
-                                        size: .medium,
                                         subtitle: "Descripción de la celda",
                                         thumbnail: thumbnail)
+            cell.updateSize(size: self.size ?? .medium)
             return cell
         default:
             return AndesListCell()

@@ -18,6 +18,13 @@ import UIKit
         }
     }
 
+    /// Sets the number of lines the title of the RadioButton
+    public var titleNumberOfLines: Int? {
+        didSet {
+            self.updateContentView()
+        }
+    }
+
     /// Sets the type of the RadioButton , default idle
     @objc public var type: AndesRadioButtonType = .idle {
         didSet {

@@ -16,6 +16,7 @@ class CardViewController: UIViewController {
     @IBOutlet weak var configButton: AndesButton!
     @IBOutlet weak var configView: UIView!
     @IBOutlet weak var paddingField: UITextField!
+    @IBOutlet weak var bodyPaddingField: UITextField!
     @IBOutlet weak var hierarchyField: UITextField!
     @IBOutlet weak var styleField: UITextField!
     @IBOutlet weak var typeField: UITextField!
@@ -26,10 +27,12 @@ class CardViewController: UIViewController {
 
     // MARK: - Properties
     private var paddingPicker: UIPickerView = UIPickerView()
+    private var bodyPaddingPicker: UIPickerView = UIPickerView()
     private var hierarchyPicker: UIPickerView = UIPickerView()
     private var stylePicker: UIPickerView = UIPickerView()
     private var typePicker: UIPickerView = UIPickerView()
     private var padding: AndesCardPadding = .small
+    private var bodyPadding: AndesCardBodyPadding = .small
     private var hierarchy: AndesCardHierarchy = .primary
     private var style: AndesCardStyle = .elevated
     private var type: AndesCardType = .none
@@ -62,6 +65,10 @@ class CardViewController: UIViewController {
         paddingField.inputView = paddingPicker
         paddingPicker.delegate = self
         paddingPicker.dataSource = self
+
+        bodyPaddingField.inputView = bodyPaddingPicker
+        bodyPaddingPicker.delegate = self
+        bodyPaddingPicker.dataSource = self
 
         hierarchyField.inputView = hierarchyPicker
         hierarchyPicker.delegate = self
@@ -146,6 +153,7 @@ class CardViewController: UIViewController {
 
     @IBAction func onUpdateButtonTap(_ sender: AndesButton) {
         andesCard.padding = self.padding
+        andesCard.bodyPadding = self.bodyPadding
         andesCard.hierarchy = self.hierarchy
         andesCard.style = self.style
         andesCard.type = self.type
@@ -178,6 +186,10 @@ extension CardViewController: UIPickerViewDelegate {
             self.padding = AndesCardPadding(rawValue: row)!
             self.paddingField.text = AndesCardPadding.keyFor(self.padding).capitalized
         }
+        if pickerView == bodyPaddingPicker {
+            self.bodyPadding = AndesCardBodyPadding(rawValue: row)!
+            self.bodyPaddingField.text = AndesCardBodyPadding.keyFor(self.bodyPadding).capitalized
+        }
         if pickerView == hierarchyPicker {
             self.hierarchy = AndesCardHierarchy(rawValue: row)!
             self.hierarchyField.text = AndesCardHierarchy.keyFor(self.hierarchy).capitalized
@@ -202,6 +214,9 @@ extension CardViewController: UIPickerViewDataSource {
         if pickerView == paddingPicker {
             return AndesCardPadding.allCases.count
         }
+        if pickerView == bodyPaddingPicker {
+            return AndesCardBodyPadding.allCases.count
+        }
         if pickerView == hierarchyPicker {
             return AndesCardHierarchy.allCases.count
         }
@@ -217,6 +232,9 @@ extension CardViewController: UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView == paddingPicker {
             return AndesCardPadding.keyFor(AndesCardPadding(rawValue: row)!).capitalized
+        }
+        if pickerView == bodyPaddingPicker {
+            return AndesCardBodyPadding.keyFor(AndesCardBodyPadding(rawValue: row)!).capitalized
         }
         if pickerView == hierarchyPicker {
             return AndesCardHierarchy.keyFor(AndesCardHierarchy(rawValue: row)!).capitalized

@@ -17,6 +17,7 @@ protocol HomeView: NSObject {
 class HomeViewController: UIViewController {
 
     weak var presenter: HomePresenter!
+    @IBOutlet weak var progressIndicatorBtn: AndesButton!
     @IBOutlet weak var coachmarkBtn: AndesButton!
     @IBOutlet weak var button: AndesButton!
     @IBOutlet weak var stackView: UIStackView!
@@ -32,6 +33,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var specsButton: AndesButton!
     @IBOutlet weak var contributingButton: AndesButton!
 	@IBOutlet weak var thumbnailBtn: AndesButton!
+
 	@IBOutlet weak var showcaseLabel: UILabel!
 
     override func viewDidLoad() {
@@ -90,6 +92,10 @@ class HomeViewController: UIViewController {
         presenter.presentRadioButton()
     }
 
+    @IBAction func goToDatePickerTapped(_ sender: Any) {
+        presenter.presentDatePicker()
+    }
+
     @IBAction func goToSpecsTapped(_ sender: Any) {
         guard let url = URL(string: "https://company-161429.frontify.com/d/kxHCRixezmfK/n-a") else { return }
         UIApplication.shared.open(url)
@@ -100,6 +106,10 @@ class HomeViewController: UIViewController {
         guard let url = URL(string: "https://meli.workplace.com/notes/andes-ui/c%C3%B3mo-contribuir-en-andes-ui/2559399620854933") else { return }
         UIApplication.shared.open(url)
 
+    }
+
+    @IBAction func progressIndicatorBtnTapped(_ sender: Any) {
+        presenter.presentProgressIndicator()
     }
 
     @IBAction func textfieldBtnTapped(_ sender: Any) {
@@ -132,6 +142,10 @@ class HomeViewController: UIViewController {
 
     @IBAction func bottomSheetTapped(_ sender: Any) {
         presenter.presentBottomSheet()
+    }
+
+    @IBAction func dropdownTapped(_ sender: Any) {
+        presenter.presentDropdown()
     }
 }
 

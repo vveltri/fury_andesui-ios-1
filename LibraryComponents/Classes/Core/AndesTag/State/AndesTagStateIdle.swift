@@ -13,7 +13,7 @@ struct AndesTagStateIdle: AndesTagStateProtocol {
 
     var borderColor: UIColor = UIColor.Andes.gray250
 
-    var buttonColor: UIColor = UIColor.Andes.gray450
+    var buttonColor: UIColor = UIColor.Andes.gray800
 
     var backgroundColor: UIColor = UIColor.clear
 

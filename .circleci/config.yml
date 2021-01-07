@@ -122,6 +122,9 @@ jobs:
       - run:
           name: Run Deploy
           command: ./scripts/run_deploy.sh
+      - run:
+          name: Run MDS demoapp deploy
+          command: ./scripts/run_mds.sh  
 
 # Define the full workflow.
 workflows:
@@ -132,5 +135,3 @@ workflows:
           <<: *defaultWorkflow
       - lint:
           <<: *defaultWorkflow
-      - build:
-          <<: *deployWorkflow

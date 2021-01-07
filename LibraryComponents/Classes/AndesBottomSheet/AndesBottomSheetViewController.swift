@@ -19,8 +19,16 @@ private enum Constants {
             return UIApplication.shared.statusBarFrame.height
         }
     }
-    static let sizes: [AndesBottomSheetSize] = [.min(.intrinsic, .percent(0.60)),
-                                                .min(.intrinsic, .fixedFromTop(Constants.marginFromTop))]
+
+    static func sizes(forStyle style: AndesBottomSheetPresentationStyle) -> [AndesBottomSheetSize] {
+        switch style {
+        case .fixed:
+            return [.min(.intrinsic, .percent(0.60)),
+                    .min(.intrinsic, .fixedFromTop(Constants.marginFromTop))]
+        case .intrinsic:
+            return [.min(.intrinsic, .fixedFromTop(Constants.marginFromTop))]
+        }
+    }
 }
 
 open class AndesBottomSheetViewController: UIViewController {
@@ -64,12 +72,17 @@ open class AndesBottomSheetViewController: UIViewController {
     }()
 
     @objc
-    public init(rootViewController: UIViewController) {
+    public init(rootViewController: UIViewController, presentationStyle: AndesBottomSheetPresentationStyle) {
         self.contentController = AndesBottomSheetContentViewController(viewController: rootViewController)
-        self.sizeManager = AndesBottomSheetSizeManager(sizes: Constants.sizes)
+        self.sizeManager = AndesBottomSheetSizeManager(sizes: Constants.sizes(forStyle: presentationStyle))
         super.init(nibName: nil, bundle: nil)
         self.transitioningDelegate = transitioningConformance
         self.modalPresentationStyle = .overCurrentContext
+    }
+
+    @objc
+    public convenience init(rootViewController: UIViewController) {
+        self.init(rootViewController: rootViewController, presentationStyle: .fixed)
     }
 
     @available(*, unavailable)
