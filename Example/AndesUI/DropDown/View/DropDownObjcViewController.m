@@ -16,7 +16,7 @@
 @property(weak, nonatomic) IBOutlet AndesTextField *textField;
 @property(weak, nonatomic) IBOutlet AndesTextField *placelholderField;
 @property(weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
-@property(weak, nonatomic) IBOutlet AndesTextField *helperTextTextField;
+@property(weak, nonatomic) IBOutlet AndesTextField *helperTextField;
 
 @property(nonatomic) AndesDropDownMenuCell *cell;
 @property(nonatomic) NSMutableArray *cellArray;
@@ -141,7 +141,7 @@
 
 - (void)andesTextFieldDidEndEditing:(AndesTextField *)textField {
     if ([self.andesDropdown.triggerType isMemberOfClass:[FormDropdownTrigger class]]) {
-        [self updateFormDropdownView:self.textField.text placeholder:self.placelholderField.text helperText:self.helperTextTextField.text];
+        [self updateFormDropdownView:self.textField.text placeholder:self.placelholderField.text helperText:self.helperTextField.text];
     }
     else {
         [self updateStandaloneDropdownView:AndesStandaloneSizeMedium];

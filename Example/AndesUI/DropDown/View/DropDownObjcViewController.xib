@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -12,7 +10,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DropDownObjcViewController">
             <connections>
                 <outlet property="andesDropdown" destination="KoE-Zj-Brk" id="EK7-TB-dTk"/>
-                <outlet property="helperTextTextField" destination="Tjn-rG-a94" id="iDF-Vc-bqN"/>
+                <outlet property="helperTextField" destination="Tjn-rG-a94" id="iDF-Vc-bqN"/>
                 <outlet property="placelholderField" destination="dRS-dA-5K9" id="Sj3-PX-dum"/>
                 <outlet property="radioButtonForm" destination="hQx-pg-9rJ" id="gws-Gk-ecf"/>
                 <outlet property="radioButtonStandAlone" destination="5zo-Wu-Nx1" id="XaT-66-9DN"/>
@@ -27,7 +25,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="T2a-zf-ySk">
-                    <rect key="frame" x="42" y="101" width="330" height="101"/>
+                    <rect key="frame" x="42" y="57" width="330" height="101"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hQx-pg-9rJ" customClass="AndesRadioButton" customModule="AndesUI">
                             <rect key="frame" x="0.0" y="0.0" width="330" height="50"/>
@@ -52,7 +50,7 @@
                     </constraints>
                 </stackView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5sm-4u-Och" customClass="AndesTextField" customModule="AndesUI">
-                    <rect key="frame" x="42" y="200" width="330" height="50"/>
+                    <rect key="frame" x="42" y="156" width="330" height="50"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="utX-lZ-bxj"/>
@@ -62,7 +60,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tjn-rG-a94" customClass="AndesTextField" customModule="AndesUI">
-                    <rect key="frame" x="42" y="321" width="330" height="50"/>
+                    <rect key="frame" x="42" y="277" width="330" height="50"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="DhJ-YD-Ljt"/>
@@ -73,7 +71,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dRS-dA-5K9" customClass="AndesTextField" customModule="AndesUI">
-                    <rect key="frame" x="42" y="255" width="330" height="50"/>
+                    <rect key="frame" x="42" y="211" width="330" height="50"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="FPT-lQ-pAd"/>
@@ -83,7 +81,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="6xm-hm-oha">
-                    <rect key="frame" x="42" y="62" width="330" height="32"/>
+                    <rect key="frame" x="42" y="18" width="330" height="32"/>
                     <segments>
                         <segment title="Small"/>
                         <segment title="Medium"/>
@@ -94,7 +92,7 @@
                     </connections>
                 </segmentedControl>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KoE-Zj-Brk" customClass="AndesDropdown" customModule="AndesUI">
-                    <rect key="frame" x="61" y="393" width="292" height="90"/>
+                    <rect key="frame" x="61" y="349" width="292" height="90"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="90" id="9u6-iz-BfX"/>
