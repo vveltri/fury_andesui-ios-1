@@ -73,7 +73,7 @@ class DropdownViewController: UIViewController {
         segmentedControl.selectedSegmentIndex = 1
     }
 
-    func updateFormDropdownView(title: String = "", placeholder: String = "Placeholder para Dropdown", helperText: String = "Helper Text") {
+    func updateFormDropdownView(title: String = "", placeholder: String = "Placeholder para Dropdown", helperText: String = "") {
         andesDropdown.triggerType = FormDropdownTrigger(title: title, placeholder: placeholder, helperText: helperText)
     }
 
