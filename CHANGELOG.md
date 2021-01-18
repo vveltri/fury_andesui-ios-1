@@ -8,6 +8,9 @@
 ### 🛠 Bug fixes
 - Fixed overlap between helper icon and helper message | Authors: [@andreikedaMELI](https://github.com/andreikedaMELI) 
 
+### ⚙️ Other
+- Disable bot for issues | Authors [joalonspint](https://github.com/joalonsopint)
+
 # v3.18.1
 ### 🚀 Features
 - AndesProgressIndicatorIndeterminate: support new size in AndesProgressIndicator | Authors: [@javff](https://github.com/javff)
