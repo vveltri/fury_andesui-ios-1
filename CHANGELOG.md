@@ -3,6 +3,7 @@
 - AndesBottomSheet: Add configurable presentation size | Authors: [@inayabarb](https://github.com/inayabarb)
 - AndesBottomSheet: Fix - Take safe area into account when calculating content size | Authors: [@inayabarb](https://github.com/inayabarb)
 - Added icons to LocalIcons | Authors: [@rbasualdo7](https://github.com/rbasualdo7)
+- Added Helper text to Dropdwn  | Authors:[@dabeltran95](https://github.com/dabeltran95)
 
 ### 🛠 Bug fixes
 - Fixed overlap between helper icon and helper message | Authors: [@andreikedaMELI](https://github.com/andreikedaMELI) 
