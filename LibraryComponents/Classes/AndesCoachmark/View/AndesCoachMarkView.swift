@@ -44,7 +44,7 @@ import UIKit
         self.onExit = model.completionHandler
         self.presenter = AndesCoachMarkPresenter(model: model)
 
-        super.init(frame: CGRect.zero)
+        super.init(frame: UIScreen.main.bounds)
 
         setupViews()
         setupOverlayLayer()
