@@ -17,13 +17,15 @@
     let style: HighlightStyle
     let margin: CGFloat
     let nextText: String
+    let showExitButton: Bool
 
     @objc public init (title: String,
                  description: String,
                  view: UIView,
                  style: HighlightStyle,
                  margin: CGFloat,
-                 nextText: String) {
+                 nextText: String,
+                 showExitButton: Bool = true) {
 
         self.title = title
         self.descriptionText = description
@@ -31,13 +33,15 @@
         self.view = view
         self.style = style
         self.margin = margin
+        self.showExitButton = showExitButton
     }
 
     @objc public init (title: String,
                  description: String,
                  view: UIView,
                  style: HighlightStyle,
-                 nextText: String) {
+                 nextText: String,
+                 showExitButton: Bool = true) {
 
         self.title = title
         self.descriptionText = description
@@ -45,5 +49,6 @@
         self.view = view
         self.style = style
         self.margin = AndesCoachMarkConstants.Highlight.margin
+        self.showExitButton = showExitButton
     }
 }

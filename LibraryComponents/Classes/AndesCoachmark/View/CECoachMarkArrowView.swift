@@ -24,11 +24,11 @@ class AndesCoachMarkArrowView: UIView {
         shapeLayer.frame = CGRect(x: 0, y: 0, width: arrowWidth, height: arrowHeight)
         shapeLayer.fillColor = UIColor.clear.cgColor
         shapeLayer.strokeColor = UIColor.white.cgColor
-        shapeLayer.lineWidth = 1
+        shapeLayer.lineWidth = 1.5
         headLayer.frame = CGRect(x: 0, y: 0, width: AndesCoachMarkConstants.Arrow.headWidth, height: AndesCoachMarkConstants.Arrow.headHeight)
         headLayer.fillColor = UIColor.clear.cgColor
         headLayer.strokeColor = UIColor.white.cgColor
-        headLayer.lineWidth = 1
+        headLayer.lineWidth = 1.5
         layer.insertSublayer(shapeLayer, at: 0)
         layer.insertSublayer(headLayer, above: shapeLayer)
         setupViews()
