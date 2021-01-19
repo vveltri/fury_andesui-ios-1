@@ -15,7 +15,23 @@
     let descriptionText: String
     let view: UIView
     let style: HighlightStyle
+    let margin: CGFloat
     let nextText: String
+
+    @objc public init (title: String,
+                 description: String,
+                 view: UIView,
+                 style: HighlightStyle,
+                 margin: CGFloat,
+                 nextText: String) {
+
+        self.title = title
+        self.descriptionText = description
+        self.nextText = nextText
+        self.view = view
+        self.style = style
+        self.margin = margin
+    }
 
     @objc public init (title: String,
                  description: String,
@@ -28,5 +44,6 @@
         self.nextText = nextText
         self.view = view
         self.style = style
+        self.margin = AndesCoachMarkConstants.Highlight.margin
     }
 }
