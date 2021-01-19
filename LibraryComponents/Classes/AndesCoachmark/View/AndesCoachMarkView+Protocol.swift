@@ -28,7 +28,7 @@ extension AndesCoachMarkView: AndesCoachMarkViewProtocol {
     func setBody(_ presenter: AndesCoachMarkBodyPresenter, removePrevious: Bool) {
         if removePrevious { body?.removeFromSuperview() }
         body = AndesCoachMarkBodyView(presenter: presenter)
-
+        body?.delegate = self
         guard let body = body else { return }
         body.alpha = 0
         addSubview(body)

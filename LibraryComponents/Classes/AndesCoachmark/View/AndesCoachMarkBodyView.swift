@@ -15,6 +15,7 @@ protocol AndesCoachMarkBodyViewProtocol: class {
 
     func setupTitleLabel(title: String)
     func setupDescriptionLabel(description: String)
+    func setupNextButton(nextText: String, buttonStyle: AndesCoachMarkBodyEntity.ButtonStyle)
 
     func convertCoordinates(view: UIView) -> CGRect
 
@@ -27,6 +28,9 @@ class AndesCoachMarkBodyView: UIView {
     private lazy var titleLabel = UILabel()
     private lazy var descriptionLabel = UILabel()
     private var arrowView: AndesCoachMarkArrowView?
+
+    private lazy var nextButton = AndesButton(text: "", hierarchy: .quiet, size: .large)
+    weak var delegate: AndesCoachMarkFooterViewDelegate?
 
     var presenter: AndesCoachMarkBodyPresenter
 
@@ -176,4 +180,29 @@ extension AndesCoachMarkBodyView: AndesCoachMarkBodyViewProtocol {
         ])
         descriptionLabel.sizeToFit()
     }
+
+    func setupNextButton(nextText: String, buttonStyle: AndesCoachMarkBodyEntity.ButtonStyle) {
+            if buttonStyle == .normal {
+                nextButton = AndesButton(text: "", hierarchy: .quiet, size: .large)
+                nextButton.backgroundColor = UIColor.white.withAlphaComponent(0.2)
+                nextButton.layer.cornerRadius = 6
+            } else {
+                nextButton = AndesButton(text: "", hierarchy: .loud, size: .large)
+            }
+            nextButton.addTarget(self, action: #selector(nextButtonTouchUpInside), for: .touchUpInside)
+            nextButton.text = nextText
+            nextButton.translatesAutoresizingMaskIntoConstraints = false
+            addSubview(nextButton)
+            NSLayoutConstraint.activate([
+                nextButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 48),
+                nextButton.leadingAnchor.constraint(greaterThanOrEqualTo: labelsContainer.leadingAnchor),
+                nextButton.centerXAnchor.constraint(equalTo: labelsContainer.centerXAnchor),
+                nextButton.bottomAnchor.constraint(equalTo: labelsContainer.bottomAnchor, constant: -8)
+            ])
+            nextButton.sizeToFit()
+        }
+
+        @objc func nextButtonTouchUpInside(_ sender: UIControl, with event: UIEvent?) {
+            delegate?.didNext()
+        }
 }

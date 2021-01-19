@@ -33,7 +33,7 @@ class AndesCoachMarkFooterView: UIView {
         translatesAutoresizingMaskIntoConstraints = false
         heightAnchor.constraint(equalToConstant: 96).isActive = true
 
-        setupNextButton()
+        //setupNextButton()
     }
 
     private func setupNextButton() {

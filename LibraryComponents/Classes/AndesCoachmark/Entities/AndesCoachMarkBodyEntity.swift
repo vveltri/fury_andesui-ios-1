@@ -12,11 +12,18 @@ struct AndesCoachMarkBodyEntity {
     let description: String
     let viewToPoint: UIView
     let position: Position?
+    let nextText: String
+    let buttonStyle: ButtonStyle
 }
 
 extension AndesCoachMarkBodyEntity {
     enum Position {
         case above
         case below
+    }
+
+    enum ButtonStyle {
+           case normal
+           case final
     }
 }
