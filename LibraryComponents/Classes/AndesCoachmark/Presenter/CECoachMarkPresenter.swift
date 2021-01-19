@@ -72,7 +72,7 @@ class AndesCoachMarkPresenter {
     private func prepare() {
         guard let view = view, let currentStep = currentStep else { return }
 
-        highlightInteractor?.update(view: currentStep.view, style: currentStep.style)
+        highlightInteractor?.update(view: currentStep.view, style: currentStep.style, margin: currentStep.margin)
         let bodyPosition: AndesCoachMarkBodyEntity.Position = highlightInteractor?.isHighlightedViewBelow() ?? true ? .above : .below
 
         view.setNavBar("\(currentIndex+1) de \(model.steps.count)")
@@ -110,7 +110,7 @@ class AndesCoachMarkPresenter {
 
     private func show() {
         guard let view = view, let currentStep = currentStep, let highlightInteractor = highlightInteractor else { return }
-        highlightInteractor.update(view: currentStep.view, style: currentStep.style)
+        highlightInteractor.update(view: currentStep.view, style: currentStep.style, margin: currentStep.margin)
 
         view.setHighlight(frame: highlightInteractor.getHighlightRect(), cornerRadius: highlightInteractor.getHighlightCornerRadius(), maskPath: highlightInteractor.getMaskPath())
         view.show()
