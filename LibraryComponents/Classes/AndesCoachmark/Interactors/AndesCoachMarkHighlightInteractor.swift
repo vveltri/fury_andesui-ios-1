@@ -46,11 +46,7 @@ class AndesCoachMarkHighlightInteractor {
 
         //Vertical excess
         if !isContainedVertically(rectConverted.insetBy(dx: 0, dy: -margin), in: bodyViewBounds) {
-            if rectConverted.isAbove(of: bodyViewBounds) {
-                return CGRect(x: rectConvertedCuttedX, y: bodyViewBounds.minY + margin, width: rectConvertedCuttedWidth, height: rectConverted.maxY - bodyViewBounds.minY - margin)
-            } else {
-                return CGRect(x: rectConvertedCuttedX, y: rectConverted.minY, width: rectConvertedCuttedWidth, height: bodyViewBounds.maxY - rectConverted.minY - margin)
-            }
+            return CGRect(x: rectConvertedCuttedX, y: rectConverted.minY, width: rectConvertedCuttedWidth, height: rectConverted.maxY - rectConverted.minY - margin)
         } else {
             return CGRect(x: rectConvertedCuttedX, y: rectConverted.origin.y, width: rectConvertedCuttedWidth, height: rectConverted.height)
         }
