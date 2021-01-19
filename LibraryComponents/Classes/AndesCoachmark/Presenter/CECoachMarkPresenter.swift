@@ -75,7 +75,7 @@ class AndesCoachMarkPresenter {
         highlightInteractor?.update(view: currentStep.view, style: currentStep.style, margin: currentStep.margin)
         let bodyPosition: AndesCoachMarkBodyEntity.Position = highlightInteractor?.isHighlightedViewBelow() ?? true ? .above : .below
 
-        view.setNavBar("\(currentIndex+1) de \(model.steps.count)")
+        view.setNavBar("\(currentIndex+1) de \(model.steps.count)", shouldShowExitButton: currentStep.showExitButton)
         view.setFooter(currentStep.nextText)
         view.hideBody()
         setBody(bodyPosition, removePrevious: false)
