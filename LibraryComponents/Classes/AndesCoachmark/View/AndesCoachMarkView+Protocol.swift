@@ -19,8 +19,7 @@ extension AndesCoachMarkView: AndesCoachMarkViewProtocol {
         layoutIfNeeded()
     }
 
-    func setFooter(_ nextText: String) {
-        footer.nextText = nextText
+    func setFooter() {
         bringSubviewToFront(footer)     //Workaround porque sino el overlay me afecta la vista
         layoutIfNeeded()
     }

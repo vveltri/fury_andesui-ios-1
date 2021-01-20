@@ -79,7 +79,7 @@ class AndesCoachMarkPresenter {
         let buttonStyle: AndesCoachMarkBodyEntity.ButtonStyle = currentIndex+1 == model.steps.count ? .final : .normal
 
         view.setNavBar("\(currentIndex+1) de \(model.steps.count)", shouldShowExitButton: currentStep.showExitButton)
-        view.setFooter(currentStep.nextText)
+        view.setFooter()
         view.hideBody()
         setBody(bodyPosition, removePrevious: false, buttonStyle: buttonStyle)
         if let bodyView = view.bodyView {

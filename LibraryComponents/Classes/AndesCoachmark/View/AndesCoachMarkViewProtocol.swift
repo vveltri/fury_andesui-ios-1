@@ -18,7 +18,7 @@ protocol AndesCoachMarkViewProtocol: class {
     func setNavBar(_ title: String, shouldShowExitButton: Bool)
     func setBody(_ presenter: AndesCoachMarkBodyPresenter, removePrevious: Bool)
     func hideBody()
-    func setFooter(_ nextText: String)
+    func setFooter()
 
     //Delegate
     func showNext(stepIndex: Int)

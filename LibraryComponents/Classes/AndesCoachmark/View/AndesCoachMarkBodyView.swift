@@ -22,6 +22,10 @@ protocol AndesCoachMarkBodyViewProtocol: class {
     var width: CGFloat { get }
 }
 
+protocol AndesCoachMarkBodyViewDelegate: class {
+    func didNext()
+}
+
 class AndesCoachMarkBodyView: UIView {
 
     private lazy var labelsContainer = UIView()
@@ -29,8 +33,18 @@ class AndesCoachMarkBodyView: UIView {
     private lazy var descriptionLabel = UILabel()
     private var arrowView: AndesCoachMarkArrowView?
 
-    private lazy var nextButton = AndesButton(text: "", hierarchy: .quiet, size: .large)
-    weak var delegate: AndesCoachMarkFooterViewDelegate?
+    private lazy var finalButton = AndesButton(text: "", hierarchy: .loud, size: .large)
+
+    private lazy var nextButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = UIColor.white.withAlphaComponent(0.2)
+        button.layer.cornerRadius = 6
+        button.titleLabel?.textColor = AndesStyleSheetManager.styleSheet.textColorWhite
+        button.titleLabel?.font =  AndesStyleSheetManager.styleSheet.semiboldSystemFontOfSize(size: AndesFontSize.bodyM)
+        button.contentEdgeInsets = UIEdgeInsets(top: 0.0, left: 24.0, bottom: 0.0, right: 24.0)
+        return button
+    }()
+    weak var delegate: AndesCoachMarkBodyViewDelegate?
 
     var presenter: AndesCoachMarkBodyPresenter
 
@@ -175,34 +189,43 @@ extension AndesCoachMarkBodyView: AndesCoachMarkBodyViewProtocol {
         NSLayoutConstraint.activate([
             descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4),
             descriptionLabel.leadingAnchor.constraint(greaterThanOrEqualTo: labelsContainer.leadingAnchor),
-            descriptionLabel.centerXAnchor.constraint(equalTo: labelsContainer.centerXAnchor),
-            descriptionLabel.bottomAnchor.constraint(equalTo: labelsContainer.bottomAnchor, constant: -8)
+            descriptionLabel.centerXAnchor.constraint(equalTo: labelsContainer.centerXAnchor)
         ])
         descriptionLabel.sizeToFit()
     }
 
     func setupNextButton(nextText: String, buttonStyle: AndesCoachMarkBodyEntity.ButtonStyle) {
-            if buttonStyle == .normal {
-                nextButton = AndesButton(text: "", hierarchy: .quiet, size: .large)
-                nextButton.backgroundColor = UIColor.white.withAlphaComponent(0.2)
-                nextButton.layer.cornerRadius = 6
-            } else {
-                nextButton = AndesButton(text: "", hierarchy: .loud, size: .large)
-            }
-            nextButton.addTarget(self, action: #selector(nextButtonTouchUpInside), for: .touchUpInside)
-            nextButton.text = nextText
-            nextButton.translatesAutoresizingMaskIntoConstraints = false
-            addSubview(nextButton)
-            NSLayoutConstraint.activate([
-                nextButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 48),
-                nextButton.leadingAnchor.constraint(greaterThanOrEqualTo: labelsContainer.leadingAnchor),
-                nextButton.centerXAnchor.constraint(equalTo: labelsContainer.centerXAnchor),
-                nextButton.bottomAnchor.constraint(equalTo: labelsContainer.bottomAnchor, constant: -8)
-            ])
-            nextButton.sizeToFit()
-        }
+        var button: UIView = nextButton
+        if buttonStyle == .normal {
+            setNormalButton(nextText)
+            nextButton.heightAnchor.constraint(equalToConstant: 48).isActive = true
 
-        @objc func nextButtonTouchUpInside(_ sender: UIControl, with event: UIEvent?) {
-            delegate?.didNext()
+        } else {
+            setFinalButton(nextText)
+            button = finalButton
         }
+        button.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(button)
+        NSLayoutConstraint.activate([
+            button.topAnchor.constraint(greaterThanOrEqualTo: descriptionLabel.bottomAnchor, constant: 48),
+            button.leadingAnchor.constraint(greaterThanOrEqualTo: labelsContainer.leadingAnchor),
+            button.centerXAnchor.constraint(equalTo: labelsContainer.centerXAnchor),
+            button.bottomAnchor.constraint(equalTo: labelsContainer.bottomAnchor, constant: -8)
+        ])
+        nextButton.sizeToFit()
+    }
+
+    private func setFinalButton(_ nextText: String) {
+        finalButton.addTarget(self, action: #selector(nextButtonTouchUpInside), for: .touchUpInside)
+        finalButton.text = nextText
+    }
+
+    private func setNormalButton(_ nextText: String) {
+        nextButton.addTarget(self, action: #selector(nextButtonTouchUpInside), for: .touchUpInside)
+        nextButton.setTitle(nextText, for: .normal)
+    }
+
+    @objc func nextButtonTouchUpInside(_ sender: UIControl, with event: UIEvent?) {
+        delegate?.didNext()
+    }
 }
