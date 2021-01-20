@@ -61,12 +61,14 @@ class AndesCoachMarkPresenter {
         }
     }
 
-    private func setBody(_ position: AndesCoachMarkBodyEntity.Position, removePrevious: Bool) {
+    private func setBody(_ position: AndesCoachMarkBodyEntity.Position, removePrevious: Bool, buttonStyle: AndesCoachMarkBodyEntity.ButtonStyle) {
         guard let view = view, let currentStep = currentStep else { return }
         view.setBody(AndesCoachMarkBodyPresenter(model: AndesCoachMarkBodyEntity(title: currentStep.title,
                                                                            description: currentStep.descriptionText,
                                                                            viewToPoint: currentStep.view,
-                                                                           position: position)), removePrevious: removePrevious)
+                                                                           position: position,
+                                                                           nextText: currentStep.nextText,
+                                                                           buttonStyle: buttonStyle)), removePrevious: removePrevious)
     }
 
     private func prepare() {
@@ -74,11 +76,12 @@ class AndesCoachMarkPresenter {
 
         highlightInteractor?.update(view: currentStep.view, style: currentStep.style, margin: currentStep.margin)
         let bodyPosition: AndesCoachMarkBodyEntity.Position = highlightInteractor?.isHighlightedViewBelow() ?? true ? .above : .below
+        let buttonStyle: AndesCoachMarkBodyEntity.ButtonStyle = currentIndex+1 == model.steps.count ? .final : .normal
 
         view.setNavBar("\(currentIndex+1) de \(model.steps.count)", shouldShowExitButton: currentStep.showExitButton)
-        view.setFooter(currentStep.nextText)
+        view.setFooter()
         view.hideBody()
-        setBody(bodyPosition, removePrevious: false)
+        setBody(bodyPosition, removePrevious: false, buttonStyle: buttonStyle)
         if let bodyView = view.bodyView {
             scrollInteractor?.update(highlightedView: currentStep.view, bodyView: bodyView)
         }
@@ -92,7 +95,7 @@ class AndesCoachMarkPresenter {
             return
         }
         _ = scrollInteractor?.scrollIfNeeded { [weak self] in
-            self?.setBody(bodyPosition, removePrevious: true)
+            self?.setBody(bodyPosition, removePrevious: true, buttonStyle: buttonStyle)
             self?.show()
         }
 
@@ -130,7 +133,7 @@ class AndesCoachMarkPresenter {
         if currentIndex != -1 { return }
 
         currentIndex = 0
-        setBody(.above, removePrevious: true)
+        setBody(.above, removePrevious: true, buttonStyle: .normal)
         createHighlightInteractor()
         createScrollInteractor()
         prepare()

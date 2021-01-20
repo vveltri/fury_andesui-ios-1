@@ -25,7 +25,6 @@ import UIKit
     lazy var footer: AndesCoachMarkFooterView = {
         let footer = AndesCoachMarkFooterView()
         footer.alpha = 0
-        footer.delegate = self
         return footer
     }()
     var body: AndesCoachMarkBodyView?
@@ -114,7 +113,7 @@ extension AndesCoachMarkView: AndesCoachMarkNavBarViewDelegate {
 }
 
 // MARK: - Actions from Footer
-extension AndesCoachMarkView: AndesCoachMarkFooterViewDelegate {
+extension AndesCoachMarkView: AndesCoachMarkBodyViewDelegate {
     func didNext() {
         presenter.didNextActionTap()
     }
