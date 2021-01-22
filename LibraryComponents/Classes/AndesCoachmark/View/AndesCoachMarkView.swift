@@ -103,6 +103,10 @@ import UIKit
         presenter.start()
     }
 
+    @objc public func stop() {
+        presenter.didCloseButtonTap()
+    }
+
 }
 
 // MARK: - Actions from NavBar
