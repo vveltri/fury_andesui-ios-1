@@ -25,7 +25,7 @@ DEPENDENCIES:
   - Quick (~> 1.2.0)
 
 SPEC REPOS:
-  https://cdn.cocoapods.org/:
+  trunk:
     - IQKeyboardManagerSwift
     - Nimble
     - Quick
