@@ -32,6 +32,15 @@
     private func updateBadge(view: UIView, value: String) {
         view.subviews.forEach { $0.removeFromSuperview() }
 
+        let badgeXTranslationMargin: CGFloat = -4
+        let badgeYTranslationMargin: CGFloat = 1
+        let badgeZTranslationMargin: CGFloat = 20
+
+        view.layer.transform = CATransform3DIdentity
+        view.layer.transform = CATransform3DMakeTranslation(badgeXTranslationMargin,
+                                                            badgeYTranslationMargin,
+                                                            badgeZTranslationMargin)
+
         badgeColor = .clear
         view.backgroundColor = .clear
 
