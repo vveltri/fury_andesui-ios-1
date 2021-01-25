@@ -6,7 +6,7 @@
 //  Copyright © 2021 MercadoPago. All rights reserved.
 //
 
-@objc extension UITabBarItem {
+@objc public extension UITabBarItem {
     func setAndesBadge(with value: String?) {
         guard let value = AndesTabBarValueBuilder.build(in: self, for: value),
               let badgeView = getBadgeView() else {
