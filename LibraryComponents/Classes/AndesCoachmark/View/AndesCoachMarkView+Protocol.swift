@@ -55,12 +55,14 @@ extension AndesCoachMarkView: AndesCoachMarkViewProtocol {
         })
     }
 
-    func exit() {
+    func exit(withCallback: Bool) {
 
         UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseInOut, animations: { [weak self] in
             self?.alpha = 0
         }, completion: { [weak self] _ in
-            self?.onExit?()
+            if withCallback {
+                self?.onExit?()
+            }
             self?.removeFromSuperview()
         })
 

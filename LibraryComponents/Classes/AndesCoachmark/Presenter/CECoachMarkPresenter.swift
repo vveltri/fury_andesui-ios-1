@@ -123,9 +123,9 @@ class AndesCoachMarkPresenter {
         view?.hide()
     }
 
-    private func exit() {
+    private func exit(withCallback: Bool = true) {
         restore { [weak self] in
-            self?.view?.exit()
+            self?.view?.exit(withCallback: withCallback)
         }
     }
 
@@ -159,6 +159,11 @@ extension AndesCoachMarkPresenter {
     func didCloseButtonTap() {
         view?.close(stepIndex: self.currentIndex)
         exit()
+    }
+
+    func didCancel() {
+        view?.close(stepIndex: self.currentIndex)
+        exit(withCallback: false)
     }
 
 }
