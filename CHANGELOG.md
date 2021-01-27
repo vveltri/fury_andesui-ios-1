@@ -2,6 +2,9 @@
 ### 🚀 Features
 - Added icons to LocalIcons | Authors: [@rbasualdo7](https://github.com/rbasualdo7)
 
+### 🛠 Bug fixes
+- DatePicker: Fix calendar back button | Authors: [@AndriuCoelho](https://github.com/AndriuCoelho)
+
 # v3.19.0
 ### 🚀 Features
 - AndesBottomSheet: Add configurable presentation size | Authors: [@inayabarb](https://github.com/inayabarb)
