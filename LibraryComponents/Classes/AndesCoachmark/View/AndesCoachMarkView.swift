@@ -12,7 +12,7 @@ import UIKit
     let maskLayer = CAShapeLayer()
 
     @objc public weak var delegate: AndesCoachMarkViewDelegate?
-    @objc public let overlayColor: UIColor = UIColor.Andes.gray800
+    @objc public let overlayColor: UIColor = UIColor.black.withAlphaComponent(0.9)
 
     var highlightedView: AndesCoachMarkHighlightedView?
 
@@ -103,8 +103,8 @@ import UIKit
         presenter.start()
     }
 
-    @objc public func stop() {
-        presenter.didCloseButtonTap()
+    @objc public func cancel() {
+        presenter.didCancel()
     }
 
 }
