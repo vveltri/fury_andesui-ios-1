@@ -59,7 +59,7 @@ class AndesDatePickerHeaderView: UICollectionReusableView {
         return label
     }()
 
-    private let previousButton: UIButton = {
+    let previousButton: UIButton = {
         let button = UIButton(type: .custom)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(didTouchPreviousMonth), for: .touchUpInside)
