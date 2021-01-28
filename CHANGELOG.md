@@ -4,6 +4,7 @@
 
 ### 🛠 Bug fixes
 - DatePicker: Fix calendar back button | Authors: [@AndriuCoelho](https://github.com/AndriuCoelho)
+- Fix round CGRect in Coachmark | Authors: [@ccalcagnoml](https://github.com/ccalcagnoml)
 
 # v3.19.0
 ### 🚀 Features
