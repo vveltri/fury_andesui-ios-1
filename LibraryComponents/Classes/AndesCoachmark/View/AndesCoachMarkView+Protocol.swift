@@ -28,6 +28,7 @@ extension AndesCoachMarkView: AndesCoachMarkViewProtocol {
         if removePrevious { body?.removeFromSuperview() }
         body = AndesCoachMarkBodyView(presenter: presenter)
         body?.delegate = self
+
         guard let body = body else { return }
         body.alpha = 0
         addSubview(body)
@@ -38,8 +39,8 @@ extension AndesCoachMarkView: AndesCoachMarkViewProtocol {
             body.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24),
             body.bottomAnchor.constraint(equalTo: footer.topAnchor)
         ])
-
         layoutIfNeeded()
+        setupAccessibility()
     }
 
     func hideBody() {

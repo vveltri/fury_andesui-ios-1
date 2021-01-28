@@ -57,6 +57,7 @@ class AndesCoachMarkBodyView: UIView {
 
         presenter.view = self
         setupViews()
+        setupAccessibility()
     }
 
     private func setupViews() {
@@ -73,6 +74,10 @@ class AndesCoachMarkBodyView: UIView {
         labelsContainer.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         labelsContainer.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
     }
+
+    private func setupAccessibility() {
+          accessibilityElements = [labelsContainer]
+      }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("This class does not support NSCoding")
@@ -204,6 +209,7 @@ extension AndesCoachMarkBodyView: AndesCoachMarkBodyViewProtocol {
             setFinalButton(nextText)
             button = finalButton
         }
+        accessibilityElements?.append(button)
         button.translatesAutoresizingMaskIntoConstraints = false
         addSubview(button)
         NSLayoutConstraint.activate([
