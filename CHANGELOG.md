@@ -1,4 +1,6 @@
 # Unpublished
+
+# v3.20.0
 ### 🚀 Features
 - Added icons to LocalIcons | Authors: [@rbasualdo7](https://github.com/rbasualdo7)
 
