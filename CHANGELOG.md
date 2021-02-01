@@ -1,4 +1,6 @@
 # Unpublished
+### 🚀 Features
+- Added icons to LocalIcons | Authors: [@amacagno](https://github.com/amacagno)
 
 # v3.20.0
 ### 🚀 Features
