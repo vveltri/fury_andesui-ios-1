@@ -20,6 +20,7 @@ class AndesRadioButtonViewController: UIViewController, RadioButtonView {
     @IBOutlet weak var alignTxt: UITextField!
     @IBOutlet weak var radioButtonTxt: UITextField!
     @IBOutlet weak var numberLinesTxt: UITextField!
+    @IBOutlet weak var buttonBGColorTxt: UITextField!
 
     @IBOutlet weak var updateBtn: UIButton!
     @IBOutlet weak var clearBtn: UIButton!
@@ -27,6 +28,7 @@ class AndesRadioButtonViewController: UIViewController, RadioButtonView {
     var typePicker: UIPickerView = UIPickerView()
     var statusPicker: UIPickerView = UIPickerView()
     var alignPicker: UIPickerView = UIPickerView()
+    var bgcolorPicker: UIPickerView = UIPickerView()
 
     @IBOutlet weak var radioButton: AndesRadioButton!
 
@@ -50,10 +52,12 @@ class AndesRadioButtonViewController: UIViewController, RadioButtonView {
         self.radioButton.type = .idle
         self.radioButton.status = .unselected
         self.radioButton.align = .left
+        self.radioButton.buttonBackgroundColor = .white
 
         typeText.text = self.radioButton.type.toString()
         statusTxt.text = self.radioButton.status.toString()
         alignTxt.text = self.radioButton.align.toString()
+        buttonBGColorTxt.text = "Default"
         numberLinesTxt.text = "0"
 
         radioButtonTxt.text = ""
@@ -74,6 +78,11 @@ class AndesRadioButtonViewController: UIViewController, RadioButtonView {
         alignPicker.delegate = self
         alignPicker.dataSource = self
         alignTxt.text = self.radioButton.align.toString()
+
+        buttonBGColorTxt.inputView = bgcolorPicker
+        bgcolorPicker.delegate = self
+        bgcolorPicker.dataSource = self
+        buttonBGColorTxt.text = "Default"
     }
 
     func didTapIdle(radiobutton: AndesRadioButton) {
@@ -114,6 +123,25 @@ extension AndesRadioButtonViewController: UIPickerViewDelegate {
             self.radioButton.align = AndesRadioButtonAlign.init(rawValue: row)!
             alignTxt.text = self.radioButton.align.toString()
         }
+        if pickerView == bgcolorPicker {
+            buttonBGColorTxt.resignFirstResponder()
+            if row == 0 {
+                self.radioButton.buttonBackgroundColor = .white
+                buttonBGColorTxt.text = "Default"
+            }
+            if row == 1 {
+                self.radioButton.buttonBackgroundColor = .yellow
+                buttonBGColorTxt.text = "Yellow"
+            }
+            if row == 2 {
+                self.radioButton.buttonBackgroundColor = .blue
+                buttonBGColorTxt.text = "Blue"
+            }
+            if row == 3 {
+                self.radioButton.buttonBackgroundColor = .clear
+                buttonBGColorTxt.text = "Clear"
+            }
+        }
     }
 }
 
@@ -127,6 +155,9 @@ extension AndesRadioButtonViewController: UIPickerViewDataSource {
         }
         if pickerView == alignPicker {
             return 2
+        }
+        if pickerView == bgcolorPicker {
+            return 4
         }
         return 0
     }
@@ -148,6 +179,20 @@ extension AndesRadioButtonViewController: UIPickerViewDataSource {
         if pickerView == alignPicker {
              let align = AndesRadioButtonAlign.init(rawValue: row)!
             return align.toString()
+        }
+        if pickerView == bgcolorPicker {
+            switch row {
+            case 0:
+                return "Default"
+            case 1:
+                return "Yellow"
+            case 2:
+                return "Blue"
+            case 3:
+                return "Clear"
+            default:
+                return ""
+            }
         }
         return ""
     }

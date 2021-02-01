@@ -1,5 +1,5 @@
 //
-//  AndesCaheckbox.swift
+//  AndesCheckbox.swift
 //  AndesUI
 //
 //  Created by Rodrigo Pintos Costa on 6/15/20.
@@ -18,35 +18,35 @@ import UIKit
         }
     }
 
-    /// Sets the type of the AndesCaheckbox , default idle
+    /// Sets the type of the AndesCheckbox , default idle
    @objc public var type: AndesCheckboxType = .idle {
         didSet {
             self.updateContentView()
         }
     }
 
-    /// Sets the slign of the AndesCaheckbox , default left
+    /// Sets the slign of the AndesCheckbox , default left
     @objc public var align: AndesCheckboxAlign = .left {
         didSet {
             self.updateContentView()
         }
     }
 
-    /// Sets the status of the AndesCaheckbox , default unselected
+    /// Sets the status of the AndesCheckbox , default unselected
     @objc public var status: AndesCheckboxStatus = .unselected {
         didSet {
             self.updateContentView()
         }
     }
 
-    /// Sets the background color of the AndesCaheckbox , default white
+    /// Sets the background color of the AndesCheckbox , default white
     @objc public var buttonBackgroundColor: UIColor = .white {
         didSet {
             self.updateContentView()
         }
     }
 
-    /// Sets the selected background color of the AndesCaheckbox , default white
+    /// Sets the selected background color of the AndesCheckbox
     @objc public var selectedBackgroundColor: UIColor? {
         didSet {
             self.updateContentView()

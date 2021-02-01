@@ -14,12 +14,16 @@ class AndesCheckboxInitViewController: UIViewController {
     var typePicker: UIPickerView = UIPickerView()
     var statusPicker: UIPickerView = UIPickerView()
     var alignPicker: UIPickerView = UIPickerView()
+    var bgcolorPicker: UIPickerView = UIPickerView()
+    var fillColorPicker: UIPickerView = UIPickerView()
 
     @IBOutlet weak var andesCheckbox: AndesCheckbox!
     @IBOutlet weak var typeTxt: UITextField!
     @IBOutlet weak var statusTxt: UITextField!
     @IBOutlet weak var alignTxt: UITextField!
     @IBOutlet weak var checkboxTxt: UITextField!
+    @IBOutlet weak var buttonBGColorTxt: UITextField!
+    @IBOutlet weak var fillColorTxt: UITextField!
 
     @IBOutlet weak var updateBtn: UIButton!
     @IBOutlet weak var clearBtn: UIButton!
@@ -43,6 +47,16 @@ class AndesCheckboxInitViewController: UIViewController {
         alignPicker.delegate = self
         alignPicker.dataSource = self
         alignTxt.text = self.andesCheckbox.align.toString()
+
+        buttonBGColorTxt.inputView = bgcolorPicker
+        bgcolorPicker.delegate = self
+        bgcolorPicker.dataSource = self
+        buttonBGColorTxt.text = "Default"
+
+        fillColorTxt.inputView = fillColorPicker
+        fillColorPicker.delegate = self
+        fillColorPicker.dataSource = self
+        fillColorTxt.text = "Default"
     }
 
     @IBAction func updateTapped(_ sender: Any) {
@@ -54,10 +68,14 @@ class AndesCheckboxInitViewController: UIViewController {
         self.andesCheckbox.type = AndesCheckboxType.idle
         self.andesCheckbox.status = AndesCheckboxStatus.unselected
         self.andesCheckbox.align = AndesCheckboxAlign.left
+        self.andesCheckbox.buttonBackgroundColor = .white
+        self.andesCheckbox.selectedBackgroundColor = nil
 
         typeTxt.text = self.andesCheckbox.type.toString()
         statusTxt.text = self.andesCheckbox.status.toString()
         alignTxt.text = self.andesCheckbox.align.toString()
+        buttonBGColorTxt.text = "Default"
+        fillColorTxt.text = "Default"
 
         checkboxTxt.text = ""
     }
@@ -92,6 +110,44 @@ extension AndesCheckboxInitViewController: UIPickerViewDelegate {
             self.andesCheckbox.align = AndesCheckboxAlign.init(rawValue: row)!
             alignTxt.text = self.andesCheckbox.align.toString()
         }
+        if pickerView == bgcolorPicker {
+            buttonBGColorTxt.resignFirstResponder()
+            if row == 0 {
+                self.andesCheckbox.buttonBackgroundColor = .white
+                buttonBGColorTxt.text = "Default"
+            }
+            if row == 1 {
+                self.andesCheckbox.buttonBackgroundColor = .yellow
+                buttonBGColorTxt.text = "Yellow"
+            }
+            if row == 2 {
+                self.andesCheckbox.buttonBackgroundColor = .blue
+                buttonBGColorTxt.text = "Blue"
+            }
+            if row == 3 {
+                self.andesCheckbox.buttonBackgroundColor = .clear
+                buttonBGColorTxt.text = "Clear"
+            }
+        }
+        if pickerView == fillColorPicker {
+            fillColorTxt.resignFirstResponder()
+            if row == 0 {
+                self.andesCheckbox.selectedBackgroundColor = nil
+                fillColorTxt.text = "Default"
+            }
+            if row == 1 {
+                self.andesCheckbox.selectedBackgroundColor = .yellow
+                fillColorTxt.text = "Yellow"
+            }
+            if row == 2 {
+                self.andesCheckbox.selectedBackgroundColor = .blue
+                fillColorTxt.text = "Blue"
+            }
+            if row == 3 {
+                self.andesCheckbox.selectedBackgroundColor = .clear
+                fillColorTxt.text = "Clear"
+            }
+        }
     }
 }
 
@@ -105,6 +161,12 @@ extension AndesCheckboxInitViewController: UIPickerViewDataSource {
         }
         if pickerView == alignPicker {
             return 2
+        }
+        if pickerView == bgcolorPicker {
+            return 4
+        }
+        if pickerView == fillColorPicker {
+            return 4
         }
         return 0
     }
@@ -126,6 +188,20 @@ extension AndesCheckboxInitViewController: UIPickerViewDataSource {
         if pickerView == alignPicker {
              let align = AndesCheckboxAlign.init(rawValue: row)!
             return align.toString()
+        }
+        if pickerView == bgcolorPicker || pickerView == fillColorPicker {
+            switch row {
+            case 0:
+                return "Default"
+            case 1:
+                return "Yellow"
+            case 2:
+                return "Blue"
+            case 3:
+                return "Clear"
+            default:
+                return ""
+            }
         }
         return ""
     }
