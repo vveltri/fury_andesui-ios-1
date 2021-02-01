@@ -46,6 +46,13 @@ import UIKit
         }
     }
 
+    /// Sets the background color of the RadioButton , default white
+    @objc public var buttonBackgroundColor: UIColor = .white {
+        didSet {
+            self.updateContentView()
+        }
+    }
+
     /// Callback invoked when RadioButton  is tapped
     internal var didTapped: ((AndesRadioButton) -> Void)?
 

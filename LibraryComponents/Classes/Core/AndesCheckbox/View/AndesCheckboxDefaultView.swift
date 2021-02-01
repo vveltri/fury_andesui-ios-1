@@ -83,6 +83,7 @@ class AndesCheckboxDefaultView: UIView, AndesCheckboxView {
     func updateView() {
         clearView()
         self.label.text = config.title
+        checkboxView.backgroundColor = config.buttonBackgroundColor
         updateBoxesViews()
         updateBoxesBorders()
         updateIcons()

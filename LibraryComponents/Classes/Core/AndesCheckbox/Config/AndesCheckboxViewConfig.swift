@@ -21,6 +21,7 @@ internal struct AndesCheckboxViewConfig {
     var borderSize: CGFloat?
     var type: AndesCheckboxTypeProtocol! = AndesCheckboxTypeIdle()
     var status: AndesCheckboxStatusProtocol! = AndesCheckboxStatusUnselected()
+    var buttonBackgroundColor: UIColor = .white
 
     init () { }
 
@@ -35,6 +36,17 @@ internal struct AndesCheckboxViewConfig {
         self.iconColor = self.type.iconColor
         self.borderColor = type.borderColor
         self.borderSize = type.borderSize
-        self.backgroundColor = type.backgroundColor
+        self.backgroundColor = getBackgroundColor(for: checkbox)
+        self.buttonBackgroundColor = checkbox.buttonBackgroundColor
+    }
+
+    private func getBackgroundColor(for checkbox: AndesCheckbox) -> UIColor {
+        guard let selectedBackgroundColor = checkbox.selectedBackgroundColor else { return type.backgroundColor }
+        switch checkbox.status {
+        case .selected:
+            return selectedBackgroundColor
+        default:
+            return type.backgroundColor
+        }
     }
 }
