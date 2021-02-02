@@ -1,4 +1,5 @@
 # Unpublished
+- Changed default background color to clear for Andes Checkbox and Andes Radio Button | Author: [@vveltri](https://github.com/vveltri)
 
 ### 🛠 Bug fixes
 - DatePicker: Fix unit test | Authors: [@AndriuCoelho](https://github.com/AndriuCoelho)
