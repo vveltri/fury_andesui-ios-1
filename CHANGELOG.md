@@ -1,4 +1,8 @@
 # Unpublished
+
+### 🛠 Bug fixes
+- DatePicker: Fix unit tests | Authors: [@AndriuCoelho](https://github.com/AndriuCoelho)
+
 ### 🚀 Features
 - Added icons to LocalIcons | Authors: [@rbasualdo7](https://github.com/rbasualdo7)
 
