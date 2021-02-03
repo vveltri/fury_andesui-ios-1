@@ -23,5 +23,5 @@ protocol AndesCoachMarkViewProtocol: class {
     //Delegate
     func showNext(stepIndex: Int)
     func close(stepIndex: Int)
-    func exit()
+    func exit(withCallback: Bool)
 }
