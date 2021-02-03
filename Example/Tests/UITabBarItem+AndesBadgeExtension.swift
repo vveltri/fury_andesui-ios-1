@@ -21,8 +21,16 @@ final class UITabBarItemAndesBadgeExtension: QuickSpec {
                 }
             }
 
+            context("Badge in tabBar has a value lower than 0") {
+                it("The badgeValue should be nil") {
+                    let tabBar = createTabBar()
+                    tabBar.tabBar.items?.first?.setAndesBadge(with: -1)
+                    expect(tabBar.tabBar.items?.first?.badgeValue).to(beNil())
+                }
+            }
+
             context("Badge in tabBar has a value equal to 0") {
-                it("The badgeValue should be 99") {
+                it("The badgeValue should be 0") {
                     let tabBar = createTabBar()
                     tabBar.tabBar.items?.first?.setAndesBadge(with: 0)
                     expect(tabBar.tabBar.items?.first?.badgeValue).to(beNil())
@@ -46,7 +54,7 @@ final class UITabBarItemAndesBadgeExtension: QuickSpec {
             }
 
             context("Badge in tabBar has setted a value different from 0 and then is removed") {
-                it("The badgeValue should be 99+") {
+                it("The badgeValue should be nil") {
                     let tabBar = createTabBar()
                     tabBar.tabBar.items?.first?.setAndesBadge(with: 1)
                     tabBar.tabBar.items?.first?.removeAndesBadge()

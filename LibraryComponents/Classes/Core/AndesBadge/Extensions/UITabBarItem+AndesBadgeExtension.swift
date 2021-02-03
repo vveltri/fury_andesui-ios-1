@@ -7,7 +7,7 @@
 //
 
 @objc public extension UITabBarItem {
-    func setAndesBadge(with value: UInt) {
+    func setAndesBadge(with value: Int) {
         guard let stringValue = AndesTabBarValueBuilder.build(in: self, for: value),
               let badgeView = getBadgeView() else {
             badgeValue = nil
