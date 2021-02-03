@@ -45,7 +45,7 @@ class AndesCoachmarkBodyPresenterTests: QuickSpec {
 
                     MockSwift.verify(viewDelegateMock.didCallSetupTitleLabel)
                     MockSwift.verify(viewDelegateMock.didCallSetupDescriptionLabel)
-                    //MockSwift.verify(viewDelegateMock.didCallSetupNextText)
+                    MockSwift.verify(viewDelegateMock.didCallSetupNextText)
 
                     expect(viewDelegateMock.nextTitle).to(equal(model.nextText))
                     expect(viewDelegateMock.buttonStyle).to(equal(model.buttonStyle))
