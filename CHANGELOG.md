@@ -1,4 +1,18 @@
 # Unpublished
+- Changed default background color to clear for Andes Checkbox and Andes Radio Button | Author: [@vveltri](https://github.com/vveltri)
+
+### 🛠 Bug fixes
+- DatePicker: Fix unit test | Authors: [@AndriuCoelho](https://github.com/AndriuCoelho)
+
+# v3.20.0
+### 🚀 Features
+- Added icons to LocalIcons | Authors: [@rbasualdo7](https://github.com/rbasualdo7)
+
+### 🛠 Bug fixes
+- DatePicker: Fix calendar back button | Authors: [@AndriuCoelho](https://github.com/AndriuCoelho)
+- Fix round CGRect in Coachmark | Authors: [@ccalcagnoml](https://github.com/ccalcagnoml)
+
+# v3.19.0
 ### 🚀 Features
 - AndesBottomSheet: Add configurable presentation size | Authors: [@inayabarb](https://github.com/inayabarb)
 - AndesBottomSheet: Fix - Take safe area into account when calculating content size | Authors: [@inayabarb](https://github.com/inayabarb)
