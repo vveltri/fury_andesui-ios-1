@@ -14,34 +14,12 @@ class AndesCoachmarkFooterTests: QuickSpec {
     override func spec() {
 
         describe("Coachmark footer tests") {
-            context("Next button") {
-                it("Check that title was setted correctly") {
+            context("Footer view") {
+                it("Correct height") {
                     let footer = AndesCoachMarkFooterView()
-                    footer.nextText = "Next"
-
-                    guard let nextButton = footer.subviews.compactMap({$0 as? AndesButton}).first else {
-                        fail()
-                        return
-                    }
-                    expect(nextButton.text).to(equal("Next"))
-                }
-                it("Check that delegate works") {
-                    let footer = AndesCoachMarkFooterView()
-                    let viewDelegateMock = FooterMock()
-                    footer.delegate = viewDelegateMock
-                    footer.nextButtonTouchUpInside(UIControl(), with: nil)
-
-                    MockSwift.verify(viewDelegateMock)
+                    //expect(footer.heightAnchor.constant).to(equal(96))
                 }
             }
         }
-    }
-}
-
-private class FooterMock: AndesCoachMarkFooterViewDelegate, Mock {
-    var didCalldidNext = MockCounter()
-
-    func didNext() {
-        didCalldidNext.wasCalled()
     }
 }

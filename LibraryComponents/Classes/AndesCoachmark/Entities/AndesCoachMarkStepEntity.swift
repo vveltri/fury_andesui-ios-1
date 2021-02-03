@@ -40,8 +40,7 @@
                  description: String,
                  view: UIView,
                  style: HighlightStyle,
-                 nextText: String,
-                 showExitButton: Bool = true) {
+                 nextText: String) {
 
         self.title = title
         self.descriptionText = description
@@ -49,6 +48,6 @@
         self.view = view
         self.style = style
         self.margin = AndesCoachMarkConstants.Highlight.margin
-        self.showExitButton = showExitButton
+        self.showExitButton = true
     }
 }

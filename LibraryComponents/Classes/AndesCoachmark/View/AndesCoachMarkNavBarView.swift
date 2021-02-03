@@ -22,6 +22,7 @@ class AndesCoachMarkNavBarView: UIView {
     var showExitButton = true {
         didSet {
             closeButton.isHidden = !showExitButton
+            setupAccessibility()
         }
     }
 

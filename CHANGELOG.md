@@ -1,4 +1,7 @@
 # Unpublished
+
+- Change UI Walkthrough
+
 - Changed default background color to clear for Andes Checkbox and Andes Radio Button | Author: [@vveltri](https://github.com/vveltri)
 
 ### 🛠 Bug fixes

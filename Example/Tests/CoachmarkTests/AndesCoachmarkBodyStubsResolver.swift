@@ -35,19 +35,19 @@ class AndesCoachmarkBodyStubsResolver {
 
         switch type {
         case .centerAboveView:
-            model = AndesCoachMarkBodyEntity(title: "title", description: "description", viewToPoint: centerView, position: .above)
+            model = AndesCoachMarkBodyEntity(title: "title", description: "description", viewToPoint: centerView, position: .above, nextText: "nextText", buttonStyle: .normal)
         case .centerRightAboveView:
-            model = AndesCoachMarkBodyEntity(title: "title", description: "description", viewToPoint: centerRightView, position: .above)
+            model = AndesCoachMarkBodyEntity(title: "title", description: "description", viewToPoint: centerRightView, position: .above, nextText: "nextText", buttonStyle: .normal)
         case .centerLeftBelowView:
-            model = AndesCoachMarkBodyEntity(title: "title", description: "description", viewToPoint: centerLeftView, position: .below)
+            model = AndesCoachMarkBodyEntity(title: "title", description: "description", viewToPoint: centerLeftView, position: .below, nextText: "nextText", buttonStyle: .normal)
         case .rightBelowView:
-            model = AndesCoachMarkBodyEntity(title: "title", description: "description", viewToPoint: rightBelowView, position: .above)
+            model = AndesCoachMarkBodyEntity(title: "title", description: "description", viewToPoint: rightBelowView, position: .above, nextText: "nextText", buttonStyle: .normal)
         case .leftBelowView:
-            model = AndesCoachMarkBodyEntity(title: "title", description: "description", viewToPoint: leftBelowView, position: .above)
+            model = AndesCoachMarkBodyEntity(title: "title", description: "description", viewToPoint: leftBelowView, position: .above, nextText: "nextText", buttonStyle: .normal)
         case .rightAboveView:
-            model = AndesCoachMarkBodyEntity(title: "title", description: "description", viewToPoint: rightAboveView, position: .below)
+            model = AndesCoachMarkBodyEntity(title: "title", description: "description", viewToPoint: rightAboveView, position: .below, nextText: "nextText", buttonStyle: .normal)
         case .leftAboveView:
-            model = AndesCoachMarkBodyEntity(title: "title", description: "description", viewToPoint: leftAboveView, position: .below)
+            model = AndesCoachMarkBodyEntity(title: "title", description: "description", viewToPoint: leftAboveView, position: .below, nextText: "nextText", buttonStyle: .normal)
         }
     }
 

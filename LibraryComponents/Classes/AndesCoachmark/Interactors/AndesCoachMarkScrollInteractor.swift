@@ -65,13 +65,7 @@ class AndesCoachMarkScrollInteractor {
         let rect = bodyViewContentSize + highlightedViewConverted
         let rectWithMargin = CGRect(x: 0, y: rect.minY - (rect.isAbove(of: bodyView.bounds) ? margin : 0), width: 0, height: rect.height + (rect.isAbove(of: bodyView.bounds) || rect.isBelow(of: bodyView.bounds) ? margin : 0))
 
-        var viewInsideScrollView: Bool
-        if #available(iOS 11.0, *) {
-            viewInsideScrollView = scrollView.contains(highlightedView)
-        } else {
-            viewInsideScrollView = true
-        }
-        if !bodyView.bounds.contains(rectWithMargin) && viewInsideScrollView {
+        if !bodyView.bounds.contains(rectWithMargin) && !scrollView.bounds.contains(highlightedView.frame) {
             let newOffset: CGPoint
             let bodyViewConvertedToScrollViewOrigin = bodyView.convert(bodyView.bounds, to: scrollView)
 
