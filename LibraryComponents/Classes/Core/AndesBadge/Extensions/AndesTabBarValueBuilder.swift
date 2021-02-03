@@ -6,14 +6,14 @@
 //
 
 final class AndesTabBarValueBuilder {
-    class func build(in item: UITabBarItem, for value: String?) -> String? {
-        var stringNumber: String?
-
-        if let string = value, let integerValue = UInt(string) {
-            stringNumber = integerValue > 99 ? "99+" : value
+    class func build(in item: UITabBarItem, for value: UInt) -> String? {
+        if value == 0 {
+            item.badgeValue = nil
+            return nil
+        } else {
+            let stringNumber: String? = value > 99 ? "99+" : String(value)
+            item.badgeValue = stringNumber
+            return stringNumber
         }
-
-        item.badgeValue = stringNumber
-        return stringNumber
     }
 }
