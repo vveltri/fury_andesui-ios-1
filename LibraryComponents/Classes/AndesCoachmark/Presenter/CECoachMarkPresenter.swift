@@ -74,7 +74,7 @@ class AndesCoachMarkPresenter {
     private func prepare() {
         guard let view = view, let currentStep = currentStep else { return }
 
-        highlightInteractor?.update(view: currentStep.view, style: currentStep.style, margin: currentStep.margin)
+        highlightInteractor?.update(view: currentStep.view, style: currentStep.style, margin: currentStep.margin, insets: currentStep.insets)
         let bodyPosition: AndesCoachMarkBodyEntity.Position = highlightInteractor?.isHighlightedViewBelow() ?? true ? .above : .below
         let buttonStyle: AndesCoachMarkBodyEntity.ButtonStyle = currentIndex+1 == model.steps.count ? .final : .normal
 
@@ -113,7 +113,8 @@ class AndesCoachMarkPresenter {
 
     private func show() {
         guard let view = view, let currentStep = currentStep, let highlightInteractor = highlightInteractor else { return }
-        highlightInteractor.update(view: currentStep.view, style: currentStep.style, margin: currentStep.margin)
+
+        highlightInteractor.update(view: currentStep.view, style: currentStep.style, margin: currentStep.margin, insets: currentStep.insets)
 
         view.setHighlight(frame: highlightInteractor.getHighlightRect(), cornerRadius: highlightInteractor.getHighlightCornerRadius(), maskPath: highlightInteractor.getMaskPath())
         view.show()
