@@ -147,10 +147,10 @@ class AndesDatePickerHeaderView: UICollectionReusableView {
         }
     }
 
-    func togglePreviousButton(days: [AndesDayDatePicker]) {
+    func togglePreviousButton(days: [AndesDayDatePicker], compareDate: Date? = nil) {
         previousButton.isEnabled = true
         for day in days {
-            let datesAreInTheSameMonth = Calendar.current.isDate(day.date, equalTo: Date(), toGranularity: .month)
+            let datesAreInTheSameMonth = Calendar.current.isDate(day.date, equalTo: compareDate ?? Date(), toGranularity: .month)
             if datesAreInTheSameMonth && day.dueDate != nil {
                 previousButton.isEnabled = false
                 break

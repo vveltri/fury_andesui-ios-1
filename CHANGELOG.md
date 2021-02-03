@@ -1,6 +1,9 @@
 # Unpublished
 ### 🚀 Features
 - Added icons to LocalIcons | Authors: [@amacagno](https://github.com/amacagno)
+- Changed default background color to clear for Andes Checkbox and Andes Radio Button | Author: [@vveltri](https://github.com/vveltri)
+### 🛠 Bug fixes
+- DatePicker: Fix unit test | Authors: [@AndriuCoelho](https://github.com/AndriuCoelho)
 
 # v3.20.0
 ### 🚀 Features

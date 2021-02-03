@@ -40,9 +40,13 @@ class AndesDatePickerHeaderViewTests: QuickSpec {
                         fatalError("error to create date")
                     }
 
+                    guard let dueDate = Calendar.current.date(from: DateComponents(year: 2021, month: 1, day: 30)) else {
+                        fatalError("error to create date")
+                    }
+
                     let daysToRender = andesPicker.dayCalendar.getDaysInMonth(currentDate, Date())
 
-                    self.internalView.togglePreviousButton(days: daysToRender)
+                    self.internalView.togglePreviousButton(days: daysToRender, compareDate: dueDate)
 
                     expect(self.internalView.previousButton.isEnabled).to(beFalse())
                 }
