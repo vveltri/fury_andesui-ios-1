@@ -48,6 +48,7 @@ import UIKit
         setupViews()
         setupOverlayLayer()
         layoutIfNeeded()
+        setupAccessibility()
     }
 
     private func setupViews() {
@@ -95,12 +96,18 @@ import UIKit
         layer.addSublayer(overlayLayer)
     }
 
+    func setupAccessibility() {
+        accessibilityViewIsModal = true
+        accessibilityElements = [navBar, bodyView]
+    }
+
     required public init?(coder aDecoder: NSCoder) {
         fatalError("This class does not support NSCoding")
     }
 
     @objc public func start() {
         presenter.start()
+        UIAccessibility.post(notification: UIAccessibility.Notification.screenChanged, argument: navBar)
     }
 
     @objc public func cancel() {
@@ -120,5 +127,6 @@ extension AndesCoachMarkView: AndesCoachMarkNavBarViewDelegate {
 extension AndesCoachMarkView: AndesCoachMarkBodyViewDelegate {
     func didNext() {
         presenter.didNextActionTap()
+        UIAccessibility.post(notification: UIAccessibility.Notification.screenChanged, argument: navBar)
     }
 }

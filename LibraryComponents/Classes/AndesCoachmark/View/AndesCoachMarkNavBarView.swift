@@ -35,6 +35,7 @@ class AndesCoachMarkNavBarView: UIView {
         super.init(frame: .zero)
 
         setupViews()
+        setupAccessibility()
     }
 
     private func setupViews() {
@@ -76,6 +77,13 @@ class AndesCoachMarkNavBarView: UIView {
 
     }
 
+    private func setupAccessibility() {
+        closeButton.isAccessibilityElement = showExitButton
+        closeButton.accessibilityTraits = .button
+        closeButton.accessibilityLabel = "Cerrar".localized()
+        accessibilityElements = [titleLabel, showExitButton ? closeButton : nil].compactMap { $0 }
+    }
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("This class does not support NSCoding")
     }
@@ -83,5 +91,4 @@ class AndesCoachMarkNavBarView: UIView {
     @objc func closeButtonTouchUpInside(_ sender: UIControl, with event: UIEvent?) {
         delegate?.didClose()
     }
-
 }
