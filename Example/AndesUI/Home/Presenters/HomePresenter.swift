@@ -27,6 +27,7 @@ protocol HomePresenter: NSObject {
     func presentBottomSheet()
     func presentList()
     func presentDropdown()
+    func presentAndesBadgeExtension()
 }
 
 class HomeViewPresenter: NSObject {
@@ -109,5 +110,9 @@ extension HomeViewPresenter: HomePresenter {
 
     func presentDropdown() {
         router.routetoDropdown()
+    }
+
+    func presentAndesBadgeExtension() {
+        router.routeToAndesBadgeExtension()
     }
 }

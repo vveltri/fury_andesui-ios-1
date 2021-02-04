@@ -147,6 +147,10 @@ class HomeViewController: UIViewController {
     @IBAction func dropdownTapped(_ sender: Any) {
         presenter.presentDropdown()
     }
+
+    @IBAction func andesBadgeExtensionTapped(_ sender: Any) {
+        presenter.presentAndesBadgeExtension()
+    }
 }
 
 extension HomeViewController: HomeView {

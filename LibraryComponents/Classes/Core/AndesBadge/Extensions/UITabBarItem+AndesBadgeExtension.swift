@@ -8,17 +8,26 @@
 
 @objc public extension UITabBarItem {
     func setAndesBadge(with value: Int) {
-        guard let stringValue = AndesTabBarValueBuilder.build(in: self, for: value),
-              let badgeView = getBadgeView() else {
-            badgeValue = nil
+        guard value > 0 else {
+            removeAndesBadge()
             return
         }
 
-        updateBadge(view: badgeView, value: stringValue)
+        let stringValue: String = value > 99 ? "99+" : String(value)
+
+        removeAndesBadge()
+
+        badgeValue = stringValue
+
+        updateBadge(value: stringValue)
     }
 
     func removeAndesBadge() {
-        badgeValue = nil
+        guard let badgeView = getBadgeView() else { return }
+
+        badgeValue = ""
+
+        badgeView.subviews.forEach { $0.removeFromSuperview() }
     }
 
     private func getBadgeView() -> UIView? {
@@ -33,17 +42,11 @@
         return nil
     }
 
-    private func updateBadge(view: UIView, value: String) {
-        view.subviews.forEach { $0.removeFromSuperview() }
-
-        let badgeXTranslationMargin: CGFloat = -4
-        let badgeYTranslationMargin: CGFloat = 1
-        let badgeZTranslationMargin: CGFloat = 20
-
-        view.layer.transform = CATransform3DIdentity
-        view.layer.transform = CATransform3DMakeTranslation(badgeXTranslationMargin,
-                                                            badgeYTranslationMargin,
-                                                            badgeZTranslationMargin)
+    private func updateBadge(value: String) {
+        guard let view = getBadgeView() else {
+            removeAndesBadge()
+            return
+        }
 
         badgeColor = .clear
         view.backgroundColor = .clear
@@ -52,7 +55,7 @@
 
         view.addSubview(pillView)
 
-        pillView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        pillView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        pillView.topAnchor.constraint(equalTo: view.topAnchor, constant: 1).isActive = true
+        pillView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: -4).isActive = true
     }
 }
