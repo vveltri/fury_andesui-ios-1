@@ -25,7 +25,7 @@ final class UITabBarItemAndesBadgeExtension: QuickSpec {
                 it("The badgeValue should be nil") {
                     let tabBar = createTabBar()
                     tabBar.tabBar.items?.first?.setAndesBadge(with: -1)
-                    expect(tabBar.tabBar.items?.first?.badgeValue).to(equal(""))
+                    expect(tabBar.tabBar.items?.first?.badgeValue).to(beNil())
                 }
             }
 
@@ -33,11 +33,20 @@ final class UITabBarItemAndesBadgeExtension: QuickSpec {
                 it("The badgeValue should be 0") {
                     let tabBar = createTabBar()
                     tabBar.tabBar.items?.first?.setAndesBadge(with: 0)
+                    expect(tabBar.tabBar.items?.first?.badgeValue).to(beNil())
+                }
+            }
+
+            context("tabBarItem received a value higher than 1 and then 0") {
+                it("The badgeValue should be empty") {
+                    let tabBar = createTabBar()
+                    tabBar.tabBar.items?.first?.setAndesBadge(with: 1)
+                    tabBar.tabBar.items?.first?.setAndesBadge(with: 0)
                     expect(tabBar.tabBar.items?.first?.badgeValue).to(equal(""))
                 }
             }
 
-            context("tabBarItem received a value lower or equal to 99") {
+            context("tabBarItem received a value equal to 99") {
                 it("The badgeValue should be 99") {
                     let tabBar = createTabBar()
                     tabBar.tabBar.items?.first?.setAndesBadge(with: 99)
@@ -53,8 +62,8 @@ final class UITabBarItemAndesBadgeExtension: QuickSpec {
                 }
             }
 
-            context("tabBarItem has received a value different from 0 and then is removed") {
-                it("The badgeValue should be nil") {
+            context("tabBarItem has received a value different of 0 and then is removed") {
+                it("The badgeValue should be empty") {
                     let tabBar = createTabBar()
                     tabBar.tabBar.items?.first?.setAndesBadge(with: 1)
                     tabBar.tabBar.items?.first?.removeAndesBadge()
