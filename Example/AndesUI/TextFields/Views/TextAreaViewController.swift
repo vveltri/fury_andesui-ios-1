@@ -19,7 +19,8 @@ class TextAreaViewController: UIViewController {
     @IBOutlet weak var counterField: UITextField!
     @IBOutlet weak var configView: UIView!
     @IBOutlet weak var updateButton: AndesButton!
-
+    @IBOutlet weak var boldAttributeText: UITextField!
+    
     var statePicker: UIPickerView = UIPickerView()
     var typePicker: UIPickerView = UIPickerView()
     var state: AndesTextInputState = .idle
@@ -47,7 +48,6 @@ class TextAreaViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupButtons()
         createPickerViews()
         createTextViews()
         setupUI()
@@ -57,11 +57,7 @@ class TextAreaViewController: UIViewController {
         configView.isHidden = true
         textField.delegate = self
     }
-
-    fileprivate func setupButtons() {
-
-    }
-
+    
     func createPickerViews() {
         stateTField.inputView = statePicker
         statePicker.delegate = self
@@ -71,14 +67,25 @@ class TextAreaViewController: UIViewController {
     func createTextViews() {
         counterField.delegate = self
     }
-
+    
+    func attributedText(withString string: String, boldString: String) -> NSAttributedString {
+        let attributedString = NSMutableAttributedString(string: string,
+                                                         attributes: [NSAttributedString.Key.font: AndesStyleSheetManager.styleSheet.regularSystemFont(size: 14)])
+        let boldFontAttribute: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: AndesStyleSheetManager.styleSheet.semiboldSystemFontOfSize(size: 14)]
+        let range = (string as NSString).range(of: boldString)
+        attributedString.addAttributes(boldFontAttribute, range: range)
+        return attributedString
+    }
+    
     @IBAction func updateBtnTapped(_ sender: Any) {
         let counter: UInt16 = UInt16(counterField.text!) ?? 0
-           textField.counter = counter
+        textField.counter = counter
            textField.label = self.labelField.text
            textField.placeholder = self.placeholderField.text
            textField.helper = self.helperField.text
            textField.state = self.state
+           textField.attributeText = attributedText(withString: self.textField.text ,
+                                                 boldString: boldAttributeText.text ?? "")
     }
 
     @IBAction func toggleConfigTapped(_ sender: Any) {
@@ -111,7 +118,7 @@ extension TextAreaViewController: UIPickerViewDelegate {
 extension TextAreaViewController: UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if pickerView == statePicker {
-            return 4
+            return AndesTextInputState.allCases.count
         }
         if pickerView == typePicker {
             return 2
