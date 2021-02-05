@@ -1,6 +1,6 @@
 # Unpublished
 
-- Change UI Walkthrough
+- AndesCoachMarkView: New visual styling for walkthough. Changes in background color, highlited arrow and button. | Authors : [@edentores](https://github.com/edentorres)
 
 - Changed default background color to clear for Andes Checkbox and Andes Radio Button | Author: [@vveltri](https://github.com/vveltri)
 
