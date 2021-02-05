@@ -12,25 +12,26 @@ protocol AndesCoachMarkHighlightInteractorProtocol: class {
     func getHighlightCornerRadius() -> CGFloat
     func getMaskPath() -> CGPath
     func isHighlightedViewBelow() -> Bool
-    func update(view: UIView, style: AndesCoachMarkStepEntity.HighlightStyle, margin: CGFloat)
+    func update(view: UIView, style: AndesCoachMarkStepEntity.HighlightStyle, margin: CGFloat, insets: UIEdgeInsets)
 }
 
 class AndesCoachMarkHighlightInteractor {
-
     private var view: UIView
     private var style: AndesCoachMarkStepEntity.HighlightStyle
     private var margin: CGFloat
+    private var insets: UIEdgeInsets
     private let overlayView: UIView
     private let bodyViewBounds: CGRect
 
     private var highlightedRect: CGRect { highlightedRectCalculation() }
 
-    required init (overlayView: UIView, view: UIView, bodyViewBounds: CGRect, style: AndesCoachMarkStepEntity.HighlightStyle, margin: CGFloat = AndesCoachMarkConstants.Highlight.margin) {
+    required init (overlayView: UIView, view: UIView, bodyViewBounds: CGRect, style: AndesCoachMarkStepEntity.HighlightStyle, margin: CGFloat = AndesCoachMarkConstants.Highlight.margin, insets: UIEdgeInsets = .zero) {
         self.overlayView = overlayView
         self.view = view
         self.bodyViewBounds = bodyViewBounds
         self.style = style
         self.margin = margin
+        self.insets = insets
     }
 
     private func highlightedRectCalculation() -> CGRect {
@@ -60,25 +61,36 @@ class AndesCoachMarkHighlightInteractor {
         return true
     }
 
-    private func buildSquareFrom(rect: CGRect, margin: CGFloat) -> UIBezierPath {
-        return UIBezierPath(roundedRect: rect.insetBy(dx: -margin, dy: -margin), cornerRadius: AndesCoachMarkConstants.Highlight.cornerRadius)
+    private func buildSquareFrom(rect: CGRect, margin: CGFloat, insets: UIEdgeInsets) -> UIBezierPath {
+        return UIBezierPath(roundedRect: rect.insetBy(dx: -margin, dy: -margin).inset(by: negateInsets(insets)),
+                            cornerRadius: AndesCoachMarkConstants.Highlight.cornerRadius)
     }
 
-    private func buildCircleFrom(rect: CGRect, margin: CGFloat) -> UIBezierPath {
-        return UIBezierPath(roundedRect: rect.insetBy(dx: -margin, dy: -margin), cornerRadius: (rect.width+margin)/2)
+    private func buildCircleFrom(rect: CGRect, margin: CGFloat, insets: UIEdgeInsets) -> UIBezierPath {
+        let width = rect.width + margin + insets.left + insets.right
+        return UIBezierPath(roundedRect: rect.insetBy(dx: -margin, dy: -margin).inset(by: negateInsets(insets)),
+                            cornerRadius: width / 2)
+    }
+
+    private func negateInsets(_ insets: UIEdgeInsets) -> UIEdgeInsets {
+        return UIEdgeInsets(top: -insets.top,
+                            left: -insets.left,
+                            bottom: -insets.bottom,
+                            right: -insets.right)
     }
 
 }
 
 extension AndesCoachMarkHighlightInteractor: AndesCoachMarkHighlightInteractorProtocol {
-    func update(view: UIView, style: AndesCoachMarkStepEntity.HighlightStyle, margin: CGFloat) {
+    func update(view: UIView, style: AndesCoachMarkStepEntity.HighlightStyle, margin: CGFloat, insets: UIEdgeInsets) {
         self.view = view
         self.style = style
         self.margin = margin
+        self.insets = insets
     }
 
     func getHighlightRect() -> CGRect {
-        return highlightedRect.insetBy(dx: -margin, dy: -margin)
+        return highlightedRect.insetBy(dx: -margin, dy: -margin).inset(by: negateInsets(insets))
     }
 
     func getHighlightCornerRadius() -> CGFloat {
@@ -97,9 +109,9 @@ extension AndesCoachMarkHighlightInteractor: AndesCoachMarkHighlightInteractorPr
 
         switch style {
         case .rectangle:
-            viewPath = buildSquareFrom(rect: highlightedRect, margin: margin)
+            viewPath = buildSquareFrom(rect: highlightedRect, margin: margin, insets: insets)
         case .circle:
-            viewPath = buildCircleFrom(rect: highlightedRect, margin: margin)
+            viewPath = buildCircleFrom(rect: highlightedRect, margin: margin, insets: insets)
         }
 
         path.append(viewPath)
