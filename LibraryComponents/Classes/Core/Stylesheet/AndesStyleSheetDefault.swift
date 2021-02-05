@@ -36,10 +36,12 @@ import Foundation
     public lazy var textColorPositive: UIColor = self.stylesheetStrategy.textColorPositive
     public lazy var tetColorLink: UIColor = self.stylesheetStrategy.tetColorLink
     public lazy var textColorWhite: UIColor = self.stylesheetStrategy.textColorWhite
+    public lazy var textColorWarning: UIColor = self.stylesheetStrategy.textColorWarning
 
     public lazy var feedbackColorCaution: UIColor = self.stylesheetStrategy.feedbackColorCaution
     public lazy var feedbackColorPositive: UIColor = self.stylesheetStrategy.feedbackColorPositive
     public lazy var feedbackColorNegative: UIColor = self.stylesheetStrategy.feedbackColorNegative
+    public lazy var feedbackColorWarning: UIColor = self.stylesheetStrategy.feedbackColorWarning
 
     public override init() {
         //TODO: Remove when iOS 11 is minimum deployment target, use ios 11 strat when new build system issues are solved

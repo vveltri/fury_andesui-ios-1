@@ -19,6 +19,7 @@ class AndesTextFieldAbstractView: UIView, AndesTextFieldView {
 
     var borderLayer: CAShapeLayer?
     var text: String = ""
+    var attributeText: NSAttributedString?
     var customInputView: UIView?
     var customInputAccessoryView: UIView?
     weak var delegate: AndesTextFieldViewDelegate?
