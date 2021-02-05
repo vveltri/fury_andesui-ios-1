@@ -54,7 +54,8 @@ class TextFieldViewController: UIViewController {
             "CHEC": { [weak self] in self?.textField.rightContent = AndesTextFieldComponentClear() },
             "ERROR": { [weak self] in self?.textField.state = .error },
             "ERRO": { [weak self] in self?.textField.state = .idle },
-            "WARNIN": { [weak self] in self?.textField.state = .warning }
+            "WARNIN": { [weak self] in self?.textField.state = .warning },
+            "WARNINING": { [weak self] in self?.textField.state = .warning }
         ]
     }
 

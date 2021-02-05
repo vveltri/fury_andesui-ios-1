@@ -69,8 +69,9 @@ class TextAreaViewController: UIViewController {
     }
     
     func attributedText(withString string: String, boldString: String) -> NSAttributedString {
+        let attributes = [NSAttributedString.Key.font: AndesStyleSheetManager.styleSheet.regularSystemFont(size: 14)]
         let attributedString = NSMutableAttributedString(string: string,
-                                                         attributes: [NSAttributedString.Key.font: AndesStyleSheetManager.styleSheet.regularSystemFont(size: 14)])
+                                                         attributes: attributes)
         let boldFontAttribute: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: AndesStyleSheetManager.styleSheet.semiboldSystemFontOfSize(size: 14)]
         let range = (string as NSString).range(of: boldString)
         attributedString.addAttributes(boldFontAttribute, range: range)
@@ -80,11 +81,11 @@ class TextAreaViewController: UIViewController {
     @IBAction func updateBtnTapped(_ sender: Any) {
         let counter: UInt16 = UInt16(counterField.text!) ?? 0
         textField.counter = counter
-           textField.label = self.labelField.text
-           textField.placeholder = self.placeholderField.text
-           textField.helper = self.helperField.text
-           textField.state = self.state
-           textField.attributeText = attributedText(withString: self.textField.text ,
+        textField.label = self.labelField.text
+        textField.placeholder = self.placeholderField.text
+        textField.helper = self.helperField.text
+        textField.state = self.state
+        textField.attributeText = attributedText(withString: self.textField.text ,
                                                  boldString: boldAttributeText.text ?? "")
     }
 
