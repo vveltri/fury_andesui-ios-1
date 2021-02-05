@@ -18,6 +18,8 @@ internal class AndesTextFieldStateFactory {
             return AndesTextFieldStateDisabled()
         case .readOnly:
             return AndesTextFieldStateReadonly()
+        case .warning:
+            return AndesTextFieldStateWarning(focuesd: isEditing)
         }
     }
 }
