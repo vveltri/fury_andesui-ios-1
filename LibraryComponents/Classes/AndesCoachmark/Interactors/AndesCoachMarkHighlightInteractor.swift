@@ -62,22 +62,21 @@ class AndesCoachMarkHighlightInteractor {
     }
 
     private func buildSquareFrom(rect: CGRect, margin: CGFloat, insets: UIEdgeInsets) -> UIBezierPath {
-        return UIBezierPath(roundedRect: rect.inset(by: applyMarginToInsets(margin: margin, insets: insets)),
+        return UIBezierPath(roundedRect: rect.insetBy(dx: -margin, dy: -margin).inset(by: negateInsets(insets)),
                             cornerRadius: AndesCoachMarkConstants.Highlight.cornerRadius)
     }
 
     private func buildCircleFrom(rect: CGRect, margin: CGFloat, insets: UIEdgeInsets) -> UIBezierPath {
         let width = rect.width + margin + insets.left + insets.right
-        return UIBezierPath(roundedRect: rect.inset(by: applyMarginToInsets(margin: margin, insets: insets)),
+        return UIBezierPath(roundedRect: rect.insetBy(dx: -margin, dy: -margin).inset(by: negateInsets(insets)),
                             cornerRadius: width / 2)
     }
 
-    private func applyMarginToInsets(margin: CGFloat, insets: UIEdgeInsets) -> UIEdgeInsets {
-        let halfMargin: CGFloat = margin / 2
-        return UIEdgeInsets(top: -(insets.top + halfMargin),
-                            left: -(insets.left + halfMargin),
-                            bottom: -(insets.bottom + halfMargin),
-                            right: -(insets.right + halfMargin))
+    private func negateInsets(_ insets: UIEdgeInsets) -> UIEdgeInsets {
+        return UIEdgeInsets(top: -insets.top,
+                            left: -insets.left,
+                            bottom: -insets.bottom,
+                            right: -insets.right)
     }
 
 }
@@ -91,7 +90,7 @@ extension AndesCoachMarkHighlightInteractor: AndesCoachMarkHighlightInteractorPr
     }
 
     func getHighlightRect() -> CGRect {
-        return highlightedRect.inset(by: applyMarginToInsets(margin: margin, insets: insets))
+        return highlightedRect.insetBy(dx: -margin, dy: -margin).inset(by: negateInsets(insets))
     }
 
     func getHighlightCornerRadius() -> CGFloat {
