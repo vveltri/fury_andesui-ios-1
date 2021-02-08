@@ -53,7 +53,9 @@ class TextFieldViewController: UIViewController {
             "CHECK": { [weak self] in self?.textField.rightContent = AndesTextFieldComponentCheck() },
             "CHEC": { [weak self] in self?.textField.rightContent = AndesTextFieldComponentClear() },
             "ERROR": { [weak self] in self?.textField.state = .error },
-            "ERRO": { [weak self] in self?.textField.state = .idle }
+            "ERRO": { [weak self] in self?.textField.state = .idle },
+            "WARNIN": { [weak self] in self?.textField.state = .warning },
+            "WARNINING": { [weak self] in self?.textField.state = .warning }
         ]
     }
 
@@ -148,7 +150,7 @@ extension TextFieldViewController: UIPickerViewDelegate {
 extension TextFieldViewController: UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if pickerView == statePicker {
-            return 4
+            return AndesTextInputState.allCases.count
         }
         if pickerView == leftCompPicker {
             return leftComponents.count

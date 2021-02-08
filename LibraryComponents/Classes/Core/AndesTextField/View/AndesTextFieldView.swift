@@ -12,6 +12,7 @@ internal protocol AndesTextFieldView: UIView {
     var delegate: AndesTextFieldViewDelegate? { get set }
 
     var text: String { get set } // input text
+    var attributeText: NSAttributedString? { get set }
     var config: AndesTextFieldViewConfig { get }
     var customInputView: UIView? {get set}
     var customInputAccessoryView: UIView? { get set }
