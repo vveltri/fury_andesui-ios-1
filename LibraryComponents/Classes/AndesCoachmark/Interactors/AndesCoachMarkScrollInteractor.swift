@@ -46,7 +46,7 @@ class AndesCoachMarkScrollInteractor {
         let rectWithMargin = CGRect(x: 0, y: rect.minY - (rect.isAbove(of: bodyView.bounds) ? margin : 0), width: 0, height: rect.height + (rect.isAbove(of: bodyView.bounds) || rect.isBelow(of: bodyView.bounds) ? margin : 0))
 
         //Make sure that the rect fit on body view. if it doesn't, it doesn't have scrolling!
-        return !bodyView.bounds.contains(rectWithMargin) && (bodyView.bounds.height >= rectWithMargin.height)
+        return !bodyView.bounds.contains(rectWithMargin) && (bodyView.bounds.height >= (bodyViewContentSize.height + highlightedViewConverted.height))
     }
 
     func scrollIfNeeded(completion: (() -> Void)? = nil) {
@@ -64,7 +64,8 @@ class AndesCoachMarkScrollInteractor {
 
         let rect = bodyViewContentSize + highlightedViewConverted
         let rectWithMargin = CGRect(x: 0, y: rect.minY - (rect.isAbove(of: bodyView.bounds) ? margin : 0), width: 0, height: rect.height + (rect.isAbove(of: bodyView.bounds) || rect.isBelow(of: bodyView.bounds) ? margin : 0))
-        if !bodyView.bounds.contains(rectWithMargin) {
+
+        if !bodyView.bounds.contains(rectWithMargin) && !scrollView.bounds.contains(highlightedView.frame) {
             let newOffset: CGPoint
             let bodyViewConvertedToScrollViewOrigin = bodyView.convert(bodyView.bounds, to: scrollView)
 

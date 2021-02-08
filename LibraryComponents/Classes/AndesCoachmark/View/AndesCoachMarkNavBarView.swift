@@ -18,6 +18,14 @@ class AndesCoachMarkNavBarView: UIView {
              titleLabel.text = title
         }
     }
+
+    var showExitButton = true {
+        didSet {
+            closeButton.isHidden = !showExitButton
+            setupAccessibility()
+        }
+    }
+
     private lazy var closeButton = UIButton(type: .system)
     private lazy var titleLabel = UILabel()
 
@@ -28,6 +36,7 @@ class AndesCoachMarkNavBarView: UIView {
         super.init(frame: .zero)
 
         setupViews()
+        setupAccessibility()
     }
 
     private func setupViews() {
@@ -51,23 +60,29 @@ class AndesCoachMarkNavBarView: UIView {
         NSLayoutConstraint.activate([
             closeButton.heightAnchor.constraint(equalToConstant: 20),
             closeButton.widthAnchor.constraint(equalToConstant: 20),
-            closeButton.centerYAnchor.constraint(equalTo: centerYAnchor),
+            closeButton.topAnchor.constraint(equalTo: topAnchor, constant: 12),
             closeButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24)
         ])
 
     }
 
     private func setupTitle() {
-        titleLabel.setAndesStyle(style: AndesFontStyle(textColor: AndesStyleSheetManager.styleSheet.textColorWhite, font: AndesStyleSheetManager.styleSheet.regularSystemFont(size: AndesFontSize.bodyM), sketchLineHeight: 18))
+        titleLabel.setAndesStyle(style: AndesFontStyle(textColor: AndesStyleSheetManager.styleSheet.textColorWhite, font: AndesStyleSheetManager.styleSheet.regularSystemFont(size: AndesFontSize.bodyS), sketchLineHeight: 18))
 
         addSubview(titleLabel)
 
         NSLayoutConstraint.activate([
-            titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
-            titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: closeButton.leadingAnchor, constant: -24)
+            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+            titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
 
+    }
+
+    private func setupAccessibility() {
+        closeButton.isAccessibilityElement = showExitButton
+        closeButton.accessibilityTraits = .button
+        closeButton.accessibilityLabel = "Cerrar".localized()
+        accessibilityElements = [titleLabel, showExitButton ? closeButton : nil].compactMap { $0 }
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -77,5 +92,4 @@ class AndesCoachMarkNavBarView: UIView {
     @objc func closeButtonTouchUpInside(_ sender: UIControl, with event: UIEvent?) {
         delegate?.didClose()
     }
-
 }

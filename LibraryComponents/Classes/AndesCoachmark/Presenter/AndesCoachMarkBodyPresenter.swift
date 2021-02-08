@@ -23,6 +23,7 @@ class AndesCoachMarkBodyPresenter {
 
         view?.setupTitleLabel(title: model.title)
         view?.setupDescriptionLabel(description: model.description)
+        view?.setupNextButton(nextText: model.nextText, buttonStyle: model.buttonStyle)
 
         drawArrow()
     }
