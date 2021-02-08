@@ -1,4 +1,4 @@
-# Unpublished
+# 3.21.0
 ### 🚀 Features
 - Added icons to LocalIcons | Authors: [@amacagno](https://github.com/amacagno)
 - AndesCoachMarkView: New visual styling for walkthough. Changes in background color, highlited arrow and button. | Authors : [@edentores](https://github.com/edentorres)
