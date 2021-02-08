@@ -20,9 +20,7 @@ final class AndesBadgeExtensionTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         view.backgroundColor = AndesStyleSheetManager.styleSheet.bgColorWhite
-
         viewControllers = [AndesBadgeExtensionViewControllerMock(title: "Home", badgeCount: -1)]
     }
 }

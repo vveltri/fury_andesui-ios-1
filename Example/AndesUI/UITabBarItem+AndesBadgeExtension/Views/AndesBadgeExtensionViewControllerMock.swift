@@ -10,19 +10,19 @@ import UIKit
 import AndesUI
 
 final class AndesBadgeExtensionViewControllerMock: UIViewController {
+    // MARK: Views
     private let addButton: AndesButton = .init(text: "+", hierarchy: .loud, size: .large)
     private let subtractButton: AndesButton  = .init(text: "-", hierarchy: .loud, size: .large)
     private let removeButton: AndesButton  = .init(text: "Remove Badge", hierarchy: .loud, size: .large)
 
+    // MARK: BadgeProperties
     private var badgeCount: Int
     private let titleValue: String
 
     init(title: String, badgeCount: Int) {
         self.badgeCount = badgeCount
         self.titleValue = title
-
         super.init(nibName: nil, bundle: nil)
-
     }
 
     required init?(coder: NSCoder) {
@@ -37,13 +37,10 @@ final class AndesBadgeExtensionViewControllerMock: UIViewController {
     private func setupView() {
         title = titleValue
         tabBarItem.image = UIImage(named: "home_tabbar_item")
-
         view.backgroundColor = AndesStyleSheetManager.styleSheet.bgColorWhite
-
         view.addSubview(addButton)
         view.addSubview(subtractButton)
         view.addSubview(removeButton)
-
         addButton.addTarget(self, action: #selector(self.addBadgeCount), for: [.touchUpInside, .touchUpOutside])
         subtractButton.addTarget(self, action: #selector(self.subtractBadgeCount), for: [.touchUpInside, .touchUpOutside])
         removeButton.addTarget(self, action: #selector(self.removeBadge), for: [.touchUpInside, .touchUpOutside])
@@ -52,10 +49,8 @@ final class AndesBadgeExtensionViewControllerMock: UIViewController {
     private func setupConstraints() {
         addButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         addButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -27).isActive = true
-
         subtractButton.leftAnchor.constraint(equalTo: addButton.rightAnchor, constant: 10).isActive = true
         subtractButton.topAnchor.constraint(equalTo: addButton.topAnchor).isActive = true
-
         removeButton.topAnchor.constraint(equalTo: addButton.bottomAnchor, constant: 10).isActive = true
         removeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }

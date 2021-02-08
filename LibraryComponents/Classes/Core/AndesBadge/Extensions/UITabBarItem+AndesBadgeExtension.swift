@@ -14,11 +14,8 @@
         }
 
         let stringValue: String = value > 99 ? "99+" : String(value)
-
         removeAndesBadge()
-
         badgeValue = stringValue
-
         updateBadge(value: stringValue)
     }
 
@@ -26,7 +23,6 @@
         guard let badgeView = getBadgeView() else { return }
 
         badgeValue = ""
-
         badgeView.subviews.forEach { $0.removeFromSuperview() }
     }
 
@@ -38,7 +34,6 @@
                 return subview
             }
         }
-
         return nil
     }
 
@@ -52,9 +47,7 @@
         view.backgroundColor = .clear
 
         let pillView = AndesBadgePill(hierarchy: .loud, type: .error, border: .standard, size: .small, text: value)
-
         view.addSubview(pillView)
-
         pillView.topAnchor.constraint(equalTo: view.topAnchor, constant: 1).isActive = true
         pillView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: -4).isActive = true
     }
