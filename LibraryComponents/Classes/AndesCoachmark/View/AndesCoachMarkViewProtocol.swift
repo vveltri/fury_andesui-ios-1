@@ -15,13 +15,13 @@ protocol AndesCoachMarkViewProtocol: class {
     func setHighlight(frame: CGRect, cornerRadius: CGFloat, maskPath: CGPath)
     func removeHighlight()
 
-    func setNavBar(_ title: String)
+    func setNavBar(_ title: String, shouldShowExitButton: Bool)
     func setBody(_ presenter: AndesCoachMarkBodyPresenter, removePrevious: Bool)
     func hideBody()
-    func setFooter(_ nextText: String)
+    func setFooter()
 
     //Delegate
     func showNext(stepIndex: Int)
     func close(stepIndex: Int)
-    func exit()
+    func exit(withCallback: Bool)
 }

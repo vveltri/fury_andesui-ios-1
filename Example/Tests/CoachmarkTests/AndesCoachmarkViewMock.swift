@@ -44,7 +44,7 @@ class CoachmarkViewMock: AndesCoachMarkViewProtocol, Mock {
         didCallRemoveHighlight.wasCalled()
     }
 
-    func setNavBar(_ title: String) {
+    func setNavBar(_ title: String, shouldShowExitButton: Bool) {
         didCallSetNavBar.wasCalled()
     }
 
@@ -56,7 +56,7 @@ class CoachmarkViewMock: AndesCoachMarkViewProtocol, Mock {
         didCallHideBody.wasCalled()
     }
 
-    func setFooter(_ nextText: String) {
+    func setFooter() {
         didCallSetFooter.wasCalled()
     }
 
@@ -68,7 +68,7 @@ class CoachmarkViewMock: AndesCoachMarkViewProtocol, Mock {
         didCallClose.wasCalled()
     }
 
-    func exit() {
+    func exit(withCallback: Bool) {
         didCallExit.wasCalled()
     }
 }

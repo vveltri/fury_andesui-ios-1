@@ -28,6 +28,7 @@ protocol HomeRouter: NSObject {
     func routeToBottomSheet()
     func routeToList()
     func routetoDropdown()
+    func routeToAndesBadgeExtension()
 }
 
 class HomeAppRouter: NSObject {
@@ -52,6 +53,7 @@ class HomeAppRouter: NSObject {
     let bottomSheetRouter = BottomSheetAppRouter()
     let listRouter = ListAppRouter()
     let dropdownRouter = DropdownAppRouter()
+    let andesBadgeExtensionRouter = AndesBadgeExtensionAppRouter()
 }
 
 extension HomeAppRouter: HomeRouter {
@@ -134,5 +136,9 @@ extension HomeAppRouter: HomeRouter {
 
     func routetoDropdown() {
         dropdownRouter.route(from: view)
+    }
+
+    func routeToAndesBadgeExtension() {
+        andesBadgeExtensionRouter.route(from: view)
     }
 }

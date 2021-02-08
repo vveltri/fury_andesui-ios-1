@@ -13,13 +13,15 @@ import Foundation
     case error
     case disabled
     case readOnly
-
+    case warning
+    
     public static func keyFor(_ value: AndesTextInputState) -> String {
         switch value {
         case .idle: return "IDLE"
         case .error: return "ERROR"
         case .readOnly: return "READONLY"
         case .disabled: return "DISABLED"
+        case .warning: return "WARNING"
         }
     }
 

@@ -12,14 +12,14 @@ extension AndesCoachMarkView: AndesCoachMarkViewProtocol {
         return body
     }
 
-    func setNavBar(_ title: String) {
+    func setNavBar(_ title: String, shouldShowExitButton: Bool) {
         navBar.title = title
+        navBar.showExitButton = shouldShowExitButton
         bringSubviewToFront(navBar)     //Workaround porque sino el overlay me afecta la vista
         layoutIfNeeded()
     }
 
-    func setFooter(_ nextText: String) {
-        footer.nextText = nextText
+    func setFooter() {
         bringSubviewToFront(footer)     //Workaround porque sino el overlay me afecta la vista
         layoutIfNeeded()
     }
@@ -27,6 +27,7 @@ extension AndesCoachMarkView: AndesCoachMarkViewProtocol {
     func setBody(_ presenter: AndesCoachMarkBodyPresenter, removePrevious: Bool) {
         if removePrevious { body?.removeFromSuperview() }
         body = AndesCoachMarkBodyView(presenter: presenter)
+        body?.delegate = self
 
         guard let body = body else { return }
         body.alpha = 0
@@ -38,8 +39,8 @@ extension AndesCoachMarkView: AndesCoachMarkViewProtocol {
             body.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24),
             body.bottomAnchor.constraint(equalTo: footer.topAnchor)
         ])
-
         layoutIfNeeded()
+        setupAccessibility()
     }
 
     func hideBody() {
@@ -55,12 +56,14 @@ extension AndesCoachMarkView: AndesCoachMarkViewProtocol {
         })
     }
 
-    func exit() {
+    func exit(withCallback: Bool) {
 
         UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseInOut, animations: { [weak self] in
             self?.alpha = 0
         }, completion: { [weak self] _ in
-            self?.onExit?()
+            if withCallback {
+                self?.onExit?()
+            }
             self?.removeFromSuperview()
         })
 

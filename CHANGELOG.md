@@ -1,7 +1,11 @@
 # Unpublished
 ### 🚀 Features
 - Added icons to LocalIcons | Authors: [@amacagno](https://github.com/amacagno)
+- AndesCoachMarkView: New visual styling for walkthough. Changes in background color, highlited arrow and button. | Authors : [@edentores](https://github.com/edentorres)
+- An extension is added to the `UITabBarItem` to show the `AndesBadge` | Author: [@Julima15](http://github.com/julima15)
+- Fix size in `AndesBadgeViewConfigFactory` | Author: [@Julima15](http://github.com/julima15)
 - Changed default background color to clear for Andes Checkbox and Andes Radio Button | Author: [@vveltri](https://github.com/vveltri)
+
 ### 🛠 Bug fixes
 - DatePicker: Fix unit test | Authors: [@AndriuCoelho](https://github.com/AndriuCoelho)
 

@@ -33,11 +33,11 @@ class AndesCoachmarkScrollInteractorTests: QuickSpec {
 
             context("check scrolling") {
                 it("should scroll because it need it") {
-                    scrollInteractor = AndesCoachMarkScrollInteractor(mainView.subviews[0], scrollView: scrollView, bodyView: bodyView, animated: false)
+                    scrollInteractor = AndesCoachMarkScrollInteractor(mainView.subviews[3], scrollView: scrollView, bodyView: bodyView, animated: false)
                     expect(scrollInteractor.isScrollNeeded()).to(beTrue())
 
                     scrollInteractor.scrollIfNeeded()
-                    expect(scrollView.contentOffset).to(equal(CGPoint(x: 0, y: -46)))
+                    expect(scrollView.contentOffset).to(equal(CGPoint(x: 0, y: 86)))
                 }
                 it("should not scroll because it doesn't need it") {
                     scrollInteractor = AndesCoachMarkScrollInteractor(mainView.subviews[1], scrollView: scrollView, bodyView: bodyView, animated: false)
@@ -79,7 +79,7 @@ class AndesCoachmarkScrollInteractorTests: QuickSpec {
                     expect(scrollView.contentOffset).to(equal(.zero))
                 }
                 it("should perform completion block") {
-                    scrollInteractor = AndesCoachMarkScrollInteractor(mainView.subviews[0], scrollView: scrollView, bodyView: bodyView, animated: false)
+                    scrollInteractor = AndesCoachMarkScrollInteractor(mainView.subviews[3], scrollView: scrollView, bodyView: bodyView, animated: false)
                     scrollInteractor.scrollIfNeeded()
                     expect(scrollInteractor.restore(completion: completionBlock)).to(beTrue())
                     expect(completionBlockPerformed).to(beTrue())
