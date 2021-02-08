@@ -1,4 +1,7 @@
 # Unpublished
+
+- An extension is added to the `UITabBarItem` to show the `AndesBadge` | Author: [@Julima15](http://github.com/julima15)
+- Fix size in `AndesBadgeViewConfigFactory` | Author: [@Julima15](http://github.com/julima15)
 - Changed default background color to clear for Andes Checkbox and Andes Radio Button | Author: [@vveltri](https://github.com/vveltri)
 
 ### 🛠 Bug fixes
