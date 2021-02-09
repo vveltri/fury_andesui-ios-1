@@ -1,3 +1,7 @@
+# 3.21.1 Unpublished
+### 🚀 Features
+- Added warning colorset | Authors [joalonspint](https://github.com/joalonsopint)
+
 # 3.21.0
 ### 🚀 Features
 - Added icons to LocalIcons | Authors: [@amacagno](https://github.com/amacagno)
