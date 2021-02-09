@@ -1,4 +1,4 @@
-# 3.21.1 Unpublished
+# 3.21.1
 ### 🚀 Features
 - Added warning colorset | Authors [joalonspint](https://github.com/joalonsopint)
 
