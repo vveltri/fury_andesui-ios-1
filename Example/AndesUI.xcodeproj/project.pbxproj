@@ -136,6 +136,7 @@
 		E212FFB025D487B700F2AEE0 /* TooltipActionLightUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E212FFAF25D487B400F2AEE0 /* TooltipActionLightUseCase.swift */; };
 		E230FDC12580F71800D6ED78 /* ProgressIndicatorObjcViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E230FDBF2580F71800D6ED78 /* ProgressIndicatorObjcViewController.m */; };
 		E230FDC22580F71800D6ED78 /* ProgressIndicatorObjcViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E230FDC02580F71800D6ED78 /* ProgressIndicatorObjcViewController.xib */; };
+		E2661E7025DEFFA80050D375 /* DropDownProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2661E6F25DEFFA80050D375 /* DropDownProxy.swift */; };
 		E2773F0725D5B4190081E891 /* TooltipDataShowCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2773F0625D5B4190081E891 /* TooltipDataShowCase.swift */; };
 		E2773F0C25D6112E0081E891 /* TooltipActionDarkUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2773F0B25D6112E0081E891 /* TooltipActionDarkUseCase.swift */; };
 		E2773F1125D611580081E891 /* TooltipUseCaseProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2773F1025D611580081E891 /* TooltipUseCaseProtocols.swift */; };
@@ -358,6 +359,7 @@
 		E230FDBE2580F71800D6ED78 /* ProgressIndicatorObjcViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgressIndicatorObjcViewController.h; sourceTree = "<group>"; };
 		E230FDBF2580F71800D6ED78 /* ProgressIndicatorObjcViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProgressIndicatorObjcViewController.m; sourceTree = "<group>"; };
 		E230FDC02580F71800D6ED78 /* ProgressIndicatorObjcViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressIndicatorObjcViewController.xib; sourceTree = "<group>"; };
+		E2661E6F25DEFFA80050D375 /* DropDownProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownProxy.swift; sourceTree = "<group>"; };
 		E2773F0625D5B4190081E891 /* TooltipDataShowCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TooltipDataShowCase.swift; sourceTree = "<group>"; };
 		E2773F0B25D6112E0081E891 /* TooltipActionDarkUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TooltipActionDarkUseCase.swift; sourceTree = "<group>"; };
 		E2773F1025D611580081E891 /* TooltipUseCaseProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TooltipUseCaseProtocols.swift; sourceTree = "<group>"; };
@@ -1082,6 +1084,7 @@
 				E2773F0225D5B3FE0081E891 /* Model */,
 				E212FFBA25D48C7000F2AEE0 /* Cases */,
 				E212FFB925D48C6800F2AEE0 /* Views */,
+				E2661E6F25DEFFA80050D375 /* DropDownProxy.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -1591,6 +1594,7 @@
 				E662DEB1254B300900A86D10 /* BottomSheetRouter.swift in Sources */,
 				F05BF6A9257551F600F325E0 /* DropDownObjcViewController.m in Sources */,
 				F830F883249400020043D5AF /* CheckboxRouter.swift in Sources */,
+				E2661E7025DEFFA80050D375 /* DropDownProxy.swift in Sources */,
 				E212FFA125D44C4200F2AEE0 /* TooltipActionUseCase.swift in Sources */,
 				86D656B5248FF79500E62C1E /* AndesDemoColor.swift in Sources */,
 				BADFA6A025CC81D900165DFE /* AndesBadgeExtensionViewControllerMock.swift in Sources */,

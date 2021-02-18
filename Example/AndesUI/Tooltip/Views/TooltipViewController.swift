@@ -11,15 +11,15 @@ import AndesUI
 
 class TooltipViewController: UIViewController {
 
-    @IBOutlet weak var tooltipPositionTextField: UITextField!
+    @IBOutlet weak var tooltipPositionDropdown: AndesDropdown!
     @IBOutlet weak var configButton: AndesButton!
     @IBOutlet weak var configViewZeroConstraint: NSLayoutConstraint!
     @IBOutlet weak var configStackContainerView: UIStackView!
     @IBOutlet weak var configViewContainer: UIView!
-    @IBOutlet weak var titleTextField: UITextField!
+
+    @IBOutlet weak var tooltipStyleDropdown: AndesDropdown!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var typeField: UITextField!
     @IBOutlet weak var configView: UIView!
     @IBOutlet weak var updateConfig: AndesButton!
     @IBOutlet weak var dismissibleSwitch: UISwitch!
@@ -27,12 +27,19 @@ class TooltipViewController: UIViewController {
     @IBOutlet weak var useCasePrimaryActionContainer: UIStackView!
     @IBOutlet weak var useCaseSecondaryActionContainer: UIStackView!
 
-    var typePicker: UIPickerView = UIPickerView()
-    var positionPicker: UIPickerView = UIPickerView()
-
     var primaryActionTooltipCase: TooltipActionUseCase?
     var secondaryActionTooltipCase: TooltipActionUseCase?
     var tooltip: AndesTooltip?
+
+    let tooltipStyleOptions = AndesTooltipType.allCases.map { AndesDropDownMenuCell(title: ($0.toString()))
+    }
+
+    let tooltipStyleDropdownProxy = DropdownProxy()
+
+    let tooltipPositionOptions = AndesTooltipPosition.allCases.map { AndesDropDownMenuCell(title: ($0.toString()))
+    }
+
+    let tooltipPositionDropdownProxy = DropdownProxy()
 
     lazy var dataShowCase: TooltipDataShowCase = {
         return TooltipDataShowCase(
@@ -61,7 +68,6 @@ class TooltipViewController: UIViewController {
         configurePicker()
         setupView()
         setupEvents()
-        setupDefaultCase()
     }
 
     private func setupView() {
@@ -72,19 +78,9 @@ class TooltipViewController: UIViewController {
         self.updateConfigView(hide: true)
     }
 
-    private func setupDefaultCase() {
-        self.pickerView(self.typePicker, didSelectRow: 0, inComponent: 0)
-        self.pickerView(self.positionPicker, didSelectRow: 0, inComponent: 0)
-
-    }
-
     private func setupEvents() {
         self.dismissibleSwitch.addTarget(self, action: #selector(self.switchValueChanged(_:)), for: .valueChanged)
-
-        self.titleTextField.addTarget(self, action: #selector(self.titleTextFieldChanged(_:)), for: .editingChanged)
-
         self.contentTextView.delegate = self
-
     }
 
     @objc func switchValueChanged(_ switchComponent: UISwitch) {
@@ -125,13 +121,29 @@ class TooltipViewController: UIViewController {
     }
 
     private func configurePicker() {
-        typeField.inputView = typePicker
-        typePicker.delegate = self
-        typePicker.dataSource = self
+        tooltipStyleDropdownProxy.delegate = self
+        tooltipStyleDropdown.delegate = tooltipStyleDropdownProxy
+        tooltipStyleDropdown.triggerType = FormDropdownTrigger(
+            title: "Style",
+            placeholder: tooltipStyleOptions.first?.title,
+            helperText: nil
+        )
+        tooltipStyleDropdown.menuType = DropdownBottomSheetMenu(rows: tooltipStyleOptions)
 
-        tooltipPositionTextField.inputView = positionPicker
-        positionPicker.delegate = self
-        positionPicker.dataSource = self
+        tooltipPositionDropdownProxy.delegate = self
+        tooltipPositionDropdown.delegate = tooltipPositionDropdownProxy
+
+        tooltipPositionDropdown.triggerType = FormDropdownTrigger(
+            title: "Position",
+            placeholder: tooltipPositionOptions.first?.title,
+            helperText: nil
+        )
+
+        tooltipPositionDropdown.menuType = DropdownBottomSheetMenu(rows: tooltipPositionOptions)
+
+        tooltipStyleDropdownProxy.didSelectRowAt(indexPath: IndexPath(row: 0, section: 0))
+        tooltipPositionDropdownProxy.didSelectRowAt(indexPath: IndexPath(row: 0, section: 0))
+
     }
 
     @IBAction func showTooltipButtonTapped(_ sender: UIButton) {
@@ -141,55 +153,6 @@ class TooltipViewController: UIViewController {
         tooltip?.show(in: sender, within: self.scrollView, position: dataShowCase.position)
     }
 
-}
-
-extension TooltipViewController: UIPickerViewDataSource, UIPickerViewAccessibilityDelegate {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if pickerView === typePicker {
-            return AndesTooltipType.allCases.count
-        }
-
-        if pickerView === positionPicker {
-            return AndesTooltipPosition.allCases.count
-        }
-
-        return 0
-    }
-
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-
-        if pickerView === typePicker {
-            let titleRow = AndesTooltipType.allCases[row].toString()
-            return titleRow
-        }
-
-        if pickerView === positionPicker {
-            let titleRow = AndesTooltipPosition.allCases[row].toString()
-            return titleRow
-        }
-
-        return nil
-    }
-
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if pickerView === typePicker {
-            selectedType = AndesTooltipType.allCases[row]
-            typeField.text = selectedType?.toString()
-            self.view.endEditing(true)
-            self.updatePrimaryActionUseCase()
-        }
-
-        if pickerView === positionPicker {
-            let selectedPosition = AndesTooltipPosition.allCases[row]
-            tooltipPositionTextField.text = selectedPosition.toString()
-            self.dataShowCase.position = selectedPosition
-            self.view.endEditing(true)
-        }
-    }
 }
 
 // MARK: - update options
@@ -252,7 +215,6 @@ extension TooltipViewController: TooltipActionUseCaseDelegate {
         useCaseSecondaryActionContainer.subviews.forEach { $0.removeFromSuperview()
         }
     }
-
 }
 
 extension AndesTooltipType {
@@ -298,5 +260,19 @@ extension AndesTooltipType {
 extension TooltipViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         self.dataShowCase.content = textView.text
+    }
+}
+
+extension TooltipViewController: DropdownProxyDelegate {
+    func didSelect(_ dropdownProxy: DropdownProxy, rowAt indexPath: IndexPath) {
+        if dropdownProxy === self.tooltipStyleDropdownProxy {
+            selectedType = AndesTooltipType.allCases[indexPath.row]
+            self.updatePrimaryActionUseCase()
+        }
+
+        if dropdownProxy === self.tooltipPositionDropdownProxy {
+            let selectedPosition = AndesTooltipPosition.allCases[indexPath.row]
+            self.dataShowCase.position = selectedPosition
+        }
     }
 }

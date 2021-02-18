@@ -20,9 +20,7 @@ class TooltipActionUseCase: UIView {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var titleTextField: UITextField!
-    @IBOutlet weak var typeTextField: UITextField!
-
-    let typePicker = UIPickerView()
+    @IBOutlet weak var typeDropdown: AndesDropdown!
 
     weak var dataSource: TooltipActionUseCaseDataSource? {
         didSet {
@@ -37,14 +35,12 @@ class TooltipActionUseCase: UIView {
     override init(frame: CGRect = .zero) {
         super.init(frame: frame)
         setupNib()
-        setupView()
         setupEvents()
     }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupNib()
-        setupView()
         setupEvents()
     }
 
@@ -61,12 +57,6 @@ class TooltipActionUseCase: UIView {
         nibView.pinTo(view: self)
     }
 
-    private func setupView() {
-        typeTextField.inputView = typePicker
-        typePicker.delegate = self
-        typePicker.dataSource = self
-    }
-
     private func setupEvents() {
         self.titleTextField.addTarget(self, action: #selector(self.titleDidChange(_:)), for: .editingChanged)
     }
@@ -79,29 +69,18 @@ class TooltipActionUseCase: UIView {
         self.actionTypes = dataSource?.supportTypes() ?? []
         let actionTitle = dataSource?.titleForType()
 
+        let data = actionTypes.map { AndesDropDownMenuCell(title: "\($0)") }
+        typeDropdown.delegate = self
+        typeDropdown.triggerType = FormDropdownTrigger(title: "Style", placeholder: nil, helperText: nil)
+        typeDropdown.menuType = DropdownBottomSheetMenu(rows: data)
+
         self.titleLabel.text = "Set info of \(actionTitle ?? "")"
     }
 }
 
-extension TooltipActionUseCase: UIPickerViewDataSource, UIPickerViewDelegate {
-
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return actionTypes.count
-    }
-
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        let titleRow =  "\(actionTypes[row])"
-        return titleRow
-    }
-
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let selectedType = actionTypes[row]
-        typeTextField.text = "\(selectedType)"
-        self.delegate?.tooltipCase(self, didSelectCase: selectedType)
-        self.endEditing(true)
+extension TooltipActionUseCase: AndesDropdownDelegate {
+    func didSelectRowAt(indexPath: IndexPath) {
+        let action = self.actionTypes[indexPath.row]
+        self.delegate?.tooltipCase(self, didSelectCase: action)
     }
 }

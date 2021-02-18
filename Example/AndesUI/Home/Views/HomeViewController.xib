@@ -84,7 +84,7 @@
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <accessibility key="accessibilityConfiguration" identifier="andesButtons" label="Buttons showcase"/>
                                             <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="string" keyPath="text" value="Tooltip"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="text" value="Andes Tooltip"/>
                                                 <userDefinedRuntimeAttribute type="string" keyPath="ibSize" value="LARGE"/>
                                             </userDefinedRuntimeAttributes>
                                             <connections>
