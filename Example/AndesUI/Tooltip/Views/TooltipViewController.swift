@@ -25,6 +25,7 @@ class TooltipViewController: UIViewController {
     @IBOutlet weak var dismissibleSwitch: UISwitch!
     @IBOutlet weak var contentTextView: UITextView!
     @IBOutlet weak var useCasePrimaryActionContainer: UIStackView!
+    @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var useCaseSecondaryActionContainer: UIStackView!
 
     var primaryActionTooltipCase: TooltipActionUseCase?
@@ -74,6 +75,8 @@ class TooltipViewController: UIViewController {
     private func setupEvents() {
         self.dismissibleSwitch.addTarget(self, action: #selector(self.switchValueChanged(_:)), for: .valueChanged)
         self.contentTextView.delegate = self
+
+        self.titleTextField.addTarget(self, action: #selector(self.titleTextFieldChanged(_:)), for: .editingChanged)
     }
 
     @objc func switchValueChanged(_ switchComponent: UISwitch) {
