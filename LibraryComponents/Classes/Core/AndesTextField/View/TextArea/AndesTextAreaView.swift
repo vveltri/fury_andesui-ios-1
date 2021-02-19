@@ -26,7 +26,7 @@ class AndesTextAreaView: AndesTextFieldAbstractView {
             textView.attributedText = attributeText
         }
     }
-    
+
     override var customInputView: UIView? {
         get {
             return textView.inputView

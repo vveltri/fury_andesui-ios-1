@@ -40,12 +40,8 @@
                              subtitle: @"Lorem ipsum dolor sit amet description"
                              thumbnail: thumbnail
                              numberOfLines: 2];
-    
-    AndesChevronCell *chevronCell = [[AndesChevronCell alloc]initWithTitle:[NSString
-                                                                            stringWithFormat:@"Lorem ipsum dolor sit amet title - %ld", (long)indexPath.row]
-                                                                  subtitle:@"Lorem ipsum dolor sit amet subtitle"
-                                                                 thumbnail:thumbnail
-                                                             numberOfLines: 0];
+
+
     
     
     return cell;

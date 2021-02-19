@@ -18,7 +18,7 @@ import UIKit
             contentView.attributeText = attributeText
         }
     }
-    
+
     /// The state of an AndesTextfield defines its behaviours an colours.
     @objc public var state: AndesTextInputState = .idle {
         didSet {

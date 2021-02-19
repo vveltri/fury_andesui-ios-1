@@ -20,7 +20,7 @@ class TextAreaViewController: UIViewController {
     @IBOutlet weak var configView: UIView!
     @IBOutlet weak var updateButton: AndesButton!
     @IBOutlet weak var boldAttributeText: UITextField!
-    
+
     var statePicker: UIPickerView = UIPickerView()
     var typePicker: UIPickerView = UIPickerView()
     var state: AndesTextInputState = .idle
@@ -57,7 +57,7 @@ class TextAreaViewController: UIViewController {
         configView.isHidden = true
         textField.delegate = self
     }
-    
+
     func createPickerViews() {
         stateTField.inputView = statePicker
         statePicker.delegate = self
@@ -67,7 +67,7 @@ class TextAreaViewController: UIViewController {
     func createTextViews() {
         counterField.delegate = self
     }
-    
+
     func attributedText(withString string: String, boldString: String) -> NSAttributedString {
         let attributes = [NSAttributedString.Key.font: AndesStyleSheetManager.styleSheet.regularSystemFont(size: 14)]
         let attributedString = NSMutableAttributedString(string: string,
@@ -77,7 +77,7 @@ class TextAreaViewController: UIViewController {
         attributedString.addAttributes(boldFontAttribute, range: range)
         return attributedString
     }
-    
+
     @IBAction func updateBtnTapped(_ sender: Any) {
         let counter: UInt16 = UInt16(counterField.text!) ?? 0
         textField.counter = counter

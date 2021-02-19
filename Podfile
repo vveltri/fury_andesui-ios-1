@@ -13,7 +13,7 @@ target 'AndesUI-demoapp' do
     pod 'AndesUI/AndesCoachmark', :path => './'
     pod 'AndesUI/AndesBottomSheet', :path => './'
     pod 'AndesUI/AndesDropdown', :path => './'
-    pod 'IQKeyboardManagerSwift', '6.3.0'
+    pod 'IQKeyboardManagerSwift', '6.5.0'
 
     target 'AndesUI_Tests' do
         inherit! :search_paths
@@ -25,4 +25,12 @@ end
 
 pre_install do |installer|
 	`./scripts/install_git_hooks.sh`
+end
+
+post_install do |pi|
+    pi.pods_project.targets.each do |t|
+      t.build_configurations.each do |config|
+        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '10.0'
+      end
+    end
 end

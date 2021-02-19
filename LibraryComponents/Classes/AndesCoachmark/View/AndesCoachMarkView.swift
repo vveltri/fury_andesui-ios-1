@@ -98,7 +98,7 @@ import UIKit
 
     func setupAccessibility() {
         accessibilityViewIsModal = true
-        accessibilityElements = [navBar, bodyView]
+        accessibilityElements = [navBar, bodyView as Any]
     }
 
     required public init?(coder aDecoder: NSCoder) {

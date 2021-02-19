@@ -14,7 +14,7 @@ import Foundation
     case disabled
     case readOnly
     case warning
-    
+
     public static func keyFor(_ value: AndesTextInputState) -> String {
         switch value {
         case .idle: return "IDLE"
