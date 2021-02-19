@@ -7,12 +7,12 @@
 
 import Foundation
 
-class AndesTooltipTypeHighlight: AndesTooltipTypeProtocol {
-    var textColor = UIColor.Andes.white
-    var backgroundColor: UIColor = AndesStyleSheetManager.styleSheet.accentColor
-    var maxWidth: CGFloat = 260
-    var shadowOffset: CGSize = CGSize(width: 0, height: 0)
-    var shadowRadius: CGFloat = 6
-    var shadowOpacity: CGFloat = 0.3
-    var closeButtonColor: UIColor = UIColor.Andes.white
+struct AndesTooltipTypeHighlight: AndesTooltipTypeProtocol {
+    let textColor = UIColor.Andes.white
+    let backgroundColor: UIColor = AndesStyleSheetManager.styleSheet.accentColor
+    let maxWidth: CGFloat = 260
+    let shadowOffset: CGSize = CGSize(width: 0, height: 0)
+    let shadowRadius: CGFloat = 6
+    let shadowOpacity: CGFloat = 0.3
+    let closeButtonColor: UIColor = UIColor.Andes.white
 }

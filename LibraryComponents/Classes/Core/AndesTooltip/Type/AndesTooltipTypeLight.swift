@@ -9,12 +9,12 @@
 
 import Foundation
 
-class AndesTooltipTypeLight: AndesTooltipTypeProtocol {
-    var textColor: UIColor = UIColor.Andes.graySolid800
-    var backgroundColor: UIColor = UIColor.Andes.white
-    var maxWidth: CGFloat = 260
-    var shadowOffset: CGSize = CGSize(width: 0, height: 0)
-    var shadowRadius: CGFloat = 6
-    var shadowOpacity: CGFloat = 0.3
-    var closeButtonColor: UIColor = UIColor.Andes.graySolid800
+struct AndesTooltipTypeLight: AndesTooltipTypeProtocol {
+    let textColor: UIColor = UIColor.Andes.graySolid800
+    let backgroundColor: UIColor = UIColor.Andes.white
+    let maxWidth: CGFloat = 260
+    let shadowOffset: CGSize = CGSize(width: 0, height: 0)
+    let shadowRadius: CGFloat = 6
+    let shadowOpacity: CGFloat = 0.3
+    let closeButtonColor: UIColor = UIColor.Andes.graySolid800
 }

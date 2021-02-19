@@ -9,12 +9,12 @@ import Foundation
 
 struct AndesTooltipActionBasicHierarchy: AndesButtonHierarchyProtocol {
 
-    var idleColor: UIColor = .clear
-    var pressedColor: UIColor
-    var focusColor: UIColor = .clear
-    var disableColor: UIColor = .clear
-    var fontColor: UIColor
-    var spinnerTintColor: UIColor = .clear
+    let idleColor: UIColor = .clear
+    let pressedColor: UIColor
+    let focusColor: UIColor = .clear
+    let disableColor: UIColor = .clear
+    let fontColor: UIColor
+    let spinnerTintColor: UIColor = .clear
 
     init(textColor: UIColor, pressedColor: UIColor) {
         self.fontColor = textColor
