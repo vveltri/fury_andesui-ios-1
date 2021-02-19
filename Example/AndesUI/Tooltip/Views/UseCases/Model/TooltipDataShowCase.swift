@@ -13,8 +13,7 @@ struct TooltipDataShowCase {
     var content: String
     var title: String?
     var isDissmisable: Bool
-    var tooltipType: AndesTooltipType?
-
+    var type: AndesTooltipType = .light
     var primaryActionStyle: TooltipActionType?
     var primayActionText: String?
     var secondaryActionStyle: TooltipActionType?

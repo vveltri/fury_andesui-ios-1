@@ -31,7 +31,7 @@ internal class AndesTooltipViewConfigFactory {
         return config
     }
 
-    private class func createActionConfig(tooltipAction: AnesTooltipInternalAction?, tooltipType: AndesTooltipType) -> AndesButtonViewConfig? {
+    private class func createActionConfig(tooltipAction: AndesTooltipAction?, tooltipType: AndesTooltipType) -> AndesButtonViewConfig? {
         guard let tooltipAction = tooltipAction else {
             return nil
         }

@@ -146,6 +146,7 @@
 		E2C0157E2575D467001B89C3 /* ProgressIndicatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0157C2575D467001B89C3 /* ProgressIndicatorViewController.swift */; };
 		E2C0157F2575D467001B89C3 /* ProgressIndicatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2C0157D2575D467001B89C3 /* ProgressIndicatorViewController.xib */; };
 		E2C015BD2579991E001B89C3 /* AndesProgressIndicatorIndeterminateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C015BC2579991D001B89C3 /* AndesProgressIndicatorIndeterminateTest.swift */; };
+		E2FB3C3325E03B60003F9A18 /* TooltipFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FB3C3225E03B60003F9A18 /* TooltipFactory.swift */; };
 		E615508A23D619E300417B5F /* AndesButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E615508823D6196C00417B5F /* AndesButtonTests.swift */; };
 		E662DEB1254B300900A86D10 /* BottomSheetRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E662DEB0254B300900A86D10 /* BottomSheetRouter.swift */; };
 		E662DEB3254B305100A86D10 /* BottomSheetSwiftExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E662DEB2254B305100A86D10 /* BottomSheetSwiftExampleViewController.swift */; };
@@ -369,6 +370,7 @@
 		E2C0157C2575D467001B89C3 /* ProgressIndicatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressIndicatorViewController.swift; sourceTree = "<group>"; };
 		E2C0157D2575D467001B89C3 /* ProgressIndicatorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressIndicatorViewController.xib; sourceTree = "<group>"; };
 		E2C015BC2579991D001B89C3 /* AndesProgressIndicatorIndeterminateTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndesProgressIndicatorIndeterminateTest.swift; sourceTree = "<group>"; };
+		E2FB3C3225E03B60003F9A18 /* TooltipFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TooltipFactory.swift; path = AndesUI/Tooltip/Views/UseCases/cases/TooltipFactory.swift; sourceTree = SOURCE_ROOT; };
 		E3E9B26B74F98D6773C98C88 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		E615508823D6196C00417B5F /* AndesButtonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AndesButtonTests.swift; sourceTree = "<group>"; };
 		E61E8ED6239E9A7A00F85A8A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -1104,6 +1106,7 @@
 				E212FFAF25D487B400F2AEE0 /* TooltipActionLightUseCase.swift */,
 				E2773F0B25D6112E0081E891 /* TooltipActionDarkUseCase.swift */,
 				E2773F1525D6136F0081E891 /* TooltipActionHighlightCase.swift */,
+				E2FB3C3225E03B60003F9A18 /* TooltipFactory.swift */,
 			);
 			path = Cases;
 			sourceTree = "<group>";
@@ -1623,6 +1626,7 @@
 				CEA2960725128C5000FB625F /* TextFieldsCodeRouter.swift in Sources */,
 				9C9B5A8123ECADB80007234B /* String+Additions.swift in Sources */,
 				03BE93FC256432C8004F3BBD /* DatePickerObjCViewController.m in Sources */,
+				E2FB3C3325E03B60003F9A18 /* TooltipFactory.swift in Sources */,
 				6D8774192523D0A800C74B83 /* TagChoiceObjCViewController.m in Sources */,
 				F8D7CB1A24A388D7003D5294 /* AndesCheckboxInitViewController.swift in Sources */,
 				E230FDC12580F71800D6ED78 /* ProgressIndicatorObjcViewController.m in Sources */,

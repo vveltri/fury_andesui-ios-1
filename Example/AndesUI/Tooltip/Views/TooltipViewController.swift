@@ -56,13 +56,6 @@ class TooltipViewController: UIViewController {
         }
     }
 
-    var selectedType: AndesTooltipType? {
-        didSet {
-            guard let type = selectedType else { return }
-            self.dataShowCase.tooltipType = type
-        }
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         configurePicker()
@@ -148,8 +141,8 @@ class TooltipViewController: UIViewController {
 
     @IBAction func showTooltipButtonTapped(_ sender: UIButton) {
         tooltip?.dismiss()
-        let factory = selectedType?.getFactoryTooltip()
-        tooltip = factory?.buildTooltip(using: dataShowCase)
+        let factory = dataShowCase.type.getFactoryTooltip()
+        tooltip = factory.buildTooltip(using: dataShowCase)
         tooltip?.show(in: sender, within: self.scrollView, position: dataShowCase.position)
     }
 
@@ -183,7 +176,7 @@ extension TooltipViewController: TooltipActionUseCaseDelegate {
     private func updatePrimaryActionUseCase() {
         removePrimaryAction()
         let view = TooltipActionUseCase()
-        view.dataSource = self.selectedType?.getUseCaseForPrimaryAction()
+        view.dataSource = dataShowCase.type.getUseCaseForPrimaryAction()
         view.delegate = self
         useCasePrimaryActionContainer.addArrangedSubview(view)
         self.primaryActionTooltipCase = view
@@ -192,11 +185,10 @@ extension TooltipViewController: TooltipActionUseCaseDelegate {
     private func updateSecondaryActionUseCase(selectedCase: TooltipActionType) {
         removeSecondaryAction()
 
-        guard let selectedType = self.selectedType,
-        selectedType.hasSecondaryAction(for: selectedCase) else { return }
+        guard dataShowCase.type.hasSecondaryAction(for: selectedCase) else { return }
 
         let view = TooltipActionUseCase()
-        view.dataSource = selectedType.getUseCaseForSecondaryAction(primaryAction: selectedCase)
+        view.dataSource = dataShowCase.type.getUseCaseForSecondaryAction(primaryAction: selectedCase)
         view.delegate = self
         useCaseSecondaryActionContainer.addArrangedSubview(view)
         self.secondaryActionTooltipCase = view
@@ -241,14 +233,7 @@ extension AndesTooltipType {
     }
 
     func getFactoryTooltip() -> TooltipAbstractFactory {
-        switch self {
-        case .light:
-            return TooltipLightFactory()
-        case .dark:
-            return TooltipDarkFactory()
-        case .highlight:
-            return TooltipHighlightFactory()
-        }
+        return TooltipFactory()
     }
 
     func hasSecondaryAction(for primaryAction: TooltipActionType) -> Bool {
@@ -266,7 +251,8 @@ extension TooltipViewController: UITextViewDelegate {
 extension TooltipViewController: DropdownProxyDelegate {
     func didSelect(_ dropdownProxy: DropdownProxy, rowAt indexPath: IndexPath) {
         if dropdownProxy === self.tooltipStyleDropdownProxy {
-            selectedType = AndesTooltipType.allCases[indexPath.row]
+            let selectedType = AndesTooltipType.allCases[indexPath.row]
+            self.dataShowCase.type = selectedType
             self.updatePrimaryActionUseCase()
         }
 

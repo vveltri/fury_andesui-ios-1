@@ -10,10 +10,15 @@ import Foundation
 public class AndesTooltipAction {
     let text: String
     var onPressed: (() -> Void)
+    var type: AndesTooltipActionType = .loud
 
     public init(text: String, onPressed: @escaping (() -> Void)) {
         self.text = text
         self.onPressed = onPressed
+    }
+
+    func configure(with type: AndesTooltipActionType) {
+        self.type = type
     }
 }
 
@@ -38,7 +43,7 @@ internal class AnesTooltipInternalAction {
 
 internal class AndesTooltipActionFactory {
 
-    class func provide(action: AnesTooltipInternalAction, tooltipType: AndesTooltipType) -> AndesButtonViewConfig {
+    class func provide(action: AndesTooltipAction, tooltipType: AndesTooltipType) -> AndesButtonViewConfig {
 
         switch action.type {
         case .link:
@@ -52,7 +57,7 @@ internal class AndesTooltipActionFactory {
         }
     }
 
-    private class func createLoudConfig(action: AnesTooltipInternalAction, tooltipType: AndesTooltipType) -> AndesButtonViewConfig {
+    private class func createLoudConfig(action: AndesTooltipAction, tooltipType: AndesTooltipType) -> AndesButtonViewConfig {
         switch tooltipType {
         case .light, .dark:
             return AndesButtonViewConfigFactory.provide(hierarchy: .loud, size: .medium, text: action.text, icon: nil)
@@ -67,7 +72,7 @@ internal class AndesTooltipActionFactory {
         }
     }
 
-    private class func createTransparentConfig(action: AnesTooltipInternalAction, tooltipType: AndesTooltipType) -> AndesButtonViewConfig {
+    private class func createTransparentConfig(action: AndesTooltipAction, tooltipType: AndesTooltipType) -> AndesButtonViewConfig {
         switch tooltipType {
         case .light:
             return AndesButtonViewConfigFactory.provide(hierarchy: .transparent, size: .medium, text: action.text, icon: nil)
@@ -82,11 +87,11 @@ internal class AndesTooltipActionFactory {
         }
     }
 
-    private class func createQuietConfig(action: AnesTooltipInternalAction) -> AndesButtonViewConfig {
+    private class func createQuietConfig(action: AndesTooltipAction) -> AndesButtonViewConfig {
             return AndesButtonViewConfigFactory.provide(hierarchy: .quiet, size: .medium, text: action.text, icon: nil)
     }
 
-    private class func createLinkConfig(action: AnesTooltipInternalAction, tooltipType: AndesTooltipType) -> AndesButtonViewConfig {
+    private class func createLinkConfig(action: AndesTooltipAction, tooltipType: AndesTooltipType) -> AndesButtonViewConfig {
 
         let textAttr = provideLinkAttr(tooltipType: tooltipType)
         let hierarchy = provideActionLinkHierarchy(tooltipType: tooltipType)
