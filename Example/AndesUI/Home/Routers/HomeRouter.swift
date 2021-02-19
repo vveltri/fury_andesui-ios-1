@@ -8,6 +8,13 @@
 
 import UIKit
 
+
+protocol HomeRouterProtocol {
+    var view: UIViewController { get set }
+    func route(from: UIViewController)
+}
+
+
 protocol HomeRouter: NSObject {
     func start(in window: UIWindow)
     func routeToProgressIndicator()
