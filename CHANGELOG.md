@@ -1,5 +1,17 @@
 # Unpublished
 ### ⚙️ Other
+- Lib & testapp updated config: | Authors [jbrunoAtMeli] (https://github.com/jbrunoAtMeli)
+    The following recommended warnings were enabled
+        (In the library)
+            Compilers warnings 
+            Implicit retain of ‘self’ within blocks
+            Overriding Deprecated Object-C Methods
+            Quoted include in Framework header
+        (In the test app)
+             Quoted include in Framework header
+    Updated IQKeyboardManagerSwift version (6.5.0) in the test app.
+    Executed the automatic corrections of SwiftLint 
+    Fixes compiler warnings 
 - Improve pull request template | Authors [joalonspint](https://github.com/joalonsopint)
 
 # 3.21.1

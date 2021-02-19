@@ -9,7 +9,7 @@ import UIKit
 
 @objc public class AndesTextField: UIView {
     internal var contentView: AndesTextFieldView!
-    
+
     /// The state of an AndesTextfield defines its behaviours an colours.
     @objc public var state: AndesTextInputState = .idle {
         didSet {
@@ -80,7 +80,7 @@ import UIKit
             contentView.attributeText = attributeText
         }
     }
-    
+
     @objc public weak var delegate: AndesTextFieldDelegate?
 
     internal private(set) var inputTraits: UITextInputTraits? {

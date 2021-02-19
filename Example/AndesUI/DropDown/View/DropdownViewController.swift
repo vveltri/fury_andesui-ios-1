@@ -18,7 +18,7 @@ class DropdownViewController: UIViewController {
     @IBOutlet var placelholderField: AndesTextField!
     @IBOutlet var segmentedControl: UISegmentedControl!
     @IBOutlet var helperTextField: AndesTextField!
-    
+
     var cell: [AndesDropDownMenuCell] = []
 
     override func viewDidLoad() {
