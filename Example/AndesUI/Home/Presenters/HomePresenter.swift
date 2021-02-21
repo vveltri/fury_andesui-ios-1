@@ -17,7 +17,7 @@ class HomePresenter {
     
     
     
-    func present(view: RouterVC) { //TODO cambiar para que no conozca el router la vista
+    func present(view: TestappViews) { //TODO cambiar para que no conozca el router la vista
         if let vc = self.viewController {
             self.router.doRoute(fromVC: vc, newRouter: view)
         }

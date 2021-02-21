@@ -13,78 +13,75 @@ protocol HomeRouterProtocol {
     func route(from: UIViewController)
 }
 
-
-enum RouterVC {
-    case progressIndicatorRouter
-    case coachmarkRouter
-    case buttonsRouter
-    case messagesRouter
-    case badgesRouter
-    case whatsNewRouter
-    case textFieldRouter
-    case checkBoxRouter
-    case radioButtonRouter
-    case tagRouter
-    case snackbarRouter
-    case cardRouter
-    case thumbnailRouter
-    case textFieldsCodeRouter
-    case datePickerRouter
-    case bottomSheetRouter
-    case listRouter
-    case dropdownRouter
-    case andesBadgeExtensionRouter
+enum TestappViews {
+    case progressIndicator
+    case coachmark
+    case buttons
+    case messages
+    case badges
+    case whatsNew
+    case textField
+    case checkBox
+    case radioButton
+    case tag
+    case snackbar
+    case card
+    case thumbnail
+    case textFieldsCode
+    case datePicker
+    case bottomSheet
+    case list
+    case dropdown
+    case andesBadgeExtensions
 }
-
 
 protocol HomeRouter:class {
     func start(in window: UIWindow)
-    func doRoute (fromVC: UIViewController,newRouter:RouterVC)
+    func doRoute (fromVC: UIViewController,newRouter:TestappViews)
 }
     
-
 class HomeAppRouter: HomeRouter {
-    func doRoute (fromVC: UIViewController,newRouter:RouterVC)  {
+    func doRoute (fromVC: UIViewController,newRouter:TestappViews)  {
         var h : HomeRouterProtocol
         
         switch newRouter {
-        case .progressIndicatorRouter:
+        case .progressIndicator:
             h = AndesBadgeExtensionRouter()
-        case .coachmarkRouter:
+        case .coachmark:
             h = CoachmarkRouter()
-        case .buttonsRouter:
+        case .buttons:
             h = ButtonsRouter()
-        case .messagesRouter:
+        case .messages:
             h = MessagesRouter()
-        case .badgesRouter:
+        case .badges:
             h = BadgesRouter()
-        case .whatsNewRouter:
+        case .whatsNew:
             h = WhatsNewRouter()
-        case .textFieldRouter:
+        case .textField:
             h = TextFieldsRouter()
-        case .checkBoxRouter:
+        case .checkBox:
             h = CheckboxRouter()
-        case .radioButtonRouter:
+        case .radioButton:
             h = RadioButtonRouter()
-        case .tagRouter:
+        case .tag:
             h = TagsRouter()
-        case .snackbarRouter:
+        case .snackbar:
             h = SnackbarRouter()
-        case .cardRouter:
+        case .card:
             h = CardRouter()
-        case .thumbnailRouter:
+        case .thumbnail:
             h = ThumbnailRouter()
-        case .textFieldsCodeRouter:
+        case .textFieldsCode:
             h = TextFieldsCodeRouter()
-        case .datePickerRouter:
+        case .datePicker:
             h = DatePickerRouter()
-        case .bottomSheetRouter:
+        case .bottomSheet:
             h = BottomSheetRouter()
-        case .listRouter:
+        case .list:
             h = ListRouter()
-        case .dropdownRouter:
+        case .dropdown:
             h = DropdownRouter()
-        case .andesBadgeExtensionRouter:
+        case .andesBadgeExtensions:
             h = AndesBadgeExtensionRouter()
         }
         h.route(from: fromVC)

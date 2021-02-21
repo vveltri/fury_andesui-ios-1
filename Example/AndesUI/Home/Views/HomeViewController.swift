@@ -11,11 +11,11 @@ import UIKit
 import AndesUI
 
 protocol HomeView: NSObject {
-
+    
 }
 
 class HomeViewController: UIViewController {
-
+    
     private let presenter: HomePresenter
     @IBOutlet weak var progressIndicatorBtn: AndesButton!
     @IBOutlet weak var coachmarkBtn: AndesButton!
@@ -32,16 +32,13 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var cardBtn: AndesButton!
     @IBOutlet weak var specsButton: AndesButton!
     @IBOutlet weak var contributingButton: AndesButton!
-	@IBOutlet weak var thumbnailBtn: AndesButton!
-
-	@IBOutlet weak var showcaseLabel: UILabel!
-    
+    @IBOutlet weak var thumbnailBtn: AndesButton!
+    @IBOutlet weak var showcaseLabel: UILabel!
     
     init() {
         self.presenter = HomePresenter()
-        super.init(nibName: nil, bundle: nil) //TODO 
+        super.init(nibName: nil, bundle: nil)
         self.presenter.viewController = self
-        
     }
     
     required init?(coder: NSCoder) {
@@ -52,134 +49,112 @@ class HomeViewController: UIViewController {
         if let version = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String {
             showcaseLabel.text = "\("home.label.showcase".localized) (v\(version))"
         }
-       
+        
         setupUI()
     }
-
+    
     private func setupUI() {
         func setupNavigation() {
             navigationItem.title = "AndesUI"
         }
-
+        
         func setupMessage() {
             welcomeMessage.title = "home.welcomeMsg.title".localized
             welcomeMessage.body = "home.welcomeMsg.desc".localized
             welcomeMessage.setPrimaryAction("home.welcomeMsg.action".localized, handler: { _ in
-                //TODO que no conozca el router!!
-                //TODO que no conozca el router!!
-                self.presenter.present(view: .messagesRouter)
+                self.presenter.present(view: .messages)
             })
         }
-
+        
         func setupButtons() {
             specsButton.text = "Andes Specs 📘"
             contributingButton.text = "home.button.contribute.title".localized
         }
-
+        
         setupButtons()
         setupNavigation()
         setupMessage()
     }
-
+    
     @IBAction func goToCoachmarkWasTapped(_ sender: Any) {
-        //TODO que no conozca el router!!
-        //TODO que no conozca el router!!
-        presenter.present(view: .coachmarkRouter)
+        presenter.present(view: .coachmark)
     }
-
+    
     @IBAction func goToButtonWasTapped(_ sender: Any) {
-        //TODO que no conozca el router!!
-        //TODO que no conozca el router!!
-        presenter.present(view: .buttonsRouter)
+        presenter.present(view: .buttons)
     }
-
+    
     @IBAction func goToMessagesTapped(_ sender: Any) {
-        //TODO que no conozca el router!!
-        //TODO que no conozca el router!!
-        presenter.present(view: .messagesRouter)
+        presenter.present(view: .messages)
     }
-
+    
     @IBAction func goToBadgesTapped(_ sender: Any) {
-        //TODO que no conozca el router!!
-        //TODO que no conozca el router!!
-        presenter.present(view: .badgesRouter)
+        presenter.present(view: .badges)
     }
-
+    
     @IBAction func goToCheckboxTapped(_ sender: Any) {
-        
-        //TODO que no conozca el router!!
-        //TODO que no conozca el router!!
-        presenter.present(view: .checkBoxRouter)
+        presenter.present(view: .checkBox)
     }
-
+    
     @IBAction func goToRadioButtonTapped(_ sender: Any) {
-        //TODO que no conozca el router!!
-        //TODO que no conozca el router!!
-        
-        presenter.present(view: .radioButtonRouter)
+        presenter.present(view: .radioButton)
     }
-
+    
     @IBAction func goToDatePickerTapped(_ sender: Any) {
-        presenter.present(view: .datePickerRouter)
+        presenter.present(view: .datePicker)
     }
-
+    
     @IBAction func goToSpecsTapped(_ sender: Any) {
         guard let url = URL(string: "https://company-161429.frontify.com/d/kxHCRixezmfK/n-a") else { return }
         UIApplication.shared.open(url)
-
     }
-
+    
     @IBAction func goToContributingTapped(_ sender: Any) {
         guard let url = URL(string: "https://meli.workplace.com/notes/andes-ui/c%C3%B3mo-contribuir-en-andes-ui/2559399620854933") else { return }
         UIApplication.shared.open(url)
-
     }
-
+    
     @IBAction func progressIndicatorBtnTapped(_ sender: Any) {
-        presenter.present(view: .progressIndicatorRouter)
+        presenter.present(view: .progressIndicator)
     }
-
+    
     @IBAction func textfieldBtnTapped(_ sender: Any) {
-        presenter.present(view: .textFieldRouter)
+        presenter.present(view: .textField)
     }
-
+    
     @IBAction func tagBtnTapped(_ sender: Any) {
-        presenter.present(view: .tagRouter)
+        presenter.present(view: .tag)
     }
-
+    
     @IBAction func snackbarBtnTapped(_ sender: Any) {
-        presenter.present(view: .snackbarRouter)
+        presenter.present(view: .snackbar)
     }
-
+    
     @IBAction func cardBtnTapped(_ sender: Any) {
-        presenter.present(view: .cardRouter)
+        presenter.present(view: .card)
     }
-
+    
     @IBAction func goToThumbnailTapped(_ sender: Any) {
-        presenter.present(view: .thumbnailRouter)
+        presenter.present(view: .thumbnail)
     }
-
+    
     @IBAction func goToListViewTapped(_ sender: Any) {
-        presenter.present(view: .listRouter)
+        presenter.present(view: .list)
     }
-
+    
     @IBAction func goToTextFieldsCodeTapped(_ sender: Any) {
-        presenter.present(view: .textFieldsCodeRouter)
+        presenter.present(view: .textFieldsCode)
     }
-
+    
     @IBAction func bottomSheetTapped(_ sender: Any) {
-        presenter.present(view: .bottomSheetRouter)
+        presenter.present(view: .bottomSheet)
     }
-
+    
     @IBAction func dropdownTapped(_ sender: Any) {
-        presenter.present(view: .dropdownRouter)
+        presenter.present(view: .dropdown)
     }
-
+    
     @IBAction func andesBadgeExtensionTapped(_ sender: Any) {
-        presenter.present(view: .badgesRouter)
+        presenter.present(view: .badges)
     }
-}
-
-extension HomeViewController: HomeView {
-
 }
