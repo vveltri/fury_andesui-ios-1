@@ -10,7 +10,6 @@ import Foundation
 
 class ListRouter: HomeRouterProtocol {
     func route(from: UIViewController) {
-        //TODO fijarme en cambiar el var por el let!
         let viewController = AndesShowcasePageViewController(controllers: [ListViewController(),
                                                                            ListObjcViewController()])
         viewController.title = "AndesList"

@@ -8,9 +8,6 @@
 
 import Foundation
 
-//TODO sacar el import de  UIKIt de los routers
-
-
 class DatePickerRouter: HomeRouterProtocol {
     func route(from: UIViewController) {
         from.navigationController?.pushViewController(DatePickerViewController(), animated: true)

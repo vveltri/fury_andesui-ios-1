@@ -9,15 +9,10 @@
 import UIKit
 
 class HomePresenter {
-    let router = HomeAppRouter()
+    private let router = HomeAppRouter()
     unowned var viewController: UIViewController?
-//    init(viewController: UIViewController) {
-//        self.viewController = viewController
-//    }
     
-    
-    
-    func present(view: TestappViews) { //TODO cambiar para que no conozca el router la vista
+    func present(view: TestappViews) {
         if let vc = self.viewController {
             self.router.doRoute(fromVC: vc, newRouter: view)
         }

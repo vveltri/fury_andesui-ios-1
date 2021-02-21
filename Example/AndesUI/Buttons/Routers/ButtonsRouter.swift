@@ -6,7 +6,7 @@
 //  Copyright © 2019 MercadoLibre. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 class ButtonsRouter: HomeRouterProtocol {
     func route(from: UIViewController) {

@@ -62,7 +62,7 @@ class HomeViewController: UIViewController {
             welcomeMessage.title = "home.welcomeMsg.title".localized
             welcomeMessage.body = "home.welcomeMsg.desc".localized
             welcomeMessage.setPrimaryAction("home.welcomeMsg.action".localized, handler: { _ in
-                self.presenter.present(view: .messages)
+                self.presenter.present(view: .whatsNew)
             })
         }
         

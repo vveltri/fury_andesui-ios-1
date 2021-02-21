@@ -10,7 +10,6 @@ import Foundation
 
 class MessagesRouter: HomeRouterProtocol {
     func route(from: UIViewController) {
-        //TODO fijarme en cambiar el var por el let!
         let viewController = AndesShowcasePageViewController(controllers: [MessageViewController(), MessageObjCViewController()])
         viewController.title = "AndesMessage"
         from.navigationController?.pushViewController(viewController, animated: true)
