@@ -6,20 +6,12 @@
 //  Copyright © 2020 MercadoLibre. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-protocol TextFieldsRouter: NSObject {
-    func route(from: UIViewController)
-}
-
-class TextFieldsAppRouter: NSObject {
-    var view: AndesShowcasePageViewController!
-}
-
-extension TextFieldsAppRouter: TextFieldsRouter {
+class TextFieldsRouter: HomeRouterProtocol {
     func route(from: UIViewController) {
-        view = AndesShowcasePageViewController(controllers: [TextFieldViewController(), TextAreaViewController(), TextFieldObjCViewController()])
-        view.title = "AndesTextField"
-        from.navigationController?.pushViewController(view, animated: true)
+        let viewController = AndesShowcasePageViewController(controllers: [TextFieldViewController(), TextAreaViewController(), TextFieldObjCViewController()])
+        viewController.title = "AndesTextField"
+        from.navigationController?.pushViewController(viewController, animated: true)
     }
 }

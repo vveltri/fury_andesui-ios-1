@@ -8,17 +8,8 @@
 
 import UIKit
 
-protocol ButtonsRouter: NSObject {
-    func route(from: UIViewController)
-}
-
-class ButtonsAppRouter: NSObject {
-    var view: ButtonsViewController!
-}
-
-extension ButtonsAppRouter: ButtonsRouter {
+class ButtonsRouter: HomeRouterProtocol {
     func route(from: UIViewController) {
-        view = ButtonsViewController()
-        from.navigationController?.pushViewController(view, animated: true)
+        from.navigationController?.pushViewController(ButtonsViewController(), animated: true)
     }
 }

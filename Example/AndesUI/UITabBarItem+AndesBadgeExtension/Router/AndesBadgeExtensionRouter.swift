@@ -6,12 +6,8 @@
 //  Copyright © 2021 MercadoLibre. All rights reserved.
 //
 
-class AndesBadgeExtensionAppRouter: HomeRouterProtocol {
-    var view: UIViewController
-    init() {
-        view = AndesBadgeExtensionTabBarController()
-    }
+class AndesBadgeExtensionRouter: HomeRouterProtocol {
     func route(from: UIViewController) {
-        from.navigationController?.pushViewController(view, animated: true)
+        from.navigationController?.pushViewController(AndesBadgeExtensionTabBarController(), animated: true)
     }
 }

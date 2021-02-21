@@ -16,7 +16,7 @@ protocol HomeView: NSObject {
 
 class HomeViewController: UIViewController {
 
-    weak var presenter: HomePresenter!
+    private let presenter: HomePresenter
     @IBOutlet weak var progressIndicatorBtn: AndesButton!
     @IBOutlet weak var coachmarkBtn: AndesButton!
     @IBOutlet weak var button: AndesButton!
@@ -35,13 +35,24 @@ class HomeViewController: UIViewController {
 	@IBOutlet weak var thumbnailBtn: AndesButton!
 
 	@IBOutlet weak var showcaseLabel: UILabel!
-
+    
+    
+    init() {
+        self.presenter = HomePresenter()
+        super.init(nibName: nil, bundle: nil) //TODO 
+        self.presenter.viewController = self
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         if let version = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String {
             showcaseLabel.text = "\("home.label.showcase".localized) (v\(version))"
         }
-
+       
         setupUI()
     }
 
@@ -54,7 +65,9 @@ class HomeViewController: UIViewController {
             welcomeMessage.title = "home.welcomeMsg.title".localized
             welcomeMessage.body = "home.welcomeMsg.desc".localized
             welcomeMessage.setPrimaryAction("home.welcomeMsg.action".localized, handler: { _ in
-                self.presenter.presentWhatsNew()
+                //TODO que no conozca el router!!
+                //TODO que no conozca el router!!
+                self.presenter.present(view: .messagesRouter)
             })
         }
 
@@ -69,31 +82,45 @@ class HomeViewController: UIViewController {
     }
 
     @IBAction func goToCoachmarkWasTapped(_ sender: Any) {
-        presenter.presentCoachmark()
+        //TODO que no conozca el router!!
+        //TODO que no conozca el router!!
+        presenter.present(view: .coachmarkRouter)
     }
 
     @IBAction func goToButtonWasTapped(_ sender: Any) {
-        presenter.presentButtons()
+        //TODO que no conozca el router!!
+        //TODO que no conozca el router!!
+        presenter.present(view: .buttonsRouter)
     }
 
     @IBAction func goToMessagesTapped(_ sender: Any) {
-        presenter.presentMessages()
+        //TODO que no conozca el router!!
+        //TODO que no conozca el router!!
+        presenter.present(view: .messagesRouter)
     }
 
     @IBAction func goToBadgesTapped(_ sender: Any) {
-        presenter.presentBadges()
+        //TODO que no conozca el router!!
+        //TODO que no conozca el router!!
+        presenter.present(view: .badgesRouter)
     }
 
     @IBAction func goToCheckboxTapped(_ sender: Any) {
-        presenter.presentCheckbox()
+        
+        //TODO que no conozca el router!!
+        //TODO que no conozca el router!!
+        presenter.present(view: .checkBoxRouter)
     }
 
     @IBAction func goToRadioButtonTapped(_ sender: Any) {
-        presenter.presentRadioButton()
+        //TODO que no conozca el router!!
+        //TODO que no conozca el router!!
+        
+        presenter.present(view: .radioButtonRouter)
     }
 
     @IBAction func goToDatePickerTapped(_ sender: Any) {
-        presenter.presentDatePicker()
+        presenter.present(view: .datePickerRouter)
     }
 
     @IBAction func goToSpecsTapped(_ sender: Any) {
@@ -109,47 +136,47 @@ class HomeViewController: UIViewController {
     }
 
     @IBAction func progressIndicatorBtnTapped(_ sender: Any) {
-        presenter.presentProgressIndicator()
+        presenter.present(view: .progressIndicatorRouter)
     }
 
     @IBAction func textfieldBtnTapped(_ sender: Any) {
-        presenter.presentTextField()
+        presenter.present(view: .textFieldRouter)
     }
 
     @IBAction func tagBtnTapped(_ sender: Any) {
-        presenter.presentTags()
+        presenter.present(view: .tagRouter)
     }
 
     @IBAction func snackbarBtnTapped(_ sender: Any) {
-        presenter.presentSnackbar()
+        presenter.present(view: .snackbarRouter)
     }
 
     @IBAction func cardBtnTapped(_ sender: Any) {
-        presenter.presentCard()
+        presenter.present(view: .cardRouter)
     }
 
     @IBAction func goToThumbnailTapped(_ sender: Any) {
-        presenter.presentThumbnail()
+        presenter.present(view: .thumbnailRouter)
     }
 
     @IBAction func goToListViewTapped(_ sender: Any) {
-        presenter.presentList()
+        presenter.present(view: .listRouter)
     }
 
     @IBAction func goToTextFieldsCodeTapped(_ sender: Any) {
-        presenter.presentTextFieldsCode()
+        presenter.present(view: .textFieldsCodeRouter)
     }
 
     @IBAction func bottomSheetTapped(_ sender: Any) {
-        presenter.presentBottomSheet()
+        presenter.present(view: .bottomSheetRouter)
     }
 
     @IBAction func dropdownTapped(_ sender: Any) {
-        presenter.presentDropdown()
+        presenter.present(view: .dropdownRouter)
     }
 
     @IBAction func andesBadgeExtensionTapped(_ sender: Any) {
-        presenter.presentAndesBadgeExtension()
+        presenter.present(view: .badgesRouter)
     }
 }
 
