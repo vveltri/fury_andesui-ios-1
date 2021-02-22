@@ -1,5 +1,5 @@
 //
-//  SnackbarROuter.swift
+//  SnackbarRouter.swift
 //  AndesUI-demoapp
 //
 //  Created by Samuel Sainz on 6/16/20.
@@ -8,18 +8,10 @@
 
 import Foundation
 
-protocol SnackbarRouter: NSObject {
-    func route(from: UIViewController)
-}
-
-class SnackbarAppRouter: NSObject {
-    var view: AndesShowcasePageViewController!
-}
-
-extension SnackbarAppRouter: SnackbarRouter {
+class SnackbarRouter: HomeRouterProtocol {
     func route(from: UIViewController) {
-        view = AndesShowcasePageViewController(controllers: [SnackbarViewController(), SnackbarObjCViewController()])
-        view.title = "AndesSnackbar"
-        from.navigationController?.pushViewController(view, animated: true)
+        let viewController = AndesShowcasePageViewController(controllers: [SnackbarViewController(), SnackbarObjCViewController()])
+        viewController.title = "AndesSnackbar"
+        from.navigationController?.pushViewController(viewController, animated: true)
     }
 }

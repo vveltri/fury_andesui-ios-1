@@ -8,18 +8,10 @@
 
 import Foundation
 
-protocol CardRouter: NSObject {
-    func route(from: UIViewController)
-}
-
-class CardAppRouter: NSObject {
-    var view: AndesShowcasePageViewController!
-}
-
-extension CardAppRouter: CardRouter {
+class CardRouter: HomeRouterProtocol {
     func route(from: UIViewController) {
-        view = AndesShowcasePageViewController(controllers: [CardViewController(), CardObjCViewController()])
-        view.title = "AndesCard"
-        from.navigationController?.pushViewController(view, animated: true)
+        let viewController = AndesShowcasePageViewController(controllers: [CardViewController(), CardObjCViewController()])
+        viewController.title = "AndesCard"
+        from.navigationController?.pushViewController(viewController, animated: true)
     }
 }

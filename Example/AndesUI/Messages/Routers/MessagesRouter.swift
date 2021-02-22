@@ -6,20 +6,12 @@
 //  Copyright © 2020 MercadoLibre. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-protocol MessagesRouter: NSObject {
-    func route(from: UIViewController)
-}
-
-class MessagesAppRouter: NSObject {
-    var view: AndesShowcasePageViewController!
-}
-
-extension MessagesAppRouter: MessagesRouter {
+class MessagesRouter: HomeRouterProtocol {
     func route(from: UIViewController) {
-        view = AndesShowcasePageViewController(controllers: [MessageViewController(), MessageObjCViewController()])
-        view.title = "AndesMessage"
-        from.navigationController?.pushViewController(view, animated: true)
+        let viewController = AndesShowcasePageViewController(controllers: [MessageViewController(), MessageObjCViewController()])
+        viewController.title = "AndesMessage"
+        from.navigationController?.pushViewController(viewController, animated: true)
     }
 }

@@ -6,21 +6,12 @@
 //  Copyright © 2020 MercadoLibre. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-protocol ListRouter: NSObject {
-    func route(from: UIViewController)
-}
-
-class ListAppRouter: NSObject {
-    var view: AndesShowcasePageViewController!
-}
-
-extension ListAppRouter: ListRouter {
+class ListRouter: HomeRouterProtocol {
     func route(from: UIViewController) {
-        view = AndesShowcasePageViewController(controllers: [ListViewController(),
-                                                             ListObjcViewController()])
-        view.title = "AndesList"
-        from.navigationController?.pushViewController(view, animated: true)
+        let viewController = AndesShowcasePageViewController(controllers: [ListViewController(), ListObjcViewController()])
+        viewController.title = "AndesList"
+        from.navigationController?.pushViewController(viewController, animated: true)
     }
 }
