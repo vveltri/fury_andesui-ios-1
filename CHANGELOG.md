@@ -1,5 +1,6 @@
 # Unpublished
 ### ⚙️ Other
+- Home router refactored | Authors [jbrunoAtMeli] (https://github.com/jbrunoAtMeli)
 - Lib & testapp updated config: | Authors [jbrunoAtMeli] (https://github.com/jbrunoAtMeli)
     The following recommended warnings were enabled
         (In the library)
