@@ -15,4 +15,3 @@ class MessagesRouter: HomeRouterProtocol {
         from.navigationController?.pushViewController(viewController, animated: true)
     }
 }
-
