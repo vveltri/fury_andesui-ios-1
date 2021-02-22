@@ -10,8 +10,8 @@ import UIKit
 
 class BottomSheetRouter: HomeRouterProtocol {
     func route(from: UIViewController) {
-        var viewVC = AndesShowcasePageViewController(controllers: [BottomSheetSwiftExampleViewController(), BottomSheetObjectiveCExampleViewController()])
-        viewVC.title = "Bottom Sheet"
-        from.navigationController?.pushViewController(viewVC, animated: true)
+        let viewController = AndesShowcasePageViewController(controllers: [BottomSheetSwiftExampleViewController(), BottomSheetObjectiveCExampleViewController()])
+        viewController.title = "Bottom Sheet"
+        from.navigationController?.pushViewController(viewController, animated: true)
     }
 }

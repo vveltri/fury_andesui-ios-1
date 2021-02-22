@@ -10,7 +10,6 @@ import Foundation
 
 class TagsRouter: HomeRouterProtocol {
     func route(from: UIViewController) {
-        
         from.navigationController?.pushViewController(AndesTagShowcaseViewController(), animated: true)
     }
 }

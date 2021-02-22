@@ -10,8 +10,7 @@ import Foundation
 
 class ListRouter: HomeRouterProtocol {
     func route(from: UIViewController) {
-        let viewController = AndesShowcasePageViewController(controllers: [ListViewController(),
-                                                                           ListObjcViewController()])
+        let viewController = AndesShowcasePageViewController(controllers: [ListViewController(), ListObjcViewController()])
         viewController.title = "AndesList"
         from.navigationController?.pushViewController(viewController, animated: true)
     }

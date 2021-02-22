@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 protocol HomeRouterProtocol {
     func route(from: UIViewController)
 }
@@ -35,63 +34,60 @@ enum TestappViews {
     case andesBadgeExtensions
 }
 
-protocol HomeRouter:class {
+protocol HomeRouter: class {
     func start(in window: UIWindow)
-    func doRoute (fromVC: UIViewController,newRouter:TestappViews)
+    func doRoute (fromVC: UIViewController, newRouter: TestappViews)
 }
-    
+
 class HomeAppRouter: HomeRouter {
-    func doRoute (fromVC: UIViewController,newRouter:TestappViews)  {
-        var h : HomeRouterProtocol
-        
-        switch newRouter {
-        case .progressIndicator:
-            h = AndesBadgeExtensionRouter()
-        case .coachmark:
-            h = CoachmarkRouter()
-        case .buttons:
-            h = ButtonsRouter()
-        case .messages:
-            h = MessagesRouter()
-        case .badges:
-            h = BadgesRouter()
-        case .whatsNew:
-            h = WhatsNewRouter()
-        case .textField:
-            h = TextFieldsRouter()
-        case .checkBox:
-            h = CheckboxRouter()
-        case .radioButton:
-            h = RadioButtonRouter()
-        case .tag:
-            h = TagsRouter()
-        case .snackbar:
-            h = SnackbarRouter()
-        case .card:
-            h = CardRouter()
-        case .thumbnail:
-            h = ThumbnailRouter()
-        case .textFieldsCode:
-            h = TextFieldsCodeRouter()
-        case .datePicker:
-            h = DatePickerRouter()
-        case .bottomSheet:
-            h = BottomSheetRouter()
-        case .list:
-            h = ListRouter()
-        case .dropdown:
-            h = DropdownRouter()
-        case .andesBadgeExtensions:
-            h = AndesBadgeExtensionRouter()
-        }
-        h.route(from: fromVC)
-    }
-    
     func start(in window: UIWindow) {
-        let vc = HomeViewController()
-        window.rootViewController = UINavigationController(rootViewController: vc)
+        let viewController = HomeViewController()
+        window.rootViewController = UINavigationController(rootViewController: viewController)
         window.makeKeyAndVisible()
     }
 
+    func doRoute (fromVC: UIViewController, newRouter: TestappViews) {
+        var router: HomeRouterProtocol
+        switch newRouter {
+        case .progressIndicator:
+            router = AndesBadgeExtensionRouter()
+        case .coachmark:
+            router = CoachmarkRouter()
+        case .buttons:
+            router = ButtonsRouter()
+        case .messages:
+            router = MessagesRouter()
+        case .badges:
+            router = BadgesRouter()
+        case .whatsNew:
+            router = WhatsNewRouter()
+        case .textField:
+            router = TextFieldsRouter()
+        case .checkBox:
+            router = CheckboxRouter()
+        case .radioButton:
+            router = RadioButtonRouter()
+        case .tag:
+            router = TagsRouter()
+        case .snackbar:
+            router = SnackbarRouter()
+        case .card:
+            router = CardRouter()
+        case .thumbnail:
+            router = ThumbnailRouter()
+        case .textFieldsCode:
+            router = TextFieldsCodeRouter()
+        case .datePicker:
+            router = DatePickerRouter()
+        case .bottomSheet:
+            router = BottomSheetRouter()
+        case .list:
+            router = ListRouter()
+        case .dropdown:
+            router = DropdownRouter()
+        case .andesBadgeExtensions:
+            router = AndesBadgeExtensionRouter()
+        }
+        router.route(from: fromVC)
+    }
 }
-
