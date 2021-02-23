@@ -12,7 +12,12 @@ import UIKit
 
 class TooltipRouter: HomeRouterProtocol {
     func route(from: UIViewController) {
-        from.navigationController?.pushViewController(TooltipViewController(), animated: true)
+        let controller = AndesShowcasePageViewController(
+            controllers: [
+                TooltipViewController(),
+                TooltipObjcViewController()
+            ])
+        from.navigationController?.pushViewController(controller, animated: true)
     }
 }
 

@@ -9,7 +9,7 @@
 import Foundation
 import AndesUI
 
-class TooltipLightPrimaryCases: TooltipActionUseCaseDataSource {
+class TooltipLightPrimaryCases: NSObject, TooltipActionUseCaseDataSource {
 
     func titleForType() -> String {
         return "Primary Action"
@@ -21,7 +21,7 @@ class TooltipLightPrimaryCases: TooltipActionUseCaseDataSource {
 
 }
 
-class TooltipLightSecondaryCases: TooltipActionUseCaseDataSource {
+@objc class TooltipLightSecondaryCases: NSObject, TooltipActionUseCaseDataSource {
 
     let primaryAction: TooltipActionType
 

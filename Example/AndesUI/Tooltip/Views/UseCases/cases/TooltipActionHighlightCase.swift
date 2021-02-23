@@ -18,7 +18,6 @@ class TooltipActionHighlightUseCase: TooltipActionUseCaseDataSource {
     func supportTypes() -> [TooltipActionType] {
         return [.loud, .link]
     }
-
 }
 
 class TooltipHighlightSecondaryCase: TooltipActionUseCaseDataSource {

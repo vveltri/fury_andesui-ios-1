@@ -20,15 +20,15 @@ import Foundation
     let primaryAction: AndesTooltipAction?
     let secondaryAction: AndesTooltipAction?
 
-    public func show(in view: UIView, within superView: UIView, position: AndesTooltipPosition = .top) {
+    @objc public func show(in view: UIView, within superView: UIView, position: AndesTooltipPosition = .top) {
         self.contentView.show(in: view, within: superView, position: position)
     }
 
-    public func dismiss() {
+    @objc public func dismiss() {
         self.contentView.dismiss()
     }
 
-    public convenience init(
+    @objc public convenience init(
         type: AndesTooltipType,
         content: String,
         title: String? = nil,
@@ -39,7 +39,7 @@ import Foundation
         self.init(content: content, title: title, isDismissable: isDismissable, type: type, primaryAction: primaryLoudAction)
     }
 
-    public convenience init(
+    @objc public convenience init(
         type: AndesTooltipType,
         content: String,
         title: String? = nil,
@@ -50,7 +50,7 @@ import Foundation
         self.init(content: content, title: title, isDismissable: isDismissable, type: type, primaryAction: linkAction)
     }
 
-    public convenience init(
+    @objc public convenience init(
         type: AndesTooltipType,
         content: String,
         title: String? = nil,
@@ -64,7 +64,7 @@ import Foundation
         self.init(content: content, title: title, isDismissable: isDismissable, type: type, primaryAction: primaryLoudAction, secondaryAction: secondaryTransparentAction)
     }
 
-    public convenience init(
+    @objc public convenience init(
         lightStyle content: String,
         title: String? = nil,
         isDismissable: Bool = true,
@@ -77,7 +77,7 @@ import Foundation
         self.init(content: content, title: title, isDismissable: isDismissable, type: .light, primaryAction: primaryQuietAction, secondaryAction: secondaryQuietAction)
     }
 
-    public convenience init(
+    @objc public convenience init(
         lightStyle content: String,
         title: String? = nil,
         isDismissable: Bool = true,

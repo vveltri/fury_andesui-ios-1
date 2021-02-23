@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum AndesTooltipPosition: Int, AndesEnumStringConvertible {
+@objc public enum AndesTooltipPosition: Int, AndesEnumStringConvertible {
     case top
     case bottom
     case left
