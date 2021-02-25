@@ -11,38 +11,38 @@ import AndesUI
 
 class TooltipViewController: UIViewController {
 
-    @IBOutlet weak var tooltipPositionDropdown: AndesDropdown!
-    @IBOutlet weak var configButton: AndesButton!
-    @IBOutlet weak var configViewZeroConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var tooltipPositionDropdown: AndesDropdown!
+    @IBOutlet private weak var configButton: AndesButton!
+    @IBOutlet private weak var configViewZeroConstraint: NSLayoutConstraint!
     @IBOutlet weak var configStackContainerView: UIStackView!
-    @IBOutlet weak var configViewContainer: UIView!
+    @IBOutlet private weak var configViewContainer: UIView!
 
-    @IBOutlet weak var tooltipStyleDropdown: AndesDropdown!
-    @IBOutlet weak var contentView: UIView!
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var configView: UIView!
-    @IBOutlet weak var updateConfig: AndesButton!
-    @IBOutlet weak var dismissibleSwitch: UISwitch!
-    @IBOutlet weak var contentTextView: UITextView!
-    @IBOutlet weak var useCasePrimaryActionContainer: UIStackView!
-    @IBOutlet weak var titleTextField: UITextField!
-    @IBOutlet weak var useCaseSecondaryActionContainer: UIStackView!
+    @IBOutlet private weak var tooltipStyleDropdown: AndesDropdown!
+    @IBOutlet private weak var contentView: UIView!
+    @IBOutlet private weak var scrollView: UIScrollView!
+    @IBOutlet private weak var configView: UIView!
+    @IBOutlet private weak var updateConfig: AndesButton!
+    @IBOutlet private weak var dismissibleSwitch: UISwitch!
+    @IBOutlet private weak var contentTextView: UITextView!
+    @IBOutlet private weak var useCasePrimaryActionContainer: UIStackView!
+    @IBOutlet private weak var titleTextField: UITextField!
+    @IBOutlet private weak var useCaseSecondaryActionContainer: UIStackView!
 
-    var primaryActionTooltipCase: TooltipActionUseCase?
-    var secondaryActionTooltipCase: TooltipActionUseCase?
-    var tooltip: AndesTooltip?
+    private var primaryActionTooltipCase: TooltipActionUseCase?
+    private var secondaryActionTooltipCase: TooltipActionUseCase?
+    private var tooltip: AndesTooltip?
 
-    let tooltipStyleOptions = AndesTooltipType.allCases.map { AndesDropDownMenuCell(title: ($0.toString()))
+    private let tooltipStyleOptions = AndesTooltipType.allCases.map { AndesDropDownMenuCell(title: ($0.toString()))
     }
 
-    let tooltipStyleDropdownProxy = DropdownProxy()
+    private let tooltipStyleDropdownProxy = DropdownProxy()
 
-    let tooltipPositionOptions = AndesTooltipPosition.allCases.map { AndesDropDownMenuCell(title: ($0.toString()))
+    private let tooltipPositionOptions = AndesTooltipPosition.allCases.map { AndesDropDownMenuCell(title: ($0.toString()))
     }
 
-    let tooltipPositionDropdownProxy = DropdownProxy()
+    private let tooltipPositionDropdownProxy = DropdownProxy()
 
-    lazy var dataShowCase: TooltipDataShowCase = {
+    lazy private var dataShowCase: TooltipDataShowCase = {
         return TooltipDataShowCase(
             content: self.contentTextView.text,
             title: nil,
@@ -79,15 +79,15 @@ class TooltipViewController: UIViewController {
         self.titleTextField.addTarget(self, action: #selector(self.titleTextFieldChanged(_:)), for: .editingChanged)
     }
 
-    @objc func switchValueChanged(_ switchComponent: UISwitch) {
+    @objc private func switchValueChanged(_ switchComponent: UISwitch) {
         self.dataShowCase.isDissmisable = switchComponent.isOn
     }
 
-    @objc func titleTextFieldChanged(_ textField: UITextField) {
+    @objc private func titleTextFieldChanged(_ textField: UITextField) {
         self.dataShowCase.title = textField.text
     }
 
-    @IBAction func configButtonTapped(_ sender: Any) {
+    @IBAction private func configButtonTapped(_ sender: Any) {
         let hide = !self.configStackContainerView.isHidden
         self.updateConfigView(hide: hide)
     }
@@ -112,7 +112,7 @@ class TooltipViewController: UIViewController {
         }
     }
 
-    @IBAction func updateConfigButtonTapped(_ sender: Any) {
+    @IBAction private func updateConfigButtonTapped(_ sender: Any) {
         self.updateConfigView(hide: true)
     }
 
@@ -142,7 +142,7 @@ class TooltipViewController: UIViewController {
 
     }
 
-    @IBAction func showTooltipButtonTapped(_ sender: UIButton) {
+    @IBAction private func showTooltipButtonTapped(_ sender: UIButton) {
         tooltip?.dismiss()
         let factory = dataShowCase.type.getFactoryTooltip()
         tooltip = factory.buildTooltip(using: dataShowCase)

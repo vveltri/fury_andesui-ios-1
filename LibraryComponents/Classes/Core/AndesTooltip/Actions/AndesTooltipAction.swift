@@ -9,7 +9,7 @@ import Foundation
 
 @objc public class AndesTooltipAction: NSObject {
     let text: String
-    var onPressed: (() -> Void)
+    let onPressed: (() -> Void)
     var type: AndesTooltipActionType = .loud
 
     @objc public init(text: String, onPressed: @escaping (() -> Void)) {

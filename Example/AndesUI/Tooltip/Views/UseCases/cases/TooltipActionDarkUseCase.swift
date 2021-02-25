@@ -23,7 +23,7 @@ class TooltipActionDarkUseCase: TooltipActionUseCaseDataSource {
 
 class TooltipDarkSecondaryCase: TooltipActionUseCaseDataSource {
 
-    let primaryAction: TooltipActionType
+    private let primaryAction: TooltipActionType
 
     init(primaryAction: TooltipActionType) {
         self.primaryAction = primaryAction

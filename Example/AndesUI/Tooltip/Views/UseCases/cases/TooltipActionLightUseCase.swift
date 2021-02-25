@@ -23,7 +23,7 @@ class TooltipLightPrimaryCases: NSObject, TooltipActionUseCaseDataSource {
 
 @objc class TooltipLightSecondaryCases: NSObject, TooltipActionUseCaseDataSource {
 
-    let primaryAction: TooltipActionType
+    private let primaryAction: TooltipActionType
 
     init(primaryAction: TooltipActionType) {
         self.primaryAction = primaryAction
