@@ -19,6 +19,7 @@ class AndesMessageAbstractView: UIView, AndesMessageView, UITextViewDelegate {
     @IBOutlet weak var dismissButton: UIButton!
     @IBOutlet weak var titleToDismissConstraint: NSLayoutConstraint!
     @IBOutlet weak var titleToSafeAreaConstraint: NSLayoutConstraint!
+    @IBOutlet weak var bulletStackView: UIStackView!
 
     var config: AndesMessageViewConfig
     init(withConfig config: AndesMessageViewConfig) {
@@ -106,10 +107,36 @@ class AndesMessageAbstractView: UIView, AndesMessageView, UITextViewDelegate {
             self.titleToSafeAreaConstraint.priority = .init(rawValue: 999)
             self.dismissButton.isHidden = true
         }
+
+        self.bulletSetup()
+    }
+
+    func bulletSetup() {
+        self.removeAllBullets()
+        for bullet in self.config.bullets {
+            let bulletView = AndesBulletView()
+            let bodyStyle = config.bodyStyle
+            let bulletText = self.getAttributedText(text: bullet.text, style: bodyStyle)
+            bulletView.configure(bulletColor: bodyStyle.textColor, bulletText: bulletText)
+            self.bulletStackView.addArrangedSubview(bulletView)
+        }
+
+    }
+
+    func removeAllBullets() {
+        let views = self.bulletStackView.arrangedSubviews
+        for view in  views {
+            self.bulletStackView.removeArrangedSubview(view)
+        }
     }
 
     func getBodyText(style: AndesFontStyle) -> NSAttributedString {
-        let attributedString = NSMutableAttributedString(string: config.bodyText ?? "")
+        let body = config.bodyText ?? ""
+        return getAttributedText(text: body, style: style)
+    }
+
+    func getAttributedText(text: String, style: AndesFontStyle) -> NSAttributedString {
+        let attributedString = NSMutableAttributedString(string: text)
 
         let allRange = NSRange(location: 0, length: attributedString.length)
 
