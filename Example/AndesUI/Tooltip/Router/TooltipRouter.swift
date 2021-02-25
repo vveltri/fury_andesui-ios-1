@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 
-
 class TooltipRouter: HomeRouterProtocol {
     func route(from: UIViewController) {
         let controller = AndesShowcasePageViewController(
@@ -20,4 +19,3 @@ class TooltipRouter: HomeRouterProtocol {
         from.navigationController?.pushViewController(controller, animated: true)
     }
 }
-
