@@ -20,14 +20,27 @@ import Foundation
     let primaryAction: AndesTooltipAction?
     let secondaryAction: AndesTooltipAction?
 
+    /// show the tooltip in the view
+    /// - Parameters:
+    ///   - view: view to which you want to highlight
+    ///   - superView: view to which the tooltip is added
+    ///   - position: preferred position for the tooltip
     @objc public func show(in view: UIView, within superView: UIView, position: AndesTooltipPosition = .top) {
         self.contentView.show(in: view, within: superView, position: position)
     }
 
+    /// dismiss the tooltip
     @objc public func dismiss() {
         self.contentView.dismiss()
     }
 
+    /// Constructor for tooltip
+    /// - Parameters:
+    ///   - type: type of tooltip
+    ///   - content: String representing content of tooltip
+    ///   - title: String representing title of tooltip
+    ///   - isDismissable: Boolean representing if the tooltip has a close button
+    ///   - primaryLoudAction: Action with style Loud
     @objc public convenience init(
         type: AndesTooltipType,
         content: String,
@@ -39,6 +52,13 @@ import Foundation
         self.init(content: content, title: title, isDismissable: isDismissable, type: type, primaryAction: primaryLoudAction)
     }
 
+    /// Constructor for tooltip
+    /// - Parameters:
+    ///   - type: type of tooltip
+    ///   - content: String representing content of tooltip
+    ///   - title: String representing title of tooltip
+    ///   - isDismissable: Boolean representing if the tooltip has a close button
+    ///   - linkAction: Action with style link
     @objc public convenience init(
         type: AndesTooltipType,
         content: String,
@@ -50,6 +70,14 @@ import Foundation
         self.init(content: content, title: title, isDismissable: isDismissable, type: type, primaryAction: linkAction)
     }
 
+    /// Constructor for tooltip
+    /// - Parameters:
+    ///   - type: type of tooltip
+    ///   - content: String representing content of tooltip
+    ///   - title: String representing title of tooltip
+    ///   - isDismissable: Boolean representing if the tooltip has a close button
+    ///   - primaryLoudAction: Action with style loud
+    ///   - secondaryTransparentAction: Action with style transparent
     @objc public convenience init(
         type: AndesTooltipType,
         content: String,
@@ -64,6 +92,13 @@ import Foundation
         self.init(content: content, title: title, isDismissable: isDismissable, type: type, primaryAction: primaryLoudAction, secondaryAction: secondaryTransparentAction)
     }
 
+    /// Constructor for special light tooltip
+    /// - Parameters:
+    ///   - content: String representing content of tooltip
+    ///   - title: String representing title of tooltip
+    ///   - isDismissable: Boolean representing if the tooltip has a close button
+    ///   - primaryQuietAction: Action with style quiet
+    ///   - secondaryQuietAction: Action with style quiet
     @objc public convenience init(
         lightStyle content: String,
         title: String? = nil,
@@ -77,6 +112,12 @@ import Foundation
         self.init(content: content, title: title, isDismissable: isDismissable, type: .light, primaryAction: primaryQuietAction, secondaryAction: secondaryQuietAction)
     }
 
+    /// Constructor for special light tooltip
+    /// - Parameters:
+    ///   - content: String representing content of tooltip
+    ///   - title: String representing title of tooltip
+    ///   - isDismissable: Boolean representing if the tooltip has a close button
+    ///   - primaryQuietAction: Action with style quiet
     @objc public convenience init(
         lightStyle content: String,
         title: String? = nil,
