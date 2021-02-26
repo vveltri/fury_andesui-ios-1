@@ -37,6 +37,12 @@ import UIKit
         }
     }
 
+    public var bullets: [AndesBullet] = [] {
+        didSet {
+            self.updateContentView()
+        }
+    }
+
     /// isDismissable shows a dismiss button, when pressed the message set isHidden = true
     @IBInspectable public var isDismissable: Bool = false {
         didSet {

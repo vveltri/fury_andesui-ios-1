@@ -12,6 +12,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AndesMessageDefaultView" customModule="AndesUI">
             <connections>
                 <outlet property="bodyTextView" destination="HuK-Ws-ZkI" id="dDv-pl-UDg"/>
+                <outlet property="bulletStackHeightConstraint" destination="ubV-Y5-cTM" id="Whg-nV-W8I"/>
+                <outlet property="bulletStackTopSpaceConstraint" destination="KYO-1s-852" id="q1T-PJ-o6R"/>
                 <outlet property="bulletStackView" destination="afo-6r-lcL" id="dSb-GA-8bC"/>
                 <outlet property="dismissButton" destination="xSe-Le-1pW" id="cYn-eo-qgB"/>
                 <outlet property="iconContainerView" destination="CsU-Ah-Mc0" id="Jga-UN-maA"/>
