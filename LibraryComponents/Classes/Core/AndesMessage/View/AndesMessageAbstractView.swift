@@ -150,7 +150,7 @@ class AndesMessageAbstractView: UIView, AndesMessageView, UITextViewDelegate, An
     func removeAllBullets() {
         let views = self.bulletStackView.arrangedSubviews
         for view in  views {
-            self.bulletStackView.removeArrangedSubview(view)
+            view.removeFromSuperview()
         }
     }
 
@@ -195,6 +195,6 @@ class AndesMessageAbstractView: UIView, AndesMessageView, UITextViewDelegate, An
     }
 
     func andesbulletView(urlInteractionAt linkIndex: Int, forBullet bulletIndex: Int) {
-        config.bullets[bulletIndex].bodyLinks.listener(linkIndex)
+        config.bullets[bulletIndex].bodyLinks?.listener(linkIndex)
     }
 }

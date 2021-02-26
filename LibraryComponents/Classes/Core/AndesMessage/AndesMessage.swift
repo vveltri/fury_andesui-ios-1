@@ -37,7 +37,7 @@ import UIKit
         }
     }
 
-    public var bullets: [AndesBullet] = [] {
+    @objc public var bullets: [AndesBullet] = [] {
         didSet {
             self.updateContentView()
         }

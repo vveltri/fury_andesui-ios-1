@@ -30,6 +30,7 @@ class MessageViewController: UIViewController, MessageView {
     @IBOutlet weak var dismissibleSwitch: UISwitch!
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var showAgainBtn: AndesButton!
+    @IBOutlet weak var showBulletSwitch: UISwitch!
 
     var typePicker: UIPickerView = UIPickerView()
     var statePicker: UIPickerView = UIPickerView()
@@ -37,6 +38,10 @@ class MessageViewController: UIViewController, MessageView {
     var hierarchy: AndesMessageHierarchy = .loud
 
     var availableBullets: [AndesBullet] = []
+
+    var showBullets: Bool {
+        self.showBulletSwitch.isOn
+    }
 
     fileprivate func setupButtons() {
         configToggleButton.text = "message.button.changeConfig".localized
@@ -109,7 +114,7 @@ class MessageViewController: UIViewController, MessageView {
             bullet3
         ]
 
-        messageView.bullets = bullets
+        self.availableBullets = bullets
     }
 
     override func viewDidLoad() {
@@ -181,8 +186,8 @@ class MessageViewController: UIViewController, MessageView {
         })
     }
 
-    func validate(body: String, primary: String, secondary: String, link: String, hasBullets: Bool) -> String? {
-        guard !body.isEmpty || hasBullets else {
+    func validate(body: String, primary: String, secondary: String, link: String) -> String? {
+        guard !body.isEmpty || showBullets else {
             return "message.error.emptyBody".localized
         }
         guard secondary.isEmpty || !primary.isEmpty else {
@@ -206,9 +211,8 @@ class MessageViewController: UIViewController, MessageView {
         let primary = primaryActionTextField.text!
         let secondary = secondaryActionTextField.text!
         let link = linkActionTextField.text!
-        let hasBullets = !self.messageView.bullets.isEmpty
 
-        if let err = validate(body: body, primary: primary, secondary: secondary, link: link, hasBullets: hasBullets) {
+        if let err = validate(body: body, primary: primary, secondary: secondary, link: link) {
             errorLabel.text = err
             errorLabel.isHidden = false
             return
@@ -222,6 +226,8 @@ class MessageViewController: UIViewController, MessageView {
         messageView.isDismissable = dismiss
         messageView.type = type
         messageView.hierarchy = hierarchy
+        messageView.bullets = showBullets ? self.availableBullets : []
+
         messageView.setPrimaryAction(primary, handler: {[unowned self] _ in self.didPressButton()})
         messageView.setSecondaryAction(secondary, handler: {[unowned self] _ in self.didPressButton()})
         messageView.setLinkAction(link, handler: {[unowned self] _ in self.didPressButton()})
