@@ -114,9 +114,7 @@ class AndesMessageAbstractView: UIView, AndesMessageView, UITextViewDelegate, An
     }
 
     func bulletsSetup() {
-
         self.adjustAndesMessageSpaces()
-
         self.removeAllBullets()
 
         for (index, bullet) in self.config.bullets.enumerated() {

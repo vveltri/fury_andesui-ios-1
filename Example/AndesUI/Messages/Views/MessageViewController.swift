@@ -36,9 +36,7 @@ class MessageViewController: UIViewController, MessageView {
     var statePicker: UIPickerView = UIPickerView()
     var type: AndesMessageType = .neutral
     var hierarchy: AndesMessageHierarchy = .loud
-
     var availableBullets: [AndesBullet] = []
-
     var showBullets: Bool {
         self.showBulletSwitch.isOn
     }
@@ -92,7 +90,6 @@ class MessageViewController: UIViewController, MessageView {
     }
 
     private func bulletSetup() {
-
         let linksBullet2 = [
             AndesBodyLink(startIndex: 0, endIndex: 26),
             AndesBodyLink(startIndex: 38, endIndex: 44)
