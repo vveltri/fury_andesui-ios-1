@@ -36,7 +36,17 @@ final class AndesBulletView: UIView, UITextViewDelegate {
 
     private func loadNib() {
         let bundle = AndesBundle.bundle()
-        bundle.loadNibNamed("AndesBulletView", owner: self, options: nil)
+        let view = bundle.loadNibNamed("AndesBulletView", owner: self, options: nil)?.first as! UIView
+
+        view.translatesAutoresizingMaskIntoConstraints = false
+
+        self.addSubview(view)
+        NSLayoutConstraint.activate([
+            view.topAnchor.constraint(equalTo: self.topAnchor),
+            view.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            view.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            view.trailingAnchor.constraint(equalTo: self.trailingAnchor)
+        ])
     }
 
     private func bulletTextViewSetup() {
@@ -45,9 +55,11 @@ final class AndesBulletView: UIView, UITextViewDelegate {
         self.bulletTextView.delegate = self
     }
 
-    func configure(bulletColor: UIColor, bulletText: NSAttributedString, delegate: AndesBulletViewDelegate?, at bulletIndex: Int) {
-        self.bulletView.backgroundColor = bulletColor
+    func configure(bulletText: NSAttributedString, with andesStyle: AndesFontStyle, linkTextColor: UIColor, delegate: AndesBulletViewDelegate?, at bulletIndex: Int) {
+        self.bulletView.backgroundColor = andesStyle.textColor
+        self.bulletTextView.setAndesStyle(style: andesStyle)
         self.bulletTextView.attributedText = bulletText
+        self.bulletTextView.linkTextAttributes = [NSAttributedString.Key.foregroundColor: linkTextColor]
         self.bulletIndex = bulletIndex
         self.delegate = delegate
     }

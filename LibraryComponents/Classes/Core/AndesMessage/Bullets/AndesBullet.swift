@@ -11,7 +11,7 @@ import Foundation
 @objc public final class AndesBullet: NSObject {
     let text: String
     let bodyLinks: AndesBodyLinks
-     init(text: String, bodyLink: AndesBodyLinks) {
+    public init(text: String, bodyLink: AndesBodyLinks) {
         self.text = text
         self.bodyLinks = bodyLink
     }

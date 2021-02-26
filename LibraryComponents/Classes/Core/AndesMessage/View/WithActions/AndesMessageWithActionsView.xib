@@ -22,6 +22,7 @@
                 <outlet property="messageView" destination="XXP-Ea-Yt4" id="pvy-Cx-eNO"/>
                 <outlet property="primaryAction" destination="HbG-CF-Oqd" id="RZJ-M4-73O"/>
                 <outlet property="secondaryAction" destination="UDP-xQ-Pdx" id="ob2-GU-6z7"/>
+                <outlet property="spacingBetweenBodyAndActions" destination="eCH-7Y-Ty5" id="wsE-vY-Kdl"/>
                 <outlet property="titleLabel" destination="KcW-WK-QzY" id="pau-ca-pFK"/>
                 <outlet property="titleToDismissConstraint" destination="ndm-ak-doY" id="DG1-v9-dga"/>
                 <outlet property="titleToSafeAreaConstraint" destination="JEr-pg-mxz" id="ubT-XX-3F2"/>
@@ -94,7 +95,7 @@
                         </textView>
                     </subviews>
                 </stackView>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3oO-mw-jzV">
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="3oO-mw-jzV">
                     <rect key="frame" x="48" y="106" width="194" height="0.0"/>
                     <constraints>
                         <constraint firstAttribute="height" id="lht-Kx-oZF"/>

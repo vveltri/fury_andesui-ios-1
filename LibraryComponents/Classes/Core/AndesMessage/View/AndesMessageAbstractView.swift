@@ -115,35 +115,34 @@ class AndesMessageAbstractView: UIView, AndesMessageView, UITextViewDelegate, An
 
     func bulletsSetup() {
 
-        self.adjustBulletStackSpaces()
+        self.adjustAndesMessageSpaces()
 
         self.removeAllBullets()
 
         for (index, bullet) in self.config.bullets.enumerated() {
             let bulletView = AndesBulletView(frame: .zero)
+
             let bodyStyle = config.bodyStyle
-            let bulletText = self.getAttributedText(text: bullet.text, style: bodyStyle, bodyLinks: bullet.bodyLinks)
-            bulletView.configure(bulletColor: bodyStyle.textColor, bulletText: bulletText, delegate: self, at: index)
+            let bulletText = self.getBodyAttributedText(text: bullet.text, bodyLinks: bullet.bodyLinks)
+            bulletView.configure(bulletText: bulletText, with: bodyStyle, linkTextColor: config.bodyLinkTextColor, delegate: self, at: index)
             self.bulletStackView.addArrangedSubview(bulletView)
         }
     }
 
-    func adjustBulletStackSpaces() {
+    func adjustAndesMessageSpaces() {
         let hasBullets = !self.config.bullets.isEmpty
         let bodyEmpty = self.config.bodyText?.isEmpty ?? true
 
-        if hasBullets == false {
-            return
-        }
+        self.bodyTextView.isHidden = bodyEmpty
+
+        guard hasBullets else { return}
 
         self.bulletStackHeightConstraint?.isActive = false
         self.bulletStackHeightConstraint = nil
 
-        if hasBullets && bodyEmpty {
+        if bodyEmpty {
             self.bulletStackTopSpaceConstraint.constant = 4.0
-        }
-
-        if hasBullets && !bodyEmpty {
+        } else {
             self.bulletStackTopSpaceConstraint.constant = 8.0
         }
     }
@@ -157,10 +156,12 @@ class AndesMessageAbstractView: UIView, AndesMessageView, UITextViewDelegate, An
 
     func getBodyText(style: AndesFontStyle) -> NSAttributedString {
         let body = config.bodyText ?? ""
-        return getAttributedText(text: body, style: style, bodyLinks: config.bodyLinks)
+        return getBodyAttributedText(text: body, bodyLinks: config.bodyLinks)
     }
 
-    func getAttributedText(text: String, style: AndesFontStyle, bodyLinks: AndesBodyLinks?) -> NSAttributedString {
+    func getBodyAttributedText(text: String, bodyLinks: AndesBodyLinks?) -> NSAttributedString {
+
+        let style = config.bodyStyle
         let attributedString = NSMutableAttributedString(string: text)
 
         let allRange = NSRange(location: 0, length: attributedString.length)

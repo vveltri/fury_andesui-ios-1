@@ -36,6 +36,8 @@ class MessageViewController: UIViewController, MessageView {
     var type: AndesMessageType = .neutral
     var hierarchy: AndesMessageHierarchy = .loud
 
+    var availableBullets: [AndesBullet] = []
+
     fileprivate func setupButtons() {
         configToggleButton.text = "message.button.changeConfig".localized
         configToggleButton.hierarchy = .quiet
@@ -84,6 +86,32 @@ class MessageViewController: UIViewController, MessageView {
         messageView.setSecondaryAction("Secondary", handler: {[unowned self] _ in self.didPressButton()})
     }
 
+    private func bulletSetup() {
+
+        let linksBullet2 = [
+            AndesBodyLink(startIndex: 0, endIndex: 26),
+            AndesBodyLink(startIndex: 38, endIndex: 44)
+        ]
+
+        let links = AndesBodyLinks(links: []) { _ in }
+
+        let bodyLinksBullet2 = AndesBodyLinks(links: linksBullet2) { [unowned self] index in
+            self.didBulletPressBodyLink(index)
+        }
+
+        let bullet1 = AndesBullet(text: "Bullet 1 example.", bodyLink: links)
+        let bullet2 = AndesBullet(text: "Bullet 2 Multiline example with simple dummy text of the printing and tysetting industry. Lorem impsum.", bodyLink: bodyLinksBullet2)
+        let bullet3 = AndesBullet(text: "Bullet 3 example.", bodyLink: links)
+
+        let bullets = [
+            bullet1,
+            bullet2,
+            bullet3
+        ]
+
+        messageView.bullets = bullets
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupButtons()
@@ -91,6 +119,7 @@ class MessageViewController: UIViewController, MessageView {
         createPickerViews()
 
         setupBaseMessage()
+        bulletSetup()
     }
 
     func didPressButton() {
@@ -100,7 +129,15 @@ class MessageViewController: UIViewController, MessageView {
     }
 
     func didPressBodyLink(_ index: Int) {
-        let alert = UIAlertController(title: "message.actions.pressedMsg".localized, message: "Body link pressed at position: \(index)", preferredStyle: .alert)
+        self.showBodyLinkMessageAlert(index)
+    }
+
+    func didBulletPressBodyLink(_ index: Int) {
+        self.showBodyLinkMessageAlert(linkType: "Bullet body link", index)
+    }
+
+    func showBodyLinkMessageAlert(linkType: String = "Body link", _ index: Int) {
+        let alert = UIAlertController(title: "message.actions.pressedMsg".localized, message: "\(linkType) pressed at position: \(index)", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
@@ -144,8 +181,8 @@ class MessageViewController: UIViewController, MessageView {
         })
     }
 
-    func validate(body: String, primary: String, secondary: String, link: String) -> String? {
-        guard !body.isEmpty else {
+    func validate(body: String, primary: String, secondary: String, link: String, hasBullets: Bool) -> String? {
+        guard !body.isEmpty || hasBullets else {
             return "message.error.emptyBody".localized
         }
         guard secondary.isEmpty || !primary.isEmpty else {
@@ -169,7 +206,9 @@ class MessageViewController: UIViewController, MessageView {
         let primary = primaryActionTextField.text!
         let secondary = secondaryActionTextField.text!
         let link = linkActionTextField.text!
-        if let err = validate(body: body, primary: primary, secondary: secondary, link: link) {
+        let hasBullets = !self.messageView.bullets.isEmpty
+
+        if let err = validate(body: body, primary: primary, secondary: secondary, link: link, hasBullets: hasBullets) {
             errorLabel.text = err
             errorLabel.isHidden = false
             return
