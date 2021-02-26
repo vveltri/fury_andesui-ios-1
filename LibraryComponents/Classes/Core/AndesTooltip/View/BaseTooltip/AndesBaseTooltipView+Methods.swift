@@ -15,7 +15,7 @@ extension AndesBaseTooltipView {
         presentingView = targetView
         arrange(withinSuperview: superview)
         superview.addSubview(self)
-        self.layer.zPosition = CGFloat.greatestFiniteMagnitude
+        self.layer.zPosition = CGFloat(Float.greatestFiniteMagnitude)
 
         transform = CGAffineTransform(translationX: 0, y: animationTransform)
         alpha = 0

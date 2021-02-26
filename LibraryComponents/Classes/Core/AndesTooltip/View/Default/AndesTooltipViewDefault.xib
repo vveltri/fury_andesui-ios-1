@@ -70,7 +70,7 @@
                 <constraint firstItem="OX0-HH-vPr" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="aDF-sT-yqg" secondAttribute="trailing" priority="999" constant="16" id="WuS-vh-wa7"/>
                 <constraint firstItem="aDF-sT-yqg" firstAttribute="top" secondItem="djw-A3-097" secondAttribute="top" constant="16" id="aHb-9y-3ji"/>
                 <constraint firstItem="Ce0-sW-eXP" firstAttribute="top" secondItem="djw-A3-097" secondAttribute="top" constant="2" id="evm-gz-W9k"/>
-                <constraint firstItem="Ce0-sW-eXP" firstAttribute="leading" secondItem="aDF-sT-yqg" secondAttribute="trailing" priority="999" constant="2" id="fdX-bk-eaL"/>
+                <constraint firstItem="Ce0-sW-eXP" firstAttribute="leading" secondItem="aDF-sT-yqg" secondAttribute="trailing" priority="996" constant="2" id="fdX-bk-eaL"/>
                 <constraint firstItem="OX0-HH-vPr" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Ce0-sW-eXP" secondAttribute="bottom" id="mr9-mA-LvH"/>
                 <constraint firstItem="OX0-HH-vPr" firstAttribute="trailing" secondItem="Ce0-sW-eXP" secondAttribute="trailing" constant="2" id="sbu-bp-o9k"/>
                 <constraint firstItem="Ce0-sW-eXP" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="djw-A3-097" secondAttribute="leading" id="x4u-AB-ixx"/>

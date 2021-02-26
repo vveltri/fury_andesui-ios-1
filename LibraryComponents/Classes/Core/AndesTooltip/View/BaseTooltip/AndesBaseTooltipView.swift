@@ -22,6 +22,7 @@ class AndesBaseTooltipView: UIView {
     // arrow properties
     private let arrowHeight: CGFloat = 8
     private let arrowWidth: CGFloat = 16
+    private let arrowSpacing: CGFloat = 10
 
     // Animations properties
      let animationDuration: TimeInterval = 0.2
@@ -102,20 +103,20 @@ class AndesBaseTooltipView: UIView {
 
         // adjust horizontally
         if frame.origin.x < 0 {
-            adjustXFrame =  refViewFrame.origin.x
+            adjustXFrame =  refViewFrame.center.x - (arrowSpacing + arrowWidth)
         }
 
         if frame.maxX > superviewFrame.width {
-            adjustXFrame = superviewFrame.width - frame.width - (superviewFrame.width - refViewFrame.maxX)
+            adjustXFrame = superviewFrame.width - frame.width - (superviewFrame.width - refViewFrame.center.x) + arrowSpacing + arrowWidth
         }
 
         //adjust vertically
         if frame.origin.y < 0 {
-            adjustYFrame = refViewFrame.origin.y
+            adjustYFrame = refViewFrame.center.y - (arrowSpacing + arrowWidth)
         }
 
         if frame.maxY > superviewFrame.height {
-            adjustYFrame = superviewFrame.height - frame.height - (superviewFrame.height - refViewFrame.maxY)
+            adjustYFrame = superviewFrame.height - frame.height - (superviewFrame.height - refViewFrame.center.y) + arrowSpacing + arrowWidth
         }
 
         return CGPoint(x: adjustXFrame, y: adjustYFrame)
@@ -185,7 +186,7 @@ class AndesBaseTooltipView: UIView {
             if frame.width < refViewFrame.width {
                 arrowTipXOrigin = tipViewSize.width / 2
             } else {
-                arrowTipXOrigin = abs(frame.origin.x - refViewFrame.origin.x) + refViewFrame.width / 2
+                arrowTipXOrigin = abs(frame.origin.x - refViewFrame.center.x)
             }
 
             let yPosition = position == .top ? tipViewSize.height : 0
@@ -197,7 +198,7 @@ class AndesBaseTooltipView: UIView {
             if frame.height < refViewFrame.height {
                 arrowTipYOrigin = tipViewSize.height / 2
             } else {
-                arrowTipYOrigin = abs(frame.origin.y - refViewFrame.origin.y) + refViewFrame.height / 2
+                arrowTipYOrigin = abs(frame.origin.y - refViewFrame.center.y)
             }
 
             let xPosition = bubblePosition == .right ? 0 : tipViewSize.width
@@ -430,23 +431,6 @@ class AndesBaseTooltipView: UIView {
         let width = contentSize.width
         let height = contentSize.height + arrowHeight
         return CGSize(width: width, height: height)
-    }
-}
-
-// MARK: - UIView extension
-
-fileprivate extension UIView {
-
-    func hasSuperview(_ superview: UIView) -> Bool {
-        return viewHasSuperview(self, superview: superview)
-    }
-
-    func viewHasSuperview(_ view: UIView, superview: UIView) -> Bool {
-        guard let sView = view.superview else {
-            return false
-        }
-        if sView === superview { return true }
-        return viewHasSuperview(sView, superview: superview)
     }
 }
 
