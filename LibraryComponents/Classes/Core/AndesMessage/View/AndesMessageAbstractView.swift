@@ -118,13 +118,17 @@ class AndesMessageAbstractView: UIView, AndesMessageView, UITextViewDelegate, An
         self.removeAllBullets()
 
         for (index, bullet) in self.config.bullets.enumerated() {
-            let bulletView = AndesBulletView(frame: .zero)
-
-            let bodyStyle = config.bodyStyle
-            let bulletText = self.getBodyAttributedText(text: bullet.text, bodyLinks: bullet.bodyLinks)
-            bulletView.configure(bulletText: bulletText, with: bodyStyle, linkTextColor: config.bodyLinkTextColor, delegate: self, at: index)
+            let bulletView = self.mapBulletToView(for: bullet, at: index)
             self.bulletStackView.addArrangedSubview(bulletView)
         }
+    }
+
+    func mapBulletToView(for bullet: AndesBullet, at index: Int) -> AndesBulletView {
+        let bulletView = AndesBulletView(frame: .zero)
+        let bodyStyle = config.bodyStyle
+        let bulletText = self.getBodyAttributedText(text: bullet.text, bodyLinks: bullet.bodyLinks)
+        bulletView.configure(bulletText: bulletText, with: bodyStyle, linkTextColor: config.bodyLinkTextColor, delegate: self, at: index)
+        return bulletView
     }
 
     func adjustAndesMessageSpaces() {
@@ -133,7 +137,7 @@ class AndesMessageAbstractView: UIView, AndesMessageView, UITextViewDelegate, An
 
         self.bodyTextView.isHidden = bodyEmpty
 
-        guard hasBullets else { return}
+        guard hasBullets else { return }
 
         self.bulletStackHeightConstraint?.isActive = false
         self.bulletStackHeightConstraint = nil

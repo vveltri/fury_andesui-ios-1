@@ -1,4 +1,6 @@
 # Unpublished
+### 🚀 Features
+- Added Bullets for Andes Message | Authors [Martin Becerra](https://github.com/mabecerra-MeLi)
 ### ⚙️ Other
 - Lib & testapp updated config: | Authors [jbrunoAtMeli] (https://github.com/jbrunoAtMeli)
     The following recommended warnings were enabled
