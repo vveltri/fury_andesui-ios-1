@@ -14,7 +14,7 @@ class TooltipViewController: UIViewController {
     @IBOutlet private weak var tooltipPositionDropdown: AndesDropdown!
     @IBOutlet private weak var configButton: AndesButton!
     @IBOutlet private weak var configViewZeroConstraint: NSLayoutConstraint!
-    @IBOutlet weak var configStackContainerView: UIStackView!
+    @IBOutlet private weak var configStackContainerView: UIStackView!
     @IBOutlet private weak var configViewContainer: UIView!
 
     @IBOutlet private weak var tooltipStyleDropdown: AndesDropdown!
