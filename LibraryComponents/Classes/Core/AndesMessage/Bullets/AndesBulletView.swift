@@ -36,7 +36,9 @@ final class AndesBulletView: UIView, UITextViewDelegate {
 
     private func loadNib() {
         let bundle = AndesBundle.bundle()
-        let view = bundle.loadNibNamed("AndesBulletView", owner: self, options: nil)?.first as! UIView
+        guard let view = bundle.loadNibNamed("AndesBulletView", owner: self, options: nil)?.first as? UIView else {
+            return
+        }
 
         view.translatesAutoresizingMaskIntoConstraints = false
 
