@@ -327,6 +327,7 @@ class AndesBaseTooltipView: UIView {
         self.layer.shadowPath = UIBezierPath(rect: bounds).cgPath
         self.layer.shadowOffset = config.shadowOffset
         self.layer.shadowRadius = config.shadowRadius
+        self.layer.shadowColor = config.shadowColor.cgColor
         self.layer.shadowOpacity = Float(config.shadowOpacity)
     }
 

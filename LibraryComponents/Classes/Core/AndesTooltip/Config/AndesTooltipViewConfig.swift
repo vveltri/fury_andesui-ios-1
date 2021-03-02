@@ -20,6 +20,8 @@ internal struct AndesTooltipViewConfig {
     let backgroundColor: UIColor
     let closeButtonColor: UIColor
     let maxWidth: CGFloat
+
+    let shadowColor: UIColor
     let shadowOffset: CGSize
     let shadowRadius: CGFloat
     let shadowOpacity: CGFloat
@@ -61,6 +63,7 @@ internal struct AndesTooltipViewConfig {
         shadowOpacity = type.shadowOpacity
         textColor = type.textColor
         closeButtonColor = type.closeButtonColor
+        shadowColor = type.shadowColor
 
         self.title = title
         self.content = content

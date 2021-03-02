@@ -17,4 +17,5 @@ struct AndesTooltipTypeLight: AndesTooltipTypeProtocol {
     let shadowRadius: CGFloat = 6
     let shadowOpacity: CGFloat = 0.3
     let closeButtonColor: UIColor = UIColor.Andes.graySolid800
+    let shadowColor: UIColor = UIColor.Andes.graySolid800
 }

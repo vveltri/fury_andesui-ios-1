@@ -17,4 +17,5 @@ internal protocol AndesTooltipTypeProtocol {
     var shadowOffset: CGSize { get }
     var shadowRadius: CGFloat { get }
     var shadowOpacity: CGFloat { get }
+    var shadowColor: UIColor { get }
 }
