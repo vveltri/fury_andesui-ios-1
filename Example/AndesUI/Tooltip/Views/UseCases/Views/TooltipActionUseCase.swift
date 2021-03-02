@@ -61,7 +61,7 @@ class TooltipActionUseCase: UIView {
         self.titleTextField.addTarget(self, action: #selector(self.titleDidChange(_:)), for: .editingChanged)
     }
 
-    @objc func titleDidChange(_ textField: UITextField) {
+    @objc private func titleDidChange(_ textField: UITextField) {
         self.delegate?.tooltipCase(self, updateInfo: textField.text)
     }
 

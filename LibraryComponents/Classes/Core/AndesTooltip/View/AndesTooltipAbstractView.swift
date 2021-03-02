@@ -17,7 +17,7 @@ class AndesTooltipAbstractView: UIView, AndesTooltipView {
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var closeButtonHeightConstraint: NSLayoutConstraint!
 
-    var config: AndesTooltipViewConfig
+    private(set) var config: AndesTooltipViewConfig
 
     lazy var tooltip: AndesBaseTooltipView = {
         let tooltip = AndesBaseTooltipView(content: componentView, config: config)
