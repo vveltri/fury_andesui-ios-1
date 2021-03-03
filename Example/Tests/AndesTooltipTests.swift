@@ -28,6 +28,25 @@ class AndesTooltipTests: QuickSpec {
                 childView.addSubview(targetView)
             }
 
+            context("execute clousure") {
+                it("should execute dismissHandler clousure") {
+                    // given
+                    let tooltip = AndesTooltip(type: .light, content: "my content")
+
+                    var dismissIsCalled = false
+                    tooltip.dismissHandler = {
+                        dismissIsCalled = true
+                    }
+
+                    //when
+                    tooltip.show(in: targetView, within: childView)
+                    tooltip.dismiss()
+
+                    //then
+                    expect(dismissIsCalled).toEventually(beTrue())
+                }
+            }
+
             context("Draw variants") {
                 it("should draw with content") {
 

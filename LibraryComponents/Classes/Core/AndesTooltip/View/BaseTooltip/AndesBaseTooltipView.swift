@@ -8,11 +8,16 @@
 import Foundation
 import UIKit
 
+protocol AndesBaseTooltipViewDelegate: class {
+    func onDismissed()
+}
+
 class AndesBaseTooltipView: UIView {
 
     // MARK: - properties
 
     weak var presentingView: UIView?
+    weak var delegate: AndesBaseTooltipViewDelegate?
     private var arrowTip = CGPoint.zero
     private let config: AndesTooltipViewConfig
     private let content: UIView
@@ -139,10 +144,12 @@ class AndesBaseTooltipView: UIView {
     }
 
     fileprivate func setupEventFor(_ scrollView: UIScrollView) {
-       scrollObserve = scrollView.observe(\UITableView.contentOffset, options: .new) { [weak self] _, _ in
+        scrollObserve = scrollView.observe(\UITableView.contentOffset, options: .new) { [weak self] _, _ in
+            self?.scrollObserve?.invalidate()
             self?.dismiss()
         }
     }
+
     fileprivate func createValidFrame(_ frame: CGRect, currentPosition: AndesTooltipPosition, refViewFrame: CGRect, superViewFrame: CGRect) -> (CGRect, AndesTooltipPosition) {
 
         var newFrame: CGRect = .zero

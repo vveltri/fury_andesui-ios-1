@@ -13,6 +13,7 @@ import Foundation
  Internal protocol that specifies the behaviour a view must provide to be a valid representation of an AndesTooltip
  */
 internal protocol AndesTooltipView: UIView {
+    var delegate: AndesTooltipViewDelegate? { get set }
     func update(withConfig config: AndesTooltipViewConfig)
     func show(in view: UIView, within superView: UIView, position: AndesTooltipPosition)
     func dismiss()

@@ -18,9 +18,11 @@ class AndesTooltipAbstractView: UIView, AndesTooltipView {
     @IBOutlet weak var closeButtonHeightConstraint: NSLayoutConstraint!
 
     private(set) var config: AndesTooltipViewConfig
+    weak var delegate: AndesTooltipViewDelegate?
 
     lazy var tooltip: AndesBaseTooltipView = {
         let tooltip = AndesBaseTooltipView(content: componentView, config: config)
+        tooltip.delegate = self
         return tooltip
     }()
 
@@ -100,5 +102,11 @@ class AndesTooltipAbstractView: UIView, AndesTooltipView {
 
     @IBAction func closeButtonTapped() {
         self.dismiss()
+    }
+}
+
+extension AndesTooltipAbstractView: AndesBaseTooltipViewDelegate {
+    func onDismissed() {
+        self.delegate?.onDismissed()
     }
 }

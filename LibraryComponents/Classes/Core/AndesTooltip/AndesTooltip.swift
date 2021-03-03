@@ -20,6 +20,9 @@ import Foundation
     let primaryAction: AndesTooltipAction?
     let secondaryAction: AndesTooltipAction?
 
+    /// Block that is executed when the tooltip disappears.
+   @objc public var dismissHandler: (() -> Void)?
+
     /// show the tooltip in the view
     /// - Parameters:
     ///   - view: view to which you want to highlight
@@ -158,6 +161,7 @@ import Foundation
 
     private func drawContentView(with newView: AndesTooltipView) {
         self.contentView = newView
+        self.contentView.delegate = self
         addSubview(contentView)
         contentView.pinToSuperview()
     }
@@ -173,5 +177,11 @@ import Foundation
         }
 
         return AndesTooltipViewDefault(withConfig: config)
+    }
+}
+
+extension AndesTooltip: AndesTooltipViewDelegate {
+    func onDismissed() {
+        dismissHandler?()
     }
 }

@@ -26,13 +26,12 @@ extension AndesBaseTooltipView {
         })
     }
 
-    func dismiss(withCompletion completion: (() -> Void)? = nil) {
-
+    func dismiss() {
         UIView.animate(withDuration: self.animationDuration, delay: 0, options: [.curveEaseInOut], animations: { [weak self] in
             self?.frame.origin.y += self?.animationTransform ?? 0
             self?.alpha = 0
         }) { [weak self] _ in
-            completion?()
+            self?.delegate?.onDismissed()
             self?.removeFromSuperview()
         }
     }
