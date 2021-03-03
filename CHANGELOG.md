@@ -1,4 +1,4 @@
-# Unpublished
+# 3.22.0
 ### ⚙️ Other
 - Lib & testapp updated config: | Authors [jbrunoAtMeli] (https://github.com/jbrunoAtMeli)
     The following recommended warnings were enabled
