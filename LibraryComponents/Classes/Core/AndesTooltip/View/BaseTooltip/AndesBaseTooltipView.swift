@@ -24,48 +24,27 @@ class AndesBaseTooltipView: UIView {
     private let arrowWidth: CGFloat = 16
     private let arrowSpacing: CGFloat = 10
 
+    private var scrollObserve: NSKeyValueObservation?
+
     // Animations properties
      let animationDuration: TimeInterval = 0.2
      let animationTransform: CGFloat = -10
 
-    // MARK: - Lazy properties -
-
-    private lazy var contentSize: CGSize = {
-        let horizontalPriority = UILayoutPriority(750)
-        let verticalPriority = UILayoutPriority(749)
-        let maxWidthSize = config.maxWidth
-        let targetSize = CGSize(width: maxWidthSize, height: 0)
-
-        let candidateSize = content.systemLayoutSizeFitting(.zero)
-
-        let sizeIsEnough = candidateSize.width <= maxWidthSize
-
-        if sizeIsEnough {
-            return candidateSize
-        }
-
-        return content.systemLayoutSizeFitting(
-            targetSize,
-            withHorizontalFittingPriority: horizontalPriority,
-            verticalFittingPriority: verticalPriority
-        )
-    }()
-
     // MARK: - Initializer -
 
-    internal init (
-        content: UIView,
-        position: AndesTooltipPosition = .top,
-        config: AndesTooltipViewConfig) {
+    internal init (content: UIView, config: AndesTooltipViewConfig) {
         self.content = content
         self.config = config
-        self.bubblePosition = position
         super.init(frame: CGRect.zero)
         self.backgroundColor = UIColor.clear
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    deinit {
+        self.scrollObserve?.invalidate()
     }
 
     // MARK: - Private methods -
@@ -136,6 +115,7 @@ class AndesBaseTooltipView: UIView {
         let superviewFrame: CGRect
         if let scrollview = superview as? UIScrollView {
             superviewFrame = CGRect(origin: scrollview.frame.origin, size: scrollview.contentSize)
+            setupEventFor(scrollview)
         } else {
             superviewFrame = superview.frame
         }
@@ -158,6 +138,11 @@ class AndesBaseTooltipView: UIView {
         self.frame = frame
     }
 
+    fileprivate func setupEventFor(_ scrollView: UIScrollView) {
+       scrollObserve = scrollView.observe(\UITableView.contentOffset, options: .new) { [weak self] _, _ in
+            self?.dismiss()
+        }
+    }
     fileprivate func createValidFrame(_ frame: CGRect, currentPosition: AndesTooltipPosition, refViewFrame: CGRect, superViewFrame: CGRect) -> (CGRect, AndesTooltipPosition) {
 
         var newFrame: CGRect = .zero
@@ -418,7 +403,29 @@ class AndesBaseTooltipView: UIView {
         return CGRect(x: bubbleXOrigin, y: bubbleYOrigin, width: bubbleWidth, height: bubbleHeight)
     }
 
+    func getContentSize() -> CGSize {
+        let horizontalPriority = UILayoutPriority(750)
+        let verticalPriority = UILayoutPriority(749)
+        let maxWidthSize = self.config.maxWidth
+        let targetSize = CGSize(width: maxWidthSize, height: 0)
+
+        let candidateSize = content.systemLayoutSizeFitting(.zero)
+
+        let sizeIsEnough = candidateSize.width <= maxWidthSize
+
+        if sizeIsEnough {
+            return candidateSize
+        }
+
+        return content.systemLayoutSizeFitting(
+            targetSize,
+            withHorizontalFittingPriority: horizontalPriority,
+            verticalFittingPriority: verticalPriority
+        )
+    }
+
     private func getContentRect(from bubbleFrame: CGRect) -> CGRect {
+        let contentSize = self.getContentSize()
         return CGRect(
             x: bubbleFrame.origin.x,
             y: bubbleFrame.origin.y,
@@ -428,6 +435,7 @@ class AndesBaseTooltipView: UIView {
     }
 
     private func getTipViewSize(position: AndesTooltipPosition) -> CGSize {
+        let contentSize = self.getContentSize()
         let width = contentSize.width
         let height = contentSize.height + arrowHeight
         return CGSize(width: width, height: height)

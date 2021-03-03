@@ -20,10 +20,10 @@ class AndesTooltipAbstractView: UIView, AndesTooltipView {
     var config: AndesTooltipViewConfig
 
     lazy var tooltip: AndesBaseTooltipView = {
-       let tooltip =  AndesBaseTooltipView(content: self, config: config)
-
+        let tooltip = AndesBaseTooltipView(content: componentView, config: config)
         return tooltip
     }()
+
     init(withConfig config: AndesTooltipViewConfig) {
         self.config = config
         super.init(frame: .zero)
