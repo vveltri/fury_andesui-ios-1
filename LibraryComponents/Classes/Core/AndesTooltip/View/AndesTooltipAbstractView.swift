@@ -62,7 +62,7 @@ class AndesTooltipAbstractView: UIView, AndesTooltipView {
 
     func updateView() {
         contentLabel.text = config.content
-        contentLabel.setAndesStyle(style: config.contentStyle)
+        contentLabel.setAndesStyle(style: config.getContentStyle())
         renderTitleIfNeeded()
         renderCloseButtonIfNeeded()
     }
@@ -74,7 +74,7 @@ class AndesTooltipAbstractView: UIView, AndesTooltipView {
         }
 
         titleLabel.text = title
-        titleLabel.setAndesStyle(style: config.titleStyle)
+        titleLabel.setAndesStyle(style: config.getTitleStyle())
     }
 
     private func renderCloseButtonIfNeeded() {

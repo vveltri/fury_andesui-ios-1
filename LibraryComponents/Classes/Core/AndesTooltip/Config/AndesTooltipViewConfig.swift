@@ -26,27 +26,11 @@ internal struct AndesTooltipViewConfig {
     let shadowRadius: CGFloat
     let shadowOpacity: CGFloat
 
-    var primaryActionConfig: AndesButtonViewConfig?
-    var secondaryActionConfig: AndesButtonViewConfig?
+    let primaryActionConfig: AndesButtonViewConfig?
+    let secondaryActionConfig: AndesButtonViewConfig?
 
-    var primaryActionOnPressed: (() -> Void)?
-    var secondaryActionOnPressed: (() -> Void)?
-
-    lazy var titleStyle: AndesFontStyle = {
-        return AndesFontStyle(
-            textColor: self.textColor,
-            font: AndesStyleSheetManager.styleSheet.semiboldSystemFontOfSize(size: 16),
-            sketchLineHeight: 20
-        )
-    }()
-
-    lazy var contentStyle: AndesFontStyle = {
-        return AndesFontStyle(
-            textColor: self.textColor,
-            font: AndesStyleSheetManager.styleSheet.regularSystemFont(size: 14),
-            sketchLineHeight: 18
-        )
-    }()
+    let primaryActionOnPressed: (() -> Void)?
+    let secondaryActionOnPressed: (() -> Void)?
 
     init(type: AndesTooltipTypeProtocol,
          title: String?,
@@ -72,5 +56,21 @@ internal struct AndesTooltipViewConfig {
         self.secondaryActionConfig = secondaryActionConfig
         self.primaryActionOnPressed = primaryActionOnPressed
         self.secondaryActionOnPressed = secondaryActionOnPressed
+    }
+
+    func getTitleStyle() -> AndesFontStyle {
+        return AndesFontStyle(
+            textColor: self.textColor,
+            font: AndesStyleSheetManager.styleSheet.semiboldSystemFontOfSize(size: 16),
+            sketchLineHeight: 20
+        )
+    }
+
+    func getContentStyle() -> AndesFontStyle {
+        return AndesFontStyle(
+            textColor: self.textColor,
+            font: AndesStyleSheetManager.styleSheet.regularSystemFont(size: 14),
+            sketchLineHeight: 18
+        )
     }
 }
