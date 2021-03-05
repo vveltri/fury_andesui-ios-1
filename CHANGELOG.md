@@ -1,4 +1,4 @@
-# 3.23.1
+# 3.23.2
 ### 🛠 Bug fixes
 - Optional color var | Authors [joalonspint](https://github.com/joalonsopint)
 
