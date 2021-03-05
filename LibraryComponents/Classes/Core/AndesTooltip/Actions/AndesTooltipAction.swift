@@ -29,18 +29,6 @@ internal enum AndesTooltipActionType {
     case transparent
 }
 
-internal class AnesTooltipInternalAction {
-    let text: String
-    var onPressed: (() -> Void)
-    let type: AndesTooltipActionType
-
-    init(action: AndesTooltipAction, type: AndesTooltipActionType) {
-        self.text = action.text
-        self.onPressed = action.onPressed
-        self.type = type
-    }
-}
-
 internal class AndesTooltipActionFactory {
 
     class func provide(action: AndesTooltipAction, tooltipType: AndesTooltipType) -> AndesButtonViewConfig {
@@ -116,7 +104,7 @@ internal class AndesTooltipActionFactory {
         switch tooltipType {
         case .dark, .highlight:
             return AndesTooltipActionBasicHierarchy(textColor: UIColor.Andes.white, pressedColor: .clear)
-        default:
+        case .light:
             return AndesTooltipActionBasicHierarchy(textColor: AndesStyleSheetManager.styleSheet.accentColor, pressedColor: .clear)
         }
     }

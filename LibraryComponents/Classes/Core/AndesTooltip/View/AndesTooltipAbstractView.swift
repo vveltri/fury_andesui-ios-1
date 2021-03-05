@@ -11,11 +11,11 @@ import UIKit
 
 class AndesTooltipAbstractView: UIView, AndesTooltipView {
 
-    @IBOutlet weak var componentView: UIView!
-    @IBOutlet weak var contentLabel: UILabel!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var closeButton: UIButton!
-    @IBOutlet weak var closeButtonHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var componentView: UIView!
+    @IBOutlet private weak var contentLabel: UILabel!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var closeButton: UIButton!
+    @IBOutlet private weak var closeButtonHeightConstraint: NSLayoutConstraint!
 
     private(set) var config: AndesTooltipViewConfig
     weak var delegate: AndesTooltipViewDelegate?

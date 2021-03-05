@@ -18,9 +18,9 @@ enum TooltipActionType: CaseIterable {
 
 class TooltipActionUseCase: UIView {
 
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var titleTextField: UITextField!
-    @IBOutlet weak var typeDropdown: AndesDropdown!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var titleTextField: UITextField!
+    @IBOutlet private weak var typeDropdown: AndesDropdown!
 
     weak var dataSource: TooltipActionUseCaseDataSource? {
         didSet {
@@ -47,8 +47,12 @@ class TooltipActionUseCase: UIView {
     private func setupNib() {
         let className = String(describing: type(of: self))
         let nib = UINib(nibName: className, bundle: nil)
+        let nibViews = nib.instantiate(withOwner: self, options: nil)
+        guard nibViews.count > 0 else {
+            return
+        }
 
-        guard let nibView = nib.instantiate(withOwner: self, options: nil)[0] as? UIView else {
+        guard let nibView = nibViews[0] as? UIView else {
             return
         }
 
