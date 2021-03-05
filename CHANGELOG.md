@@ -1,3 +1,7 @@
+# 3.23.1
+### 🛠 Bug fixes
+- Optional color var | Authors [joalonspint](https://github.com/joalonsopint)
+
 # 3.23.0
 ### 🛠 Bug fixes
 - Fix color name and color in colorset | Authors [joalonspint](https://github.com/joalonsopint)

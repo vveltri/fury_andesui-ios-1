@@ -54,6 +54,10 @@ import Foundation
     var feedbackColorWarning: UIColor { get }
 }
 
+public extension AndesColors {
+    var tetColorLink: UIColor { return self.textColorLink }
+}
+
 /**
   AndesFonts is used to create a new StyleSheet
   implementing all the necessary fonts
