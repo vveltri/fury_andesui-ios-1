@@ -42,7 +42,9 @@ import Foundation
     var textColorNegative: UIColor { get }
     var textColorCaution: UIColor { get }
     var textColorPositive: UIColor { get }
+    @available(*, deprecated, renamed: "textColorLink")
     var tetColorLink: UIColor { get }
+    var textColorLink: UIColor { get }
     var textColorWhite: UIColor { get }
     var textColorWarning: UIColor { get }
 
