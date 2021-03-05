@@ -48,11 +48,8 @@ class TooltipActionUseCase: UIView {
         let className = String(describing: type(of: self))
         let nib = UINib(nibName: className, bundle: nil)
         let nibViews = nib.instantiate(withOwner: self, options: nil)
-        guard nibViews.count > 0 else {
-            return
-        }
 
-        guard let nibView = nibViews[0] as? UIView else {
+        guard let nibView = nibViews.first as? UIView else {
             return
         }
 
