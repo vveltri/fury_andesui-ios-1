@@ -1,4 +1,4 @@
-# Unpublished
+# 3.23.0
 ### 🛠 Bug fixes
 - Fix color name and color in colorset | Authors [joalonspint](https://github.com/joalonsopint)
 
