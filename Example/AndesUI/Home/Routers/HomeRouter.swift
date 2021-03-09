@@ -50,7 +50,7 @@ class HomeAppRouter: HomeRouter {
         var router: HomeRouterProtocol
         switch newRouter {
         case .progressIndicator:
-            router = AndesBadgeExtensionRouter()
+            router = ProgressIndicatorRouter()
         case .coachmark:
             router = CoachmarkRouter()
         case .buttons:
