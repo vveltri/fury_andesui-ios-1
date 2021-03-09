@@ -1,6 +1,6 @@
 
 ### 🛠 Bug fixes
-- Test app fix ProgressIndicatorRoute | Authors [jbrunoAtMeli] (https://github.com/jbrunoAtMeli)
+- Test app fix ProgressIndicatorRoute  andesBadgeExtensions| Authors [jbrunoAtMeli] (https://github.com/jbrunoAtMeli)
 
 # 3.23.2
 ### 🛠 Bug fixes
