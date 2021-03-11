@@ -151,7 +151,7 @@ class AndesMessageAbstractView: UIView, AndesMessageView, UITextViewDelegate, An
 
     func removeAllBullets() {
         let views = self.bulletStackView.arrangedSubviews
-        for view in  views {
+        for view in views {
             view.removeFromSuperview()
         }
     }

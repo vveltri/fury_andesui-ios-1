@@ -10,7 +10,7 @@ import Foundation
 /// Class to create Body Bullets for an AndesMessage
 @objc public final class AndesBullet: NSObject {
     let text: String
-    var bodyLinks: AndesBodyLinks?
+    let bodyLinks: AndesBodyLinks?
 
     public init(text: String, bodyLink: AndesBodyLinks) {
         self.text = text
@@ -19,6 +19,7 @@ import Foundation
 
     @objc public init(text: String) {
         self.text = text
+        self.bodyLinks = nil
     }
 
 }
