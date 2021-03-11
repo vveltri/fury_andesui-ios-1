@@ -71,14 +71,7 @@
     
     NSArray * bulletArray = [NSArray arrayWithObjects:bullet1,bullet2,bullet3, nil];
     
-    view = [
-            [AndesMessage alloc]
-            initWithHierarchy: AndesMessageHierarchyLoud
-            type: AndesMessageTypeNeutral
-            title: @"Message title"
-            body: @"This is an Andes Message body with neutral - loud style with bullets"
-            bullets: bulletArray
-           ];
+    view = [[AndesMessage alloc] initWithHierarchy: AndesMessageHierarchyLoud type: AndesMessageTypeNeutral title: @"Message title" body: @"This is an Andes Message body with neutral - loud style with bullets" bullets: bulletArray];
     
     [_stackView addArrangedSubview:view];
     [view.widthAnchor constraintEqualToAnchor:_stackView.widthAnchor].active = YES;
