@@ -30,7 +30,7 @@ class MessageViewController: UIViewController, MessageView {
     @IBOutlet weak var dismissibleSwitch: UISwitch!
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var showAgainBtn: AndesButton!
-    @IBOutlet weak var showBulletSwitch: UISwitch!
+    @IBOutlet weak var showBulletsSwitch: UISwitch!
 
     var typePicker: UIPickerView = UIPickerView()
     var statePicker: UIPickerView = UIPickerView()
@@ -38,7 +38,7 @@ class MessageViewController: UIViewController, MessageView {
     var hierarchy: AndesMessageHierarchy = .loud
     var availableBullets: [AndesBullet] = []
     var showBullets: Bool {
-        self.showBulletSwitch.isOn
+        self.showBulletsSwitch.isOn
     }
 
     fileprivate func setupButtons() {

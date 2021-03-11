@@ -24,7 +24,7 @@
                 <outlet property="scrollView" destination="7tf-jI-jk9" id="DXM-n6-XSN"/>
                 <outlet property="secondaryActionTextField" destination="CrU-UC-0S2" id="aMO-A3-1X4"/>
                 <outlet property="showAgainBtn" destination="IRM-Ra-dda" id="0w7-b5-c7T"/>
-                <outlet property="showBulletSwitch" destination="lq5-2v-PKL" id="2xw-Y0-CCq"/>
+                <outlet property="showBulletsSwitch" destination="lq5-2v-PKL" id="2xw-Y0-CCq"/>
                 <outlet property="titleTextField" destination="HBB-6b-GZc" id="8tw-c2-0F8"/>
                 <outlet property="typeField" destination="yZh-s6-03P" id="0l2-1g-O9v"/>
                 <outlet property="updateConfig" destination="HlL-g3-iCp" id="LPR-Lf-Toc"/>
