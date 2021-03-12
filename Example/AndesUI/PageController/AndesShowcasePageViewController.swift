@@ -49,22 +49,6 @@ class AndesShowcasePageViewController: UIViewController {
         pageController.setViewControllers([controllers.first!], direction: .forward, animated: true, completion: nil)
     }
 
-    private func manageEventTimerWith(action timerAction: TimerAction, for view: String? = nil) {
-        guard
-            let componentName = self.title,
-            let currentVc = (controllers.first?.nibName != nil ) ? controllers.first?.nibName : controllers.first?.title else { return }
-
-        switch timerAction {
-        case .start:
-            analyticsHelper.startTimer(view: view ?? currentVc, for: componentName)
-        case .pause:
-            analyticsHelper.pauseTimer(view: view ?? currentVc, and: componentName)
-        case .stop:
-            analyticsHelper.pauseTimer(view: view ?? currentVc, and: componentName)
-            analyticsHelper.stopTimer(component: componentName)
-        }
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setupPageController()
@@ -79,12 +63,16 @@ class AndesShowcasePageViewController: UIViewController {
             let padding: CGFloat = 15
             topConstraint.constant = padding + topBarHeight
         }
-
-        manageEventTimerWith(action: .start)
     }
 
-    override func viewDidDisappear(_ animated: Bool) {
-        manageEventTimerWith(action: .stop)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        guard
+            let componentName = self.title,
+            let currentVc = (controllers.first?.nibName != nil ) ? controllers.first?.nibName : controllers.first?.title else { return }
+
+        analyticsHelper.createPathWith(componentName, view: currentVc)
     }
 }
 
@@ -104,11 +92,10 @@ extension AndesShowcasePageViewController: UIPageViewControllerDataSource, UIPag
         let current = controllers.index(of: (pageViewController.viewControllers?.first!)!)!
         pageControl.currentPage = current
 
-        guard let firstControllerName = controllers.first?.nibName,
+        guard let title = self.title,
               let pageContentViewController = pageViewController.viewControllers!.first,
-              let currentController = pageContentViewController.nibName else { return }
+              let currentVc = (pageContentViewController.nibName != nil ) ? pageContentViewController.nibName : pageContentViewController.title else { return }
 
-        manageEventTimerWith(action: .pause, for: firstControllerName)
-        manageEventTimerWith(action: .start, for: currentController)
+        analyticsHelper.createPathWith(title, view: currentVc)
     }
 }

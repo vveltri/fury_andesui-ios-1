@@ -11,7 +11,7 @@ import Foundation
 class DropdownRouter: HomeRouterProtocol {
     func route(from: UIViewController) {
         let viewController = AndesShowcasePageViewController(controllers: [DropdownViewController(), DropDownObjcViewController()])
-        viewController.title = "AndesDropdown"
+        viewController.title = Commons.ComponentsTitle.andesDropdown
         from.navigationController?.pushViewController(viewController, animated: true)
     }
 }

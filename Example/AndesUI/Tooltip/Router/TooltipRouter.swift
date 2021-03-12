@@ -16,6 +16,7 @@ class TooltipRouter: HomeRouterProtocol {
                 TooltipViewController(),
                 TooltipObjcViewController()
             ])
+        controller.title = Commons.ComponentsTitle.andesTooltip
         from.navigationController?.pushViewController(controller, animated: true)
     }
 }

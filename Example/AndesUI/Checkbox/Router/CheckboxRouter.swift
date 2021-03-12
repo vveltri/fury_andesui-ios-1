@@ -11,7 +11,7 @@ import Foundation
 class CheckboxRouter: HomeRouterProtocol {
     func route(from: UIViewController) {
         let viewController = AndesShowcasePageViewController(controllers: [AndesCheckboxInitViewController(), CheckboxObjCViewController(), AndesCheckboxViewController()])
-        viewController.title = "AndesCheckbox"
+        viewController.title = Commons.ComponentsTitle.andesCheckbox
         from.navigationController?.pushViewController(viewController, animated: true)
     }
 }

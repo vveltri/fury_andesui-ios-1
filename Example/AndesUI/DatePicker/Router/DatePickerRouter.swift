@@ -11,7 +11,7 @@ import Foundation
 class DatePickerRouter: HomeRouterProtocol {
     func route(from: UIViewController) {
         let viewController = AndesShowcasePageViewController(controllers: [DatePickerViewController()])
-        viewController.title = "AndesDatePicker"
+        viewController.title = Commons.ComponentsTitle.andesDatePicker
         from.navigationController?.pushViewController(viewController, animated: true)
     }
 }

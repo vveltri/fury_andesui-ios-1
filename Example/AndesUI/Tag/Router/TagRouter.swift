@@ -11,7 +11,7 @@ import Foundation
 class TagsRouter: HomeRouterProtocol {
     func route(from: UIViewController) {
         let viewController = AndesShowcasePageViewController(controllers: [TagViewController(), TagObjCViewController(), TagChoiceObjCViewController()])
-        viewController.title = "AndesTag"
+        viewController.title = Commons.ComponentsTitle.andesTag
         from.navigationController?.pushViewController(viewController, animated: true)
     }
 }

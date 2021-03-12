@@ -46,7 +46,7 @@ class BottomSheetSwiftExampleViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "BottomSheetSwiftExampleViewController"
+        self.title = Commons.ComponentsTitle.bottomSheetSwiftExampleViewController
         view.backgroundColor = .white
         contentView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(contentView)
