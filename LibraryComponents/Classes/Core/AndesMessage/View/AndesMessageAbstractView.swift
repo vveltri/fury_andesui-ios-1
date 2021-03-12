@@ -23,7 +23,7 @@ class AndesMessageAbstractView: UIView, AndesMessageView, UITextViewDelegate, An
     @IBOutlet weak var bulletStackTopSpaceConstraint: NSLayoutConstraint!
     @IBOutlet weak var bulletStackHeightConstraint: NSLayoutConstraint?
 
-    var config: AndesMessageViewConfig
+    private(set) var config: AndesMessageViewConfig
     init(withConfig config: AndesMessageViewConfig) {
         self.config = config
         super.init(frame: .zero)
