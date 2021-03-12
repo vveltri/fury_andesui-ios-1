@@ -90,14 +90,14 @@ class MessageViewController: UIViewController, MessageView {
     }
 
     private func bulletSetup() {
-        let SecondBulletLinks = [
+        let secondBulletLinks = [
             AndesBodyLink(startIndex: 0, endIndex: 26),
             AndesBodyLink(startIndex: 38, endIndex: 44)
         ]
 
         let links = AndesBodyLinks(links: []) { _ in }
 
-        let bodyLinksForSecondBullet = AndesBodyLinks(links: SecondBulletLinks) { [unowned self] index in
+        let bodyLinksForSecondBullet = AndesBodyLinks(links: secondBulletLinks) { [unowned self] index in
             self.didBulletPressBodyLink(index)
         }
 
