@@ -61,24 +61,27 @@ class AndesCoachMarkPresenter {
         }
     }
 
-    private func setBody(_ position: AndesCoachMarkBodyEntity.Position, removePrevious: Bool) {
+    private func setBody(_ position: AndesCoachMarkBodyEntity.Position, removePrevious: Bool, buttonStyle: AndesCoachMarkBodyEntity.ButtonStyle) {
         guard let view = view, let currentStep = currentStep else { return }
         view.setBody(AndesCoachMarkBodyPresenter(model: AndesCoachMarkBodyEntity(title: currentStep.title,
                                                                            description: currentStep.descriptionText,
                                                                            viewToPoint: currentStep.view,
-                                                                           position: position)), removePrevious: removePrevious)
+                                                                           position: position,
+                                                                           nextText: currentStep.nextText,
+                                                                           buttonStyle: buttonStyle)), removePrevious: removePrevious)
     }
 
     private func prepare() {
         guard let view = view, let currentStep = currentStep else { return }
 
-        highlightInteractor?.update(view: currentStep.view, style: currentStep.style)
+        highlightInteractor?.update(view: currentStep.view, style: currentStep.style, margin: currentStep.margin, insets: currentStep.insets)
         let bodyPosition: AndesCoachMarkBodyEntity.Position = highlightInteractor?.isHighlightedViewBelow() ?? true ? .above : .below
+        let buttonStyle: AndesCoachMarkBodyEntity.ButtonStyle = currentIndex+1 == model.steps.count ? .final : .normal
 
-        view.setNavBar("\(currentIndex+1) de \(model.steps.count)")
-        view.setFooter(currentStep.nextText)
+        view.setNavBar("\(currentIndex+1) de \(model.steps.count)", shouldShowExitButton: currentStep.showExitButton)
+        view.setFooter()
         view.hideBody()
-        setBody(bodyPosition, removePrevious: false)
+        setBody(bodyPosition, removePrevious: false, buttonStyle: buttonStyle)
         if let bodyView = view.bodyView {
             scrollInteractor?.update(highlightedView: currentStep.view, bodyView: bodyView)
         }
@@ -92,7 +95,7 @@ class AndesCoachMarkPresenter {
             return
         }
         _ = scrollInteractor?.scrollIfNeeded { [weak self] in
-            self?.setBody(bodyPosition, removePrevious: true)
+            self?.setBody(bodyPosition, removePrevious: true, buttonStyle: buttonStyle)
             self?.show()
         }
 
@@ -110,7 +113,8 @@ class AndesCoachMarkPresenter {
 
     private func show() {
         guard let view = view, let currentStep = currentStep, let highlightInteractor = highlightInteractor else { return }
-        highlightInteractor.update(view: currentStep.view, style: currentStep.style)
+
+        highlightInteractor.update(view: currentStep.view, style: currentStep.style, margin: currentStep.margin, insets: currentStep.insets)
 
         view.setHighlight(frame: highlightInteractor.getHighlightRect(), cornerRadius: highlightInteractor.getHighlightCornerRadius(), maskPath: highlightInteractor.getMaskPath())
         view.show()
@@ -120,9 +124,9 @@ class AndesCoachMarkPresenter {
         view?.hide()
     }
 
-    private func exit() {
+    private func exit(withCallback: Bool = true) {
         restore { [weak self] in
-            self?.view?.exit()
+            self?.view?.exit(withCallback: withCallback)
         }
     }
 
@@ -130,7 +134,7 @@ class AndesCoachMarkPresenter {
         if currentIndex != -1 { return }
 
         currentIndex = 0
-        setBody(.above, removePrevious: true)
+        setBody(.above, removePrevious: true, buttonStyle: .normal)
         createHighlightInteractor()
         createScrollInteractor()
         prepare()
@@ -156,6 +160,11 @@ extension AndesCoachMarkPresenter {
     func didCloseButtonTap() {
         view?.close(stepIndex: self.currentIndex)
         exit()
+    }
+
+    func didCancel() {
+        view?.close(stepIndex: self.currentIndex)
+        exit(withCallback: false)
     }
 
 }

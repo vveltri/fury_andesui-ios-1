@@ -6,19 +6,10 @@
 //  Copyright © 2019 MercadoLibre. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-protocol ButtonsRouter: NSObject {
-    func route(from: UIViewController)
-}
-
-class ButtonsAppRouter: NSObject {
-    var view: ButtonsViewController!
-}
-
-extension ButtonsAppRouter: ButtonsRouter {
+class ButtonsRouter: HomeRouterProtocol {
     func route(from: UIViewController) {
-        view = ButtonsViewController()
-        from.navigationController?.pushViewController(view, animated: true)
+        from.navigationController?.pushViewController(ButtonsViewController(), animated: true)
     }
 }

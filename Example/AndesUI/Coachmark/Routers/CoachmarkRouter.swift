@@ -6,20 +6,12 @@
 //  Copyright © 2020 MercadoLibre. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-protocol CoachmarkRouter: NSObject {
-    func route(from: UIViewController)
-}
-
-class CoachmarkAppRouter: NSObject {
-    var view: AndesShowcasePageViewController!
-}
-
-extension CoachmarkAppRouter: CoachmarkRouter {
+class CoachmarkRouter: HomeRouterProtocol {
     func route(from: UIViewController) {
-        view = AndesShowcasePageViewController(controllers: [CoachmarkViewController(), CoachmarkObjCViewController()])
-        view.title = "AndesCoachmark"
-        from.navigationController?.pushViewController(view, animated: true)
+        let viewController = AndesShowcasePageViewController(controllers: [CoachmarkViewController(), CoachmarkObjCViewController()])
+        viewController.title = "AndesCoachmark"
+        from.navigationController?.pushViewController(viewController, animated: true)
     }
 }

@@ -17,11 +17,14 @@ class AndesCoachmarkBodyViewMock: AndesCoachMarkBodyViewProtocol, Mock {
     var didCallSetupArrowBelowOfTextAndPointToLeft = MockCounter()
     var didCallSetupArrowBelowOfTextAndPointToRight = MockCounter()
     var didCallSetupTitleLabel = MockCounter()
+    var didCallSetupNextText = MockCounter()
     var didCallSetupDescriptionLabel = MockCounter()
     var didCallConvertCoordinates = MockCounter()
 
     var title: String?
     var description: String?
+    var nextTitle: String?
+    var buttonStyle: AndesCoachMarkBodyEntity.ButtonStyle?
     var positionY: CGFloat?
     var arrowWidth: CGFloat?
 
@@ -67,6 +70,12 @@ class AndesCoachmarkBodyViewMock: AndesCoachMarkBodyViewProtocol, Mock {
     func setupDescriptionLabel(description: String) {
         self.description = description
         didCallSetupDescriptionLabel.wasCalled()
+    }
+
+    func setupNextButton(nextText: String, buttonStyle: AndesCoachMarkBodyEntity.ButtonStyle) {
+        self.nextTitle = nextText
+        self.buttonStyle = buttonStyle
+        didCallSetupNextText.wasCalled()
     }
 
     func convertCoordinates(view: UIView) -> CGRect {

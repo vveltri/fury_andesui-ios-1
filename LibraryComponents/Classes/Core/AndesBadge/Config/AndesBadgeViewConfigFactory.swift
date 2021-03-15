@@ -12,7 +12,7 @@ internal class AndesBadgeViewConfigFactory {
         let typeIns = AndesBadgeTypeFactory.provide(pill.type)
         let hierarchyIns = AndesBadgeHierarchyFactory.provide(pill.hierarchy, forType: typeIns)
         let pillText = pill.text
-        let sizeStyle = AndesBadgeSizeFactory.provide(.small)
+        let sizeStyle = AndesBadgeSizeFactory.provide(pill.size)
         let roundedCorners = AndesBadgeBorderFactory.provide(pill.border).corners
 
         let config = AndesBadgeViewConfig(backgroundColor: hierarchyIns.backgroundColor, text: pillText, sizeStyle: sizeStyle, textColor: hierarchyIns.textColor, roundedCorners: roundedCorners)

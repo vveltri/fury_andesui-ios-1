@@ -23,6 +23,12 @@ class AndesTextFieldDefaultView: AndesTextFieldAbstractView {
         }
     }
 
+    override var attributeText: NSAttributedString? {
+        didSet {
+            textField.attributedText = attributeText
+        }
+    }
+
     override var customInputView: UIView? {
         get {
             return textField.inputView

@@ -32,7 +32,7 @@ class AndesCoachmarkBodyPresenterTests: QuickSpec {
 
                     expect(numberOfCalls).to(equal(viewDelegateMock.totalNumberOfCalls()))
                 }
-                it("should set title and description correctly") {
+                it("should set title, description, next text correctly") {
                     let resolver: AndesCoachmarkBodyStubsResolver = AndesCoachmarkBodyStubsResolver(.centerAboveView)
                     guard let model = resolver.model else {
                         fail()
@@ -45,6 +45,10 @@ class AndesCoachmarkBodyPresenterTests: QuickSpec {
 
                     MockSwift.verify(viewDelegateMock.didCallSetupTitleLabel)
                     MockSwift.verify(viewDelegateMock.didCallSetupDescriptionLabel)
+                    MockSwift.verify(viewDelegateMock.didCallSetupNextText)
+
+                    expect(viewDelegateMock.nextTitle).to(equal(model.nextText))
+                    expect(viewDelegateMock.buttonStyle).to(equal(model.buttonStyle))
                     expect(viewDelegateMock.title).to(equal(model.title))
                     expect(viewDelegateMock.description).to(equal(model.description))
                 }
@@ -63,7 +67,7 @@ class AndesCoachmarkBodyPresenterTests: QuickSpec {
 
                     MockSwift.verify(viewDelegateMock.didCallSetupTextAbove)
                     MockSwift.verify(viewDelegateMock.didCallConvertCoordinates, wasCalledTimes: 2)
-                    MockSwift.verify(viewDelegateMock, wasCalledTimes: 5)
+                    MockSwift.verify(viewDelegateMock, wasCalledTimes: 6)
                     expect(viewDelegateMock.positionY).to(equal(41))
                     expect(viewDelegateMock.arrowWidth).to(beNil())
                 }
@@ -80,7 +84,7 @@ class AndesCoachmarkBodyPresenterTests: QuickSpec {
 
                     MockSwift.verify(viewDelegateMock.didCallSetupTextBelow)
                     MockSwift.verify(viewDelegateMock.didCallConvertCoordinates, wasCalledTimes: 2)
-                    MockSwift.verify(viewDelegateMock, wasCalledTimes: 5)
+                    MockSwift.verify(viewDelegateMock, wasCalledTimes: 6)
                     expect(viewDelegateMock.positionY).to(equal(40))
                     expect(viewDelegateMock.arrowWidth).to(beNil())
                 }
@@ -97,7 +101,7 @@ class AndesCoachmarkBodyPresenterTests: QuickSpec {
 
                     MockSwift.verify(viewDelegateMock.didCallSetupArrowBelowOfTextAndPointToLeft)
                     MockSwift.verify(viewDelegateMock.didCallConvertCoordinates)
-                    MockSwift.verify(viewDelegateMock, wasCalledTimes: 4)
+                    MockSwift.verify(viewDelegateMock, wasCalledTimes: 5)
                     expect(viewDelegateMock.positionY).to(equal(102))
                     expect(viewDelegateMock.arrowWidth).to(equal(65))
                 }
@@ -114,7 +118,7 @@ class AndesCoachmarkBodyPresenterTests: QuickSpec {
 
                     MockSwift.verify(viewDelegateMock.didCallSetupArrowBelowOfTextAndPointToRight)
                     MockSwift.verify(viewDelegateMock.didCallConvertCoordinates)
-                    MockSwift.verify(viewDelegateMock, wasCalledTimes: 4)
+                    MockSwift.verify(viewDelegateMock, wasCalledTimes: 5)
                     expect(viewDelegateMock.positionY).to(equal(102))
                     expect(viewDelegateMock.arrowWidth).to(equal(65))
                 }
@@ -131,7 +135,7 @@ class AndesCoachmarkBodyPresenterTests: QuickSpec {
 
                     MockSwift.verify(viewDelegateMock.didCallSetupArrowAboveOfTextAndPointToLeft)
                     MockSwift.verify(viewDelegateMock.didCallConvertCoordinates)
-                    MockSwift.verify(viewDelegateMock, wasCalledTimes: 4)
+                    MockSwift.verify(viewDelegateMock, wasCalledTimes: 5)
                     expect(viewDelegateMock.positionY).to(equal(48))
                     expect(viewDelegateMock.arrowWidth).to(equal(65))
                 }
@@ -148,11 +152,36 @@ class AndesCoachmarkBodyPresenterTests: QuickSpec {
 
                     MockSwift.verify(viewDelegateMock.didCallSetupArrowAboveOfTextAndPointToRight)
                     MockSwift.verify(viewDelegateMock.didCallConvertCoordinates)
-                    MockSwift.verify(viewDelegateMock, wasCalledTimes: 4)
+                    MockSwift.verify(viewDelegateMock, wasCalledTimes: 5)
                     expect(viewDelegateMock.positionY).to(equal(48))
                     expect(viewDelegateMock.arrowWidth).to(equal(65))
                 }
             }
+            context("Next button") {
+
+                it("Check that delegate works") {
+                    let resolver: AndesCoachmarkBodyStubsResolver = AndesCoachmarkBodyStubsResolver(.rightAboveView)
+                    guard let model = resolver.model else {
+                        fail()
+                        return
+                    }
+                    let presenter = AndesCoachMarkBodyPresenter(model: model)
+                    let body = AndesCoachMarkBodyView(presenter: presenter)
+                    let viewDelegateMock = BodyMock()
+                    body.delegate = viewDelegateMock
+                    body.nextButtonTouchUpInside(UIControl(), with: nil)
+
+                    MockSwift.verify(viewDelegateMock)
+                }
+            }
         }
+    }
+}
+
+private class BodyMock: AndesCoachMarkBodyViewDelegate, Mock {
+    var didCalldidNext = MockCounter()
+
+    func didNext() {
+        didCalldidNext.wasCalled()
     }
 }

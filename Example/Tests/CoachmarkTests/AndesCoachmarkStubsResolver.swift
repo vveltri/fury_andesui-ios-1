@@ -41,7 +41,7 @@ class AndesCoachmarkStubsResolver {
     private func oneStep() -> AndesCoachMarkEntity {
         let step = AndesCoachMarkStepEntity(title: "some title",
                                             description: "some description",
-                                            view: mainView.subviews[0],
+                                            view: mainView.subviews[3],
                                             style: .rectangle,
                                             nextText: "Next")
 
@@ -51,7 +51,7 @@ class AndesCoachmarkStubsResolver {
     private func twoSteps() -> AndesCoachMarkEntity {
         let firstStep = AndesCoachMarkStepEntity(title: "Some title",
                                                  description: "Some description",
-                                                 view: mainView.subviews[0],
+                                                 view: mainView.subviews[3],
                                                  style: .rectangle,
                                                  nextText: "Next")
 
@@ -65,14 +65,16 @@ class AndesCoachmarkStubsResolver {
     }
 
     private func createMainView() -> UIView {
-        let mainView = UIView(frame: CGRect(x: 0, y: 0, width: 150, height: 150))
+        let mainView = UIView(frame: CGRect(x: 0, y: 0, width: 150, height: 200))
         let firstView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
         let secondView = UIView(frame: CGRect(x: 0, y: 35, width: 20, height: 20))
         let thirdView = UIView(frame: CGRect(x: 0, y: 60, width: 100, height: 100))
+        let fourthView = UIView(frame: CGRect(x: 0, y: 150, width: 100, height: 50))
 
         mainView.addSubview(firstView)
         mainView.addSubview(secondView)
         mainView.addSubview(thirdView)
+        mainView.addSubview(fourthView)
         return mainView
     }
 }

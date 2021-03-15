@@ -12,7 +12,7 @@ import UIKit
     let maskLayer = CAShapeLayer()
 
     @objc public weak var delegate: AndesCoachMarkViewDelegate?
-    @objc public let overlayColor: UIColor = UIColor.Andes.gray800
+    @objc public let overlayColor: UIColor = UIColor.black.withAlphaComponent(0.9)
 
     var highlightedView: AndesCoachMarkHighlightedView?
 
@@ -25,7 +25,6 @@ import UIKit
     lazy var footer: AndesCoachMarkFooterView = {
         let footer = AndesCoachMarkFooterView()
         footer.alpha = 0
-        footer.delegate = self
         return footer
     }()
     var body: AndesCoachMarkBodyView?
@@ -44,11 +43,12 @@ import UIKit
         self.onExit = model.completionHandler
         self.presenter = AndesCoachMarkPresenter(model: model)
 
-        super.init(frame: CGRect.zero)
+        super.init(frame: UIScreen.main.bounds)
 
         setupViews()
         setupOverlayLayer()
         layoutIfNeeded()
+        setupAccessibility()
     }
 
     private func setupViews() {
@@ -96,12 +96,22 @@ import UIKit
         layer.addSublayer(overlayLayer)
     }
 
+    func setupAccessibility() {
+        accessibilityViewIsModal = true
+        accessibilityElements = [navBar, bodyView as Any]
+    }
+
     required public init?(coder aDecoder: NSCoder) {
         fatalError("This class does not support NSCoding")
     }
 
     @objc public func start() {
         presenter.start()
+        UIAccessibility.post(notification: UIAccessibility.Notification.screenChanged, argument: navBar)
+    }
+
+    @objc public func cancel() {
+        presenter.didCancel()
     }
 
 }
@@ -114,8 +124,9 @@ extension AndesCoachMarkView: AndesCoachMarkNavBarViewDelegate {
 }
 
 // MARK: - Actions from Footer
-extension AndesCoachMarkView: AndesCoachMarkFooterViewDelegate {
+extension AndesCoachMarkView: AndesCoachMarkBodyViewDelegate {
     func didNext() {
         presenter.didNextActionTap()
+        UIAccessibility.post(notification: UIAccessibility.Notification.screenChanged, argument: navBar)
     }
 }

@@ -75,6 +75,12 @@ import UIKit
         set { contentView.text = newValue }
     }
 
+    @objc public var attributeText: NSAttributedString? {
+        didSet {
+            contentView.attributeText = attributeText
+        }
+    }
+
     @objc public weak var delegate: AndesTextFieldDelegate?
 
     internal private(set) var inputTraits: UITextInputTraits? {

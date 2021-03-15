@@ -12,6 +12,13 @@ import UIKit
 @objc public class AndesTextArea: UIView {
     internal var contentView: AndesTextFieldView!
 
+    /// Attribute for textfield
+    @objc public var attributeText: NSAttributedString? {
+        didSet {
+            contentView.attributeText = attributeText
+        }
+    }
+
     /// The state of an AndesTextfield defines its behaviours an colours.
     @objc public var state: AndesTextInputState = .idle {
         didSet {

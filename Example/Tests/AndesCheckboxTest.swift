@@ -47,7 +47,7 @@ class AndesCheckboxTests: QuickSpec {
                 it("Has the idle view error, left view align, selected view status and background color + icon") {
                     let checkbox = AndesCheckbox(type: .idle, align: .left, status: .selected, title: "Checkbox")
 
-                    let selectedBackgroundColor = UIColor.Andes.blueML500
+                    let selectedBackgroundColor = AndesStyleSheetManager.styleSheet.accentColor
 
                     let configuration = AndesCheckboxViewConfig.init(for: checkbox)
 

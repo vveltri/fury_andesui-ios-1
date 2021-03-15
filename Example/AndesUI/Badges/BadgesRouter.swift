@@ -3,19 +3,10 @@
 //  AndesUI-demoapp
 //
 
-import UIKit
+import Foundation
 
-protocol BadgesRouter: NSObject {
-    func route(from: UIViewController)
-}
-
-class BadgesAppRouter: NSObject {
-    var view: AndesBadgeShowcaseViewController!
-}
-
-extension BadgesAppRouter: BadgesRouter {
+class BadgesRouter: HomeRouterProtocol {
     func route(from: UIViewController) {
-        view = AndesBadgeShowcaseViewController()
-        from.navigationController?.pushViewController(view, animated: true)
+        from.navigationController?.pushViewController(AndesBadgeShowcaseViewController(), animated: true)
     }
 }

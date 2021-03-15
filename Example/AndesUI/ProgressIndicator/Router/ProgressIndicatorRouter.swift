@@ -9,17 +9,8 @@
 import Foundation
 import UIKit
 
-protocol ProgressIndicatorRouter: NSObject {
-    func route(from: UIViewController)
-}
-
-class ProgressIndicatorAppRouter: NSObject {
-    var view: ProgressIndicatorViewController!
-}
-
-extension ProgressIndicatorAppRouter: ProgressIndicatorRouter {
+class ProgressIndicatorRouter: HomeRouterProtocol {
     func route(from: UIViewController) {
-        view = ProgressIndicatorViewController()
-        from.navigationController?.pushViewController(view, animated: true)
+        from.navigationController?.pushViewController(ProgressIndicatorViewController(), animated: true)
     }
 }

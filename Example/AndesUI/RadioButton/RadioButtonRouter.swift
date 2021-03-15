@@ -6,20 +6,12 @@
 //  Copyright © 2020 MercadoLibre. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-protocol RadioButtonRouter: NSObject {
-    func route(from: UIViewController)
-}
-
-class RadioButtonAppRouter: NSObject {
-    var view: AndesShowcasePageViewController!
-}
-
-extension RadioButtonAppRouter: RadioButtonRouter {
+class RadioButtonRouter: HomeRouterProtocol {
     func route(from: UIViewController) {
-        view = AndesShowcasePageViewController(controllers: [AndesRadioButtonViewController(), RadioButtonObjCViewController()])
-        view.title = "Andes RadioButton"
-        from.navigationController?.pushViewController(view, animated: true)
+        let viewController = AndesShowcasePageViewController(controllers: [AndesRadioButtonViewController(), RadioButtonObjCViewController()])
+        viewController.title = "Andes RadioButton"
+        from.navigationController?.pushViewController(viewController, animated: true)
     }
 }
