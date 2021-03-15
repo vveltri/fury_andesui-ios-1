@@ -1,4 +1,44 @@
-# Unpublished
+# Sin publicar
+- Proper horizontal align for radiobutton with no text label. Center radiobutton vertically with text.
+
+# 3.23.2
+### 🛠 Bug fixes
+- Optional color var | Authors [joalonspint](https://github.com/joalonsopint)
+
+# 3.23.0
+### 🛠 Bug fixes
+- Fix color name and color in colorset | Authors [joalonspint](https://github.com/joalonsopint)
+
+# 3.22.0
+### ⚙️ Other
+- Lib & testapp updated config: | Authors [jbrunoAtMeli] (https://github.com/jbrunoAtMeli)
+    The following recommended warnings were enabled
+        (In the library)
+            Compilers warnings 
+            Implicit retain of ‘self’ within blocks
+            Overriding Deprecated Object-C Methods
+            Quoted include in Framework header
+        (In the test app)
+             Quoted include in Framework header
+    Updated IQKeyboardManagerSwift version (6.5.0) in the test app.
+    Executed the automatic corrections of SwiftLint 
+    Fixes compiler warnings 
+- Improve pull request template | Authors [joalonspint](https://github.com/joalonsopint)
+
+# 3.21.1
+### 🚀 Features
+- Added warning colorset | Authors [joalonspint](https://github.com/joalonsopint)
+
+# 3.21.0
+### 🚀 Features
+- Added icons to LocalIcons | Authors: [@amacagno](https://github.com/amacagno)
+- AndesCoachMarkView: New visual styling for walkthough. Changes in background color, highlited arrow and button. | Authors : [@edentores](https://github.com/edentorres)
+- An extension is added to the `UITabBarItem` to show the `AndesBadge` | Author: [@Julima15](http://github.com/julima15)
+- Fix size in `AndesBadgeViewConfigFactory` | Author: [@Julima15](http://github.com/julima15)
+- Changed default background color to clear for Andes Checkbox and Andes Radio Button | Author: [@vveltri](https://github.com/vveltri)
+
+### 🛠 Bug fixes
+- DatePicker: Fix unit test | Authors: [@AndriuCoelho](https://github.com/AndriuCoelho)
 
 # v3.20.0
 ### 🚀 Features
