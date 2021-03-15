@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol AndesBulletViewDelegate: class {
+protocol AndesBulletViewDelegate: AnyObject {
     func andesbulletView(urlInteractionAt linkIndex: Int, forBullet bulletIndex: Int)
 }
 

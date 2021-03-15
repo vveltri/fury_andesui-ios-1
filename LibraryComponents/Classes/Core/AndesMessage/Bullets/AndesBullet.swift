@@ -21,5 +21,4 @@ import Foundation
         self.text = text
         self.bodyLinks = nil
     }
-
 }
