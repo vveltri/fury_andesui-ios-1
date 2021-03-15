@@ -86,6 +86,7 @@ class AndesRadioButtonDefaultView: UIView, AndesRadioButtonView {
 
     func setupButtonView() {
         var radiobuttonConstraint = NSLayoutConstraint()
+        let isTitleEmpty = radioButtonLabel.text?.isEmpty ?? true
 
         if config.align == .left {
             self.rightRadioButton.isHidden = true
@@ -96,7 +97,13 @@ class AndesRadioButtonDefaultView: UIView, AndesRadioButtonView {
             self.labelToLeadingConstraint.priority = .defaultLow
             self.leftRadioButton.filled = config.filled
 
-            radiobuttonConstraint = NSLayoutConstraint(item: self.radioButtonLabel!, attribute: .leading, relatedBy: .equal, toItem: self.leftRadioButton!, attribute: .trailing, multiplier: 1, constant: 0)
+            radiobuttonConstraint = NSLayoutConstraint(item: isTitleEmpty ? self : radioButtonLabel!,
+                                                        attribute: isTitleEmpty ? .trailing : .leading,
+                                                        relatedBy: .equal,
+                                                        toItem: self.leftRadioButton!,
+                                                        attribute: .trailing,
+                                                        multiplier: 1,
+                                                        constant: 0)
         } else {
             self.rightRadioButton.isHidden = false
             self.leftRadioButton.isHidden = true
@@ -106,7 +113,13 @@ class AndesRadioButtonDefaultView: UIView, AndesRadioButtonView {
             self.labelToLeadingConstraint.priority = .defaultHigh
             self.rightRadioButton.filled = config.filled
 
-            radiobuttonConstraint = NSLayoutConstraint(item: self.rightRadioButton!, attribute: .leading, relatedBy: .equal, toItem: radioButtonLabel, attribute: .trailing, multiplier: 1, constant: 0)
+            radiobuttonConstraint = NSLayoutConstraint(item: self.rightRadioButton!,
+                                                        attribute: .leading,
+                                                        relatedBy: .equal,
+                                                        toItem: isTitleEmpty ? self : radioButtonLabel,
+                                                        attribute: isTitleEmpty ? .leading : .trailing,
+                                                        multiplier: 1,
+                                                        constant: 0)
         }
         NSLayoutConstraint.activate([radiobuttonConstraint])
     }
