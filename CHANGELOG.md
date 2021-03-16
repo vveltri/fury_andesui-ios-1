@@ -1,5 +1,6 @@
 # Unpublished
 ### 🚀 Features
+- New component Tooltip | [Juan Vasquez](https://github.com/javff)
 - Added Bullets for Andes Message | Authors [Martin Becerra](https://github.com/mabecerra-MeLi)
 
 # 3.23.2
