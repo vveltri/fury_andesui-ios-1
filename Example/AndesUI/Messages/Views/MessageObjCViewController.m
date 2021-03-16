@@ -65,6 +65,16 @@
     [_stackView addArrangedSubview:view];
     [view.widthAnchor constraintEqualToAnchor:_stackView.widthAnchor].active = YES;
     
+    AndesBullet* bullet1 = [[AndesBullet alloc] initWithText:@"Bullet 1 Example."];
+    AndesBullet* bullet2 = [[AndesBullet alloc] initWithText:@"Bullet 2 Example."];
+    AndesBullet* bullet3 = [[AndesBullet alloc] initWithText:@"Bullet 3 Example."];
+    
+    NSArray * bulletArray = [NSArray arrayWithObjects:bullet1,bullet2,bullet3, nil];
+    
+    view = [[AndesMessage alloc] initWithHierarchy: AndesMessageHierarchyLoud type: AndesMessageTypeNeutral title: @"Message title" body: @"This is an Andes Message body with neutral - loud style with bullets" bullets: bulletArray];
+    
+    [_stackView addArrangedSubview:view];
+    [view.widthAnchor constraintEqualToAnchor:_stackView.widthAnchor].active = YES;
 }
 
 @end
