@@ -15,30 +15,30 @@ class AndesMessageTests: QuickSpec {
         describe("AndesMessage should draw its view depending on type, type, and variation") {
             context("AndesMessage dismissable with title and description inits") {
                 it("Andes message by default should be neutral, loud and of defaultView") {
-                    //Given
+                    // Given
                     let defaultHierarchy = AndesMessageHierarchy.loud
                     let defaultType = AndesMessageType.neutral
 
-                    //When
+                    // When
                     let message = AndesMessage(frame: .zero)
 
-                    //Then
+                    // Then
                     expect({return message.hierarchy == defaultHierarchy ? .succeeded : .failed(reason: "wrong default hierarchy")}).to(succeed())
                     expect({return message.type == defaultType ? .succeeded : .failed(reason: "wrong default type")}).to(succeed())
                     expect(message.contentView.isKind(of: AndesMessageDefaultView.self)).to(beTrue())
                     }
 
                 it("Andes message with custom hierarchy, type, title, and description") {
-                    //Given
+                    // Given
                     let title = "Msg Title"
                     let body = "Msg Description"
                     let hierarchy: AndesMessageHierarchy = .quiet
                     let type: AndesMessageType = .success
 
-                    //When
+                    // When
                     let message = AndesMessage(hierarchy: hierarchy, type: type, title: title, body: body)
 
-                    //Then
+                    // Then
                     expect(message.contentView.isKind(of: AndesMessageDefaultView.self)).to(beTrue())
                     expect((message.contentView as! AndesMessageDefaultView).titleLabel.text).to(match(title))
                     expect((message.contentView as! AndesMessageDefaultView).bodyTextView.text).to(match(body))
@@ -50,136 +50,165 @@ class AndesMessageTests: QuickSpec {
         describe("AndesMessage should be able to change its ui dinamically") {
             context("AndesMessage default view changes attributes") {
                 it("changes andes message hierarchy dinamycally") {
-                    //Given
+                    // Given
                     let hierarchyToChange: AndesMessageHierarchy = .quiet
                     let message = AndesMessage(frame: .zero)
 
-                    //When
+                    // When
                     message.hierarchy = hierarchyToChange
 
-                    //Then
+                    // Then
                     expect((message.contentView as! AndesMessageDefaultView).backgroundColor) == AndesMessageHierarchyQuiet(type: AndesMessageTypeHightlight()).backgroundColor
                     expect((message.contentView as! AndesMessageDefaultView).leftPipeView.backgroundColor) == AndesMessageTypeHightlight().primaryColor
                 }
                 it("changes andes message type dinamycally") {
-                      //Given
+                      // Given
                       let typeToChange: AndesMessageType = .error
                       let message = AndesMessage(frame: .zero)
 
-                      //When
+                      // When
                       message.type = typeToChange
 
-                      //Then
+                      // Then
                       expect((message.contentView as! AndesMessageDefaultView).backgroundColor) == AndesMessageHierarchyLoud(type: AndesMessageTypeError()).backgroundColor
                       expect((message.contentView as! AndesMessageDefaultView).leftPipeView.backgroundColor) == AndesMessageTypeError().primaryColor
                   }
                 it("changes andes message title dinamycally") {
-                      //Given
+                      // Given
                       let titleToChange: String = "new title"
                       let message = AndesMessage(frame: .zero)
 
-                      //When
+                      // When
                       message.title = titleToChange
 
-                      //Then
+                      // Then
                       expect((message.contentView as! AndesMessageDefaultView).titleLabel.text).to(match(titleToChange))
                   }
                 it("changes andes message description dinamycally") {
-                      //Given
+                      // Given
                       let descToChange: String = "new message"
                       let message = AndesMessage(frame: .zero)
 
-                      //When
+                      // When
                       message.body = descToChange
 
-                      //Then
+                      // Then
                       expect((message.contentView as! AndesMessageDefaultView).bodyTextView.text).to(match(descToChange))
                   }
                 it("changes andes message view dinamycally to actionsView") {
-                    //Given
+                    // Given
                     let message = AndesMessage(frame: .zero)
 
-                    //When
+                    // When
                     message.setPrimaryAction("Primary", handler: nil)
                     message.setSecondaryAction("Secondary", handler: nil)
 
-                    //Then
+                    // Then
                     expect(message.contentView.isKind(of: AndesMessageWithActionsView.self)).to(beTrue())
                 }
                 it("changes andes message view dinamycally to actionsView") {
-                    //Given
+                    // Given
                     let message = AndesMessage(frame: .zero)
 
-                    //When
+                    // When
                     message.setLinkAction("Link", handler: nil)
 
-                    //Then
+                    // Then
                     expect(message.contentView.isKind(of: AndesMessageWithActionsView.self)).to(beTrue())
                 }
                 it("changes andes message view dinamycally back to defaultView") {
-                    //Given
+                    // Given
                     let message = AndesMessage(frame: .zero)
 
-                    //When
+                    // When
                     message.setPrimaryAction("Primary", handler: nil)
                     message.setPrimaryAction("", handler: nil)
 
-                    //Then
+                    // Then
                     expect(message.contentView.isKind(of: AndesMessageDefaultView.self)).to(beTrue())
                 }
                 it("changes andes message view dinamycally back to defaultView") {
-                    //Given
+                    // Given
                     let message = AndesMessage(frame: .zero)
 
-                    //When
+                    // When
                     message.setLinkAction("Primary", handler: nil)
                     message.setLinkAction("", handler: nil)
 
-                    //Then
+                    // Then
                     expect(message.contentView.isKind(of: AndesMessageDefaultView.self)).to(beTrue())
                 }
                 it("when title is empty or nil, title is hidden") {
-                    //Given
+                    // Given
                     let message = AndesMessage(frame: .zero)
                     let messageEmpty = AndesMessage(frame: .zero)
 
-                    //When
+                    // When
                     message.title = nil
                     messageEmpty.title = ""
 
-                    //Then
+                    // Then
                     expect((message.contentView as! AndesMessageDefaultView).titleLabel.isHidden).to(beTrue())
                     expect((messageEmpty.contentView as! AndesMessageDefaultView).titleLabel.isHidden).to(beTrue())
                 }
                 it("when title is not empty, title label is not hidden") {
-                   //Given
+                   // Given
                    let message = AndesMessage(frame: .zero)
 
-                   //When
+                   // When
                    message.title = "title"
 
-                   //Then
+                   // Then
                    expect((message.contentView as! AndesMessageDefaultView).titleLabel.isHidden).to(beFalse())
                }
-                it("dont show actions if only secondary setted") {
-                    //Given
+                it("When 2 bullets added, the bullet stack has two items") {
+                    // Given
                     let message = AndesMessage(frame: .zero)
 
-                    //When
+                    let bullet1 = AndesBullet(text: "Test 1")
+                    let bullet2 = AndesBullet(text: "Test 2")
+
+                    // When
+                    message.bullets = [bullet1, bullet2]
+
+                    // Then
+                    expect((message.contentView as! AndesMessageDefaultView).bulletStackView.arrangedSubviews.count).to(equal(2))
+                }
+
+                it("When 2 bullets are removed, the bullet stack has to be empty") {
+                    // Given
+                    let message = AndesMessage(frame: .zero)
+
+                    let bullet1 = AndesBullet(text: "Test 1")
+                    let bullet2 = AndesBullet(text: "Test 2")
+                    message.bullets = [bullet1, bullet2]
+
+                    // When
+                    message.bullets = []
+
+                    // Then
+                    expect((message.contentView as! AndesMessageDefaultView).bulletStackView.arrangedSubviews.isEmpty).to(beTrue())
+                }
+
+                it("dont show actions if only secondary setted") {
+                    // Given
+                    let message = AndesMessage(frame: .zero)
+
+                    // When
                     message.setSecondaryAction("Secondary", handler: nil)
 
-                    //Then
+                    // Then
                     expect(message.contentView.isKind(of: AndesMessageDefaultView.self)).to(beTrue())
                 }
                 it("dont show actions if primary and link actions are setted") {
-                    //Given
+                    // Given
                     let message = AndesMessage(frame: .zero)
 
-                    //When
+                    // When
                     message.setPrimaryAction("Primary", handler: nil)
                     message.setLinkAction("Link", handler: nil)
 
-                    //Then
+                    // Then
                     expect(message.contentView.isKind(of: AndesMessageDefaultView.self)).to(beTrue())
                 }
             }
@@ -187,65 +216,65 @@ class AndesMessageTests: QuickSpec {
         describe("AndesMessage should trigger callbacks on specific events") {
             context("AndesMessage default callbacks") {
                 it("calls dismiss") {
-                    //Given
+                    // Given
                     let message = AndesMessage(frame: .zero)
                     var called = false
                     message.onDismiss { _ in called = true}
 
-                    //When
+                    // When
                     (message.contentView as! AndesMessageDefaultView).dismissPressed(self)
 
-                    //Then
+                    // Then
                     expect(called).toEventually(beTrue())
                 }
             }
             context("AndesMessage primary action") {
                 it("calls primary button handler") {
-                    //Given
+                    // Given
                     let message = AndesMessage(frame: .zero)
                     var called = false
                     message.setPrimaryAction("Primary") { _ in called = true}
 
-                    //When
+                    // When
                     (message.contentView as! AndesMessageWithActionsView).primaryButtonTapped(self)
 
-                    //Then
+                    // Then
                     expect(called).toEventually(beTrue())
                 }
             }
             context("AndesMessage default callbacks") {
                 it("calls secondary button handler") {
-                    //Given
+                    // Given
                     let message = AndesMessage(frame: .zero)
                     var called = false
                     message.setPrimaryAction("Primary", handler: nil)
                     message.setSecondaryAction("Secondary") { _ in called = true}
 
-                    //When
+                    // When
                     (message.contentView as! AndesMessageWithActionsView).secondaryButtonTapped(self)
 
-                    //Then
+                    // Then
                     expect(called).toEventually(beTrue())
                 }
             }
             context("AndesMessage Link Action") {
                 it("calls link button handler") {
-                    //Given
+                    // Given
                     let message = AndesMessage(frame: .zero)
                     var called = false
                     message.setLinkAction("Link") { _ in called = true}
 
-                    //When
+                    // When
                     (message.contentView as! AndesMessageWithActionsView).primaryButtonTapped(self)
 
-                    //Then
+                    // Then
                     expect(called).toEventually(beTrue())
                 }
             }
 
             context("AndesMessage Body Links") {
                 it("calls body link handler") {
-                    //Given
+                    // Given
                     let message = AndesMessage(frame: .zero)
                     var tappedIndex: Int?
 
@@ -260,10 +289,10 @@ class AndesMessageTests: QuickSpec {
                     })
                     message.setBodyLinks(bodyLinks)
 
-                    //When
+                    // When
                     _ = (message.contentView as! AndesMessageDefaultView).bodyTextView.delegate?.textView?(UITextView(), shouldInteractWith: URL(string: "1")!, in: NSRange(location: 0, length: 10), interaction: UITextItemInteraction(rawValue: 0)!)
 
-                    //Then
+                    // Then
                     expect(tappedIndex).toEventually(equal(1))
                 }
             }

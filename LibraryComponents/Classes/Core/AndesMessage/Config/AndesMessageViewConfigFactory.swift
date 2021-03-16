@@ -11,7 +11,7 @@ internal class AndesMessageViewConfigFactory {
         let typeIns = AndesMessageTypeFactory.provide(message.type)
         let hierarchyIns = AndesMessageHierarchyFactory.provide(message.hierarchy, forType: typeIns)
 
-        var config = AndesMessageViewConfig(backgroundColor: hierarchyIns.backgroundColor, pipeColor: hierarchyIns.pipeColor, textColor: hierarchyIns.textColor, titleText: message.title, bodyText: message.body, icon: typeIns.icon, iconBackgroundColor: hierarchyIns.accentColor, isDismissable: message.isDismissable, dismissIconColor: hierarchyIns.textColor, bodyLinks: message.bodyLinks, bodyLinkIsUnderline: hierarchyIns.bodyLinkIsUnderline, bodyLinkTextColor: hierarchyIns.bodyLinkTextColor)
+        var config = AndesMessageViewConfig(backgroundColor: hierarchyIns.backgroundColor, pipeColor: hierarchyIns.pipeColor, textColor: hierarchyIns.textColor, titleText: message.title, bodyText: message.body, icon: typeIns.icon, bullets: message.bullets, iconBackgroundColor: hierarchyIns.accentColor, isDismissable: message.isDismissable, dismissIconColor: hierarchyIns.textColor, bodyLinks: message.bodyLinks, bodyLinkIsUnderline: hierarchyIns.bodyLinkIsUnderline, bodyLinkTextColor: hierarchyIns.bodyLinkTextColor)
 
         if let primaryText = message.primaryActionText, !primaryText.isEmpty {
             config.primaryActionConfig = AndesButtonViewConfigFactory.provide(hierarchy: hierarchyIns.primaryButtonHierarchy, size: AndesButtonSizeMedium(), text: primaryText, icon: nil)

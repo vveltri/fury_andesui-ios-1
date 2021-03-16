@@ -94,7 +94,7 @@ class AndesBaseTooltipView: UIView {
             adjustXFrame = superviewFrame.width - frame.width - (superviewFrame.width - refViewFrame.center.x) + arrowSpacing + arrowWidth
         }
 
-        //adjust vertically
+        // adjust vertically
         if frame.origin.y < 0 {
             adjustYFrame = refViewFrame.center.y - (arrowSpacing + arrowWidth)
         }

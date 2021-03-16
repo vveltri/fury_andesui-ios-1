@@ -37,6 +37,12 @@ import UIKit
         }
     }
 
+    @objc public var bullets: [AndesBullet] = [] {
+        didSet {
+            self.updateContentView()
+        }
+    }
+
     /// isDismissable shows a dismiss button, when pressed the message set isHidden = true
     @IBInspectable public var isDismissable: Bool = false {
         didSet {
@@ -85,12 +91,24 @@ import UIKit
         setup()
     }
 
+    // Retrocompatibility: this init avoids multiple errors on previous Andes message usages
     @objc public init(hierarchy: AndesMessageHierarchy, type: AndesMessageType, title: String, body: String) {
         super.init(frame: .zero)
         self.title = title
         self.body = body
         self.hierarchy = hierarchy
         self.type = type
+        setup()
+    }
+
+    // init with andes bullets array
+    @objc public init (hierarchy: AndesMessageHierarchy, type: AndesMessageType, title: String, body: String, bullets: [AndesBullet]) {
+        super.init(frame: .zero)
+        self.title = title
+        self.body = body
+        self.hierarchy = hierarchy
+        self.type = type
+        self.bullets = bullets
         setup()
     }
 

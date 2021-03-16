@@ -38,11 +38,11 @@ class AndesTooltipTests: QuickSpec {
                         dismissIsCalled = true
                     }
 
-                    //when
+                    // when
                     tooltip.show(in: targetView, within: childView)
                     tooltip.dismiss()
 
-                    //then
+                    // then
                     expect(dismissIsCalled).toEventually(beTrue())
                 }
             }
@@ -53,12 +53,12 @@ class AndesTooltipTests: QuickSpec {
                     // given
                     let tooltip = AndesTooltip(type: .light, content: "my content")
 
-                    //when
+                    // when
                     tooltip.show(in: targetView, within: childView)
 
                     let baseTooltipView = childView.subviews.filter { $0 is AndesBaseTooltipView }.first
 
-                    //then
+                    // then
                     expect(baseTooltipView).notTo(beNil())
                     expect(tooltip.primaryAction).to(beNil())
                     expect(tooltip.secondaryAction).to(beNil())
@@ -69,12 +69,12 @@ class AndesTooltipTests: QuickSpec {
                     // given
                     let tooltip = AndesTooltip(type: .light, content: "my content", title: "My title")
 
-                    //when
+                    // when
                     tooltip.show(in: targetView, within: childView)
 
                     let baseTooltipView = childView.subviews.filter { $0 is AndesBaseTooltipView }.first
 
-                    //then
+                    // then
                     expect(baseTooltipView).notTo(beNil())
                     expect(tooltip.primaryAction).to(beNil())
                     expect(tooltip.secondaryAction).to(beNil())
@@ -85,11 +85,11 @@ class AndesTooltipTests: QuickSpec {
                     // given
                     let tooltip = AndesTooltip(type: .light, content: "my content", title: "My title")
 
-                    //when
+                    // when
                     tooltip.show(in: targetView, within: childView)
                     tooltip.dismiss()
 
-                    //then
+                    // then
                     expect(childView.subviews.filter { $0 is AndesBaseTooltipView }.first).toEventually(beNil())
                 }
 
@@ -98,12 +98,12 @@ class AndesTooltipTests: QuickSpec {
                     // given
                     let tooltip = AndesTooltip(type: .light, content: "my content", title: "My title", isDismissable: true)
 
-                    //when
+                    // when
                     tooltip.show(in: targetView, within: childView)
 
                     let baseTooltipView = childView.subviews.filter { $0 is AndesBaseTooltipView }.first
 
-                    //then
+                    // then
                     expect(baseTooltipView).notTo(beNil())
                     expect(tooltip.primaryAction).to(beNil())
                     expect(tooltip.secondaryAction).to(beNil())
@@ -116,12 +116,12 @@ class AndesTooltipTests: QuickSpec {
 
                     }))
 
-                    //when
+                    // when
                     tooltip.show(in: targetView, within: childView)
 
                     let baseTooltipView = childView.subviews.filter { $0 is AndesBaseTooltipView }.first
 
-                    //then
+                    // then
                     expect(baseTooltipView).notTo(beNil())
                 }
 
@@ -132,12 +132,12 @@ class AndesTooltipTests: QuickSpec {
 
                     }))
 
-                    //when
+                    // when
                     tooltip.show(in: targetView, within: childView)
 
                     let baseTooltipView = childView.subviews.filter { $0 is AndesBaseTooltipView }.first
 
-                    //then
+                    // then
                     expect(baseTooltipView).notTo(beNil())
                     expect(tooltip.primaryAction).notTo(beNil())
                     expect(tooltip.secondaryAction).to(beNil())
@@ -150,12 +150,12 @@ class AndesTooltipTests: QuickSpec {
 
                     }))
 
-                    //when
+                    // when
                     tooltip.show(in: targetView, within: childView)
 
                     let baseTooltipView = childView.subviews.filter { $0 is AndesBaseTooltipView }.first
 
-                    //then
+                    // then
                     expect(baseTooltipView).notTo(beNil())
                     expect(tooltip.primaryAction).notTo(beNil())
                     expect(tooltip.secondaryAction).to(beNil())
@@ -170,12 +170,12 @@ class AndesTooltipTests: QuickSpec {
 
                     }))
 
-                    //when
+                    // when
                     tooltip.show(in: targetView, within: childView)
 
                     let baseTooltipView = childView.subviews.filter { $0 is AndesBaseTooltipView }.first
 
-                    //then
+                    // then
                     expect(baseTooltipView).notTo(beNil())
                     expect(tooltip.primaryAction).notTo(beNil())
                     expect(tooltip.secondaryAction).notTo(beNil())
@@ -190,12 +190,12 @@ class AndesTooltipTests: QuickSpec {
 
                     }))
 
-                    //when
+                    // when
                     tooltip.show(in: targetView, within: childView)
 
                     let baseTooltipView = childView.subviews.filter { $0 is AndesBaseTooltipView }.first
 
-                    //then
+                    // then
                     expect(baseTooltipView).notTo(beNil())
                     expect(tooltip.primaryAction).notTo(beNil())
                     expect(tooltip.secondaryAction).notTo(beNil())
