@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AndesMessageAbstractView: UIView, AndesMessageView, UITextViewDelegate {
+class AndesMessageAbstractView: UIView, AndesMessageView, UITextViewDelegate, AndesBulletViewDelegate {
     weak var delegate: AndesMessageViewDelegate?
 
     @IBOutlet var messageView: UIView!
@@ -19,8 +19,11 @@ class AndesMessageAbstractView: UIView, AndesMessageView, UITextViewDelegate {
     @IBOutlet weak var dismissButton: UIButton!
     @IBOutlet weak var titleToDismissConstraint: NSLayoutConstraint!
     @IBOutlet weak var titleToSafeAreaConstraint: NSLayoutConstraint!
+    @IBOutlet weak var bulletStackView: UIStackView!
+    @IBOutlet weak var bulletStackTopSpaceConstraint: NSLayoutConstraint!
+    @IBOutlet weak var bulletStackHeightConstraint: NSLayoutConstraint?
 
-    var config: AndesMessageViewConfig
+    private(set) var config: AndesMessageViewConfig
     init(withConfig config: AndesMessageViewConfig) {
         self.config = config
         super.init(frame: .zero)
@@ -106,10 +109,62 @@ class AndesMessageAbstractView: UIView, AndesMessageView, UITextViewDelegate {
             self.titleToSafeAreaConstraint.priority = .init(rawValue: 999)
             self.dismissButton.isHidden = true
         }
+
+        self.bulletsSetup()
+    }
+
+    func bulletsSetup() {
+        self.adjustAndesMessageSpaces()
+        self.removeAllBullets()
+
+        for (index, bullet) in self.config.bullets.enumerated() {
+            let bulletView = self.mapBulletToView(for: bullet, at: index)
+            self.bulletStackView.addArrangedSubview(bulletView)
+        }
+    }
+
+    func mapBulletToView(for bullet: AndesBullet, at index: Int) -> AndesBulletView {
+        let bulletView = AndesBulletView(frame: .zero)
+        let bodyStyle = config.bodyStyle
+        let bulletText = self.getBodyAttributedText(text: bullet.text, bodyLinks: bullet.bodyLinks)
+        bulletView.configure(bulletText: bulletText, with: bodyStyle, linkTextColor: config.bodyLinkTextColor, delegate: self, at: index)
+        return bulletView
+    }
+
+    func adjustAndesMessageSpaces() {
+        let hasBullets = !self.config.bullets.isEmpty
+        let bodyEmpty = self.config.bodyText?.isEmpty ?? true
+
+        self.bodyTextView.isHidden = bodyEmpty
+
+        guard hasBullets else { return }
+
+        self.bulletStackHeightConstraint?.isActive = false
+        self.bulletStackHeightConstraint = nil
+
+        if bodyEmpty {
+            self.bulletStackTopSpaceConstraint.constant = 4.0
+        } else {
+            self.bulletStackTopSpaceConstraint.constant = 8.0
+        }
+    }
+
+    func removeAllBullets() {
+        let views = self.bulletStackView.arrangedSubviews
+        for view in views {
+            view.removeFromSuperview()
+        }
     }
 
     func getBodyText(style: AndesFontStyle) -> NSAttributedString {
-        let attributedString = NSMutableAttributedString(string: config.bodyText ?? "")
+        let body = config.bodyText ?? ""
+        return getBodyAttributedText(text: body, bodyLinks: config.bodyLinks)
+    }
+
+    func getBodyAttributedText(text: String, bodyLinks: AndesBodyLinks?) -> NSAttributedString {
+
+        let style = config.bodyStyle
+        let attributedString = NSMutableAttributedString(string: text)
 
         let allRange = NSRange(location: 0, length: attributedString.length)
 
@@ -119,7 +174,7 @@ class AndesMessageAbstractView: UIView, AndesMessageView, UITextViewDelegate {
         paragraphStyle.lineSpacing = style.lineSpacing
         attributedString.addAttribute(.paragraphStyle, value: paragraphStyle, range: allRange)
 
-        if let bodyLinks = config.bodyLinks {
+        if let bodyLinks = bodyLinks {
             for (index, link) in bodyLinks.links.enumerated() {
                 if link.isValidRange(attributedString) {
                     let range = NSRange(location: link.startIndex, length: link.endIndex - link.startIndex)
@@ -139,5 +194,9 @@ class AndesMessageAbstractView: UIView, AndesMessageView, UITextViewDelegate {
         let index = Int(String(describing: URL)) ?? 0
         config.bodyLinks?.listener(index)
         return false
+    }
+
+    func andesbulletView(urlInteractionAt linkIndex: Int, forBullet bulletIndex: Int) {
+        config.bullets[bulletIndex].bodyLinks?.listener(linkIndex)
     }
 }

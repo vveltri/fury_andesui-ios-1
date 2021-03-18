@@ -33,7 +33,9 @@ internal struct AndesMessageViewConfig {
     var bodyLinkIsUnderline: Bool = false
     var bodyLinkTextColor: UIColor = AndesStyleSheetManager.styleSheet.accentColor500
 
-    init(backgroundColor: UIColor, pipeColor: UIColor, textColor: UIColor, titleText: String?, bodyText: String, icon: String?, iconBackgroundColor: UIColor, isDismissable: Bool, dismissIconColor: UIColor, bodyLinks: AndesBodyLinks?, bodyLinkIsUnderline: Bool, bodyLinkTextColor: UIColor) {
+    var bullets: [AndesBullet] = []
+
+    init(backgroundColor: UIColor, pipeColor: UIColor, textColor: UIColor, titleText: String?, bodyText: String, icon: String?, bullets: [AndesBullet], iconBackgroundColor: UIColor, isDismissable: Bool, dismissIconColor: UIColor, bodyLinks: AndesBodyLinks?, bodyLinkIsUnderline: Bool, bodyLinkTextColor: UIColor) {
         self.backgroundColor = backgroundColor
         self.pipeColor = pipeColor
 
@@ -42,6 +44,7 @@ internal struct AndesMessageViewConfig {
 
         self.titleText = titleText
         self.bodyText = bodyText
+        self.bullets = bullets
         self.icon = icon
         self.isDismissable = isDismissable
 

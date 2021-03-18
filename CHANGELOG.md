@@ -1,6 +1,11 @@
-
+# Unpublished
 ### 🛠 Bug fixes
 - Test app fix ProgressIndicatorRoute  andesBadgeExtensions| Authors [jbrunoAtMeli] (https://github.com/jbrunoAtMeli)
+
+# 3.24.0
+### 🚀 Features
+- New component Tooltip | [Juan Vasquez](https://github.com/javff)
+- Added Bullets for Andes Message | Authors [Martin Becerra](https://github.com/mabecerra-MeLi)
 
 # 3.23.2
 ### 🛠 Bug fixes
