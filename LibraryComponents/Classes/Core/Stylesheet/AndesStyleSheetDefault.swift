@@ -35,6 +35,7 @@ import Foundation
     public lazy var textColorCaution: UIColor = self.stylesheetStrategy.textColorCaution
     public lazy var textColorPositive: UIColor = self.stylesheetStrategy.textColorPositive
     public lazy var tetColorLink: UIColor = self.stylesheetStrategy.tetColorLink
+    public lazy var textColorLink: UIColor = self.stylesheetStrategy.textColorLink
     public lazy var textColorWhite: UIColor = self.stylesheetStrategy.textColorWhite
     public lazy var textColorWarning: UIColor = self.stylesheetStrategy.textColorWarning
 
@@ -44,7 +45,7 @@ import Foundation
     public lazy var feedbackColorWarning: UIColor = self.stylesheetStrategy.feedbackColorWarning
 
     public override init() {
-        //TODO: Remove when iOS 11 is minimum deployment target, use ios 11 strat when new build system issues are solved
+        // TODO: Remove when iOS 11 is minimum deployment target, use ios 11 strat when new build system issues are solved
         self.stylesheetStrategy = AndesColorStrategyiOS10()
     }
 
@@ -124,7 +125,7 @@ import Foundation
     }
 
     private func validateColorForLink(color: UIColor) {
-        if !color.isEqual(self.stylesheetStrategy.tetColorLink) {
+        if !color.isEqual(self.stylesheetStrategy.textColorLink) {
             fatalError("You must use an allowed color. Please check Andes documentation")
         }
     }
