@@ -21,7 +21,7 @@
 }
 
 - (void)setup {
-
+    self.title = @"TextFieldsCodeObjCViewController";
     UILabel *title = [[UILabel alloc] init];
     title.translatesAutoresizingMaskIntoConstraints = false;
     title.text = @"AndesTextFieldCode (Objc)";

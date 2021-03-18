@@ -11,7 +11,7 @@ import Foundation
 class SnackbarRouter: HomeRouterProtocol {
     func route(from: UIViewController) {
         let viewController = AndesShowcasePageViewController(controllers: [SnackbarViewController(), SnackbarObjCViewController()])
-        viewController.title = "AndesSnackbar"
+        viewController.title = Commons.ComponentsTitle.andesSnackbar
         from.navigationController?.pushViewController(viewController, animated: true)
     }
 }

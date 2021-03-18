@@ -10,6 +10,8 @@ import Foundation
 
 class ButtonsRouter: HomeRouterProtocol {
     func route(from: UIViewController) {
-        from.navigationController?.pushViewController(ButtonsViewController(), animated: true)
+        let viewController = AndesShowcasePageViewController(controllers: [ButtonsViewController()])
+        viewController.title = Commons.ComponentsTitle.andesButton
+        from.navigationController?.pushViewController(viewController, animated: true)
     }
 }

@@ -11,7 +11,7 @@ import Foundation
 class CardRouter: HomeRouterProtocol {
     func route(from: UIViewController) {
         let viewController = AndesShowcasePageViewController(controllers: [CardViewController(), CardObjCViewController()])
-        viewController.title = "AndesCard"
+        viewController.title = Commons.ComponentsTitle.andesCard
         from.navigationController?.pushViewController(viewController, animated: true)
     }
 }

@@ -18,6 +18,8 @@ class AndesShowcasePageViewController: UIViewController {
 
     var pageController: UIPageViewController!
 
+    let analyticsHelper = AnalyticsHelper()
+
     init(controllers: [UIViewController]) {
         self.controllers = controllers
         super.init(nibName: "AndesShowcasePageViewController", bundle: nil)
@@ -52,14 +54,25 @@ class AndesShowcasePageViewController: UIViewController {
         setupPageController()
         containerView.bringSubview(toFront: pageControl)
         setupPageControl()
+
         if #available(iOS 11.0, *) {} else {
-            //iOS <= 10 fix https://forums.developer.apple.com/thread/87329
+            // iOS <= 10 fix https://forums.developer.apple.com/thread/87329
             guard let topBarHeight = self.navigationController?.navigationBar.frame.height else {
                 return
             }
             let padding: CGFloat = 15
             topConstraint.constant = padding + topBarHeight
         }
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        guard
+            let componentName = self.title,
+            let currentVc = (controllers.first?.nibName != nil ) ? controllers.first?.nibName : controllers.first?.title else { return }
+
+        analyticsHelper.createPathWith(componentName, view: currentVc)
     }
 }
 
@@ -78,5 +91,11 @@ extension AndesShowcasePageViewController: UIPageViewControllerDataSource, UIPag
         guard completed else {return}
         let current = controllers.index(of: (pageViewController.viewControllers?.first!)!)!
         pageControl.currentPage = current
+
+        guard let title = self.title,
+              let pageContentViewController = pageViewController.viewControllers!.first,
+              let currentVc = (pageContentViewController.nibName != nil ) ? pageContentViewController.nibName : pageContentViewController.title else { return }
+
+        analyticsHelper.createPathWith(title, view: currentVc)
     }
 }
