@@ -28,7 +28,7 @@ class AndesStyleSheetTests: QuickSpec {
 
                     expect(self.compareStyleSheets(styleSheetOne: AndesStyleSheetManager.styleSheet, styleSheetTwo: firstStylesheet)).to(beTrue())
 
-                    //Then change it
+                    // Then change it
                     let secondStylesheet = AndesStyleSheetBlackMock()
                     AndesStyleSheetManager.styleSheet = secondStylesheet
 

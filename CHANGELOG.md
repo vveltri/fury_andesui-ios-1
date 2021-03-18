@@ -1,5 +1,10 @@
 # Sin publicar
-- Proper horizontal align for radiobutton with no text label. Center radiobutton vertically with text.
+- Proper horizontal align for radiobutton with no text label. Center radiobutton vertically with text | Author: [@vveltri](https://github.com/vveltri)
+
+# 3.24.0
+### 🚀 Features
+- New component Tooltip | [Juan Vasquez](https://github.com/javff)
+- Added Bullets for Andes Message | Authors [Martin Becerra](https://github.com/mabecerra-MeLi)
 
 # 3.23.2
 ### 🛠 Bug fixes
