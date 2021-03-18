@@ -156,7 +156,7 @@ class HomeViewController: UIViewController {
     }
 
     @IBAction func andesBadgeExtensionTapped(_ sender: Any) {
-        presenter.present(view: .badges)
+        presenter.present(view: .andesBadgeExtensions)
     }
 
     @IBAction func tooltipTapped(_ sender: Any) {

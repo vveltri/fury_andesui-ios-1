@@ -1,3 +1,7 @@
+# Unpublished
+### 🛠 Bug fixes
+- Test app fix ProgressIndicatorRoute  andesBadgeExtensions| Authors [jbrunoAtMeli] (https://github.com/jbrunoAtMeli)
+
 # 3.24.0
 ### 🚀 Features
 - New component Tooltip | [Juan Vasquez](https://github.com/javff)
