@@ -11,7 +11,7 @@ import Foundation
 class ThumbnailRouter: HomeRouterProtocol {
     func route(from: UIViewController) {
         let viewController = AndesShowcasePageViewController(controllers: [ThumbnailViewController(), ThumbnailObjCViewController()])
-        viewController.title = "AndesThumbnail"
+        viewController.title = Commons.ComponentsTitle.andesThumbnail
         from.navigationController?.pushViewController(viewController, animated: true)
     }
 }

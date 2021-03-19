@@ -1,4 +1,6 @@
-# Sin publicar
+# Unpublished
+### 🛠 Bug fixes
+- Test app fix ProgressIndicatorRoute  andesBadgeExtensions| Authors [jbrunoAtMeli] (https://github.com/jbrunoAtMeli)
 - Proper horizontal align for radiobutton with no text label. Center radiobutton vertically with text | Author: [@vveltri](https://github.com/vveltri)
 
 # 3.24.0
@@ -13,9 +15,13 @@
 # 3.23.0
 ### 🛠 Bug fixes
 - Fix color name and color in colorset | Authors [joalonspint](https://github.com/joalonsopint)
+### 🚀 Features
+- Added Analytics | Authors [dabeltran95](https://github.com/dabeltran95)
+
 
 # 3.22.0
 ### ⚙️ Other
+- Home router refactored | Authors [jbrunoAtMeli] (https://github.com/jbrunoAtMeli)
 - Lib & testapp updated config: | Authors [jbrunoAtMeli] (https://github.com/jbrunoAtMeli)
     The following recommended warnings were enabled
         (In the library)

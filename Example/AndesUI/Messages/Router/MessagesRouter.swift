@@ -11,7 +11,7 @@ import Foundation
 class MessagesRouter: HomeRouterProtocol {
     func route(from: UIViewController) {
         let viewController = AndesShowcasePageViewController(controllers: [MessageViewController(), MessageObjCViewController()])
-        viewController.title = "AndesMessage"
+        viewController.title = Commons.ComponentsTitle.andesMessage
         from.navigationController?.pushViewController(viewController, animated: true)
     }
 }

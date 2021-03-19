@@ -11,7 +11,7 @@ import Foundation
 class CoachmarkRouter: HomeRouterProtocol {
     func route(from: UIViewController) {
         let viewController = AndesShowcasePageViewController(controllers: [CoachmarkViewController(), CoachmarkObjCViewController()])
-        viewController.title = "AndesCoachmark"
+        viewController.title = Commons.ComponentsTitle.andesCoachmark
         from.navigationController?.pushViewController(viewController, animated: true)
     }
 }

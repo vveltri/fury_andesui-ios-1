@@ -46,11 +46,10 @@ class BottomSheetSwiftExampleViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.title = Commons.ComponentsTitle.bottomSheetSwiftExampleViewController
         view.backgroundColor = .white
         contentView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(contentView)
-
         contentView.addArrangedSubview(buildTitleEnabledRow())
         contentView.addArrangedSubview(buildSizePickerRow())
         contentView.addArrangedSubview(buildPresentationSizePickerRow())

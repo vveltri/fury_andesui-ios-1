@@ -10,7 +10,7 @@ import Foundation
 class TextFieldsCodeRouter: HomeRouterProtocol {
     func route(from: UIViewController) {
         let viewController = AndesShowcasePageViewController(controllers: [TextFieldsCodeViewController(), TextFieldsCodeObjCViewController()])
-        viewController.title = "AndesTextField"
+        viewController.title = Commons.ComponentsTitle.andesTextField
         from.navigationController?.pushViewController(viewController, animated: true)
     }
 }
