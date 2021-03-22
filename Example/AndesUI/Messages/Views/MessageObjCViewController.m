@@ -13,6 +13,7 @@
 
 @interface MessageObjCViewController ()
 @property (weak, nonatomic) IBOutlet UIStackView *stackView;
+@property (nonatomic, retain) IBOutletCollection(AndesMessage) NSArray *andesMessagesWithThumbnail;
 
 @end
 
@@ -75,6 +76,14 @@
     
     [_stackView addArrangedSubview:view];
     [view.widthAnchor constraintEqualToAnchor:_stackView.widthAnchor].active = YES;
+    [self setThumbnails];
+}
+
+-(void) setThumbnails {
+    for(AndesMessage *message in self.andesMessagesWithThumbnail) {
+        message.thumbnail = [UIImage imageNamed:@"avatar-example"];
+        
+    }
 }
 
 @end
