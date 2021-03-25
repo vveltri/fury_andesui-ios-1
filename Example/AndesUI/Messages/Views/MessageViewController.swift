@@ -31,6 +31,7 @@ class MessageViewController: UIViewController, MessageView {
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var showAgainBtn: AndesButton!
     @IBOutlet weak var showBulletsSwitch: UISwitch!
+    @IBOutlet weak var showThumbnailSwitch: UISwitch!
 
     var typePicker: UIPickerView = UIPickerView()
     var statePicker: UIPickerView = UIPickerView()
@@ -39,6 +40,10 @@ class MessageViewController: UIViewController, MessageView {
     var availableBullets: [AndesBullet] = []
     var showBullets: Bool {
         self.showBulletsSwitch.isOn
+    }
+
+    var showThumbnail: Bool {
+        self.showThumbnailSwitch.isOn
     }
 
     fileprivate func setupButtons() {
@@ -224,6 +229,7 @@ class MessageViewController: UIViewController, MessageView {
         messageView.type = type
         messageView.hierarchy = hierarchy
         messageView.bullets = showBullets ? self.availableBullets : []
+        messageView.thumbnail = showThumbnail ?  UIImage(named: "avatar-example") : nil
 
         messageView.setPrimaryAction(primary, handler: {[unowned self] _ in self.didPressButton()})
         messageView.setSecondaryAction(secondary, handler: {[unowned self] _ in self.didPressButton()})

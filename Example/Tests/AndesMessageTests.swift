@@ -296,6 +296,25 @@ class AndesMessageTests: QuickSpec {
                     expect(tappedIndex).toEventually(equal(1))
                 }
             }
+
+            context("AndesMessage with thumbnail") {
+                it("should show thumbnail variant") {
+
+                    let message = AndesMessage(frame: .zero)
+                    message.thumbnail = UIImage()
+
+                    expect(message.contentView.isKind(of: AndesMessageWithThumbnailView.self)).to(beTrue())
+                }
+
+                it("should show thumbnail with actions variant") {
+
+                    let message = AndesMessage(frame: .zero)
+                    message.thumbnail = UIImage()
+                    message.setPrimaryAction("title", handler: {_ in })
+
+                    expect(message.contentView.isKind(of: AndesMessageWithThumbnailAndActionsView.self)).to(beTrue())
+                }
+            }
         }
     }
 }
