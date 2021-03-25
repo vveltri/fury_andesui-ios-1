@@ -76,10 +76,7 @@
     
     [_stackView addArrangedSubview:view];
     [view.widthAnchor constraintEqualToAnchor:_stackView.widthAnchor].active = YES;
-    [self setThumbnails];
-}
-
--(void) setThumbnails {
+    
     for(AndesMessage *message in self.andesMessagesWithThumbnail) {
         message.thumbnail = [UIImage imageNamed:@"avatar-example"];
     }
