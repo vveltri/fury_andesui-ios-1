@@ -9,7 +9,7 @@ import Foundation
 
 class AndesMessageWithThumbnailView: AndesMessageAbstractView {
 
-    @IBOutlet weak var thumbnailView: UIImageView!
+    @IBOutlet weak var thumbnail: AndesThumbnail!
 
     override func loadNib() {
         let bundle = AndesBundle.bundle()
@@ -18,10 +18,7 @@ class AndesMessageWithThumbnailView: AndesMessageAbstractView {
 
     override func updateView() {
         super.updateView()
-
         guard let thumbnail = config.thumbnail else { return }
-        self.thumbnailView.image = thumbnail
-        self.thumbnailView.layer.cornerRadius = self.thumbnailView.bounds.width / 2
-        self.thumbnailView.layer.masksToBounds = true
+        self.thumbnail.image = thumbnail
     }
 }

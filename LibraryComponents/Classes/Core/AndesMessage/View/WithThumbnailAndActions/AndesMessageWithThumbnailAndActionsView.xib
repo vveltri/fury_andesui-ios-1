@@ -23,7 +23,7 @@
                 <outlet property="primaryAction" destination="HbG-CF-Oqd" id="RZJ-M4-73O"/>
                 <outlet property="secondaryAction" destination="UDP-xQ-Pdx" id="ob2-GU-6z7"/>
                 <outlet property="spacingBetweenBodyAndActions" destination="eCH-7Y-Ty5" id="wsE-vY-Kdl"/>
-                <outlet property="thumbnailView" destination="3YU-fB-toU" id="Agb-5P-mYf"/>
+                <outlet property="thumbnail" destination="J0l-ON-9Jm" id="yeR-cf-7Gp"/>
                 <outlet property="titleLabel" destination="KcW-WK-QzY" id="pau-ca-pFK"/>
                 <outlet property="titleToDismissConstraint" destination="ndm-ak-doY" id="DG1-v9-dga"/>
                 <outlet property="titleToSafeAreaConstraint" destination="JEr-pg-mxz" id="ubT-XX-3F2"/>
@@ -55,11 +55,16 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wsE-hf-VPP">
                     <rect key="frame" x="16" y="16" width="48" height="48"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3YU-fB-toU">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J0l-ON-9Jm" customClass="AndesThumbnail" customModule="AndesUI">
                             <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
-                        </imageView>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="ibType" value="IMAGE_CIRCLE"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="ibSize" value="size_48"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mbf-ep-nbj">
-                            <rect key="frame" x="36" y="36" width="16" height="16"/>
+                            <rect key="frame" x="32" y="32" width="16" height="16"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KSx-w5-sbK">
                                     <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
@@ -83,14 +88,14 @@
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="Mbf-ep-nbj" secondAttribute="bottom" constant="-4" id="4xs-Um-PUP"/>
-                        <constraint firstAttribute="bottom" secondItem="3YU-fB-toU" secondAttribute="bottom" id="8Xw-je-7GP"/>
+                        <constraint firstAttribute="bottom" secondItem="Mbf-ep-nbj" secondAttribute="bottom" id="4xs-Um-PUP"/>
+                        <constraint firstItem="J0l-ON-9Jm" firstAttribute="top" secondItem="wsE-hf-VPP" secondAttribute="top" id="Itt-fk-uYN"/>
                         <constraint firstAttribute="width" secondItem="wsE-hf-VPP" secondAttribute="height" multiplier="1:1" id="R5z-Ix-xgg"/>
-                        <constraint firstItem="3YU-fB-toU" firstAttribute="top" secondItem="wsE-hf-VPP" secondAttribute="top" id="Sxc-fc-Fau"/>
-                        <constraint firstItem="3YU-fB-toU" firstAttribute="leading" secondItem="wsE-hf-VPP" secondAttribute="leading" id="adv-1y-pc7"/>
-                        <constraint firstAttribute="trailing" secondItem="3YU-fB-toU" secondAttribute="trailing" id="dlB-6A-6oa"/>
+                        <constraint firstItem="J0l-ON-9Jm" firstAttribute="leading" secondItem="wsE-hf-VPP" secondAttribute="leading" id="mb7-2a-raE"/>
+                        <constraint firstAttribute="bottom" secondItem="J0l-ON-9Jm" secondAttribute="bottom" id="nt3-c7-I1h"/>
                         <constraint firstAttribute="width" constant="48" id="qP4-pU-Klg"/>
-                        <constraint firstAttribute="trailing" secondItem="Mbf-ep-nbj" secondAttribute="trailing" constant="-4" id="sL6-Zf-nEq"/>
+                        <constraint firstAttribute="trailing" secondItem="Mbf-ep-nbj" secondAttribute="trailing" id="sL6-Zf-nEq"/>
+                        <constraint firstAttribute="trailing" secondItem="J0l-ON-9Jm" secondAttribute="trailing" id="xf8-Y6-LOw"/>
                     </constraints>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="CPr-he-XXd">
@@ -168,6 +173,9 @@
     <resources>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>
