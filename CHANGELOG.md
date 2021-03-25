@@ -2,6 +2,9 @@
 ### 🛠 Bug fixes
 - Test app fix ProgressIndicatorRoute  andesBadgeExtensions| Authors [jbrunoAtMeli] (https://github.com/jbrunoAtMeli)
 
+### 🚀 Features
+-  AndesMessage thumbnail variant | Authors [javff] (https://github.com/mercadolibre/fury_andesui-ios/pull/249)
+
 # 3.24.0
 ### 🚀 Features
 - New component Tooltip | [Juan Vasquez](https://github.com/javff)
