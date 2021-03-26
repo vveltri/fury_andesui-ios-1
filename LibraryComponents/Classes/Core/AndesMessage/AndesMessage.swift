@@ -37,6 +37,13 @@ import UIKit
         }
     }
 
+    /// Sets the thumbnail of the AndesMessage
+    @objc public var thumbnail: UIImage? {
+        didSet {
+            self.reDrawContentViewIfNeededThenUpdate()
+        }
+    }
+
     @objc public var bullets: [AndesBullet] = [] {
         didSet {
             self.updateContentView()
@@ -68,6 +75,15 @@ import UIKit
         didSet {
             self.reDrawContentViewIfNeededThenUpdate()
         }
+    }
+
+    private var neededThumbnail: Bool {
+        return thumbnail != nil
+    }
+
+    private var neededActions: Bool {
+        // XOR between primaryAction and linkAction
+        return (primaryActionText != nil && !primaryActionText!.isEmpty) != (linkActionText != nil && !linkActionText!.isEmpty)
     }
 
     // triggered when user presses dismiss
@@ -188,8 +204,17 @@ import UIKit
     private func provideView() -> AndesMessageView {
         let config = AndesMessageViewConfigFactory.provideConfig(for: self)
 
-        // XOR between primaryAction and linkAction
-        if (primaryActionText != nil && !primaryActionText!.isEmpty) != (linkActionText != nil && !linkActionText!.isEmpty) {
+        let thumbnailWithAction = neededThumbnail && neededActions
+
+        if thumbnailWithAction {
+            return AndesMessageWithThumbnailAndActionsView(withConfig: config)
+        }
+
+        if neededThumbnail {
+            return AndesMessageWithThumbnailView(withConfig: config)
+        }
+
+        if neededActions {
             return AndesMessageWithActionsView(withConfig: config)
         } else {
             return AndesMessageDefaultView(withConfig: config)

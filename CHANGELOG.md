@@ -3,6 +3,9 @@
 - Test app fix ProgressIndicatorRoute  andesBadgeExtensions| Authors [jbrunoAtMeli] (https://github.com/jbrunoAtMeli)
 - Proper horizontal align for radiobutton with no text label. Center radiobutton vertically with text | Author: [@vveltri](https://github.com/vveltri)
 
+### 🚀 Features
+-  AndesMessage thumbnail variant | Authors [javff] (https://github.com/mercadolibre/fury_andesui-ios/pull/249)
+
 # 3.24.0
 ### 🚀 Features
 - New component Tooltip | [Juan Vasquez](https://github.com/javff)

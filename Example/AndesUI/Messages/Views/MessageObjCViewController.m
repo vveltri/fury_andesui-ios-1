@@ -13,6 +13,7 @@
 
 @interface MessageObjCViewController ()
 @property (weak, nonatomic) IBOutlet UIStackView *stackView;
+@property (nonatomic, retain) IBOutletCollection(AndesMessage) NSArray *andesMessagesWithThumbnail;
 
 @end
 
@@ -38,7 +39,7 @@
 
 - (void)setup {
     __weak typeof(self) weakSelf = self;
-
+    
     _stackView.translatesAutoresizingMaskIntoConstraints = false;
     AndesMessage* view = [[AndesMessage alloc] initWithHierarchy:AndesMessageHierarchyQuiet type:AndesMessageTypeSuccess title:@"Message title" body:@"Message body\nSuccess - Quiet"];
     [_stackView addArrangedSubview:view];
@@ -75,6 +76,10 @@
     
     [_stackView addArrangedSubview:view];
     [view.widthAnchor constraintEqualToAnchor:_stackView.widthAnchor].active = YES;
+    
+    for(AndesMessage *message in self.andesMessagesWithThumbnail) {
+        message.thumbnail = [UIImage imageNamed:@"avatar-example"];
+    }
 }
 
 @end
