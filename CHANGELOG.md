@@ -3,6 +3,7 @@
 - Change visibility public to private | Authors [jbrunoAtMeli](https://github.com/jbrunoAtMeli)
 ### 🛠 Bug fixes
 - Test app fix ProgressIndicatorRoute  andesBadgeExtensions| Authors [jbrunoAtMeli] (https://github.com/jbrunoAtMeli)
+- Proper horizontal align for radiobutton with no text label. Center radiobutton vertically with text | Author: [@vveltri](https://github.com/vveltri)
 
 ### 🚀 Features
 -  AndesMessage thumbnail variant | Authors [javff] (https://github.com/mercadolibre/fury_andesui-ios/pull/249)
