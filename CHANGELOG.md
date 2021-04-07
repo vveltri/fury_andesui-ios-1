@@ -1,6 +1,8 @@
 # Unpublished
 ### 🚀 Features
 - Andes new documentation format in `/docs/guide`. | Authors [GerardoTCMeLi](https://github.com/GerardoTCMeLi)
+- Andes Tooltip fixed width option | Author: [@vveltri](https://github.com/vveltri)
+
 # 3.26.0
 ### 🚀 Features
 - Proper horizontal align for radiobutton with no text label. Center radiobutton vertically with text | Author: [@vveltri](https://github.com/vveltri)
